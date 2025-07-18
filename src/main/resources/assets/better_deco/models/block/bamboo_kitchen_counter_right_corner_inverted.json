@@ -1,0 +1,7 @@
+{
+  "parent": "better_deco:block/kitchen_counter_right_corner_inverted",
+  "textures": {
+    "top": "minecraft:block/bamboo_bamboo",
+    "base": "minecraft:block/bamboo_planks"
+  }
+}

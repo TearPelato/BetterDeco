@@ -1,0 +1,207 @@
+{
+  "creativetab.better_deco.blocks": "BetterDeco:Blocks",
+  "creativetab.better_deco.items": "BetterDeco:Items",
+  "creativetab.better_deco.furnitures": "BetterDeco:Furniture",
+  "block.better_deco.oak_planks_bricks": "Oak Planks Bricks",
+  "block.better_deco.dark_oak_planks_bricks": "Dark Oak Planks Bricks",
+  "block.better_deco.spruce_planks_bricks": "Spruce Planks Bricks",
+  "block.better_deco.birch_planks_bricks": "Birch Planks Bricks",
+  "block.better_deco.cherry_planks_bricks": "Cherry Planks Bricks",
+  "block.better_deco.acacia_planks_bricks": "Acacia Planks Bricks",
+  "block.better_deco.jungle_planks_bricks": "Jungle Planks Bricks",
+  "block.better_deco.mangrove_planks_bricks": "Mangrove Planks Bricks",
+  "block.better_deco.warped_planks_bricks": "Warped Planks Bricks",
+  "block.better_deco.crimson_planks_bricks": "Crimson Planks Bricks",
+  "block.better_deco.bamboo_planks_bricks": "Bamboo Planks Bricks",
+  "block.better_deco.birch_chair": "Birch Chair",
+  "block.better_deco.spruce_chair": "Spruce Chair",
+  "block.better_deco.oak_chair": "Oak Chair",
+  "block.better_deco.dark_oak_chair": "Dark Oak Chair",
+  "block.better_deco.mangrove_chair": "Mangrove Chair",
+  "block.better_deco.acacia_chair": "Acacia Chair",
+  "block.better_deco.jungle_chair": "Jungle Chair",
+  "block.better_deco.warped_chair": "Warped Chair",
+  "block.better_deco.crimson_chair": "Crimson Chair",
+  "block.better_deco.cherry_chair": "Cherry Chair",
+  "block.better_deco.bamboo_chair": "Bamboo Chair",
+  "block.better_deco.acacia_planks_pillar": "Acacia Planks Pillar",
+  "block.better_deco.birch_planks_pillar": "Birch Planks Pillar",
+  "block.better_deco.bamboo_planks_pillar": "Bamboo Planks Pillar",
+  "block.better_deco.cherry_planks_pillar": "Cherry Planks Pillar",
+  "block.better_deco.oak_planks_pillar": "Oak Planks Pillar",
+  "block.better_deco.dark_oak_planks_pillar": "Dark Oak Planks Pillar",
+  "block.better_deco.spruce_planks_pillar": "Spruce Planks Pillar",
+  "block.better_deco.mangrove_planks_pillar": "Mangrove Planks Pillar",
+  "block.better_deco.warped_planks_pillar": "Warped Planks Pillar",
+  "block.better_deco.jungle_planks_pillar": "Jungle Planks Pillar",
+  "block.better_deco.crimson_planks_pillar": "Crimson Planks Pillar",
+
+
+
+
+
+
+  "block.better_deco.oak_kitchen_counter": "Oak Kitchen Counter",
+  "block.better_deco.spruce_kitchen_counter": "Spruce Kitchen Counter",
+  "block.better_deco.birch_kitchen_counter": "Birch Kitchen Counter",
+  "block.better_deco.jungle_kitchen_counter": "Jungle Kitchen Counter",
+  "block.better_deco.acacia_kitchen_counter": "Acacia Kitchen Counter",
+  "block.better_deco.dark_oak_kitchen_counter": "Dark Oak Kitchen Counter",
+  "block.better_deco.mangrove_kitchen_counter": "Mangrove Kitchen Counter",
+  "block.better_deco.cherry_kitchen_counter": "Cherry Kitchen Counter",
+  "block.better_deco.bamboo_kitchen_counter": "Bamboo Kitchen Counter",
+  "block.better_deco.crimson_kitchen_counter": "Crimson Kitchen Counter",
+  "block.better_deco.warped_kitchen_counter": "Warped Kitchen Counter",
+
+  "block.better_deco.stripped_oak_kitchen_counter": "Stripped Oak Kitchen Counter",
+  "block.better_deco.stripped_spruce_kitchen_counter": "Stripped Spruce Kitchen Counter",
+  "block.better_deco.stripped_birch_kitchen_counter": "Stripped Birch Kitchen Counter",
+  "block.better_deco.stripped_jungle_kitchen_counter": "Stripped Jungle Kitchen Counter",
+  "block.better_deco.stripped_acacia_kitchen_counter": "Stripped Acacia Kitchen Counter",
+  "block.better_deco.stripped_dark_oak_kitchen_counter": "Stripped Dark Oak Kitchen Counter",
+  "block.better_deco.stripped_mangrove_kitchen_counter": "Stripped Mangrove Kitchen Counter",
+  "block.better_deco.stripped_cherry_kitchen_counter": "Stripped Cherry Kitchen Counter",
+  "block.better_deco.stripped_bamboo_kitchen_counter": "Stripped Bamboo Kitchen Counter",
+  "block.better_deco.stripped_crimson_kitchen_counter": "Stripped Crimson Kitchen Counter",
+  "block.better_deco.stripped_warped_kitchen_counter": "Stripped Warped Kitchen Counter",
+
+
+
+
+
+  "block.better_deco.oak_kitchen_drawer": "Oak Kitchen Drawer",
+  "block.better_deco.spruce_kitchen_drawer": "Spruce Kitchen Drawer",
+  "block.better_deco.birch_kitchen_drawer": "Birch Kitchen Drawer",
+  "block.better_deco.jungle_kitchen_drawer": "Jungle Kitchen Drawer",
+  "block.better_deco.acacia_kitchen_drawer": "Acacia Kitchen Drawer",
+  "block.better_deco.dark_oak_kitchen_drawer": "Dark Oak Kitchen Drawer",
+  "block.better_deco.mangrove_kitchen_drawer": "Mangrove Kitchen Drawer",
+  "block.better_deco.cherry_kitchen_drawer": "Cherry Kitchen Drawer",
+  "block.better_deco.bamboo_kitchen_drawer": "Bamboo Kitchen Drawer",
+  "block.better_deco.crimson_kitchen_drawer": "Crimson Kitchen Drawer",
+  "block.better_deco.warped_kitchen_drawer": "Warped Kitchen Drawer",
+
+  "block.better_deco.stripped_oak_kitchen_drawer": "Stripped Oak Kitchen Drawer",
+  "block.better_deco.stripped_spruce_kitchen_drawer": "Stripped Spruce Kitchen Drawer",
+  "block.better_deco.stripped_birch_kitchen_drawer": "Stripped Birch Kitchen Drawer",
+  "block.better_deco.stripped_jungle_kitchen_drawer": "Stripped Jungle Kitchen Drawer",
+  "block.better_deco.stripped_acacia_kitchen_drawer": "Stripped Acacia Kitchen Drawer",
+  "block.better_deco.stripped_dark_oak_kitchen_drawer": "Stripped Dark Oak Kitchen Drawer",
+  "block.better_deco.stripped_mangrove_kitchen_drawer": "Stripped Mangrove Kitchen Drawer",
+  "block.better_deco.stripped_cherry_kitchen_drawer": "Stripped Cherry Kitchen Drawer",
+  "block.better_deco.stripped_bamboo_kitchen_drawer": "Stripped Bamboo Kitchen Drawer",
+  "block.better_deco.stripped_crimson_kitchen_drawer": "Stripped Crimson Kitchen Drawer",
+  "block.better_deco.stripped_warped_kitchen_drawer": "Stripped Warped Kitchen Drawer",
+
+
+
+  "block.better_deco.oak_table": "Oak Table",
+  "block.better_deco.spruce_table": "Spruce Table",
+  "block.better_deco.birch_table": "Birch Table",
+  "block.better_deco.jungle_table": "Jungle Table",
+  "block.better_deco.acacia_table": "Acacia Table",
+  "block.better_deco.dark_oak_table": "Dark Oak Table",
+  "block.better_deco.mangrove_table": "Mangrove Table",
+  "block.better_deco.cherry_table": "Cherry Table",
+  "block.better_deco.bamboo_table": "Bamboo Table",
+  "block.better_deco.crimson_table": "Crimson Table",
+  "block.better_deco.warped_table": "Warped Table",
+
+
+
+  "block.better_deco.red_sofa": "Red Sofa",
+  "block.better_deco.orange_sofa": "Orange Sofa",
+  "block.better_deco.yellow_sofa": "Yellow Sofa",
+  "block.better_deco.blue_sofa": "Blue Sofa",
+  "block.better_deco.light_blue_sofa": "Light Blue Sofa",
+  "block.better_deco.grey_sofa": "Grey Sofa",
+  "block.better_deco.light_grey_sofa": "Light Grey Sofa",
+  "block.better_deco.purple_sofa": "Purple Sofa",
+  "block.better_deco.magenta_sofa": "Magenta Sofa",
+  "block.better_deco.white_sofa": "White Sofa",
+  "block.better_deco.black_sofa": "Black Sofa",
+  "block.better_deco.green_sofa": "Green Sofa",
+  "block.better_deco.lime_sofa": "Lime Sofa",
+  "block.better_deco.cyan_sofa": "Cyan Sofa",
+  "block.better_deco.pink_sofa": "Pink Sofa",
+  "block.better_deco.brown_sofa": "Brown Sofa",
+
+  "block.better_deco.oak_cabinet": "Oak Cabinet",
+  "block.better_deco.spruce_cabinet": "Spruce Cabinet",
+  "block.better_deco.birch_cabinet": "Birch Cabinet",
+  "block.better_deco.jungle_cabinet": "Jungle Cabinet",
+  "block.better_deco.acacia_cabinet":  "Acacia Cabinet",
+  "block.better_deco.dark_oak_cabinet": "Dark Oak Cabinet",
+  "block.better_deco.mangrove_cabinet": "Mangrove Cabinet",
+  "block.better_deco.cherry_cabinet": "Cherry Cabinet",
+  "block.better_deco.bamboo_cabinet": "Bamboo Cabinet",
+  "block.better_deco.crimson_cabinet": "Crimson Cabinet",
+  "block.better_deco.warped_cabinet": "Warped Cabinet",
+
+  "block.better_deco.stripped_acacia_cabinet": "Stripped Acacia Cabinet",
+  "block.better_deco.stripped_oak_cabinet": "Stripped Oak Cabinet",
+  "block.better_deco.stripped_spruce_cabinet": "Stripped Spruce Cabinet",
+  "block.better_deco.stripped_jungle_cabinet": "Stripped Jungle Cabinet",
+  "block.better_deco.stripped_birch_cabinet": "Stripped Birch Cabinet",
+  "block.better_deco.stripped_mangrove_cabinet": "Stripped Mangrove Cabinet",
+  "block.better_deco.stripped_dark_oak_cabinet": "Stripped Dark Oak Cabinet",
+  "block.better_deco.stripped_cherry_cabinet": "Stripped Cherry Cabinet",
+  "block.better_deco.stripped_bamboo_cabinet": "Stripped Bamboo Cabinet",
+  "block.better_deco.stripped_crimson_cabinet": "Stripped Crimson Cabinet",
+  "block.better_deco.stripped_warped_cabinet": "Stripped Warped Cabinet",
+
+
+
+  "block.better_deco.oak_bedside": "Oak Bedside",
+  "block.better_deco.spruce_bedside": "Spruce Bedside",
+  "block.better_deco.birch_bedside": "Birch Bedside",
+  "block.better_deco.jungle_bedside": "Jungle Bedside",
+  "block.better_deco.acacia_bedside": "Acacia Bedside",
+  "block.better_deco.mangrove_bedside": "Mangrove Bedside",
+
+
+  "block.better_deco.oak_storage_crate": "Oak Crate",
+
+
+
+  "block.better_deco.pedestal": "Advanced Pedestal",
+  "block.better_deco.stone_pedestal": "Stone Pedestal",
+  "block.better_deco.diorite_pedestal": "Diorite Pedestal",
+  "block.better_deco.granite_pedestal": "Granite Pedestal",
+  "block.better_deco.deepslate_pedestal": "Deepslate Pedestal",
+  "block.better_deco.deepslate_tile_pedestal": "Deepslate Tile Pedestal",
+  "block.better_deco.blackstone_pedestal": "Blackstone Pedestal",
+
+
+
+
+  "block.better_deco.oak_soft_bricks": "Oak Soft Bricks",
+  "block.better_deco.spruce_soft_bricks": "Spruce Soft Bricks",
+  "block.better_deco.birch_soft_bricks": "Birch Soft Bricks",
+  "block.better_deco.dark_oak_soft_bricks": "Dark Oak Soft Bricks",
+  "block.better_deco.jungle_soft_bricks": "Jungle Soft Bricks",
+  "block.better_deco.acacia_soft_bricks": "Acacia Soft Bricks",
+  "block.better_deco.mangrove_soft_bricks": "Mangrove Soft Bricks",
+  "block.better_deco.cherry_soft_bricks": "Cherry Soft Bricks",
+  "block.better_deco.bamboo_soft_bricks": "Bamboo Soft Bricks",
+  "block.better_deco.crimson_soft_bricks": "Crimson Soft Bricks",
+  "block.better_deco.warped_soft_bricks": "Warped Soft Bricks",
+
+
+  "block.better_deco.oak_barrel": "Oak Barrel",
+  "block.better_deco.dark_oak_barrel": "Dark Oak Barrel",
+  "block.better_deco.birch_barrel": "Birch Barrel",
+  "block.better_deco.acacia_barrel": "Acacia Barrel",
+  "block.better_deco.jungle_barrel": "Jungle Barrel",
+  "block.better_deco.mangrove_barrel": "Mangrove Barrel",
+  "block.better_deco.cherry_barrel": "Cherry Barrel",
+  "block.better_deco.bamboo_barrel": "Bamboo Barrel",
+  "block.better_deco.crimson_barrel": "Crimson Barrel",
+  "block.better_deco.warped_barrel": "Warped Barrel",
+
+
+
+
+
+  "item.better_deco.chisel": "Chisel"
+}

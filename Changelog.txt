@@ -1,0 +1,31 @@
+Better Deco Changelogs:
+
+1.0.0-Alpha 1:
+First Alpha of this my brand-new mod, I suggest to use this mod in CREATIVE because actually the mod is in developing
+and I didn't add the full recipes for all things.
+A lot of Features are Experimental, and I'm planning to add some new Blocks, Useful Things and more.
+
+LET'S ENJOY THE 1° ALPHA!!!!!!!!
+
+1.0.0-Alpha 2:
+
+DISCLAIMER: MAKE A BACKUP BEFORE UPDATING
+
+#ADDITIONS
+-Added Pedestals
+-Added Cabinets for Stripped Variants
+-Updated Mod info in-game
+-Updated NeoForge requirements for 21.1.174 to 21.1.176
+-Added more Chisels, now you can find a chisel for each minecraft tier
+-Added ModLogo in-game
+
+#CHANGES
+-Changed Cabinet GUI form 27 slots to 18 slots
+
+#FIXES
+-Fixed Rendering Errors
+-Fixed Chair and Sofa blockstates
+-Fixed Barrels Texture not show correctly after open it
+
+1.0.0-Alpha 3:
+COMING SOON
