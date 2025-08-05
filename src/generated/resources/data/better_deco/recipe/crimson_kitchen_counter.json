@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:crimson_stem"
+    },
+    "B": {
+      "item": "minecraft:crimson_planks"
+    }
+  },
+  "pattern": [
+    "###",
+    "B B",
+    "BBB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "better_deco:crimson_kitchen_counter"
+  }
+}

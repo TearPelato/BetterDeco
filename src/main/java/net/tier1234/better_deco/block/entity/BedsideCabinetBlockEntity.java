@@ -5,6 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Vec3i;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -49,14 +50,14 @@ public class BedsideCabinetBlockEntity extends BasicLootBlockEntity
     @Override
     public void onOpen(Level level, BlockPos pos, BlockState state)
     {
-        this.playDoorSound(state, SoundType.WOOD.getStepSound());
+        this.playDoorSound(state, SoundEvents.UI_STONECUTTER_TAKE_RESULT);
         this.setDoorState(state, true);
     }
 
     @Override
     public void onClose(Level level, BlockPos pos, BlockState state)
     {
-        this.playDoorSound(state, SoundType.WOOD.getHitSound());
+        this.playDoorSound(state, SoundEvents.UI_STONECUTTER_TAKE_RESULT);
         this.setDoorState(state, false);
     }
 

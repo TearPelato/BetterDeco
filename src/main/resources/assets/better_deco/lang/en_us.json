@@ -1,7 +1,11 @@
 {
-  "creativetab.better_deco.blocks": "BetterDeco:Blocks",
-  "creativetab.better_deco.items": "BetterDeco:Items",
-  "creativetab.better_deco.furnitures": "BetterDeco:Furniture",
+  "bundled_tab.blocks.title": "BetterDeco:Buildings",
+  "bundled_tab.items.title": "BetterDeco:Items",
+  "bundled_tab.furnitures.title": "BetterDeco:Furniture",
+  "bundled_tab.utilities.title": "BetterDeco:Utilities",
+
+
+
   "block.better_deco.oak_planks_bricks": "Oak Planks Bricks",
   "block.better_deco.dark_oak_planks_bricks": "Dark Oak Planks Bricks",
   "block.better_deco.spruce_planks_bricks": "Spruce Planks Bricks",
@@ -158,10 +162,54 @@
   "block.better_deco.jungle_bedside": "Jungle Bedside",
   "block.better_deco.acacia_bedside": "Acacia Bedside",
   "block.better_deco.mangrove_bedside": "Mangrove Bedside",
+  "block.better_deco.dark_oak_bedside": "Dark Oak Bedside",
+  "block.better_deco.cherry_bedside": "Cherry Bedside",
+  "block.better_deco.bamboo_bedside": "Bamboo Bedside",
+  "block.better_deco.crimson_bedside": "Crimson Bedside",
+  "block.better_deco.warped_bedside": "Warped Bedside",
 
 
   "block.better_deco.oak_storage_crate": "Oak Crate",
+  "block.better_deco.spruce_storage_crate": "Spruce Crate",
+  "block.better_deco.jungle_storage_crate": "Jungle Crate",
+  "block.better_deco.birch_storage_crate": "Birch Crate",
+  "block.better_deco.acacia_storage_crate": "Acacia Crate",
+  "block.better_deco.mangrove_storage_crate": "Mangrove Crate",
+  "block.better_deco.dark_oak_storage_crate": "Dark Oak Crate",
+  "block.better_deco.cherry_storage_crate": "Cherry Crate",
+  "block.better_deco.bamboo_storage_crate": "Bamboo Crate",
+  "block.better_deco.crimson_storage_crate": "Crimson Crate",
+  "block.better_deco.warped_storage_crate": "Warped Crate",
 
+  "block.better_deco.oak_sink": "Oak Sink",
+  "block.better_deco.spruce_sink": "Spruce Sink",
+  "block.better_deco.birch_sink": "Birch Sink",
+  "block.better_deco.jungle_sink": "Jungle Sink",
+  "block.better_deco.acacia_sink": "Acacia Sink",
+  "block.better_deco.mangrove_sink": "Mangrove Sink",
+  "block.better_deco.dark_oak_sink": "Dark Oak Sink",
+  "block.better_deco.cherry_sink": "Cherry Sink",
+  "block.better_deco.bamboo_sink": "Bamboo Sink",
+  "block.better_deco.crimson_sink": "Crimson Sink",
+  "block.better_deco.warped_sink": "Warped Sink",
+
+
+"block.better_deco.stone_kitchen_counter": "Stone Kitchen Counter",
+"block.better_deco.spruce_diorite_kitchen_counter": "Spruce-Diorite Kitchen Counter",
+"block.better_deco.stone_kitchen_drawer": "Stone Kitchen Drawer",
+"block.better_deco.stone_cabinet": "Stone Cabinet",
+
+  "block.better_deco.diorite_kitchen_counter": "Diorite Kitchen Counter",
+  "block.better_deco.deepslate_kitchen_counter": "Deepslate Kitchen Counter",
+  "block.better_deco.granite_kitchen_counter": "Granite Kitchen Counter",
+  "block.better_deco.blackstone_kitchen_counter": "Balckstone Kitchen Counter",
+  "block.better_deco.deepslate_tiles_kitchen_counter": "Deepslate Tiles Kitchen Counter",
+
+    "block.better_deco.granite_kitchen_drawer": "Granite Kitchen Drawer",
+    "block.better_deco.diorite_kitchen_drawer": "Diorite Kitchen Drawer",
+    "block.better_deco.deepslate_kitchen_drawer": "Deepslate Kitchen Drawer",
+    "block.better_deco.deepslate_tiles_kitchen_drawer": "Deepslate Kitchen Tiles Drawer",
+    "block.better_deco.blackstone_kitchen_drawer": "Blackstone Kitchen Drawer",
 
 
   "block.better_deco.pedestal": "Advanced Pedestal",
@@ -201,7 +249,82 @@
 
 
 
+"block.better_deco.encased_andesite_bricks": "Encased Andesite Bricks",
+"block.better_deco.andesite_array_bricks": "Andesite Array Bricks",
+"block.better_deco.andesite_mosaic_bricks": "Andesite Mosaic Bricks",
+"block.better_deco.andesite_mixed_bricks": "Andesite Mixed Bricks",
+"block.better_deco.andesite_bricks": "Andesite Bricks",
+"block.better_deco.raw_andesite": "Raw Andesite",
 
 
-  "item.better_deco.chisel": "Chisel"
+
+"block.better_deco.oak_piled_planks": "Oak Piled Planks",
+"block.better_deco.oak_vertical_planks": "Oak Vertical Planks",
+"block.better_deco.oak_polished_planks": "Oak Polished Planks",
+
+  "block.better_deco.birch_piled_planks": "Birch Piled Planks",
+  "block.better_deco.birch_vertical_planks": "Birch Vertical Planks",
+  "block.better_deco.birch_polished_planks": "Birch Polished Planks",
+
+  "block.better_deco.spruce_piled_planks": "Spruce Piled Planks",
+  "block.better_deco.spruce_vertical_planks": "Spruce Vertical Planks",
+  "block.better_deco.spruce_polished_planks": "Spruce Polished Planks",
+
+  "block.better_deco.jungle_piled_planks": "Jungle Piled Planks",
+  "block.better_deco.jungle_vertical_planks": "Jungle Vertical Planks",
+  "block.better_deco.jungle_polished_planks": "Jungle Polished Planks",
+
+  "block.better_deco.acacia_piled_planks": "Acacia Piled Planks",
+  "block.better_deco.acacia_vertical_planks": "Acacia Vertical Planks",
+  "block.better_deco.acacia_polished_planks": "Acacia Polished Planks",
+
+  "block.better_deco.dark_oak_piled_planks": "Dark Oak Piled Planks",
+  "block.better_deco.dark_oak_vertical_planks": "Dark Oak Vertical Planks",
+  "block.better_deco.dark_oak_polished_planks": "Dark Oak Polished Planks",
+
+  "block.better_deco.mangrove_piled_planks": "Mangrove Piled Planks",
+  "block.better_deco.mangrove_vertical_planks": "Mangrove Vertical Planks",
+  "block.better_deco.mangrove_polished_planks": "Mangrove Polished Planks",
+
+  "block.better_deco.cherry_piled_planks": "Cherry Piled Planks",
+  "block.better_deco.cherry_vertical_planks": "Cherry Vertical Planks",
+  "block.better_deco.cherry_polished_planks": "Cherry Polished Planks",
+
+  "block.better_deco.bamboo_piled_planks": "Bamboo Piled Planks",
+  "block.better_deco.bamboo_vertical_planks": "Bamboo Vertical Planks",
+  "block.better_deco.bamboo_polished_planks": "Bamboo Polished Planks",
+
+  "block.better_deco.crimson_piled_planks": "Crimson Piled Planks",
+  "block.better_deco.crimson_vertical_planks": "Crimson Vertical Planks",
+  "block.better_deco.crimson_polished_planks": "Crimson Polished Planks",
+
+  "block.better_deco.warped_piled_planks": "Warped Piled Planks",
+  "block.better_deco.warped_vertical_planks": "Warped Vertical Planks",
+  "block.better_deco.warped_polished_planks": "Warped Polished Planks",
+
+
+
+
+
+  "item.better_deco.chisel": "Chisel",
+  "block.better_deco.stone_glass_tecque": "Stone Glass Tecque",
+  "block.better_deco.acacia_glass_tecque": "Acacia Glass Tecque",
+  "block.better_deco.spruce_glass_tecque": "Spruce Glass Tecque",
+  "block.better_deco.oak_glass_tecque": "Oak Glass Tecque",
+  "block.better_deco.birch_glass_tecque": "Birch Glass Tecque",
+  "block.better_deco.jungle_glass_tecque": "Jungle Glass Tecque",
+  "block.better_deco.mangrove_glass_tecque": "Mangrove Glass Tecque",
+  "block.better_deco.dark_oak_glass_tecque": "Dark Oak Glass Tecque",
+  "block.better_deco.cherry_glass_tecque": "Cherry Glass Tecque",
+  "block.better_deco.bamboo_glass_tecque": "Bamboo Glass Tecque",
+  "block.better_deco.crimson_glass_tecque": "Crimson Glass Tecque",
+  "block.better_deco.warped_glass_tecque": "Warped Glass Tecque",
+
+
+
+
+
+
+
+  "block.better_deco.limestone": "Limestone"
 }

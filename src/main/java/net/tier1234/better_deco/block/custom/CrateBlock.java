@@ -4,10 +4,12 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.piglin.PiglinAi;
 import net.minecraft.world.entity.player.Player;
@@ -28,6 +30,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.tier1234.better_deco.block.entity.BasicLootBlockEntity;
 import net.tier1234.better_deco.block.entity.CabinetBlockEntity;
 import net.tier1234.better_deco.block.entity.CrateBlockEntity;
+import net.tier1234.better_deco.block.entity.PedestalBlockEntity;
 import net.tier1234.better_deco.util.VoxelShapeHelper;
 import org.jetbrains.annotations.Nullable;
 
@@ -85,7 +88,16 @@ public class CrateBlock extends FurnitureHorizontalBlock implements EntityBlock
         return SHAPES.get(state);
     }
 
-
+    @Override
+    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
+        if(state.getBlock() != newState.getBlock()) {
+            if(level.getBlockEntity(pos) instanceof CrateBlockEntity crateBlockEntity) {
+                crateBlockEntity.drops();
+                level.updateNeighbourForOutputSignal(pos, this);
+            }
+        }
+        super.onRemove(state, level, pos, newState, movedByPiston);
+    }
 
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos,
@@ -94,15 +106,14 @@ public class CrateBlock extends FurnitureHorizontalBlock implements EntityBlock
             return InteractionResult.SUCCESS;
         } else {
             BlockEntity blockEntity = level.getBlockEntity(pos);
-            if (blockEntity instanceof CrateBlockEntity) {
-                player.openMenu((CrateBlockEntity) blockEntity);
-                player.awardStat(Stats.OPEN_BARREL);
-                PiglinAi.angerNearbyPiglins(player, false);
-                return InteractionResult.CONSUME;
+            if (blockEntity instanceof CrateBlockEntity crateBlockEntity) {
+                ((ServerPlayer)player).openMenu(new SimpleMenuProvider(crateBlockEntity, Component.literal("Crate")), pos);
+                return InteractionResult.SUCCESS;
             }
             return InteractionResult.PASS;
         }
     }
+
 
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random)

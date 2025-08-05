@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:jungle_log"
+    },
+    "B": {
+      "item": "minecraft:jungle_planks"
+    }
+  },
+  "pattern": [
+    "###",
+    "B B",
+    "BBB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "better_deco:jungle_kitchen_counter"
+  }
+}

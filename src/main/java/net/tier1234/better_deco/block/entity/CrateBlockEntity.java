@@ -1,47 +1,72 @@
 package net.tier1234.better_deco.block.entity;
 
+
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.NonNullList;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.ChestMenu;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.items.ItemStackHandler;
+import net.tier1234.better_deco.screen.custom.CrateMenu;
+import org.jetbrains.annotations.Nullable;
 
-public class CrateBlockEntity extends RandomizableContainerBlockEntity
-        implements MenuProvider {
+public class CrateBlockEntity extends BlockEntity implements MenuProvider {
+    public final ItemStackHandler inventory = new ItemStackHandler(66) {
+        @Override
+        protected int getStackLimit(int slot, ItemStack stack) {
+            return 1;
+        }
 
-    private NonNullList<ItemStack> items = NonNullList.withSize(27, ItemStack.EMPTY);
+        @Override
+        protected void onContentsChanged(int slot) {
+            setChanged();
+            if(!level.isClientSide()) {
+                level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
+            }
+        }
+    };
 
-    public CrateBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.STORAGE_CRATE.get(), pos, state);
+    public CrateBlockEntity(BlockPos pos, BlockState blockState) {
+        super(ModBlockEntities.STORAGE_CRATE.get(), pos, blockState);
+    }
+
+
+    public void drops() {
+        SimpleContainer inv = new SimpleContainer(inventory.getSlots());
+        for(int i = 66; i < inventory.getSlots(); i++) {
+            inv.setItem(i, inventory.getStackInSlot(i));
+        }
+
+        Containers.dropContents(this.level, this.worldPosition, inv);
     }
 
     @Override
-    protected Component getDefaultName() {
-        return Component.literal("Storage Crate");
+    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.saveAdditional(tag, registries);
     }
 
     @Override
-    protected AbstractContainerMenu createMenu(int id, Inventory playerInventory) {
-        return ChestMenu.sixRows(id, playerInventory );
+    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.loadAdditional(tag, registries);
     }
 
     @Override
-    public int getContainerSize() {
-        return items.size();
+    public Component getDisplayName() {
+        return Component.literal("Crate");
     }
 
+    @Nullable
     @Override
-    public NonNullList<ItemStack> getItems() {
-        return items;
+    public AbstractContainerMenu createMenu(int i, Inventory inventory, Player player) {
+        return new CrateMenu(i, inventory, this);
     }
 
-    @Override
-    public void setItems(NonNullList<ItemStack> items) {
-        this.items = items;
-    }
 }

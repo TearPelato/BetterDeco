@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:acacia_slab"
+    },
+    "B": {
+      "item": "minecraft:acacia_planks"
+    }
+  },
+  "pattern": [
+    "B#B",
+    "B B",
+    "B#B"
+  ],
+  "result": {
+    "count": 1,
+    "id": "better_deco:acacia_barrel"
+  }
+}

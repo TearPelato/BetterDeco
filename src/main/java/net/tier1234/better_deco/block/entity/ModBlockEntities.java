@@ -4,9 +4,11 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.block.ModBlocks;
+import net.tier1234.better_deco.block.custom.TecqueBlock;
 
 import java.util.function.Supplier;
 
@@ -57,7 +59,13 @@ public class ModBlockEntities {
                                     ModBlocks.STRIPPED_CHERRY_KITCHEN_DRAWER.get(),
                                     ModBlocks.STRIPPED_BAMBOO_KITCHEN_DRAWER.get(),
                                     ModBlocks.STRIPPED_CRIMSON_KITCHEN_DRAWER.get(),
-                                    ModBlocks.STRIPPED_WARPED_KITCHEN_DRAWER.get()
+                                    ModBlocks.STRIPPED_WARPED_KITCHEN_DRAWER.get(),
+                                    ModBlocks.STONE_DRAWER.get(),
+                                    ModBlocks.GRANITE_DRAWER.get(),
+                                    ModBlocks.DIORITE_DRAWER.get(),
+                                    ModBlocks.DEEPSLATE_DRAWER.get(),
+                                    ModBlocks.DEEPSLATE_TILES_DRAWER.get(),
+                                    ModBlocks.BLACKSTONE_DRAWER.get()
                             )
                             .build(null)
             );
@@ -91,7 +99,8 @@ public class ModBlockEntities {
                                     ModBlocks.STRIPPED_CHERRY_CABINET.get(),
                                     ModBlocks.STRIPPED_BAMBOO_CABINET.get(),
                                     ModBlocks.STRIPPED_CRIMSON_CABINET.get(),
-                                    ModBlocks.STRIPPED_WARPED_CABINET.get()
+                                    ModBlocks.STRIPPED_WARPED_CABINET.get(),
+                                    ModBlocks.STONE_CABINET.get()
                                     )
                             .build(null)
             );
@@ -109,28 +118,81 @@ public class ModBlockEntities {
 
             ).build(null));
 
-    public static final Supplier<BlockEntityType<PedestalBlockEntity>> BEDSIDE_CABINET =
+    public static final Supplier<BlockEntityType<BedsideCabinetBlockEntity>> BEDSIDE_CABINET =
             BLOCK_ENTITIES.register("bedside_cabinet", () -> BlockEntityType.Builder.of(
-                    PedestalBlockEntity::new,
+                    BedsideCabinetBlockEntity::new,
                     ModBlocks.OAK_BEDSIDE.get(),
                     ModBlocks.SPRUCE_BEDSIDE.get(),
                     ModBlocks.BIRCH_BEDSIDE.get(),
                     ModBlocks.JUNGLE_BEDSIDE.get(),
                     ModBlocks.ACACIA_BEDSIDE.get(),
-                    ModBlocks.MANGROVE_BEDSIDE.get()
+                    ModBlocks.MANGROVE_BEDSIDE.get(),
+                    ModBlocks.DARK_OAK_BEDSIDE.get(),
+                    ModBlocks.CHERRY_BEDSIDE.get(),
+                    ModBlocks.BAMBOO_BEDSIDE.get(),
+                    ModBlocks.CRIMSON_BEDSIDE.get(),
+                    ModBlocks.WARPED_BEDSIDE.get()
 
             ).build(null));
 
+
+
+
+    public static final Supplier<BlockEntityType<KitchenSinkBlockEntity>> KITCHEN_SINK =
+            BLOCK_ENTITIES.register("kitchen_sink", () -> BlockEntityType.Builder.of(
+                   KitchenSinkBlockEntity::new,
+                    ModBlocks.OAK_SINK.get(),
+                    ModBlocks.OAK_SINK.get(),
+                    ModBlocks.SPRUCE_SINK.get(),
+                    ModBlocks.BIRCH_SINK.get(),
+                    ModBlocks.JUNGLE_SINK.get(),
+                    ModBlocks.ACACIA_SINK.get(),
+                    ModBlocks.MANGROVE_SINK.get(),
+                    ModBlocks.DARK_OAK_SINK.get(),
+                    ModBlocks.CHERRY_SINK.get(),
+                    ModBlocks.BAMBOO_SINK.get(),
+                    ModBlocks.CRIMSON_SINK.get(),
+                    ModBlocks.WARPED_SINK.get()
+
+            ).build(null));
+
+    public static final Supplier<BlockEntityType<TecqueBlockEntity>> GLASS_TECQUE =
+            BLOCK_ENTITIES.register("glass_tecque", () -> BlockEntityType.Builder.of(
+                   TecqueBlockEntity::new,
+                    ModBlocks.STONE_GLASS_TECQUE.get(),
+                    ModBlocks.SPRUCE_GLASS_TECQUE.get(),
+                    ModBlocks.ACACIA_GLASS_TECQUE.get(),
+                    ModBlocks.OAK_GLASS_TECQUE.get(),
+                    ModBlocks.BIRCH_GLASS_TECQUE.get(),
+                    ModBlocks.JUNGLE_GLASS_TECQUE.get(),
+                    ModBlocks.MANGROVE_GLASS_TECQUE.get(),
+                    ModBlocks.DARK_OAK_GLASS_TECQUE.get(),
+                    ModBlocks.CHERRY_GLASS_TECQUE.get(),
+                    ModBlocks.BAMBOO_GLASS_TECQUE.get(),
+                    ModBlocks.CRIMSON_GLASS_TECQUE.get(),
+                    ModBlocks.WARPED_GLASS_TECQUE.get()
+
+
+            ).build(null));
 
 
     public static final Supplier<BlockEntityType<CrateBlockEntity>> STORAGE_CRATE =
-            BLOCK_ENTITIES.register("storage_crate", () -> BlockEntityType.Builder.of(
+            BLOCK_ENTITIES.register("crate", () -> BlockEntityType.Builder.of(
                     CrateBlockEntity::new,
-                    ModBlocks.OAK_CRATE.get()
+                    ModBlocks.OAK_CRATE.get(),
+                    ModBlocks.SPRUCE_CRATE.get(),
+                    ModBlocks.BIRCH_CRATE.get(),
+                    ModBlocks.JUNGLE_CRATE.get(),
+                    ModBlocks.ACACIA_CRATE.get(),
+                    ModBlocks.MANGROVE_CRATE.get(),
+                    ModBlocks.DARK_OAK_CRATE.get(),
+                    ModBlocks.CHERRY_CRATE.get(),
+                    ModBlocks.BAMBOO_CRATE.get(),
+                    ModBlocks.CRIMSON_CRATE.get(),
+                    ModBlocks.WARPED_CRATE.get()
+
 
             ).build(null));
-
-
 
 
 

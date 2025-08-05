@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:bamboo_slab"
+    },
+    "B": {
+      "item": "minecraft:bamboo_planks"
+    }
+  },
+  "pattern": [
+    "B#B",
+    "B B",
+    "B#B"
+  ],
+  "result": {
+    "count": 1,
+    "id": "better_deco:bamboo_barrel"
+  }
+}

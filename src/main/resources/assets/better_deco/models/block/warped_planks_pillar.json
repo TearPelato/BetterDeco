@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "end": "better_deco:block/warped_planks_pillar_top",
-    "side": "better_deco:block/warped_planks_pillar"
+    "end": "better_deco:block/planks/warped/warped_planks_pillar_top",
+    "side": "better_deco:block/planks/warped/warped_planks_pillar"
   }
 }

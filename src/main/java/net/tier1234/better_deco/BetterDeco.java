@@ -13,16 +13,22 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.tier1234.better_deco.block.ModBlocks;
 import net.tier1234.better_deco.block.entity.ModBlockEntities;
 import net.tier1234.better_deco.block.entity.renderer.PedestalBlockEntityRenderer;
+import net.tier1234.better_deco.block.entity.renderer.TecqueBlockEntityRenderer;
 import net.tier1234.better_deco.entity.ModEntities;
 import net.tier1234.better_deco.entity.client.ChairRenderer;
-import net.tier1234.better_deco.item.ModCreativeModeTabs;
+import net.tier1234.better_deco.item.creative_tabs.ModCreativeTabs;
 import net.tier1234.better_deco.item.ModItems;
+import net.tier1234.better_deco.screen.ModMenuTypes;
+import net.tier1234.better_deco.screen.custom.CrateScreen;
+import net.tier1234.better_deco.screen.custom.PedestalScreen;
+import net.tier1234.better_deco.screen.custom.TecqueScreen;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
@@ -30,7 +36,7 @@ import org.slf4j.Logger;
 public class BetterDeco {
     public static final String MOD_ID = "better_deco";
     private static final Logger LOGGER = LogUtils.getLogger();
-
+    public static final String NAMESPACE = "minecraft";
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public BetterDeco(IEventBus modEventBus, ModContainer modContainer) {
@@ -43,9 +49,10 @@ public class BetterDeco {
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
-        ModCreativeModeTabs.register(modEventBus);
         ModEntities.register(modEventBus);
         ModBlockEntities.register(modEventBus);
+        ModCreativeTabs.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
 
 
         // Register the item to a creative tab
@@ -79,14 +86,19 @@ public class BetterDeco {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
 
-
             EntityRenderers.register(ModEntities.CHAIR_ENTITY.get(), ChairRenderer::new);
 
         }
         @SubscribeEvent
         public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
             event.registerBlockEntityRenderer(ModBlockEntities.PEDESTAL_BE.get(), PedestalBlockEntityRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntities.GLASS_TECQUE.get(), TecqueBlockEntityRenderer::new);
+        }
+        @SubscribeEvent
+        public static void registerScreens(RegisterMenuScreensEvent event) {
+            event.register(ModMenuTypes.TECQUE_MENU.get(), TecqueScreen::new);
+            event.register(ModMenuTypes.PEDESTAL_MENU.get(), PedestalScreen::new);
+            event.register(ModMenuTypes.CRATE_MENU.get(), CrateScreen::new);
         }
     }
-
 }
