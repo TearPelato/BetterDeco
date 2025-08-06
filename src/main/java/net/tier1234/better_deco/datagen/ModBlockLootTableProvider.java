@@ -371,6 +371,13 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.CRIMSON_GLASS_TECQUE.get());
         dropSelf(ModBlocks.WARPED_GLASS_TECQUE.get());
 
+        dropSelf(ModBlocks.GRANITE_CABINET.get());
+        dropSelf(ModBlocks.DIORITE_CABINET.get());
+        dropSelf(ModBlocks.DEEPSLATE_CABINET.get());
+        dropSelf(ModBlocks.DEEPSLATE_TILES_CABINET.get());
+        dropSelf(ModBlocks.BLACKSTONE_CABINET.get());
+
+
 
 
     }

@@ -678,6 +678,7 @@ public static final DeferredBlock<Block> OAK_SINK = registerBlock("oak_sink",
 
 
     //Stone Variants
+
     //Counter
 public static final DeferredBlock<Block> STONE_COUNTER = registerBlock("stone_kitchen_counter",
             ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(4f).noOcclusion()));
@@ -691,11 +692,6 @@ public static final DeferredBlock<Block> STONE_COUNTER = registerBlock("stone_ki
             ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(4f).noOcclusion()));
     public static final DeferredBlock<Block> DEEPSLATE_TILE_COUNTER = registerBlock("deepslate_tiles_kitchen_counter",
             ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(4f).noOcclusion()));
-
-
-
-
-
 
     public static final DeferredBlock<Block> SPRUCE_DIORITE_COUNTER = registerBlock("spruce_diorite_kitchen_counter",
             ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(4f).noOcclusion()));
@@ -719,6 +715,18 @@ public static final DeferredBlock<Block> STONE_COUNTER = registerBlock("stone_ki
     //Cabinets
     public static final DeferredBlock<Block> STONE_CABINET = registerBlock("stone_cabinet",
             ()-> new CabinetBlock(BlockBehaviour.Properties.of().strength(4f).noOcclusion()));
+    public static final DeferredBlock<Block> GRANITE_CABINET = registerBlock("granite_cabinet",
+            ()-> new CabinetBlock(BlockBehaviour.Properties.of().strength(4f).noOcclusion()));
+    public static final DeferredBlock<Block> DIORITE_CABINET = registerBlock("diorite_cabinet",
+            ()-> new CabinetBlock(BlockBehaviour.Properties.of().strength(4f).noOcclusion()));
+    public static final DeferredBlock<Block> DEEPSLATE_CABINET = registerBlock("deepslate_cabinet",
+            ()-> new CabinetBlock(BlockBehaviour.Properties.of().strength(4f).noOcclusion()));
+    public static final DeferredBlock<Block> DEEPSLATE_TILES_CABINET = registerBlock("deepslate_tiles_cabinet",
+            ()-> new CabinetBlock(BlockBehaviour.Properties.of().strength(4f).noOcclusion()));
+    public static final DeferredBlock<Block> BLACKSTONE_CABINET = registerBlock("blackstone_cabinet",
+            ()-> new CabinetBlock(BlockBehaviour.Properties.of().strength(4f).noOcclusion()));
+
+
 
 
 //Glass Tecque

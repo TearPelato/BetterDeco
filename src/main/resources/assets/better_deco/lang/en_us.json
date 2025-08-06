@@ -1,8 +1,8 @@
 {
-  "bundled_tab.blocks.title": "BetterDeco:Buildings",
-  "bundled_tab.items.title": "BetterDeco:Items",
-  "bundled_tab.furnitures.title": "BetterDeco:Furniture",
-  "bundled_tab.utilities.title": "BetterDeco:Utilities",
+  "creativetab.better_deco.blocks": "BetterDeco:Buildings",
+  "creativetab.better_deco.items": "BetterDeco:Items",
+  "creativetab.better_deco.furnitures": "BetterDeco:Furniture",
+  "creativetab.better_deco.utilities": "BetterDeco:Utilities",
 
 
 
@@ -197,7 +197,21 @@
 "block.better_deco.stone_kitchen_counter": "Stone Kitchen Counter",
 "block.better_deco.spruce_diorite_kitchen_counter": "Spruce-Diorite Kitchen Counter",
 "block.better_deco.stone_kitchen_drawer": "Stone Kitchen Drawer",
+
 "block.better_deco.stone_cabinet": "Stone Cabinet",
+"block.better_deco.diorite_cabinet": "Diorite Cabinet",
+"block.better_deco.granite_cabinet": "Granite Cabinet",
+"block.better_deco.deepslate_cabinet": "Deepslate Cabinet",
+"block.better_deco.deepslate_tiles_cabinet": "Deepslate Tiles Cabinet",
+"block.better_deco.blackstone_cabinet": "Blackstone Cabinet",
+
+
+
+
+
+
+
+
 
   "block.better_deco.diorite_kitchen_counter": "Diorite Kitchen Counter",
   "block.better_deco.deepslate_kitchen_counter": "Deepslate Kitchen Counter",
@@ -306,7 +320,17 @@
 
 
 
-  "item.better_deco.chisel": "Chisel",
+  "item.better_deco.iron_chisel": "Iron Chisel",
+  "item.better_deco.gold_chisel": "Gold Chisel",
+  "item.better_deco.diamond_chisel": "Diamond Chisel",
+  "item.better_deco.netherite_chisel": "Netherite Chisel",
+
+
+
+
+
+
+
   "block.better_deco.stone_glass_tecque": "Stone Glass Tecque",
   "block.better_deco.acacia_glass_tecque": "Acacia Glass Tecque",
   "block.better_deco.spruce_glass_tecque": "Spruce Glass Tecque",

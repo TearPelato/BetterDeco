@@ -227,6 +227,11 @@ public class ModCreativeTabs {
                         output.accept(ModBlocks.DEEPSLATE_TILES_DRAWER);
                         output.accept(ModBlocks.BLACKSTONE_DRAWER);
                         output.accept(ModBlocks.STONE_CABINET);
+                        output.accept(ModBlocks.GRANITE_CABINET);
+                        output.accept(ModBlocks.DIORITE_CABINET);
+                        output.accept(ModBlocks.DEEPSLATE_CABINET);
+                        output.accept(ModBlocks.DEEPSLATE_TILES_CABINET);
+                        output.accept(ModBlocks.BLACKSTONE_CABINET);
                         output.accept(ModBlocks.OAK_BEDSIDE);
                         output.accept(ModBlocks.SPRUCE_BEDSIDE);
                         output.accept(ModBlocks.BIRCH_BEDSIDE);
@@ -320,10 +325,13 @@ public class ModCreativeTabs {
                     }).build());
 
     public static final Supplier<CreativeModeTab> ITEMS = CREATIVE_MODE_TAB.register("items",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.CHISEL.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.IRON_CHISEL.get()))
                     .title(Component.translatable("creativetab.better_deco.items"))
                     .displayItems((itemDisplayParameters, output) -> {
-                        output.accept(ModItems.CHISEL);
+                        output.accept(ModItems.IRON_CHISEL);
+                        output.accept(ModItems.GOLD_CHISEL);
+                        output.accept(ModItems.DIAMOND_CHISEL);
+                        output.accept(ModItems.NETHERITE_CHISEL);
 
 
                     }).build());

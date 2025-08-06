@@ -81,13 +81,15 @@ I RECOMMEND TO USE GUISCALE SET FROM AUTO TO 2/3 Because the Crate new gui will 
 
 
  #ADDITIONS
+-Added Chisels for each Tier
+-Added Stone variants for Kitchen Cabinets
 
 
  #CHANGES
  -Changed the Pedestal & Tecque GUI
 
  #FIXES
--Fixed items inside the Crate block not dropping after break the block
+-Fixed CreativeTabs name
 
 
 
@@ -95,23 +97,6 @@ I RECOMMEND TO USE GUISCALE SET FROM AUTO TO 2/3 Because the Crate new gui will 
  #DONE
  -LootTables for each blocks
  -Added Recipes for each blocks
- -Added Tag for each blocks
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

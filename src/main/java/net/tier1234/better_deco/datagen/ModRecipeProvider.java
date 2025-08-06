@@ -3,6 +3,7 @@ package net.tier1234.better_deco.datagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
@@ -1441,33 +1442,944 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(recipeOutput);
 
         //Cabinets
+
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
                 .define('B', Items.OAK_LOG.asItem())
-                .define('#', Blocks.OAK_LOG.asItem())
+                .define('#', Blocks.OAK_PLANKS.asItem())
                 .define('X', Blocks.CHEST.asItem())
                 .unlockedBy("has_oak_log", has(Blocks.OAK_LOG))
-                .unlockedBy("has_oak", has(Blocks.OAK_LOG))
+                .unlockedBy("has_oak", has(Blocks.OAK_PLANKS))
                 .save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.SPRUCE_LOG.asItem())
+                .define('#', Blocks.SPRUCE_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_spruce_log", has(Blocks.SPRUCE_LOG))
+                .unlockedBy("has_spruce", has(Blocks.SPRUCE_PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.BIRCH_LOG.asItem())
+                .define('#', Blocks.BIRCH_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_birch_log", has(Blocks.BIRCH_LOG))
+                .unlockedBy("has_birch", has(Blocks.BIRCH_PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.JUNGLE_LOG.asItem())
+                .define('#', Blocks.JUNGLE_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_jungle_log", has(Blocks.JUNGLE_LOG))
+                .unlockedBy("has_jungle", has(Blocks.JUNGLE_PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.ACACIA_LOG.asItem())
+                .define('#', Blocks.ACACIA_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_acacia_log", has(Blocks.ACACIA_LOG))
+                .unlockedBy("has_acacia", has(Blocks.ACACIA_PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.MANGROVE_LOG.asItem())
+                .define('#', Blocks.MANGROVE_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_mangrove_log", has(Blocks.MANGROVE_LOG))
+                .unlockedBy("has_mangrove", has(Blocks.MANGROVE_PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.DARK_OAK_LOG.asItem())
+                .define('#', Blocks.DARK_OAK_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_dark_oak_log", has(Blocks.DARK_OAK_LOG))
+                .unlockedBy("has_dark_oak", has(Blocks.DARK_OAK_PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.CHERRY_LOG.asItem())
+                .define('#', Blocks.CHERRY_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_cherry_log", has(Blocks.CHERRY_LOG))
+                .unlockedBy("has_cherry", has(Blocks.CHERRY_PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.BAMBOO_BLOCK.asItem())
+                .define('#', Blocks.BAMBOO_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_bamboo_block", has(Blocks.BAMBOO_BLOCK))
+                .unlockedBy("has_bamboo", has(Blocks.BAMBOO_PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.CRIMSON_STEM.asItem())
+                .define('#', Blocks.CRIMSON_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_crimson_stem", has(Blocks.CRIMSON_STEM))
+                .unlockedBy("has_crimson", has(Blocks.CRIMSON_PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.WARPED_STEM.asItem())
+                .define('#', Blocks.WARPED_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_warped_stem", has(Blocks.WARPED_STEM))
+                .unlockedBy("has_warped", has(Blocks.WARPED_PLANKS))
+                .save(recipeOutput);
 
 
 
         //Stripped Variants
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_OAK_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.OAK_LOG.asItem())
+                .define('#', Blocks.OAK_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_oak_log", has(Blocks.OAK_LOG))
+                .unlockedBy("has_oak", has(Blocks.OAK_PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_SPRUCE_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.STRIPPED_SPRUCE_LOG.asItem())
+                .define('#', Blocks.SPRUCE_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_spruce_log", has(Blocks.STRIPPED_SPRUCE_LOG))
+                .unlockedBy("has_sppruce", has(Blocks.SPRUCE_PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_BIRCH_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.STRIPPED_BIRCH_LOG.asItem())
+                .define('#', Blocks.BIRCH_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_birch_log", has(Blocks.STRIPPED_BIRCH_LOG))
+                .unlockedBy("has_birch", has(Blocks.BIRCH_PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_JUNGLE_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.STRIPPED_JUNGLE_LOG.asItem())
+                .define('#', Blocks.JUNGLE_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_jungle_log", has(Blocks.STRIPPED_JUNGLE_LOG))
+                .unlockedBy("has_jungle", has(Blocks.JUNGLE_PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_ACACIA_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.STRIPPED_ACACIA_LOG.asItem())
+                .define('#', Blocks.ACACIA_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_acacia_log", has(Blocks.STRIPPED_ACACIA_LOG))
+                .unlockedBy("has_acacia", has(Blocks.ACACIA_PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_MANGROVE_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.STRIPPED_MANGROVE_LOG.asItem())
+                .define('#', Blocks.MANGROVE_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_mangrove_log", has(Blocks.STRIPPED_MANGROVE_LOG))
+                .unlockedBy("has_mangrove", has(Blocks.MANGROVE_PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_DARK_OAK_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.STRIPPED_DARK_OAK_LOG.asItem())
+                .define('#', Blocks.DARK_OAK_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_dark_oak_log", has(Blocks.STRIPPED_DARK_OAK_LOG))
+                .unlockedBy("has_dark_oak", has(Blocks.DARK_OAK_PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_CHERRY_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.STRIPPED_CHERRY_LOG.asItem())
+                .define('#', Blocks.CHERRY_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_cherry_log", has(Blocks.STRIPPED_CHERRY_LOG))
+                .unlockedBy("has_cherry", has(Blocks.CHERRY_PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_BAMBOO_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.STRIPPED_BAMBOO_BLOCK.asItem())
+                .define('#', Blocks.BAMBOO_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_bamboo_block", has(Blocks.STRIPPED_BAMBOO_BLOCK))
+                .unlockedBy("has_bamboo", has(Blocks.BAMBOO_PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_CRIMSON_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.STRIPPED_CRIMSON_STEM.asItem())
+                .define('#', Blocks.CRIMSON_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_crimson_stem", has(Blocks.STRIPPED_CRIMSON_STEM))
+                .unlockedBy("has_crimson", has(Blocks.CRIMSON_PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_WARPED_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.STRIPPED_WARPED_STEM.asItem())
+                .define('#', Blocks.WARPED_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_warped_stem", has(Blocks.STRIPPED_WARPED_STEM))
+                .unlockedBy("has_warped", has(Blocks.WARPED_PLANKS))
+                .save(recipeOutput);
 
 
 
+        //Table
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_TABLE.get())
+                .pattern("BBB")
+                .pattern(" X ")
+                .pattern(" X ")
+                .define('B', Items.OAK_LOG.asItem())
+                .define('X', Blocks.STRIPPED_OAK_LOG.asItem())
+                .unlockedBy("has_oak_log", has(Blocks.OAK_LOG))
+                .unlockedBy("has_stripped_oak_log", has(Blocks.STRIPPED_OAK_LOG))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_TABLE.get())
+                .pattern("BBB")
+                .pattern(" X ")
+                .pattern(" X ")
+                .define('B', Items.SPRUCE_LOG.asItem())
+                .define('X', Blocks.STRIPPED_SPRUCE_LOG.asItem())
+                .unlockedBy("has_spruce_log", has(Blocks.SPRUCE_LOG))
+                .unlockedBy("has_stripped_spruce_log", has(Blocks.STRIPPED_SPRUCE_LOG))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_TABLE.get())
+                .pattern("BBB")
+                .pattern(" X ")
+                .pattern(" X ")
+                .define('B', Items.BIRCH_LOG.asItem())
+                .define('X', Blocks.STRIPPED_BIRCH_LOG.asItem())
+                .unlockedBy("has_birch_log", has(Blocks.BIRCH_LOG))
+                .unlockedBy("has_stripped_birch_log", has(Blocks.STRIPPED_BIRCH_LOG))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_TABLE.get())
+                .pattern("BBB")
+                .pattern(" X ")
+                .pattern(" X ")
+                .define('B', Items.JUNGLE_LOG.asItem())
+                .define('X', Blocks.STRIPPED_JUNGLE_LOG.asItem())
+                .unlockedBy("has_jungle_log", has(Blocks.JUNGLE_LOG))
+                .unlockedBy("has_stripped_jungle_log", has(Blocks.STRIPPED_JUNGLE_LOG))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_TABLE.get())
+                .pattern("BBB")
+                .pattern(" X ")
+                .pattern(" X ")
+                .define('B', Items.ACACIA_LOG.asItem())
+                .define('X', Blocks.STRIPPED_ACACIA_LOG.asItem())
+                .unlockedBy("has_acacia_log", has(Blocks.ACACIA_LOG))
+                .unlockedBy("has_stripped_acacia_log", has(Blocks.STRIPPED_ACACIA_LOG))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_TABLE.get())
+                .pattern("BBB")
+                .pattern(" X ")
+                .pattern(" X ")
+                .define('B', Items.DARK_OAK_LOG.asItem())
+                .define('X', Blocks.STRIPPED_DARK_OAK_LOG.asItem())
+                .unlockedBy("has_dark_oak_log", has(Blocks.DARK_OAK_LOG))
+                .unlockedBy("has_stripped_dark_oak_log", has(Blocks.STRIPPED_DARK_OAK_LOG))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_TABLE.get())
+                .pattern("BBB")
+                .pattern(" X ")
+                .pattern(" X ")
+                .define('B', Items.MANGROVE_LOG.asItem())
+                .define('X', Blocks.STRIPPED_MANGROVE_LOG.asItem())
+                .unlockedBy("has_mangrove_log", has(Blocks.MANGROVE_LOG))
+                .unlockedBy("has_stripped_mangrove_log", has(Blocks.STRIPPED_MANGROVE_LOG))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_TABLE.get())
+                .pattern("BBB")
+                .pattern(" X ")
+                .pattern(" X ")
+                .define('B', Items.CHERRY_LOG.asItem())
+                .define('X', Blocks.STRIPPED_CHERRY_LOG.asItem())
+                .unlockedBy("has_cherry_log", has(Blocks.CHERRY_LOG))
+                .unlockedBy("has_stripped_cherry_log", has(Blocks.STRIPPED_CHERRY_LOG))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_TABLE.get())
+                .pattern("BBB")
+                .pattern(" X ")
+                .pattern(" X ")
+                .define('B', Items.BAMBOO_BLOCK.asItem())
+                .define('X', Blocks.STRIPPED_BAMBOO_BLOCK.asItem())
+                .unlockedBy("has_bamboo_block", has(Blocks.BAMBOO_BLOCK))
+                .unlockedBy("has_stripped_bamboo_block", has(Blocks.STRIPPED_BAMBOO_BLOCK))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_TABLE.get())
+                .pattern("BBB")
+                .pattern(" X ")
+                .pattern(" X ")
+                .define('B', Items.CRIMSON_STEM.asItem())
+                .define('X', Blocks.STRIPPED_CRIMSON_STEM.asItem())
+                .unlockedBy("has_crimson_stem", has(Blocks.CRIMSON_STEM))
+                .unlockedBy("has_stripped_crimson_stem", has(Blocks.STRIPPED_CRIMSON_STEM))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_TABLE.get())
+                .pattern("BBB")
+                .pattern(" X ")
+                .pattern(" X ")
+                .define('B', Items.WARPED_STEM.asItem())
+                .define('X', Blocks.STRIPPED_WARPED_STEM.asItem())
+                .unlockedBy("has_warped_stem", has(Blocks.WARPED_STEM))
+                .unlockedBy("has_stripped_warped_stem", has(Blocks.STRIPPED_WARPED_STEM))
+                .save(recipeOutput);
+
+         //Crates
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_CRATE.get())
+                .pattern("BBB")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.OAK_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_oak", has(Blocks.OAK_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_CRATE.get())
+                .pattern("BBB")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.SPRUCE_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_spruce", has(Blocks.SPRUCE_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_CRATE.get())
+                .pattern("BBB")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.BIRCH_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_birch", has(Blocks.BIRCH_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_CRATE.get())
+                .pattern("BBB")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.JUNGLE_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_jungle", has(Blocks.JUNGLE_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_CRATE.get())
+                .pattern("BBB")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.ACACIA_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_acacia", has(Blocks.ACACIA_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_CRATE.get())
+                .pattern("BBB")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.DARK_OAK_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_dark_oak", has(Blocks.DARK_OAK_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_CRATE.get())
+                .pattern("BBB")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.MANGROVE_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_mangrove", has(Blocks.MANGROVE_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_CRATE.get())
+                .pattern("BBB")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.CHERRY_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_cherry", has(Blocks.CHERRY_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_CRATE.get())
+                .pattern("BBB")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.BAMBOO_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_bamboo", has(Blocks.BAMBOO_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_CRATE.get())
+                .pattern("BBB")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.CRIMSON_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_crimson", has(Blocks.CRIMSON_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_CRATE.get())
+                .pattern("BBB")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.WARPED_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_warped", has(Blocks.WARPED_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .save(recipeOutput);
+
+        //Bedside
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_BEDSIDE.get())
+                .pattern("BBB")
+                .pattern("#X#")
+                .pattern("BBB")
+                .define('B', Items.OAK_LOG.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .define('#', Blocks.OAK_PLANKS.asItem())
+                .unlockedBy("has_oak", has(Blocks.OAK_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .unlockedBy("has_oak_log", has(Blocks.OAK_LOG))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_BEDSIDE.get())
+                .pattern("BBB")
+                .pattern("#X#")
+                .pattern("BBB")
+                .define('B', Items.SPRUCE_LOG.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .define('#', Blocks.SPRUCE_PLANKS.asItem())
+                .unlockedBy("has_spruce", has(Blocks.SPRUCE_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .unlockedBy("has_spruce_log", has(Blocks.SPRUCE_LOG))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_BEDSIDE.get())
+                .pattern("BBB")
+                .pattern("#X#")
+                .pattern("BBB")
+                .define('B', Items.BIRCH_LOG.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .define('#', Blocks.BIRCH_PLANKS.asItem())
+                .unlockedBy("has_birch", has(Blocks.BIRCH_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .unlockedBy("has_birch_log", has(Blocks.BIRCH_LOG))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_BEDSIDE.get())
+                .pattern("BBB")
+                .pattern("#X#")
+                .pattern("BBB")
+                .define('B', Items.JUNGLE_LOG.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .define('#', Blocks.JUNGLE_PLANKS.asItem())
+                .unlockedBy("has_jungle", has(Blocks.JUNGLE_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .unlockedBy("has_jungle_log", has(Blocks.JUNGLE_LOG))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_BEDSIDE.get())
+                .pattern("BBB")
+                .pattern("#X#")
+                .pattern("BBB")
+                .define('B', Items.ACACIA_LOG.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .define('#', Blocks.ACACIA_PLANKS.asItem())
+                .unlockedBy("has_acacia", has(Blocks.ACACIA_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .unlockedBy("has_acacia_log", has(Blocks.ACACIA_LOG))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_BEDSIDE.get())
+                .pattern("BBB")
+                .pattern("#X#")
+                .pattern("BBB")
+                .define('B', Items.DARK_OAK_LOG.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .define('#', Blocks.DARK_OAK_PLANKS.asItem())
+                .unlockedBy("has_dark_oak", has(Blocks.DARK_OAK_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .unlockedBy("has_dark_oak_log", has(Blocks.DARK_OAK_LOG))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_BEDSIDE.get())
+                .pattern("BBB")
+                .pattern("#X#")
+                .pattern("BBB")
+                .define('B', Items.MANGROVE_LOG.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .define('#', Blocks.MANGROVE_PLANKS.asItem())
+                .unlockedBy("has_mangrove", has(Blocks.MANGROVE_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .unlockedBy("has_mangrove_log", has(Blocks.MANGROVE_LOG))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_BEDSIDE.get())
+                .pattern("BBB")
+                .pattern("#X#")
+                .pattern("BBB")
+                .define('B', Items.CHERRY_LOG.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .define('#', Blocks.CHERRY_PLANKS.asItem())
+                .unlockedBy("has_cherry", has(Blocks.CHERRY_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .unlockedBy("has_cherry_log", has(Blocks.CHERRY_LOG))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_BEDSIDE.get())
+                .pattern("BBB")
+                .pattern("#X#")
+                .pattern("BBB")
+                .define('B', Items.BAMBOO_BLOCK.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .define('#', Blocks.BAMBOO_PLANKS.asItem())
+                .unlockedBy("has_bamboo", has(Blocks.BAMBOO_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .unlockedBy("has_bamboo_block", has(Blocks.BAMBOO_BLOCK))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_BEDSIDE.get())
+                .pattern("BBB")
+                .pattern("#X#")
+                .pattern("BBB")
+                .define('B', Items.CRIMSON_STEM.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .define('#', Blocks.CRIMSON_PLANKS.asItem())
+                .unlockedBy("has_crimson", has(Blocks.CRIMSON_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .unlockedBy("has_crimson_stem", has(Blocks.CRIMSON_STEM))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_BEDSIDE.get())
+                .pattern("BBB")
+                .pattern("#X#")
+                .pattern("BBB")
+                .define('B', Items.WARPED_STEM.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .define('#', Blocks.WARPED_PLANKS.asItem())
+                .unlockedBy("has_warped", has(Blocks.WARPED_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .unlockedBy("has_warped_stem", has(Blocks.WARPED_STEM))
+                .save(recipeOutput);
+
+         //Sinks
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_SINK.get())
+                .pattern("BXB")
+                .pattern("BBB")
+                .pattern("# #")
+                .define('B', Items.WHITE_CONCRETE.asItem())
+                .define('X', Items.BUCKET.asItem())
+                .define('#', Blocks.OAK_PLANKS.asItem())
+                .unlockedBy("has_oak", has(Blocks.OAK_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_SINK.get())
+                .pattern("BXB")
+                .pattern("BBB")
+                .pattern("# #")
+                .define('B', Items.WHITE_CONCRETE.asItem())
+                .define('X', Items.BUCKET.asItem())
+                .define('#', Blocks.SPRUCE_PLANKS.asItem())
+                .unlockedBy("has_spruce", has(Blocks.SPRUCE_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_SINK.get())
+                .pattern("BXB")
+                .pattern("BBB")
+                .pattern("# #")
+                .define('B', Items.WHITE_CONCRETE.asItem())
+                .define('X', Items.BUCKET.asItem())
+                .define('#', Blocks.BIRCH_PLANKS.asItem())
+                .unlockedBy("has_birch", has(Blocks.BIRCH_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_SINK.get())
+                .pattern("BXB")
+                .pattern("BBB")
+                .pattern("# #")
+                .define('B', Items.WHITE_CONCRETE.asItem())
+                .define('X', Items.BUCKET.asItem())
+                .define('#', Blocks.JUNGLE_PLANKS.asItem())
+                .unlockedBy("has_jungle", has(Blocks.JUNGLE_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_SINK.get())
+                .pattern("BXB")
+                .pattern("BBB")
+                .pattern("# #")
+                .define('B', Items.WHITE_CONCRETE.asItem())
+                .define('X', Items.BUCKET.asItem())
+                .define('#', Blocks.ACACIA_PLANKS.asItem())
+                .unlockedBy("has_acacia", has(Blocks.ACACIA_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_SINK.get())
+                .pattern("BXB")
+                .pattern("BBB")
+                .pattern("# #")
+                .define('B', Items.WHITE_CONCRETE.asItem())
+                .define('X', Items.BUCKET.asItem())
+                .define('#', Blocks.DARK_OAK_PLANKS.asItem())
+                .unlockedBy("has_dark_oak", has(Blocks.DARK_OAK_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_SINK.get())
+                .pattern("BXB")
+                .pattern("BBB")
+                .pattern("# #")
+                .define('B', Items.WHITE_CONCRETE.asItem())
+                .define('X', Items.BUCKET.asItem())
+                .define('#', Blocks.MANGROVE_PLANKS.asItem())
+                .unlockedBy("has_mangrove", has(Blocks.MANGROVE_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_SINK.get())
+                .pattern("BXB")
+                .pattern("BBB")
+                .pattern("# #")
+                .define('B', Items.WHITE_CONCRETE.asItem())
+                .define('X', Items.BUCKET.asItem())
+                .define('#', Blocks.CHERRY_PLANKS.asItem())
+                .unlockedBy("has_cherry", has(Blocks.CHERRY_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_SINK.get())
+                .pattern("BXB")
+                .pattern("BBB")
+                .pattern("# #")
+                .define('B', Items.WHITE_CONCRETE.asItem())
+                .define('X', Items.BUCKET.asItem())
+                .define('#', Blocks.BAMBOO_PLANKS.asItem())
+                .unlockedBy("has_bamboo", has(Blocks.BAMBOO_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_SINK.get())
+                .pattern("BXB")
+                .pattern("BBB")
+                .pattern("# #")
+                .define('B', Items.WHITE_CONCRETE.asItem())
+                .define('X', Items.BUCKET.asItem())
+                .define('#', Blocks.CRIMSON_PLANKS.asItem())
+                .unlockedBy("has_oak", has(Blocks.CRIMSON_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_SINK.get())
+                .pattern("BXB")
+                .pattern("BBB")
+                .pattern("# #")
+                .define('B', Items.WHITE_CONCRETE.asItem())
+                .define('X', Items.BUCKET.asItem())
+                .define('#', Blocks.WARPED_PLANKS.asItem())
+                .unlockedBy("has_oak", has(Blocks.WARPED_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
+                .save(recipeOutput);
 
 
+          //STONE FURNITURE VARIANTS
+        //COUNTERS
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STONE_COUNTER.get())
+                .pattern("###")
+                .pattern("B B")
+                .pattern("BBB")
+                .define('B', Items.COBBLESTONE.asItem())
+                .define('#', Blocks.STONE.asItem())
+                .unlockedBy("has_cobblestone", has(Blocks.COBBLESTONE))
+                .unlockedBy("has_stone", has(Blocks.STONE))
+                .save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.GRANITE_COUNTER.get())
+                .pattern("###")
+                .pattern("B B")
+                .pattern("BBB")
+                .define('B', Items.GRANITE.asItem())
+                .define('#', Blocks.POLISHED_GRANITE.asItem())
+                .unlockedBy("has_granite", has(Blocks.POLISHED_GRANITE))
+                .unlockedBy("has_polished_granite", has(Blocks.GRANITE))
+                .save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DIORITE_COUNTER.get())
+                .pattern("###")
+                .pattern("B B")
+                .pattern("BBB")
+                .define('B', Items.DIORITE.asItem())
+                .define('#', Blocks.POLISHED_DIORITE.asItem())
+                .unlockedBy("has_diorite", has(Blocks.DIORITE))
+                .unlockedBy("has_polished_diorite", has(Blocks.POLISHED_DIORITE))
+                .save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DEEPSLATE_COUNTER.get())
+                .pattern("###")
+                .pattern("B B")
+                .pattern("BBB")
+                .define('B', Items.COBBLED_DEEPSLATE.asItem())
+                .define('#', Blocks.DEEPSLATE_BRICKS.asItem())
+                .unlockedBy("has_deepslate", has(Blocks.COBBLED_DEEPSLATE))
+                .unlockedBy("has_deepslate_bricks", has(Blocks.DEEPSLATE_BRICKS))
+                .save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DEEPSLATE_TILE_COUNTER.get())
+                .pattern("###")
+                .pattern("B B")
+                .pattern("BBB")
+                .define('B', Items.COBBLED_DEEPSLATE.asItem())
+                .define('#', Blocks.DEEPSLATE_TILES.asItem())
+                .unlockedBy("has_deepslate", has(Blocks.COBBLED_DEEPSLATE))
+                .unlockedBy("has_deepslate_tiles", has(Blocks.DEEPSLATE_TILES))
+                .save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACKSTONE_COUNTER.get())
+                .pattern("###")
+                .pattern("B B")
+                .pattern("BBB")
+                .define('B', Items.BLACKSTONE.asItem())
+                .define('#', Blocks.POLISHED_BLACKSTONE_BRICKS.asItem())
+                .unlockedBy("has_blackstone", has(Blocks.BLACKSTONE))
+                .unlockedBy("has_blackstone_bricks", has(Blocks.POLISHED_BLACKSTONE_BRICKS))
+                .save(recipeOutput);
+
+        //DRAWERS
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STONE_DRAWER.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.COBBLESTONE.asItem())
+                .define('#', Blocks.STONE.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_cobblestone", has(Blocks.COBBLESTONE))
+                .unlockedBy("has_stone", has(Blocks.STONE))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.GRANITE_DRAWER.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.GRANITE.asItem())
+                .define('#', Blocks.POLISHED_GRANITE.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_granite", has(Blocks.POLISHED_GRANITE))
+                .unlockedBy("has_polished_granite", has(Blocks.GRANITE))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DIORITE_DRAWER.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.DIORITE.asItem())
+                .define('#', Blocks.POLISHED_DIORITE.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_diorite", has(Blocks.DIORITE))
+                .unlockedBy("has_polished_diorite", has(Blocks.POLISHED_DIORITE))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DEEPSLATE_DRAWER.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.COBBLED_DEEPSLATE.asItem())
+                .define('#', Blocks.DEEPSLATE_BRICKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_deepslate", has(Blocks.COBBLED_DEEPSLATE))
+                .unlockedBy("has_deepslate_bricks", has(Blocks.DEEPSLATE_BRICKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DEEPSLATE_TILES_DRAWER.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.COBBLED_DEEPSLATE.asItem())
+                .define('#', Blocks.DEEPSLATE_TILES.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_deepslate", has(Blocks.COBBLED_DEEPSLATE))
+                .unlockedBy("has_deepslate_tiles", has(Blocks.DEEPSLATE_TILES))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACKSTONE_DRAWER.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.BLACKSTONE.asItem())
+                .define('#', Blocks.POLISHED_BLACKSTONE_BRICKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_blackstone", has(Blocks.BLACKSTONE))
+                .unlockedBy("has_blackstone_bricks", has(Blocks.POLISHED_BLACKSTONE_BRICKS))
+                .save(recipeOutput);
+
+        //CABINETS
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STONE_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.COBBLESTONE.asItem())
+                .define('#', Blocks.STONE.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_stone", has(Blocks.STONE))
+                .unlockedBy("has_cobblestone", has(Blocks.COBBLESTONE))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.GRANITE_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.GRANITE.asItem())
+                .define('#', Blocks.POLISHED_GRANITE.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_granite", has(Blocks.GRANITE))
+                .unlockedBy("has_polished_granite", has(Blocks.POLISHED_GRANITE))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DIORITE_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.DIORITE.asItem())
+                .define('#', Blocks.POLISHED_DIORITE.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_diortie", has(Blocks.DIORITE))
+                .unlockedBy("has_polished_diorite", has(Blocks.POLISHED_DIORITE))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DEEPSLATE_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.COBBLED_DEEPSLATE.asItem())
+                .define('#', Blocks.DEEPSLATE_BRICKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_deepslate_bricks", has(Blocks.DEEPSLATE_BRICKS))
+                .unlockedBy("has_deepslate", has(Blocks.COBBLED_DEEPSLATE))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DEEPSLATE_TILES_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.COBBLED_DEEPSLATE.asItem())
+                .define('#', Blocks.DEEPSLATE_TILES.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_deepslate_tiles", has(Blocks.STONE))
+                .unlockedBy("has_deepslate", has(Blocks.COBBLED_DEEPSLATE))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACKSTONE_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.BLACKSTONE.asItem())
+                .define('#', Blocks.POLISHED_BLACKSTONE_BRICKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_blackstone", has(Blocks.BLACKSTONE))
+                .unlockedBy("has_blackstone_bricks", has(Blocks.POLISHED_BLACKSTONE_BRICKS))
+                .save(recipeOutput);
 
 
 
@@ -1597,15 +2509,49 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
 
 
+
+
+
+
 //Items
         //Chisel
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.CHISEL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.IRON_CHISEL.get())
                 .pattern("   ")
                 .pattern(" # ")
                 .pattern("B  ")
                 .define('B', Items.STICK.asItem())
                 .define('#', Items.IRON_INGOT.asItem())
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
+                .unlockedBy("has_stick", has(Items.STICK))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.GOLD_CHISEL.get())
+                .pattern("   ")
+                .pattern(" # ")
+                .pattern("B  ")
+                .define('B', Items.STICK.asItem())
+                .define('#', Items.GOLD_INGOT.asItem())
+                .unlockedBy("has_gold", has(Items.GOLD_INGOT))
+                .unlockedBy("has_stick", has(Items.STICK))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DIAMOND_CHISEL.get())
+                .pattern("   ")
+                .pattern(" # ")
+                .pattern("B  ")
+                .define('B', Items.STICK.asItem())
+                .define('#', Items.DIAMOND.asItem())
+                .unlockedBy("has_diamond", has(Items.IRON_INGOT))
+                .unlockedBy("has_stick", has(Items.STICK))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.NETHERITE_CHISEL.get())
+                .pattern("   ")
+                .pattern(" # ")
+                .pattern("B  ")
+                .define('B', Items.STICK.asItem())
+                .define('#', Items.NETHERITE_INGOT.asItem())
+                .unlockedBy("has_netherite", has(Items.NETHERITE_INGOT))
                 .unlockedBy("has_stick", has(Items.STICK))
                 .save(recipeOutput);
 
@@ -1808,6 +2754,19 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
 
 
+
+
+
+
+
+
+    }
+    protected static void netheriteSmithing(RecipeOutput recipeOutput, Item ingredientItem, RecipeCategory category, Item resultItem) {
+        SmithingTransformRecipeBuilder.smithing(
+                        Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE), Ingredient.of(ingredientItem), Ingredient.of(Items.NETHERITE_INGOT), category, resultItem
+                )
+                .unlocks("has_netherite_ingot", has(Items.NETHERITE_INGOT))
+                .save(recipeOutput, getItemName(resultItem) + "_smithing");
     }
 
     protected static <T extends AbstractCookingRecipe> void oreCooking(RecipeOutput recipeOutput, RecipeSerializer<T> pCookingSerializer, AbstractCookingRecipe.Factory<T> factory,

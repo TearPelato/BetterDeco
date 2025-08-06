@@ -100,7 +100,12 @@ public class ModBlockEntities {
                                     ModBlocks.STRIPPED_BAMBOO_CABINET.get(),
                                     ModBlocks.STRIPPED_CRIMSON_CABINET.get(),
                                     ModBlocks.STRIPPED_WARPED_CABINET.get(),
-                                    ModBlocks.STONE_CABINET.get()
+                                    ModBlocks.STONE_CABINET.get(),
+                                    ModBlocks.GRANITE_CABINET.get(),
+                                    ModBlocks.DIORITE_CABINET.get(),
+                                    ModBlocks.DEEPSLATE_CABINET.get(),
+                                    ModBlocks.DEEPSLATE_TILES_CABINET.get(),
+                                    ModBlocks.BLACKSTONE_CABINET.get()
                                     )
                             .build(null)
             );
