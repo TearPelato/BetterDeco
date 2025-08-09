@@ -2,6 +2,7 @@ package net.tier1234.better_deco.block.entity;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
@@ -198,6 +199,10 @@ public class ModBlockEntities {
 
 
             ).build(null));
+
+
+
+
 
 
 

@@ -21,6 +21,13 @@ public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS =
             DeferredRegister.createBlocks(BetterDeco.MOD_ID);
 
+
+
+
+
+    //TEST
+
+
 //STONES
     //Andesite
 public static final DeferredBlock<Block> ANDESITE_ARRAY_BRICKS = registerBlock("andesite_array_bricks",

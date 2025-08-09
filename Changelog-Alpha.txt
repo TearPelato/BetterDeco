@@ -102,10 +102,35 @@ I RECOMMEND TO USE GUISCALE SET FROM AUTO TO 2/3 Because the Crate new gui will 
 
 
 1.0.0-Alpha 5:
-WILL COME AFTER THE ALPHA 4, I'LL DO IT AS SOON AS POSSIBLE BUT I'M QUIETLY BUSY ON THESE WEEKS.
+DISCLAIMER: MAKE A BACKUP BEFORE UPDATING
+I RECOMMEND TO USE GUISCALE SET FROM AUTO TO 2/3 Because the Crate new gui will be
+ cursed with Gui scale 4/ Auto
+
+ #ADDITIONS
+
+
+ #CHANGES
+-Changed Changelog text Name
+-Changed ModDescription
+-Changed the "unlcoked by" in the Stone Tecque recipe
+
+ #FIXES
+-Added Pedestal/Woodden Tecques recipes missed from the previous alpha
+
+
+
+
+
+
 
 
 1.0.0-Alpha 6/Beta 1:
-Will come After alpha 5(Planned Release: September)
+COOMING SOON
+
+
+
+
+1.0.0-Alpha 7/Beta 2:
+Will come After alpha 6(Planned Release: September)
 
 PLANNING THE REWORK OF THE CREATIVE TABS

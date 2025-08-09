@@ -23,8 +23,8 @@ import net.tier1234.better_deco.block.entity.renderer.PedestalBlockEntityRendere
 import net.tier1234.better_deco.block.entity.renderer.TecqueBlockEntityRenderer;
 import net.tier1234.better_deco.entity.ModEntities;
 import net.tier1234.better_deco.entity.client.ChairRenderer;
-import net.tier1234.better_deco.item.creative_tabs.ModCreativeTabs;
 import net.tier1234.better_deco.item.ModItems;
+import net.tier1234.better_deco.item.creative_tabs.ModCreativeTabs;
 import net.tier1234.better_deco.screen.ModMenuTypes;
 import net.tier1234.better_deco.screen.custom.CrateScreen;
 import net.tier1234.better_deco.screen.custom.PedestalScreen;
@@ -51,8 +51,8 @@ public class BetterDeco {
         ModBlocks.register(modEventBus);
         ModEntities.register(modEventBus);
         ModBlockEntities.register(modEventBus);
-        ModCreativeTabs.register(modEventBus);
-        ModMenuTypes.register(modEventBus);
+       ModCreativeTabs.register(modEventBus);
+       ModMenuTypes.register(modEventBus);
 
 
         // Register the item to a creative tab
