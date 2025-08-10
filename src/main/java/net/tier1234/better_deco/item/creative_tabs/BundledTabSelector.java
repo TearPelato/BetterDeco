@@ -1,33 +1,29 @@
 package net.tier1234.better_deco.item.creative_tabs;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import net.minecraft.client.DeltaTracker;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
-import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipPositioner;
-import net.minecraft.client.gui.screens.inventory.tooltip.DefaultTooltipPositioner;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.neoforge.client.event.ContainerScreenEvent;
 import net.neoforged.neoforge.client.event.ScreenEvent;
-import net.tier1234.better_deco.item.creative_tabs.core.ScreenAccess;
 import net.tier1234.better_deco.mixin.access.CreativeModeInventoryScreenAccessor;
 import net.tier1234.better_deco.mixin.access.ScreenAccessor;
 
 import java.util.*;
 import java.util.function.Consumer;
 
+/**
+ * BundledTabs from VanillaBackport, used with BlackGear's permission.
+ * @author BlackGear
+ */
 public class BundledTabSelector {
     private static final ResourceLocation SELECTOR_BAR =
             ResourceLocation.fromNamespaceAndPath("better_deco","textures/gui/tab_selector/tab_selector.png");
@@ -53,16 +49,10 @@ public class BundledTabSelector {
     private List<BundledTabs> bundles = null;
     private CreativeModeTab lastTab;
 
-    private BundledTabSelector() {
-        IEventBus bus = ModLoadingContext.get().getActiveContainer().getEventBus();
-        if (bus != null) {
-            bus.<ScreenEvent.Init.Post>addListener(this::init);
-            bus.<ContainerScreenEvent.Render.Background>addListener(this::renderBackground);
-            bus.<ScreenEvent.Closing>addListener(this::onClose);
-        }
-    }
+    private BundledTabSelector() {}
 
-    private void init(Minecraft minecraft, Screen screen, ScreenAccess access) {
+    public void init(ScreenEvent.Init.Post event) {
+        Screen screen = event.getScreen();
         if (screen instanceof CreativeModeInventoryScreen creativeScreen) {
             if (this.bundles == null) {
                 List<BundledTabs> bundles = ModBundledTabs.getFilters();
@@ -72,11 +62,13 @@ public class BundledTabSelector {
 
             this.guiLeft = creativeScreen.getGuiLeft();
             this.guiTop = creativeScreen.getGuiTop();
-            this.injectWidgets(creativeScreen, access::addRenderableWidget);
+            this.injectWidgets(creativeScreen, widget -> ((ScreenAccessor) screen).callAddRenderableWidget(widget));
         }
     }
 
-    private void renderBackground(Minecraft minecraft, AbstractContainerScreen<?> screen, GuiGraphics graphics, int mouseX, int mouseY, DeltaTracker timer) {
+    public void renderBackground(ContainerScreenEvent.Render.Background event) {
+        Screen screen = event.getContainerScreen();
+        GuiGraphics graphics = event.getGuiGraphics();
         if (screen instanceof CreativeModeInventoryScreen creativeScreen) {
             CreativeModeTab tab = CreativeModeInventoryScreenAccessor.getSelectedTab();
             graphics.pose().pushPose();
@@ -95,7 +87,8 @@ public class BundledTabSelector {
         }
     }
 
-    private void onClose(Minecraft minecraft, Screen screen) {
+    public void onClose(ScreenEvent.Closing event) {
+        Screen screen = event.getScreen();
         if (screen instanceof CreativeModeInventoryScreen) {
             this.scrollUpButton = null;
             this.scrollDownButton = null;
@@ -237,10 +230,6 @@ public class BundledTabSelector {
                 graphics.pose().popPose();
             }
         }
-
-        protected ClientTooltipPositioner createTooltipPositioner() {
-            return DefaultTooltipPositioner.INSTANCE;
-        }
     }
 
     public static class ScrollButton extends Button {
@@ -255,54 +244,6 @@ public class BundledTabSelector {
         public void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
             int textureY = this.isHovered ? 12 : 0;
             graphics.blit(SELECTOR_BAR, this.getX(), this.getY(), this.uOffset, textureY, 18, 11);
-        }
-    }
-    public void init(ScreenEvent.Init.Post event) {
-        Screen screen = event.getScreen();
-        if (screen instanceof CreativeModeInventoryScreen creativeScreen) {
-            if (this.bundles == null) {
-                List<BundledTabs> bundles = ModBundledTabs.getFilters();
-                Collections.reverse(bundles);
-                this.bundles = bundles;
-            }
-
-            this.guiLeft = creativeScreen.getGuiLeft();
-            this.guiTop = creativeScreen.getGuiTop();
-            this.injectWidgets(creativeScreen, widget -> ((ScreenAccessor) screen).callAddRenderableWidget(widget));
-        }
-    }
-
-    public void renderBackground(ContainerScreenEvent.Render.Background event) {
-        Screen screen = event.getContainerScreen();
-        GuiGraphics graphics = event.getGuiGraphics();
-        if (screen instanceof CreativeModeInventoryScreen creativeScreen) {
-            CreativeModeTab tab = CreativeModeInventoryScreenAccessor.getSelectedTab();
-            graphics.pose().pushPose();
-            graphics.pose().translate(0.0, 0.0, 0.0);
-
-            if (this.isValidTab(tab)) {
-                graphics.blit(SELECTOR_BAR, this.guiLeft - 30, this.guiTop + 2, 0, 0, 30, 120);
-            }
-
-            if (this.lastTab != tab) {
-                this.onSwitchCreativeTab(tab, creativeScreen);
-                this.lastTab = tab;
-            }
-
-            graphics.pose().popPose();
-        }
-    }
-
-    public void onClose(ScreenEvent.Closing event) {
-        Screen screen = event.getScreen();
-        if (screen instanceof CreativeModeInventoryScreen) {
-            this.scrollUpButton = null;
-            this.scrollDownButton = null;
-
-            this.bundles.forEach(bundle -> {
-                bundle.setContentTab(null);
-                bundle.deselect();
-            });
         }
     }
 }

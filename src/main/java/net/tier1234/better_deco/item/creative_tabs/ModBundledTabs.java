@@ -10,6 +10,10 @@ import net.tier1234.better_deco.item.ModItems;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * BundledTabs from VanillaBackport, used with BlackGear's permission.
+ * @author BlackGear
+ */
 public class ModBundledTabs {
     private static final List<BundledTabs> FILTERS = new ArrayList<>();
 
