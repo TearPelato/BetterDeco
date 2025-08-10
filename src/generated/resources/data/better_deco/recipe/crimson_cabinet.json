@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:crimson_planks"
+    },
+    "B": {
+      "item": "minecraft:crimson_stem"
+    },
+    "X": {
+      "item": "minecraft:chest"
+    }
+  },
+  "pattern": [
+    "#BB",
+    "#XB",
+    "#BB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "better_deco:crimson_cabinet"
+  }
+}

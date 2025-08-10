@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:warped_planks"
+    },
+    "B": {
+      "item": "minecraft:warped_stem"
+    },
+    "X": {
+      "item": "minecraft:chest"
+    }
+  },
+  "pattern": [
+    "BBB",
+    "#X#",
+    "BBB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "better_deco:warped_bedside"
+  }
+}

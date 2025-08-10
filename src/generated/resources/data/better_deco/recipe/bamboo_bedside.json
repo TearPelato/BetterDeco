@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:bamboo_planks"
+    },
+    "B": {
+      "item": "minecraft:bamboo_block"
+    },
+    "X": {
+      "item": "minecraft:chest"
+    }
+  },
+  "pattern": [
+    "BBB",
+    "#X#",
+    "BBB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "better_deco:bamboo_bedside"
+  }
+}

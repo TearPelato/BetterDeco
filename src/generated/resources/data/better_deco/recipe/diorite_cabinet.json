@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:polished_diorite"
+    },
+    "B": {
+      "item": "minecraft:diorite"
+    },
+    "X": {
+      "item": "minecraft:chest"
+    }
+  },
+  "pattern": [
+    "#BB",
+    "#XB",
+    "#BB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "better_deco:diorite_cabinet"
+  }
+}
