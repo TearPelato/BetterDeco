@@ -107,15 +107,18 @@ I RECOMMEND TO USE GUISCALE SET FROM AUTO TO 2/3 Because the Crate new gui will 
  cursed with Gui scale 4/ Auto
 
  #ADDITIONS
+ -Added the Credits.txt  file
+ -Added support for ConnectedTextures
 
 
  #CHANGES
 -Changed Changelog text Name
 -Changed ModDescription
--Changed the "unlcoked by" in the Stone Tecque recipe
+-Changed the "unlocked by" in the Stone Tecque recipe
+-Changed the Creative Tab
 
  #FIXES
--Added Pedestal/Woodden Tecques recipes missed from the previous alpha
+-Added Pedestal/Wooden Tecques recipes missed from the previous alpha
 
 
 
@@ -123,14 +126,6 @@ I RECOMMEND TO USE GUISCALE SET FROM AUTO TO 2/3 Because the Crate new gui will 
 
 
 
-
-1.0.0-Alpha 6/Beta 1:
-COOMING SOON
-
-
-
-
-1.0.0-Alpha 7/Beta 2:
-Will come After alpha 6(Planned Release: September)
-
-PLANNING THE REWORK OF THE CREATIVE TABS
+THE ALPHA N°5 IS THE LAST ALPHA YUU
+OFFICIALLY THE BetterDeco Enter in his Beta phase on September
+THE CHANGELOG WILL BE MOVED IN THE FILE "Changelog-Beta.txt" and when I'll release the mod will be moved into the "Changelog.txt"

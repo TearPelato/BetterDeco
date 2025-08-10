@@ -26,7 +26,9 @@ public class ModBlocks {
 
 
     //TEST
-
+    public static final DeferredBlock<Block> RED_STOOL = registerBlock("red_stool",
+            ()-> new BarStoolBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops().noOcclusion()
+                    .sound(SoundType.TUFF)));
 
 //STONES
     //Andesite

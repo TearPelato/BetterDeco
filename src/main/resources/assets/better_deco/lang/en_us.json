@@ -7,11 +7,12 @@
 
 
 
-  "bundled_tab.bundles_of_bravery.title": "BetterDeco:Buildings",
-  "bundled_tab.chase_the_skies.title": "BetterDeco:Items",
-  "bundled_tab.the_garden_awakens.title": "BetterDeco:Furniture",
-  "bundled_tab.spring_to_life.title": "BetterDeco:Utilities",
+  "bundled_tab.bundles_of_bravery.title": "Buildings",
+  "bundled_tab.chase_the_skies.title": "Items",
+  "bundled_tab.the_garden_awakens.title": "Furniture",
+  "bundled_tab.spring_to_life.title": "Utilities",
 
+  "block.better_deco.red_stool": "Red Stool",
 
   "block.better_deco.oak_planks_bricks": "Oak Planks Bricks",
   "block.better_deco.dark_oak_planks_bricks": "Dark Oak Planks Bricks",

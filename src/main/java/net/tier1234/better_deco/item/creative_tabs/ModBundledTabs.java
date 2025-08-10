@@ -269,6 +269,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.MAGENTA_SOFA);
                         output.accept(ModBlocks.PINK_SOFA);
                         output.accept(ModBlocks.BROWN_SOFA);
+                        output.accept(ModBlocks.RED_STOOL);
                         output.accept(ModBlocks.OAK_CRATE);
                         output.accept(ModBlocks.SPRUCE_CRATE);
                         output.accept(ModBlocks.BIRCH_CRATE);
