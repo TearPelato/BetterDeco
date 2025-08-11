@@ -116,6 +116,7 @@ I RECOMMEND TO USE GUISCALE SET FROM AUTO TO 2/3 Because the Crate new gui will 
 -Changed ModDescription
 -Changed the "unlocked by" in the Stone Tecque recipe
 -Changed the Creative Tab
+-Changed the NeoForge range so now you are able to use my mod from 21.1.0 to 21.1.250
 
  #FIXES
 -Added Pedestal/Wooden Tecques recipes missed from the previous alpha

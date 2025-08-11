@@ -1,0 +1,7 @@
+{
+  "parent": "better_deco:block/vertical_slab",
+  "textures": {
+    "0": "minecraft:block/crimson_planks",
+    "particle": "minecraft:block/crimson_planks"
+  }
+}

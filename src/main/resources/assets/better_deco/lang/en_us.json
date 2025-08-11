@@ -4,15 +4,29 @@
   "creativetab.better_deco.furnitures": "BetterDeco:Furniture",
   "creativetab.better_deco.utilities": "BetterDeco:Utilities",
 
+"block.better_deco.oak_vertical_slab": "Oak Vertical Slab",
+"block.better_deco.spruce_vertical_slab": "Spruce Vertical Slab",
+"block.better_deco.birch_vertical_slab": "Birch Vertical Slab",
+"block.better_deco.jungle_vertical_slab": "Jungle Vertical Slab",
+"block.better_deco.acacia_vertical_slab": "Acacia Vertical Slab",
+"block.better_deco.dark_oak_vertical_slab": "Dark Oak Vertical Slab",
+"block.better_deco.mangrove_vertical_slab": "Mangrove Vertical Slab",
+"block.better_deco.cherry_vertical_slab": "Cherry Vertical Slab",
+"block.better_deco.bamboo_vertical_slab": "Bamboo Vertical Slab",
+"block.better_deco.crimson_vertical_slab": "Crimson Vertical Slab",
+"block.better_deco.warped_vertical_slab": "Warped Vertical Slab",
 
 
-
-  "bundled_tab.bundles_of_bravery.title": "Buildings",
-  "bundled_tab.chase_the_skies.title": "Items",
-  "bundled_tab.the_garden_awakens.title": "Furniture",
-  "bundled_tab.spring_to_life.title": "Utilities",
+  "bundled_tab.buildings.title": "Buildings",
+  "bundled_tab.items.title": "Items",
+  "bundled_tab.furniture.title": "Furniture",
+  "bundled_tab.utilities.title": "Utilities",
+  "bundled_tab.buildings_extras": "Buildings Extras",
+  "bundled_tab.decoration": "Deco",
 
   "block.better_deco.red_stool": "Red Stool",
+
+  "block.better_deco.big_chain": "Big Chain",
 
   "block.better_deco.oak_planks_bricks": "Oak Planks Bricks",
   "block.better_deco.dark_oak_planks_bricks": "Dark Oak Planks Bricks",

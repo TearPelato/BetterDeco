@@ -30,7 +30,7 @@ import java.util.function.Consumer;
 
 public class BundledTabSelector {
     private static final ResourceLocation SELECTOR_BAR =
-            ResourceLocation.fromNamespaceAndPath("better_deco","textures/gui/tab_selector/tab_selector.png");
+            ResourceLocation.fromNamespaceAndPath("better_deco","textures/gui/tab_selector/tab_selector_rework_2.png");
     private static final int VISIBLE_CATEGORIES = 5;
 
     private static BundledTabSelector instance;

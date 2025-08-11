@@ -15,7 +15,7 @@ public class ModBundledTabs {
 
     public static final BundledTabs BUILDINGS = register(
             BundledTabs.builder()
-                    .title(Component.translatable("bundled_tab.bundles_of_bravery.title"))
+                    .title(Component.translatable("bundled_tab.buildings.title"))
                     .icon(new ItemStack(ModBlocks.OAK_BARREL))
                     .displayItems((provider, output) -> {
 
@@ -121,7 +121,7 @@ public class ModBundledTabs {
 
     public static final BundledTabs FURNITURE = register(
             BundledTabs.builder()
-                    .title(Component.translatable("bundled_tab.the_garden_awakens.title"))
+                    .title(Component.translatable("bundled_tab.furniture.title"))
                     .icon(new ItemStack(ModBlocks.OAK_CHAIR.get()))
                     .displayItems((provider, output) -> {
                         output.accept(ModBlocks.OAK_KITCHEN_COUNTER);
@@ -287,7 +287,7 @@ public class ModBundledTabs {
 
     public static final BundledTabs UTILITIES = register(
             BundledTabs.builder()
-                    .title(Component.translatable("bundled_tab.spring_to_life.title"))
+                    .title(Component.translatable("bundled_tab.utilities.title"))
                     .icon(new ItemStack(ModBlocks.PEDESTAL.get()))
                     .displayItems((provider, output) -> {
 
@@ -316,7 +316,7 @@ public class ModBundledTabs {
 
     public static final BundledTabs ITEMS = register(
             BundledTabs.builder()
-                    .title(Component.translatable("bundled_tab.chase_the_skies.title"))
+                    .title(Component.translatable("bundled_tab.items.title"))
                     .icon(new ItemStack(ModItems.IRON_CHISEL.get()))
                     .displayItems((provider, output) -> {
                         output.accept(ModItems.IRON_CHISEL);
@@ -326,7 +326,45 @@ public class ModBundledTabs {
                     })
                     .build()
     );
+    public static final BundledTabs BUILDINGS_EXTRAS = register(
+            BundledTabs.builder()
+                    .title(Component.translatable("bundled_tab.buildings_extras"))
+                    .icon(new ItemStack(ModBlocks.OAK_VERTICAL_SLAB.get()))
+                    .displayItems((provider, output) -> {
+                        output.accept(ModBlocks.OAK_VERTICAL_SLAB);
+                        output.accept(ModBlocks.SPRUCE_VERTICAL_SLAB);
+                        output.accept(ModBlocks.BIRCH_VERTICAL_SLAB);
+                        output.accept(ModBlocks.JUNGLE_VERTICAL_SLAB);
+                        output.accept(ModBlocks.ACACIA_VERTICAL_SLAB);
+                        output.accept(ModBlocks.DARK_OAK_VERTICAL_SLAB);
+                        output.accept(ModBlocks.MANGROVE_VERTICAL_SLAB);
+                        output.accept(ModBlocks.CHERRY_VERTICAL_SLAB);
+                        output.accept(ModBlocks.BAMBOO_VERTICAL_SLAB);
+                        output.accept(ModBlocks.CRIMSON_VERTICAL_SLAB);
+                        output.accept(ModBlocks.WARPED_VERTICAL_SLAB);
 
+
+
+
+
+                            })
+                    .build()
+    );
+
+    public static final BundledTabs DECORATION = register(
+            BundledTabs.builder()
+                    .title(Component.translatable("bundled_tab.decoration"))
+                    .icon(new ItemStack(ModBlocks.BIG_CHAIN.get()))
+                    .displayItems((provider, output) -> {
+                        output.accept(ModBlocks.BIG_CHAIN);
+
+
+
+
+
+                    })
+                    .build()
+    );
 
 
     public static BundledTabs register(BundledTabs builder) {

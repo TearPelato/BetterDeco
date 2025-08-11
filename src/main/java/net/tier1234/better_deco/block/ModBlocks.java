@@ -6,12 +6,12 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.block.custom.*;
+import net.tier1234.better_deco.block.custom.ChainBlock;
 import net.tier1234.better_deco.item.ModItems;
 import java.util.function.Supplier;
 
@@ -23,12 +23,48 @@ public class ModBlocks {
 
 
 
+      //TEST
+public static final DeferredBlock<Block> BIG_CHAIN = registerBlock("big_chain",
+              ()-> new ChainBlock(BlockBehaviour.Properties.of().strength(4f).noOcclusion().sound(SoundType.CHAIN)
+              ));
+
+    //VERTICAL SLABS
+    public static final DeferredBlock<Block> OAK_VERTICAL_SLAB = registerBlock("oak_vertical_slab",
+            ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
+                    .sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> SPRUCE_VERTICAL_SLAB = registerBlock("spruce_vertical_slab",
+            ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
+                    .sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> BIRCH_VERTICAL_SLAB = registerBlock("birch_vertical_slab",
+            ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
+                    .sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> JUNGLE_VERTICAL_SLAB = registerBlock("jungle_vertical_slab",
+            ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
+                    .sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> ACACIA_VERTICAL_SLAB = registerBlock("acacia_vertical_slab",
+            ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
+                    .sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> DARK_OAK_VERTICAL_SLAB = registerBlock("dark_oak_vertical_slab",
+            ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
+                    .sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> MANGROVE_VERTICAL_SLAB = registerBlock("mangrove_vertical_slab",
+            ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
+                    .sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> CHERRY_VERTICAL_SLAB = registerBlock("cherry_vertical_slab",
+            ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
+                    .sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> BAMBOO_VERTICAL_SLAB = registerBlock("bamboo_vertical_slab",
+            ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
+                    .sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> CRIMSON_VERTICAL_SLAB = registerBlock("crimson_vertical_slab",
+            ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
+                    .sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> WARPED_VERTICAL_SLAB = registerBlock("warped_vertical_slab",
+            ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
+                    .sound(SoundType.WOOD)));
 
 
-    //TEST
-    public static final DeferredBlock<Block> RED_STOOL = registerBlock("red_stool",
-            ()-> new BarStoolBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops().noOcclusion()
-                    .sound(SoundType.TUFF)));
+
 
 //STONES
     //Andesite
@@ -734,6 +770,28 @@ public static final DeferredBlock<Block> STONE_COUNTER = registerBlock("stone_ki
             ()-> new CabinetBlock(BlockBehaviour.Properties.of().strength(4f).noOcclusion()));
     public static final DeferredBlock<Block> BLACKSTONE_CABINET = registerBlock("blackstone_cabinet",
             ()-> new CabinetBlock(BlockBehaviour.Properties.of().strength(4f).noOcclusion()));
+
+    //STOOL
+    public static final DeferredBlock<Block> RED_STOOL = registerBlock("red_stool",
+            ()-> new BarStoolBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops().noOcclusion()
+                    .sound(SoundType.TUFF)));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
