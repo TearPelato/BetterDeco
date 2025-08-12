@@ -75,7 +75,7 @@ public class BundledTabSelector {
             graphics.pose().translate(0.0, 0.0, 0.0);
 
             if (this.isValidTab(tab)) {
-                graphics.blit(SELECTOR_BAR, this.guiLeft - 30, this.guiTop + 2, 0, 0, 30, 120);
+                graphics.blit(SELECTOR_BAR, this.guiLeft - 35, this.guiTop + 2, 11, 3, 34, 121);
             }
 
             if (this.lastTab != tab) {
@@ -102,7 +102,7 @@ public class BundledTabSelector {
 
     private void injectWidgets(CreativeModeInventoryScreen screen, Consumer<AbstractWidget> widgets) {
         this.bundles.forEach(category -> {
-            Tab tab = new Tab(this.guiLeft - 23, this.guiTop + 7, category, button -> {
+            Tab tab = new Tab(this.guiLeft - 26, this.guiTop + 7, category, button -> {
                 if (category.isSelected()) {
                     category.deselect();
                 } else {
@@ -116,11 +116,11 @@ public class BundledTabSelector {
             widgets.accept(tab);
         });
 
-        this.scrollUpButton = new ScrollButton(this.guiLeft - 24, this.guiTop + 6, 32, button -> {
+        this.scrollUpButton = new ScrollButton(this.guiLeft - 27, this.guiTop + 6, 50, button -> {
             if (this.scroll > 0) this.scroll--;
             this.updateWidgets();
         });
-        this.scrollDownButton = new ScrollButton(this.guiLeft - 24, this.guiTop + 108, 52, button -> {
+        this.scrollDownButton = new ScrollButton(this.guiLeft - 27, this.guiTop + 110, 70, button -> {
             if (this.scroll < this.getMaxScroll()) this.scroll++;
             this.updateWidgets();
         });
@@ -215,7 +215,7 @@ public class BundledTabSelector {
 
         private void renderSelected(GuiGraphics graphics) {
             if (this.bundle.isSelected()) {
-                graphics.blit(SELECTOR_BAR, this.getX() - 7, this.getY() - 1, 36, 24, 30, 19);
+                graphics.blit(SELECTOR_BAR, this.getX() - 1, this.getY() - 1, 50, 47, 18, 18);
             }
         }
 
@@ -225,7 +225,7 @@ public class BundledTabSelector {
                 graphics.pose().translate(0.0, 0.0, 200.0);
                 RenderSystem.enableBlend();
                 RenderSystem.defaultBlendFunc();
-                graphics.blit(SELECTOR_BAR, this.getX(), this.getY(), 32, 44, 16, 16);
+                graphics.blit(SELECTOR_BAR, this.getX(), this.getY(), 51, 28, 16, 16);
                 RenderSystem.disableBlend();
                 graphics.pose().popPose();
             }
@@ -242,8 +242,8 @@ public class BundledTabSelector {
 
         @Override
         public void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
-            int textureY = this.isHovered ? 12 : 0;
-            graphics.blit(SELECTOR_BAR, this.getX(), this.getY(), this.uOffset, textureY, 18, 11);
+            int textureY = this.isHovered ? 17 : 6;
+            graphics.blit(SELECTOR_BAR, this.getX(), this.getY(), this.uOffset, textureY, 18, 9);
         }
     }
 }
