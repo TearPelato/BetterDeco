@@ -17,7 +17,6 @@ import java.util.function.BiConsumer;
  * BundledTabs from VanillaBackport, used with BlackGear's permission.
  * @author BlackGear
  */
-
 public class BundledTabs {
     public final Component tooltip;
     private final ItemStack icon;

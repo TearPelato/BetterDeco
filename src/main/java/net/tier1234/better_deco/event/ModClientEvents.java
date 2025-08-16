@@ -1,6 +1,5 @@
 package net.tier1234.better_deco.event;
 
-
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -18,14 +17,17 @@ public class ModClientEvents {
     public static void onPlayerJoinLevel(ClientPlayerNetworkEvent.LoggingIn event) {
         BundledTabSelector.bootstrap();
     }
-@SubscribeEvent
+
+    @SubscribeEvent
     public static void onContainerInit(ScreenEvent.Init.Post event) {
         BundledTabSelector.bootstrap().init(event);
     }
-@SubscribeEvent
+
+    @SubscribeEvent
     public static void onContainerRender(ContainerScreenEvent.Render.Background event) {
         BundledTabSelector.bootstrap().renderBackground(event);
     }
+
     @SubscribeEvent
     public static void onContainerClose(ScreenEvent.Closing event) {
         BundledTabSelector.bootstrap().onClose(event);

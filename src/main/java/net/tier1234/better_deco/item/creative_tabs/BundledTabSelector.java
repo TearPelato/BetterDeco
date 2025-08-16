@@ -1,27 +1,19 @@
 package net.tier1234.better_deco.item.creative_tabs;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import net.minecraft.client.DeltaTracker;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
-import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipPositioner;
-import net.minecraft.client.gui.screens.inventory.tooltip.DefaultTooltipPositioner;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.neoforge.client.event.ContainerScreenEvent;
 import net.neoforged.neoforge.client.event.ScreenEvent;
-import net.tier1234.better_deco.item.creative_tabs.core.ScreenAccess;
 import net.tier1234.better_deco.mixin.access.CreativeModeInventoryScreenAccessor;
 import net.tier1234.better_deco.mixin.access.ScreenAccessor;
 
@@ -32,7 +24,6 @@ import java.util.function.Consumer;
  * BundledTabs from VanillaBackport, used with BlackGear's permission.
  * @author BlackGear
  */
-
 public class BundledTabSelector {
     private static final ResourceLocation SELECTOR_BAR =
             ResourceLocation.fromNamespaceAndPath("better_deco","textures/gui/tab_selector/tab_selector_rework_5.png");
