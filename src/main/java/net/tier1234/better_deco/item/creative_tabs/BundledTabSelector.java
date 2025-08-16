@@ -215,7 +215,7 @@ public class BundledTabSelector {
 
         private void renderSelected(GuiGraphics graphics) {
             if (this.bundle.isSelected()) {
-                graphics.blit(SELECTOR_BAR, this.getX() - 1, this.getY() - 1, 50, 47, 18, 18);
+                graphics.blit(SELECTOR_BAR, this.getX() - 7, this.getY() - 1, 64, 29, 30, 19);
             }
         }
 
@@ -225,7 +225,7 @@ public class BundledTabSelector {
                 graphics.pose().translate(0.0, 0.0, 200.0);
                 RenderSystem.enableBlend();
                 RenderSystem.defaultBlendFunc();
-                graphics.blit(SELECTOR_BAR, this.getX(), this.getY(), 51, 28, 16, 16);
+                graphics.blit(SELECTOR_BAR, this.getX(), this.getY(), 48, 48, 16, 16);
                 RenderSystem.disableBlend();
                 graphics.pose().popPose();
             }
