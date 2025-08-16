@@ -1,15 +1,12 @@
 package net.tier1234.better_deco.block.entity;
 
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.block.ModBlocks;
-import net.tier1234.better_deco.block.custom.TecqueBlock;
+import net.tier1234.better_deco.screen.custom.ShelfScreen;
 
 import java.util.function.Supplier;
 
@@ -199,6 +196,36 @@ public class ModBlockEntities {
 
 
             ).build(null));
+
+
+    public static final Supplier<BlockEntityType<ShelfBlockEntity>> SHELF_BE =
+            BLOCK_ENTITIES.register("shelf", () -> BlockEntityType.Builder.of(
+                    ShelfBlockEntity::new,
+                    ModBlocks.ACACIA_SHELF.get(),
+                    ModBlocks.OAK_SHELF.get(),
+                    ModBlocks.SPRUCE_SHELF.get(),
+                    ModBlocks.BIRCH_SHELF.get(),
+                    ModBlocks.JUNGLE_SHELF.get(),
+                    ModBlocks.MANGROVE_SHELF.get(),
+                    ModBlocks.DARK_OAK_SHELF.get(),
+                    ModBlocks.CHERRY_SHELF.get(),
+                    ModBlocks.CRIMSON_SHELF.get(),
+                    ModBlocks.BAMBOO_SHELF.get(),
+                    ModBlocks.WARPED_SHELF.get()
+
+
+            ).build(null));
+
+    public static final Supplier<BlockEntityType<DigitalClockBlockEntity>> DIGITAL_CLOCK =
+            BLOCK_ENTITIES.register("digital_clock", () -> BlockEntityType.Builder.of(
+                    DigitalClockBlockEntity::new,
+                    ModBlocks.RED_DIGITAL_CLOCK.get()
+
+
+            ).build(null));
+
+
+
 
 
 

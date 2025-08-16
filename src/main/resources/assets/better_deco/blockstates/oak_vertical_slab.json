@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "type=north,waterlogged=false": {
+      "model": "better_deco:block/oak_vertical_slab_north"
+    },
+    "type=north,waterlogged=true": {
+      "model": "better_deco:block/oak_vertical_slab_north",
+      "y": 90,
+      "uvlock": true
+    },
+    "type=south,waterlogged=false": {
+      "model": "better_deco:block/oak_vertical_slab_south"
+    },
+    "type=south,waterlogged=true": {
+      "model": "better_deco:block/oak_vertical_slab_south",
+      "y": 90,
+      "uvlock": true
+    },
+    "type=east,waterlogged=false": {
+      "model": "better_deco:block/oak_vertical_slab_east"
+    },
+    "type=east,waterlogged=true": {
+      "model": "better_deco:block/oak_vertical_slab_east",
+      "y": 90,
+      "uvlock": true
+    },
+    "type=west,waterlogged=false": {
+      "model": "better_deco:block/oak_vertical_slab_west"
+    },
+    "type=west,waterlogged=true": {
+      "model": "better_deco:block/oak_vertical_slab_west",
+      "y": 90,
+      "uvlock": true
+    },
+    "type=double_x,waterlogged=false": {
+      "model": "better_deco:block/oak_vertical_slab_double_x"
+    },
+    "type=double_x,waterlogged=true": {
+      "model": "better_deco:block/oak_vertical_slab_double_x",
+      "y": 90,
+      "uvlock": true
+    },
+    "type=double_z,waterlogged=false": {
+      "model": "better_deco:block/oak_vertical_slab_double_z"
+    },
+    "type=double_z,waterlogged=true": {
+      "model": "better_deco:block/oak_vertical_slab_double_z",
+      "y": 90,
+      "uvlock": true
+    }
+  }
+}

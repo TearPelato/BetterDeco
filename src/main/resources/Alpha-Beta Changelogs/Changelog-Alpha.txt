@@ -107,30 +107,38 @@ I RECOMMEND TO USE GUISCALE SET FROM AUTO TO 2/3 Because the Crate new gui will 
  cursed with Gui scale 4/ Auto
 
  #ADDITIONS
+ -Added the Credits.txt  file
+ -Added Coffee table
+ -Added Dinning table
+ -Added Stool
+ -Added Big Chain
+ -Added Wall Lantern
+ -Added Shelfs for each wood variants(THIS SHELFS ARE NOT THE MINECRAFT NEW DECORATIVE BLOCK. I'LL ADD IT IN THE FUTURE,
+ WHEN THE 1.21.9 IS READY)
+ -Added Vertical Slabs
+
+
 
 
  #CHANGES
 -Changed Changelog text Name
 -Changed ModDescription
--Changed the "unlcoked by" in the Stone Tecque recipe
+-Changed the "unlocked by" in the Stone Tecque recipe
+-Reworked the Creative Tab system
+- Changed the Changelog folder
 
  #FIXES
--Added Pedestal/Woodden Tecques recipes missed from the previous alpha
+-Added Pedestal/Wooden Tecques recipes missed from the previous alpha
+-Fixed tags, now some block tags will be DataGen
+
+
+
+-Switching from Alpha Changelogs to Beta Changelogs (Stay tune for the 1° beta)
 
 
 
 
 
-
-
-
-1.0.0-Alpha 6/Beta 1:
-COOMING SOON
-
-
-
-
-1.0.0-Alpha 7/Beta 2:
-Will come After alpha 6(Planned Release: September)
-
-PLANNING THE REWORK OF THE CREATIVE TABS
+THE ALPHA N°5 IS THE LAST ALPHA YUU
+OFFICIALLY THE BetterDeco Enter in his Beta phase on September
+THE CHANGELOG WILL BE MOVED IN THE FILE "Changelog-Beta.txt" and when I'll release the mod will be moved into the "Changelog.txt"

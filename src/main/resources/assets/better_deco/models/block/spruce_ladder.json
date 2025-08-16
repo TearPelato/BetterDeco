@@ -1,17 +1,8 @@
 {
-  "ambientocclusion": false,
+  "parent": "minecraft:block/ladder",
+  "render_type": "minecraft:cutout",
   "textures": {
-    "particle": "better_deco:block/spruce_ladder",
-    "texture": "better_deco/spruce_ladder"
-  },
-  "elements": [
-    {   "from": [ 0, 0, 15.2 ],
-      "to": [ 16, 16, 15.2 ],
-      "shade": false,
-      "faces": {
-        "north": { "uv": [ 0, 0, 16, 16 ], "texture": "better_deco/spruce_ladder" },
-        "south": { "uv": [ 16, 0, 0, 16 ], "texture": "better_deco/spruce_ladder" }
-      }
-    }
-  ]
+    "particle": "better_deco:block/planks/spruce/spruce_ladder",
+    "texture": "better_deco:block/planks/spruce/spruce_ladder"
+  }
 }

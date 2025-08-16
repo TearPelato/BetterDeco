@@ -10,6 +10,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.tier1234.better_deco.screen.custom.CrateMenu;
 import net.tier1234.better_deco.screen.custom.PedestalMenu;
+import net.tier1234.better_deco.screen.custom.ShelfMenu;
 import net.tier1234.better_deco.screen.custom.TecqueMenu;
 import net.tier1234.better_deco.util.Constants;
 
@@ -26,6 +27,9 @@ public class ModMenuTypes {
 
     public static final DeferredHolder<MenuType<?>, MenuType<CrateMenu>> CRATE_MENU =
             registerMenuType("crate_menu", CrateMenu::new);
+
+    public static final DeferredHolder<MenuType<?>, MenuType<ShelfMenu>> SHELF_MENU =
+            registerMenuType("shelf_menu", ShelfMenu::new);
 
 
 

@@ -21,6 +21,8 @@ public class ModEntities {
                     .sized(0.5f, 0.5f).build("chair_entity"));
 
 
+
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }

@@ -6,12 +6,12 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.block.custom.*;
+import net.tier1234.better_deco.block.custom.ChainBlock;
 import net.tier1234.better_deco.item.ModItems;
 import java.util.function.Supplier;
 
@@ -23,9 +23,84 @@ public class ModBlocks {
 
 
 
+      //TEST
+    public static final  DeferredBlock<Block> RED_DIGITAL_CLOCK = registerBlock("red_digital_clock",
+              ()-> new DigitalClockBlock(BlockBehaviour.Properties.of().sound(SoundType.DECORATED_POT)));
 
 
-    //TEST
+
+public static final DeferredBlock<Block> WALL_LANTERN = registerBlock("wall_lantern",
+      ()-> new WallLanternBlock(BlockBehaviour.Properties.of().strength(2f).sound(SoundType.LANTERN).lightLevel(state -> 15)));
+
+
+    //DECORATIONS
+    //DECO
+public static final DeferredBlock<Block> BIG_CHAIN = registerBlock("big_chain",
+              ()-> new ChainBlock(BlockBehaviour.Properties.of().strength(4f).noOcclusion().sound(SoundType.CHAIN)
+              ));
+//SHELFS
+public static final DeferredBlock<Block> OAK_SHELF = registerBlock("oak_shelf",
+        ()-> new CustomShelfBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> SPRUCE_SHELF = registerBlock("spruce_shelf",
+            ()-> new CustomShelfBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> BIRCH_SHELF = registerBlock("birch_shelf",
+            ()-> new CustomShelfBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> JUNGLE_SHELF = registerBlock("jungle_shelf",
+            ()-> new CustomShelfBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> ACACIA_SHELF = registerBlock("acacia_shelf",
+            ()-> new CustomShelfBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> DARK_OAK_SHELF = registerBlock("dark_oak_shelf",
+            ()-> new CustomShelfBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> MANGROVE_SHELF = registerBlock("mangrove_shelf",
+            ()-> new CustomShelfBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> CHERRY_SHELF = registerBlock("cherry_shelf",
+            ()-> new CustomShelfBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> BAMBOO_SHELF = registerBlock("bamboo_shelf",
+            ()-> new CustomShelfBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> CRIMSON_SHELF = registerBlock("crimson_shelf",
+            ()-> new CustomShelfBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> WARPED_SHELF = registerBlock("warped_shelf",
+            ()-> new CustomShelfBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD)));
+
+
+//EXTRA BUILDINGS
+
+    //VERTICAL SLABS
+    public static final DeferredBlock<Block> OAK_VERTICAL_SLAB = registerBlock("oak_vertical_slab",
+            ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
+                    .sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> SPRUCE_VERTICAL_SLAB = registerBlock("spruce_vertical_slab",
+            ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
+                    .sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> BIRCH_VERTICAL_SLAB = registerBlock("birch_vertical_slab",
+            ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
+                    .sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> JUNGLE_VERTICAL_SLAB = registerBlock("jungle_vertical_slab",
+            ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
+                    .sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> ACACIA_VERTICAL_SLAB = registerBlock("acacia_vertical_slab",
+            ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
+                    .sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> DARK_OAK_VERTICAL_SLAB = registerBlock("dark_oak_vertical_slab",
+            ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
+                    .sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> MANGROVE_VERTICAL_SLAB = registerBlock("mangrove_vertical_slab",
+            ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
+                    .sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> CHERRY_VERTICAL_SLAB = registerBlock("cherry_vertical_slab",
+            ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
+                    .sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> BAMBOO_VERTICAL_SLAB = registerBlock("bamboo_vertical_slab",
+            ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
+                    .sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> CRIMSON_VERTICAL_SLAB = registerBlock("crimson_vertical_slab",
+            ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
+                    .sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> WARPED_VERTICAL_SLAB = registerBlock("warped_vertical_slab",
+            ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
+                    .sound(SoundType.WOOD)));
+
+
 
 
 //STONES
@@ -659,6 +734,7 @@ public static final DeferredBlock<Block> OAK_CRATE = registerBlock("oak_storage_
             ()-> new CrateBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
 
 
+
 //Sinks
 public static final DeferredBlock<Block> OAK_SINK = registerBlock("oak_sink",
         () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
@@ -732,6 +808,67 @@ public static final DeferredBlock<Block> STONE_COUNTER = registerBlock("stone_ki
             ()-> new CabinetBlock(BlockBehaviour.Properties.of().strength(4f).noOcclusion()));
     public static final DeferredBlock<Block> BLACKSTONE_CABINET = registerBlock("blackstone_cabinet",
             ()-> new CabinetBlock(BlockBehaviour.Properties.of().strength(4f).noOcclusion()));
+
+    //STOOL
+    public static final DeferredBlock<Block> RED_STOOL = registerBlock("red_stool",
+            ()-> new BarStoolBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> ORANGE_STOOL = registerBlock("orange_stool",
+            ()-> new BarStoolBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> BLUE_STOOL = registerBlock("blue_stool",
+            ()-> new BarStoolBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> CYAN_STOOL = registerBlock("cyan_stool",
+            ()-> new BarStoolBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> LIGHT_BLUE_STOOL = registerBlock("light_blue_stool",
+            ()-> new BarStoolBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> PURPLE_STOOL = registerBlock("purple_stool",
+            ()-> new BarStoolBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> MAGENTA_STOOL = registerBlock("magenta_stool",
+            ()-> new BarStoolBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> YELLOW_STOOL = registerBlock("yellow_stool",
+            ()-> new BarStoolBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> GREY_STOOL = registerBlock("grey_stool",
+            ()-> new BarStoolBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> LIGHT_GREY_STOOL = registerBlock("light_grey_stool",
+            ()-> new BarStoolBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> BLACK_STOOL = registerBlock("black_stool",
+            ()-> new BarStoolBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> WITHE_STOOL = registerBlock("white_stool",
+            ()-> new BarStoolBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> GREEN_STOOL = registerBlock("green_stool",
+            ()-> new BarStoolBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> LIME_STOOL = registerBlock("lime_stool",
+            ()-> new BarStoolBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> PINK_STOOL = registerBlock("pink_stool",
+            ()-> new BarStoolBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> BROWN_STOOL = registerBlock("brown_stool",
+            ()-> new BarStoolBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+
+
+
+   //COFFEE TABLE
+    public static final  DeferredBlock<Block> OAK_COFFEE_TABLE = registerBlock("oak_coffee_table",
+            ()-> new CoffeeTableBlock(BlockBehaviour.Properties.of().strength(2f).sound(SoundType.WOOD)));
+
+    //DINNING TABLE
+    public static final  DeferredBlock<Block> OAK_DINNING_TABLE = registerBlock("oak_dinning_table",
+            ()-> new DinningTableBlock(BlockBehaviour.Properties.of().strength(2f).sound(SoundType.WOOD)));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

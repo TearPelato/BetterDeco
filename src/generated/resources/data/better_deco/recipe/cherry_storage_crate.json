@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:cherry_planks"
+    },
+    "X": {
+      "item": "minecraft:chest"
+    }
+  },
+  "pattern": [
+    "BBB",
+    "BXB",
+    "BBB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "better_deco:cherry_storage_crate"
+  }
+}
