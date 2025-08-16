@@ -67,7 +67,6 @@ public class BarStoolBlock extends Block {
             shapes.add(legBackLeft);
             shapes.add(legBackRight);
 
-            // Ruota la forma in base alla direzione
             VoxelShape combined = VoxelShapeHelper.combineAll(shapes);
             VoxelShape rotated = VoxelShapeHelper.rotate(combined, dir);
             builder.put(state, rotated);

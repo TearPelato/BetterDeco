@@ -1,12 +1,13 @@
 {
+  "render_type": "minecraft:cutout",
 	"format_version": "1.21.6",
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
 	"textures": {
 		"1": "block/lantern",
-		"2": "block/texture",
-		"3": "block/hald",
-		"particle": "Downloads/texture"
+		"2": "better_deco:block/texture",
+		"3": "better_deco:block/hald",
+		"particle": "block/lantern"
 	},
 	"elements": [
 		{

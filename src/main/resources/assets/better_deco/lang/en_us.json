@@ -25,8 +25,46 @@
   "bundled_tab.decoration": "Deco",
 
   "block.better_deco.red_stool": "Red Stool",
+  "block.better_deco.orange_stool": "Orange Stool",
+  "block.better_deco.yellow_stool": "Yellow Stool",
+  "block.better_deco.pink_stool": "Pink Stool",
+  "block.better_deco.purple_stool": "Purple Stool",
+  "block.better_deco.brown_stool": "Brown Stool",
+  "block.better_deco.black_stool": "Black Stool",
+  "block.better_deco.grey_stool": "Grey Stool",
+  "block.better_deco.light_grey_stool": "Light Grey Stool",
+  "block.better_deco.blue_stool": "Blue Stool",
+  "block.better_deco.light_blue_stool": "Light Blue Stool",
+  "block.better_deco.cyan_stool": "Cyan Stool",
+  "block.better_deco.magenta_stool": "Magenta Stool",
+  "block.better_deco.green_stool": "Green Stool",
+  "block.better_deco.lime_stool": "Lime Stool",
+  "block.better_deco.white_stool": "White Stool",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  "block.better_deco.red_digital_clock": "Red Digital Clock",
+
+  "block.better_deco.acacia_shelf": "Acacia Shelf",
 
   "block.better_deco.big_chain": "Big Chain",
+  "block.better_deco.wall_lantern": "Wall Lantern",
+
+  "block.better_deco.oak_coffee_table": "Oak Coffee Table",
+  "block.better_deco.oak_dinning_table": "Oak Dinning Table",
+
+
 
   "block.better_deco.oak_planks_bricks": "Oak Planks Bricks",
   "block.better_deco.dark_oak_planks_bricks": "Dark Oak Planks Bricks",

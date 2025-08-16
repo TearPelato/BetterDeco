@@ -19,8 +19,7 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.tier1234.better_deco.block.ModBlocks;
 import net.tier1234.better_deco.block.entity.ModBlockEntities;
-import net.tier1234.better_deco.block.entity.renderer.PedestalBlockEntityRenderer;
-import net.tier1234.better_deco.block.entity.renderer.TecqueBlockEntityRenderer;
+import net.tier1234.better_deco.block.entity.renderer.*;
 import net.tier1234.better_deco.entity.ModEntities;
 import net.tier1234.better_deco.entity.client.ChairRenderer;
 import net.tier1234.better_deco.item.ModItems;
@@ -28,6 +27,7 @@ import net.tier1234.better_deco.item.creative_tabs.ModCreativeTabs;
 import net.tier1234.better_deco.screen.ModMenuTypes;
 import net.tier1234.better_deco.screen.custom.CrateScreen;
 import net.tier1234.better_deco.screen.custom.PedestalScreen;
+import net.tier1234.better_deco.screen.custom.ShelfScreen;
 import net.tier1234.better_deco.screen.custom.TecqueScreen;
 import org.slf4j.Logger;
 
@@ -83,6 +83,7 @@ public class BetterDeco {
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @EventBusSubscriber(modid = MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
+
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
 
@@ -93,12 +94,16 @@ public class BetterDeco {
         public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
             event.registerBlockEntityRenderer(ModBlockEntities.PEDESTAL_BE.get(), PedestalBlockEntityRenderer::new);
             event.registerBlockEntityRenderer(ModBlockEntities.GLASS_TECQUE.get(), TecqueBlockEntityRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntities.SHELF_BE.get(), ShelfBlockEntityRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntities.DIGITAL_CLOCK.get(), DigitalClockBlockEntityRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntities.KITCHEN_SINK.get(), KitchenSinkBlockEntityRenderer::new);
         }
         @SubscribeEvent
         public static void registerScreens(RegisterMenuScreensEvent event) {
             event.register(ModMenuTypes.TECQUE_MENU.get(), TecqueScreen::new);
             event.register(ModMenuTypes.PEDESTAL_MENU.get(), PedestalScreen::new);
             event.register(ModMenuTypes.CRATE_MENU.get(), CrateScreen::new);
+            event.register(ModMenuTypes.SHELF_MENU.get(), ShelfScreen::new);
         }
     }
 }

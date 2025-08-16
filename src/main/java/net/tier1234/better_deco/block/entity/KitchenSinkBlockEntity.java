@@ -1,47 +1,25 @@
 package net.tier1234.better_deco.block.entity;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.NonNullList;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.MenuProvider;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.ChestMenu;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.fluids.FluidType;
 
-public class KitchenSinkBlockEntity extends RandomizableContainerBlockEntity
-        implements MenuProvider {
-
-    private NonNullList<ItemStack> items = NonNullList.withSize(36, ItemStack.EMPTY);
-
-    public KitchenSinkBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.KITCHEN_SINK.get(), pos, state);
+public class KitchenSinkBlockEntity extends FluidHandlerSyncedBlockEntity
+{
+    protected KitchenSinkBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state, int capacity)
+    {
+        super(type, pos, state, capacity);
     }
 
     @Override
-    protected Component getDefaultName() {
-        return Component.literal("Kitchen Sink");
+    protected CompoundTag saveWithFullMetadata() {
+        return null;
     }
 
-    @Override
-    protected AbstractContainerMenu createMenu(int id, Inventory playerInventory) {
-        return ChestMenu.fourRows(id, playerInventory);
-    }
-
-    @Override
-    public int getContainerSize() {
-        return items.size();
-    }
-
-    @Override
-    public NonNullList<ItemStack> getItems() {
-        return items;
-    }
-
-    @Override
-    public void setItems(NonNullList<ItemStack> items) {
-        this.items = items;
+    public KitchenSinkBlockEntity(BlockPos pos, BlockState state)
+    {
+        super(ModBlockEntities.KITCHEN_SINK.get(), pos, state, FluidType.BUCKET_VOLUME * 10);
     }
 }
