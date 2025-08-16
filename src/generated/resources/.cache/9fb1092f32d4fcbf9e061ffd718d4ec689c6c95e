@@ -1,4 +1,4 @@
-// 1.21.1	2025-08-06T23:19:07.4655056	Recipes
+// 1.21.1	2025-08-16T18:29:33.8864829	Recipes
 fcd3ba1341ea94eb7603d28a2f3ac1a458074bb1 data/better_deco/advancement/recipes/decorations/acacia_bedside.json
 ad92318f6344a8124934084484b01b2978c0c616 data/better_deco/advancement/recipes/decorations/acacia_cabinet.json
 00c9f589f0afede0f0d3c785290af1439eb737f8 data/better_deco/advancement/recipes/decorations/acacia_kitchen_counter.json
@@ -13,6 +13,7 @@ e268780db41aebc0a15e2a7e4a071d5cb4a64d0f data/better_deco/advancement/recipes/de
 be237210d72981567f244315e2abc221d5ca70f9 data/better_deco/advancement/recipes/decorations/bamboo_sink.json
 c39ccedc974279f6f7873312e2307cf4e67a9ce1 data/better_deco/advancement/recipes/decorations/bamboo_storage_crate.json
 b9fa26d1a08b9ba1ba9c627a9ea01c378ccaf858 data/better_deco/advancement/recipes/decorations/bamboo_table.json
+e479c54aeefa696fd2d6d49e3307ee753c7105c5 data/better_deco/advancement/recipes/decorations/big_chain.json
 a9aed5ea0f5c320dd33e4ab05c5dfc4c8639b2a3 data/better_deco/advancement/recipes/decorations/birch_bedside.json
 5ca413c0d6e40508131b413d2475f07957e9a288 data/better_deco/advancement/recipes/decorations/birch_cabinet.json
 487bdeeec8ddaef7a70d8f650701fe994e98195f data/better_deco/advancement/recipes/decorations/birch_kitchen_counter.json
@@ -294,6 +295,7 @@ b315f56f63724904687aa2c357442cb6762466fb data/better_deco/recipe/bamboo_polished
 3cc5a6cd6f56a0b8251cf5e9d6a4922aadafaeac data/better_deco/recipe/bamboo_storage_crate.json
 b7a1471c33666714ab01cdb922c0b93c5394b54a data/better_deco/recipe/bamboo_table.json
 2d4b06b358fb1037467c546f9a1fd04d60b1fa95 data/better_deco/recipe/bamboo_vertical_planks.json
+b04f610302cd08eb1ef54dd87d0c12ad0d53cda1 data/better_deco/recipe/big_chain.json
 373ac9c8e8576935bf797696b1775ffe31990ed1 data/better_deco/recipe/birch_barrel.json
 01de2e29bd9937fe3eaf5f2eecf8d251f6d129c3 data/better_deco/recipe/birch_bedside.json
 bcd2a899d07610fb2804c2ef1ff26b233b3d6047 data/better_deco/recipe/birch_cabinet.json

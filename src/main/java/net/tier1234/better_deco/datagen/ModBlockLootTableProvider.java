@@ -3,9 +3,7 @@ package net.tier1234.better_deco.datagen;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
-import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.tier1234.better_deco.block.ModBlocks;
 
@@ -378,9 +376,59 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.BLACKSTONE_CABINET.get());
 
 
+        dropSelf(ModBlocks.RED_STOOL.get());
+        dropSelf(ModBlocks.YELLOW_STOOL.get());
+        dropSelf(ModBlocks.ORANGE_STOOL.get());
+        dropSelf(ModBlocks.PURPLE_STOOL.get());
+        dropSelf(ModBlocks.MAGENTA_STOOL.get());
+        dropSelf(ModBlocks.PINK_STOOL.get());
+        dropSelf(ModBlocks.BLUE_STOOL.get());
+        dropSelf(ModBlocks.LIGHT_BLUE_STOOL.get());
+        dropSelf(ModBlocks.WITHE_STOOL.get());
+        dropSelf(ModBlocks.CYAN_STOOL.get());
+        dropSelf(ModBlocks.GREY_STOOL.get());
+        dropSelf(ModBlocks.LIGHT_GREY_STOOL.get());
+        dropSelf(ModBlocks.GREEN_STOOL.get());
+        dropSelf(ModBlocks.LIME_STOOL.get());
+        dropSelf(ModBlocks.BLACK_STOOL.get());
+        dropSelf(ModBlocks.BROWN_STOOL.get());
+
+        dropSelf(ModBlocks.RED_DIGITAL_CLOCK.get());
+
+        dropSelf(ModBlocks.BIG_CHAIN.get());
+        dropSelf(ModBlocks.WALL_LANTERN.get());
+
+        dropSelf(ModBlocks.OAK_SHELF.get());
+        dropSelf(ModBlocks.SPRUCE_SHELF.get());
+        dropSelf(ModBlocks.BIRCH_SHELF.get());
+        dropSelf(ModBlocks.JUNGLE_SHELF.get());
+        dropSelf(ModBlocks.ACACIA_SHELF.get());
+        dropSelf(ModBlocks.DARK_OAK_SHELF.get());
+        dropSelf(ModBlocks.MANGROVE_SHELF.get());
+        dropSelf(ModBlocks.CHERRY_SHELF.get());
+        dropSelf(ModBlocks.BAMBOO_SHELF.get());
+        dropSelf(ModBlocks.CRIMSON_SHELF.get());
+        dropSelf(ModBlocks.WARPED_SHELF.get());
+     // Vertical slab
+        add(ModBlocks.OAK_VERTICAL_SLAB.get(), this::createSlabItemTable);
+        add(ModBlocks.SPRUCE_VERTICAL_SLAB.get(), this::createSlabItemTable);
+        add(ModBlocks.BIRCH_VERTICAL_SLAB.get(), this::createSlabItemTable);
+        add(ModBlocks.JUNGLE_VERTICAL_SLAB.get(), this::createSlabItemTable);
+        add(ModBlocks.ACACIA_VERTICAL_SLAB.get(), this::createSlabItemTable);
+        add(ModBlocks.DARK_OAK_VERTICAL_SLAB.get(), this::createSlabItemTable);
+        add(ModBlocks.MANGROVE_VERTICAL_SLAB.get(), this::createSlabItemTable);
+        add(ModBlocks.CHERRY_VERTICAL_SLAB.get(), this::createSlabItemTable);
+        add(ModBlocks.BAMBOO_VERTICAL_SLAB.get(), this::createSlabItemTable);
+        add(ModBlocks.CRIMSON_VERTICAL_SLAB.get(), this::createSlabItemTable);
+        add(ModBlocks.WARPED_VERTICAL_SLAB.get(), this::createSlabItemTable);
+
+
+        dropSelf(ModBlocks.OAK_COFFEE_TABLE.get());
+        dropSelf(ModBlocks.OAK_DINNING_TABLE.get());
 
 
     }
+
 
     @Override
     protected Iterable<Block> getKnownBlocks() {

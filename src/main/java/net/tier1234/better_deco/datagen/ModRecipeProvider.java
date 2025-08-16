@@ -2562,6 +2562,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_warped_slab", has(Blocks.WARPED_SLAB))
                 .save(recipeOutput);
 
+        //Deco
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BIG_CHAIN.get())
+                .pattern(" # ")
+                .pattern(" B ")
+                .pattern(" # ")
+                .define('B', Blocks.CHAIN.asItem())
+                .define('#', Items.IRON_INGOT.asItem())
+                .unlockedBy("has_iron", has(Items.IRON_INGOT))
+                .save(recipeOutput);
+
 
 
 

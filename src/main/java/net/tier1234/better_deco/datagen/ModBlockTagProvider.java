@@ -129,6 +129,30 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.CRIMSON_GLASS_TECQUE.get())
                 .add(ModBlocks.WARPED_GLASS_TECQUE.get())
 
+                .add(ModBlocks.OAK_SHELF.get())
+                .add(ModBlocks.SPRUCE_SHELF.get())
+                .add(ModBlocks.BIRCH_SHELF.get())
+                .add(ModBlocks.JUNGLE_SHELF.get())
+                .add(ModBlocks.ACACIA_SHELF.get())
+                .add(ModBlocks.DARK_OAK_SHELF.get())
+                .add(ModBlocks.MANGROVE_SHELF.get())
+                .add(ModBlocks.CHERRY_SHELF.get())
+                .add(ModBlocks.BAMBOO_SHELF.get())
+                .add(ModBlocks.CRIMSON_SHELF.get())
+                .add(ModBlocks.WARPED_SHELF.get())
+
+                .add(ModBlocks.OAK_VERTICAL_SLAB.get())
+                .add(ModBlocks.SPRUCE_VERTICAL_SLAB.get())
+                .add(ModBlocks.BIRCH_VERTICAL_SLAB.get())
+                .add(ModBlocks.JUNGLE_VERTICAL_SLAB.get())
+                .add(ModBlocks.ACACIA_VERTICAL_SLAB.get())
+                .add(ModBlocks.DARK_OAK_VERTICAL_SLAB.get())
+                .add(ModBlocks.MANGROVE_VERTICAL_SLAB.get())
+                .add(ModBlocks.CHERRY_VERTICAL_SLAB.get())
+                .add(ModBlocks.BAMBOO_VERTICAL_SLAB.get())
+                .add(ModBlocks.CRIMSON_VERTICAL_SLAB.get())
+                .add(ModBlocks.WARPED_VERTICAL_SLAB.get())
+
 
         ;
 

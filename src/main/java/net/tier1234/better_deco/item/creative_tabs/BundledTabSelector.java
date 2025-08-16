@@ -35,7 +35,7 @@ import java.util.function.Consumer;
 
 public class BundledTabSelector {
     private static final ResourceLocation SELECTOR_BAR =
-            ResourceLocation.fromNamespaceAndPath("better_deco","textures/gui/tab_selector/tab_selector_update.png");
+            ResourceLocation.fromNamespaceAndPath("better_deco","textures/gui/tab_selector/tab_selector_rework_5.png");
     private static final int VISIBLE_CATEGORIES = 5;
 
     private static BundledTabSelector instance;
@@ -227,7 +227,7 @@ public class BundledTabSelector {
 
         private void renderSelected(GuiGraphics graphics) {
             if (this.bundle.isSelected()) {
-                graphics.blit(SELECTOR_BAR, this.getX() - 7, this.getY() - 1, 36, 24, 30, 19);
+                graphics.blit(SELECTOR_BAR, this.getX() - 7, this.getY() - 1, 64, 29, 30, 19);
             }
         }
 
@@ -237,7 +237,7 @@ public class BundledTabSelector {
                 graphics.pose().translate(0.0, 0.0, 200.0);
                 RenderSystem.enableBlend();
                 RenderSystem.defaultBlendFunc();
-                graphics.blit(SELECTOR_BAR, this.getX(), this.getY(), 32, 44, 16, 16);
+                graphics.blit(SELECTOR_BAR, this.getX(), this.getY(), 48, 48, 16, 16);
                 RenderSystem.disableBlend();
                 graphics.pose().popPose();
             }
