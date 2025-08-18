@@ -1,7 +1,0 @@
-{
-  "parent": "better_deco:block/vertical_slab",
-  "textures": {
-    "0": "minecraft:block/bamboo_planks",
-    "particle": "minecraft:block/bamboo_planks"
-  }
-}
