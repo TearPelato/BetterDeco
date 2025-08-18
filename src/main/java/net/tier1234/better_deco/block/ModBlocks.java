@@ -848,6 +848,36 @@ public static final DeferredBlock<Block> STONE_COUNTER = registerBlock("stone_ki
    //COFFEE TABLE
     public static final  DeferredBlock<Block> OAK_COFFEE_TABLE = registerBlock("oak_coffee_table",
             ()-> new CoffeeTableBlock(BlockBehaviour.Properties.of().strength(2f).sound(SoundType.WOOD)));
+    public static final  DeferredBlock<Block> SPRUCE_COFFEE_TABLE = registerBlock("spruce_coffee_table",
+            ()-> new CoffeeTableBlock(BlockBehaviour.Properties.of().strength(2f).sound(SoundType.WOOD)));
+    public static final  DeferredBlock<Block> BIRCH_COFFEE_TABLE = registerBlock("birch_coffee_table",
+            ()-> new CoffeeTableBlock(BlockBehaviour.Properties.of().strength(2f).sound(SoundType.WOOD)));
+    public static final  DeferredBlock<Block> JUNGLE_COFFEE_TABLE = registerBlock("jungle_coffee_table",
+            ()-> new CoffeeTableBlock(BlockBehaviour.Properties.of().strength(2f).sound(SoundType.WOOD)));
+    public static final  DeferredBlock<Block> ACACIA_COFFEE_TABLE = registerBlock("acacia_coffee_table",
+            ()-> new CoffeeTableBlock(BlockBehaviour.Properties.of().strength(2f).sound(SoundType.WOOD)));
+    public static final  DeferredBlock<Block> DARK_OAK_COFFEE_TABLE = registerBlock("dark_oak_coffee_table",
+            ()-> new CoffeeTableBlock(BlockBehaviour.Properties.of().strength(2f).sound(SoundType.WOOD)));
+    public static final  DeferredBlock<Block> MANGROVE_COFFEE_TABLE = registerBlock("mangrove_coffee_table",
+            ()-> new CoffeeTableBlock(BlockBehaviour.Properties.of().strength(2f).sound(SoundType.WOOD)));
+    public static final  DeferredBlock<Block> CHERRY_COFFEE_TABLE = registerBlock("cherry_coffee_table",
+            ()-> new CoffeeTableBlock(BlockBehaviour.Properties.of().strength(2f).sound(SoundType.WOOD)));
+    public static final  DeferredBlock<Block> BAMBOO_COFFEE_TABLE = registerBlock("bamboo_coffee_table",
+            ()-> new CoffeeTableBlock(BlockBehaviour.Properties.of().strength(2f).sound(SoundType.WOOD)));
+    public static final  DeferredBlock<Block> CRIMSON_COFFEE_TABLE = registerBlock("crimson_coffee_table",
+            ()-> new CoffeeTableBlock(BlockBehaviour.Properties.of().strength(2f).sound(SoundType.WOOD)));
+    public static final  DeferredBlock<Block> WARPED_COFFEE_TABLE = registerBlock("warped_coffee_table",
+            ()-> new CoffeeTableBlock(BlockBehaviour.Properties.of().strength(2f).sound(SoundType.WOOD)));
+
+
+
+
+
+
+
+
+
+
 
     //DINNING TABLE
     public static final  DeferredBlock<Block> OAK_DINNING_TABLE = registerBlock("oak_dinning_table",

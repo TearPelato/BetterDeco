@@ -56,12 +56,24 @@
 
   "block.better_deco.red_digital_clock": "Red Digital Clock",
 
-  "block.better_deco.acacia_shelf": "Acacia Shelf",
 
   "block.better_deco.big_chain": "Big Chain",
   "block.better_deco.wall_lantern": "Wall Lantern",
 
   "block.better_deco.oak_coffee_table": "Oak Coffee Table",
+  "block.better_deco.spruce_coffee_table": "Spruce Coffee Table",
+  "block.better_deco.birch_coffee_table": "Birch Coffee Table",
+  "block.better_deco.jungle_coffee_table": "Jungle Coffee Table",
+  "block.better_deco.acacia_coffee_table": "Acacia Coffee Table",
+  "block.better_deco.dark_oak_coffee_table": "Dark Oak Coffee Table",
+  "block.better_deco.mangrove_coffee_table": "Mangrove Coffee Table",
+  "block.better_deco.cherry_coffee_table": "Cherry Coffee Table",
+  "block.better_deco.bamboo_coffee_table": "Bamboo Coffee Table",
+  "block.better_deco.crimson_coffee_table": "Crimson Coffee Table",
+  "block.better_deco.warped_coffee_table": "Warped Coffee Table",
+
+
+
   "block.better_deco.oak_dinning_table": "Oak Dinning Table",
 
 
@@ -404,7 +416,17 @@
   "block.better_deco.crimson_glass_tecque": "Crimson Glass Tecque",
   "block.better_deco.warped_glass_tecque": "Warped Glass Tecque",
 
-
+  "block.better_deco.oak_shelf": "Oak Shelf",
+  "block.better_deco.spruce_shelf": "Spruce Shelf",
+  "block.better_deco.birch_shelf": "Birch Shelf",
+  "block.better_deco.jungle_shelf": "Jungle Shelf",
+  "block.better_deco.acacia_shelf": "Acacia Shelf",
+  "block.better_deco.dark_oak_shelf": "Dark Oak Shelf",
+  "block.better_deco.mangrove_shelf": "Mangrove Shelf",
+  "block.better_deco.cherry_shelf": "Cherry Shelf",
+  "block.better_deco.bamboo_shelf": "Bamboo Shelf",
+  "block.better_deco.crimson_shelf": "Crimson Shelf",
+  "block.better_deco.warped_shelf": "Warped Shelf",
 
 
 

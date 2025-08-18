@@ -247,6 +247,18 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.CRIMSON_TABLE);
                         output.accept(ModBlocks.WARPED_TABLE);
                         output.accept(ModBlocks.OAK_COFFEE_TABLE);
+                        output.accept(ModBlocks.SPRUCE_COFFEE_TABLE);
+                        output.accept(ModBlocks.BIRCH_COFFEE_TABLE);
+                        output.accept(ModBlocks.JUNGLE_COFFEE_TABLE);
+                        output.accept(ModBlocks.ACACIA_COFFEE_TABLE);
+                        output.accept(ModBlocks.DARK_OAK_COFFEE_TABLE);
+                        output.accept(ModBlocks.MANGROVE_COFFEE_TABLE);
+                        output.accept(ModBlocks.CHERRY_COFFEE_TABLE);
+                        output.accept(ModBlocks.BAMBOO_COFFEE_TABLE);
+                        output.accept(ModBlocks.CRIMSON_COFFEE_TABLE);
+                        output.accept(ModBlocks.WARPED_COFFEE_TABLE);
+
+
                         output.accept(ModBlocks.OAK_DINNING_TABLE);
 
 

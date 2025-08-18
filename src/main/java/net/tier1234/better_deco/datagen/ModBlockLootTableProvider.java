@@ -5,6 +5,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.tier1234.better_deco.block.ModBlocks;
 
 import java.util.Set;
@@ -410,22 +411,48 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.CRIMSON_SHELF.get());
         dropSelf(ModBlocks.WARPED_SHELF.get());
      // Vertical slab
-        add(ModBlocks.OAK_VERTICAL_SLAB.get(), this::createSlabItemTable);
-        add(ModBlocks.SPRUCE_VERTICAL_SLAB.get(), this::createSlabItemTable);
-        add(ModBlocks.BIRCH_VERTICAL_SLAB.get(), this::createSlabItemTable);
-        add(ModBlocks.JUNGLE_VERTICAL_SLAB.get(), this::createSlabItemTable);
-        add(ModBlocks.ACACIA_VERTICAL_SLAB.get(), this::createSlabItemTable);
-        add(ModBlocks.DARK_OAK_VERTICAL_SLAB.get(), this::createSlabItemTable);
-        add(ModBlocks.MANGROVE_VERTICAL_SLAB.get(), this::createSlabItemTable);
-        add(ModBlocks.CHERRY_VERTICAL_SLAB.get(), this::createSlabItemTable);
-        add(ModBlocks.BAMBOO_VERTICAL_SLAB.get(), this::createSlabItemTable);
-        add(ModBlocks.CRIMSON_VERTICAL_SLAB.get(), this::createSlabItemTable);
-        add(ModBlocks.WARPED_VERTICAL_SLAB.get(), this::createSlabItemTable);
+        add(ModBlocks.SPRUCE_VERTICAL_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.SPRUCE_VERTICAL_SLAB.get()));
+        add(ModBlocks.BIRCH_VERTICAL_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.BIRCH_VERTICAL_SLAB.get()));
+        add(ModBlocks.JUNGLE_VERTICAL_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.JUNGLE_VERTICAL_SLAB.get()));
+        add(ModBlocks.ACACIA_VERTICAL_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.ACACIA_VERTICAL_SLAB.get()));
+        add(ModBlocks.DARK_OAK_VERTICAL_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.DARK_OAK_VERTICAL_SLAB.get()));
+        add(ModBlocks.MANGROVE_VERTICAL_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.MANGROVE_VERTICAL_SLAB.get()));
+        add(ModBlocks.CHERRY_VERTICAL_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.CHERRY_VERTICAL_SLAB.get()));
+        add(ModBlocks.BAMBOO_VERTICAL_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.BAMBOO_VERTICAL_SLAB.get()));
+        add(ModBlocks.CRIMSON_VERTICAL_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.CRIMSON_VERTICAL_SLAB.get()));
+        add(ModBlocks.WARPED_VERTICAL_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.WARPED_VERTICAL_SLAB.get()));
+
+
+
 
 
         dropSelf(ModBlocks.OAK_COFFEE_TABLE.get());
+        dropSelf(ModBlocks.SPRUCE_COFFEE_TABLE.get());
+        dropSelf(ModBlocks.BIRCH_COFFEE_TABLE.get());
+        dropSelf(ModBlocks.JUNGLE_COFFEE_TABLE.get());
+        dropSelf(ModBlocks.ACACIA_COFFEE_TABLE.get());
+        dropSelf(ModBlocks.DARK_OAK_COFFEE_TABLE.get());
+        dropSelf(ModBlocks.MANGROVE_COFFEE_TABLE.get());
+        dropSelf(ModBlocks.CHERRY_COFFEE_TABLE.get());
+        dropSelf(ModBlocks.BAMBOO_COFFEE_TABLE.get());
+        dropSelf(ModBlocks.CRIMSON_COFFEE_TABLE.get());
+        dropSelf(ModBlocks.WARPED_COFFEE_TABLE.get());
+
+
+
         dropSelf(ModBlocks.OAK_DINNING_TABLE.get());
 
+        add(ModBlocks.OAK_VERTICAL_SLAB.get(), p_249031_ -> createSlabItemTable(p_249031_));
 
     }
 
