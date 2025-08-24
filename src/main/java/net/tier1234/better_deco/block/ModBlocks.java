@@ -66,37 +66,37 @@ public static final DeferredBlock<Block> OAK_SHELF = registerBlock("oak_shelf",
 //EXTRA BUILDINGS
 
     //VERTICAL SLABS
-    public static final DeferredBlock<Block> OAK_VERTICAL_SLAB = registerBlock("oak_vertical_slab",
+    public static final DeferredBlock<VerticalSlabBlock> OAK_VERTICAL_SLAB = registerBlock("oak_vertical_slab",
             ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
                     .sound(SoundType.WOOD)));
-    public static final DeferredBlock<Block> SPRUCE_VERTICAL_SLAB = registerBlock("spruce_vertical_slab",
+    public static final DeferredBlock<VerticalSlabBlock> SPRUCE_VERTICAL_SLAB = registerBlock("spruce_vertical_slab",
             ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
                     .sound(SoundType.WOOD)));
-    public static final DeferredBlock<Block> BIRCH_VERTICAL_SLAB = registerBlock("birch_vertical_slab",
+    public static final DeferredBlock<VerticalSlabBlock> BIRCH_VERTICAL_SLAB = registerBlock("birch_vertical_slab",
             ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
                     .sound(SoundType.WOOD)));
-    public static final DeferredBlock<Block> JUNGLE_VERTICAL_SLAB = registerBlock("jungle_vertical_slab",
+    public static final DeferredBlock<VerticalSlabBlock> JUNGLE_VERTICAL_SLAB = registerBlock("jungle_vertical_slab",
             ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
                     .sound(SoundType.WOOD)));
-    public static final DeferredBlock<Block> ACACIA_VERTICAL_SLAB = registerBlock("acacia_vertical_slab",
+    public static final DeferredBlock<VerticalSlabBlock> ACACIA_VERTICAL_SLAB = registerBlock("acacia_vertical_slab",
             ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
                     .sound(SoundType.WOOD)));
-    public static final DeferredBlock<Block> DARK_OAK_VERTICAL_SLAB = registerBlock("dark_oak_vertical_slab",
+    public static final DeferredBlock<VerticalSlabBlock> DARK_OAK_VERTICAL_SLAB = registerBlock("dark_oak_vertical_slab",
             ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
                     .sound(SoundType.WOOD)));
-    public static final DeferredBlock<Block> MANGROVE_VERTICAL_SLAB = registerBlock("mangrove_vertical_slab",
+    public static final DeferredBlock<VerticalSlabBlock> MANGROVE_VERTICAL_SLAB = registerBlock("mangrove_vertical_slab",
             ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
                     .sound(SoundType.WOOD)));
-    public static final DeferredBlock<Block> CHERRY_VERTICAL_SLAB = registerBlock("cherry_vertical_slab",
+    public static final DeferredBlock<VerticalSlabBlock> CHERRY_VERTICAL_SLAB = registerBlock("cherry_vertical_slab",
             ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
                     .sound(SoundType.WOOD)));
-    public static final DeferredBlock<Block> BAMBOO_VERTICAL_SLAB = registerBlock("bamboo_vertical_slab",
+    public static final DeferredBlock<VerticalSlabBlock> BAMBOO_VERTICAL_SLAB = registerBlock("bamboo_vertical_slab",
             ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
                     .sound(SoundType.WOOD)));
-    public static final DeferredBlock<Block> CRIMSON_VERTICAL_SLAB = registerBlock("crimson_vertical_slab",
+    public static final DeferredBlock<VerticalSlabBlock> CRIMSON_VERTICAL_SLAB = registerBlock("crimson_vertical_slab",
             ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
                     .sound(SoundType.WOOD)));
-    public static final DeferredBlock<Block> WARPED_VERTICAL_SLAB = registerBlock("warped_vertical_slab",
+    public static final DeferredBlock<VerticalSlabBlock> WARPED_VERTICAL_SLAB = registerBlock("warped_vertical_slab",
             ()-> new VerticalSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops()
                     .sound(SoundType.WOOD)));
 

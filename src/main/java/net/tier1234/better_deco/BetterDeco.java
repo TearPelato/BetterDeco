@@ -2,6 +2,7 @@ package net.tier1234.better_deco;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
@@ -60,6 +61,10 @@ public class BetterDeco {
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+    }
+
+    public static ResourceLocation id(String path, Object... args) {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, String.format(path, args));
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

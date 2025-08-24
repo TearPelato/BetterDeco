@@ -1,0 +1,46 @@
+{
+  "variants": {
+    "axis=x,type=bottom,waterlogged=false": {
+      "model": "better_deco:block/jungle_vertical_slab",
+      "y": 90
+    },
+    "axis=x,type=bottom,waterlogged=true": {
+      "model": "better_deco:block/jungle_vertical_slab",
+      "y": 90
+    },
+    "axis=x,type=double,waterlogged=false": {
+      "model": "minecraft:block/jungle_planks"
+    },
+    "axis=x,type=double,waterlogged=true": {
+      "model": "minecraft:block/jungle_planks"
+    },
+    "axis=x,type=top,waterlogged=false": {
+      "model": "better_deco:block/jungle_vertical_slab",
+      "y": 270
+    },
+    "axis=x,type=top,waterlogged=true": {
+      "model": "better_deco:block/jungle_vertical_slab",
+      "y": 270
+    },
+    "axis=z,type=bottom,waterlogged=false": {
+      "model": "better_deco:block/jungle_vertical_slab",
+      "y": 180
+    },
+    "axis=z,type=bottom,waterlogged=true": {
+      "model": "better_deco:block/jungle_vertical_slab",
+      "y": 180
+    },
+    "axis=z,type=double,waterlogged=false": {
+      "model": "minecraft:block/jungle_planks"
+    },
+    "axis=z,type=double,waterlogged=true": {
+      "model": "minecraft:block/jungle_planks"
+    },
+    "axis=z,type=top,waterlogged=false": {
+      "model": "better_deco:block/jungle_vertical_slab"
+    },
+    "axis=z,type=top,waterlogged=true": {
+      "model": "better_deco:block/jungle_vertical_slab"
+    }
+  }
+}
