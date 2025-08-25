@@ -61,6 +61,10 @@ public class BetterDeco {
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
+    public static ResourceLocation id(String path, Object... args) {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, String.format(path, args));
+    }
+
     private void commonSetup(final FMLCommonSetupEvent event) {
 
     }
