@@ -31,8 +31,8 @@
   "block.better_deco.purple_stool": "Purple Stool",
   "block.better_deco.brown_stool": "Brown Stool",
   "block.better_deco.black_stool": "Black Stool",
-  "block.better_deco.grey_stool": "Grey Stool",
-  "block.better_deco.light_grey_stool": "Light Grey Stool",
+  "block.better_deco.grey_stool": "Gray Stool",
+  "block.better_deco.light_grey_stool": "Light Gray Stool",
   "block.better_deco.blue_stool": "Blue Stool",
   "block.better_deco.light_blue_stool": "Light Blue Stool",
   "block.better_deco.cyan_stool": "Cyan Stool",
@@ -43,22 +43,65 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
   "block.better_deco.red_digital_clock": "Red Digital Clock",
+  "block.better_deco.orange_digital_clock": "Orange Digital Clock",
+  "block.better_deco.yellow_digital_clock": "Yellow Digital Clock",
+  "block.better_deco.blue_digital_clock": "Blue Digital Clock",
+  "block.better_deco.light_blue_digital_clock": "Light Blue Digital Clock",
+  "block.better_deco.gray_digital_clock": "Grey Digital Clock",
+  "block.better_deco.light_gray_digital_clock": "Light Gray Digital Clock",
+  "block.better_deco.purple_digital_clock": "Purple Digital Clock",
+  "block.better_deco.magenta_digital_clock": "Magenta Digital Clock",
+  "block.better_deco.white_digital_clock": "White Digital Clock",
+  "block.better_deco.black_digital_clock": "Black Digital Clock",
+  "block.better_deco.green_digital_clock": "Green Digital Clock",
+  "block.better_deco.lime_digital_clock": "Lime Digital Clock",
+  "block.better_deco.cyan_digital_clock": "Cyan Digital Clock",
+  "block.better_deco.pink_digital_clock": "Pink Digital Clock",
+  "block.better_deco.brown_digital_clock": "Brown Digital Clock",
 
 
   "block.better_deco.big_chain": "Big Chain",
+
+  "block.better_deco.oak_oven": "Oak Oven",
+  "block.better_deco.spruce_oven": "Spruce Oven",
+  "block.better_deco.birch_oven": "Birch Oven",
+  "block.better_deco.jungle_oven": "Jungle Oven",
+  "block.better_deco.acacia_oven": "Acacia Oven",
+  "block.better_deco.dark_oak_oven": "Dark Oak Oven",
+  "block.better_deco.mangrove_oven": "Mangrove Oven",
+  "block.better_deco.cherry_oven": "Cherry Oven",
+  "block.better_deco.bamboo_oven": "Bamboo Oven",
+  "block.better_deco.crimson_oven": "Crimson Oven",
+  "block.better_deco.warped_oven": "Warped Oven",
+
+
+
+
+  "block.minecraft.chain": "Iron Chain",
+
   "block.better_deco.wall_lantern": "Wall Lantern",
+
+  "block.better_deco.copper_lantern": "Copper Lantern",
+  "block.better_deco.exposed_copper_lantern": "Exposed Copper Lantern",
+  "block.better_deco.weathered_copper_lantern": "Weathered Copper Lantern",
+  "block.better_deco.oxidized_copper_lantern": "Oxidized Copper Lantern",
+
+  "block.better_deco.waxed_copper_lantern": "Waxed Copper Lantern",
+  "block.better_deco.waxed_exposed_copper_lantern": "Waxed Exposed Copper Lantern",
+  "block.better_deco.waxed_weathered_copper_lantern": "Waxed Weathered Copper Lantern",
+  "block.better_deco.waxed_oxidized_copper_lantern": "Waxed Oxidized Copper Lantern",
+
+  "gui.better_deco.oven": "Oven",
+  "gui.better_deco.microwave": "Microwave",
+
+
+  "block.better_deco.microwave_light": "Light Microwave",
+
+
+
+
+
 
   "block.better_deco.oak_coffee_table": "Oak Coffee Table",
   "block.better_deco.spruce_coffee_table": "Spruce Coffee Table",
@@ -190,8 +233,8 @@
   "block.better_deco.yellow_sofa": "Yellow Sofa",
   "block.better_deco.blue_sofa": "Blue Sofa",
   "block.better_deco.light_blue_sofa": "Light Blue Sofa",
-  "block.better_deco.grey_sofa": "Grey Sofa",
-  "block.better_deco.light_grey_sofa": "Light Grey Sofa",
+  "block.better_deco.grey_sofa": "Gray Sofa",
+  "block.better_deco.light_grey_sofa": "Light Gray Sofa",
   "block.better_deco.purple_sofa": "Purple Sofa",
   "block.better_deco.magenta_sofa": "Magenta Sofa",
   "block.better_deco.white_sofa": "White Sofa",

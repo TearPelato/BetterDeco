@@ -116,6 +116,16 @@ I RECOMMEND TO USE GUISCALE SET FROM AUTO TO 2/3 Because the Crate new gui will 
  -Added Shelfs for each wood variants(THIS SHELFS ARE NOT THE MINECRAFT NEW DECORATIVE BLOCK. I'LL ADD IT IN THE FUTURE,
  WHEN THE 1.21.9 IS READY)
  -Added Vertical Slabs
+ -Added Digital Clock
+ -Added Coffee Tables
+ -Added Dinning Tables
+ -Added Shelfs
+ -Added Oven
+ -Added Microwave
+
+ #ADDITIONS FROM LATEST SNAPSHOTS
+ -Added Copper Lanterns
+ -Added Copper Chains
 
 
 
@@ -127,13 +137,17 @@ I RECOMMEND TO USE GUISCALE SET FROM AUTO TO 2/3 Because the Crate new gui will 
 -Reworked the Creative Tab system
 - Changed the Changelog folder
 
+#CHANGES TOOK FROM LATEST SNAPSHOT
+-Changed the Chain name from "Chain" to "Iron Chain"
+
  #FIXES
 -Added Pedestal/Wooden Tecques recipes missed from the previous alpha
 -Fixed tags, now some block tags will be DataGen
+-Fixed Vertical Slabs, now drop correctly
 
 
 
--Switching from Alpha Changelogs to Beta Changelogs (Stay tune for the 1° beta)
+-Switching from Alpha Changelogs to Beta Changelogs
 
 
 

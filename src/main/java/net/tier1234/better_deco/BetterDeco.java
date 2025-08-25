@@ -2,6 +2,7 @@ package net.tier1234.better_deco;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
@@ -24,11 +25,9 @@ import net.tier1234.better_deco.entity.ModEntities;
 import net.tier1234.better_deco.entity.client.ChairRenderer;
 import net.tier1234.better_deco.item.ModItems;
 import net.tier1234.better_deco.item.creative_tabs.ModCreativeTabs;
+import net.tier1234.better_deco.recipe.ModRecipes;
 import net.tier1234.better_deco.screen.ModMenuTypes;
-import net.tier1234.better_deco.screen.custom.CrateScreen;
-import net.tier1234.better_deco.screen.custom.PedestalScreen;
-import net.tier1234.better_deco.screen.custom.ShelfScreen;
-import net.tier1234.better_deco.screen.custom.TecqueScreen;
+import net.tier1234.better_deco.screen.custom.*;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
@@ -36,7 +35,6 @@ import org.slf4j.Logger;
 public class BetterDeco {
     public static final String MOD_ID = "better_deco";
     private static final Logger LOGGER = LogUtils.getLogger();
-    public static final String NAMESPACE = "minecraft";
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public BetterDeco(IEventBus modEventBus, ModContainer modContainer) {
@@ -51,8 +49,9 @@ public class BetterDeco {
         ModBlocks.register(modEventBus);
         ModEntities.register(modEventBus);
         ModBlockEntities.register(modEventBus);
-       ModCreativeTabs.register(modEventBus);
-       ModMenuTypes.register(modEventBus);
+        ModCreativeTabs.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
+        ModRecipes.register(modEventBus);
 
 
         // Register the item to a creative tab
@@ -64,6 +63,10 @@ public class BetterDeco {
 
     private void commonSetup(final FMLCommonSetupEvent event) {
 
+    }
+
+    public static ResourceLocation id(String path, Object... args) {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, String.format(path, args));
     }
 
     // Add the example block item to the building blocks tab
@@ -104,6 +107,8 @@ public class BetterDeco {
             event.register(ModMenuTypes.PEDESTAL_MENU.get(), PedestalScreen::new);
             event.register(ModMenuTypes.CRATE_MENU.get(), CrateScreen::new);
             event.register(ModMenuTypes.SHELF_MENU.get(), ShelfScreen::new);
+            event.register(ModMenuTypes.OVEN_MENU.get(), OvenScreen::new);
+            event.register(ModMenuTypes.MICROWAVE_MENU.get(), MicrowaveScreen::new);
         }
     }
 }

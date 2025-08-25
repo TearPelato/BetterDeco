@@ -8,10 +8,7 @@ import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
 import net.neoforged.neoforge.network.IContainerFactory;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import net.tier1234.better_deco.screen.custom.CrateMenu;
-import net.tier1234.better_deco.screen.custom.PedestalMenu;
-import net.tier1234.better_deco.screen.custom.ShelfMenu;
-import net.tier1234.better_deco.screen.custom.TecqueMenu;
+import net.tier1234.better_deco.screen.custom.*;
 import net.tier1234.better_deco.util.Constants;
 
 public class ModMenuTypes {
@@ -30,6 +27,14 @@ public class ModMenuTypes {
 
     public static final DeferredHolder<MenuType<?>, MenuType<ShelfMenu>> SHELF_MENU =
             registerMenuType("shelf_menu", ShelfMenu::new);
+
+    public static final DeferredHolder<MenuType<?>, MenuType<OvenMenu>> OVEN_MENU =
+            registerMenuType("oven_menu", OvenMenu::new);
+
+    public static final DeferredHolder<MenuType<?>, MenuType<MicrowaveMenu>> MICROWAVE_MENU =
+            registerMenuType("microwave_menu", MicrowaveMenu::new);
+
+
 
 
 

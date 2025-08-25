@@ -5,7 +5,6 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.tier1234.better_deco.block.ModBlocks;
 
 import java.util.Set;
@@ -395,6 +394,21 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.BROWN_STOOL.get());
 
         dropSelf(ModBlocks.RED_DIGITAL_CLOCK.get());
+        dropSelf(ModBlocks.YELLOW_DIGITAL_CLOCK.get());
+        dropSelf(ModBlocks.ORANGE_DIGITAL_CLOCK.get());
+        dropSelf(ModBlocks.PURPLE_DIGITAL_CLOCK.get());
+        dropSelf(ModBlocks.MAGENTA_DIGITAL_CLOCK.get());
+        dropSelf(ModBlocks.PINK_DIGITAL_CLOCK.get());
+        dropSelf(ModBlocks.BLUE_DIGITAL_CLOCK.get());
+        dropSelf(ModBlocks.LIGHT_BLUE_DIGITAL_CLOCK.get());
+        dropSelf(ModBlocks.WHITE_DIGITAL_CLOCK.get());
+        dropSelf(ModBlocks.CYAN_DIGITAL_CLOCK.get());
+        dropSelf(ModBlocks.GRAY_DIGITAL_CLOCK.get());
+        dropSelf(ModBlocks.LIGHT_GRAY_DIGITAL_CLOCK.get());
+        dropSelf(ModBlocks.GREEN_DIGITAL_CLOCK.get());
+        dropSelf(ModBlocks.LIME_DIGITAL_CLOCK.get());
+        dropSelf(ModBlocks.BLACK_DIGITAL_CLOCK.get());
+        dropSelf(ModBlocks.BROWN_DIGITAL_CLOCK.get());
 
         dropSelf(ModBlocks.BIG_CHAIN.get());
         dropSelf(ModBlocks.WALL_LANTERN.get());
@@ -410,6 +424,20 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.BAMBOO_SHELF.get());
         dropSelf(ModBlocks.CRIMSON_SHELF.get());
         dropSelf(ModBlocks.WARPED_SHELF.get());
+
+        //Copper Lantern
+        dropSelf(ModBlocks.COPPER_LANTERN.get());
+        dropSelf(ModBlocks.EXPOSED_LANTERN.get());
+        dropSelf(ModBlocks.WEATHERED_LANTERN.get());
+        dropSelf(ModBlocks.OXIDIZED_LANTERN.get());
+
+        //Waxed Copper Lantern
+        dropSelf(ModBlocks.WAXED_COPPER_LANTERN.get());
+        dropSelf(ModBlocks.WAXED_EXPOSED_LANTERN.get());
+        dropSelf(ModBlocks.WAXED_WEATHERED_LANTERN.get());
+        dropSelf(ModBlocks.WAXED_OXIDIZED_LANTERN.get());
+
+
      // Vertical slab
         add(ModBlocks.SPRUCE_VERTICAL_SLAB.get(),
                 block -> createSlabItemTable(ModBlocks.SPRUCE_VERTICAL_SLAB.get()));
@@ -453,6 +481,19 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.OAK_DINNING_TABLE.get());
 
         add(ModBlocks.OAK_VERTICAL_SLAB.get(), p_249031_ -> createSlabItemTable(p_249031_));
+
+        dropSelf(ModBlocks.OAK_OVEN.get());
+        dropSelf(ModBlocks.SPRUCE_OVEN.get());
+        dropSelf(ModBlocks.BIRCH_OVEN.get());
+        dropSelf(ModBlocks.JUNGLE_OVEN.get());
+        dropSelf(ModBlocks.ACACIA_OVEN.get());
+        dropSelf(ModBlocks.DARK_OAK_OVEN.get());
+        dropSelf(ModBlocks.MANGROVE_OVEN.get());
+        dropSelf(ModBlocks.CHERRY_OVEN.get());
+        dropSelf(ModBlocks.BAMBOO_OVEN.get());
+        dropSelf(ModBlocks.CRIMSON_OVEN.get());
+        dropSelf(ModBlocks.WARPED_OVEN.get());
+
 
     }
 

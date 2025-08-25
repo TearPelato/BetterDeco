@@ -2,7 +2,6 @@ package net.tier1234.better_deco.item.creative_tabs;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.tier1234.better_deco.block.ModBlocks;
 import net.tier1234.better_deco.item.ModItems;
@@ -205,6 +204,22 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.STRIPPED_BAMBOO_CABINET);
                         output.accept(ModBlocks.STRIPPED_CRIMSON_CABINET);
                         output.accept(ModBlocks.STRIPPED_WARPED_CABINET);
+
+                        output.accept(ModBlocks.OAK_OVEN);
+                        output.accept(ModBlocks.SPRUCE_OVEN);
+                        output.accept(ModBlocks.BIRCH_OVEN);
+                        output.accept(ModBlocks.JUNGLE_OVEN);
+                        output.accept(ModBlocks.ACACIA_OVEN);
+                        output.accept(ModBlocks.DARK_OAK_OVEN);
+                        output.accept(ModBlocks.MANGROVE_OVEN);
+                        output.accept(ModBlocks.CHERRY_OVEN);
+                        output.accept(ModBlocks.BAMBOO_OVEN);
+                        output.accept(ModBlocks.CRIMSON_OVEN);
+                        output.accept(ModBlocks.WARPED_OVEN);
+
+
+
+
                         output.accept(ModBlocks.STONE_COUNTER);
                         output.accept(ModBlocks.GRANITE_COUNTER);
                         output.accept(ModBlocks.DIORITE_COUNTER);
@@ -400,7 +415,33 @@ public class ModBundledTabs {
 
                         output.accept(ModBlocks.BIG_CHAIN);
                         output.accept(ModBlocks.WALL_LANTERN);
+
+                        output.accept(ModBlocks.COPPER_LANTERN);
+                        output.accept(ModBlocks.EXPOSED_LANTERN);
+                        output.accept(ModBlocks.WEATHERED_LANTERN);
+                        output.accept(ModBlocks.OXIDIZED_LANTERN);
+
+                        output.accept(ModBlocks.WAXED_COPPER_LANTERN);
+                        output.accept(ModBlocks.WAXED_EXPOSED_LANTERN);
+                        output.accept(ModBlocks.WAXED_WEATHERED_LANTERN);
+                        output.accept(ModBlocks.WAXED_OXIDIZED_LANTERN);
+
+                        output.accept(ModBlocks.WHITE_DIGITAL_CLOCK);
+                        output.accept(ModBlocks.LIGHT_GRAY_DIGITAL_CLOCK);
+                        output.accept(ModBlocks.GRAY_DIGITAL_CLOCK);
+                        output.accept(ModBlocks.BLACK_DIGITAL_CLOCK);
                         output.accept(ModBlocks.RED_DIGITAL_CLOCK);
+                        output.accept(ModBlocks.ORANGE_DIGITAL_CLOCK);
+                        output.accept(ModBlocks.YELLOW_DIGITAL_CLOCK);
+                        output.accept(ModBlocks.LIME_DIGITAL_CLOCK);
+                        output.accept(ModBlocks.GREEN_DIGITAL_CLOCK);
+                        output.accept(ModBlocks.CYAN_DIGITAL_CLOCK);
+                        output.accept(ModBlocks.LIGHT_BLUE_DIGITAL_CLOCK);
+                        output.accept(ModBlocks.BLUE_DIGITAL_CLOCK);
+                        output.accept(ModBlocks.PURPLE_DIGITAL_CLOCK);
+                        output.accept(ModBlocks.MAGENTA_DIGITAL_CLOCK);
+                        output.accept(ModBlocks.PINK_DIGITAL_CLOCK);
+                        output.accept(ModBlocks.BROWN_DIGITAL_CLOCK);
 
 
 

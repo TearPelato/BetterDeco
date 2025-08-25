@@ -1,5 +1,6 @@
 package net.tier1234.better_deco.item.custom;
 
+import com.google.common.collect.ImmutableBiMap;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;

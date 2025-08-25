@@ -78,8 +78,8 @@ public class KitchenSinkBlock extends FurnitureHorizontalBlock implements Entity
     }
 
 
-    public InteractionResult useItemOn(BlockState state, Level level, BlockPos pos, Player player,
-                                 InteractionHand hand, BlockHitResult hit) {
+public InteractionResult useItemOn( BlockState state, Level level, BlockPos pos, Player player,
+                                      InteractionHand hand, BlockHitResult hit) {
         if (!level.isClientSide()) {
             ItemStack heldItem = player.getItemInHand(hand);
 

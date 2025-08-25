@@ -2537,6 +2537,171 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_blackstone_bricks", has(Blocks.POLISHED_BLACKSTONE_BRICKS))
                 .save(recipeOutput);
 
+
+        //Stool
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WITHE_STOOL.get())
+                        .pattern(" X ")
+                        .pattern(" B ")
+                        .pattern(" # ")
+                        .define('X', Blocks.WHITE_WOOL.asItem())
+                        .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
+                        .define('#', Blocks.WHITE_CONCRETE.asItem())
+                        .unlockedBy("has_wool", has(Items.WHITE_WOOL))
+                        .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BROWN_STOOL.get())
+                .pattern(" X ")
+                .pattern(" B ")
+                .pattern(" # ")
+                .define('X', Blocks.BROWN_WOOL.asItem())
+                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
+                .define('#', Blocks.WHITE_CONCRETE.asItem())
+                .unlockedBy("has_wool", has(Items.BROWN_WOOL))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACK_STOOL.get())
+                .pattern(" X ")
+                .pattern(" B ")
+                .pattern(" # ")
+                .define('X', Blocks.BLACK_WOOL.asItem())
+                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
+                .define('#', Blocks.WHITE_CONCRETE.asItem())
+                .unlockedBy("has_wool", has(Items.BLACK_WOOL))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.GREY_STOOL.get())
+                .pattern(" X ")
+                .pattern(" B ")
+                .pattern(" # ")
+                .define('X', Blocks.GRAY_WOOL.asItem())
+                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
+                .define('#', Blocks.WHITE_CONCRETE.asItem())
+                .unlockedBy("has_wool", has(Items.GRAY_WOOL))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_GREY_STOOL.get())
+                .pattern(" X ")
+                .pattern(" B ")
+                .pattern(" # ")
+                .define('X', Blocks.LIGHT_GRAY_WOOL.asItem())
+                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
+                .define('#', Blocks.WHITE_CONCRETE.asItem())
+                .unlockedBy("has_wool", has(Items.LIGHT_GRAY_WOOL))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.GREEN_STOOL.get())
+                .pattern(" X ")
+                .pattern(" B ")
+                .pattern(" # ")
+                .define('X', Blocks.GREEN_WOOL.asItem())
+                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
+                .define('#', Blocks.WHITE_CONCRETE.asItem())
+                .unlockedBy("has_wool", has(Items.GREEN_WOOL))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LIME_STOOL.get())
+                .pattern(" X ")
+                .pattern(" B ")
+                .pattern(" # ")
+                .define('X', Blocks.LIME_WOOL.asItem())
+                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
+                .define('#', Blocks.WHITE_CONCRETE.asItem())
+                .unlockedBy("has_wool", has(Items.LIME_WOOL))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BLUE_STOOL.get())
+                .pattern(" X ")
+                .pattern(" B ")
+                .pattern(" # ")
+                .define('X', Blocks.BLUE_WOOL.asItem())
+                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
+                .define('#', Blocks.WHITE_CONCRETE.asItem())
+                .unlockedBy("has_wool", has(Items.BLUE_WOOL))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_BLUE_STOOL.get())
+                .pattern(" X ")
+                .pattern(" B ")
+                .pattern(" # ")
+                .define('X', Blocks.LIGHT_BLUE_WOOL.asItem())
+                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
+                .define('#', Blocks.WHITE_CONCRETE.asItem())
+                .unlockedBy("has_wool", has(Items.LIGHT_BLUE_WOOL))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CYAN_STOOL.get())
+                .pattern(" X ")
+                .pattern(" B ")
+                .pattern(" # ")
+                .define('X', Blocks.CYAN_WOOL.asItem())
+                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
+                .define('#', Blocks.WHITE_CONCRETE.asItem())
+                .unlockedBy("has_wool", has(Items.CYAN_WOOL))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.YELLOW_STOOL.get())
+                .pattern(" X ")
+                .pattern(" B ")
+                .pattern(" # ")
+                .define('X', Blocks.YELLOW_WOOL.asItem())
+                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
+                .define('#', Blocks.WHITE_CONCRETE.asItem())
+                .unlockedBy("has_wool", has(Items.YELLOW_WOOL))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ORANGE_STOOL.get())
+                .pattern(" X ")
+                .pattern(" B ")
+                .pattern(" # ")
+                .define('X', Blocks.ORANGE_WOOL.asItem())
+                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
+                .define('#', Blocks.WHITE_CONCRETE.asItem())
+                .unlockedBy("has_wool", has(Items.ORANGE_WOOL))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.RED_STOOL.get())
+                .pattern(" X ")
+                .pattern(" B ")
+                .pattern(" # ")
+                .define('X', Blocks.RED_WOOL.asItem())
+                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
+                .define('#', Blocks.WHITE_CONCRETE.asItem())
+                .unlockedBy("has_wool", has(Items.RED_WOOL))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.PINK_STOOL.get())
+                .pattern(" X ")
+                .pattern(" B ")
+                .pattern(" # ")
+                .define('X', Blocks.PINK_WOOL.asItem())
+                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
+                .define('#', Blocks.WHITE_CONCRETE.asItem())
+                .unlockedBy("has_wool", has(Items.PINK_WOOL))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MAGENTA_STOOL.get())
+                .pattern(" X ")
+                .pattern(" B ")
+                .pattern(" # ")
+                .define('X', Blocks.MAGENTA_WOOL.asItem())
+                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
+                .define('#', Blocks.WHITE_CONCRETE.asItem())
+                .unlockedBy("has_wool", has(Items.MAGENTA_WOOL))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.PURPLE_STOOL.get())
+                .pattern(" X ")
+                .pattern(" B ")
+                .pattern(" # ")
+                .define('X', Blocks.PURPLE_WOOL.asItem())
+                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
+                .define('#', Blocks.WHITE_CONCRETE.asItem())
+                .unlockedBy("has_wool", has(Items.PURPLE_WOOL))
+                .save(recipeOutput);
+
+
+
+
         //Pedestal
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.PEDESTAL.get())
@@ -2741,6 +2906,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(recipeOutput);
 
         //DigitalClock
+
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.RED_DIGITAL_CLOCK.get())
                 .pattern("###")
                 .pattern("#B#")
@@ -2750,6 +2916,157 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('C', Items.IRON_INGOT.asItem())
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.YELLOW_DIGITAL_CLOCK.get())
+                .pattern("###")
+                .pattern("#B#")
+                .pattern("CCC")
+                .define('B', Items.CLOCK.asItem())
+                .define('#', Items.YELLOW_CONCRETE.asItem())
+                .define('C', Items.IRON_INGOT.asItem())
+                .unlockedBy("has_iron", has(Items.IRON_INGOT))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ORANGE_DIGITAL_CLOCK.get())
+                .pattern("###")
+                .pattern("#B#")
+                .pattern("CCC")
+                .define('B', Items.CLOCK.asItem())
+                .define('#', Items.ORANGE_CONCRETE.asItem())
+                .define('C', Items.IRON_INGOT.asItem())
+                .unlockedBy("has_iron", has(Items.IRON_INGOT))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.PINK_DIGITAL_CLOCK.get())
+                .pattern("###")
+                .pattern("#B#")
+                .pattern("CCC")
+                .define('B', Items.CLOCK.asItem())
+                .define('#', Items.PINK_CONCRETE.asItem())
+                .define('C', Items.IRON_INGOT.asItem())
+                .unlockedBy("has_iron", has(Items.IRON_INGOT))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.PURPLE_DIGITAL_CLOCK.get())
+                .pattern("###")
+                .pattern("#B#")
+                .pattern("CCC")
+                .define('B', Items.CLOCK.asItem())
+                .define('#', Items.PURPLE_CONCRETE.asItem())
+                .define('C', Items.IRON_INGOT.asItem())
+                .unlockedBy("has_iron", has(Items.IRON_INGOT))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.GREEN_DIGITAL_CLOCK.get())
+                .pattern("###")
+                .pattern("#B#")
+                .pattern("CCC")
+                .define('B', Items.CLOCK.asItem())
+                .define('#', Items.GREEN_CONCRETE.asItem())
+                .define('C', Items.IRON_INGOT.asItem())
+                .unlockedBy("has_iron", has(Items.IRON_INGOT))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LIME_DIGITAL_CLOCK.get())
+                .pattern("###")
+                .pattern("#B#")
+                .pattern("CCC")
+                .define('B', Items.CLOCK.asItem())
+                .define('#', Items.LIME_CONCRETE.asItem())
+                .define('C', Items.IRON_INGOT.asItem())
+                .unlockedBy("has_iron", has(Items.IRON_INGOT))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.GRAY_DIGITAL_CLOCK.get())
+                .pattern("###")
+                .pattern("#B#")
+                .pattern("CCC")
+                .define('B', Items.CLOCK.asItem())
+                .define('#', Items.GRAY_CONCRETE.asItem())
+                .define('C', Items.IRON_INGOT.asItem())
+                .unlockedBy("has_iron", has(Items.IRON_INGOT))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_GRAY_DIGITAL_CLOCK.get())
+                .pattern("###")
+                .pattern("#B#")
+                .pattern("CCC")
+                .define('B', Items.CLOCK.asItem())
+                .define('#', Items.LIGHT_GRAY_CONCRETE.asItem())
+                .define('C', Items.IRON_INGOT.asItem())
+                .unlockedBy("has_iron", has(Items.IRON_INGOT))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BLUE_DIGITAL_CLOCK.get())
+                .pattern("###")
+                .pattern("#B#")
+                .pattern("CCC")
+                .define('B', Items.CLOCK.asItem())
+                .define('#', Items.BLUE_CONCRETE.asItem())
+                .define('C', Items.IRON_INGOT.asItem())
+                .unlockedBy("has_iron", has(Items.IRON_INGOT))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_BLUE_DIGITAL_CLOCK.get())
+                .pattern("###")
+                .pattern("#B#")
+                .pattern("CCC")
+                .define('B', Items.CLOCK.asItem())
+                .define('#', Items.LIGHT_BLUE_CONCRETE.asItem())
+                .define('C', Items.IRON_INGOT.asItem())
+                .unlockedBy("has_iron", has(Items.IRON_INGOT))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CYAN_DIGITAL_CLOCK.get())
+                .pattern("###")
+                .pattern("#B#")
+                .pattern("CCC")
+                .define('B', Items.CLOCK.asItem())
+                .define('#', Items.CYAN_CONCRETE.asItem())
+                .define('C', Items.IRON_INGOT.asItem())
+                .unlockedBy("has_iron", has(Items.IRON_INGOT))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BROWN_DIGITAL_CLOCK.get())
+                .pattern("###")
+                .pattern("#B#")
+                .pattern("CCC")
+                .define('B', Items.CLOCK.asItem())
+                .define('#', Items.BROWN_CONCRETE.asItem())
+                .define('C', Items.IRON_INGOT.asItem())
+                .unlockedBy("has_iron", has(Items.IRON_INGOT))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACK_DIGITAL_CLOCK.get())
+                .pattern("###")
+                .pattern("#B#")
+                .pattern("CCC")
+                .define('B', Items.CLOCK.asItem())
+                .define('#', Items.BLACK_CONCRETE.asItem())
+                .define('C', Items.IRON_INGOT.asItem())
+                .unlockedBy("has_iron", has(Items.IRON_INGOT))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WHITE_DIGITAL_CLOCK.get())
+                .pattern("###")
+                .pattern("#B#")
+                .pattern("CCC")
+                .define('B', Items.CLOCK.asItem())
+                .define('#', Items.WHITE_CONCRETE.asItem())
+                .define('C', Items.IRON_INGOT.asItem())
+                .unlockedBy("has_iron", has(Items.IRON_INGOT))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MAGENTA_DIGITAL_CLOCK.get())
+                .pattern("###")
+                .pattern("#B#")
+                .pattern("CCC")
+                .define('B', Items.CLOCK.asItem())
+                .define('#', Items.MAGENTA_CONCRETE.asItem())
+                .define('C', Items.IRON_INGOT.asItem())
+                .unlockedBy("has_iron", has(Items.IRON_INGOT))
+                .save(recipeOutput);
+
 
 
         //Shelf
@@ -3097,6 +3414,127 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_andesite", has(Blocks.ANDESITE.asItem()))
                 .save(recipeOutput);
 
+        //Oven
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_OVEN.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.OAK_PLANKS.asItem())
+                .define('#', Blocks.OAK_LOG.asItem())
+                .define('X', Blocks.SMOKER.asItem())
+                .unlockedBy("has_oak_log", has(Blocks.OAK_LOG))
+                .unlockedBy("has_oak", has(Blocks.OAK_PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_OVEN.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.SPRUCE_PLANKS.asItem())
+                .define('#', Blocks.SPRUCE_LOG.asItem())
+                .define('X', Blocks.SMOKER.asItem())
+                .unlockedBy("has_spruce_log", has(Blocks.SPRUCE_LOG))
+                .unlockedBy("has_spruce", has(Blocks.SPRUCE_PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_OVEN.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.BIRCH_PLANKS.asItem())
+                .define('#', Blocks.BIRCH_LOG.asItem())
+                .define('X', Blocks.SMOKER.asItem())
+                .unlockedBy("has_birch_log", has(Blocks.BIRCH_LOG))
+                .unlockedBy("has_birch", has(Blocks.BIRCH_PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_OVEN.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.JUNGLE_PLANKS.asItem())
+                .define('#', Blocks.JUNGLE_LOG.asItem())
+                .define('X', Blocks.SMOKER.asItem())
+                .unlockedBy("has_jungle_log", has(Blocks.JUNGLE_LOG))
+                .unlockedBy("has_jungle", has(Blocks.JUNGLE_PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_OVEN.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.ACACIA_PLANKS.asItem())
+                .define('#', Blocks.ACACIA_LOG.asItem())
+                .define('X', Blocks.SMOKER.asItem())
+                .unlockedBy("has_acacia_log", has(Blocks.ACACIA_LOG))
+                .unlockedBy("has_acacia", has(Blocks.ACACIA_PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_OVEN.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.DARK_OAK_PLANKS.asItem())
+                .define('#', Blocks.DARK_OAK_LOG.asItem())
+                .define('X', Blocks.SMOKER.asItem())
+                .unlockedBy("has_dark_oak_log", has(Blocks.DARK_OAK_LOG))
+                .unlockedBy("has_dark_oak", has(Blocks.DARK_OAK_PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_OVEN.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.MANGROVE_PLANKS.asItem())
+                .define('#', Blocks.MANGROVE_LOG.asItem())
+                .define('X', Blocks.SMOKER.asItem())
+                .unlockedBy("has_mangrove_log", has(Blocks.MANGROVE_LOG))
+                .unlockedBy("has_mangrove", has(Blocks.MANGROVE_PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_OVEN.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.CHERRY_PLANKS.asItem())
+                .define('#', Blocks.CHERRY_LOG.asItem())
+                .define('X', Blocks.SMOKER.asItem())
+                .unlockedBy("has_cherry_log", has(Blocks.CHERRY_LOG))
+                .unlockedBy("has_cherry", has(Blocks.CHERRY_PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_OVEN.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.BAMBOO_PLANKS.asItem())
+                .define('#', Blocks.BAMBOO_BLOCK.asItem())
+                .define('X', Blocks.SMOKER.asItem())
+                .unlockedBy("has_bamboo_block", has(Blocks.BAMBOO_BLOCK))
+                .unlockedBy("has_bamboo", has(Blocks.BAMBOO_PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_OVEN.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.CRIMSON_PLANKS.asItem())
+                .define('#', Blocks.CRIMSON_STEM.asItem())
+                .define('X', Blocks.SMOKER.asItem())
+                .unlockedBy("has_crimson_stem", has(Blocks.CRIMSON_STEM))
+                .unlockedBy("has_crimson", has(Blocks.CRIMSON_PLANKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_OVEN.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.WARPED_PLANKS.asItem())
+                .define('#', Blocks.WARPED_STEM.asItem())
+                .define('X', Blocks.SMOKER.asItem())
+                .unlockedBy("has_warped_stem", has(Blocks.WARPED_STEM))
+                .unlockedBy("has_warped", has(Blocks.WARPED_PLANKS))
+                .save(recipeOutput);
 
 
 

@@ -219,11 +219,52 @@ public class ModBlockEntities {
     public static final Supplier<BlockEntityType<DigitalClockBlockEntity>> DIGITAL_CLOCK =
             BLOCK_ENTITIES.register("digital_clock", () -> BlockEntityType.Builder.of(
                     DigitalClockBlockEntity::new,
-                    ModBlocks.RED_DIGITAL_CLOCK.get()
+                    ModBlocks.RED_DIGITAL_CLOCK.get(),
+                    ModBlocks.ORANGE_DIGITAL_CLOCK.get(),
+                    ModBlocks.YELLOW_DIGITAL_CLOCK.get(),
+                    ModBlocks.GREEN_DIGITAL_CLOCK.get(),
+                    ModBlocks.LIME_DIGITAL_CLOCK.get(),
+                    ModBlocks.GRAY_DIGITAL_CLOCK.get(),
+                    ModBlocks.LIGHT_GRAY_DIGITAL_CLOCK.get(),
+                    ModBlocks.BLUE_DIGITAL_CLOCK.get(),
+                    ModBlocks.CYAN_DIGITAL_CLOCK.get(),
+                    ModBlocks.LIGHT_BLUE_DIGITAL_CLOCK.get(),
+                    ModBlocks.MAGENTA_DIGITAL_CLOCK.get(),
+                    ModBlocks.PURPLE_DIGITAL_CLOCK.get(),
+                    ModBlocks.BROWN_DIGITAL_CLOCK.get(),
+                    ModBlocks.BLACK_DIGITAL_CLOCK.get(),
+                    ModBlocks.WHITE_DIGITAL_CLOCK.get(),
+                    ModBlocks.PINK_DIGITAL_CLOCK.get()
 
 
             ).build(null));
 
+
+    public static final Supplier<BlockEntityType<OvenBlockEntity>> OVEN =
+            BLOCK_ENTITIES.register("oven", () -> BlockEntityType.Builder.of(
+                    OvenBlockEntity::new,
+                    ModBlocks.OAK_OVEN.get(),
+                    ModBlocks.SPRUCE_OVEN.get(),
+                    ModBlocks.BIRCH_OVEN.get(),
+                    ModBlocks.JUNGLE_OVEN.get(),
+                    ModBlocks.ACACIA_OVEN.get(),
+                    ModBlocks.DARK_OAK_OVEN.get(),
+                    ModBlocks.MANGROVE_OVEN.get(),
+                    ModBlocks.CHERRY_OVEN.get(),
+                    ModBlocks.BAMBOO_OVEN.get(),
+                    ModBlocks.CRIMSON_OVEN.get(),
+                    ModBlocks.WARPED_OVEN.get()
+
+
+            ).build(null));
+
+    public static final Supplier<BlockEntityType<MicrowaveBlockEntity>> MICROWAVE =
+            BLOCK_ENTITIES.register("microwave", () -> BlockEntityType.Builder.of(
+                    MicrowaveBlockEntity::new,
+                    ModBlocks.LIGHT_MICROWAVE.get()
+
+
+            ).build(null));
 
 
 

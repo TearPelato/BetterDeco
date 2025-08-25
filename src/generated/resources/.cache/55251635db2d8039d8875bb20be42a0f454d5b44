@@ -1,3 +1,3 @@
-// 1.21.1	2025-08-16T18:34:09.4642943	Tags for minecraft:block mod id better_deco
-9feb1cf3e83dd797e66c445a0709a7145dbe61bd data/minecraft/tags/block/mineable/axe.json
-688b7ed88da63d1f525d40f2a8f4e4f719839043 data/minecraft/tags/block/mineable/pickaxe.json
+// 1.21.1	2025-08-23T23:45:28.0696091	Tags for minecraft:block mod id better_deco
+afce152491837711198cfd02bd2f3561820a893a data/minecraft/tags/block/mineable/axe.json
+296a73f7f5bddec722b20f0a356a49be52d40ffd data/minecraft/tags/block/mineable/pickaxe.json
