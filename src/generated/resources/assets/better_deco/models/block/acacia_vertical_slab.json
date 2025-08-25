@@ -1,0 +1,7 @@
+{
+  "parent": "better_deco:block/template_vertical_slab",
+  "textures": {
+    "particle": "minecraft:block/acacia_planks",
+    "texture": "minecraft:block/acacia_planks"
+  }
+}
