@@ -63,9 +63,33 @@ public class JEIBetterDecoPlugin implements IModPlugin {
     }
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
+        //Oven
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.OAK_OVEN.get().asItem()),
                 OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.SPRUCE_OVEN.get().asItem()),
+                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.BIRCH_OVEN.get().asItem()),
+                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.JUNGLE_OVEN.get().asItem()),
+                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.ACACIA_OVEN.get().asItem()),
+                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.DARK_OAK_OVEN.get().asItem()),
+                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.MANGROVE_OVEN.get().asItem()),
+                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.CHERRY_OVEN.get().asItem()),
+                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.BAMBOO_OVEN.get().asItem()),
+                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.CRIMSON_OVEN.get().asItem()),
+                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.WARPED_OVEN.get().asItem()),
+                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
+        //Microwave
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.LIGHT_MICROWAVE.get().asItem()),
+                MicrowaveRecipeCategory.MICROWAVE_RECIPE_RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.DARK_MICROWAVE.get().asItem()),
                 MicrowaveRecipeCategory.MICROWAVE_RECIPE_RECIPE_TYPE);
     }
 }

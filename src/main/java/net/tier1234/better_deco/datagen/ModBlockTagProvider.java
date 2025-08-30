@@ -98,6 +98,18 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.CRIMSON_CHAIR.get())
                 .add(ModBlocks.WARPED_CHAIR.get())
 
+                .add(ModBlocks.STRIPPED_OAK_CHAIR.get())
+                .add(ModBlocks.STRIPPED_SPRUCE_CHAIR.get())
+                .add(ModBlocks.STRIPPED_BIRCH_CHAIR.get())
+                .add(ModBlocks.STRIPPED_JUNGLE_CHAIR.get())
+                .add(ModBlocks.STRIPPED_ACACIA_CHAIR.get())
+                .add(ModBlocks.STRIPPED_MANGROVE_CHAIR.get())
+                .add(ModBlocks.STRIPPED_DARK_OAK_CHAIR.get())
+                .add(ModBlocks.STRIPPED_CHERRY_CHAIR.get())
+                .add(ModBlocks.STRIPPED_BAMBOO_CHAIR.get())
+                .add(ModBlocks.STRIPPED_CRIMSON_CHAIR.get())
+                .add(ModBlocks.STRIPPED_WARPED_CHAIR.get())
+
         //Crates
                 .add(ModBlocks.OAK_CRATE.get())
                 .add(ModBlocks.SPRUCE_CRATE.get())
@@ -259,6 +271,16 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
                  //Dinning Table
                 .add(ModBlocks.OAK_DINNING_TABLE.get())
+                .add(ModBlocks.SPRUCE_DINNING_TABLE.get())
+                .add(ModBlocks.BIRCH_DINNING_TABLE.get())
+                .add(ModBlocks.JUNGLE_DINNING_TABLE.get())
+                .add(ModBlocks.ACACIA_DINNING_TABLE.get())
+                .add(ModBlocks.DARK_OAK_DINNING_TABLE.get())
+                .add(ModBlocks.MANGROVE_DINNING_TABLE.get())
+                .add(ModBlocks.CHERRY_DINNING_TABLE.get())
+                .add(ModBlocks.BAMBOO_DINNING_TABLE.get())
+                .add(ModBlocks.CRIMSON_DINNING_TABLE.get())
+                .add(ModBlocks.WARPED_DINNING_TABLE.get())
 
 
 
@@ -409,6 +431,9 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                   .add(ModBlocks.BLACK_STOOL.get())
                   .add(ModBlocks.WITHE_STOOL.get())
                   .add(ModBlocks.BROWN_STOOL.get())
+
+                  .add(ModBlocks.LIGHT_MICROWAVE.get())
+                  .add(ModBlocks.DARK_MICROWAVE.get())
 
 
 

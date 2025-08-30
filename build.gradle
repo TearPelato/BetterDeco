@@ -24,6 +24,18 @@ repositories {
         name = "ModMaven"
         url = "https://modmaven.dev"
     }
+
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "CurseForge"
+                url = "https://cursemaven.com"
+            }
+        }
+        filter {
+            includeGroup "curse.maven"
+        }
+    }
 }
 
 base {
@@ -115,6 +127,9 @@ dependencies {
     // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"
     implementation("net.liukrast:connected_textures_api-${minecraft_version}:${connected_textures_api_version}")
     jarJar("net.liukrast:connected_textures_api-${minecraft_version}:[${connected_textures_api_version},)")
+    implementation("net.liukrast:multipart_api-${minecraft_version}:${multipart_version}")
+    jarJar("net.liukrast:multipart_api-${minecraft_version}:[${multipart_version},)")
+
 
 
     // compile against the JEI API but do not include it at runtime
@@ -124,6 +139,8 @@ dependencies {
 
     // compileOnly "mezz.jei:jei-${mc_version}-forge-api:${jei_version}"
     // runtimeOnly "mezz.jei:jei-${mc_version}-forge:${jei_version}"
+
+    implementation "curse.maven:catalogue-459701:5631367"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

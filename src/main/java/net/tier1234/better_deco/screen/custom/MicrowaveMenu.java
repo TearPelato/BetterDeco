@@ -103,7 +103,10 @@ public class MicrowaveMenu extends AbstractContainerMenu {
     @Override
     public boolean stillValid(Player pPlayer) {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                pPlayer, ModBlocks.LIGHT_MICROWAVE.get());
+                pPlayer, ModBlocks.LIGHT_MICROWAVE.get())
+                ||
+                stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                        pPlayer, ModBlocks.DARK_MICROWAVE.get());
     }
 
     private void addPlayerInventory(Inventory playerInventory) {

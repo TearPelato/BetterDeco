@@ -97,6 +97,7 @@
 
 
   "block.better_deco.microwave_light": "Light Microwave",
+  "block.better_deco.microwave_dark": "Dark Microwave",
 
 
 
@@ -118,6 +119,16 @@
 
 
   "block.better_deco.oak_dinning_table": "Oak Dinning Table",
+  "block.better_deco.spruce_dinning_table": "Spruce Dinning Table",
+  "block.better_deco.birch_dinning_table": "Birch Dinning Table",
+  "block.better_deco.jungle_dinning_table": "Jungle Dinning Table",
+  "block.better_deco.acacia_dinning_table": "Acacia Dinning Table",
+  "block.better_deco.dark_oak_dinning_table": "Dark Oak Dinning Table",
+  "block.better_deco.mangrove_dinning_table": "Mangrove Dinning Table",
+  "block.better_deco.cherry_dinning_table": "Cherry Dinning Table",
+  "block.better_deco.bamboo_dinning_table": "Bamboo Dinning Table",
+  "block.better_deco.crimson_dinning_table": "Crimson Dinning Table",
+  "block.better_deco.warped_dinning_table": "Warped Dinning Table",
 
 
 
@@ -132,6 +143,7 @@
   "block.better_deco.warped_planks_bricks": "Warped Planks Bricks",
   "block.better_deco.crimson_planks_bricks": "Crimson Planks Bricks",
   "block.better_deco.bamboo_planks_bricks": "Bamboo Planks Bricks",
+
   "block.better_deco.birch_chair": "Birch Chair",
   "block.better_deco.spruce_chair": "Spruce Chair",
   "block.better_deco.oak_chair": "Oak Chair",
@@ -143,6 +155,20 @@
   "block.better_deco.crimson_chair": "Crimson Chair",
   "block.better_deco.cherry_chair": "Cherry Chair",
   "block.better_deco.bamboo_chair": "Bamboo Chair",
+
+  "block.better_deco.stripped_birch_chair": "Stripped Birch Chair",
+  "block.better_deco.stripped_spruce_chair": "Stripped Spruce Chair",
+  "block.better_deco.stripped_oak_chair": "Stripped Oak Chair",
+  "block.better_deco.stripped_dark_oak_chair": "Stripped Dark Oak Chair",
+  "block.better_deco.stripped_mangrove_chair": "Stripped Mangrove Chair",
+  "block.better_deco.stripped_acacia_chair": "Stripped Acacia Chair",
+  "block.better_deco.stripped_jungle_chair": "Stripped Jungle Chair",
+  "block.better_deco.stripped_warped_chair": "Stripped Warped Chair",
+  "block.better_deco.stripped_crimson_chair": "Stripped Crimson Chair",
+  "block.better_deco.stripped_cherry_chair": "Stripped Cherry Chair",
+  "block.better_deco.stripped_bamboo_chair": "Stripped Bamboo Chair",
+
+
   "block.better_deco.acacia_planks_pillar": "Acacia Planks Pillar",
   "block.better_deco.birch_planks_pillar": "Birch Planks Pillar",
   "block.better_deco.bamboo_planks_pillar": "Bamboo Planks Pillar",
@@ -378,7 +404,7 @@
 
 
 
-"block.better_deco.encased_andesite_bricks": "Encased Andesite Bricks",
+
 "block.better_deco.andesite_array_bricks": "Andesite Array Bricks",
 "block.better_deco.andesite_mosaic_bricks": "Andesite Mosaic Bricks",
 "block.better_deco.andesite_mixed_bricks": "Andesite Mixed Bricks",

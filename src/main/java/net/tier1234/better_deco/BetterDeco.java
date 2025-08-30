@@ -24,7 +24,7 @@ import net.tier1234.better_deco.block.entity.renderer.*;
 import net.tier1234.better_deco.entity.ModEntities;
 import net.tier1234.better_deco.entity.client.ChairRenderer;
 import net.tier1234.better_deco.item.ModItems;
-import net.tier1234.better_deco.item.creative_tabs.ModCreativeTabs;
+import net.tier1234.better_deco.creative_tabs.ModCreativeTabs;
 import net.tier1234.better_deco.recipe.ModRecipes;
 import net.tier1234.better_deco.screen.ModMenuTypes;
 import net.tier1234.better_deco.screen.custom.*;
@@ -69,9 +69,6 @@ public class BetterDeco {
 
     }
 
-    public static ResourceLocation id(String path, Object... args) {
-        return ResourceLocation.fromNamespaceAndPath(MOD_ID, String.format(path, args));
-    }
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {

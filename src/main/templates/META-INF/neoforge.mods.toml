@@ -27,3 +27,7 @@ type = "required"
 versionRange = "${minecraft_version_range}"
 ordering = "NONE"
 side = "BOTH"
+
+[modproperties."${mod_id}"]
+catalogueImageIcon = "assets/better_deco/icon.png"
+catalogueBackground = "assets/better_deco/background.png"

@@ -261,7 +261,8 @@ public class ModBlockEntities {
     public static final Supplier<BlockEntityType<MicrowaveBlockEntity>> MICROWAVE =
             BLOCK_ENTITIES.register("microwave", () -> BlockEntityType.Builder.of(
                     MicrowaveBlockEntity::new,
-                    ModBlocks.LIGHT_MICROWAVE.get()
+                    ModBlocks.LIGHT_MICROWAVE.get(),
+                    ModBlocks.DARK_MICROWAVE.get()
 
 
             ).build(null));

@@ -22,7 +22,7 @@ public class OvenRecipeCategory implements IRecipeCategory<OvenRecipe> {
 
     public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, "oven");
     public static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID,
-            "textures/gui/oven/growth_chamber_gui.png");
+            "textures/gui/oven/oven_jei_2.png");
 
     public static final RecipeType<OvenRecipe> OVEN_RECIPE_RECIPE_TYPE =
             new RecipeType<>(UID, OvenRecipe.class);
@@ -32,7 +32,7 @@ public class OvenRecipeCategory implements IRecipeCategory<OvenRecipe> {
     private final IDrawable icon;
 
     public OvenRecipeCategory(IGuiHelper helper) {
-        this.background = helper.createDrawable(TEXTURE, 0,0,176, 85);
+        this.background = helper.createDrawable(TEXTURE, 0,0,176, 77);
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.OAK_OVEN));
 
     }
@@ -59,9 +59,9 @@ public class OvenRecipeCategory implements IRecipeCategory<OvenRecipe> {
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, OvenRecipe recipe, IFocusGroup focuses) {
-        builder.addSlot(RecipeIngredientRole.INPUT, 54, 34).addIngredients(recipe.getIngredients().get(0));
+        builder.addSlot(RecipeIngredientRole.INPUT, 78, 17).addIngredients(recipe.getIngredients().get(0));
 
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 104, 34).addItemStack(recipe.getResultItem(null));
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 78, 53).addItemStack(recipe.getResultItem(null));
     }
 
 }

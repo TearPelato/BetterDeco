@@ -13,7 +13,7 @@ public class OvenScreen extends AbstractContainerScreen<OvenMenu> {
     private static final ResourceLocation GUI_TEXTURE =
             ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID,"textures/gui/oven/oven.png");
     private static final ResourceLocation ARROW_TEXTURE =
-            ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID,"textures/gui/arrow_progress_2.png");
+            ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID,"textures/gui/arrow_progress_3.png");
 
     public OvenScreen(OvenMenu menu, Inventory playerInventory, Component title) {
         super(menu, playerInventory, title);
@@ -41,13 +41,16 @@ public class OvenScreen extends AbstractContainerScreen<OvenMenu> {
 
             if (progress > 0) {
                 int arrowHeight = 16;
-                int arrowX = x + 78;
-                int arrowY = y + 20 + i * 28;
+
+                int arrowX = x + 60 + i * 18;
+                int arrowY = y + 36;
 
                 gui.blit(ARROW_TEXTURE,
-                        arrowX, arrowY + (arrowHeight - progress),
-                        0, arrowHeight - progress,
-                        16, progress);
+                        arrowX, arrowY,
+                        0, 0,
+                        16, progress,
+                        16, 16
+                );
             }
         }
     }

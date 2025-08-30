@@ -26,7 +26,11 @@ public class ModBlocks {
 
       //TEST
 
+    //Microwave
     public static final DeferredBlock<Block> LIGHT_MICROWAVE = registerBlock("microwave_light",
+            ()-> new MicrowaveBlock(BlockBehaviour.Properties.of().strength(2.5f).sound(SoundType.METAL)
+                    .requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> DARK_MICROWAVE = registerBlock("microwave_dark",
             ()-> new MicrowaveBlock(BlockBehaviour.Properties.of().strength(2.5f).sound(SoundType.METAL)
                     .requiresCorrectToolForDrops()));
 
@@ -531,10 +535,6 @@ public static final DeferredBlock<Block> OAK_SOFT_BRICKS = registerBlock("oak_so
 
 
 
-//Tests
-public static final DeferredBlock<Block> ENCASED_ANDESITE_BRICKS = registerBlock("encased_andesite_bricks",
-        ()-> new ConnectedTextureBlock(BlockBehaviour.Properties.of().strength(4f).noOcclusion()));
-
 
     //Furnitures
     //Chairs
@@ -559,6 +559,30 @@ public static final DeferredBlock<Block> BIRCH_CHAIR = registerBlock("birch_chai
     public static final DeferredBlock<Block> CHERRY_CHAIR = registerBlock("cherry_chair",
             () -> new ChairBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
     public static final DeferredBlock<Block> BAMBOO_CHAIR = registerBlock("bamboo_chair",
+            () -> new ChairBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+
+    //Stripped
+    public static final DeferredBlock<Block> STRIPPED_BIRCH_CHAIR = registerBlock("stripped_birch_chair",
+            () -> new ChairBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> STRIPPED_SPRUCE_CHAIR = registerBlock("stripped_spruce_chair",
+            () -> new ChairBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> STRIPPED_OAK_CHAIR = registerBlock("stripped_oak_chair",
+            () -> new ChairBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> STRIPPED_DARK_OAK_CHAIR = registerBlock("stripped_dark_oak_chair",
+            () -> new ChairBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> STRIPPED_MANGROVE_CHAIR = registerBlock("stripped_mangrove_chair",
+            () -> new ChairBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> STRIPPED_WARPED_CHAIR = registerBlock("stripped_warped_chair",
+            () -> new ChairBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> STRIPPED_CRIMSON_CHAIR = registerBlock("stripped_crimson_chair",
+            () -> new ChairBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> STRIPPED_ACACIA_CHAIR = registerBlock("stripped_acacia_chair",
+            () -> new ChairBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> STRIPPED_JUNGLE_CHAIR = registerBlock("stripped_jungle_chair",
+            () -> new ChairBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> STRIPPED_CHERRY_CHAIR = registerBlock("stripped_cherry_chair",
+            () -> new ChairBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> STRIPPED_BAMBOO_CHAIR = registerBlock("stripped_bamboo_chair",
             () -> new ChairBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
 
     //Counters
@@ -991,6 +1015,26 @@ public static final DeferredBlock<Block> STONE_COUNTER = registerBlock("stone_ki
 
     //DINNING TABLE
     public static final  DeferredBlock<Block> OAK_DINNING_TABLE = registerBlock("oak_dinning_table",
+            ()-> new DinningTableBlock(BlockBehaviour.Properties.of().strength(2f).sound(SoundType.WOOD)));
+    public static final  DeferredBlock<Block> SPRUCE_DINNING_TABLE = registerBlock("spruce_dinning_table",
+            ()-> new DinningTableBlock(BlockBehaviour.Properties.of().strength(2f).sound(SoundType.WOOD)));
+    public static final  DeferredBlock<Block> BIRCH_DINNING_TABLE = registerBlock("birch_dinning_table",
+            ()-> new DinningTableBlock(BlockBehaviour.Properties.of().strength(2f).sound(SoundType.WOOD)));
+    public static final  DeferredBlock<Block> JUNGLE_DINNING_TABLE = registerBlock("jungle_dinning_table",
+            ()-> new DinningTableBlock(BlockBehaviour.Properties.of().strength(2f).sound(SoundType.WOOD)));
+    public static final  DeferredBlock<Block> ACACIA_DINNING_TABLE = registerBlock("acacia_dinning_table",
+            ()-> new DinningTableBlock(BlockBehaviour.Properties.of().strength(2f).sound(SoundType.WOOD)));
+    public static final  DeferredBlock<Block> DARK_OAK_DINNING_TABLE = registerBlock("dark_oak_dinning_table",
+            ()-> new DinningTableBlock(BlockBehaviour.Properties.of().strength(2f).sound(SoundType.WOOD)));
+    public static final  DeferredBlock<Block> MANGROVE_DINNING_TABLE = registerBlock("mangrove_dinning_table",
+            ()-> new DinningTableBlock(BlockBehaviour.Properties.of().strength(2f).sound(SoundType.WOOD)));
+    public static final  DeferredBlock<Block> CHERRY_DINNING_TABLE = registerBlock("cherry_dinning_table",
+            ()-> new DinningTableBlock(BlockBehaviour.Properties.of().strength(2f).sound(SoundType.WOOD)));
+    public static final  DeferredBlock<Block> BAMBOO_DINNING_TABLE = registerBlock("bamboo_dinning_table",
+            ()-> new DinningTableBlock(BlockBehaviour.Properties.of().strength(2f).sound(SoundType.WOOD)));
+    public static final  DeferredBlock<Block> CRIMSON_DINNING_TABLE = registerBlock("crimson_dinning_table",
+            ()-> new DinningTableBlock(BlockBehaviour.Properties.of().strength(2f).sound(SoundType.WOOD)));
+    public static final  DeferredBlock<Block> WARPED_DINNING_TABLE = registerBlock("warped_dinning_table",
             ()-> new DinningTableBlock(BlockBehaviour.Properties.of().strength(2f).sound(SoundType.WOOD)));
 
 

@@ -25,7 +25,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.ANDESITE_MIXED_BRICKS.get());
         dropSelf(ModBlocks.ANDESITE_MOSAIC_BRICKS.get());
         dropSelf(ModBlocks.RAW_ANDESITE.get());
-        dropSelf(ModBlocks.ENCASED_ANDESITE_BRICKS.get());
 
         //Oak Variants
 
@@ -165,6 +164,17 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.CRIMSON_CHAIR.get());
         dropSelf(ModBlocks.WARPED_CHAIR.get());
 
+        dropSelf(ModBlocks.STRIPPED_OAK_CHAIR.get());
+        dropSelf(ModBlocks.STRIPPED_SPRUCE_CHAIR.get());
+        dropSelf(ModBlocks.STRIPPED_BIRCH_CHAIR.get());
+        dropSelf(ModBlocks.STRIPPED_JUNGLE_CHAIR.get());
+        dropSelf(ModBlocks.STRIPPED_ACACIA_CHAIR.get());
+        dropSelf(ModBlocks.STRIPPED_MANGROVE_CHAIR.get());
+        dropSelf(ModBlocks.STRIPPED_DARK_OAK_CHAIR.get());
+        dropSelf(ModBlocks.STRIPPED_CHERRY_CHAIR.get());
+        dropSelf(ModBlocks.STRIPPED_BAMBOO_CHAIR.get());
+        dropSelf(ModBlocks.STRIPPED_CRIMSON_CHAIR.get());
+        dropSelf(ModBlocks.STRIPPED_WARPED_CHAIR.get());
 
 
         //Kitchen Counters
@@ -479,6 +489,16 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
 
         dropSelf(ModBlocks.OAK_DINNING_TABLE.get());
+        dropSelf(ModBlocks.SPRUCE_DINNING_TABLE.get());
+        dropSelf(ModBlocks.BIRCH_DINNING_TABLE.get());
+        dropSelf(ModBlocks.JUNGLE_DINNING_TABLE.get());
+        dropSelf(ModBlocks.ACACIA_DINNING_TABLE.get());
+        dropSelf(ModBlocks.DARK_OAK_DINNING_TABLE.get());
+        dropSelf(ModBlocks.MANGROVE_DINNING_TABLE.get());
+        dropSelf(ModBlocks.CHERRY_DINNING_TABLE.get());
+        dropSelf(ModBlocks.BAMBOO_DINNING_TABLE.get());
+        dropSelf(ModBlocks.CRIMSON_DINNING_TABLE.get());
+        dropSelf(ModBlocks.WARPED_DINNING_TABLE.get());
 
         add(ModBlocks.OAK_VERTICAL_SLAB.get(), p_249031_ -> createSlabItemTable(p_249031_));
 
@@ -493,6 +513,9 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.BAMBOO_OVEN.get());
         dropSelf(ModBlocks.CRIMSON_OVEN.get());
         dropSelf(ModBlocks.WARPED_OVEN.get());
+
+        dropSelf(ModBlocks.LIGHT_MICROWAVE.get());
+        dropSelf(ModBlocks.DARK_MICROWAVE.get());
 
 
     }

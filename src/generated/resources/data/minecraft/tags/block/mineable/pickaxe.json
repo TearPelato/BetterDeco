@@ -76,6 +76,8 @@
     "better_deco:light_grey_stool",
     "better_deco:black_stool",
     "better_deco:white_stool",
-    "better_deco:brown_stool"
+    "better_deco:brown_stool",
+    "better_deco:microwave_light",
+    "better_deco:microwave_dark"
   ]
 }
