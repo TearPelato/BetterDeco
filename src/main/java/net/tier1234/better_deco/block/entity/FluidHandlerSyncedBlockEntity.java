@@ -5,6 +5,8 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -59,9 +61,8 @@ public abstract class FluidHandlerSyncedBlockEntity extends BlockEntity {
     }
 
     @Nullable
-    @Override
-    public ClientboundBlockEntityDataPacket getUpdatePacket() {
-        return ClientboundBlockEntityDataPacket.create(this);
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        return null;
     }
 
     @Override

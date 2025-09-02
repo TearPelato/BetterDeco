@@ -19,6 +19,8 @@ I RECOMMEND TO USE GUISCALE SET FROM AUTO TO 2/3 Because the Crate new gui will 
  -Added Shelfs
  -Added Oven
  -Added Microwave
+ -Added Stripped variants for tables, dinning tables, coffee table and ovens
+ -Added dark variant for Sinks
 
  #ADDITIONS FROM LATEST SNAPSHOTS
  -Added Copper Lanterns
@@ -33,6 +35,7 @@ I RECOMMEND TO USE GUISCALE SET FROM AUTO TO 2/3 Because the Crate new gui will 
 -Changed the "unlocked by" in the Stone Tecque recipe
 -Reworked the Creative Tab system
 - Changed the Changelog folder
+-Changed
 
 #CHANGES TOOK FROM LATEST SNAPSHOT
 -Changed the Chain name from "Chain" to "Iron Chain"
@@ -41,3 +44,9 @@ I RECOMMEND TO USE GUISCALE SET FROM AUTO TO 2/3 Because the Crate new gui will 
 -Added Pedestal/Wooden Tecques recipes missed from the previous alpha
 -Fixed tags, now some block tags will be DataGen
 -Fixed Vertical Slabs, now drop correctly
+-Fixed Tables Connection glitch
+
+#COMPATIBILITIES
+-Added Compatibility with:
+ *JEI/EMI
+ *CATALOGUE

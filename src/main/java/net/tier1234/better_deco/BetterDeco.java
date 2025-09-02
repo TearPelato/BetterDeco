@@ -110,6 +110,7 @@ public class BetterDeco {
             event.register(ModMenuTypes.SHELF_MENU.get(), ShelfScreen::new);
             event.register(ModMenuTypes.OVEN_MENU.get(), OvenScreen::new);
             event.register(ModMenuTypes.MICROWAVE_MENU.get(), MicrowaveScreen::new);
+            event.register(ModMenuTypes.SINK_MENU.get(), SinkScreen::new);
         }
     }
 }
