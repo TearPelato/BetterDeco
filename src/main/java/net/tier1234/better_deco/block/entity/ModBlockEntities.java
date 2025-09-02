@@ -145,7 +145,6 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("kitchen_sink", () -> BlockEntityType.Builder.of(
                    KitchenSinkBlockEntity::new,
                     ModBlocks.OAK_SINK.get(),
-                    ModBlocks.OAK_SINK.get(),
                     ModBlocks.SPRUCE_SINK.get(),
                     ModBlocks.BIRCH_SINK.get(),
                     ModBlocks.JUNGLE_SINK.get(),
@@ -155,7 +154,20 @@ public class ModBlockEntities {
                     ModBlocks.CHERRY_SINK.get(),
                     ModBlocks.BAMBOO_SINK.get(),
                     ModBlocks.CRIMSON_SINK.get(),
-                    ModBlocks.WARPED_SINK.get()
+                    ModBlocks.WARPED_SINK.get(),
+
+                    ModBlocks.OAK_SINK_DARK.get(),
+                    ModBlocks.SPRUCE_SINK_DARK.get(),
+                    ModBlocks.BIRCH_SINK_DARK.get(),
+                    ModBlocks.JUNGLE_SINK_DARK.get(),
+                    ModBlocks.ACACIA_SINK_DARK.get(),
+                    ModBlocks.MANGROVE_SINK_DARK.get(),
+                    ModBlocks.DARK_OAK_SINK_DARK.get(),
+                    ModBlocks.CHERRY_SINK_DARK.get(),
+                    ModBlocks.BAMBOO_SINK_DARK.get(),
+                    ModBlocks.CRIMSON_SINK_DARK.get(),
+                    ModBlocks.WARPED_SINK_DARK.get()
+
 
             ).build(null));
 
@@ -253,7 +265,19 @@ public class ModBlockEntities {
                     ModBlocks.CHERRY_OVEN.get(),
                     ModBlocks.BAMBOO_OVEN.get(),
                     ModBlocks.CRIMSON_OVEN.get(),
-                    ModBlocks.WARPED_OVEN.get()
+                    ModBlocks.WARPED_OVEN.get(),
+
+                    ModBlocks.STRIPPED_OAK_OVEN.get(),
+                    ModBlocks.STRIPPED_SPRUCE_OVEN.get(),
+                    ModBlocks.STRIPPED_BIRCH_OVEN.get(),
+                    ModBlocks.STRIPPED_JUNGLE_OVEN.get(),
+                    ModBlocks.STRIPPED_ACACIA_OVEN.get(),
+                    ModBlocks.STRIPPED_DARK_OAK_OVEN.get(),
+                    ModBlocks.STRIPPED_MANGROVE_OVEN.get(),
+                    ModBlocks.STRIPPED_CHERRY_OVEN.get(),
+                    ModBlocks.STRIPPED_BAMBOO_OVEN.get(),
+                    ModBlocks.STRIPPED_CRIMSON_OVEN.get(),
+                    ModBlocks.STRIPPED_WARPED_OVEN.get()
 
 
             ).build(null));

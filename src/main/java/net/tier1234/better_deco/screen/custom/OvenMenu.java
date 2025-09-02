@@ -120,7 +120,30 @@ public class OvenMenu extends AbstractContainerMenu {
                 || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
                 pPlayer, ModBlocks.CRIMSON_OVEN.get())
                 || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                pPlayer, ModBlocks.WARPED_OVEN.get());
+                pPlayer, ModBlocks.WARPED_OVEN.get())
+                ||
+                stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                        pPlayer, ModBlocks.STRIPPED_OAK_OVEN.get())
+                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                pPlayer, ModBlocks.STRIPPED_SPRUCE_OVEN.get())
+                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                pPlayer, ModBlocks.STRIPPED_BIRCH_OVEN.get())
+                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                pPlayer, ModBlocks.STRIPPED_JUNGLE_OVEN.get())
+                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                pPlayer, ModBlocks.STRIPPED_ACACIA_OVEN.get())
+                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                pPlayer, ModBlocks.STRIPPED_DARK_OAK_OVEN.get())
+                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                pPlayer, ModBlocks.STRIPPED_MANGROVE_OVEN.get())
+                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                pPlayer, ModBlocks.STRIPPED_CHERRY_OVEN.get())
+                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                pPlayer, ModBlocks.STRIPPED_BAMBOO_OVEN.get())
+                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                pPlayer, ModBlocks.STRIPPED_CRIMSON_OVEN.get())
+                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                pPlayer, ModBlocks.STRIPPED_WARPED_OVEN.get());
     }
 
     private void addPlayerInventory(Inventory playerInventory) {
