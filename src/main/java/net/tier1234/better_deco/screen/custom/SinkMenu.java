@@ -30,10 +30,6 @@ public class SinkMenu extends AbstractContainerMenu {
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
 
-        this.addSlot(new SlotItemHandler(this.blockEntity.inventory, 0, 71, 15));
-        this.addSlot(new SlotItemHandler(this.blockEntity.inventory, 1, 89, 15));
-        this.addSlot(new SlotItemHandler(this.blockEntity.inventory, 2, 71, 33));
-        this.addSlot(new SlotItemHandler(this.blockEntity.inventory, 3, 89, 33));
     }
 
 
