@@ -577,6 +577,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.LIGHT_MICROWAVE.get());
         dropSelf(ModBlocks.DARK_MICROWAVE.get());
 
+        dropSelf(ModBlocks.GENERATOR.get());
+
 
     }
 

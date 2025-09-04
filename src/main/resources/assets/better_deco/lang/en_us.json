@@ -23,6 +23,7 @@
   "bundled_tab.utilities.title": "Utilities",
   "bundled_tab.buildings_extras": "Buildings Extras",
   "bundled_tab.decoration": "Deco",
+  "bundled_tab.electronics.title": "Electronics",
 
   "block.better_deco.red_stool": "Red Stool",
   "block.better_deco.orange_stool": "Orange Stool",
@@ -106,7 +107,9 @@
 
   "gui.better_deco.oven": "Oven",
   "gui.better_deco.microwave": "Microwave",
+  "gui.better_deco.generator": "Generator",
 
+  "block.better_deco.generator": "Generator",
 
   "block.better_deco.microwave_light": "Light Microwave",
   "block.better_deco.microwave_dark": "Dark Microwave",

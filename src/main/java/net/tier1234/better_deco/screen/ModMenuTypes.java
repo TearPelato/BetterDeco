@@ -37,6 +37,9 @@ public class ModMenuTypes {
     public static final DeferredHolder<MenuType<?>, MenuType<SinkMenu>> SINK_MENU =
             registerMenuType("sink_menu", SinkMenu::new);
 
+    public static final DeferredHolder<MenuType<?>, MenuType<GeneratorMenu>> GENERATOR =
+            registerMenuType("generator_menu", GeneratorMenu::new);
+
 
 
 

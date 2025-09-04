@@ -537,6 +537,21 @@ public class ModBundledTabs {
                     })
                     .build()
     );
+
+    public static final BundledTabs ELECTRONICS = register(
+            BundledTabs.builder()
+                    .title(Component.translatable("bundled_tab.electronics.title"))
+                    .icon(new ItemStack(ModBlocks.OAK_OVEN.get()))
+                    .displayItems((provider, output) -> {
+                        output.accept(ModBlocks.GENERATOR);
+
+
+                    })
+                    .build()
+
+ );
+
+
     public static final BundledTabs ITEMS = register(
             BundledTabs.builder()
                     .title(Component.translatable("bundled_tab.items.title"))
