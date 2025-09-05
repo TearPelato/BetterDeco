@@ -64,6 +64,7 @@ public class GeneratorBlockEntity extends BlockEntity implements MenuProvider {
         };
     }
 
+
     private final List<BlockPos> linkedConsumers = new ArrayList<>();
 
     public void addLinkedBlock(BlockPos pos) {

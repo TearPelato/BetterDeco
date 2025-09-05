@@ -9,7 +9,6 @@ import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
-import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -22,7 +21,7 @@ public class OvenRecipeCategory implements IRecipeCategory<OvenRecipe> {
 
     public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, "oven");
     public static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID,
-            "textures/gui/oven/oven_jei_2.png");
+            "textures/gui/oven/oven_gui_jei.png");
 
     public static final RecipeType<OvenRecipe> OVEN_RECIPE_RECIPE_TYPE =
             new RecipeType<>(UID, OvenRecipe.class);
@@ -32,7 +31,7 @@ public class OvenRecipeCategory implements IRecipeCategory<OvenRecipe> {
     private final IDrawable icon;
 
     public OvenRecipeCategory(IGuiHelper helper) {
-        this.background = helper.createDrawable(TEXTURE, 0,0,176, 77);
+        this.background = helper.createDrawable(TEXTURE, 0,0,176, 81);
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.OAK_OVEN));
 
     }

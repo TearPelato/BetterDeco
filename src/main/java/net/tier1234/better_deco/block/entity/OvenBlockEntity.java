@@ -1,6 +1,7 @@
 package net.tier1234.better_deco.block.entity;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -19,7 +20,9 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.energy.IEnergyStorage;
 import net.neoforged.neoforge.items.ItemStackHandler;
+import net.tier1234.better_deco.energy.ModEnergyStorage;
 import net.tier1234.better_deco.recipe.ModRecipes;
 import net.tier1234.better_deco.recipe.OvenRecipe;
 import net.tier1234.better_deco.recipe.OvenRecipeInput;
@@ -38,6 +41,18 @@ public class OvenBlockEntity extends BlockEntity implements MenuProvider {
             }
         }
     };
+    private static final int ENERGY_CRAFT_AMOUNT = 25; // amount of energy per tick to craft
+
+    private final ModEnergyStorage ENERGY_STORAGE = createEnergyStorage();
+    private ModEnergyStorage createEnergyStorage() {
+        return new ModEnergyStorage(64000, 320) {
+            @Override
+            public void onEnergyChanged() {
+                setChanged();
+                getLevel().sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
+            }
+        };
+    }
 
     private static final int[] INPUT_SLOTS = {0, 1, 2};
     private static final int[] OUTPUT_SLOTS = {3, 4, 5};
@@ -65,6 +80,9 @@ public class OvenBlockEntity extends BlockEntity implements MenuProvider {
             }
         };
     }
+    public IEnergyStorage getEnergyStorage(@Nullable Direction direction) {
+        return this.ENERGY_STORAGE;
+    }
 
     @Override
     public Component getDisplayName() {
@@ -81,6 +99,7 @@ public class OvenBlockEntity extends BlockEntity implements MenuProvider {
         SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
         for (int i = 0; i < itemHandler.getSlots(); i++) {
             inventory.setItem(i, itemHandler.getStackInSlot(i));
+            useEnergyForCrafting();
         }
         Containers.dropContents(this.level, this.worldPosition, inventory);
     }
@@ -100,8 +119,12 @@ public class OvenBlockEntity extends BlockEntity implements MenuProvider {
                 progress[i] = 0;
             }
         }
-
         if(changed) setChanged(level, pos, state);
+    }
+
+
+    private void useEnergyForCrafting() {
+        this.ENERGY_STORAGE.extractEnergy(ENERGY_CRAFT_AMOUNT, false);
     }
 
     private boolean hasRecipe(int inputSlot, int outputSlot) {
@@ -112,7 +135,10 @@ public class OvenBlockEntity extends BlockEntity implements MenuProvider {
         if(recipe.isEmpty()) return false;
 
         ItemStack output = recipe.get().value().output();
-        return canInsert(output, outputSlot);
+        return canInsert(output, outputSlot) && hasEnoughEnergyToCraft();
+    }
+    private boolean hasEnoughEnergyToCraft() {
+        return this.ENERGY_STORAGE.getEnergyStored() >= ENERGY_CRAFT_AMOUNT * maxProgress;
     }
 
     private Optional<RecipeHolder<OvenRecipe>> getRecipeFor(ItemStack input) {
@@ -142,6 +168,7 @@ public class OvenBlockEntity extends BlockEntity implements MenuProvider {
         tag.put("inventory", itemHandler.serializeNBT(registries));
         for(int i=0;i<3;i++) tag.putInt("progress" + i, progress[i]);
         super.saveAdditional(tag, registries);
+        tag.putInt("crystallizer.energy", ENERGY_STORAGE.getEnergyStored());
     }
 
     @Override
@@ -149,6 +176,8 @@ public class OvenBlockEntity extends BlockEntity implements MenuProvider {
         super.loadAdditional(tag, registries);
         itemHandler.deserializeNBT(registries, tag.getCompound("inventory"));
         for(int i=0;i<3;i++) progress[i] = tag.getInt("progress" + i);
+
+        ENERGY_STORAGE.setEnergy(tag.getInt("crystallizer.energy"));
     }
 
     @Override
