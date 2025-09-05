@@ -9,7 +9,7 @@ import net.neoforged.neoforge.client.event.ScreenEvent;
 import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.creative_tabs.BundledTabSelector;
 
-@EventBusSubscriber(modid = BetterDeco.MOD_ID, bus = EventBusSubscriber.Bus.GAME, value =  Dist.CLIENT)
+@EventBusSubscriber(modid = BetterDeco.MOD_ID, value =  Dist.CLIENT)
 public class ModClientEvents {
 
     @SubscribeEvent

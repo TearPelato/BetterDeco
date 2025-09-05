@@ -43,6 +43,9 @@
   "block.better_deco.white_stool": "White Stool",
 
 
+  "util.better_deco.generator_linked": "Generator Linked",
+  "util.better_deco.consumer_linked":"Consumer Linked",
+
 
   "block.better_deco.red_digital_clock": "Red Digital Clock",
   "block.better_deco.orange_digital_clock": "Orange Digital Clock",
@@ -528,6 +531,8 @@
   "item.better_deco.gold_chisel": "Gold Chisel",
   "item.better_deco.diamond_chisel": "Diamond Chisel",
   "item.better_deco.netherite_chisel": "Netherite Chisel",
+
+  "item.better_deco.wire": "Wire",
 
 
 

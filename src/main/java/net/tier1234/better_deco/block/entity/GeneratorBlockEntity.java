@@ -1,10 +1,12 @@
 package net.tier1234.better_deco.block.entity;
 
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.LongTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
@@ -27,6 +29,9 @@ import net.tier1234.better_deco.screen.custom.GeneratorMenu;
 import net.tier1234.better_deco.energy.ModEnergyStorage;
 import net.tier1234.better_deco.energy.ModEnergyUtil;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GeneratorBlockEntity extends BlockEntity implements MenuProvider {
     public final ItemStackHandler itemHandler = new ItemStackHandler(1) {
@@ -57,6 +62,19 @@ public class GeneratorBlockEntity extends BlockEntity implements MenuProvider {
                 getLevel().sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
             }
         };
+    }
+
+    private final List<BlockPos> linkedConsumers = new ArrayList<>();
+
+    public void addLinkedBlock(BlockPos pos) {
+        if (!linkedConsumers.contains(pos)) {
+            linkedConsumers.add(pos);
+            setChanged();
+        }
+    }
+
+    public List<BlockPos> getLinkedConsumers() {
+        return linkedConsumers;
     }
 
     public GeneratorBlockEntity(BlockPos pPos, BlockState pBlockState) {
@@ -125,12 +143,30 @@ public class GeneratorBlockEntity extends BlockEntity implements MenuProvider {
             fillUpOnEnergy();
         }
 
+        // ✅ Spingi energia al blocco sopra
         pushEnergyToNeighbourAbove();
+
+        // ✅ Spingi energia a tutti i consumatori collegati
+        pushEnergyToLinkedConsumers();
     }
 
     private void pushEnergyToNeighbourAbove() {
         if(ModEnergyUtil.doesBlockHaveEnergyStorage(this.worldPosition.above(), this.level)) {
-            ModEnergyUtil.move(this.worldPosition, this.worldPosition.above(), 320, this.level);
+            ModEnergyUtil.move(this.worldPosition, this.worldPosition.above(), ENERGY_TRANSFER_AMOUNT, this.level);
+        }
+    }
+
+    // ✅ nuovo metodo
+    private void pushEnergyToLinkedConsumers() {
+        if (linkedConsumers.isEmpty()) return;
+
+        for (BlockPos consumerPos : new ArrayList<>(linkedConsumers)) {
+            if (ModEnergyUtil.doesBlockHaveEnergyStorage(consumerPos, this.level)) {
+                ModEnergyUtil.move(this.worldPosition, consumerPos, ENERGY_TRANSFER_AMOUNT, this.level);
+            } else {
+                // Se non è più valido, lo rimuoviamo
+                linkedConsumers.remove(consumerPos);
+            }
         }
     }
 
@@ -164,7 +200,6 @@ public class GeneratorBlockEntity extends BlockEntity implements MenuProvider {
         this.ENERGY_STORAGE.receiveEnergy(320, false);
     }
 
-
     @Override
     protected void saveAdditional(CompoundTag pTag, HolderLookup.Provider pRegistries) {
         pTag.put("generator.inventory", itemHandler.serializeNBT(pRegistries));
@@ -172,6 +207,13 @@ public class GeneratorBlockEntity extends BlockEntity implements MenuProvider {
         pTag.putInt("generator.max_burn_progress", maxBurnProgress);
 
         pTag.putInt("generator.energy", ENERGY_STORAGE.getEnergyStored());
+
+        // ✅ salva i consumatori collegati
+        ListTag listTag = new ListTag();
+        for (BlockPos pos : linkedConsumers) {
+            listTag.add(LongTag.valueOf(pos.asLong()));
+        }
+        pTag.put("generator.linked_consumers", listTag);
 
         super.saveAdditional(pTag, pRegistries);
     }
@@ -184,6 +226,16 @@ public class GeneratorBlockEntity extends BlockEntity implements MenuProvider {
 
         burnProgress = pTag.getInt("generator.burn_progress");
         maxBurnProgress = pTag.getInt("generator.max_burn_progress");
+
+        linkedConsumers.clear();
+        if (pTag.contains("generator.linked_consumers")) {
+            ListTag listTag = pTag.getList("generator.linked_consumers", Tag.TAG_LONG);
+            for (Tag t : listTag) {
+                if (t instanceof LongTag longTag) {
+                    linkedConsumers.add(BlockPos.of(longTag.getAsLong()));
+                }
+            }
+        }
     }
 
     @Nullable

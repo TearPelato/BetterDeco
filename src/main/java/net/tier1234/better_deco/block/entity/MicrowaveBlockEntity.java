@@ -1,6 +1,7 @@
 package net.tier1234.better_deco.block.entity;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -19,7 +20,9 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.energy.IEnergyStorage;
 import net.neoforged.neoforge.items.ItemStackHandler;
+import net.tier1234.better_deco.energy.ModEnergyStorage;
 import net.tier1234.better_deco.recipe.*;
 import net.tier1234.better_deco.screen.custom.MicrowaveMenu;
 import org.jetbrains.annotations.Nullable;
@@ -43,6 +46,18 @@ public class MicrowaveBlockEntity extends BlockEntity implements MenuProvider {
     protected final ContainerData data;
     private int progress = 0;
     private int maxProgress = 72;
+    private static final int ENERGY_CRAFT_AMOUNT = 25; // amount of energy per tick to craft
+
+    private final ModEnergyStorage ENERGY_STORAGE = createEnergyStorage();
+    private ModEnergyStorage createEnergyStorage() {
+        return new ModEnergyStorage(64000, 320) {
+            @Override
+            public void onEnergyChanged() {
+                setChanged();
+                getLevel().sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
+            }
+        };
+    }
 
     public MicrowaveBlockEntity(BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.MICROWAVE.get(), pos, blockState);
@@ -71,6 +86,11 @@ public class MicrowaveBlockEntity extends BlockEntity implements MenuProvider {
         };
     }
 
+
+    public IEnergyStorage getEnergyStorage(@Nullable Direction direction) {
+        return this.ENERGY_STORAGE;
+    }
+
     @Override
     public Component getDisplayName() {
         return Component.translatable("block.better_deco.microwave_light");
@@ -96,6 +116,7 @@ public class MicrowaveBlockEntity extends BlockEntity implements MenuProvider {
         pTag.put("inventory", itemHandler.serializeNBT(pRegistries));
         pTag.putInt("growth_chamber.progress", progress);
         pTag.putInt("growth_chamber.max_progress", maxProgress);
+        pTag.putInt("crystallizer.energy", ENERGY_STORAGE.getEnergyStored());
 
         super.saveAdditional(pTag, pRegistries);
     }
@@ -107,13 +128,14 @@ public class MicrowaveBlockEntity extends BlockEntity implements MenuProvider {
         itemHandler.deserializeNBT(pRegistries, pTag.getCompound("inventory"));
         progress = pTag.getInt("growth_chamber.progress");
         maxProgress = pTag.getInt("growth_chamber.max_progress");
+        ENERGY_STORAGE.setEnergy(pTag.getInt("crystallizer.energy"));
     }
 
     public void tick(Level level, BlockPos blockPos, BlockState blockState) {
         if(hasRecipe()) {
             increaseCraftingProgress();
+            useEnergyForCrafting();
             setChanged(level, blockPos, blockState);
-
             if(hasCraftingFinished()) {
                 craftItem();
                 resetProgress();
@@ -121,6 +143,10 @@ public class MicrowaveBlockEntity extends BlockEntity implements MenuProvider {
         } else {
             resetProgress();
         }
+    }
+
+    private void useEnergyForCrafting() {
+        this.ENERGY_STORAGE.extractEnergy(ENERGY_CRAFT_AMOUNT, false);
     }
 
     private void craftItem() {
@@ -152,7 +178,11 @@ public class MicrowaveBlockEntity extends BlockEntity implements MenuProvider {
         }
 
         ItemStack output = recipe.get().value().output();
-        return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output);
+        return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output) && hasEnoughEnergyToCraft();
+    }
+
+    private boolean hasEnoughEnergyToCraft() {
+        return this.ENERGY_STORAGE.getEnergyStored() >= ENERGY_CRAFT_AMOUNT * maxProgress;
     }
 
     private Optional<RecipeHolder<MicrowaveRecipe>> getCurrentRecipe() {
