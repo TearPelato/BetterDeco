@@ -143,10 +143,7 @@ public class GeneratorBlockEntity extends BlockEntity implements MenuProvider {
             fillUpOnEnergy();
         }
 
-        // ✅ Spingi energia al blocco sopra
         pushEnergyToNeighbourAbove();
-
-        // ✅ Spingi energia a tutti i consumatori collegati
         pushEnergyToLinkedConsumers();
     }
 
@@ -156,7 +153,6 @@ public class GeneratorBlockEntity extends BlockEntity implements MenuProvider {
         }
     }
 
-    // ✅ nuovo metodo
     private void pushEnergyToLinkedConsumers() {
         if (linkedConsumers.isEmpty()) return;
 
@@ -164,7 +160,6 @@ public class GeneratorBlockEntity extends BlockEntity implements MenuProvider {
             if (ModEnergyUtil.doesBlockHaveEnergyStorage(consumerPos, this.level)) {
                 ModEnergyUtil.move(this.worldPosition, consumerPos, ENERGY_TRANSFER_AMOUNT, this.level);
             } else {
-                // Se non è più valido, lo rimuoviamo
                 linkedConsumers.remove(consumerPos);
             }
         }
@@ -208,7 +203,6 @@ public class GeneratorBlockEntity extends BlockEntity implements MenuProvider {
 
         pTag.putInt("generator.energy", ENERGY_STORAGE.getEnergyStored());
 
-        // ✅ salva i consumatori collegati
         ListTag listTag = new ListTag();
         for (BlockPos pos : linkedConsumers) {
             listTag.add(LongTag.valueOf(pos.asLong()));
