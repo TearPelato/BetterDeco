@@ -1,7 +1,6 @@
 package net.tier1234.better_deco.block.entity;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -25,35 +24,40 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.energy.IEnergyStorage;
 import net.neoforged.neoforge.items.ItemStackHandler;
-import net.tier1234.better_deco.screen.custom.GeneratorMenu;
+import net.tier1234.better_deco.energy.IEnergyNode;
 import net.tier1234.better_deco.energy.ModEnergyStorage;
 import net.tier1234.better_deco.energy.ModEnergyUtil;
+import net.tier1234.better_deco.screen.custom.GeneratorMenu;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class GeneratorBlockEntity extends BlockEntity implements MenuProvider {
+public class GeneratorBlockEntity extends BlockEntity implements MenuProvider, IEnergyNode {
+
     public final ItemStackHandler itemHandler = new ItemStackHandler(1) {
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
-            if(!level.isClientSide()) {
+            if (!level.isClientSide()) {
                 level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
             }
         }
     };
 
-    private static final int INPUT_SLOT = 0;
 
-    protected final ContainerData data;
+
+    private static final int INPUT_SLOT = 0;
+    private static final int ENERGY_TRANSFER_AMOUNT = 320;
+
+    private final List<BlockPos> linkedConsumers = new ArrayList<>();
+
     private int burnProgress = 160;
     private int maxBurnProgress = 160;
     private boolean isBurning = false;
 
-    private static final int ENERGY_TRANSFER_AMOUNT = 320;
-
     private final ModEnergyStorage ENERGY_STORAGE = createEnergyStorage();
+
     private ModEnergyStorage createEnergyStorage() {
         return new ModEnergyStorage(64000, 320) {
             @Override
@@ -64,26 +68,14 @@ public class GeneratorBlockEntity extends BlockEntity implements MenuProvider {
         };
     }
 
+    protected final ContainerData data;
 
-    private final List<BlockPos> linkedConsumers = new ArrayList<>();
-
-    public void addLinkedBlock(BlockPos pos) {
-        if (!linkedConsumers.contains(pos)) {
-            linkedConsumers.add(pos);
-            setChanged();
-        }
-    }
-
-    public List<BlockPos> getLinkedConsumers() {
-        return linkedConsumers;
-    }
-
-    public GeneratorBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        super(ModBlockEntities.GENERATOR.get(), pPos, pBlockState);
+    public GeneratorBlockEntity(BlockPos pos, BlockState state) {
+        super(ModBlockEntities.GENERATOR.get(), pos, state);
         this.data = new ContainerData() {
             @Override
-            public int get(int pIndex) {
-                return switch (pIndex) {
+            public int get(int index) {
+                return switch (index) {
                     case 0 -> GeneratorBlockEntity.this.burnProgress;
                     case 1 -> GeneratorBlockEntity.this.maxBurnProgress;
                     default -> 0;
@@ -91,10 +83,10 @@ public class GeneratorBlockEntity extends BlockEntity implements MenuProvider {
             }
 
             @Override
-            public void set(int pIndex, int pValue) {
-                switch (pIndex) {
-                    case 0 -> GeneratorBlockEntity.this.burnProgress = pValue;
-                    case 1 -> GeneratorBlockEntity.this.maxBurnProgress = pValue;
+            public void set(int index, int value) {
+                switch (index) {
+                    case 0 -> GeneratorBlockEntity.this.burnProgress = value;
+                    case 1 -> GeneratorBlockEntity.this.maxBurnProgress = value;
                 }
             }
 
@@ -105,40 +97,49 @@ public class GeneratorBlockEntity extends BlockEntity implements MenuProvider {
         };
     }
 
-    public IEnergyStorage getEnergyStorage(@Nullable Direction direction) {
+    @Override
+    public void disconnectFrom(BlockPos pos) {
+        linkedConsumers.remove(pos);
+        setChanged();
+    }
+
+    @Override
+    public boolean isProducer() {
+        return true;
+    }
+
+    @Override
+    public boolean isConsumer() {
+        return false;
+    }
+
+    @Override
+    public void connectTo(BlockPos pos) {
+        if (!linkedConsumers.contains(pos)) {
+            linkedConsumers.add(pos);
+            setChanged();
+        }
+    }
+
+    @Override
+    public List<BlockPos> getConnections() {
+        return linkedConsumers;
+    }
+
+    public IEnergyStorage getEnergyStorage(@Nullable net.minecraft.core.Direction direction) {
         return this.ENERGY_STORAGE;
     }
 
-    @Override
-    public Component getDisplayName() {
-        return Component.literal("Generator");
-    }
-
-    @Nullable
-    @Override
-    public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
-        return new GeneratorMenu(pContainerId, pPlayerInventory, this, this.data);
-    }
-
-    public void drops() {
-        SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
-        for (int i = 0; i < itemHandler.getSlots(); i++) {
-            inventory.setItem(i, itemHandler.getStackInSlot(i));
-        }
-
-        Containers.dropContents(this.level, this.worldPosition, inventory);
-    }
-
-    public void tick(Level level, BlockPos blockPos, BlockState blockState) {
-        if(hasFuelItemInSlot()) {
-            if(!isBurningFuel()) {
+    public void tick(Level level, BlockPos blockPos, BlockState state) {
+        if (hasFuelItemInSlot()) {
+            if (!isBurningFuel()) {
                 startBurning();
             }
         }
 
-        if(isBurningFuel()) {
+        if (isBurningFuel()) {
             increaseBurnTimer();
-            if(currentFuelDoneBurning()) {
+            if (currentFuelDoneBurning()) {
                 resetBurning();
             }
             fillUpOnEnergy();
@@ -149,21 +150,19 @@ public class GeneratorBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     private void pushEnergyToNeighbourAbove() {
-        if(ModEnergyUtil.doesBlockHaveEnergyStorage(this.worldPosition.above(), this.level)) {
+        if (ModEnergyUtil.doesBlockHaveEnergyStorage(this.worldPosition.above(), this.level)) {
             ModEnergyUtil.move(this.worldPosition, this.worldPosition.above(), ENERGY_TRANSFER_AMOUNT, this.level);
         }
     }
 
     private void pushEnergyToLinkedConsumers() {
-        if (linkedConsumers.isEmpty()) return;
-
-        for (BlockPos consumerPos : new ArrayList<>(linkedConsumers)) {
-            if (ModEnergyUtil.doesBlockHaveEnergyStorage(consumerPos, this.level)) {
-                ModEnergyUtil.move(this.worldPosition, consumerPos, ENERGY_TRANSFER_AMOUNT, this.level);
-            } else {
-                linkedConsumers.remove(consumerPos);
+        linkedConsumers.removeIf(pos -> {
+            if (ModEnergyUtil.doesBlockHaveEnergyStorage(pos, this.level)) {
+                ModEnergyUtil.move(this.worldPosition, pos, ENERGY_TRANSFER_AMOUNT, this.level);
+                return false;
             }
-        }
+            return true; // remove invalid
+        });
     }
 
     private boolean hasFuelItemInSlot() {
@@ -196,35 +195,36 @@ public class GeneratorBlockEntity extends BlockEntity implements MenuProvider {
         this.ENERGY_STORAGE.receiveEnergy(320, false);
     }
 
-    @Override
-    protected void saveAdditional(CompoundTag pTag, HolderLookup.Provider pRegistries) {
-        pTag.put("generator.inventory", itemHandler.serializeNBT(pRegistries));
-        pTag.putInt("generator.burn_progress", burnProgress);
-        pTag.putInt("generator.max_burn_progress", maxBurnProgress);
 
-        pTag.putInt("generator.energy", ENERGY_STORAGE.getEnergyStored());
+
+    @Override
+    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider provider) {
+        tag.put("inventory", itemHandler.serializeNBT(provider));
+        tag.putInt("burn_progress", burnProgress);
+        tag.putInt("max_burn_progress", maxBurnProgress);
+        tag.putInt("energy", ENERGY_STORAGE.getEnergyStored());
 
         ListTag listTag = new ListTag();
         for (BlockPos pos : linkedConsumers) {
             listTag.add(LongTag.valueOf(pos.asLong()));
         }
-        pTag.put("generator.linked_consumers", listTag);
+        tag.put("linked_consumers", listTag);
 
-        super.saveAdditional(pTag, pRegistries);
+        super.saveAdditional(tag, provider);
     }
 
     @Override
-    protected void loadAdditional(CompoundTag pTag, HolderLookup.Provider pRegistries) {
-        super.loadAdditional(pTag, pRegistries);
-        itemHandler.deserializeNBT(pRegistries, pTag.getCompound("generator.inventory"));
-        ENERGY_STORAGE.setEnergy(pTag.getInt("generator.energy"));
+    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider provider) {
+        super.loadAdditional(tag, provider);
+        itemHandler.deserializeNBT(provider, tag.getCompound("inventory"));
+        ENERGY_STORAGE.setEnergy(tag.getInt("energy"));
 
-        burnProgress = pTag.getInt("generator.burn_progress");
-        maxBurnProgress = pTag.getInt("generator.max_burn_progress");
+        burnProgress = tag.getInt("burn_progress");
+        maxBurnProgress = tag.getInt("max_burn_progress");
 
         linkedConsumers.clear();
-        if (pTag.contains("generator.linked_consumers")) {
-            ListTag listTag = pTag.getList("generator.linked_consumers", Tag.TAG_LONG);
+        if (tag.contains("linked_consumers")) {
+            ListTag listTag = tag.getList("linked_consumers", Tag.TAG_LONG);
             for (Tag t : listTag) {
                 if (t instanceof LongTag longTag) {
                     linkedConsumers.add(BlockPos.of(longTag.getAsLong()));
@@ -232,7 +232,6 @@ public class GeneratorBlockEntity extends BlockEntity implements MenuProvider {
             }
         }
     }
-
     @Nullable
     @Override
     public Packet<ClientGamePacketListener> getUpdatePacket() {
@@ -240,12 +239,32 @@ public class GeneratorBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     @Override
-    public CompoundTag getUpdateTag(HolderLookup.Provider pRegistries) {
-        return saveWithoutMetadata(pRegistries);
+    public CompoundTag getUpdateTag(HolderLookup.Provider provider) {
+        return saveWithoutMetadata(provider);
     }
 
     @Override
-    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt, HolderLookup.Provider pRegistries) {
-        super.onDataPacket(net, pkt, pRegistries);
+    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt, HolderLookup.Provider provider) {
+        super.onDataPacket(net, pkt, provider);
+    }
+
+
+    public void drops() {
+        SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
+        for (int i = 0; i < itemHandler.getSlots(); i++) {
+            inventory.setItem(i, itemHandler.getStackInSlot(i));
+        }
+        Containers.dropContents(this.level, this.worldPosition, inventory);
+    }
+
+    @Override
+    public Component getDisplayName() {
+        return Component.translatable("gui.better_deco.generator");
+    }
+
+    @Nullable
+    @Override
+    public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
+        return new GeneratorMenu(pContainerId, pPlayerInventory, this, this.data);
     }
 }

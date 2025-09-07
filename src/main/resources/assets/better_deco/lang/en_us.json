@@ -47,6 +47,8 @@
   "util.better_deco.consumer_linked": "Consumer Linked",
   "util.better_deco.invalid_consumer": "Invalid Consumer",
   "util.better_deco.wire_linked": "Wire Linked",
+  "util.better_deco.invalid_generator": "Invalid Generator",
+  "util.better_deco.linked": "Linked",
 
 
   "block.better_deco.red_digital_clock": "Red Digital Clock",

@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -16,20 +17,23 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.energy.IEnergyStorage;
 import net.neoforged.neoforge.items.ItemStackHandler;
+import net.tier1234.better_deco.energy.IEnergyNode;
 import net.tier1234.better_deco.energy.ModEnergyStorage;
 import net.tier1234.better_deco.recipe.*;
 import net.tier1234.better_deco.screen.custom.MicrowaveMenu;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.Optional;
 
-public class MicrowaveBlockEntity extends BlockEntity implements MenuProvider {
+public class MicrowaveBlockEntity extends BlockEntity implements MenuProvider, IEnergyNode {
     public final ItemStackHandler itemHandler = new ItemStackHandler(2) {
         @Override
         protected void onContentsChanged(int slot) {
@@ -39,18 +43,27 @@ public class MicrowaveBlockEntity extends BlockEntity implements MenuProvider {
             }
         }
     };
+    private static final int ENERGY_CRAFT_AMOUNT = 25; // amount of energy per tick to craft
+
+    private final ModEnergyStorage ENERGY_STORAGE = createEnergyStorage();
+
+    public IEnergyStorage getEnergyStorage(@Nullable Direction direction) {
+        return this.ENERGY_STORAGE;
+    }
 
     private static final int INPUT_SLOT = 0;
     private static final int OUTPUT_SLOT = 1;
 
-    protected final ContainerData data;
+    private final ModEnergyStorage energyStorage = createEnergyStorage();
     private int progress = 0;
-    private int maxProgress = 72;
-    private static final int ENERGY_CRAFT_AMOUNT = 25; // amount of energy per tick to craft
+    private int maxProgress = 200;
 
-    private final ModEnergyStorage ENERGY_STORAGE = createEnergyStorage();
+    public MicrowaveBlockEntity(BlockPos pos, BlockState state) {
+        super(ModBlockEntities.MICROWAVE.get(), pos, state);
+    }
+
     private ModEnergyStorage createEnergyStorage() {
-        return new ModEnergyStorage(64000, 320) {
+        return new ModEnergyStorage(16000, 320) {
             @Override
             public void onEnergyChanged() {
                 setChanged();
@@ -59,89 +72,63 @@ public class MicrowaveBlockEntity extends BlockEntity implements MenuProvider {
         };
     }
 
-    public MicrowaveBlockEntity(BlockPos pos, BlockState blockState) {
-        super(ModBlockEntities.MICROWAVE.get(), pos, blockState);
-        data = new ContainerData() {
-            @Override
-            public int get(int i) {
-                return switch (i) {
-                    case 0 -> MicrowaveBlockEntity.this.progress;
-                    case 1 -> MicrowaveBlockEntity.this.maxProgress;
-                    default -> 0;
-                };
-            }
-
-            @Override
-            public void set(int i, int value) {
-                switch (i) {
-                    case 0: MicrowaveBlockEntity.this.progress = value;
-                    case 1: MicrowaveBlockEntity.this.maxProgress = value;
-                }
-            }
-
-            @Override
-            public int getCount() {
-                return 2;
-            }
-        };
-    }
-
-
-    public IEnergyStorage getEnergyStorage(@Nullable Direction direction) {
-        return this.ENERGY_STORAGE;
+    @Override
+    public boolean isProducer() {
+        return false;
     }
 
     @Override
-    public Component getDisplayName() {
-        return Component.translatable("block.better_deco.microwave_light");
+    public boolean isConsumer() {
+        return true;
     }
 
-    @Nullable
     @Override
-    public AbstractContainerMenu createMenu(int i, Inventory inventory, Player player) {
-        return new MicrowaveMenu(i, inventory, this, this.data);
+    public void connectTo(BlockPos pos) {
+    }
+    @Override
+    public void disconnectFrom(BlockPos pos) {
+    }
+    @Override
+    public List<BlockPos> getConnections() {
+        return List.of();
     }
 
-    public void drops() {
-        SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
-        for (int i = 0; i < itemHandler.getSlots(); i++) {
-            inventory.setItem(i, itemHandler.getStackInSlot(i));
+    protected final ContainerData data = new ContainerData() {
+        @Override
+        public int get(int index) {
+            return switch (index) {
+                case 0 -> MicrowaveBlockEntity.this.progress;
+                case 1 -> MicrowaveBlockEntity.this.maxProgress;
+                default -> 0;
+            };
         }
 
-        Containers.dropContents(this.level, this.worldPosition, inventory);
-    }
+        @Override
+        public void set(int index, int value) {
+            switch (index) {
+                case 0 -> MicrowaveBlockEntity.this.progress = value;
+                case 1 -> MicrowaveBlockEntity.this.maxProgress = value;
+            }
+        }
 
-    @Override
-    protected void saveAdditional(CompoundTag pTag, HolderLookup.Provider pRegistries) {
-        pTag.put("inventory", itemHandler.serializeNBT(pRegistries));
-        pTag.putInt("growth_chamber.progress", progress);
-        pTag.putInt("growth_chamber.max_progress", maxProgress);
-        pTag.putInt("crystallizer.energy", ENERGY_STORAGE.getEnergyStored());
+        @Override
+        public int getCount() {
+            return 2;
+        }
+    };
 
-        super.saveAdditional(pTag, pRegistries);
-    }
+    public void tick(Level level, BlockPos pos, BlockState state) {
+        if (hasRecipe() && hasEnoughEnergy()) {
 
-    @Override
-    protected void loadAdditional(CompoundTag pTag, HolderLookup.Provider pRegistries) {
-        super.loadAdditional(pTag, pRegistries);
-
-        itemHandler.deserializeNBT(pRegistries, pTag.getCompound("inventory"));
-        progress = pTag.getInt("growth_chamber.progress");
-        maxProgress = pTag.getInt("growth_chamber.max_progress");
-        ENERGY_STORAGE.setEnergy(pTag.getInt("crystallizer.energy"));
-    }
-
-    public void tick(Level level, BlockPos blockPos, BlockState blockState) {
-        if(hasRecipe()) {
-            increaseCraftingProgress();
             useEnergyForCrafting();
-            setChanged(level, blockPos, blockState);
-            if(hasCraftingFinished()) {
+            progress++;
+            energyStorage.extractEnergy(40, false);
+            if (progress >= maxProgress) {
                 craftItem();
-                resetProgress();
+                progress = 0;
             }
         } else {
-            resetProgress();
+            progress = 0;
         }
     }
 
@@ -149,26 +136,8 @@ public class MicrowaveBlockEntity extends BlockEntity implements MenuProvider {
         this.ENERGY_STORAGE.extractEnergy(ENERGY_CRAFT_AMOUNT, false);
     }
 
-    private void craftItem() {
-        Optional<RecipeHolder<MicrowaveRecipe>> recipe = getCurrentRecipe();
-        ItemStack output = recipe.get().value().output();
-
-        itemHandler.extractItem(INPUT_SLOT, 1, false);
-        itemHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(output.getItem(),
-                itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + output.getCount()));
-    }
-
-    private void resetProgress() {
-        progress = 0;
-        maxProgress = 72;
-    }
-
-    private boolean hasCraftingFinished() {
-        return this.progress >= this.maxProgress;
-    }
-
-    private void increaseCraftingProgress() {
-        progress++;
+    private boolean hasEnoughEnergy() {
+        return energyStorage.getEnergyStored() >= 40;
     }
 
     private boolean hasRecipe() {
@@ -202,14 +171,71 @@ public class MicrowaveBlockEntity extends BlockEntity implements MenuProvider {
         return maxCount >= currentCount + count;
     }
 
-    @Override
-    public CompoundTag getUpdateTag(HolderLookup.Provider pRegistries) {
-        return saveWithoutMetadata(pRegistries);
+    public void drops() {
+        SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
+        for (int i = 0; i < itemHandler.getSlots(); i++) {
+            inventory.setItem(i, itemHandler.getStackInSlot(i));
+        }
+
+        Containers.dropContents(this.level, this.worldPosition, inventory);
     }
+
+    @Override
+    protected void saveAdditional(CompoundTag pTag, HolderLookup.Provider pRegistries) {
+        pTag.put("inventory", itemHandler.serializeNBT(pRegistries));
+        pTag.putInt("growth_chamber.progress", progress);
+        pTag.putInt("growth_chamber.max_progress", maxProgress);
+        pTag.putInt("crystallizer.energy", ENERGY_STORAGE.getEnergyStored());
+
+        super.saveAdditional(pTag, pRegistries);
+    }
+
+    @Override
+    protected void loadAdditional(CompoundTag pTag, HolderLookup.Provider pRegistries) {
+        super.loadAdditional(pTag, pRegistries);
+
+        itemHandler.deserializeNBT(pRegistries, pTag.getCompound("inventory"));
+        progress = pTag.getInt("growth_chamber.progress");
+        maxProgress = pTag.getInt("growth_chamber.max_progress");
+        ENERGY_STORAGE.setEnergy(pTag.getInt("crystallizer.energy"));
+    }
+
+    private void craftItem() {
+        Optional<RecipeHolder<MicrowaveRecipe>> recipe = getCurrentRecipe();
+        ItemStack output = recipe.get().value().output();
+
+        itemHandler.extractItem(INPUT_SLOT, 1, false);
+        itemHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(output.getItem(),
+                itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + output.getCount()));
+    }
+
 
     @Nullable
     @Override
     public Packet<ClientGamePacketListener> getUpdatePacket() {
         return ClientboundBlockEntityDataPacket.create(this);
+    }
+
+    @Override
+    public CompoundTag getUpdateTag(HolderLookup.Provider provider) {
+        return saveWithoutMetadata(provider);
+    }
+
+    @Override
+    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt, HolderLookup.Provider provider) {
+        super.onDataPacket(net, pkt, provider);
+    }
+
+
+
+    @Override
+    public Component getDisplayName() {
+        return Component.translatable("gui.better_deco.microwave");
+    }
+
+    @Nullable
+    @Override
+    public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
+        return new MicrowaveMenu(id, inv, this, this.data);
     }
 }
