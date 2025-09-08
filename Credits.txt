@@ -1,5 +1,5 @@
 Mod Credits
 
 ModHelper
--LiukRast
--BlackGear
+-LiukRast(General help and improvements)
+-BlackGear(Helped with creative tab)

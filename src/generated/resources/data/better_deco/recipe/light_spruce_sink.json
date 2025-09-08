@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:spruce_planks"
+    },
+    "B": {
+      "item": "minecraft:white_concrete"
+    },
+    "X": {
+      "item": "minecraft:bucket"
+    }
+  },
+  "pattern": [
+    "BXB",
+    "BBB",
+    "# #"
+  ],
+  "result": {
+    "count": 1,
+    "id": "better_deco:light_spruce_sink"
+  }
+}

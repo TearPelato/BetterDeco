@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:stripped_jungle_log"
+    },
+    "X": {
+      "item": "minecraft:jungle_log"
+    }
+  },
+  "pattern": [
+    "   ",
+    "BBB",
+    "X X"
+  ],
+  "result": {
+    "count": 1,
+    "id": "better_deco:stripped_jungle_coffee_table"
+  }
+}
