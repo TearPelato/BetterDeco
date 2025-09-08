@@ -2,4 +2,3 @@ BetterDeco project.
 
 1.0.0-NeoForge 1.21.1
 -First Release
--Readme Update
