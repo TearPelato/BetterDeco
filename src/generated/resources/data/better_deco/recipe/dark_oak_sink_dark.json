@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:dark_oak_planks"
+    },
+    "B": {
+      "item": "minecraft:gray_concrete"
+    },
+    "X": {
+      "item": "minecraft:bucket"
+    }
+  },
+  "pattern": [
+    "BXB",
+    "BBB",
+    "# #"
+  ],
+  "result": {
+    "count": 1,
+    "id": "better_deco:dark_oak_sink_dark"
+  }
+}

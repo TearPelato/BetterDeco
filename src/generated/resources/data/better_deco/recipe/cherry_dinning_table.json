@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:cherry_log"
+    },
+    "X": {
+      "item": "minecraft:stripped_cherry_log"
+    }
+  },
+  "pattern": [
+    "BBB",
+    "X X",
+    "X X"
+  ],
+  "result": {
+    "count": 1,
+    "id": "better_deco:cherry_dinning_table"
+  }
+}

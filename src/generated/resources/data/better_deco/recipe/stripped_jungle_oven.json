@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:stripped_jungle_log"
+    },
+    "B": {
+      "item": "minecraft:jungle_planks"
+    },
+    "X": {
+      "item": "minecraft:smoker"
+    }
+  },
+  "pattern": [
+    "###",
+    "BXB",
+    "BBB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "better_deco:stripped_jungle_oven"
+  }
+}

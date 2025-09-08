@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:stripped_birch_log"
+    },
+    "X": {
+      "item": "minecraft:birch_log"
+    }
+  },
+  "pattern": [
+    "BBB",
+    " X ",
+    " X "
+  ],
+  "result": {
+    "count": 1,
+    "id": "better_deco:stripped_birch_table"
+  }
+}
