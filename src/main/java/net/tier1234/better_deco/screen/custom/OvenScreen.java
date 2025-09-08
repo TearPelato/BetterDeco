@@ -14,15 +14,15 @@ import java.util.Optional;
 
 public class OvenScreen extends AbstractContainerScreen<OvenMenu> {
     private static final ResourceLocation GUI_TEXTURE =
-            ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID,"textures/gui/oven/oven_gui.png");
+            ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID,"textures/gui/oven/oven.png");
     private static final ResourceLocation ARROW_TEXTURE =
             ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID,"textures/gui/arrow_progress_3.png");
 
 
     public OvenScreen(OvenMenu menu, Inventory playerInventory, Component title) {
         super(menu, playerInventory, title);
-        this.imageWidth = 175;
-        this.imageHeight = 183;
+        this.imageWidth = 176;
+        this.imageHeight = 184;
     }
 
 

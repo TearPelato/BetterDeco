@@ -21,7 +21,7 @@ public class OvenRecipeCategory implements IRecipeCategory<OvenRecipe> {
 
     public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, "oven");
     public static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID,
-            "textures/gui/oven/oven_gui_jei.png");
+            "textures/gui/oven/oven_jei_2.png");
 
     public static final RecipeType<OvenRecipe> OVEN_RECIPE_RECIPE_TYPE =
             new RecipeType<>(UID, OvenRecipe.class);

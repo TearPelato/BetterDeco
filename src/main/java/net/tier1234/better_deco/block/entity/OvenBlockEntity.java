@@ -27,8 +27,6 @@ import net.tier1234.better_deco.recipe.OvenRecipeInput;
 import net.tier1234.better_deco.screen.custom.OvenMenu;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 public class OvenBlockEntity extends BlockEntity implements MenuProvider {
@@ -42,34 +40,51 @@ public class OvenBlockEntity extends BlockEntity implements MenuProvider {
         }
     };
 
-
     private static final int[] INPUT_SLOTS = {0, 1, 2};
     private static final int[] OUTPUT_SLOTS = {3, 4, 5};
 
-    private int[] progress = new int[3];
-    private final int maxProgress = 400;
+    protected final ContainerData data;
+    private final int[] progress = new int[3];
+    private final int maxProgress = 72;
 
     public OvenBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.OVEN.get(), pos, state);
+        data = new ContainerData() {
+            @Override
+            public int get(int i) {
+                return i < 3 ? progress[i] : 0;
+            }
+
+            @Override
+            public void set(int i, int value) {
+                if(i < 3) progress[i] = value;
+            }
+
+            @Override
+            public int getCount() {
+                return 3;
+            }
+        };
     }
 
+    @Override
+    public Component getDisplayName() {
+        return Component.translatable("block.better_deco.oven");
+    }
 
-    protected final ContainerData data = new ContainerData() {
-        @Override
-        public int get(int i) {
-            return (i >= 0 && i < 3) ? progress[i] : 0;
-        }
+    @Nullable
+    @Override
+    public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
+        return new OvenMenu(id, inv, this, this.data);
+    }
 
-        @Override
-        public void set(int i, int value) {
-            if (i >= 0 && i < 3) progress[i] = value;
+    public void drops() {
+        SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
+        for (int i = 0; i < itemHandler.getSlots(); i++) {
+            inventory.setItem(i, itemHandler.getStackInSlot(i));
         }
-
-        @Override
-        public int getCount() {
-            return 3;
-        }
-    };
+        Containers.dropContents(this.level, this.worldPosition, inventory);
+    }
 
     public void tick(Level level, BlockPos pos, BlockState state) {
         boolean changed = false;
@@ -100,7 +115,6 @@ public class OvenBlockEntity extends BlockEntity implements MenuProvider {
         ItemStack output = recipe.get().value().output();
         return canInsert(output, outputSlot);
     }
-
 
     private Optional<RecipeHolder<OvenRecipe>> getRecipeFor(ItemStack input) {
         return level.getRecipeManager().getRecipeFor(ModRecipes.OVEN_TYPE.get(), new OvenRecipeInput(input), level);
@@ -136,41 +150,14 @@ public class OvenBlockEntity extends BlockEntity implements MenuProvider {
         super.loadAdditional(tag, registries);
         itemHandler.deserializeNBT(registries, tag.getCompound("inventory"));
         for(int i=0;i<3;i++) progress[i] = tag.getInt("progress" + i);
-
     }
+
+    @Override
+    public CompoundTag getUpdateTag(HolderLookup.Provider registries) { return saveWithoutMetadata(registries); }
 
     @Nullable
     @Override
     public Packet<ClientGamePacketListener> getUpdatePacket() {
         return ClientboundBlockEntityDataPacket.create(this);
-    }
-
-    @Override
-    public CompoundTag getUpdateTag(HolderLookup.Provider provider) {
-        return saveWithoutMetadata(provider);
-    }
-
-    @Override
-    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt, HolderLookup.Provider provider) {
-        super.onDataPacket(net, pkt, provider);
-    }
-
-    public void drops() {
-        SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
-        for (int i = 0; i < itemHandler.getSlots(); i++) {
-            inventory.setItem(i, itemHandler.getStackInSlot(i));
-        }
-        Containers.dropContents(this.level, this.worldPosition, inventory);
-    }
-
-    @Override
-    public Component getDisplayName() {
-        return Component.translatable("gui.better_deco.oven");
-    }
-
-    @Nullable
-    @Override
-    public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
-        return new OvenMenu(id, inv, this, this.data);
     }
 }
