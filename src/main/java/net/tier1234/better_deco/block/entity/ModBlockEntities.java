@@ -292,12 +292,6 @@ public class ModBlockEntities {
             ).build(null));
 
 
-    public static final Supplier<BlockEntityType<GeneratorBlockEntity>> GENERATOR =
-            BLOCK_ENTITIES.register("generator", () -> BlockEntityType.Builder.of(
-                    GeneratorBlockEntity::new,
-                    ModBlocks.GENERATOR.get()
-
-            ).build(null));
 
 
 

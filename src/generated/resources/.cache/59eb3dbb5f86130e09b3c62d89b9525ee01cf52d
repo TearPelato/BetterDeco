@@ -1,4 +1,4 @@
-// 1.21.1	2025-09-04T18:55:26.4904309	Loot Tables
+// 1.21.1	2025-09-08T18:38:35.871034	Loot Tables
 c275d17a98fbf9a86f83c408f6ce53f925c165b9 data/better_deco/loot_table/blocks/acacia_barrel.json
 a3a550e985f91cd952484fe2aba00e9eee359c7a data/better_deco/loot_table/blocks/acacia_bedside.json
 78435e1dd436e2deaddb64fa06e5ef5148692b6d data/better_deco/loot_table/blocks/acacia_cabinet.json
@@ -160,7 +160,6 @@ a25440f07b5fc80ee0a5d9039223d92b09bda1b3 data/better_deco/loot_table/blocks/deep
 20d6f8084ce02bbe25c9fe6bf91f9bab41b1d605 data/better_deco/loot_table/blocks/diorite_kitchen_drawer.json
 8784186586c11a2b76797179e1ac1468affd9401 data/better_deco/loot_table/blocks/diorite_pedestal.json
 f6a85808f10e911e340201750ecb377850b51ddd data/better_deco/loot_table/blocks/exposed_copper_lantern.json
-429ee054b8e34a35cd65ceef0e39e9b03681ee6c data/better_deco/loot_table/blocks/generator.json
 c1eaf931dc7e34b2c3072683a8cba04bfd666eee data/better_deco/loot_table/blocks/granite_cabinet.json
 c5bd7c11a6ba4b9fdf50da6c5b504e3902461da0 data/better_deco/loot_table/blocks/granite_kitchen_counter.json
 f3563bcbe4a398365db292683a581e218e3d9f4a data/better_deco/loot_table/blocks/granite_kitchen_drawer.json

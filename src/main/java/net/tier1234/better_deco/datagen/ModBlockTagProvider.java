@@ -494,7 +494,6 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
                   .add(ModBlocks.LIGHT_MICROWAVE.get())
                   .add(ModBlocks.DARK_MICROWAVE.get())
-                  .add(ModBlocks.GENERATOR.get())
 
 
           ;

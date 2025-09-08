@@ -43,6 +43,5 @@ public class BetterDecoClient {
         event.register(ModMenuTypes.OVEN_MENU.get(), OvenScreen::new);
         event.register(ModMenuTypes.MICROWAVE_MENU.get(), MicrowaveScreen::new);
         event.register(ModMenuTypes.SINK_MENU.get(), SinkScreen::new);
-        event.register(ModMenuTypes.GENERATOR.get(), GeneratorScreen::new);
     }
 }

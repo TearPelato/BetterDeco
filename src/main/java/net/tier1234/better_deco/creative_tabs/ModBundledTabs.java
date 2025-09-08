@@ -541,10 +541,9 @@ public class ModBundledTabs {
     public static final BundledTabs ELECTRONICS = register(
             BundledTabs.builder()
                     .title(Component.translatable("bundled_tab.electronics.title"))
-                    .icon(new ItemStack(ModBlocks.GENERATOR.get()))
+                    .icon(new ItemStack(ModBlocks.OAK_OVEN.get()))
                     .displayItems((provider, output) -> {
-                        output.accept(ModBlocks.GENERATOR);
-                        output.accept(ModItems.WIRE);
+
 
 
                     })

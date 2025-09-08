@@ -6,7 +6,6 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.item.custom.ChiselItem;
-import net.tier1234.better_deco.item.custom.WireItem;
 
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(BetterDeco.MOD_ID);
@@ -23,9 +22,7 @@ public class ModItems {
             () -> new ChiselItem(new Item.Properties().durability(2031)));
 
 
-//Wire
-    public static final DeferredItem<Item> WIRE = ITEMS.register("wire",
-        ()-> new WireItem(new Item.Properties()));
+
 
 
 
