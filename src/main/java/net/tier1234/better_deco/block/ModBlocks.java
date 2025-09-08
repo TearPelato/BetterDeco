@@ -256,6 +256,38 @@ public static final DeferredBlock<Block> ANDESITE_ARRAY_BRICKS = registerBlock("
     public static final DeferredBlock<Block> RAW_ANDESITE = registerBlock("raw_andesite",
             () -> new Block(BlockBehaviour.Properties.of()
                     .strength(4f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    //Diorite
+    public static final DeferredBlock<Block> DIORITE_ARRAY_BRICKS = registerBlock("diorite_array_bricks",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(4f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final DeferredBlock<Block> DIORITE_MOSAIC_BRICKS = registerBlock("diorite_mosaic_bricks",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(4f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final DeferredBlock<Block> DIORITE_MIXED_BRICKS = registerBlock("diorite_mixed_bricks",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(4f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final DeferredBlock<Block> DIORITE_BRICKS = registerBlock("diorite_bricks",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(4f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final DeferredBlock<Block> RAW_DIORITE = registerBlock("raw_diorite",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(4f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    //Granite
+    public static final DeferredBlock<Block> GRANITE_ARRAY_BRICKS = registerBlock("granite_array_bricks",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(4f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final DeferredBlock<Block> GRANITE_MOSAIC_BRICKS = registerBlock("granite_mosaic_bricks",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(4f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final DeferredBlock<Block> GRANITE_MIXED_BRICKS = registerBlock("granite_mixed_bricks",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(4f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final DeferredBlock<Block> GRANITE_BRICKS = registerBlock("granite_bricks",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(4f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final DeferredBlock<Block> RAW_GRANITE = registerBlock("raw_granite",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(4f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
 
 
 

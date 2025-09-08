@@ -4113,6 +4113,90 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_andesite", has(Blocks.ANDESITE.asItem()))
                 .save(recipeOutput);
 
+        //Diorite
+        SingleItemRecipeBuilder.stonecutting(
+                        Ingredient.of(Blocks.DIORITE.asItem()),
+                        RecipeCategory.MISC,
+                        ModBlocks.DIORITE_MIXED_BRICKS.get()
+                )
+                .unlockedBy("has_diorite", has(Blocks.DIORITE.asItem()))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(
+                        Ingredient.of(Blocks.DIORITE.asItem()),
+                        RecipeCategory.MISC,
+                        ModBlocks.DIORITE_ARRAY_BRICKS.get()
+                )
+                .unlockedBy("has_diorite", has(Blocks.DIORITE.asItem()))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(
+                        Ingredient.of(Blocks.DIORITE.asItem()),
+                        RecipeCategory.MISC,
+                        ModBlocks.DIORITE_BRICKS.get()
+                )
+                .unlockedBy("has_diorite", has(Blocks.DIORITE.asItem()))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(
+                        Ingredient.of(Blocks.DIORITE.asItem()),
+                        RecipeCategory.MISC,
+                        ModBlocks.RAW_DIORITE.get()
+                )
+                .unlockedBy("has_diorite", has(Blocks.DIORITE.asItem()))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(
+                        Ingredient.of(Blocks.DIORITE.asItem()),
+                        RecipeCategory.MISC,
+                        ModBlocks.DIORITE_MOSAIC_BRICKS.get()
+                )
+                .unlockedBy("has_diorite", has(Blocks.DIORITE.asItem()))
+                .save(recipeOutput);
+
+        //Granite
+
+        SingleItemRecipeBuilder.stonecutting(
+                        Ingredient.of(Blocks.GRANITE.asItem()),
+                        RecipeCategory.MISC,
+                        ModBlocks.GRANITE_MIXED_BRICKS.get()
+                )
+                .unlockedBy("has_granite", has(Blocks.GRANITE.asItem()))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(
+                        Ingredient.of(Blocks.GRANITE.asItem()),
+                        RecipeCategory.MISC,
+                        ModBlocks.GRANITE_ARRAY_BRICKS.get()
+                )
+                .unlockedBy("has_granite", has(Blocks.GRANITE.asItem()))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(
+                        Ingredient.of(Blocks.GRANITE.asItem()),
+                        RecipeCategory.MISC,
+                        ModBlocks.GRANITE_BRICKS.get()
+                )
+                .unlockedBy("has_granite", has(Blocks.GRANITE.asItem()))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(
+                        Ingredient.of(Blocks.GRANITE.asItem()),
+                        RecipeCategory.MISC,
+                        ModBlocks.RAW_GRANITE.get()
+                )
+                .unlockedBy("has_granite", has(Blocks.GRANITE.asItem()))
+                .save(recipeOutput);
+
+        SingleItemRecipeBuilder.stonecutting(
+                        Ingredient.of(Blocks.GRANITE.asItem()),
+                        RecipeCategory.MISC,
+                        ModBlocks.GRANITE_MOSAIC_BRICKS.get()
+                )
+                .unlockedBy("has_granite", has(Blocks.GRANITE.asItem()))
+                .save(recipeOutput);
+
+
         //Oven
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_OVEN.get())
                 .pattern("###")

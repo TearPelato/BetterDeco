@@ -116,6 +116,18 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.ANDESITE_BRICKS);
                         output.accept(ModBlocks.RAW_ANDESITE);
 
+                        output.accept(ModBlocks.DIORITE_ARRAY_BRICKS);
+                        output.accept(ModBlocks.DIORITE_MIXED_BRICKS);
+                        output.accept(ModBlocks.DIORITE_MOSAIC_BRICKS);
+                        output.accept(ModBlocks.DIORITE_BRICKS);
+                        output.accept(ModBlocks.RAW_DIORITE);
+
+                        output.accept(ModBlocks.GRANITE_ARRAY_BRICKS);
+                        output.accept(ModBlocks.GRANITE_MIXED_BRICKS);
+                        output.accept(ModBlocks.GRANITE_MOSAIC_BRICKS);
+                        output.accept(ModBlocks.GRANITE_BRICKS);
+                        output.accept(ModBlocks.RAW_GRANITE);
+
 
 
                     })
@@ -218,30 +230,6 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.STRIPPED_BAMBOO_CABINET);
                         output.accept(ModBlocks.STRIPPED_CRIMSON_CABINET);
                         output.accept(ModBlocks.STRIPPED_WARPED_CABINET);
-
-                        output.accept(ModBlocks.OAK_OVEN);
-                        output.accept(ModBlocks.SPRUCE_OVEN);
-                        output.accept(ModBlocks.BIRCH_OVEN);
-                        output.accept(ModBlocks.JUNGLE_OVEN);
-                        output.accept(ModBlocks.ACACIA_OVEN);
-                        output.accept(ModBlocks.DARK_OAK_OVEN);
-                        output.accept(ModBlocks.MANGROVE_OVEN);
-                        output.accept(ModBlocks.CHERRY_OVEN);
-                        output.accept(ModBlocks.BAMBOO_OVEN);
-                        output.accept(ModBlocks.CRIMSON_OVEN);
-                        output.accept(ModBlocks.WARPED_OVEN);
-
-                        output.accept(ModBlocks.STRIPPED_OAK_OVEN);
-                        output.accept(ModBlocks.STRIPPED_SPRUCE_OVEN);
-                        output.accept(ModBlocks.STRIPPED_BIRCH_OVEN);
-                        output.accept(ModBlocks.STRIPPED_JUNGLE_OVEN);
-                        output.accept(ModBlocks.STRIPPED_ACACIA_OVEN);
-                        output.accept(ModBlocks.STRIPPED_DARK_OAK_OVEN);
-                        output.accept(ModBlocks.STRIPPED_MANGROVE_OVEN);
-                        output.accept(ModBlocks.STRIPPED_CHERRY_OVEN);
-                        output.accept(ModBlocks.STRIPPED_BAMBOO_OVEN);
-                        output.accept(ModBlocks.STRIPPED_CRIMSON_OVEN);
-                        output.accept(ModBlocks.STRIPPED_WARPED_OVEN);
 
 
 
@@ -527,8 +515,6 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.MAGENTA_DIGITAL_CLOCK);
                         output.accept(ModBlocks.PINK_DIGITAL_CLOCK);
                         output.accept(ModBlocks.BROWN_DIGITAL_CLOCK);
-                        output.accept(ModBlocks.LIGHT_MICROWAVE);
-                        output.accept(ModBlocks.DARK_MICROWAVE);
 
 
 
@@ -543,7 +529,32 @@ public class ModBundledTabs {
                     .title(Component.translatable("bundled_tab.electronics.title"))
                     .icon(new ItemStack(ModBlocks.OAK_OVEN.get()))
                     .displayItems((provider, output) -> {
+                        output.accept(ModBlocks.OAK_OVEN);
+                        output.accept(ModBlocks.SPRUCE_OVEN);
+                        output.accept(ModBlocks.BIRCH_OVEN);
+                        output.accept(ModBlocks.JUNGLE_OVEN);
+                        output.accept(ModBlocks.ACACIA_OVEN);
+                        output.accept(ModBlocks.DARK_OAK_OVEN);
+                        output.accept(ModBlocks.MANGROVE_OVEN);
+                        output.accept(ModBlocks.CHERRY_OVEN);
+                        output.accept(ModBlocks.BAMBOO_OVEN);
+                        output.accept(ModBlocks.CRIMSON_OVEN);
+                        output.accept(ModBlocks.WARPED_OVEN);
 
+                        output.accept(ModBlocks.STRIPPED_OAK_OVEN);
+                        output.accept(ModBlocks.STRIPPED_SPRUCE_OVEN);
+                        output.accept(ModBlocks.STRIPPED_BIRCH_OVEN);
+                        output.accept(ModBlocks.STRIPPED_JUNGLE_OVEN);
+                        output.accept(ModBlocks.STRIPPED_ACACIA_OVEN);
+                        output.accept(ModBlocks.STRIPPED_DARK_OAK_OVEN);
+                        output.accept(ModBlocks.STRIPPED_MANGROVE_OVEN);
+                        output.accept(ModBlocks.STRIPPED_CHERRY_OVEN);
+                        output.accept(ModBlocks.STRIPPED_BAMBOO_OVEN);
+                        output.accept(ModBlocks.STRIPPED_CRIMSON_OVEN);
+                        output.accept(ModBlocks.STRIPPED_WARPED_OVEN);
+
+                        output.accept(ModBlocks.LIGHT_MICROWAVE);
+                        output.accept(ModBlocks.DARK_MICROWAVE);
 
 
                     })

@@ -474,7 +474,17 @@
 "block.better_deco.andesite_bricks": "Andesite Bricks",
 "block.better_deco.raw_andesite": "Raw Andesite",
 
+  "block.better_deco.diorite_array_bricks": "Diorite Array Bricks",
+  "block.better_deco.diorite_mosaic_bricks": "Diorite Mosaic Bricks",
+  "block.better_deco.diorite_mixed_bricks": "Diorite Mixed Bricks",
+  "block.better_deco.diorite_bricks": "Diorite Bricks",
+  "block.better_deco.raw_diorite": "Raw Diorite",
 
+  "block.better_deco.granite_array_bricks": "Granite Array Bricks",
+  "block.better_deco.granite_mosaic_bricks": "Granite Mosaic Bricks",
+  "block.better_deco.granite_mixed_bricks": "Granite Mixed Bricks",
+  "block.better_deco.granite_bricks": "Granite Bricks",
+  "block.better_deco.raw_granite": "Raw Granite",
 
 "block.better_deco.oak_piled_planks": "Oak Piled Planks",
 "block.better_deco.oak_vertical_planks": "Oak Vertical Planks",

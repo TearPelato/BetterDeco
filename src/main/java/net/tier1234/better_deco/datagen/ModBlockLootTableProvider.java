@@ -26,6 +26,20 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.ANDESITE_MOSAIC_BRICKS.get());
         dropSelf(ModBlocks.RAW_ANDESITE.get());
 
+        //Diorite
+        dropSelf(ModBlocks.DIORITE_ARRAY_BRICKS.get());
+        dropSelf(ModBlocks.DIORITE_BRICKS.get());
+        dropSelf(ModBlocks.DIORITE_MIXED_BRICKS.get());
+        dropSelf(ModBlocks.DIORITE_MOSAIC_BRICKS.get());
+        dropSelf(ModBlocks.RAW_DIORITE.get());
+        //Granite
+        dropSelf(ModBlocks.GRANITE_ARRAY_BRICKS.get());
+        dropSelf(ModBlocks.GRANITE_BRICKS.get());
+        dropSelf(ModBlocks.GRANITE_MIXED_BRICKS.get());
+        dropSelf(ModBlocks.GRANITE_MOSAIC_BRICKS.get());
+        dropSelf(ModBlocks.RAW_GRANITE.get());
+
+
         //Oak Variants
 
         dropSelf(ModBlocks.OAK_PILED_PLANKS.get());

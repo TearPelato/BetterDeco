@@ -407,11 +407,26 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                   .add(ModBlocks.DEEPSLATE_TILE_PEDESTAL.get())
                   .add(ModBlocks.DEEPSLATE_PEDESTAL.get())
 
+                  //Andesite
                   .add(ModBlocks.ANDESITE_BRICKS.get())
                   .add(ModBlocks.ANDESITE_MOSAIC_BRICKS.get())
                   .add(ModBlocks.ANDESITE_ARRAY_BRICKS.get())
                   .add(ModBlocks.ANDESITE_MIXED_BRICKS.get())
                   .add(ModBlocks.RAW_ANDESITE.get())
+                  //Diorite
+                  .add(ModBlocks.DIORITE_BRICKS.get())
+                  .add(ModBlocks.DIORITE_MOSAIC_BRICKS.get())
+                  .add(ModBlocks.DIORITE_ARRAY_BRICKS.get())
+                  .add(ModBlocks.DIORITE_MIXED_BRICKS.get())
+                  .add(ModBlocks.RAW_DIORITE.get())
+                  //Granite
+                  .add(ModBlocks.GRANITE_BRICKS.get())
+                  .add(ModBlocks.GRANITE_MOSAIC_BRICKS.get())
+                  .add(ModBlocks.GRANITE_ARRAY_BRICKS.get())
+                  .add(ModBlocks.GRANITE_MIXED_BRICKS.get())
+                  .add(ModBlocks.RAW_GRANITE.get())
+
+
                   .add(ModBlocks.STONE_GLASS_TECQUE.get())
                   .add(ModBlocks.LIMESTONE.get())
 
