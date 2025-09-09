@@ -24,6 +24,8 @@ public class ModBlocks {
 
 
 
+    //Test
+
     //Microwave
     public static final DeferredBlock<Block> LIGHT_MICROWAVE = registerBlock("microwave_light",
             ()-> new MicrowaveBlock(BlockBehaviour.Properties.of().strength(2.5f).sound(SoundType.METAL)
