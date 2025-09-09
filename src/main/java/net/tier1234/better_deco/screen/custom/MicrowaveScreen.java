@@ -8,7 +8,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.tier1234.better_deco.BetterDeco;
-import net.tier1234.better_deco.render.EnergyDisplayTooltipArea;
 
 
 public class MicrowaveScreen extends AbstractContainerScreen<MicrowaveMenu> {
