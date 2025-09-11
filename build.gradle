@@ -126,22 +126,17 @@ dependencies {
     // Example mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"
-    implementation("net.liukrast:connected_textures_api-${minecraft_version}:${connected_textures_api_version}")
-    jarJar("net.liukrast:connected_textures_api-${minecraft_version}:[${connected_textures_api_version},)")
-    implementation("net.liukrast:multipart_api-${minecraft_version}:${multipart_version}")
-    jarJar("net.liukrast:multipart_api-${minecraft_version}:[${multipart_version},)")
-
 
 
     // compile against the JEI API but do not include it at runtime
-    compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
+   // compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
     // at runtime, use the full JEI jar for NeoForge
-    runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
+    //runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
 
     // compileOnly "mezz.jei:jei-${mc_version}-forge-api:${jei_version}"
     // runtimeOnly "mezz.jei:jei-${mc_version}-forge:${jei_version}"
 
-    implementation "curse.maven:catalogue-459701:5631367"
+    implementation "curse.maven:catalogue-459701:5896179"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

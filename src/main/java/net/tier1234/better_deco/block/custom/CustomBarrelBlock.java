@@ -9,10 +9,10 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.Container;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.monster.piglin.PiglinAi;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BarrelBlockEntity;
@@ -22,20 +22,21 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.tier1234.better_deco.block.entity.CustomBarrelBlockEntity;
 import net.tier1234.better_deco.block.entity.ModBlockEntities;
 
 public class CustomBarrelBlock extends BaseEntityBlock {
     public static final MapCodec<CustomBarrelBlock> CODEC = simpleCodec(CustomBarrelBlock::new);
-    public static final DirectionProperty FACING = BlockStateProperties.FACING;
+    public static final EnumProperty<Direction> FACING = BlockStateProperties.FACING;
     public static final BooleanProperty OPEN = BlockStateProperties.OPEN;
 
     @Override
     protected MapCodec<? extends BaseEntityBlock> codec() {
         return CODEC;
     }
+
 
     public CustomBarrelBlock(BlockBehaviour.Properties properties) {
         super(properties);
@@ -54,7 +55,6 @@ public class CustomBarrelBlock extends BaseEntityBlock {
             if (blockEntity instanceof CustomBarrelBlockEntity barrel) {
                 player.openMenu(barrel);
                 player.awardStat(Stats.OPEN_BARREL);
-                PiglinAi.angerNearbyPiglins(player, true);
                 return InteractionResult.CONSUME;
             }
             return InteractionResult.PASS;

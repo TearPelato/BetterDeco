@@ -90,13 +90,17 @@ public class DinningTableBlock extends FurnitureWaterloggedBlock
     }
 
     @Override
-    public BlockState updateShape(BlockState state, Direction direction, BlockState newState, LevelAccessor level, BlockPos pos, BlockPos newPos)
-    {
+    public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState,
+                                  LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
         boolean north = this.isCoffeeTable(level, pos, Direction.NORTH);
         boolean east = this.isCoffeeTable(level, pos, Direction.EAST);
         boolean south = this.isCoffeeTable(level, pos, Direction.SOUTH);
         boolean west = this.isCoffeeTable(level, pos, Direction.WEST);
-        return state.setValue(NORTH, north).setValue(EAST, east).setValue(SOUTH, south).setValue(WEST, west);
+        return state
+                .setValue(NORTH, north)
+                .setValue(EAST, east)
+                .setValue(SOUTH, south)
+                .setValue(WEST, west);
     }
 
     private boolean isCoffeeTable(LevelAccessor level, BlockPos source, Direction direction)

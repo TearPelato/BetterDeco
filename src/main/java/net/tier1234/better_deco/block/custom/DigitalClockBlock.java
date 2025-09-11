@@ -5,7 +5,7 @@ import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.ItemStack;
@@ -35,7 +35,10 @@ public class DigitalClockBlock extends FurnitureHorizontalBlock implements Entit
         this.registerDefaultState(this.getStateDefinition().any().setValue(DIRECTION, Direction.SOUTH));
         SHAPES = this.generateShapes(this.getStateDefinition().getPossibleStates());
     }
-
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, BlockGetter world, BlockPos pos, net.minecraft.world.phys.shapes.CollisionContext context) {
+        return SHAPES.get(state);
+    }
     protected ImmutableMap<BlockState, VoxelShape> generateShapes(ImmutableList<BlockState> states)
     {
 
@@ -77,17 +80,12 @@ public class DigitalClockBlock extends FurnitureHorizontalBlock implements Entit
     }
 
     @Override
-    public VoxelShape getOcclusionShape(BlockState state, BlockGetter reader, BlockPos pos) {
-        return SHAPES.get(state);
-    }
-
-    @Override
     public RenderShape getRenderShape(BlockState state) {
         return RenderShape.MODEL;
     }
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
-                                              Player player, InteractionHand hand, BlockHitResult hitResult) {
+    protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
+                                          Player player, InteractionHand hand, BlockHitResult hitResult) {
         if (stack.getItem() instanceof DyeItem dyeItem) {
             if (!level.isClientSide) {
                 BlockEntity blockEntity = level.getBlockEntity(pos);
@@ -98,7 +96,7 @@ public class DigitalClockBlock extends FurnitureHorizontalBlock implements Entit
                     }
                 }
             }
-            return ItemInteractionResult.SUCCESS;
+            return InteractionResult.SUCCESS;
         }
         return super.useItemOn(stack, state, level, pos, player, hand, hitResult);
     }

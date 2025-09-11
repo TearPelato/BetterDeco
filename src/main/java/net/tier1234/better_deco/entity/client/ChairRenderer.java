@@ -3,21 +3,22 @@ package net.tier1234.better_deco.entity.client;
 import net.minecraft.client.renderer.culling.Frustum;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
 import net.minecraft.resources.ResourceLocation;
 import net.tier1234.better_deco.entity.custom.ChairEntity;
 
-public class ChairRenderer extends EntityRenderer<ChairEntity> {
+public class ChairRenderer extends EntityRenderer<ChairEntity, EntityRenderState> {
     public ChairRenderer(EntityRendererProvider.Context context) {
         super(context);
     }
 
     @Override
-    public ResourceLocation getTextureLocation(ChairEntity chairEntity) {
-        return null;
+    public boolean shouldRender(ChairEntity livingEntity, Frustum camera, double camX, double camY, double camZ) {
+        return true;
     }
 
     @Override
-    public boolean shouldRender(ChairEntity livingEntity, Frustum camera, double camX, double camY, double camZ) {
-        return true;
+    public EntityRenderState createRenderState() {
+        return new EntityRenderState();
     }
 }

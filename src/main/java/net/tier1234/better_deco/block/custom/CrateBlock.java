@@ -6,14 +6,10 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.stats.Stats;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.SimpleMenuProvider;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.monster.piglin.PiglinAi;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -28,9 +24,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.tier1234.better_deco.block.entity.BasicLootBlockEntity;
-import net.tier1234.better_deco.block.entity.CabinetBlockEntity;
 import net.tier1234.better_deco.block.entity.CrateBlockEntity;
-import net.tier1234.better_deco.block.entity.PedestalBlockEntity;
 import net.tier1234.better_deco.util.VoxelShapeHelper;
 import org.jetbrains.annotations.Nullable;
 
@@ -48,6 +42,10 @@ public class CrateBlock extends FurnitureHorizontalBlock implements EntityBlock
         super(properties);
         this.registerDefaultState(this.getStateDefinition().any().setValue(OPEN, false).setValue(DIRECTION, Direction.NORTH));
         SHAPES = this.generateShapes(this.getStateDefinition().getPossibleStates());
+    }
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, BlockGetter world, BlockPos pos, net.minecraft.world.phys.shapes.CollisionContext context) {
+        return SHAPES.get(state);
     }
 
     protected ImmutableMap<BlockState, VoxelShape> generateShapes(ImmutableList<BlockState> states)
@@ -78,12 +76,6 @@ public class CrateBlock extends FurnitureHorizontalBlock implements EntityBlock
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter reader, BlockPos pos, CollisionContext context)
-    {
-        return SHAPES.get(state);
-    }
-
-    @Override
-    public VoxelShape getOcclusionShape(BlockState state, BlockGetter reader, BlockPos pos)
     {
         return SHAPES.get(state);
     }

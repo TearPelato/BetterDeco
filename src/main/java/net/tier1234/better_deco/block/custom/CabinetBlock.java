@@ -19,17 +19,13 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.tier1234.better_deco.block.entity.CabinetBlockEntity;
-import net.tier1234.better_deco.block.entity.ModBlockEntities;
 import net.tier1234.better_deco.util.VoxelShapeHelper;
 import org.jetbrains.annotations.Nullable;
 
@@ -49,7 +45,10 @@ public class CabinetBlock extends FurnitureHorizontalBlock implements EntityBloc
         this.registerDefaultState(this.getStateDefinition().any().setValue(DIRECTION, Direction.NORTH).setValue(OPEN, false));
         SHAPES = this.generateShapes(this.getStateDefinition().getPossibleStates());
     }
-
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, BlockGetter world, BlockPos pos, net.minecraft.world.phys.shapes.CollisionContext context) {
+        return SHAPES.get(state);
+    }
     protected ImmutableMap<BlockState, VoxelShape> generateShapes(ImmutableList<BlockState> states)
     {
         final VoxelShape[] BASE_CLOSED = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(0, 0, 0, 16, 16, 15), Direction.SOUTH));
@@ -86,12 +85,6 @@ public class CabinetBlock extends FurnitureHorizontalBlock implements EntityBloc
     }
 
     @Override
-    public VoxelShape getOcclusionShape(BlockState state, BlockGetter reader, BlockPos pos)
-    {
-        return SHAPES.get(state);
-    }
-
-    @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos,
                                                Player player, BlockHitResult hitResult) {
         if (level.isClientSide) {
@@ -101,7 +94,6 @@ public class CabinetBlock extends FurnitureHorizontalBlock implements EntityBloc
             if (blockEntity instanceof CabinetBlockEntity) {
                 player.openMenu((CabinetBlockEntity) blockEntity);
                 player.awardStat(Stats.OPEN_BARREL);
-                PiglinAi.angerNearbyPiglins(player, false);
                 return InteractionResult.CONSUME;
             }
             return InteractionResult.PASS;

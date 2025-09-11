@@ -6,7 +6,6 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.block.ModBlocks;
-import net.tier1234.better_deco.screen.custom.ShelfScreen;
 
 import java.util.function.Supplier;
 
@@ -16,9 +15,8 @@ public class ModBlockEntities {
 
 
     public static final Supplier<BlockEntityType<CustomBarrelBlockEntity>> CUSTOM_BARREL_BE =
-            BLOCK_ENTITIES.register("custom_barrel", () ->
-                    BlockEntityType.Builder
-                            .of(CustomBarrelBlockEntity::new,
+            BLOCK_ENTITIES.register("custom_barrel", () -> new BlockEntityType<>(
+                    CustomBarrelBlockEntity::new,
                                     ModBlocks.OAK_BARREL.get(),
                                     ModBlocks.BIRCH_BARREL.get(),
                                     ModBlocks.DARK_OAK_BARREL.get(),
@@ -29,13 +27,12 @@ public class ModBlockEntities {
                                     ModBlocks.MANGROVE_BARREL.get(),
                                     ModBlocks.CRIMSON_BARREL.get(),
                                     ModBlocks.WARPED_BARREL.get())
-                            .build(null)
             );
 
     public static final Supplier<BlockEntityType<KitchenDrawerBlockEntity>> CUSTOM_KITCHEN_DRAWER_BE =
             BLOCK_ENTITIES.register("kitchen_drawer", () ->
-                    BlockEntityType.Builder
-                            .of(KitchenDrawerBlockEntity::new,
+                    new BlockEntityType<>
+                            (KitchenDrawerBlockEntity::new,
                                     ModBlocks.OAK_KITCHEN_DRAWER.get(),
                                     ModBlocks.SPRUCE_KITCHEN_DRAWER.get(),
                                     ModBlocks.BIRCH_KITCHEN_DRAWER.get(),
@@ -63,9 +60,11 @@ public class ModBlockEntities {
                                     ModBlocks.DIORITE_DRAWER.get(),
                                     ModBlocks.DEEPSLATE_DRAWER.get(),
                                     ModBlocks.DEEPSLATE_TILES_DRAWER.get(),
-                                    ModBlocks.BLACKSTONE_DRAWER.get()
+                                    ModBlocks.BLACKSTONE_DRAWER.get(),
+                                    ModBlocks.SPRUCE_DIORITE_KITCHEN_DRAWER.get(),
+                                    ModBlocks.DARK_OAK_CALCITE_DRAWER.get(),
+                                    ModBlocks.OAK_ANDESITE_DRAWER.get()
                             )
-                            .build(null)
             );
 
 
@@ -74,8 +73,8 @@ public class ModBlockEntities {
 
     public static final Supplier<BlockEntityType<CabinetBlockEntity>> CUSTOM_CABINET_BE =
             BLOCK_ENTITIES.register("cabinet", () ->
-                    BlockEntityType.Builder
-                            .of(CabinetBlockEntity::new,
+                   new BlockEntityType<>
+                            (CabinetBlockEntity::new,
                                     ModBlocks.OAK_CABINET.get(),
                                     ModBlocks.SPRUCE_CABINET.get(),
                                     ModBlocks.BIRCH_CABINET.get(),
@@ -103,13 +102,15 @@ public class ModBlockEntities {
                                     ModBlocks.DIORITE_CABINET.get(),
                                     ModBlocks.DEEPSLATE_CABINET.get(),
                                     ModBlocks.DEEPSLATE_TILES_CABINET.get(),
-                                    ModBlocks.BLACKSTONE_CABINET.get()
+                                    ModBlocks.BLACKSTONE_CABINET.get(),
+                                    ModBlocks.SPRUCE_DIORITE_CABINET.get(),
+                                    ModBlocks.DARK_OAK_CALCITE_CABINET.get(),
+                                    ModBlocks.OAK_ANDESITE_CABINET.get()
                                     )
-                            .build(null)
             );
 
     public static final Supplier<BlockEntityType<PedestalBlockEntity>> PEDESTAL_BE =
-            BLOCK_ENTITIES.register("pedestal_be", () -> BlockEntityType.Builder.of(
+            BLOCK_ENTITIES.register("pedestal_be", () -> new BlockEntityType<>(
                     PedestalBlockEntity::new,
                     ModBlocks.PEDESTAL.get(),
                     ModBlocks.STONE_PEDESTAL.get(),
@@ -118,11 +119,11 @@ public class ModBlockEntities {
                     ModBlocks.DEEPSLATE_PEDESTAL.get(),
                     ModBlocks.DEEPSLATE_TILE_PEDESTAL.get(),
                     ModBlocks.BLACKSTONE_PEDESTAL.get()
-
-            ).build(null));
+                    )
+            );
 
     public static final Supplier<BlockEntityType<BedsideCabinetBlockEntity>> BEDSIDE_CABINET =
-            BLOCK_ENTITIES.register("bedside_cabinet", () -> BlockEntityType.Builder.of(
+            BLOCK_ENTITIES.register("bedside_cabinet", () -> new BlockEntityType<>(
                     BedsideCabinetBlockEntity::new,
                     ModBlocks.OAK_BEDSIDE.get(),
                     ModBlocks.SPRUCE_BEDSIDE.get(),
@@ -135,14 +136,15 @@ public class ModBlockEntities {
                     ModBlocks.BAMBOO_BEDSIDE.get(),
                     ModBlocks.CRIMSON_BEDSIDE.get(),
                     ModBlocks.WARPED_BEDSIDE.get()
+                    )
 
-            ).build(null));
+            );
 
 
 
 
     public static final Supplier<BlockEntityType<KitchenSinkBlockEntity>> KITCHEN_SINK =
-            BLOCK_ENTITIES.register("kitchen_sink", () -> BlockEntityType.Builder.of(
+            BLOCK_ENTITIES.register("kitchen_sink", () -> new BlockEntityType<>(
                    KitchenSinkBlockEntity::new,
                     ModBlocks.OAK_SINK.get(),
                     ModBlocks.SPRUCE_SINK.get(),
@@ -168,11 +170,10 @@ public class ModBlockEntities {
                     ModBlocks.CRIMSON_SINK_DARK.get(),
                     ModBlocks.WARPED_SINK_DARK.get()
 
-
-            ).build(null));
+            ));
 
     public static final Supplier<BlockEntityType<TecqueBlockEntity>> GLASS_TECQUE =
-            BLOCK_ENTITIES.register("glass_tecque", () -> BlockEntityType.Builder.of(
+            BLOCK_ENTITIES.register("glass_tecque", () -> new BlockEntityType<>(
                    TecqueBlockEntity::new,
                     ModBlocks.STONE_GLASS_TECQUE.get(),
                     ModBlocks.SPRUCE_GLASS_TECQUE.get(),
@@ -188,11 +189,11 @@ public class ModBlockEntities {
                     ModBlocks.WARPED_GLASS_TECQUE.get()
 
 
-            ).build(null));
+            ));
 
 
     public static final Supplier<BlockEntityType<CrateBlockEntity>> STORAGE_CRATE =
-            BLOCK_ENTITIES.register("crate", () -> BlockEntityType.Builder.of(
+            BLOCK_ENTITIES.register("crate", () -> new BlockEntityType<>(
                     CrateBlockEntity::new,
                     ModBlocks.OAK_CRATE.get(),
                     ModBlocks.SPRUCE_CRATE.get(),
@@ -207,11 +208,11 @@ public class ModBlockEntities {
                     ModBlocks.WARPED_CRATE.get()
 
 
-            ).build(null));
+            ));
 
 
     public static final Supplier<BlockEntityType<ShelfBlockEntity>> SHELF_BE =
-            BLOCK_ENTITIES.register("shelf", () -> BlockEntityType.Builder.of(
+            BLOCK_ENTITIES.register("shelf", () -> new BlockEntityType<>(
                     ShelfBlockEntity::new,
                     ModBlocks.ACACIA_SHELF.get(),
                     ModBlocks.OAK_SHELF.get(),
@@ -226,10 +227,10 @@ public class ModBlockEntities {
                     ModBlocks.WARPED_SHELF.get()
 
 
-            ).build(null));
+            ));
 
     public static final Supplier<BlockEntityType<DigitalClockBlockEntity>> DIGITAL_CLOCK =
-            BLOCK_ENTITIES.register("digital_clock", () -> BlockEntityType.Builder.of(
+            BLOCK_ENTITIES.register("digital_clock", () -> new BlockEntityType<>(
                     DigitalClockBlockEntity::new,
                     ModBlocks.RED_DIGITAL_CLOCK.get(),
                     ModBlocks.ORANGE_DIGITAL_CLOCK.get(),
@@ -249,11 +250,11 @@ public class ModBlockEntities {
                     ModBlocks.PINK_DIGITAL_CLOCK.get()
 
 
-            ).build(null));
+            ));
 
 
     public static final Supplier<BlockEntityType<OvenBlockEntity>> OVEN =
-            BLOCK_ENTITIES.register("oven", () -> BlockEntityType.Builder.of(
+            BLOCK_ENTITIES.register("oven", () -> new BlockEntityType<>(
                     OvenBlockEntity::new,
                     ModBlocks.OAK_OVEN.get(),
                     ModBlocks.SPRUCE_OVEN.get(),
@@ -277,20 +278,22 @@ public class ModBlockEntities {
                     ModBlocks.STRIPPED_CHERRY_OVEN.get(),
                     ModBlocks.STRIPPED_BAMBOO_OVEN.get(),
                     ModBlocks.STRIPPED_CRIMSON_OVEN.get(),
-                    ModBlocks.STRIPPED_WARPED_OVEN.get()
+                    ModBlocks.STRIPPED_WARPED_OVEN.get(),
+                    ModBlocks.SPRUCE_DIORITE_OVEN.get(),
+                    ModBlocks.DARK_OAK_CALCITE_OVEN.get(),
+                    ModBlocks.OAK_ANDESITE_OVEN.get()
 
 
-            ).build(null));
+            ));
 
     public static final Supplier<BlockEntityType<MicrowaveBlockEntity>> MICROWAVE =
-            BLOCK_ENTITIES.register("microwave", () -> BlockEntityType.Builder.of(
+            BLOCK_ENTITIES.register("microwave", () -> new BlockEntityType<>(
                     MicrowaveBlockEntity::new,
                     ModBlocks.LIGHT_MICROWAVE.get(),
                     ModBlocks.DARK_MICROWAVE.get()
 
 
-            ).build(null));
-
+            ));
 
 
 

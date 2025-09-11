@@ -8,6 +8,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -117,7 +118,7 @@ public class OvenBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     private Optional<RecipeHolder<OvenRecipe>> getRecipeFor(ItemStack input) {
-        return level.getRecipeManager().getRecipeFor(ModRecipes.OVEN_TYPE.get(), new OvenRecipeInput(input), level);
+        return ((ServerLevel) this.level).recipeAccess().getRecipeFor(ModRecipes.OVEN_TYPE.get(), new OvenRecipeInput(input), level);
     }
 
     private void craftItem(int inputSlot, int outputSlot) {

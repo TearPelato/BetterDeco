@@ -16,14 +16,14 @@ import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.tier1234.better_deco.block.entity.ShelfBlockEntity;
 
 public class CustomShelfBlock extends Block implements EntityBlock {
-    public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+    public static final EnumProperty<Direction> FACING = HorizontalDirectionalBlock.FACING;
 
     protected static final VoxelShape NORTH_SHAPE = Block.box(0.0D, 0.0D, 8D, 16D, 16D, 16D);
     protected static final VoxelShape EAST_SHAPE = Block.box(0.0D, 0.0D, 0.0D, 8.0D, 16.0D, 16.0D);
@@ -39,6 +39,7 @@ public class CustomShelfBlock extends Block implements EntityBlock {
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(FACING);
     }
+
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
@@ -92,7 +93,7 @@ public class CustomShelfBlock extends Block implements EntityBlock {
             BlockEntity blockEntity = level.getBlockEntity(pos);
             if (blockEntity instanceof ShelfBlockEntity shelf) {
                 Containers.dropContents(level, pos, shelf);
-                level.updateNeighborsAt(pos, this); // per comparatori
+                level.updateNeighborsAt(pos, this);
             }
             super.onRemove(state, level, pos, newState, isMoving);
         }

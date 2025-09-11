@@ -7,7 +7,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -38,7 +38,10 @@ public class OvenBlock extends FurnitureHorizontalBlock implements EntityBlock
         this.registerDefaultState(this.getStateDefinition().any().setValue(DIRECTION, Direction.NORTH));
         SHAPES = this.generateShapes(this.getStateDefinition().getPossibleStates());
     }
-
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, BlockGetter world, BlockPos pos, net.minecraft.world.phys.shapes.CollisionContext context) {
+        return SHAPES.get(state);
+    }
     @Override
     protected ImmutableMap<BlockState, VoxelShape> generateShapes(ImmutableList<BlockState> states) {
         // Corpo principale fino a y=13, profondità fino a z=15
@@ -69,11 +72,7 @@ public class OvenBlock extends FurnitureHorizontalBlock implements EntityBlock
         return SHAPES.get(state);
     }
 
-    @Override
-    public VoxelShape getOcclusionShape(BlockState state, BlockGetter reader, BlockPos pos)
-    {
-        return SHAPES.get(state);
-    }
+
 
     @Override
     public RenderShape getRenderShape(BlockState state) {
@@ -92,8 +91,8 @@ public class OvenBlock extends FurnitureHorizontalBlock implements EntityBlock
     }
 
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
-                                              Player player, InteractionHand hand, BlockHitResult hit) {
+    protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
+                                          Player player, InteractionHand hand, BlockHitResult hit) {
         if (!level.isClientSide()) {
             BlockEntity entity = level.getBlockEntity(pos);
             if (entity instanceof OvenBlockEntity ovenBlockEntity) {
@@ -103,7 +102,7 @@ public class OvenBlock extends FurnitureHorizontalBlock implements EntityBlock
                 throw new IllegalStateException("Oven container provider is missing!");
             }
         }
-        return ItemInteractionResult.sidedSuccess(level.isClientSide());
+        return InteractionResult.SUCCESS;
 
     }
 

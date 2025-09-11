@@ -62,10 +62,6 @@ public class ChainBlock extends RotatedPillarBlock implements SimpleWaterloggedB
         return super.getStateForPlacement(context).setValue(WATERLOGGED, flag);
     }
 
-    @Override
-    public boolean propagatesSkylightDown(BlockState state, BlockGetter reader, BlockPos pos) {
-        return !state.getValue(WATERLOGGED);
-    }
 
     @Override
     public FluidState getFluidState(BlockState state) {

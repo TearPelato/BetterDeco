@@ -17,7 +17,7 @@ import net.tier1234.better_deco.util.VoxelShapeHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TableBlock extends Block
+public class TableBlock extends FurnitureHorizontalBlock
 {
     public static final BooleanProperty NORTH = BooleanProperty.create("north");
     public static final BooleanProperty EAST = BooleanProperty.create("east");
@@ -33,7 +33,7 @@ public class TableBlock extends Block
         SHAPES = this.generateShapes(this.getStateDefinition().getPossibleStates());
     }
 
-    private ImmutableMap<BlockState, VoxelShape> generateShapes(ImmutableList<BlockState> states)
+    protected ImmutableMap<BlockState, VoxelShape> generateShapes(ImmutableList<BlockState> states)
     {
         final VoxelShape TABLE_TOP = Block.box(0.0, 14.0, 0.0, 16.0, 16.0, 16.0);
         final VoxelShape MIDDLE_POST = Block.box(6.0, 0.0, 6.0, 10.0, 14.0, 10.0);
@@ -105,7 +105,7 @@ public class TableBlock extends Block
         return SHAPES.get(state);
     }
 
-    @Override
+
     public BlockState updateShape(BlockState state, Direction direction, BlockState newState, LevelAccessor level, BlockPos pos, BlockPos newPos)
     {
         boolean north = level.getBlockState(pos.north()).getBlock() == this;

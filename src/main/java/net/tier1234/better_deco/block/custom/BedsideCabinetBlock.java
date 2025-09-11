@@ -6,7 +6,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.monster.piglin.PiglinAi;
 import net.minecraft.world.entity.player.Player;
@@ -23,7 +22,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.tier1234.better_deco.block.entity.BasicLootBlockEntity;
 import net.tier1234.better_deco.block.entity.BedsideCabinetBlockEntity;
-import net.tier1234.better_deco.block.entity.CabinetBlockEntity;
 import net.tier1234.better_deco.util.VoxelShapeHelper;
 import org.jetbrains.annotations.Nullable;
 
@@ -42,7 +40,10 @@ public class BedsideCabinetBlock extends FurnitureHorizontalBlock implements Ent
         this.registerDefaultState(this.getStateDefinition().any().setValue(DIRECTION, Direction.NORTH).setValue(OPEN, false));
         SHAPES = this.generateShapes(this.getStateDefinition().getPossibleStates());
     }
-
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, BlockGetter world, BlockPos pos, net.minecraft.world.phys.shapes.CollisionContext context) {
+        return SHAPES.get(state);
+    }
     protected ImmutableMap<BlockState, VoxelShape> generateShapes(ImmutableList<BlockState> states)
     {
         final VoxelShape[] LEG_BACK_LEG = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(1, 0, 1, 3, 2, 3), Direction.SOUTH));
@@ -99,12 +100,6 @@ public class BedsideCabinetBlock extends FurnitureHorizontalBlock implements Ent
     }
 
     @Override
-    public VoxelShape getOcclusionShape(BlockState state, BlockGetter reader, BlockPos pos)
-    {
-        return SHAPES.get(state);
-    }
-
-    @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos,
                                                Player player, BlockHitResult hitResult) {
         if (level.isClientSide) {
@@ -114,7 +109,6 @@ public class BedsideCabinetBlock extends FurnitureHorizontalBlock implements Ent
             if (blockEntity instanceof BedsideCabinetBlockEntity) {
                 player.openMenu((BedsideCabinetBlockEntity) blockEntity);
                 player.awardStat(Stats.OPEN_BARREL);
-                PiglinAi.angerNearbyPiglins(player, false);
                 return InteractionResult.CONSUME;
             }
             return InteractionResult.PASS;

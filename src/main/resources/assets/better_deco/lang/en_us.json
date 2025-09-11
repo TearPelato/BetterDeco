@@ -3,7 +3,7 @@
   "creativetab.better_deco.items": "BetterDeco:Items",
   "creativetab.better_deco.furnitures": "BetterDeco:Furniture",
   "creativetab.better_deco.utilities": "BetterDeco:Utilities",
-  "creativetab.better_deco.better_deco": "BetterDeco Tab",
+  "creativetab.better_deco.better_deco": "BetterDeco",
 
 "block.better_deco.oak_vertical_slab": "Oak Vertical Slab",
 "block.better_deco.spruce_vertical_slab": "Spruce Vertical Slab",
@@ -400,7 +400,6 @@
 
 
 "block.better_deco.stone_kitchen_counter": "Stone Kitchen Counter",
-"block.better_deco.spruce_diorite_kitchen_counter": "Spruce-Diorite Kitchen Counter",
 "block.better_deco.stone_kitchen_drawer": "Stone Kitchen Drawer",
 
 "block.better_deco.stone_cabinet": "Stone Cabinet",
@@ -412,7 +411,20 @@
 
 
 
+  "block.better_deco.spruce_diorite_kitchen_counter": "Spruce-Diorite Kitchen Counter",
+  "block.better_deco.spruce_diorite_kitchen_drawer": "Spruce-Diorite Kitchen Drawer",
+  "block.better_deco.spruce_diorite_oven": "Spruce-Diorite Oven",
+  "block.better_deco.spruce_diorite_cabinet": "Spruce-Diorite Cabinet",
 
+  "block.better_deco.dark_oak_calcite_kitchen_counter": "Dark Oak-Calcite Kitchen Counter",
+  "block.better_deco.dark_oak_calcite_kitchen_drawer": "Dark Oak-Calcite Kitchen Drawer",
+  "block.better_deco.dark_oak_calcite_oven": "Dark Oak-Calcite Oven",
+  "block.better_deco.dark_oak_calcite_cabinet": "Dark Oak-Calcite Cabinet",
+
+  "block.better_deco.oak_andesite_kitchen_counter": "Oak-Andesite Kitchen Counter",
+  "block.better_deco.oak_andesite_kitchen_drawer": "Oak-Andesite Kitchen Drawer",
+  "block.better_deco.oak_andesite_oven": "Oak-Andesite Oven",
+  "block.better_deco.oak_andesite_cabinet": "Oak-Andesite Cabinet",
 
 
 

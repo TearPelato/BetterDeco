@@ -16,7 +16,6 @@ import net.tier1234.better_deco.util.VoxelShapeHelper;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 public class CoffeeTableBlock extends FurnitureWaterloggedBlock
 {

@@ -5,15 +5,10 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.StringRepresentable;
-import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -23,114 +18,98 @@ import net.tier1234.better_deco.util.VoxelShapeHelper;
 import java.util.List;
 import java.util.ArrayList;
 
-public class KitchenCounterBlock extends FurnitureHorizontalBlock
-{
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelReader;
+
+public class KitchenCounterBlock extends FurnitureHorizontalBlock {
     public static final EnumProperty<Type> TYPE = EnumProperty.create("type", Type.class);
 
     public final ImmutableMap<BlockState, VoxelShape> SHAPES;
 
-    public KitchenCounterBlock(Properties properties)
-    {
+    public KitchenCounterBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.getStateDefinition().any().setValue(TYPE, Type.DEFAULT).setValue(DIRECTION, Direction.NORTH));
+        this.registerDefaultState(this.getStateDefinition().any()
+                .setValue(TYPE, Type.DEFAULT)
+                .setValue(DIRECTION, Direction.NORTH));
         SHAPES = this.generateShapes(this.getStateDefinition().getPossibleStates());
     }
 
-    protected ImmutableMap<BlockState, VoxelShape> generateShapes(ImmutableList<BlockState> states)
-    {
+    protected ImmutableMap<BlockState, VoxelShape> generateShapes(ImmutableList<BlockState> states) {
         final VoxelShape TOP = Block.box(0, 13, 0, 16, 16, 16);
         final VoxelShape[] DEFAULT_BASE = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(0, 0, 0, 16, 13, 15), Direction.SOUTH));
         final VoxelShape[] LEFT_INVERTED_BASE = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(1, 0, 0, 16, 13, 15), Direction.SOUTH));
         final VoxelShape[] RIGHT_INVERTED_BASE = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(0, 0, 0, 15, 13, 15), Direction.SOUTH));
         final VoxelShape[] LEFT_CORNER_BASE = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(0, 0, 15, 15, 13, 16), Direction.SOUTH));
         final VoxelShape[] RIGHT_CORNER_BASE = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(1, 0, 15, 16, 13, 16), Direction.SOUTH));
+
         ImmutableMap.Builder<BlockState, VoxelShape> builder = new ImmutableMap.Builder<>();
-        for(BlockState state : states)
-        {
+
+        for (BlockState state : states) {
             Type type = state.getValue(TYPE);
             List<VoxelShape> shapes = new ArrayList<>();
             shapes.add(TOP);
-            switch(type)
-            {
-                case DEFAULT:
-                    shapes.add(DEFAULT_BASE[state.getValue(DIRECTION).get2DDataValue()]);
-                    break;
-                case LEFT_CORNER:
+
+            switch (type) {
+                case DEFAULT -> shapes.add(DEFAULT_BASE[state.getValue(DIRECTION).get2DDataValue()]);
+                case LEFT_CORNER -> {
                     shapes.add(DEFAULT_BASE[state.getValue(DIRECTION).get2DDataValue()]);
                     shapes.add(LEFT_CORNER_BASE[state.getValue(DIRECTION).get2DDataValue()]);
-                    break;
-                case RIGHT_CORNER:
+                }
+                case RIGHT_CORNER -> {
                     shapes.add(DEFAULT_BASE[state.getValue(DIRECTION).get2DDataValue()]);
                     shapes.add(RIGHT_CORNER_BASE[state.getValue(DIRECTION).get2DDataValue()]);
-                    break;
-                case LEFT_CORNER_INVERTED:
-                    shapes.add(LEFT_INVERTED_BASE[state.getValue(DIRECTION).get2DDataValue()]);
-                    break;
-                case RIGHT_CORNER_INVERTED:
-                    shapes.add(RIGHT_INVERTED_BASE[state.getValue(DIRECTION).get2DDataValue()]);
-                    break;
+                }
+                case LEFT_CORNER_INVERTED ->
+                        shapes.add(LEFT_INVERTED_BASE[state.getValue(DIRECTION).get2DDataValue()]);
+                case RIGHT_CORNER_INVERTED ->
+                        shapes.add(RIGHT_INVERTED_BASE[state.getValue(DIRECTION).get2DDataValue()]);
             }
+
             builder.put(state, VoxelShapeHelper.combineAll(shapes));
         }
+
         return builder.build();
     }
-
     @Override
-    public VoxelShape getShape(BlockState state, BlockGetter reader, BlockPos pos, CollisionContext context)
-    {
+    public VoxelShape getCollisionShape(BlockState state, BlockGetter world, BlockPos pos, net.minecraft.world.phys.shapes.CollisionContext context) {
         return SHAPES.get(state);
     }
 
     @Override
-    public VoxelShape getOcclusionShape(BlockState state, BlockGetter reader, BlockPos pos)
-    {
+    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return SHAPES.get(state);
     }
 
-    @Override
-    public BlockState getStateForPlacement(BlockPlaceContext context)
-    {
-        return this.getKitchenCounterState(super.getStateForPlacement(context), context.getLevel(), context.getClickedPos());
-    }
-
-    @Override
-    public BlockState updateShape(BlockState state, Direction direction, BlockState newState, LevelAccessor level, BlockPos pos, BlockPos newPos)
-    {
+    public BlockState updateShape(BlockState state, LevelReader level, BlockPos pos,
+                                  Direction dir, BlockPos neighborPos, BlockState neighborState) {
         return this.getKitchenCounterState(state, level, pos);
     }
 
-    private BlockState getKitchenCounterState(BlockState state, LevelAccessor level, BlockPos pos)
-    {
+    private BlockState getKitchenCounterState(BlockState state, LevelReader level, BlockPos pos) {
         Direction direction = state.getValue(DIRECTION);
         BlockState frontState = level.getBlockState(pos.relative(direction.getOpposite()));
-        if(this.isKitchenBlock(frontState))
-        {
-            if(frontState.getValue(DIRECTION) == direction.getClockWise())
-            {
+
+        if (this.isKitchenBlock(frontState)) {
+            if (frontState.getValue(DIRECTION) == direction.getClockWise()) {
                 return state.setValue(TYPE, Type.RIGHT_CORNER);
-            }
-            else if(frontState.getValue(DIRECTION) == direction.getCounterClockWise())
-            {
+            } else if (frontState.getValue(DIRECTION) == direction.getCounterClockWise()) {
                 return state.setValue(TYPE, Type.LEFT_CORNER);
             }
         }
 
         BlockState backState = level.getBlockState(pos.relative(direction));
-        if(backState.getBlock() instanceof KitchenCounterBlock)
-        {
-            if(backState.getValue(DIRECTION) == direction.getClockWise())
-            {
+        if (backState.getBlock() instanceof KitchenCounterBlock) {
+            if (backState.getValue(DIRECTION) == direction.getClockWise()) {
                 BlockState leftState = level.getBlockState(pos.relative(direction.getCounterClockWise()));
-                if(!(leftState.getBlock() instanceof KitchenCounterBlock) || leftState.getValue(DIRECTION) == direction.getOpposite())
-                {
+                if (!(leftState.getBlock() instanceof KitchenCounterBlock) ||
+                        leftState.getValue(DIRECTION) == direction.getOpposite()) {
                     return state.setValue(TYPE, Type.LEFT_CORNER_INVERTED);
                 }
             }
-            if(backState.getValue(DIRECTION) == direction.getCounterClockWise())
-            {
+            if (backState.getValue(DIRECTION) == direction.getCounterClockWise()) {
                 BlockState rightState = level.getBlockState(pos.relative(direction.getClockWise()));
-                if(!(rightState.getBlock() instanceof KitchenCounterBlock) || rightState.getValue(DIRECTION) == direction.getOpposite())
-                {
+                if (!(rightState.getBlock() instanceof KitchenCounterBlock) ||
+                        rightState.getValue(DIRECTION) == direction.getOpposite()) {
                     return state.setValue(TYPE, Type.RIGHT_CORNER_INVERTED);
                 }
             }
@@ -139,20 +118,19 @@ public class KitchenCounterBlock extends FurnitureHorizontalBlock
         return state.setValue(TYPE, Type.DEFAULT);
     }
 
-    protected boolean isKitchenBlock(BlockState state)
-    {
-        return state.getBlock() instanceof KitchenCounterBlock || state.getBlock() instanceof KitchenDrawerBlock || state.getBlock() instanceof CabinetBlock;
+    protected boolean isKitchenBlock(BlockState state) {
+        return state.getBlock() instanceof KitchenCounterBlock
+                || state.getBlock() instanceof KitchenDrawerBlock
+                || state.getBlock() instanceof CabinetBlock;
     }
 
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder)
-    {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
         builder.add(TYPE);
     }
 
-    public enum Type implements StringRepresentable
-    {
+    public enum Type implements StringRepresentable {
         DEFAULT("default"),
         LEFT_CORNER("left_corner"),
         RIGHT_CORNER("right_corner"),
@@ -161,20 +139,17 @@ public class KitchenCounterBlock extends FurnitureHorizontalBlock
 
         private final String id;
 
-        Type(String id)
-        {
+        Type(String id) {
             this.id = id;
         }
 
         @Override
-        public String toString()
-        {
+        public String toString() {
             return this.getSerializedName();
         }
 
         @Override
-        public String getSerializedName()
-        {
+        public String getSerializedName() {
             return this.id;
         }
     }

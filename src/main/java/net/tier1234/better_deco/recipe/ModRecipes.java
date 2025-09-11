@@ -25,7 +25,7 @@ public class ModRecipes {
             });
 
 
-    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<MicrowaveRecipe>>MICROWAVE_SERIALIZER =
+    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<MicrowaveRecipe>> MICROWAVE_SERIALIZER =
             SERIALIZERS.register("microwave", MicrowaveRecipe.Serializer::new);
     public static final DeferredHolder<RecipeType<?>, RecipeType<MicrowaveRecipe>> MICROWAVE_TYPE =
             TYPES.register("microwave", () -> new RecipeType<MicrowaveRecipe>() {

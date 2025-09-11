@@ -6,7 +6,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -22,7 +22,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -32,13 +32,12 @@ import org.jetbrains.annotations.Nullable;
 
 public class MicrowaveBlock extends BaseEntityBlock {
     public static final MapCodec<MicrowaveBlock> CODEC = simpleCodec(MicrowaveBlock::new);
-    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+    public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
 
     private static final VoxelShape SHAPE_NORTH = Block.box(1.0, 0.0, 3.0, 15.0, 8.0, 13.0);
     private static final VoxelShape SHAPE_EAST = Block.box(3.0, 0.0, 1.0, 13.0, 8.0, 15.0);
     private static final VoxelShape SHAPE_SOUTH = Block.box(1.0, 0.0, 3.0, 15.0, 8.0, 13.0);
     private static final VoxelShape SHAPE_WEST = Block.box(3.0, 0.0, 1.0, 13.0, 8.0, 15.0);
-
 
     public MicrowaveBlock(Properties properties) {
         super(properties);
@@ -102,8 +101,8 @@ public class MicrowaveBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack pStack, BlockState pState, Level pLevel, BlockPos pPos,
-                                              Player pPlayer, InteractionHand pHand, BlockHitResult pHitResult) {
+    protected InteractionResult useItemOn(ItemStack pStack, BlockState pState, Level pLevel, BlockPos pPos,
+                                          Player pPlayer, InteractionHand pHand, BlockHitResult pHitResult) {
         if (!pLevel.isClientSide()) {
             BlockEntity entity = pLevel.getBlockEntity(pPos);
             if(entity instanceof MicrowaveBlockEntity microwaveBlockEntity) {
@@ -113,7 +112,7 @@ public class MicrowaveBlock extends BaseEntityBlock {
             }
         }
 
-        return ItemInteractionResult.sidedSuccess(pLevel.isClientSide());
+        return InteractionResult.SUCCESS;
     }
 
     @Nullable

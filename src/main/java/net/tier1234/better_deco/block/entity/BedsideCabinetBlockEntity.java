@@ -1,6 +1,6 @@
 package net.tier1234.better_deco.block.entity;
 
-import net.minecraft.client.resources.sounds.Sound;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Vec3i;
 import net.minecraft.network.chat.Component;
@@ -63,7 +63,7 @@ public class BedsideCabinetBlockEntity extends BasicLootBlockEntity
 
     private void playDoorSound(BlockState blockState, SoundEvent soundEvent)
     {
-        Vec3i directionVec = blockState.getValue(BedsideCabinetBlock.DIRECTION).getNormal();
+        Vec3i directionVec = blockState.getValue(BedsideCabinetBlock.DIRECTION).getUnitVec3i();
         double x = this.worldPosition.getX() + 0.5D + directionVec.getX() / 2.0D;
         double y = this.worldPosition.getY() + 0.5D + directionVec.getY() / 2.0D;
         double z = this.worldPosition.getZ() + 0.5D + directionVec.getZ() / 2.0D;

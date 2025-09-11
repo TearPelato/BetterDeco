@@ -12,16 +12,14 @@ public class ModItems {
 
 //Chisel
 
-    public static final DeferredItem<Item> IRON_CHISEL = ITEMS.register("iron_chisel",
-            () -> new ChiselItem(new Item.Properties().durability(250)));
-    public static final DeferredItem<Item> GOLD_CHISEL = ITEMS.register("gold_chisel",
-            () -> new ChiselItem(new Item.Properties().durability(100)));
-    public static final DeferredItem<Item> DIAMOND_CHISEL = ITEMS.register("diamond_chisel",
-            () -> new ChiselItem(new Item.Properties().durability(1561)));
-    public static final DeferredItem<Item> NETHERITE_CHISEL = ITEMS.register("netherite_chisel",
-            () -> new ChiselItem(new Item.Properties().durability(2031)));
-
-
+    public static final DeferredItem<Item> IRON_CHISEL = ITEMS.registerItem("iron_chisel",
+            ChiselItem::new, new Item.Properties().durability(250));
+    public static final DeferredItem<Item> GOLD_CHISEL = ITEMS.registerItem("gold_chisel",
+            ChiselItem::new, new Item.Properties().durability(100));
+    public static final DeferredItem<Item> DIAMOND_CHISEL = ITEMS.registerItem("diamond_chisel",
+            ChiselItem::new, new Item.Properties().durability(1561));
+    public static final DeferredItem<Item> NETHERITE_CHISEL = ITEMS.registerItem("netherite_chisel",
+            ChiselItem::new, new Item.Properties().durability(2031));
 
 
 

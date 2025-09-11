@@ -7,7 +7,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -69,12 +69,12 @@ public class TecqueBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
-                                              Player player, InteractionHand hand, BlockHitResult hitResult) {
+    protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
+                                          Player player, InteractionHand hand, BlockHitResult hitResult) {
         if(level.getBlockEntity(pos) instanceof TecqueBlockEntity tecqueBlockEntity) {
             if(player.isCrouching() && !level.isClientSide()) {
                 ((ServerPlayer) player).openMenu(new SimpleMenuProvider(tecqueBlockEntity, Component.literal("Tecque")), pos);
-                return ItemInteractionResult.SUCCESS;
+                return InteractionResult.SUCCESS;
             }
 
             if(tecqueBlockEntity.inventory.getStackInSlot(0).isEmpty() && !stack.isEmpty()) {
@@ -89,7 +89,7 @@ public class TecqueBlock extends BaseEntityBlock {
             }
         }
 
-        return ItemInteractionResult.SUCCESS;
+        return InteractionResult.SUCCESS;
     }
 
 
