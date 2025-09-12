@@ -4,6 +4,7 @@ package net.tier1234.better_deco.block.custom;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
@@ -28,9 +29,7 @@ public class KitchenCounterBlock extends FurnitureHorizontalBlock {
 
     public KitchenCounterBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.getStateDefinition().any()
-                .setValue(TYPE, Type.DEFAULT)
-                .setValue(DIRECTION, Direction.NORTH));
+        this.registerDefaultState(this.getStateDefinition().any().setValue(TYPE, Type.DEFAULT).setValue(DIRECTION, Direction.NORTH));
         SHAPES = this.generateShapes(this.getStateDefinition().getPossibleStates());
     }
 
@@ -45,6 +44,7 @@ public class KitchenCounterBlock extends FurnitureHorizontalBlock {
         ImmutableMap.Builder<BlockState, VoxelShape> builder = new ImmutableMap.Builder<>();
 
         for (BlockState state : states) {
+            Direction direction = state.getValue(DIRECTION);
             Type type = state.getValue(TYPE);
             List<VoxelShape> shapes = new ArrayList<>();
             shapes.add(TOP);
@@ -80,9 +80,11 @@ public class KitchenCounterBlock extends FurnitureHorizontalBlock {
         return SHAPES.get(state);
     }
 
-    public BlockState updateShape(BlockState state, LevelReader level, BlockPos pos,
-                                  Direction dir, BlockPos neighborPos, BlockState neighborState) {
-        return this.getKitchenCounterState(state, level, pos);
+    @Override
+    protected BlockState updateShape(BlockState state, LevelReader reader, ScheduledTickAccess access, BlockPos pos,
+                                     Direction direction, BlockPos pos1, BlockState state1, RandomSource rand)
+    {
+        return this.getKitchenCounterState(state, (LevelAccessor) reader,pos);
     }
 
     private BlockState getKitchenCounterState(BlockState state, LevelReader level, BlockPos pos) {

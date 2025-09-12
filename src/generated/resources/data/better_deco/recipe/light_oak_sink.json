@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:oak_planks"
-    },
-    "B": {
-      "item": "minecraft:white_concrete"
-    },
-    "X": {
-      "item": "minecraft:bucket"
-    }
+    "#": "minecraft:oak_planks",
+    "B": "minecraft:white_concrete",
+    "X": "minecraft:bucket"
   },
   "pattern": [
     "BXB",

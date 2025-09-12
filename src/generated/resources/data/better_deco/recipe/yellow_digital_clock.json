@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:yellow_concrete"
-    },
-    "B": {
-      "item": "minecraft:clock"
-    },
-    "C": {
-      "item": "minecraft:iron_ingot"
-    }
+    "#": "minecraft:yellow_concrete",
+    "B": "minecraft:clock",
+    "C": "minecraft:iron_ingot"
   },
   "pattern": [
     "###",

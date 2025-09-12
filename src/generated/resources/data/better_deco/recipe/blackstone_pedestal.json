@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": {
-      "item": "minecraft:polished_blackstone_brick_slab"
-    },
-    "X": {
-      "item": "minecraft:blackstone"
-    }
+    "B": "minecraft:polished_blackstone_brick_slab",
+    "X": "minecraft:blackstone"
   },
   "pattern": [
     " B ",

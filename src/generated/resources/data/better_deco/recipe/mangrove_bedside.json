@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:mangrove_planks"
-    },
-    "B": {
-      "item": "minecraft:mangrove_log"
-    },
-    "X": {
-      "item": "minecraft:chest"
-    }
+    "#": "minecraft:mangrove_planks",
+    "B": "minecraft:mangrove_log",
+    "X": "minecraft:chest"
   },
   "pattern": [
     "BBB",

@@ -44,6 +44,7 @@ public class BedsideCabinetBlock extends FurnitureHorizontalBlock implements Ent
     public VoxelShape getCollisionShape(BlockState state, BlockGetter world, BlockPos pos, net.minecraft.world.phys.shapes.CollisionContext context) {
         return SHAPES.get(state);
     }
+
     protected ImmutableMap<BlockState, VoxelShape> generateShapes(ImmutableList<BlockState> states)
     {
         final VoxelShape[] LEG_BACK_LEG = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(1, 0, 1, 3, 2, 3), Direction.SOUTH));

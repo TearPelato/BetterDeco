@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:oak_planks"
-    },
-    "B": {
-      "item": "minecraft:oak_log"
-    },
-    "X": {
-      "item": "minecraft:chest"
-    }
+    "#": "minecraft:oak_planks",
+    "B": "minecraft:oak_log",
+    "X": "minecraft:chest"
   },
   "pattern": [
     "BBB",

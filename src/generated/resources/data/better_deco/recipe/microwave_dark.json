@@ -2,18 +2,10 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:stone_button"
-    },
-    "B": {
-      "item": "minecraft:iron_ingot"
-    },
-    "C": {
-      "item": "minecraft:gray_concrete"
-    },
-    "X": {
-      "item": "minecraft:gray_stained_glass_pane"
-    }
+    "#": "minecraft:stone_button",
+    "B": "minecraft:iron_ingot",
+    "C": "minecraft:gray_concrete",
+    "X": "minecraft:gray_stained_glass_pane"
   },
   "pattern": [
     "BBC",

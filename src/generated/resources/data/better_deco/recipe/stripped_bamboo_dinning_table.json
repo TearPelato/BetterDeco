@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": {
-      "item": "minecraft:stripped_bamboo_block"
-    },
-    "X": {
-      "item": "minecraft:bamboo_block"
-    }
+    "B": "minecraft:stripped_bamboo_block",
+    "X": "minecraft:bamboo_block"
   },
   "pattern": [
     "BBB",

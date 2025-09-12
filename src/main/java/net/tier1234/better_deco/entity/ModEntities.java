@@ -18,14 +18,13 @@ public class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
             DeferredRegister.create(BuiltInRegistries.ENTITY_TYPE, BetterDeco.MOD_ID);
 
-    public static ResourceKey<EntityType<?>> CHAIR_KEY = ResourceKey.create(Registries.ENTITY_TYPE, ResourceLocation.withDefaultNamespace("chair_entity"));
 
+    public static ResourceKey<EntityType<?>> CHAIR_KEY = ResourceKey.create(Registries.ENTITY_TYPE,
+            ResourceLocation.withDefaultNamespace("chair_entity"));
 
     public static final Supplier<EntityType<ChairEntity>> CHAIR_ENTITY =
             ENTITY_TYPES.register("chair_entity", () -> EntityType.Builder.of(ChairEntity::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build(CHAIR_KEY));
-
-
 
 
     public static void register(IEventBus eventBus) {

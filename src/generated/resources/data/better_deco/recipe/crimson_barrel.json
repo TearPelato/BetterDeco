@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:crimson_slab"
-    },
-    "B": {
-      "item": "minecraft:crimson_planks"
-    }
+    "#": "minecraft:crimson_slab",
+    "B": "minecraft:crimson_planks"
   },
   "pattern": [
     "B#B",

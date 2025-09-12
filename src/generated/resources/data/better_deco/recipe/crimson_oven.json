@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:crimson_stem"
-    },
-    "B": {
-      "item": "minecraft:crimson_planks"
-    },
-    "X": {
-      "item": "minecraft:smoker"
-    }
+    "#": "minecraft:crimson_stem",
+    "B": "minecraft:crimson_planks",
+    "X": "minecraft:smoker"
   },
   "pattern": [
     "###",

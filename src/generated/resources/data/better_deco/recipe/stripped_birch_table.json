@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": {
-      "item": "minecraft:stripped_birch_log"
-    },
-    "X": {
-      "item": "minecraft:birch_log"
-    }
+    "B": "minecraft:stripped_birch_log",
+    "X": "minecraft:birch_log"
   },
   "pattern": [
     "BBB",

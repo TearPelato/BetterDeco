@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:deepslate_bricks"
-    },
-    "B": {
-      "item": "minecraft:cobbled_deepslate"
-    },
-    "X": {
-      "item": "minecraft:chest"
-    }
+    "#": "minecraft:deepslate_bricks",
+    "B": "minecraft:cobbled_deepslate",
+    "X": "minecraft:chest"
   },
   "pattern": [
     "#BB",

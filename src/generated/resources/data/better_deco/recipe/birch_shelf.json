@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:birch_planks"
-    },
-    "B": {
-      "item": "minecraft:birch_slab"
-    },
-    "X": {
-      "item": "minecraft:item_frame"
-    }
+    "#": "minecraft:birch_planks",
+    "B": "minecraft:birch_slab",
+    "X": "minecraft:item_frame"
   },
   "pattern": [
     "#B#",

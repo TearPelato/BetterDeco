@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:polished_granite"
-    },
-    "B": {
-      "item": "minecraft:granite"
-    },
-    "X": {
-      "item": "minecraft:chest"
-    }
+    "#": "minecraft:polished_granite",
+    "B": "minecraft:granite",
+    "X": "minecraft:chest"
   },
   "pattern": [
     "###",

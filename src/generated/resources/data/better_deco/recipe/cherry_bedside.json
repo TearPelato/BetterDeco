@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:cherry_planks"
-    },
-    "B": {
-      "item": "minecraft:cherry_log"
-    },
-    "X": {
-      "item": "minecraft:chest"
-    }
+    "#": "minecraft:cherry_planks",
+    "B": "minecraft:cherry_log",
+    "X": "minecraft:chest"
   },
   "pattern": [
     "BBB",

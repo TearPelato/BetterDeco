@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:deepslate_tiles"
-    },
-    "B": {
-      "item": "minecraft:cobbled_deepslate"
-    }
+    "#": "minecraft:deepslate_tiles",
+    "B": "minecraft:cobbled_deepslate"
   },
   "pattern": [
     "###",

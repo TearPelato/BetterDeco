@@ -588,10 +588,25 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.STRIPPED_CRIMSON_OVEN.get());
         dropSelf(ModBlocks.STRIPPED_WARPED_OVEN.get());
 
+        dropSelf(ModBlocks.OAK_ANDESITE_OVEN.get());
+        dropSelf(ModBlocks.SPRUCE_DIORITE_OVEN.get());
+        dropSelf(ModBlocks.DARK_OAK_CALCITE_OVEN.get());
+
+
+
         dropSelf(ModBlocks.LIGHT_MICROWAVE.get());
         dropSelf(ModBlocks.DARK_MICROWAVE.get());
 
+        dropSelf(ModBlocks.DARK_OAK_CALCITE_COUNTER.get());
+        dropSelf(ModBlocks.DARK_OAK_CALCITE_DRAWER.get());
+        dropSelf(ModBlocks.DARK_OAK_CALCITE_CABINET.get());
 
+        dropSelf(ModBlocks.OAK_ANDESITE_COUNTER.get());
+        dropSelf(ModBlocks.OAK_ANDESITE_DRAWER.get());
+        dropSelf(ModBlocks.OAK_ANDESITE_CABINET.get());
+
+        dropSelf(ModBlocks.SPRUCE_DIORITE_KITCHEN_DRAWER.get());
+        dropSelf(ModBlocks.SPRUCE_DIORITE_CABINET.get());
 
     }
 

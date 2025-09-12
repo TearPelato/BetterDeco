@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:crimson_planks"
-    },
-    "B": {
-      "item": "minecraft:gray_concrete"
-    },
-    "X": {
-      "item": "minecraft:bucket"
-    }
+    "#": "minecraft:crimson_planks",
+    "B": "minecraft:gray_concrete",
+    "X": "minecraft:bucket"
   },
   "pattern": [
     "BXB",

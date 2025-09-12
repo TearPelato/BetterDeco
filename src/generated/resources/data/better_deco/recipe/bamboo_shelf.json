@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:bamboo_planks"
-    },
-    "B": {
-      "item": "minecraft:bamboo_slab"
-    },
-    "X": {
-      "item": "minecraft:item_frame"
-    }
+    "#": "minecraft:bamboo_planks",
+    "B": "minecraft:bamboo_slab",
+    "X": "minecraft:item_frame"
   },
   "pattern": [
     "#B#",

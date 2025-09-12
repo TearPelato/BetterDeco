@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": {
-      "item": "minecraft:acacia_log"
-    },
-    "X": {
-      "item": "minecraft:stripped_acacia_log"
-    }
+    "B": "minecraft:acacia_log",
+    "X": "minecraft:stripped_acacia_log"
   },
   "pattern": [
     "BBB",

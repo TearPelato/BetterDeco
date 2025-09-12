@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": {
-      "item": "minecraft:stripped_spruce_log"
-    },
-    "X": {
-      "item": "minecraft:spruce_log"
-    }
+    "B": "minecraft:stripped_spruce_log",
+    "X": "minecraft:spruce_log"
   },
   "pattern": [
     "   ",

@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:diamond"
-    },
-    "B": {
-      "item": "minecraft:stick"
-    }
+    "#": "minecraft:diamond",
+    "B": "minecraft:stick"
   },
   "pattern": [
     "   ",

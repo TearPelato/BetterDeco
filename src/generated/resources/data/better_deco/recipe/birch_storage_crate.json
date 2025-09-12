@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": {
-      "item": "minecraft:birch_planks"
-    },
-    "X": {
-      "item": "minecraft:chest"
-    }
+    "B": "minecraft:birch_planks",
+    "X": "minecraft:chest"
   },
   "pattern": [
     "BBB",

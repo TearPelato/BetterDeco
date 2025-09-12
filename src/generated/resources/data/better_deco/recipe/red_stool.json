@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:white_concrete"
-    },
-    "B": {
-      "item": "minecraft:light_gray_concrete"
-    },
-    "X": {
-      "item": "minecraft:red_wool"
-    }
+    "#": "minecraft:white_concrete",
+    "B": "minecraft:light_gray_concrete",
+    "X": "minecraft:red_wool"
   },
   "pattern": [
     " X ",

@@ -1,8 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:spruce_planks"
-  },
+  "ingredient": "minecraft:spruce_planks",
   "result": {
     "count": 1,
     "id": "better_deco:spruce_planks_bricks"

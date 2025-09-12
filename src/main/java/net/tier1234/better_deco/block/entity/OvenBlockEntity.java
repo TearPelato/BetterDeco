@@ -118,7 +118,8 @@ public class OvenBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     private Optional<RecipeHolder<OvenRecipe>> getRecipeFor(ItemStack input) {
-        return ((ServerLevel) this.level).recipeAccess().getRecipeFor(ModRecipes.OVEN_TYPE.get(), new OvenRecipeInput(input), level);
+        return ((ServerLevel) this.level).recipeAccess()
+                .getRecipeFor(ModRecipes.OVEN_TYPE.get(), new OvenRecipeInput(input), level);
     }
 
     private void craftItem(int inputSlot, int outputSlot) {

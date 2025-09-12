@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:white_wool"
-    },
-    "B": {
-      "item": "minecraft:oak_log"
-    }
+    "#": "minecraft:white_wool",
+    "B": "minecraft:oak_log"
   },
   "pattern": [
     "#  ",

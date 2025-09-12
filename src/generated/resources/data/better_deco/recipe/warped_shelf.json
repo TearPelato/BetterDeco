@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:warped_planks"
-    },
-    "B": {
-      "item": "minecraft:warped_slab"
-    },
-    "X": {
-      "item": "minecraft:item_frame"
-    }
+    "#": "minecraft:warped_planks",
+    "B": "minecraft:warped_slab",
+    "X": "minecraft:item_frame"
   },
   "pattern": [
     "#B#",

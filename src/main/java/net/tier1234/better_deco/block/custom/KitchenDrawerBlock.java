@@ -2,11 +2,11 @@ package net.tier1234.better_deco.block.custom;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.monster.piglin.PiglinAi;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -25,8 +25,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class KitchenDrawerBlock extends FurnitureHorizontalBlock implements EntityBlock
-{
+public class KitchenDrawerBlock extends FurnitureHorizontalEntityBlock
+{ public static final MapCodec<KitchenDrawerBlock> CODEC = simpleCodec(KitchenDrawerBlock::new);
     public static final BooleanProperty OPEN = BooleanProperty.create("open");
 
     public final ImmutableMap<BlockState, VoxelShape> SHAPES;
@@ -37,9 +37,10 @@ public class KitchenDrawerBlock extends FurnitureHorizontalBlock implements Enti
         this.registerDefaultState(this.getStateDefinition().any().setValue(OPEN, false).setValue(DIRECTION, Direction.NORTH));
         SHAPES = this.generateShapes(this.getStateDefinition().getPossibleStates());
     }
+
     @Override
-    public VoxelShape getCollisionShape(BlockState state, BlockGetter world, BlockPos pos, net.minecraft.world.phys.shapes.CollisionContext context) {
-        return SHAPES.get(state);
+    protected MapCodec<? extends BaseEntityBlock> codec() {
+        return CODEC;
     }
 
     protected ImmutableMap<BlockState, VoxelShape> generateShapes(ImmutableList<BlockState> states)
@@ -86,7 +87,10 @@ public class KitchenDrawerBlock extends FurnitureHorizontalBlock implements Enti
         }
     }
 
-
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, BlockGetter world, BlockPos pos, net.minecraft.world.phys.shapes.CollisionContext context) {
+        return SHAPES.get(state);
+    }
 
     @Nullable
     @Override

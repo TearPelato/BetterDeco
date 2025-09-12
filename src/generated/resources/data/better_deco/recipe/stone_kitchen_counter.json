@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:stone"
-    },
-    "B": {
-      "item": "minecraft:cobblestone"
-    }
+    "#": "minecraft:stone",
+    "B": "minecraft:cobblestone"
   },
   "pattern": [
     "###",

@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:glass"
-    },
-    "B": {
-      "item": "minecraft:oak_slab"
-    }
+    "#": "minecraft:glass",
+    "B": "minecraft:oak_slab"
   },
   "pattern": [
     "###",

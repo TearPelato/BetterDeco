@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:polished_blackstone_bricks"
-    },
-    "B": {
-      "item": "minecraft:blackstone"
-    },
-    "X": {
-      "item": "minecraft:chest"
-    }
+    "#": "minecraft:polished_blackstone_bricks",
+    "B": "minecraft:blackstone",
+    "X": "minecraft:chest"
   },
   "pattern": [
     "#BB",

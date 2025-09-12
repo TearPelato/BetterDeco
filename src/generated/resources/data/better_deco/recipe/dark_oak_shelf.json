@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:dark_oak_planks"
-    },
-    "B": {
-      "item": "minecraft:dark_oak_slab"
-    },
-    "X": {
-      "item": "minecraft:item_frame"
-    }
+    "#": "minecraft:dark_oak_planks",
+    "B": "minecraft:dark_oak_slab",
+    "X": "minecraft:item_frame"
   },
   "pattern": [
     "#B#",

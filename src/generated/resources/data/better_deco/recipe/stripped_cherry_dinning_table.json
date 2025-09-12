@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": {
-      "item": "minecraft:stripped_cherry_log"
-    },
-    "X": {
-      "item": "minecraft:cherry_log"
-    }
+    "B": "minecraft:stripped_cherry_log",
+    "X": "minecraft:cherry_log"
   },
   "pattern": [
     "BBB",

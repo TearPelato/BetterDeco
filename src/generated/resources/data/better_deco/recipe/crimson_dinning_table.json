@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": {
-      "item": "minecraft:crimson_stem"
-    },
-    "X": {
-      "item": "minecraft:stripped_crimson_stem"
-    }
+    "B": "minecraft:crimson_stem",
+    "X": "minecraft:stripped_crimson_stem"
   },
   "pattern": [
     "BBB",

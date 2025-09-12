@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:acacia_planks"
-    },
-    "B": {
-      "item": "minecraft:acacia_slab"
-    },
-    "X": {
-      "item": "minecraft:item_frame"
-    }
+    "#": "minecraft:acacia_planks",
+    "B": "minecraft:acacia_slab",
+    "X": "minecraft:item_frame"
   },
   "pattern": [
     "#B#",

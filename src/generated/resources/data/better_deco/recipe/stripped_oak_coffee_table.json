@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": {
-      "item": "minecraft:stripped_oak_log"
-    },
-    "X": {
-      "item": "minecraft:oak_log"
-    }
+    "B": "minecraft:stripped_oak_log",
+    "X": "minecraft:oak_log"
   },
   "pattern": [
     "   ",

@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:stripped_warped_stem"
-    },
-    "B": {
-      "item": "minecraft:warped_planks"
-    },
-    "X": {
-      "item": "minecraft:smoker"
-    }
+    "#": "minecraft:stripped_warped_stem",
+    "B": "minecraft:warped_planks",
+    "X": "minecraft:smoker"
   },
   "pattern": [
     "###",

@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:jungle_planks"
-    },
-    "B": {
-      "item": "minecraft:jungle_slab"
-    },
-    "X": {
-      "item": "minecraft:item_frame"
-    }
+    "#": "minecraft:jungle_planks",
+    "B": "minecraft:jungle_slab",
+    "X": "minecraft:item_frame"
   },
   "pattern": [
     "#B#",

@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:birch_planks"
-    },
-    "B": {
-      "item": "minecraft:stripped_birch_log"
-    },
-    "X": {
-      "item": "minecraft:chest"
-    }
+    "#": "minecraft:birch_planks",
+    "B": "minecraft:stripped_birch_log",
+    "X": "minecraft:chest"
   },
   "pattern": [
     "#BB",

@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:warped_planks"
-    },
-    "B": {
-      "item": "minecraft:warped_stem"
-    },
-    "X": {
-      "item": "minecraft:chest"
-    }
+    "#": "minecraft:warped_planks",
+    "B": "minecraft:warped_stem",
+    "X": "minecraft:chest"
   },
   "pattern": [
     "BBB",

@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:glass"
-    },
-    "B": {
-      "item": "minecraft:cherry_slab"
-    }
+    "#": "minecraft:glass",
+    "B": "minecraft:cherry_slab"
   },
   "pattern": [
     "###",

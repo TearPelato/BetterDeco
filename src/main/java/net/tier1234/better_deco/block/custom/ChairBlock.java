@@ -86,4 +86,5 @@ public class ChairBlock extends FurnitureHorizontalBlock
 
         return InteractionResult.SUCCESS;
     }
+
 }

@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:acacia_log"
-    },
-    "B": {
-      "item": "minecraft:acacia_planks"
-    },
-    "X": {
-      "item": "minecraft:smoker"
-    }
+    "#": "minecraft:acacia_log",
+    "B": "minecraft:acacia_planks",
+    "X": "minecraft:smoker"
   },
   "pattern": [
     "###",
