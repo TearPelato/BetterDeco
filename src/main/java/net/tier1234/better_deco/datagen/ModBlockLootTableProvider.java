@@ -487,6 +487,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
 
      // Vertical slab
+        add(ModBlocks.OAK_VERTICAL_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.OAK_VERTICAL_SLAB.get()));
         add(ModBlocks.SPRUCE_VERTICAL_SLAB.get(),
                 block -> createSlabItemTable(ModBlocks.SPRUCE_VERTICAL_SLAB.get()));
         add(ModBlocks.BIRCH_VERTICAL_SLAB.get(),
@@ -507,7 +509,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                 block -> createSlabItemTable(ModBlocks.CRIMSON_VERTICAL_SLAB.get()));
         add(ModBlocks.WARPED_VERTICAL_SLAB.get(),
                 block -> createSlabItemTable(ModBlocks.WARPED_VERTICAL_SLAB.get()));
-
+        add(ModBlocks.PALE_OAK_VERTICAL_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.PALE_OAK_VERTICAL_SLAB.get()));
 
 
 
@@ -562,8 +565,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.STRIPPED_CRIMSON_DINNING_TABLE.get());
         dropSelf(ModBlocks.STRIPPED_WARPED_DINNING_TABLE.get());
 
-        add(ModBlocks.OAK_VERTICAL_SLAB.get(), p_249031_ -> createSlabItemTable(p_249031_));
-
         dropSelf(ModBlocks.OAK_OVEN.get());
         dropSelf(ModBlocks.SPRUCE_OVEN.get());
         dropSelf(ModBlocks.BIRCH_OVEN.get());
@@ -608,6 +609,29 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.SPRUCE_DIORITE_KITCHEN_DRAWER.get());
         dropSelf(ModBlocks.SPRUCE_DIORITE_CABINET.get());
 
+        dropSelf(ModBlocks.PALE_OAK_SHELF.get());
+        dropSelf(ModBlocks.PALE_OAK_KITCHEN_COUNTER.get());
+        dropSelf(ModBlocks.PALE_OAK_KITCHEN_DRAWER.get());
+        dropSelf(ModBlocks.STRIPPED_PALE_OAK_KITCHEN_COUNTER.get());
+        dropSelf(ModBlocks.STRIPPED_PALE_OAK_KITCHEN_DRAWER.get());
+        dropSelf(ModBlocks.PALE_OAK_OVEN.get());
+        dropSelf(ModBlocks.PALE_OAK_CRATE.get());
+        dropSelf(ModBlocks.STRIPPED_PALE_OAK_OVEN.get());
+        dropSelf(ModBlocks.PALE_OAK_CABINET.get());
+        dropSelf(ModBlocks.STRIPPED_PALE_OAK_CABINET.get());
+        dropSelf(ModBlocks.STRIPPED_SPRUCE_TABLE.get());
+        dropSelf(ModBlocks.STRIPPED_PALE_OAK_CHAIR.get());
+        dropSelf(ModBlocks.STRIPPED_PALE_OAK_DINNING_TABLE.get());
+        dropSelf(ModBlocks.STRIPPED_PALE_OAK_COFFEE_TABLE.get());
+        dropSelf(ModBlocks.PALE_OAK_SINK.get());
+        dropSelf(ModBlocks.PALE_OAK_SINK_DARK.get());
+        dropSelf(ModBlocks.PALE_OAK_BEDSIDE.get());
+        dropSelf(ModBlocks.PALE_OAK_TABLE.get());
+        dropSelf(ModBlocks.PALE_OAK_DINNING_TABLE.get());
+        dropSelf(ModBlocks.PALE_OAK_COFFEE_TABLE.get());
+        dropSelf(ModBlocks.PALE_OAK_GLASS_TECQUE.get());
+        dropSelf(ModBlocks.PALE_OAK_CHAIR.get());
+        dropSelf(ModBlocks.STRIPPED_PALE_OAK_TABLE.get());
     }
 
 

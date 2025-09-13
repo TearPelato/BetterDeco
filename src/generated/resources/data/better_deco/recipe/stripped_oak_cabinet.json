@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "#": "minecraft:oak_planks",
-    "B": "minecraft:oak_log",
+    "B": "minecraft:stripped_oak_log",
     "X": "minecraft:chest"
   },
   "pattern": [

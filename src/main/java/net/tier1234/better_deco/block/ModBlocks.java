@@ -509,27 +509,27 @@ public static final DeferredBlock<Block> OAK_VERTICAL_PLANKS = registerBlock("oa
 
     //Pillars
     public static final DeferredBlock<Block> ACACIA_PLANKS_PILLAR = registerBlock("acacia_planks_pillar",
-            (properties) -> new Block(properties.strength(2f).requiresCorrectToolForDrops().sound(SoundType.WOOD)));
+            (properties) -> new RotatedPillarBlock(properties.strength(2f).requiresCorrectToolForDrops().sound(SoundType.WOOD)));
     public static final DeferredBlock<Block> BIRCH_PLANKS_PILLAR = registerBlock("birch_planks_pillar",
-            (properties) -> new Block(properties.strength(2f).requiresCorrectToolForDrops().sound(SoundType.WOOD)));
+            (properties) -> new RotatedPillarBlock(properties.strength(2f).requiresCorrectToolForDrops().sound(SoundType.WOOD)));
     public static final DeferredBlock<Block> BAMBOO_PLANKS_PILLAR = registerBlock("bamboo_planks_pillar",
-            (properties) -> new Block(properties.strength(2f).requiresCorrectToolForDrops().sound(SoundType.WOOD)));
+            (properties) -> new RotatedPillarBlock(properties.strength(2f).requiresCorrectToolForDrops().sound(SoundType.WOOD)));
     public static final DeferredBlock<Block> CHERRY_PLANKS_PILLAR = registerBlock("cherry_planks_pillar",
-            (properties) -> new Block(properties.strength(2f).requiresCorrectToolForDrops().sound(SoundType.WOOD)));
+            (properties) -> new RotatedPillarBlock(properties.strength(2f).requiresCorrectToolForDrops().sound(SoundType.WOOD)));
     public static final DeferredBlock<Block> CRIMSON_PLANKS_PILLAR = registerBlock("crimson_planks_pillar",
-            (properties) -> new Block(properties.strength(2f).requiresCorrectToolForDrops().sound(SoundType.WOOD)));
+            (properties) -> new RotatedPillarBlock(properties.strength(2f).requiresCorrectToolForDrops().sound(SoundType.WOOD)));
     public static final DeferredBlock<Block> SPRUCE_PLANKS_PILLAR = registerBlock("spruce_planks_pillar",
-            (properties) -> new Block(properties.strength(2f).requiresCorrectToolForDrops().sound(SoundType.WOOD)));
+            (properties) -> new RotatedPillarBlock(properties.strength(2f).requiresCorrectToolForDrops().sound(SoundType.WOOD)));
     public static final DeferredBlock<Block> OAK_PLANKS_PILLAR = registerBlock("oak_planks_pillar",
-            (properties) -> new Block(properties.strength(2f).requiresCorrectToolForDrops().sound(SoundType.WOOD)));
+            (properties) -> new RotatedPillarBlock(properties.strength(2f).requiresCorrectToolForDrops().sound(SoundType.WOOD)));
     public static final DeferredBlock<Block> WARPED_PLANKS_PILLAR = registerBlock("warped_planks_pillar",
-            (properties) -> new Block(properties.strength(2f).requiresCorrectToolForDrops().sound(SoundType.WOOD)));
+            (properties) -> new RotatedPillarBlock(properties.strength(2f).requiresCorrectToolForDrops().sound(SoundType.WOOD)));
     public static final DeferredBlock<Block> JUNGLE_PLANKS_PILLAR = registerBlock("jungle_planks_pillar",
-            (properties) -> new Block(properties.strength(2f).requiresCorrectToolForDrops().sound(SoundType.WOOD)));
+            (properties) -> new RotatedPillarBlock(properties.strength(2f).requiresCorrectToolForDrops().sound(SoundType.WOOD)));
     public static final DeferredBlock<Block> MANGROVE_PLANKS_PILLAR = registerBlock("mangrove_planks_pillar",
-            (properties) -> new Block(properties.strength(2f).requiresCorrectToolForDrops().sound(SoundType.WOOD)));
+            (properties) -> new RotatedPillarBlock(properties.strength(2f).requiresCorrectToolForDrops().sound(SoundType.WOOD)));
     public static final DeferredBlock<Block> DARK_OAK_PLANKS_PILLAR = registerBlock("dark_oak_planks_pillar",
-            (properties) -> new Block(properties.strength(2f).requiresCorrectToolForDrops().sound(SoundType.WOOD)));
+            (properties) -> new RotatedPillarBlock(properties.strength(2f).requiresCorrectToolForDrops().sound(SoundType.WOOD)));
 
 
 
