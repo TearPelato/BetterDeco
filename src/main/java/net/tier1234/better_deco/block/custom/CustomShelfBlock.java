@@ -86,19 +86,6 @@ public class CustomShelfBlock extends Block implements EntityBlock {
         return 0;
     }
 
-    @Override
-    public void onRemove(BlockState state, Level level, BlockPos pos,
-                         BlockState newState, boolean isMoving) {
-        if (!state.is(newState.getBlock())) {
-            BlockEntity blockEntity = level.getBlockEntity(pos);
-            if (blockEntity instanceof ShelfBlockEntity shelf) {
-                Containers.dropContents(level, pos, shelf);
-                level.updateNeighborsAt(pos, this);
-            }
-            super.onRemove(state, level, pos, newState, isMoving);
-        }
-    }
-
 
 
     @Override

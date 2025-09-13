@@ -57,16 +57,6 @@ public class TecqueBlock extends BaseEntityBlock {
         return new TecqueBlockEntity(blockPos, blockState);
     }
 
-    @Override
-    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
-        if(state.getBlock() != newState.getBlock()) {
-            if(level.getBlockEntity(pos) instanceof TecqueBlockEntity tecqueBlockEntity) {
-                tecqueBlockEntity.drops();
-                level.updateNeighbourForOutputSignal(pos, this);
-            }
-        }
-        super.onRemove(state, level, pos, newState, movedByPiston);
-    }
 
     @Override
     protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,

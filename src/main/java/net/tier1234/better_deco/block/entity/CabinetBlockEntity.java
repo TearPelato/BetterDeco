@@ -12,6 +12,7 @@ import net.minecraft.world.inventory.ChestMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.items.ItemStackHandler;
 
 public class CabinetBlockEntity extends RandomizableContainerBlockEntity
@@ -59,6 +60,7 @@ public class CabinetBlockEntity extends RandomizableContainerBlockEntity
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
-        inventory.deserializeNBT(registries, tag.getCompound("inventory"));
+        inventory.deserializeNBT(registries, tag.getCompound("inventory").get());
     }
+
 }

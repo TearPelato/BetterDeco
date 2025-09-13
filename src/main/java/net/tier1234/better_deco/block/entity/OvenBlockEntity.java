@@ -69,6 +69,12 @@ public class OvenBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     @Override
+    public void preRemoveSideEffects(BlockPos pos, BlockState state) {
+        drops();
+        super.preRemoveSideEffects(pos, state);
+    }
+
+    @Override
     public Component getDisplayName() {
         return Component.translatable("block.better_deco.oven");
     }
@@ -150,8 +156,8 @@ public class OvenBlockEntity extends BlockEntity implements MenuProvider {
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
-        itemHandler.deserializeNBT(registries, tag.getCompound("inventory"));
-        for(int i=0;i<3;i++) progress[i] = tag.getInt("progress" + i);
+        itemHandler.deserializeNBT(registries, tag.getCompound("inventory").get());
+        for(int i=0;i<3;i++) progress[i] = tag.getInt("progress" + i).get();
     }
 
     @Override

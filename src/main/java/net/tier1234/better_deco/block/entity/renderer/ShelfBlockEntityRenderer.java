@@ -10,6 +10,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.phys.Vec3;
 import net.tier1234.better_deco.block.custom.CustomShelfBlock;
 import net.tier1234.better_deco.block.entity.ShelfBlockEntity;
 import net.tier1234.better_deco.screen.ModInventory;
@@ -23,7 +24,7 @@ public class ShelfBlockEntityRenderer implements BlockEntityRenderer<ShelfBlockE
     @Override
     public void render(ShelfBlockEntity blockEntity, float partialTick,
                        PoseStack poseStack, MultiBufferSource bufferSource,
-                       int packedLight, int packedOverlay) {
+                       int packedLight, int packedOverlay, Vec3 vec3) {
 
         Direction dir = blockEntity.getBlockState().getValue(CustomShelfBlock.FACING);
         ModInventory items = blockEntity.handler;

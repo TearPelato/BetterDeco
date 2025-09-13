@@ -13,6 +13,7 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.tier1234.better_deco.block.custom.FurnitureHorizontalBlock;
@@ -24,7 +25,7 @@ public class KitchenSinkBlockEntityRenderer implements BlockEntityRenderer<Kitch
     public KitchenSinkBlockEntityRenderer(BlockEntityRendererProvider.Context context) {}
 
     @Override
-    public void render(KitchenSinkBlockEntity tileEntity, float partialTicks, PoseStack poseStack, MultiBufferSource source, int light, int overlay)
+    public void render(KitchenSinkBlockEntity tileEntity, float partialTicks, PoseStack poseStack, MultiBufferSource source, int light, int overlay, Vec3 vec3)
     {
         poseStack.pushPose();
         poseStack.translate(0.5, 0.5, 0.5);

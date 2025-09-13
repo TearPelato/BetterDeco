@@ -71,9 +71,13 @@ public class PedestalBlockEntity extends BlockEntity implements MenuProvider {
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
-        inventory.deserializeNBT(registries, tag.getCompound("inventory"));
+        inventory.deserializeNBT(registries, tag.getCompound("inventory").get());
     }
-
+    @Override
+    public void preRemoveSideEffects(BlockPos pos, BlockState state) {
+        drops();
+        super.preRemoveSideEffects(pos, state);
+    }
     @Override
     public Component getDisplayName() {
         return Component.literal("Pedestal");

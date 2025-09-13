@@ -41,6 +41,12 @@ public class TecqueBlockEntity extends BlockEntity implements MenuProvider {
         super(ModBlockEntities.GLASS_TECQUE.get(), pos, blockState);
     }
 
+    @Override
+    public void preRemoveSideEffects(BlockPos pos, BlockState state) {
+        drops();
+        super.preRemoveSideEffects(pos, state);
+    }
+
     public float getRenderingRotation() {
         rotation += 0.5f;
         if(rotation >= 360) {
@@ -71,7 +77,7 @@ public class TecqueBlockEntity extends BlockEntity implements MenuProvider {
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
-        inventory.deserializeNBT(registries, tag.getCompound("inventory"));
+        inventory.deserializeNBT(registries, tag.getCompound("inventory").get());
     }
 
     @Override

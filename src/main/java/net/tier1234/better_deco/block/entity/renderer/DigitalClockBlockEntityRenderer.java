@@ -10,6 +10,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.network.chat.Style;
 import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 import net.tier1234.better_deco.block.custom.DigitalClockBlock;
 import net.tier1234.better_deco.block.entity.DigitalClockBlockEntity;
 
@@ -22,7 +23,7 @@ public class DigitalClockBlockEntityRenderer implements BlockEntityRenderer<Digi
     }
 
     @Override
-    public void render(DigitalClockBlockEntity blockEntity, float partialTicks, PoseStack poseStack, MultiBufferSource source, int light, int overlay) {
+    public void render(DigitalClockBlockEntity blockEntity, float partialTicks, PoseStack poseStack, MultiBufferSource source, int light, int overlay, Vec3 vec3) {
 
         BlockState state = blockEntity.getBlockState();
         if(state.getBlock() instanceof DigitalClockBlock) {

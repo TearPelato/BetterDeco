@@ -58,7 +58,7 @@ public class KitchenDrawerBlockEntity extends RandomizableContainerBlockEntity
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
-        inventory.deserializeNBT(registries, tag.getCompound("inventory"));
+        inventory.deserializeNBT(registries, tag.getCompound("inventory").get());
     }
 }
 

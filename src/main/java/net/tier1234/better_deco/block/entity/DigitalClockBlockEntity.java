@@ -24,14 +24,13 @@ public class DigitalClockBlockEntity extends BlockEntity {
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
         if (tag.contains("TextColor")) {
-            this.textColor = DyeColor.byName(tag.getString("TextColor"), DyeColor.WHITE);
+            this.textColor = DyeColor.byName(String.valueOf(tag.getString("TextColor")), DyeColor.WHITE);
         }
     }
 
     @Override
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);
-        // Salva i dati extra
         tag.putString("TextColor", this.textColor.getName());
     }
 
