@@ -13,11 +13,12 @@ import net.minecraft.world.inventory.ChestMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.items.ItemStackHandler;
 
 public class KitchenDrawerBlockEntity extends RandomizableContainerBlockEntity
         implements MenuProvider {
-
-    private NonNullList<ItemStack> items = NonNullList.withSize(27, ItemStack.EMPTY);
+    public final ItemStackHandler inventory = new ItemStackHandler(9);
+    private NonNullList<ItemStack> items = NonNullList.withSize(9, ItemStack.EMPTY);
 
     public KitchenDrawerBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.CUSTOM_KITCHEN_DRAWER_BE.get(), pos, state);
@@ -51,18 +52,13 @@ public class KitchenDrawerBlockEntity extends RandomizableContainerBlockEntity
     @Override
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);
-        if (!this.trySaveLootTable(tag)) {
-            ContainerHelper.saveAllItems(tag, this.items, registries);
-        }
+        tag.put("inventory", inventory.serializeNBT(registries));
     }
 
     @Override
-    public void loadAdditional(CompoundTag tag,HolderLookup.Provider registries) {
+    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
-        this.items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
-        if (!this.tryLoadLootTable(tag)) {
-            ContainerHelper.loadAllItems(tag, this.items, registries);
-        }
+        inventory.deserializeNBT(registries, tag.getCompound("inventory"));
     }
 }
 

@@ -4,8 +4,11 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -105,13 +108,15 @@ public class TableBlock extends FurnitureHorizontalBlock
         return SHAPES.get(state);
     }
 
-
-    public BlockState updateShape(BlockState state, Direction direction, BlockState newState, LevelAccessor level, BlockPos pos, BlockPos newPos)
+  @Override
+    public BlockState updateShape(BlockState state, LevelReader reader, ScheduledTickAccess access,
+                                  BlockPos pos, Direction direction, BlockPos pos1, BlockState state1,
+                                  RandomSource rand)
     {
-        boolean north = level.getBlockState(pos.north()).getBlock() == this;
-        boolean east = level.getBlockState(pos.east()).getBlock() == this;
-        boolean south = level.getBlockState(pos.south()).getBlock() == this;
-        boolean west = level.getBlockState(pos.west()).getBlock() == this;
+        boolean north = reader.getBlockState(pos.north()).getBlock() == this;
+        boolean east = reader.getBlockState(pos.east()).getBlock() == this;
+        boolean south = reader.getBlockState(pos.south()).getBlock() == this;
+        boolean west = reader.getBlockState(pos.west()).getBlock() == this;
         return state.setValue(NORTH, north).setValue(EAST, east).setValue(SOUTH, south).setValue(WEST, west);
     }
 

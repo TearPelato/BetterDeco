@@ -149,7 +149,11 @@ public class OvenMenu extends AbstractContainerMenu {
                         || stillValid(ContainerLevelAccess.create(level,blockEntity.getBlockPos()),
                 pPlayer,ModBlocks.DARK_OAK_CALCITE_OVEN.get())
                 || stillValid(ContainerLevelAccess.create(level,blockEntity.getBlockPos()),
-                pPlayer,ModBlocks.OAK_ANDESITE_OVEN.get());
+                pPlayer,ModBlocks.OAK_ANDESITE_OVEN.get())
+                        || stillValid(ContainerLevelAccess.create(level,blockEntity.getBlockPos()),
+                pPlayer,ModBlocks.PALE_OAK_OVEN.get())
+                        || stillValid(ContainerLevelAccess.create(level,blockEntity.getBlockPos()),
+                pPlayer,ModBlocks.STRIPPED_PALE_OAK_OVEN.get());
     }
 
     private void addPlayerInventory(Inventory playerInventory) {

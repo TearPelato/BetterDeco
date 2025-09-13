@@ -63,7 +63,9 @@ public class ModBlockEntities {
                                     ModBlocks.BLACKSTONE_DRAWER.get(),
                                     ModBlocks.SPRUCE_DIORITE_KITCHEN_DRAWER.get(),
                                     ModBlocks.DARK_OAK_CALCITE_DRAWER.get(),
-                                    ModBlocks.OAK_ANDESITE_DRAWER.get()
+                                    ModBlocks.OAK_ANDESITE_DRAWER.get(),
+                                    ModBlocks.PALE_OAK_KITCHEN_DRAWER.get(),
+                                    ModBlocks.STRIPPED_PALE_OAK_KITCHEN_DRAWER.get()
                             )
             );
 
@@ -105,7 +107,9 @@ public class ModBlockEntities {
                                     ModBlocks.BLACKSTONE_CABINET.get(),
                                     ModBlocks.SPRUCE_DIORITE_CABINET.get(),
                                     ModBlocks.DARK_OAK_CALCITE_CABINET.get(),
-                                    ModBlocks.OAK_ANDESITE_CABINET.get()
+                                    ModBlocks.OAK_ANDESITE_CABINET.get(),
+                                    ModBlocks.PALE_OAK_CABINET.get(),
+                                    ModBlocks.STRIPPED_PALE_OAK_CABINET.get()
                                     )
             );
 
@@ -135,7 +139,8 @@ public class ModBlockEntities {
                     ModBlocks.CHERRY_BEDSIDE.get(),
                     ModBlocks.BAMBOO_BEDSIDE.get(),
                     ModBlocks.CRIMSON_BEDSIDE.get(),
-                    ModBlocks.WARPED_BEDSIDE.get()
+                    ModBlocks.WARPED_BEDSIDE.get(),
+                    ModBlocks.PALE_OAK_BEDSIDE.get()
                     )
 
             );
@@ -168,7 +173,9 @@ public class ModBlockEntities {
                     ModBlocks.CHERRY_SINK_DARK.get(),
                     ModBlocks.BAMBOO_SINK_DARK.get(),
                     ModBlocks.CRIMSON_SINK_DARK.get(),
-                    ModBlocks.WARPED_SINK_DARK.get()
+                    ModBlocks.WARPED_SINK_DARK.get(),
+                    ModBlocks.PALE_OAK_SINK.get(),
+                    ModBlocks.PALE_OAK_SINK_DARK.get()
 
             ));
 
@@ -186,7 +193,8 @@ public class ModBlockEntities {
                     ModBlocks.CHERRY_GLASS_TECQUE.get(),
                     ModBlocks.BAMBOO_GLASS_TECQUE.get(),
                     ModBlocks.CRIMSON_GLASS_TECQUE.get(),
-                    ModBlocks.WARPED_GLASS_TECQUE.get()
+                    ModBlocks.WARPED_GLASS_TECQUE.get(),
+                    ModBlocks.PALE_OAK_GLASS_TECQUE.get()
 
 
             ));
@@ -205,7 +213,8 @@ public class ModBlockEntities {
                     ModBlocks.CHERRY_CRATE.get(),
                     ModBlocks.BAMBOO_CRATE.get(),
                     ModBlocks.CRIMSON_CRATE.get(),
-                    ModBlocks.WARPED_CRATE.get()
+                    ModBlocks.WARPED_CRATE.get(),
+                    ModBlocks.PALE_OAK_CRATE.get()
 
 
             ));
@@ -224,7 +233,8 @@ public class ModBlockEntities {
                     ModBlocks.CHERRY_SHELF.get(),
                     ModBlocks.CRIMSON_SHELF.get(),
                     ModBlocks.BAMBOO_SHELF.get(),
-                    ModBlocks.WARPED_SHELF.get()
+                    ModBlocks.WARPED_SHELF.get(),
+                    ModBlocks.PALE_OAK_SHELF.get()
 
 
             ));
@@ -281,7 +291,9 @@ public class ModBlockEntities {
                     ModBlocks.STRIPPED_WARPED_OVEN.get(),
                     ModBlocks.SPRUCE_DIORITE_OVEN.get(),
                     ModBlocks.DARK_OAK_CALCITE_OVEN.get(),
-                    ModBlocks.OAK_ANDESITE_OVEN.get()
+                    ModBlocks.OAK_ANDESITE_OVEN.get(),
+                    ModBlocks.PALE_OAK_OVEN.get(),
+                    ModBlocks.STRIPPED_PALE_OAK_OVEN.get()
 
 
             ));

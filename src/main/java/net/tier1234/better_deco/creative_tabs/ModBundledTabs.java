@@ -27,7 +27,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.OAK_POLISHED_PLANKS);
                         output.accept(ModBlocks.OAK_PLANKS_BRICKS);
                         output.accept(ModBlocks.OAK_SOFT_BRICKS);
-                        // output.accept(ModBlocks.OAK_PLANKS_PILLAR);
+                        output.accept(ModBlocks.OAK_PLANKS_PILLAR);
                         output.accept(ModBlocks.OAK_BARREL);
                         //Spruce
                         output.accept(ModBlocks.SPRUCE_VERTICAL_PLANKS);
@@ -35,7 +35,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.SPRUCE_POLISHED_PLANKS);
                         output.accept(ModBlocks.SPRUCE_PLANKS_BRICKS);
                         output.accept(ModBlocks.SPRUCE_SOFT_BRICKS);
-                        // output.accept(ModBlocks.SPRUCE_PLANKS_PILLAR);
+                        output.accept(ModBlocks.SPRUCE_PLANKS_PILLAR);
                         output.accept(Blocks.BARREL);
                         //Birch
                         output.accept(ModBlocks.BIRCH_VERTICAL_PLANKS);
@@ -43,7 +43,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.BIRCH_POLISHED_PLANKS);
                         output.accept(ModBlocks.BIRCH_PLANKS_BRICKS);
                         output.accept(ModBlocks.BIRCH_SOFT_BRICKS);
-                        //output.accept(ModBlocks.BIRCH_PLANKS_PILLAR);
+                        output.accept(ModBlocks.BIRCH_PLANKS_PILLAR);
                         output.accept(ModBlocks.BIRCH_BARREL);
                         //Jungle
                         output.accept(ModBlocks.JUNGLE_VERTICAL_PLANKS);
@@ -51,7 +51,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.JUNGLE_POLISHED_PLANKS);
                         output.accept(ModBlocks.JUNGLE_PLANKS_BRICKS);
                         output.accept(ModBlocks.JUNGLE_SOFT_BRICKS);
-                        // output.accept(ModBlocks.JUNGLE_PLANKS_PILLAR);
+                        output.accept(ModBlocks.JUNGLE_PLANKS_PILLAR);
                         output.accept(ModBlocks.JUNGLE_BARREL);
                         //Acacia
                         output.accept(ModBlocks.ACACIA_VERTICAL_PLANKS);
@@ -59,7 +59,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.ACACIA_POLISHED_PLANKS);
                         output.accept(ModBlocks.ACACIA_PLANKS_BRICKS);
                         output.accept(ModBlocks.ACACIA_SOFT_BRICKS);
-                        // output.accept(ModBlocks.ACACIA_PLANKS_PILLAR);
+                        output.accept(ModBlocks.ACACIA_PLANKS_PILLAR);
                         output.accept(ModBlocks.ACACIA_BARREL);
                         //DarkOak
                         output.accept(ModBlocks.DARK_OAK_VERTICAL_PLANKS);
@@ -67,7 +67,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.DARK_OAK_POLISHED_PLANKS);
                         output.accept(ModBlocks.DARK_OAK_PLANKS_BRICKS);
                         output.accept(ModBlocks.DARK_OAK_SOFT_BRICKS);
-                        //output.accept(ModBlocks.DARK_OAK_PLANKS_PILLAR);
+                        output.accept(ModBlocks.DARK_OAK_PLANKS_PILLAR);
                         output.accept(ModBlocks.DARK_OAK_BARREL);
                         //Mangrove
                         output.accept(ModBlocks.MANGROVE_VERTICAL_PLANKS);
@@ -75,7 +75,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.MANGROVE_POLISHED_PLANKS);
                         output.accept(ModBlocks.MANGROVE_PLANKS_BRICKS);
                         output.accept(ModBlocks.MANGROVE_SOFT_BRICKS);
-                        // output.accept(ModBlocks.MANGROVE_PLANKS_PILLAR);
+                        output.accept(ModBlocks.MANGROVE_PLANKS_PILLAR);
                         output.accept(ModBlocks.MANGROVE_BARREL);
                         //Cherry
                         output.accept(ModBlocks.CHERRY_VERTICAL_PLANKS);
@@ -83,7 +83,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.CHERRY_POLISHED_PLANKS);
                         output.accept(ModBlocks.CHERRY_PLANKS_BRICKS);
                         output.accept(ModBlocks.CHERRY_SOFT_BRICKS);
-                        // output.accept(ModBlocks.CHERRY_PLANKS_PILLAR);
+                        output.accept(ModBlocks.CHERRY_PLANKS_PILLAR);
                         output.accept(ModBlocks.CHERRY_BARREL);
                         //Bamboo
                         output.accept(ModBlocks.BAMBOO_VERTICAL_PLANKS);
@@ -91,7 +91,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.BAMBOO_POLISHED_PLANKS);
                         output.accept(ModBlocks.BAMBOO_PLANKS_BRICKS);
                         output.accept(ModBlocks.BAMBOO_SOFT_BRICKS);
-                        // output.accept(ModBlocks.BAMBOO_PLANKS_PILLAR);
+                        output.accept(ModBlocks.BAMBOO_PLANKS_PILLAR);
                         output.accept(ModBlocks.BAMBOO_BARREL);
                         //Crimson
                         output.accept(ModBlocks.CRIMSON_VERTICAL_PLANKS);
@@ -99,7 +99,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.CRIMSON_POLISHED_PLANKS);
                         output.accept(ModBlocks.CRIMSON_PLANKS_BRICKS);
                         output.accept(ModBlocks.CRIMSON_SOFT_BRICKS);
-                        // output.accept(ModBlocks.CRIMSON_PLANKS_PILLAR);
+                        output.accept(ModBlocks.CRIMSON_PLANKS_PILLAR);
                         output.accept(ModBlocks.CRIMSON_BARREL);
                         //Warped
                         output.accept(ModBlocks.WARPED_VERTICAL_PLANKS);
@@ -107,7 +107,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.WARPED_POLISHED_PLANKS);
                         output.accept(ModBlocks.WARPED_PLANKS_BRICKS);
                         output.accept(ModBlocks.WARPED_SOFT_BRICKS);
-                        // output.accept(ModBlocks.WARPED_PLANKS_PILLAR);
+                        output.accept(ModBlocks.WARPED_PLANKS_PILLAR);
                         output.accept(ModBlocks.WARPED_BARREL);
 
                         output.accept(ModBlocks.ANDESITE_ARRAY_BRICKS);
@@ -147,9 +147,11 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.DARK_OAK_KITCHEN_COUNTER);
                         output.accept(ModBlocks.MANGROVE_KITCHEN_COUNTER);
                         output.accept(ModBlocks.CHERRY_KITCHEN_COUNTER);
+                        output.accept(ModBlocks.PALE_OAK_KITCHEN_COUNTER);
                         output.accept(ModBlocks.BAMBOO_KITCHEN_COUNTER);
                         output.accept(ModBlocks.CRIMSON_KITCHEN_COUNTER);
                         output.accept(ModBlocks.WARPED_KITCHEN_COUNTER);
+
                         output.accept(ModBlocks.STRIPPED_OAK_KITCHEN_COUNTER);
                         output.accept(ModBlocks.STRIPPED_SPRUCE_KITCHEN_COUNTER);
                         output.accept(ModBlocks.STRIPPED_BIRCH_KITCHEN_COUNTER);
@@ -158,9 +160,11 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.STRIPPED_DARK_OAK_KITCHEN_COUNTER);
                         output.accept(ModBlocks.STRIPPED_MANGROVE_KITCHEN_COUNTER);
                         output.accept(ModBlocks.STRIPPED_CHERRY_KITCHEN_COUNTER);
+                        output.accept(ModBlocks.STRIPPED_PALE_OAK_KITCHEN_COUNTER);
                         output.accept(ModBlocks.STRIPPED_BAMBOO_KITCHEN_COUNTER);
                         output.accept(ModBlocks.STRIPPED_CRIMSON_KITCHEN_COUNTER);
                         output.accept(ModBlocks.STRIPPED_WARPED_KITCHEN_COUNTER);
+
                         output.accept(ModBlocks.OAK_KITCHEN_DRAWER);
                         output.accept(ModBlocks.SPRUCE_KITCHEN_DRAWER);
                         output.accept(ModBlocks.BIRCH_KITCHEN_DRAWER);
@@ -169,9 +173,11 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.DARK_OAK_KITCHEN_DRAWER);
                         output.accept(ModBlocks.MANGROVE_KITCHEN_DRAWER);
                         output.accept(ModBlocks.CHERRY_KITCHEN_DRAWER);
+                        output.accept(ModBlocks.PALE_OAK_KITCHEN_DRAWER);
                         output.accept(ModBlocks.BAMBOO_KITCHEN_DRAWER);
                         output.accept(ModBlocks.CRIMSON_KITCHEN_DRAWER);
                         output.accept(ModBlocks.WARPED_KITCHEN_DRAWER);
+
                         output.accept(ModBlocks.STRIPPED_OAK_KITCHEN_DRAWER);
                         output.accept(ModBlocks.STRIPPED_SPRUCE_KITCHEN_DRAWER);
                         output.accept(ModBlocks.STRIPPED_BIRCH_KITCHEN_DRAWER);
@@ -180,6 +186,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.STRIPPED_DARK_OAK_KITCHEN_DRAWER);
                         output.accept(ModBlocks.STRIPPED_MANGROVE_KITCHEN_DRAWER);
                         output.accept(ModBlocks.STRIPPED_CHERRY_KITCHEN_DRAWER);
+                        output.accept(ModBlocks.STRIPPED_PALE_OAK_KITCHEN_DRAWER);
                         output.accept(ModBlocks.STRIPPED_BAMBOO_KITCHEN_DRAWER);
                         output.accept(ModBlocks.STRIPPED_CRIMSON_KITCHEN_DRAWER);
                         output.accept(ModBlocks.STRIPPED_WARPED_KITCHEN_DRAWER);
@@ -192,6 +199,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.DARK_OAK_SINK);
                         output.accept(ModBlocks.MANGROVE_SINK);
                         output.accept(ModBlocks.CHERRY_SINK);
+                        output.accept(ModBlocks.PALE_OAK_SINK);
                         output.accept(ModBlocks.BAMBOO_SINK);
                         output.accept(ModBlocks.CRIMSON_SINK);
                         output.accept(ModBlocks.WARPED_SINK);
@@ -204,6 +212,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.DARK_OAK_SINK_DARK);
                         output.accept(ModBlocks.MANGROVE_SINK_DARK);
                         output.accept(ModBlocks.CHERRY_SINK_DARK);
+                        output.accept(ModBlocks.PALE_OAK_SINK_DARK);
                         output.accept(ModBlocks.BAMBOO_SINK_DARK);
                         output.accept(ModBlocks.CRIMSON_SINK_DARK);
                         output.accept(ModBlocks.WARPED_SINK_DARK);
@@ -216,9 +225,11 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.DARK_OAK_CABINET);
                         output.accept(ModBlocks.MANGROVE_CABINET);
                         output.accept(ModBlocks.CHERRY_CABINET);
+                        output.accept(ModBlocks.PALE_OAK_CABINET);
                         output.accept(ModBlocks.BAMBOO_CABINET);
                         output.accept(ModBlocks.CRIMSON_CABINET);
                         output.accept(ModBlocks.WARPED_CABINET);
+
                         output.accept(ModBlocks.STRIPPED_OAK_CABINET);
                         output.accept(ModBlocks.STRIPPED_SPRUCE_CABINET);
                         output.accept(ModBlocks.STRIPPED_BIRCH_CABINET);
@@ -227,6 +238,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.STRIPPED_DARK_OAK_CABINET);
                         output.accept(ModBlocks.STRIPPED_MANGROVE_CABINET);
                         output.accept(ModBlocks.STRIPPED_CHERRY_CABINET);
+                        output.accept(ModBlocks.STRIPPED_PALE_OAK_CABINET);
                         output.accept(ModBlocks.STRIPPED_BAMBOO_CABINET);
                         output.accept(ModBlocks.STRIPPED_CRIMSON_CABINET);
                         output.accept(ModBlocks.STRIPPED_WARPED_CABINET);
@@ -271,6 +283,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.MANGROVE_BEDSIDE);
                         output.accept(ModBlocks.DARK_OAK_BEDSIDE);
                         output.accept(ModBlocks.CHERRY_BEDSIDE);
+                        output.accept(ModBlocks.PALE_OAK_BEDSIDE);
                         output.accept(ModBlocks.BAMBOO_BEDSIDE);
                         output.accept(ModBlocks.CRIMSON_BEDSIDE);
                         output.accept(ModBlocks.WARPED_BEDSIDE);
@@ -283,6 +296,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.DARK_OAK_TABLE);
                         output.accept(ModBlocks.MANGROVE_TABLE);
                         output.accept(ModBlocks.CHERRY_TABLE);
+                        output.accept(ModBlocks.PALE_OAK_TABLE);
                         output.accept(ModBlocks.BAMBOO_TABLE);
                         output.accept(ModBlocks.CRIMSON_TABLE);
                         output.accept(ModBlocks.WARPED_TABLE);
@@ -295,6 +309,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.STRIPPED_DARK_OAK_TABLE);
                         output.accept(ModBlocks.STRIPPED_MANGROVE_TABLE);
                         output.accept(ModBlocks.STRIPPED_CHERRY_TABLE);
+                        output.accept(ModBlocks.STRIPPED_PALE_OAK_TABLE);
                         output.accept(ModBlocks.STRIPPED_BAMBOO_TABLE);
                         output.accept(ModBlocks.STRIPPED_CRIMSON_TABLE);
                         output.accept(ModBlocks.STRIPPED_WARPED_TABLE);
@@ -307,6 +322,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.DARK_OAK_COFFEE_TABLE);
                         output.accept(ModBlocks.MANGROVE_COFFEE_TABLE);
                         output.accept(ModBlocks.CHERRY_COFFEE_TABLE);
+                        output.accept(ModBlocks.PALE_OAK_COFFEE_TABLE);
                         output.accept(ModBlocks.BAMBOO_COFFEE_TABLE);
                         output.accept(ModBlocks.CRIMSON_COFFEE_TABLE);
                         output.accept(ModBlocks.WARPED_COFFEE_TABLE);
@@ -319,6 +335,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.STRIPPED_DARK_OAK_COFFEE_TABLE);
                         output.accept(ModBlocks.STRIPPED_MANGROVE_COFFEE_TABLE);
                         output.accept(ModBlocks.STRIPPED_CHERRY_COFFEE_TABLE);
+                        output.accept(ModBlocks.STRIPPED_PALE_OAK_COFFEE_TABLE);
                         output.accept(ModBlocks.STRIPPED_BAMBOO_COFFEE_TABLE);
                         output.accept(ModBlocks.STRIPPED_CRIMSON_COFFEE_TABLE);
                         output.accept(ModBlocks.STRIPPED_WARPED_COFFEE_TABLE);
@@ -331,6 +348,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.DARK_OAK_DINNING_TABLE);
                         output.accept(ModBlocks.MANGROVE_DINNING_TABLE);
                         output.accept(ModBlocks.CHERRY_DINNING_TABLE);
+                        output.accept(ModBlocks.PALE_OAK_DINNING_TABLE);
                         output.accept(ModBlocks.BAMBOO_DINNING_TABLE);
                         output.accept(ModBlocks.CRIMSON_DINNING_TABLE);
                         output.accept(ModBlocks.WARPED_DINNING_TABLE);
@@ -343,6 +361,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.STRIPPED_DARK_OAK_DINNING_TABLE);
                         output.accept(ModBlocks.STRIPPED_MANGROVE_DINNING_TABLE);
                         output.accept(ModBlocks.STRIPPED_CHERRY_DINNING_TABLE);
+                        output.accept(ModBlocks.STRIPPED_PALE_OAK_DINNING_TABLE);
                         output.accept(ModBlocks.STRIPPED_BAMBOO_DINNING_TABLE);
                         output.accept(ModBlocks.STRIPPED_CRIMSON_DINNING_TABLE);
                         output.accept(ModBlocks.STRIPPED_WARPED_DINNING_TABLE);
@@ -355,6 +374,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.DARK_OAK_CHAIR);
                         output.accept(ModBlocks.MANGROVE_CHAIR);
                         output.accept(ModBlocks.CHERRY_CHAIR);
+                        output.accept(ModBlocks.PALE_OAK_CHAIR);
                         output.accept(ModBlocks.BAMBOO_CHAIR);
                         output.accept(ModBlocks.CRIMSON_CHAIR);
                         output.accept(ModBlocks.WARPED_CHAIR);
@@ -367,6 +387,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.STRIPPED_DARK_OAK_CHAIR);
                         output.accept(ModBlocks.STRIPPED_MANGROVE_CHAIR);
                         output.accept(ModBlocks.STRIPPED_CHERRY_CHAIR);
+                        output.accept(ModBlocks.STRIPPED_PALE_OAK_CHAIR);
                         output.accept(ModBlocks.STRIPPED_BAMBOO_CHAIR);
                         output.accept(ModBlocks.STRIPPED_CRIMSON_CHAIR);
                         output.accept(ModBlocks.STRIPPED_WARPED_CHAIR);
@@ -430,6 +451,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.MANGROVE_GLASS_TECQUE);
                         output.accept(ModBlocks.DARK_OAK_GLASS_TECQUE);
                         output.accept(ModBlocks.CHERRY_GLASS_TECQUE);
+                        output.accept(ModBlocks.PALE_OAK_GLASS_TECQUE);
                         output.accept(ModBlocks.BAMBOO_GLASS_TECQUE);
                         output.accept(ModBlocks.CRIMSON_GLASS_TECQUE);
                         output.accept(ModBlocks.WARPED_GLASS_TECQUE);
@@ -450,6 +472,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.DARK_OAK_VERTICAL_SLAB);
                         output.accept(ModBlocks.MANGROVE_VERTICAL_SLAB);
                         output.accept(ModBlocks.CHERRY_VERTICAL_SLAB);
+                        output.accept(ModBlocks.PALE_OAK_VERTICAL_SLAB);
                         output.accept(ModBlocks.BAMBOO_VERTICAL_SLAB);
                         output.accept(ModBlocks.CRIMSON_VERTICAL_SLAB);
                         output.accept(ModBlocks.WARPED_VERTICAL_SLAB);
@@ -476,6 +499,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.MANGROVE_CRATE);
                         output.accept(ModBlocks.DARK_OAK_CRATE);
                         output.accept(ModBlocks.CHERRY_CRATE);
+                        output.accept(ModBlocks.PALE_OAK_CRATE);
                         output.accept(ModBlocks.BAMBOO_CRATE);
                         output.accept(ModBlocks.CRIMSON_CRATE);
                         output.accept(ModBlocks.WARPED_CRATE);
@@ -489,6 +513,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.DARK_OAK_SHELF);
                         output.accept(ModBlocks.MANGROVE_SHELF);
                         output.accept(ModBlocks.CHERRY_SHELF);
+                        output.accept(ModBlocks.PALE_OAK_SHELF);
                         output.accept(ModBlocks.BAMBOO_SHELF);
                         output.accept(ModBlocks.CRIMSON_SHELF);
                         output.accept(ModBlocks.WARPED_SHELF);
@@ -544,6 +569,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.DARK_OAK_OVEN);
                         output.accept(ModBlocks.MANGROVE_OVEN);
                         output.accept(ModBlocks.CHERRY_OVEN);
+                        output.accept(ModBlocks.PALE_OAK_OVEN);
                         output.accept(ModBlocks.BAMBOO_OVEN);
                         output.accept(ModBlocks.CRIMSON_OVEN);
                         output.accept(ModBlocks.WARPED_OVEN);
@@ -556,6 +582,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.STRIPPED_DARK_OAK_OVEN);
                         output.accept(ModBlocks.STRIPPED_MANGROVE_OVEN);
                         output.accept(ModBlocks.STRIPPED_CHERRY_OVEN);
+                        output.accept(ModBlocks.STRIPPED_PALE_OAK_OVEN);
                         output.accept(ModBlocks.STRIPPED_BAMBOO_OVEN);
                         output.accept(ModBlocks.STRIPPED_CRIMSON_OVEN);
                         output.accept(ModBlocks.STRIPPED_WARPED_OVEN);

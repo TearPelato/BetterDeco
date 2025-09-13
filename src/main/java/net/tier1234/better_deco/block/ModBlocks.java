@@ -49,6 +49,8 @@ public class ModBlocks {
             (properties)-> new OvenBlock(properties.strength(2f)));
     public static final  DeferredBlock<Block> MANGROVE_OVEN = registerBlock("mangrove_oven",
             (properties)-> new OvenBlock(properties.strength(2f)));
+    public static final DeferredBlock<Block> PALE_OAK_OVEN = registerBlock("pale_oak_oven",
+            (properties)-> new OvenBlock(properties.strength(2f)));
     public static final  DeferredBlock<Block> CHERRY_OVEN = registerBlock("cherry_oven",
             (properties)-> new OvenBlock(properties.strength(2f)));
     public static final  DeferredBlock<Block> BAMBOO_OVEN = registerBlock("bamboo_oven",
@@ -86,6 +88,8 @@ public class ModBlocks {
     public static final  DeferredBlock<Block> STRIPPED_CRIMSON_OVEN = registerBlock("stripped_crimson_oven",
             (properties)-> new OvenBlock(properties.strength(2f)));
     public static final  DeferredBlock<Block> STRIPPED_WARPED_OVEN = registerBlock("stripped_warped_oven",
+            (properties)-> new OvenBlock(properties.strength(2f)));
+    public static final  DeferredBlock<Block> STRIPPED_PALE_OAK_OVEN = registerBlock("stripped_pale_oak_oven",
             (properties)-> new OvenBlock(properties.strength(2f)));
 
 
@@ -205,6 +209,8 @@ public static final DeferredBlock<Block> OAK_SHELF = registerBlock("oak_shelf",
             (properties)-> new CustomShelfBlock(properties.sound(SoundType.WOOD).strength(2f)));
     public static final DeferredBlock<Block> WARPED_SHELF = registerBlock("warped_shelf",
             (properties)-> new CustomShelfBlock(properties.sound(SoundType.WOOD).strength(2f)));
+    public static final DeferredBlock<Block> PALE_OAK_SHELF = registerBlock("pale_oak_shelf",
+            (properties)-> new CustomShelfBlock(properties.sound(SoundType.WOOD).strength(2f)));
 
 
 //EXTRA BUILDINGS
@@ -243,7 +249,9 @@ public static final DeferredBlock<Block> OAK_SHELF = registerBlock("oak_shelf",
     public static final DeferredBlock<VerticalSlabBlock> WARPED_VERTICAL_SLAB = registerBlock("warped_vertical_slab",
             (properties)-> new VerticalSlabBlock(properties.strength(2f).requiresCorrectToolForDrops()
                     .sound(SoundType.WOOD)));
-
+    public static final DeferredBlock<VerticalSlabBlock> PALE_OAK_VERTICAL_SLAB = registerBlock("pale_oak_vertical_slab",
+            (properties)-> new VerticalSlabBlock(properties.strength(2f).requiresCorrectToolForDrops()
+                    .sound(SoundType.WOOD)));
 
 
 
@@ -622,7 +630,8 @@ public static final DeferredBlock<Block> BIRCH_CHAIR = registerBlock("birch_chai
             (properties) -> new ChairBlock(properties.strength(2f).noOcclusion()));
     public static final DeferredBlock<Block> BAMBOO_CHAIR = registerBlock("bamboo_chair",
             (properties) -> new ChairBlock(properties.strength(2f).noOcclusion()));
-
+    public static final DeferredBlock<Block> PALE_OAK_CHAIR = registerBlock("pale_oak_chair",
+            (properties) -> new ChairBlock(properties.strength(2f).noOcclusion()));
     //Stripped
     public static final DeferredBlock<Block> STRIPPED_BIRCH_CHAIR = registerBlock("stripped_birch_chair",
             (properties) -> new ChairBlock(properties.strength(2f).noOcclusion()));
@@ -646,7 +655,8 @@ public static final DeferredBlock<Block> BIRCH_CHAIR = registerBlock("birch_chai
             (properties) -> new ChairBlock(properties.strength(2f).noOcclusion()));
     public static final DeferredBlock<Block> STRIPPED_BAMBOO_CHAIR = registerBlock("stripped_bamboo_chair",
             (properties) -> new ChairBlock(properties.strength(2f).noOcclusion()));
-
+    public static final DeferredBlock<Block> STRIPPED_PALE_OAK_CHAIR = registerBlock("stripped_pale_oak_chair",
+            (properties) -> new ChairBlock(properties.strength(2f).noOcclusion()));
     //Counters
 
     public static final DeferredBlock<Block> OAK_KITCHEN_COUNTER = registerBlock("oak_kitchen_counter",
@@ -671,9 +681,10 @@ public static final DeferredBlock<Block> BIRCH_CHAIR = registerBlock("birch_chai
             (properties)-> new KitchenCounterBlock(properties.strength(2f).noOcclusion()));
     public static final DeferredBlock<Block> WARPED_KITCHEN_COUNTER = registerBlock("warped_kitchen_counter",
             (properties)-> new KitchenCounterBlock(properties.strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> PALE_OAK_KITCHEN_COUNTER = registerBlock("pale_oak_kitchen_counter",
+            (properties)-> new KitchenCounterBlock(properties.strength(2f).noOcclusion()));
 
             //Stripped Counters Variant
-
     public static final DeferredBlock<Block> STRIPPED_OAK_KITCHEN_COUNTER = registerBlock("stripped_oak_kitchen_counter",
             (properties)-> new KitchenCounterBlock(properties.strength(2f).noOcclusion()));
     public static final DeferredBlock<Block> STRIPPED_SPRUCE_KITCHEN_COUNTER = registerBlock("stripped_spruce_kitchen_counter",
@@ -696,6 +707,9 @@ public static final DeferredBlock<Block> BIRCH_CHAIR = registerBlock("birch_chai
             (properties)-> new KitchenCounterBlock(properties.strength(2f).noOcclusion()));
     public static final DeferredBlock<Block> STRIPPED_WARPED_KITCHEN_COUNTER = registerBlock("stripped_warped_kitchen_counter",
             (properties)-> new KitchenCounterBlock(properties.strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> STRIPPED_PALE_OAK_KITCHEN_COUNTER = registerBlock("stripped_pale_oak_kitchen_counter",
+            (properties)-> new KitchenCounterBlock(properties.strength(2f).noOcclusion()));
+
 
     public static final DeferredBlock<Block> DARK_OAK_CALCITE_COUNTER = registerBlock("dark_oak_calcite_kitchen_counter",
             (properties)-> new KitchenCounterBlock(properties.strength(3f)));
@@ -727,7 +741,8 @@ public static final DeferredBlock<Block> BIRCH_CHAIR = registerBlock("birch_chai
             (properties)-> new KitchenDrawerBlock(properties.strength(2f).noOcclusion()));
     public static final DeferredBlock<Block> WARPED_KITCHEN_DRAWER = registerBlock("warped_kitchen_drawer",
             (properties)-> new KitchenDrawerBlock(properties.strength(2f).noOcclusion()));
-
+    public static final DeferredBlock<Block> PALE_OAK_KITCHEN_DRAWER = registerBlock("pale_oak_kitchen_drawer",
+            (properties)-> new KitchenDrawerBlock(properties.strength(2f).noOcclusion()));
          //Stripped Variants
          public static final DeferredBlock<Block> STRIPPED_OAK_KITCHEN_DRAWER = registerBlock("stripped_oak_kitchen_drawer",
                  (properties)-> new KitchenDrawerBlock(properties.strength(2f).noOcclusion()));
@@ -750,6 +765,8 @@ public static final DeferredBlock<Block> BIRCH_CHAIR = registerBlock("birch_chai
     public static final DeferredBlock<Block> STRIPPED_CRIMSON_KITCHEN_DRAWER = registerBlock("stripped_crimson_kitchen_drawer",
             (properties)-> new KitchenDrawerBlock(properties.strength(2f).noOcclusion()));
     public static final DeferredBlock<Block> STRIPPED_WARPED_KITCHEN_DRAWER = registerBlock("stripped_warped_kitchen_drawer",
+            (properties)-> new KitchenDrawerBlock(properties.strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> STRIPPED_PALE_OAK_KITCHEN_DRAWER = registerBlock("stripped_pale_oak_kitchen_drawer",
             (properties)-> new KitchenDrawerBlock(properties.strength(2f).noOcclusion()));
 
     public static final DeferredBlock<Block> SPRUCE_DIORITE_KITCHEN_DRAWER = registerBlock("spruce_diorite_kitchen_drawer",
@@ -785,7 +802,8 @@ public static final DeferredBlock<Block> BIRCH_CHAIR = registerBlock("birch_chai
             (properties)-> new TableBlock(properties.strength(2f).noOcclusion()));
     public static final DeferredBlock<Block> WARPED_TABLE = registerBlock("warped_table",
             (properties)-> new TableBlock(properties.strength(2f).noOcclusion()));
-
+    public static final DeferredBlock<Block> PALE_OAK_TABLE = registerBlock("pale_oak_table",
+            (properties)-> new TableBlock(properties.strength(2f).noOcclusion()));
 //Stripped
     public static final DeferredBlock<Block> STRIPPED_OAK_TABLE = registerBlock("stripped_oak_table",
             (properties)-> new TableBlock(properties.strength(2f).noOcclusion()));
@@ -809,7 +827,8 @@ public static final DeferredBlock<Block> BIRCH_CHAIR = registerBlock("birch_chai
             (properties)-> new TableBlock(properties.strength(2f).noOcclusion()));
     public static final DeferredBlock<Block> STRIPPED_WARPED_TABLE = registerBlock("stripped_warped_table",
             (properties)-> new TableBlock(properties.strength(2f).noOcclusion()));
-
+    public static final DeferredBlock<Block> STRIPPED_PALE_OAK_TABLE = registerBlock("stripped_pale_oak_table",
+            (properties)-> new TableBlock(properties.strength(2f).noOcclusion()));
 
     //Sofas
 public static final DeferredBlock<Block> RED_SOFA = registerBlock("red_sofa",
@@ -873,7 +892,8 @@ public static final DeferredBlock<Block> OAK_CABINET = registerBlock("oak_cabine
             (properties)-> new CabinetBlock(properties.strength(3f)));
     public static final DeferredBlock<Block> OAK_ANDESITE_CABINET = registerBlock("oak_andesite_cabinet",
             (properties)-> new CabinetBlock(properties.strength(3f)));
-
+    public static final DeferredBlock<Block> PALE_OAK_CABINET = registerBlock("pale_oak_cabinet",
+            (properties)-> new CabinetBlock(properties.strength(3f)));
 
 //Stripped Variants
 public static final DeferredBlock<Block> STRIPPED_OAK_CABINET = registerBlock("stripped_oak_cabinet",
@@ -897,6 +917,8 @@ public static final DeferredBlock<Block> STRIPPED_OAK_CABINET = registerBlock("s
     public static final DeferredBlock<Block> STRIPPED_CRIMSON_CABINET = registerBlock("stripped_crimson_cabinet",
             (properties)-> new CabinetBlock(properties.strength(2f).noOcclusion()));
     public static final DeferredBlock<Block> STRIPPED_WARPED_CABINET = registerBlock("stripped_warped_cabinet",
+            (properties)-> new CabinetBlock(properties.strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> STRIPPED_PALE_OAK_CABINET = registerBlock("stripped_pale_oak_cabinet",
             (properties)-> new CabinetBlock(properties.strength(2f).noOcclusion()));
 
 
@@ -943,7 +965,8 @@ public static final DeferredBlock<Block> OAK_BEDSIDE = registerBlock("oak_bedsid
             (properties)-> new BedsideCabinetBlock(properties.strength(2f).noOcclusion()));
     public static final DeferredBlock<Block> WARPED_BEDSIDE = registerBlock("warped_bedside",
             (properties)-> new BedsideCabinetBlock(properties.strength(2f).noOcclusion()));
-
+    public static final DeferredBlock<Block> PALE_OAK_BEDSIDE = registerBlock("pale_oak_bedside",
+            (properties)-> new BedsideCabinetBlock(properties.strength(2f).noOcclusion()));
 
 
 
@@ -972,7 +995,8 @@ public static final DeferredBlock<Block> OAK_CRATE = registerBlock("oak_storage_
             (properties)-> new CrateBlock(properties.strength(2f).noOcclusion()));
     public static final DeferredBlock<Block> WARPED_CRATE = registerBlock("warped_storage_crate",
             (properties)-> new CrateBlock(properties.strength(2f).noOcclusion()));
-
+    public static final DeferredBlock<Block> PALE_OAK_CRATE = registerBlock("pale_oak_storage_crate",
+            (properties)-> new CrateBlock(properties.strength(2f).noOcclusion()));
 
 
 //Sinks
@@ -998,6 +1022,8 @@ public static final DeferredBlock<Block> OAK_SINK = registerBlock("light_oak_sin
             (properties) -> new KitchenSinkBlock(properties.strength(2f).noOcclusion()));
     public static final DeferredBlock<Block> WARPED_SINK = registerBlock("light_warped_sink",
             (properties) -> new KitchenSinkBlock(properties.strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> PALE_OAK_SINK = registerBlock("light_pale_oak_sink",
+            (properties) -> new KitchenSinkBlock(properties.strength(2f).noOcclusion()));
 
     public static final DeferredBlock<Block> OAK_SINK_DARK = registerBlock("oak_sink_dark",
             (properties) -> new KitchenSinkBlock(properties.strength(2f).noOcclusion()));
@@ -1020,6 +1046,8 @@ public static final DeferredBlock<Block> OAK_SINK = registerBlock("light_oak_sin
     public static final DeferredBlock<Block> CRIMSON_SINK_DARK = registerBlock("crimson_sink_dark",
             (properties) -> new KitchenSinkBlock(properties.strength(2f).noOcclusion()));
     public static final DeferredBlock<Block> WARPED_SINK_DARK = registerBlock("warped_sink_dark",
+            (properties) -> new KitchenSinkBlock(properties.strength(2f).noOcclusion()));
+    public static final DeferredBlock<Block> PALE_OAK_SINK_DARK = registerBlock("pale_oak_sink_dark",
             (properties) -> new KitchenSinkBlock(properties.strength(2f).noOcclusion()));
     //Stone Variants
 
@@ -1129,7 +1157,8 @@ public static final DeferredBlock<Block> STONE_COUNTER = registerBlock("stone_ki
             (properties)-> new CoffeeTableBlock(properties.strength(2f).sound(SoundType.WOOD)));
     public static final  DeferredBlock<Block> WARPED_COFFEE_TABLE = registerBlock("warped_coffee_table",
             (properties)-> new CoffeeTableBlock(properties.strength(2f).sound(SoundType.WOOD)));
-
+    public static final  DeferredBlock<Block> PALE_OAK_COFFEE_TABLE = registerBlock("pale_oak_coffee_table",
+            (properties)-> new CoffeeTableBlock(properties.strength(2f).sound(SoundType.WOOD)));
     //Stripped
     public static final  DeferredBlock<Block> STRIPPED_OAK_COFFEE_TABLE = registerBlock("stripped_oak_coffee_table",
             (properties)-> new CoffeeTableBlock(properties.strength(2f).sound(SoundType.WOOD)));
@@ -1153,7 +1182,8 @@ public static final DeferredBlock<Block> STONE_COUNTER = registerBlock("stone_ki
             (properties)-> new CoffeeTableBlock(properties.strength(2f).sound(SoundType.WOOD)));
     public static final  DeferredBlock<Block> STRIPPED_WARPED_COFFEE_TABLE = registerBlock("stripped_warped_coffee_table",
             (properties)-> new CoffeeTableBlock(properties.strength(2f).sound(SoundType.WOOD)));
-
+    public static final  DeferredBlock<Block> STRIPPED_PALE_OAK_COFFEE_TABLE = registerBlock("stripped_pale_oak_coffee_table",
+            (properties)-> new CoffeeTableBlock(properties.strength(2f).sound(SoundType.WOOD)));
 
 
 
@@ -1185,7 +1215,8 @@ public static final DeferredBlock<Block> STONE_COUNTER = registerBlock("stone_ki
             (properties)-> new DinningTableBlock(properties.strength(2f).sound(SoundType.WOOD)));
     public static final  DeferredBlock<Block> WARPED_DINNING_TABLE = registerBlock("warped_dinning_table",
             (properties)-> new DinningTableBlock(properties.strength(2f).sound(SoundType.WOOD)));
-
+    public static final  DeferredBlock<Block> PALE_OAK_DINNING_TABLE = registerBlock("pale_oak_dinning_table",
+            (properties)-> new DinningTableBlock(properties.strength(2f).sound(SoundType.WOOD)));
     //Stripped
     public static final  DeferredBlock<Block> STRIPPED_OAK_DINNING_TABLE = registerBlock("stripped_oak_dinning_table",
             (properties)-> new DinningTableBlock(properties.strength(2f).sound(SoundType.WOOD)));
@@ -1209,7 +1240,8 @@ public static final DeferredBlock<Block> STONE_COUNTER = registerBlock("stone_ki
             (properties)-> new DinningTableBlock(properties.strength(2f).sound(SoundType.WOOD)));
     public static final  DeferredBlock<Block> STRIPPED_WARPED_DINNING_TABLE = registerBlock("stripped_warped_dinning_table",
             (properties)-> new DinningTableBlock(properties.strength(2f).sound(SoundType.WOOD)));
-
+    public static final  DeferredBlock<Block> STRIPPED_PALE_OAK_DINNING_TABLE = registerBlock("stripped_pale_oak_dinning_table",
+            (properties)-> new DinningTableBlock(properties.strength(2f).sound(SoundType.WOOD)));
 
 
 
@@ -1282,7 +1314,8 @@ public static final DeferredBlock<Block> STONE_GLASS_TECQUE = registerBlock("sto
             (properties)-> new TecqueBlock(properties.strength(3f).noOcclusion()));
     public static final DeferredBlock<Block> WARPED_GLASS_TECQUE = registerBlock("warped_glass_tecque",
             (properties)-> new TecqueBlock(properties.strength(3f).noOcclusion()));
-
+    public static final DeferredBlock<Block> PALE_OAK_GLASS_TECQUE = registerBlock("pale_oak_glass_tecque",
+            (properties)-> new TecqueBlock(properties.strength(3f).noOcclusion()));
 
     //Test2
     public static final  DeferredBlock<Block> LIMESTONE =registerBlock("limestone",

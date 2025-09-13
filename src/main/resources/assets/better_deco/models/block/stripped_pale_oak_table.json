@@ -1,0 +1,7 @@
+{
+  "parent": "better_deco:block/table",
+  "textures": {
+    "top": "block/stripped_pale_oak_log",
+    "legs": "block/pale_oak_log"
+  }
+}

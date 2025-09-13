@@ -4,8 +4,11 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -17,7 +20,7 @@ import net.tier1234.better_deco.util.VoxelShapeHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CoffeeTableBlock extends FurnitureWaterloggedBlock
+public class CoffeeTableBlock extends FurnitureHorizontalBlock
 {
     public static final BooleanProperty NORTH = BooleanProperty.create("north");
     public static final BooleanProperty EAST = BooleanProperty.create("east");
@@ -33,8 +36,7 @@ public class CoffeeTableBlock extends FurnitureWaterloggedBlock
                 .setValue(NORTH, false)
                 .setValue(EAST, false)
                 .setValue(SOUTH, false)
-                .setValue(WEST, false)
-                .setValue(WATERLOGGED, false));
+                .setValue(WEST, false));
         SHAPES = this.generateShapes(this.getStateDefinition().getPossibleStates());
     }
 
@@ -90,12 +92,14 @@ public class CoffeeTableBlock extends FurnitureWaterloggedBlock
     }
 
     @Override
-    public BlockState updateShape(BlockState state, Direction direction, BlockState newState, LevelAccessor level, BlockPos pos, BlockPos newPos)
+    public BlockState updateShape(BlockState state, LevelReader reader, ScheduledTickAccess access,
+                                  BlockPos pos, Direction direction, BlockPos pos1, BlockState state1,
+                                  RandomSource rand)
     {
-        boolean north = this.isCoffeeTable(level, pos, Direction.NORTH);
-        boolean east = this.isCoffeeTable(level, pos, Direction.EAST);
-        boolean south = this.isCoffeeTable(level, pos, Direction.SOUTH);
-        boolean west = this.isCoffeeTable(level, pos, Direction.WEST);
+        boolean north = this.isCoffeeTable((LevelAccessor) reader, pos, Direction.NORTH);
+        boolean east = this.isCoffeeTable((LevelAccessor) reader, pos, Direction.EAST);
+        boolean south = this.isCoffeeTable((LevelAccessor) reader, pos, Direction.SOUTH);
+        boolean west = this.isCoffeeTable((LevelAccessor) reader, pos, Direction.WEST);
         return state.setValue(NORTH, north).setValue(EAST, east).setValue(SOUTH, south).setValue(WEST, west);
     }
 
