@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "better_deco:block/planks/warped/vertical_planks"
+  "model": {
+    "type": "minecraft:model",
+    "model": "better_deco:block/warped_vertical_planks"
   }
 }

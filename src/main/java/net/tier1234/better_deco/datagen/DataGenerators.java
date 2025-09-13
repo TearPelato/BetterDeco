@@ -29,7 +29,6 @@ public class DataGenerators {
 
         BlockTagsProvider blockTagsProvider = new ModBlockTagProvider(packOutput, lookupProvider);
         generator.addProvider(true, blockTagsProvider);
-        generator.addProvider(true, new ModModelProvider(packOutput));
     }
     @SubscribeEvent
     public static void gatherServerData(GatherDataEvent.Server event) {

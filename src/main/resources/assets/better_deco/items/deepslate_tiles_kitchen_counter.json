@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "better_deco:block/deepslate_tiles_kitchen_counter"
+    "model": "better_deco:block/deepslate_tiles_kitchen_counter_default"
   }
 }
