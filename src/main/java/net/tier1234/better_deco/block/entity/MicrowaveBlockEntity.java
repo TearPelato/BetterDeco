@@ -21,6 +21,8 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import net.tier1234.better_deco.recipe.*;
 import net.tier1234.better_deco.screen.custom.MicrowaveMenu;
@@ -151,21 +153,21 @@ public class MicrowaveBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     @Override
-    protected void saveAdditional(CompoundTag pTag, HolderLookup.Provider pRegistries) {
-        pTag.put("inventory", itemHandler.serializeNBT(pRegistries));
-        pTag.putInt("growth_chamber.progress", progress);
-        pTag.putInt("growth_chamber.max_progress", maxProgress);
+    protected void saveAdditional(ValueOutput output) {
+        itemHandler.serialize(output);
+        output.putInt("growth_chamber.progress", progress);
+        output.putInt("growth_chamber.max_progress", maxProgress);
 
-        super.saveAdditional(pTag, pRegistries);
+        super.saveAdditional(output);
     }
 
     @Override
-    protected void loadAdditional(CompoundTag pTag, HolderLookup.Provider pRegistries) {
-        super.loadAdditional(pTag, pRegistries);
+    protected void loadAdditional(ValueInput input) {
+        super.loadAdditional(input);
 
-        itemHandler.deserializeNBT(pRegistries, pTag.getCompound("inventory").get());
-        progress = pTag.getInt("growth_chamber.progress").get();
-        maxProgress = pTag.getInt("growth_chamber.max_progress").get();
+        itemHandler.deserialize(input);
+        progress = input.getIntOr("growth_chamber.progress" ,0);
+        maxProgress = input.getIntOr("growth_chamber.max_progress", 0);
     }
 
     @Override
@@ -183,11 +185,6 @@ public class MicrowaveBlockEntity extends BlockEntity implements MenuProvider {
     @Override
     public CompoundTag getUpdateTag(HolderLookup.Provider provider) {
         return saveWithoutMetadata(provider);
-    }
-
-    @Override
-    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt, HolderLookup.Provider provider) {
-        super.onDataPacket(net, pkt, provider);
     }
 
 

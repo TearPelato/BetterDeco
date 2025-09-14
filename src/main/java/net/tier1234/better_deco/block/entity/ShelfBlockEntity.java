@@ -22,6 +22,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import net.tier1234.better_deco.screen.ModInventory;
 import net.tier1234.better_deco.screen.custom.CrateMenu;
@@ -29,6 +31,7 @@ import net.tier1234.better_deco.screen.custom.PedestalMenu;
 import net.tier1234.better_deco.screen.custom.ShelfMenu;
 import net.tier1234.better_deco.screen.custom.ShelfScreen;
 import org.jetbrains.annotations.Nullable;
+import org.objectweb.asm.tree.analysis.Value;
 
 public class ShelfBlockEntity extends RandomizableContainerBlockEntity implements MenuProvider {
 
@@ -94,13 +97,13 @@ public class ShelfBlockEntity extends RandomizableContainerBlockEntity implement
     }
 
     @Override
-    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
+    protected void loadAdditional(ValueInput input) {
+        super.loadAdditional(input);
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.saveAdditional(tag, registries);
+    protected void saveAdditional(ValueOutput output) {
+        super.saveAdditional(output);
     }
 
     @Override
@@ -114,8 +117,8 @@ public class ShelfBlockEntity extends RandomizableContainerBlockEntity implement
     }
 
     @Override
-    public void handleUpdateTag(CompoundTag tag, HolderLookup.Provider registries) {
-        loadAdditional(tag, registries);
+    public void handleUpdateTag(ValueInput input) {
+        loadAdditional(input);
     }
 
 

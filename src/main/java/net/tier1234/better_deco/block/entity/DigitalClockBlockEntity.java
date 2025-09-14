@@ -9,6 +9,8 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.tier1234.better_deco.util.BlockEntityUtil;
 import org.jetbrains.annotations.Nullable;
 
@@ -21,17 +23,17 @@ public class DigitalClockBlockEntity extends BlockEntity {
     }
 
     @Override
-    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
-        if (tag.contains("TextColor")) {
-            this.textColor = DyeColor.byName(String.valueOf(tag.getString("TextColor")), DyeColor.WHITE);
+    protected void loadAdditional(ValueInput input) {
+        super.loadAdditional(input);
+        if (Boolean.parseBoolean(input.toString())) {
+            this.textColor = DyeColor.byName(String.valueOf(input.getString("TextColor")), DyeColor.WHITE);
         }
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.saveAdditional(tag, registries);
-        tag.putString("TextColor", this.textColor.getName());
+    protected void saveAdditional(ValueOutput output) {
+        super.saveAdditional(output);
+        output.putString("TextColor", this.textColor.getName());
     }
 
     @Override
@@ -45,13 +47,6 @@ public class DigitalClockBlockEntity extends BlockEntity {
         return ClientboundBlockEntityDataPacket.create(this, BlockEntity::getUpdateTag);
     }
 
-    @Override
-    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt, HolderLookup.Provider registries) {
-        CompoundTag compound = pkt.getTag();
-        if (compound != null) {
-            this.loadAdditional(compound, registries);
-        }
-    }
 
     public void sync() {
         BlockEntityUtil.sendUpdate(this);

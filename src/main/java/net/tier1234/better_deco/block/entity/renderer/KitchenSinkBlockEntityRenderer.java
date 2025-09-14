@@ -56,7 +56,7 @@ public class KitchenSinkBlockEntityRenderer implements BlockEntityRenderer<Kitch
 
         height *= ((double) te.getTank().getFluidAmount() / (double) te.getTank().getCapacity());
 
-        VertexConsumer consumer = source.getBuffer(RenderType.translucent());
+        VertexConsumer consumer = source.getBuffer(RenderType.translucentMovingBlock());
         Matrix4f matrix = poseStack.last().pose();
         consumer.addVertex(matrix, x, y + height, z).setColor(red, green, blue, 1.0F).setUv(maxU, minV).setNormal(0.0F, 1.0F, 0.0F);
         consumer.addVertex(matrix, x, y + height, z + depth).setColor(red, green, blue, 1.0F).setUv(minU, minV).setNormal(0.0F, 1.0F, 0.0F);

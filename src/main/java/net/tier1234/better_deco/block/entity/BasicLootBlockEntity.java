@@ -1,5 +1,7 @@
 package net.tier1234.better_deco.block.entity;
 
+import com.ibm.icu.impl.UResource;
+import com.mojang.realmsclient.dto.ValueObject;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
@@ -18,6 +20,8 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.ContainerOpenersCounter;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Iterator;
@@ -105,23 +109,23 @@ public abstract class BasicLootBlockEntity extends RandomizableContainerBlockEnt
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider provider)
+    protected void saveAdditional(ValueOutput output)
     {
-        super.saveAdditional(tag, provider);
-        if(!this.trySaveLootTable(tag))
+        super.saveAdditional(output);
+        if(!this.trySaveLootTable(output))
         {
-            ContainerHelper.saveAllItems(tag, this.items, provider);
+            ContainerHelper.saveAllItems(output, this.items);
         }
     }
 
     @Override
-    public void loadAdditional(CompoundTag tag, HolderLookup.Provider provider)
+    public void loadAdditional(ValueInput input)
     {
-        super.loadAdditional(tag, provider);
+        super.loadAdditional(input);
         this.items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
-        if(!this.tryLoadLootTable(tag))
+        if(!this.tryLoadLootTable(input))
         {
-            ContainerHelper.loadAllItems(tag, this.items, provider);
+            ContainerHelper.loadAllItems( input, this.items);
         }
     }
 

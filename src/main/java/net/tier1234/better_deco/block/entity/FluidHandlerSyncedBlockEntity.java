@@ -11,6 +11,8 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 import net.tier1234.better_deco.util.BlockEntityUtil;
@@ -44,15 +46,15 @@ public abstract class FluidHandlerSyncedBlockEntity extends BlockEntity {
     protected abstract CompoundTag saveWithFullMetadata();
 
     @Override
-    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
-        this.tank.writeToNBT(registries, tag);
+    protected void loadAdditional(ValueInput input) {
+        super.loadAdditional(input);
+        this.tank.deserialize(input);
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.saveAdditional(tag, registries);
-        this.tank.writeToNBT(registries, tag);
+    protected void saveAdditional(ValueOutput output) {
+        super.saveAdditional(output);
+        this.tank.serialize(output);
     }
 
     @Override
@@ -65,13 +67,6 @@ public abstract class FluidHandlerSyncedBlockEntity extends BlockEntity {
         return null;
     }
 
-    @Override
-    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt, HolderLookup.Provider registries) {
-        CompoundTag compound = pkt.getTag();
-        if (compound != null) {
-            this.loadAdditional(compound, registries);
-        }
-    }
 
     public Object getCapability(Class<?> capabilityType, @Nullable Direction facing) {
         if (capabilityType == IFluidHandler.class) {

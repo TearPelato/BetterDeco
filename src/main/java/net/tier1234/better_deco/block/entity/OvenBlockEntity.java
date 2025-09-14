@@ -21,6 +21,8 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import net.tier1234.better_deco.recipe.ModRecipes;
 import net.tier1234.better_deco.recipe.OvenRecipe;
@@ -147,17 +149,17 @@ public class OvenBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        tag.put("inventory", itemHandler.serializeNBT(registries));
-        for(int i=0;i<3;i++) tag.putInt("progress" + i, progress[i]);
-        super.saveAdditional(tag, registries);
+    protected void saveAdditional(ValueOutput output) {
+     itemHandler.serialize(output);
+        for(int i=0;i<3;i++) output.putInt("progress" + i, progress[i]);
+        super.saveAdditional(output);
     }
 
     @Override
-    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
-        itemHandler.deserializeNBT(registries, tag.getCompound("inventory").get());
-        for(int i=0;i<3;i++) progress[i] = tag.getInt("progress" + i).get();
+    protected void loadAdditional(ValueInput input) {
+        super.loadAdditional(input);
+        itemHandler.deserialize(input);
+        for(int i=0;i<3;i++) progress[i] = input.getIntOr("progress" + i, 0);
     }
 
     @Override

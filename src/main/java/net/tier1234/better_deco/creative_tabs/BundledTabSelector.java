@@ -7,6 +7,7 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
+import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
@@ -18,6 +19,7 @@ import net.neoforged.neoforge.client.event.ScreenEvent;
 import net.neoforged.neoforge.client.stencil.StencilTest;
 import net.tier1234.better_deco.mixin.access.CreativeModeInventoryScreenAccessor;
 import net.tier1234.better_deco.mixin.access.ScreenAccessor;
+import org.joml.Matrix3x2f;
 
 import java.util.*;
 import java.util.function.Consumer;
@@ -73,11 +75,11 @@ public class BundledTabSelector {
         GuiGraphics graphics = event.getGuiGraphics();
         if (screen instanceof CreativeModeInventoryScreen creativeScreen) {
             CreativeModeTab tab = CreativeModeInventoryScreenAccessor.getSelectedTab();
-            graphics.pose().pushPose();
-            graphics.pose().translate(0.0, 0.0, 0.0);
+            graphics.pose().pushMatrix();
+            Matrix3x2f translate = graphics.pose();
 
             if (this.isValidTab(tab)) {
-                graphics.blit(RenderType.GUI_TEXTURED,SELECTOR_BAR, this.guiLeft - 35, this.guiTop + 2, 11, 3, 34, 121,256,256);
+                graphics.blit(RenderPipelines.GUI_TEXTURED,SELECTOR_BAR, this.guiLeft - 35, this.guiTop + 2, 11, 3, 34, 121,256,256);
             }
 
             if (this.lastTab != tab) {
@@ -85,7 +87,7 @@ public class BundledTabSelector {
                 this.lastTab = tab;
             }
 
-            graphics.pose().popPose();
+            graphics.pose().popMatrix();
         }
     }
 
@@ -218,18 +220,18 @@ public class BundledTabSelector {
 
         private void renderSelected(GuiGraphics graphics) {
             if (this.bundle.isSelected()) {
-                graphics.blit(RenderType.GUI_TEXTURED,SELECTOR_BAR, this.getX() - 7, this.getY() - 1, 64, 29, 30, 19,256,256);
+                graphics.blit(RenderPipelines.GUI_TEXTURED,SELECTOR_BAR, this.getX() - 7, this.getY() - 1, 64, 29, 30, 19,256,256);
             }
         }
 
         private void renderHighlight(GuiGraphics graphics) {
             if (this.isHovered() && !this.bundle.isSelected()) {
-                graphics.pose().pushPose();
-                graphics.pose().translate(0.0, 0.0, 200.0);
-                RenderSystem.disableScissor();
-                graphics.blit(RenderType.GUI_TEXTURED,SELECTOR_BAR, this.getX(), this.getY(), 48, 48, 16, 16,256,256);
-                RenderSystem.disableStencil();
-                graphics.pose().popPose();
+                graphics.pose().pushMatrix();
+                Matrix3x2f translate = graphics.pose().translate(getX(),getY());
+                RenderSystem.disableScissorForRenderTypeDraws();
+                graphics.blit(RenderPipelines.GUI_TEXTURED,SELECTOR_BAR, this.getX(), this.getY(), 48, 48, 16, 16,256,256);
+                RenderSystem.disableScissorForRenderTypeDraws();
+                graphics.pose().popMatrix();
             }
         }
     }
@@ -245,7 +247,7 @@ public class BundledTabSelector {
         @Override
         public void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
             int textureY = this.isHovered ? 17 : 6;
-            graphics.blit(RenderType.GUI_TEXTURED,SELECTOR_BAR, this.getX(), this.getY(), this.uOffset, textureY, 18, 9,256,256);
+            graphics.blit(RenderPipelines.GUI_TEXTURED,SELECTOR_BAR, this.getX(), this.getY(), this.uOffset, textureY, 18, 9,256,256);
         }
     }
 }
