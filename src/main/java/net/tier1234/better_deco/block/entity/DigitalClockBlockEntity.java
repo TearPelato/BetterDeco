@@ -1,7 +1,6 @@
 package net.tier1234.better_deco.block.entity;
 
 
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
@@ -9,9 +8,6 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.storage.ValueInput;
-import net.minecraft.world.level.storage.ValueOutput;
-import net.tier1234.better_deco.util.BlockEntityUtil;
 import org.jetbrains.annotations.Nullable;
 
 public class DigitalClockBlockEntity extends BlockEntity {
@@ -22,44 +18,31 @@ public class DigitalClockBlockEntity extends BlockEntity {
         super(ModBlockEntities.DIGITAL_CLOCK.get(), pos, state);
     }
 
-    @Override
-    protected void loadAdditional(ValueInput input) {
-        super.loadAdditional(input);
-        if (Boolean.parseBoolean(input.toString())) {
-            this.textColor = DyeColor.byName(String.valueOf(input.getString("TextColor")), DyeColor.WHITE);
-        }
-    }
-
-    @Override
-    protected void saveAdditional(ValueOutput output) {
-        super.saveAdditional(output);
-        output.putString("TextColor", this.textColor.getName());
-    }
-
-    @Override
-    public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
-        return saveWithFullMetadata(registries);
-    }
-
-    @Nullable
-    @Override
-    public ClientboundBlockEntityDataPacket getUpdatePacket() {
-        return ClientboundBlockEntityDataPacket.create(this, BlockEntity::getUpdateTag);
-    }
-
-
-    public void sync() {
-        BlockEntityUtil.sendUpdate(this);
-        setChanged();
+    public void setTextColor(DyeColor color) {
+        this.textColor = color;
+        this.sync();
     }
 
     public DyeColor getTextColor() {
         return textColor;
     }
 
-    public void setTextColor(DyeColor textColor) {
-        this.textColor = textColor;
-        this.sync();
+    public void sync() {
+        if (this.level != null && !this.level.isClientSide) {
+            this.setChanged();
+            this.level.sendBlockUpdated(this.worldPosition, this.getBlockState(), this.getBlockState(), 3);
+        }
+    }
+
+    @Override
+    public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
+        return this.saveWithoutMetadata(registries);
+    }
+
+    @Nullable
+    @Override
+    public ClientboundBlockEntityDataPacket getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
     }
 
     public static String getFormattedTime(long ticks) {
@@ -68,24 +51,24 @@ public class DigitalClockBlockEntity extends BlockEntity {
         return String.format("%02d:%02d", hours, minutes);
     }
 
-    public static ChatFormatting getFromColor(DyeColor color) {
-        switch (color) {
-            case ORANGE: return ChatFormatting.GOLD;
-            case MAGENTA: return ChatFormatting.LIGHT_PURPLE;
-            case LIGHT_BLUE: return ChatFormatting.BLUE;
-            case YELLOW: return ChatFormatting.YELLOW;
-            case LIME: return ChatFormatting.GREEN;
-            case PINK: return ChatFormatting.LIGHT_PURPLE;
-            case GRAY: return ChatFormatting.DARK_GRAY;
-            case LIGHT_GRAY: return ChatFormatting.GRAY;
-            case CYAN: return ChatFormatting.DARK_AQUA;
-            case PURPLE: return ChatFormatting.DARK_PURPLE;
-            case BLUE: return ChatFormatting.DARK_BLUE;
-            case BROWN: return ChatFormatting.RED;
-            case GREEN: return ChatFormatting.DARK_GREEN;
-            case RED: return ChatFormatting.DARK_RED;
-            case BLACK: return ChatFormatting.BLACK;
-            default: return ChatFormatting.WHITE;
-        }
+    public static int getFromColor(DyeColor color) {
+        return switch (color) {
+            case ORANGE -> 0xFFFFA500;
+            case MAGENTA -> 0xFFFF00FF;
+            case LIGHT_BLUE -> 0xFF55FFFF;
+            case YELLOW -> 0xFFFFFF55;
+            case LIME -> 0xFF55FF55;
+            case PINK -> 0xFFFF55FF;
+            case GRAY -> 0xFF555555;
+            case LIGHT_GRAY -> 0xFFAAAAAA;
+            case CYAN -> 0xFF00AAAA;
+            case PURPLE -> 0xFFAA00AA;
+            case BLUE -> 0xFF0000AA;
+            case BROWN -> 0xFFAA5500;
+            case GREEN -> 0xFF00AA00;
+            case RED -> 0xFFAA0000;
+            case BLACK -> 0xFF000000;
+            default -> 0xFFFFFFFF; // bianco
+        };
     }
 }

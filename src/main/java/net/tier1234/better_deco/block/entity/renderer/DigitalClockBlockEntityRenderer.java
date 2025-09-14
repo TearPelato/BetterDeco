@@ -7,8 +7,7 @@ import net.minecraft.client.gui.Font;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
-import net.minecraft.network.chat.Style;
-import net.minecraft.util.FormattedCharSequence;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.tier1234.better_deco.block.custom.DigitalClockBlock;
@@ -23,29 +22,31 @@ public class DigitalClockBlockEntityRenderer implements BlockEntityRenderer<Digi
     }
 
     @Override
-    public void render(DigitalClockBlockEntity blockEntity, float partialTicks, PoseStack poseStack, MultiBufferSource source, int light, int overlay, Vec3 vec3) {
+    public void render(DigitalClockBlockEntity blockEntity, float partialTicks, PoseStack poseStack,
+                       MultiBufferSource buffer, int packedLight, int packedOverlay, Vec3 vec3) {
 
         BlockState state = blockEntity.getBlockState();
-        if(state.getBlock() instanceof DigitalClockBlock) {
+        if (!(state.getBlock() instanceof DigitalClockBlock))
+            return;
 
-            poseStack.pushPose();
+        poseStack.pushPose();
+        poseStack.translate(0.5, 0.5, 0.5);
 
-            poseStack.translate(0.5, 0.5, 0.5);
+        int rotation = state.getValue(DigitalClockBlock.DIRECTION).get2DDataValue();
+        poseStack.mulPose(Axis.YP.rotationDegrees(-90F * rotation + 180F));
 
-            int rotation = state.getValue(DigitalClockBlock.DIRECTION).get2DDataValue();
-            poseStack.mulPose(Axis.YP.rotationDegrees(-90F * rotation + 180F));
+        poseStack.translate(0.0675, 0.005, -0.032);
+        poseStack.translate(-4.2 * 0.0625, -5.0 * 0.0625, 1.55 * 0.0625);
+        poseStack.scale(0.010416667F, -0.010416667F, 0.010416667F);
+        poseStack.scale(1.5F, 1.5F, 1.5F);
 
-            poseStack.translate(0.0675, 0.005, -0.032);
-            poseStack.translate(-4.2 * 0.0625, -5.0 * 0.0625, 1.55 * 0.0625);
-            poseStack.scale(0.010416667F, -0.010416667F, 0.010416667F);
-            poseStack.scale(1.5F, 1.5F, 1.5F);
+        String timeText = DigitalClockBlockEntity.getFormattedTime(Minecraft.getInstance().level.getDayTime());
 
-            this.font.drawInBatch(FormattedCharSequence.forward(DigitalClockBlockEntity.getFormattedTime(Minecraft.getInstance().level.getDayTime()), Style.EMPTY.withColor(blockEntity.getFromColor(blockEntity.getTextColor()))), 0, 0, overlay, false, poseStack.last().pose(), source, Font.DisplayMode.NORMAL, 0, light);
+        int color = DigitalClockBlockEntity.getFromColor(blockEntity.getTextColor());
 
-            poseStack.popPose();
+        this.font.drawInBatch(timeText, 0, 0, color, false, poseStack.last().pose(), buffer,
+                Font.DisplayMode.NORMAL, 0, packedLight);
 
-        }
-
+        poseStack.popPose();
     }
-
 }
