@@ -22,6 +22,8 @@ import net.tier1234.better_deco.screen.custom.*;
 @Mod(value = BetterDeco.MOD_ID, dist = Dist.CLIENT)
 @EventBusSubscriber(modid = BetterDeco.MOD_ID, value = Dist.CLIENT)
 public class BetterDecoClient {
+
+
     @SubscribeEvent
     static void onClientSetup(FMLClientSetupEvent event) {
         EntityRenderers.register(ModEntities.CHAIR_ENTITY.get(), ChairRenderer::new);
@@ -31,8 +33,9 @@ public class BetterDecoClient {
         event.registerBlockEntityRenderer(ModBlockEntities.PEDESTAL_BE.get(), PedestalBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntities.GLASS_TECQUE.get(), TecqueBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntities.SHELF_BE.get(), ShelfBlockEntityRenderer::new);
-        event.registerBlockEntityRenderer(ModBlockEntities.DIGITAL_CLOCK.get(), DigitalClockBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntities.KITCHEN_SINK.get(), KitchenSinkBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.DIGITAL_CLOCK.get(), DigitalClockBlockEntityRenderer::new);
+
     }
     @SubscribeEvent
     public static void registerScreens(RegisterMenuScreensEvent event) {

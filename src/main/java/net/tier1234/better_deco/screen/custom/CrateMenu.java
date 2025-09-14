@@ -181,7 +181,10 @@ public class CrateMenu extends AbstractContainerMenu {
                         player, ModBlocks.BAMBOO_CRATE.get())
                 ||
                 stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                        player, ModBlocks.CRIMSON_CRATE.get());
+                        player, ModBlocks.CRIMSON_CRATE.get())
+                ||
+        stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                player, ModBlocks.PALE_OAK_CRATE.get());
 
     }
 

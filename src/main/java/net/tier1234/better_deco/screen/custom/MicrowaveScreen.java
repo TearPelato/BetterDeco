@@ -21,14 +21,6 @@ public class MicrowaveScreen extends AbstractContainerScreen<MicrowaveMenu> {
         super(menu, playerInventory, title);    }
 
 
-    @Override
-    protected void renderLabels(GuiGraphics guiGraphics, int pMouseX, int pMouseY) {
-        int x = (width - imageWidth) / 2;
-        int y = (height - imageHeight) / 2;
-
-        guiGraphics.drawString(this.font, this.playerInventoryTitle, 7, 73, 4210752, false);
-        guiGraphics.drawString(this.font, this.title, 7, 7, 4210752, false);
-    }
 
     @Override
     protected void renderBg(GuiGraphics guiGraphics, float v, int i, int i1) {

@@ -23,14 +23,10 @@ public class OvenScreen extends AbstractContainerScreen<OvenMenu> {
     }
 
 
-    @Override
-    protected void renderLabels(GuiGraphics guiGraphics, int pMouseX, int pMouseY) {
-        int x = (width - imageWidth) / 2;
-        int y = (height - imageHeight) / 2;
-
-        guiGraphics.drawString(this.font, this.playerInventoryTitle, 7, 91, 4210752, false);
-        guiGraphics.drawString(this.font, this.title, 69, 5, 4210752, false);
+    protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
+        guiGraphics.drawString(this.font, this.title, this.titleLabelX, this.titleLabelY, -12566464, false);
     }
+
 
     @Override
     protected void renderBg(GuiGraphics guiGraphics, float v, int i, int i1) {

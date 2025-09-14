@@ -35,10 +35,10 @@ public class CrateScreen extends AbstractContainerScreen<CrateMenu> {
         super.render(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
         this.renderTooltip(pGuiGraphics, pMouseX, pMouseY);
     }
-    @Override
-    protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-        guiGraphics.drawString(this.font, this.playerInventoryTitle, 25, 141, 4210752, false);
-        guiGraphics.drawString(this.font, this.title, 7, 7, 4210752, false);
 
+    protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
+        guiGraphics.drawString(this.font, this.title, this.titleLabelX, this.titleLabelY, -12566464, false);
     }
+
+
 }

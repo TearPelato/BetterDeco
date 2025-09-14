@@ -70,7 +70,7 @@ public class BundledTabSelector {
         }
     }
 
-    public void renderBackground(ContainerScreenEvent.Render.Background event) {
+    public void renderBackground(ContainerScreenEvent.Render event) {
         Screen screen = event.getContainerScreen();
         GuiGraphics graphics = event.getGuiGraphics();
         if (screen instanceof CreativeModeInventoryScreen creativeScreen) {
@@ -227,7 +227,7 @@ public class BundledTabSelector {
         private void renderHighlight(GuiGraphics graphics) {
             if (this.isHovered() && !this.bundle.isSelected()) {
                 graphics.pose().pushMatrix();
-                Matrix3x2f translate = graphics.pose().translate(getX(),getY());
+                graphics.pose().translate(0.0F, 0.0F);
                 RenderSystem.disableScissorForRenderTypeDraws();
                 graphics.blit(RenderPipelines.GUI_TEXTURED,SELECTOR_BAR, this.getX(), this.getY(), 48, 48, 16, 16,256,256);
                 RenderSystem.disableScissorForRenderTypeDraws();
