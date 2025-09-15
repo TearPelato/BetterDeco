@@ -6,7 +6,6 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.block.ModBlocks;
-import net.tier1234.better_deco.screen.custom.ShelfScreen;
 
 import java.util.function.Supplier;
 
@@ -63,7 +62,11 @@ public class ModBlockEntities {
                                     ModBlocks.DIORITE_DRAWER.get(),
                                     ModBlocks.DEEPSLATE_DRAWER.get(),
                                     ModBlocks.DEEPSLATE_TILES_DRAWER.get(),
-                                    ModBlocks.BLACKSTONE_DRAWER.get()
+                                    ModBlocks.BLACKSTONE_DRAWER.get(),
+
+                                    ModBlocks.SPRUCE_DIORITE_KITCHEN_DRAWER.get(),
+                                    ModBlocks.DARK_OAK_CALCITE_DRAWER.get(),
+                                    ModBlocks.OAK_ANDESITE_DRAWER.get()
                             )
                             .build(null)
             );
@@ -103,7 +106,12 @@ public class ModBlockEntities {
                                     ModBlocks.DIORITE_CABINET.get(),
                                     ModBlocks.DEEPSLATE_CABINET.get(),
                                     ModBlocks.DEEPSLATE_TILES_CABINET.get(),
-                                    ModBlocks.BLACKSTONE_CABINET.get()
+                                    ModBlocks.BLACKSTONE_CABINET.get(),
+                                    ModBlocks.SPRUCE_DIORITE_CABINET.get(),
+                                    ModBlocks.DARK_OAK_CALCITE_CABINET.get(),
+                                    ModBlocks.OAK_ANDESITE_CABINET.get()
+
+
                                     )
                             .build(null)
             );
@@ -277,8 +285,10 @@ public class ModBlockEntities {
                     ModBlocks.STRIPPED_CHERRY_OVEN.get(),
                     ModBlocks.STRIPPED_BAMBOO_OVEN.get(),
                     ModBlocks.STRIPPED_CRIMSON_OVEN.get(),
-                    ModBlocks.STRIPPED_WARPED_OVEN.get()
-
+                    ModBlocks.STRIPPED_WARPED_OVEN.get(),
+                    ModBlocks.SPRUCE_DIORITE_OVEN.get(),
+                    ModBlocks.DARK_OAK_CALCITE_OVEN.get(),
+                    ModBlocks.OAK_ANDESITE_OVEN.get()
 
             ).build(null));
 
