@@ -21,8 +21,8 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends RecipeProvider  {
-    public ModRecipeProvider(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
-        super(provider, recipeOutput);
+    public ModRecipeProvider(HolderLookup.Provider provider, RecipeOutput output) {
+        super(provider, output);
     }
     public static class Runner extends RecipeProvider.Runner {
         public Runner(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> provider) {
@@ -30,8 +30,8 @@ public class ModRecipeProvider extends RecipeProvider  {
         }
 
         @Override
-        protected RecipeProvider createRecipeProvider(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
-            return new ModRecipeProvider(provider, recipeOutput);
+        protected RecipeProvider createRecipeProvider(HolderLookup.Provider provider, RecipeOutput output) {
+            return new ModRecipeProvider(provider, output);
         }
 
         @Override
@@ -4754,6 +4754,138 @@ public class ModRecipeProvider extends RecipeProvider  {
 
 
 
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_DIORITE_COUNTER.get())
+                .pattern("###")
+                .pattern("B B")
+                .pattern("BBB")
+                .define('B', Items.SPRUCE_PLANKS.asItem())
+                .define('#', Blocks.DIORITE.asItem())
+                .unlockedBy("has_diorite", has(Blocks.DIORITE))
+                .unlockedBy("has_spruce", has(Blocks.SPRUCE_PLANKS))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_DIORITE_KITCHEN_DRAWER.get())
+                .pattern("###")
+                .pattern("BCB")
+                .pattern("BBB")
+                .define('B', Items.SPRUCE_PLANKS.asItem())
+                .define('#', Blocks.DIORITE.asItem())
+                .define('C', Blocks.CHEST.asItem())
+                .unlockedBy("has_diorite", has(Blocks.DIORITE))
+                .unlockedBy("has_spruce", has(Blocks.SPRUCE_PLANKS))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_DIORITE_OVEN.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.SPRUCE_PLANKS.asItem())
+                .define('#', Blocks.DIORITE.asItem())
+                .define('X', Blocks.SMOKER.asItem())
+                .unlockedBy("has_diorite", has(Blocks.DIORITE))
+                .unlockedBy("has_spruce", has(Blocks.SPRUCE_PLANKS))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_DIORITE_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.DIORITE.asItem())
+                .define('#', Blocks.SPRUCE_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_diorite", has(Blocks.DIORITE))
+                .unlockedBy("has_spruce", has(Blocks.SPRUCE_PLANKS))
+                .save(output);
+
+
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_ANDESITE_COUNTER.get())
+                .pattern("###")
+                .pattern("B B")
+                .pattern("BBB")
+                .define('B', Items.OAK_PLANKS.asItem())
+                .define('#', Blocks.ANDESITE.asItem())
+                .unlockedBy("has_diorite", has(Blocks.ANDESITE))
+                .unlockedBy("has_oak", has(Blocks.OAK_PLANKS))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_ANDESITE_DRAWER.get())
+                .pattern("###")
+                .pattern("BCB")
+                .pattern("BBB")
+                .define('B', Items.OAK_PLANKS.asItem())
+                .define('#', Blocks.ANDESITE.asItem())
+                .define('C', Blocks.CHEST.asItem())
+                .unlockedBy("has_diorite", has(Blocks.ANDESITE))
+                .unlockedBy("has_oak", has(Blocks.OAK_PLANKS))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_ANDESITE_OVEN.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.OAK_PLANKS.asItem())
+                .define('#', Blocks.ANDESITE.asItem())
+                .define('X', Blocks.SMOKER.asItem())
+                .unlockedBy("has_andesite", has(Blocks.ANDESITE))
+                .unlockedBy("has_oak", has(Blocks.OAK_PLANKS))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_ANDESITE_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.ANDESITE.asItem())
+                .define('#', Blocks.OAK_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_andesite", has(Blocks.ANDESITE))
+                .unlockedBy("has_oak", has(Blocks.OAK_PLANKS))
+                .save(output);
+
+
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_CALCITE_COUNTER.get())
+                .pattern("###")
+                .pattern("B B")
+                .pattern("BBB")
+                .define('B', Items.DARK_OAK_PLANKS.asItem())
+                .define('#', Blocks.CALCITE.asItem())
+                .unlockedBy("has_calcite", has(Blocks.CALCITE))
+                .unlockedBy("has_dark_oak", has(Blocks.DARK_OAK_PLANKS))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_CALCITE_DRAWER.get())
+                .pattern("###")
+                .pattern("BCB")
+                .pattern("BBB")
+                .define('B', Items.DARK_OAK_PLANKS.asItem())
+                .define('#', Blocks.CALCITE.asItem())
+                .define('C', Blocks.CHEST.asItem())
+                .unlockedBy("has_calcite", has(Blocks.CALCITE))
+                .unlockedBy("has_dark_oak", has(Blocks.DARK_OAK_PLANKS))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_CALCITE_OVEN.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.DARK_OAK_PLANKS.asItem())
+                .define('#', Blocks.CALCITE.asItem())
+                .define('X', Blocks.SMOKER.asItem())
+                .unlockedBy("has_calcite", has(Blocks.CALCITE))
+                .unlockedBy("has_dark_oak", has(Blocks.DARK_OAK_PLANKS))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_CALCITE_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.CALCITE.asItem())
+                .define('#', Blocks.DARK_OAK_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_calcite", has(Blocks.CALCITE))
+                .unlockedBy("has_dark_oak", has(Blocks.DARK_OAK_PLANKS))
+                .save(output);
 
 
 
