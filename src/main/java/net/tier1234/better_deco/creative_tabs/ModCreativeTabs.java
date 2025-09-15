@@ -22,6 +22,7 @@ public class ModCreativeTabs {
     Supplier<CreativeModeTab> BETTER_DECO = CREATIVE_MODE_TAB.register(
             "better_deco",
             () -> CreativeModeTab.builder(CreativeModeTab.Row.TOP, 3)
+                    .withSearchBar()
                     .title(Component.translatable("creativetab.better_deco.better_deco"))
                     .icon(() -> new ItemStack(ModBlocks.OAK_BARREL))
                     .displayItems((parameters, output) -> {

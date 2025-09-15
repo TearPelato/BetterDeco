@@ -82,6 +82,13 @@ public class ModBlocks {
     public static final  DeferredBlock<Block> STRIPPED_WARPED_OVEN = registerBlock("stripped_warped_oven",
             ()-> new OvenBlock(BlockBehaviour.Properties.of()));
 
+    public static final DeferredBlock<Block> SPRUCE_DIORITE_OVEN = registerBlock("spruce_diorite_oven",
+            ()-> new OvenBlock(BlockBehaviour.Properties.of().strength(3f)));
+    public static final DeferredBlock<Block> DARK_OAK_CALCITE_OVEN = registerBlock("dark_oak_calcite_oven",
+            ()-> new OvenBlock(BlockBehaviour.Properties.of().strength(3f)));
+    public static final DeferredBlock<Block> OAK_ANDESITE_OVEN = registerBlock("oak_andesite_oven",
+            ()-> new OvenBlock(BlockBehaviour.Properties.of().strength(3f)));
+
 
     //Copper Lantern
       public static final DeferredBlock<Block> COPPER_LANTERN = registerBlock("copper_lantern",
@@ -690,8 +697,10 @@ public static final DeferredBlock<Block> BIRCH_CHAIR = registerBlock("birch_chai
             ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
     public static final DeferredBlock<Block> STRIPPED_WARPED_KITCHEN_COUNTER = registerBlock("stripped_warped_kitchen_counter",
             ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-
-
+    public static final DeferredBlock<Block> DARK_OAK_CALCITE_COUNTER = registerBlock("dark_oak_calcite_kitchen_counter",
+            ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(3f)));
+    public static final DeferredBlock<Block> OAK_ANDESITE_COUNTER = registerBlock("oak_andesite_kitchen_counter",
+            ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(3f)));
 
   //Drawers
   public static final DeferredBlock<Block> OAK_KITCHEN_DRAWER = registerBlock("oak_kitchen_drawer",
@@ -741,8 +750,12 @@ public static final DeferredBlock<Block> BIRCH_CHAIR = registerBlock("birch_chai
     public static final DeferredBlock<Block> STRIPPED_WARPED_KITCHEN_DRAWER = registerBlock("stripped_warped_kitchen_drawer",
             ()-> new KitchenDrawerBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
 
-
-
+    public static final DeferredBlock<Block> SPRUCE_DIORITE_KITCHEN_DRAWER = registerBlock("spruce_diorite_kitchen_drawer",
+            ()-> new KitchenDrawerBlock(BlockBehaviour.Properties.of().strength(3f)));
+    public static final DeferredBlock<Block> DARK_OAK_CALCITE_DRAWER = registerBlock("dark_oak_calcite_kitchen_drawer",
+            ()-> new KitchenDrawerBlock(BlockBehaviour.Properties.of().strength(3f)));
+    public static final DeferredBlock<Block> OAK_ANDESITE_DRAWER = registerBlock("oak_andesite_kitchen_drawer",
+            ()-> new KitchenDrawerBlock(BlockBehaviour.Properties.of().strength(3f)));
 
     //Tables
     public static final DeferredBlock<Block> OAK_TABLE = registerBlock("oak_table",
@@ -873,6 +886,12 @@ public static final DeferredBlock<Block> STRIPPED_OAK_CABINET = registerBlock("s
     public static final DeferredBlock<Block> STRIPPED_WARPED_CABINET = registerBlock("stripped_warped_cabinet",
             ()-> new CabinetBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
 
+    public static final DeferredBlock<Block> SPRUCE_DIORITE_CABINET = registerBlock("spruce_diorite_cabinet",
+            ()-> new CabinetBlock(BlockBehaviour.Properties.of().strength(3f)));
+    public static final DeferredBlock<Block> DARK_OAK_CALCITE_CABINET = registerBlock("dark_oak_calcite_cabinet",
+            ()-> new CabinetBlock(BlockBehaviour.Properties.of().strength(3f)));
+    public static final DeferredBlock<Block> OAK_ANDESITE_CABINET = registerBlock("oak_andesite_cabinet",
+            ()-> new CabinetBlock(BlockBehaviour.Properties.of().strength(3f)));
 
 //Pedestals
 

@@ -1,9 +1,7 @@
 {
-  "creativetab.better_deco.blocks": "BetterDeco:Buildings",
-  "creativetab.better_deco.items": "BetterDeco:Items",
-  "creativetab.better_deco.furnitures": "BetterDeco:Furniture",
-  "creativetab.better_deco.utilities": "BetterDeco:Utilities",
-  "creativetab.better_deco.better_deco": "BetterDeco Tab",
+
+
+"creativetab.better_deco.better_deco": "BetterDeco",
 
 "block.better_deco.oak_vertical_slab": "Oak Vertical Slab",
 "block.better_deco.spruce_vertical_slab": "Spruce Vertical Slab",

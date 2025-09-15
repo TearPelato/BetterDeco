@@ -240,18 +240,29 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.DEEPSLATE_TILE_COUNTER);
                         output.accept(ModBlocks.BLACKSTONE_COUNTER);
                         output.accept(ModBlocks.SPRUCE_DIORITE_COUNTER);
+                        output.accept(ModBlocks.DARK_OAK_CALCITE_COUNTER);
+                        output.accept(ModBlocks.OAK_ANDESITE_COUNTER);
+
                         output.accept(ModBlocks.STONE_DRAWER);
                         output.accept(ModBlocks.GRANITE_DRAWER);
                         output.accept(ModBlocks.DIORITE_DRAWER);
                         output.accept(ModBlocks.DEEPSLATE_DRAWER);
                         output.accept(ModBlocks.DEEPSLATE_TILES_DRAWER);
                         output.accept(ModBlocks.BLACKSTONE_DRAWER);
+                        output.accept(ModBlocks.SPRUCE_DIORITE_KITCHEN_DRAWER);
+                        output.accept(ModBlocks.DARK_OAK_CALCITE_DRAWER);
+                        output.accept(ModBlocks.OAK_ANDESITE_DRAWER);
+
                         output.accept(ModBlocks.STONE_CABINET);
                         output.accept(ModBlocks.GRANITE_CABINET);
                         output.accept(ModBlocks.DIORITE_CABINET);
                         output.accept(ModBlocks.DEEPSLATE_CABINET);
                         output.accept(ModBlocks.DEEPSLATE_TILES_CABINET);
                         output.accept(ModBlocks.BLACKSTONE_CABINET);
+                        output.accept(ModBlocks.SPRUCE_DIORITE_CABINET);
+                        output.accept(ModBlocks.DARK_OAK_CALCITE_CABINET);
+                        output.accept(ModBlocks.OAK_ANDESITE_CABINET);
+
                         output.accept(ModBlocks.OAK_BEDSIDE);
                         output.accept(ModBlocks.SPRUCE_BEDSIDE);
                         output.accept(ModBlocks.BIRCH_BEDSIDE);
@@ -552,6 +563,9 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.STRIPPED_BAMBOO_OVEN);
                         output.accept(ModBlocks.STRIPPED_CRIMSON_OVEN);
                         output.accept(ModBlocks.STRIPPED_WARPED_OVEN);
+                        output.accept(ModBlocks.SPRUCE_DIORITE_OVEN);
+                        output.accept(ModBlocks.DARK_OAK_CALCITE_OVEN);
+                        output.accept(ModBlocks.OAK_ANDESITE_OVEN);
 
                         output.accept(ModBlocks.LIGHT_MICROWAVE);
                         output.accept(ModBlocks.DARK_MICROWAVE);
