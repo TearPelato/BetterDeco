@@ -55,13 +55,12 @@ public class KitchenSinkBlockEntityRenderer implements BlockEntityRenderer<Kitch
 
         height *= ((double) te.getTank().getFluidAmount() / (double) te.getTank().getCapacity());
 
+        //TODO test
         VertexConsumer consumer = source.getBuffer(RenderType.translucent());
         Matrix4f matrix = poseStack.last().pose();
-        consumer.addVertex(matrix, x, y + height, z).setColor(red, green, blue, 1.0F).setUv(maxU, minV).setNormal(0.0F, 1.0F, 0.0F);
-        consumer.addVertex(matrix, x, y + height, z + depth).setColor(red, green, blue, 1.0F).setUv(minU, minV).setNormal(0.0F, 1.0F, 0.0F);
-        consumer.addVertex(matrix, x + width, y + height, z + depth).setColor(red, green, blue, 1.0F).setUv(minU, maxV).setNormal(0.0F, 1.0F, 0.0F);
-        consumer.addVertex(matrix, x + width, y + height, z).setColor(red, green, blue, 1.0F).setUv(maxU, maxV).setNormal(0.0F, 1.0F, 0.0F);
-
-
+        consumer.addVertex(matrix, x, y + height, z).setColor(red, green, blue, 1.0F).setUv(maxU, minV).setLight(light).setNormal(0.0F, 1.0F, 0.0F);
+        consumer.addVertex(matrix, x, y + height, z + depth).setColor(red, green, blue, 1.0F).setUv(minU, minV).setLight(light).setNormal(0.0F, 1.0F, 0.0F);
+        consumer.addVertex(matrix, x + width, y + height, z + depth).setColor(red, green, blue, 1.0F).setUv(minU, maxV).setLight(light).setNormal(0.0F, 1.0F, 0.0F);
+        consumer.addVertex(matrix, x + width, y + height, z + depth).setColor(red, green, blue, 1.0F).setUv(maxU, maxV).setLight(light).setNormal(0.0F, 1.0F, 0.0F);
     }
 }

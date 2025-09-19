@@ -970,50 +970,50 @@ public static final DeferredBlock<Block> OAK_CRATE = registerBlock("oak_storage_
 
 //Sinks
 public static final DeferredBlock<Block> OAK_SINK = registerBlock("light_oak_sink",
-        () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+        () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(), true));
     public static final DeferredBlock<Block> SPRUCE_SINK = registerBlock("light_spruce_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(),true));
     public static final DeferredBlock<Block> BIRCH_SINK = registerBlock("light_birch_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(),true));
     public static final DeferredBlock<Block> JUNGLE_SINK = registerBlock("light_jungle_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(),true));
     public static final DeferredBlock<Block> ACACIA_SINK = registerBlock("light_acacia_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(),true));
     public static final DeferredBlock<Block> MANGROVE_SINK = registerBlock("light_mangrove_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(),true));
     public static final DeferredBlock<Block> DARK_OAK_SINK = registerBlock("light_dark_oak_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(),true));
     public static final DeferredBlock<Block> CHERRY_SINK = registerBlock("light_cherry_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(),true));
     public static final DeferredBlock<Block> BAMBOO_SINK = registerBlock("light_bamboo_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(),true));
     public static final DeferredBlock<Block> CRIMSON_SINK = registerBlock("light_crimson_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(),true));
     public static final DeferredBlock<Block> WARPED_SINK = registerBlock("light_warped_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(),true));
 
     public static final DeferredBlock<Block> OAK_SINK_DARK = registerBlock("oak_sink_dark",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(),true));
     public static final DeferredBlock<Block> SPRUCE_SINK_DARK = registerBlock("spruce_sink_dark",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(),true));
     public static final DeferredBlock<Block> BIRCH_SINK_DARK = registerBlock("birch_sink_dark",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(),true));
     public static final DeferredBlock<Block> JUNGLE_SINK_DARK = registerBlock("jungle_sink_dark",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(),true));
     public static final DeferredBlock<Block> ACACIA_SINK_DARK = registerBlock("acacia_sink_dark",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(),true));
     public static final DeferredBlock<Block> MANGROVE_SINK_DARK = registerBlock("mangrove_sink_dark",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(),true));
     public static final DeferredBlock<Block> DARK_OAK_SINK_DARK = registerBlock("dark_oak_sink_dark",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(),true));
     public static final DeferredBlock<Block> CHERRY_SINK_DARK= registerBlock("cherry_sink_dark",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_PLANKS),true));
     public static final DeferredBlock<Block> BAMBOO_SINK_DARK= registerBlock("bamboo_sink_dark",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(),true));
     public static final DeferredBlock<Block> CRIMSON_SINK_DARK = registerBlock("crimson_sink_dark",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(),true));
     public static final DeferredBlock<Block> WARPED_SINK_DARK = registerBlock("warped_sink_dark",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(),true));
     //Stone Variants
 
     //Counter

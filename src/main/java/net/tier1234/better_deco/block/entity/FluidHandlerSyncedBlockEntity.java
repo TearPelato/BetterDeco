@@ -11,6 +11,8 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.capabilities.BlockCapability;
+import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 import net.tier1234.better_deco.util.BlockEntityUtil;
@@ -20,63 +22,66 @@ import javax.annotation.Nullable;
 /**
  * Author: MrCrayfish
  */
-public abstract class FluidHandlerSyncedBlockEntity extends BlockEntity {
+public abstract class FluidHandlerSyncedBlockEntity extends BlockEntity
+{
     protected final FluidTank tank;
 
-    public FluidHandlerSyncedBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state, int capacity) {
+    public FluidHandlerSyncedBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state, int capacity)
+    {
         super(type, pos, state);
-        this.tank = new FluidTank(capacity) {
+        this.tank = new FluidTank(capacity)
+        {
             @Override
-            protected void onContentsChanged() {
-                FluidHandlerSyncedBlockEntity.this.syncFluidToClient();
+            protected void onContentsChanged()
+            {
+                FluidHandlerSyncedBlockEntity.this.syncFluidToClient(FluidHandlerSyncedBlockEntity.this.level.registryAccess());
             }
         };
     }
 
-    public FluidTank getTank() {
+    public FluidTank getTank()
+    {
         return this.tank;
     }
 
-    private void syncFluidToClient() {
-        BlockEntityUtil.sendUpdatePacket(this, this.saveWithFullMetadata());
+    private void syncFluidToClient(HolderLookup.Provider registries)
+    {
+        BlockEntityUtil.sendUpdatePacket(this, this.saveWithFullMetadata(registries));
     }
 
-    protected abstract CompoundTag saveWithFullMetadata();
-
     @Override
-    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+    public void loadAdditional(CompoundTag tag, HolderLookup.Provider registries)
+    {
         super.loadAdditional(tag, registries);
-        this.tank.writeToNBT(registries, tag);
+        this.tank.readFromNBT(registries, tag);
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries)
+    {
         super.saveAdditional(tag, registries);
         this.tank.writeToNBT(registries, tag);
     }
 
     @Override
-    public CompoundTag getUpdateTag(HolderLookup.Provider pRegistries) {
-        return saveWithoutMetadata(pRegistries);
+    public CompoundTag getUpdateTag(HolderLookup.Provider registries)
+    {
+        return this.saveWithFullMetadata(registries);
     }
 
     @Nullable
-    public Packet<ClientGamePacketListener> getUpdatePacket() {
-        return null;
-    }
-
     @Override
-    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt, HolderLookup.Provider registries) {
-        CompoundTag compound = pkt.getTag();
-        if (compound != null) {
-            this.loadAdditional(compound, registries);
-        }
+    public ClientboundBlockEntityDataPacket getUpdatePacket()
+    {
+        return ClientboundBlockEntityDataPacket.create(this);
     }
 
-    public Object getCapability(Class<?> capabilityType, @Nullable Direction facing) {
-        if (capabilityType == IFluidHandler.class) {
-            return this.tank;
-        }
+    @SuppressWarnings("unchecked")
+    @Nullable
+    public <T, C> T getCapability(BlockCapability<T, C> capability, @Nullable C context)
+    {
+        if (capability == Capabilities.FluidHandler.BLOCK)
+            return (T) this.tank;
         return null;
     }
 }
