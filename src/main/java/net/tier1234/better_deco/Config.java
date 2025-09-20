@@ -1,5 +1,6 @@
 package net.tier1234.better_deco;
 
+
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -9,6 +10,7 @@ import net.neoforged.fml.event.config.ModConfigEvent;
 import net.neoforged.neoforge.common.ModConfigSpec;
 
 import java.util.Set;
+
 
 @EventBusSubscriber(modid = BetterDeco.MOD_ID)
 public class Config {

@@ -14,13 +14,11 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.block.ModBlocks;
-import net.tier1234.better_deco.datagen.ModBlockTagProvider;
 import net.tier1234.better_deco.recipe.MicrowaveRecipe;
 import net.tier1234.better_deco.recipe.ModRecipes;
 import net.tier1234.better_deco.recipe.OvenRecipe;
 import net.tier1234.better_deco.screen.custom.MicrowaveScreen;
 import net.tier1234.better_deco.screen.custom.OvenScreen;
-import net.tier1234.better_deco.util.ModTags;
 
 import java.util.List;
 
