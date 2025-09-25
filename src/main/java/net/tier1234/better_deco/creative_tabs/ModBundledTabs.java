@@ -150,6 +150,24 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.BAMBOO_KITCHEN_COUNTER);
                         output.accept(ModBlocks.CRIMSON_KITCHEN_COUNTER);
                         output.accept(ModBlocks.WARPED_KITCHEN_COUNTER);
+
+                        output.accept(ModBlocks.WHITE_KITCHEN_COUNTER);
+                        output.accept(ModBlocks.LIGHT_GRAY_KITCHEN_COUNTER);
+                        output.accept(ModBlocks.GRAY_KITCHEN_COUNTER);
+                        output.accept(ModBlocks.BLACK_KITCHEN_COUNTER);
+                        output.accept(ModBlocks.RED_KITCHEN_COUNTER);
+                        output.accept(ModBlocks.ORANGE_KITCHEN_COUNTER);
+                        output.accept(ModBlocks.YELLOW_KITCHEN_COUNTER);
+                        output.accept(ModBlocks.LIME_KITCHEN_COUNTER);
+                        output.accept(ModBlocks.GREEN_KITCHEN_COUNTER);
+                        output.accept(ModBlocks.CYAN_KITCHEN_COUNTER);
+                        output.accept(ModBlocks.LIGHT_BLUE_KITCHEN_COUNTER);
+                        output.accept(ModBlocks.BLUE_KITCHEN_COUNTER);
+                        output.accept(ModBlocks.PURPLE_KITCHEN_COUNTER);
+                        output.accept(ModBlocks.MAGENTA_KITCHEN_COUNTER);
+                        output.accept(ModBlocks.PINK_KITCHEN_COUNTER);
+                        output.accept(ModBlocks.BROWN_KITCHEN_COUNTER);
+
                         output.accept(ModBlocks.STRIPPED_OAK_KITCHEN_COUNTER);
                         output.accept(ModBlocks.STRIPPED_SPRUCE_KITCHEN_COUNTER);
                         output.accept(ModBlocks.STRIPPED_BIRCH_KITCHEN_COUNTER);
@@ -161,6 +179,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.STRIPPED_BAMBOO_KITCHEN_COUNTER);
                         output.accept(ModBlocks.STRIPPED_CRIMSON_KITCHEN_COUNTER);
                         output.accept(ModBlocks.STRIPPED_WARPED_KITCHEN_COUNTER);
+
                         output.accept(ModBlocks.OAK_KITCHEN_DRAWER);
                         output.accept(ModBlocks.SPRUCE_KITCHEN_DRAWER);
                         output.accept(ModBlocks.BIRCH_KITCHEN_DRAWER);
@@ -172,6 +191,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.BAMBOO_KITCHEN_DRAWER);
                         output.accept(ModBlocks.CRIMSON_KITCHEN_DRAWER);
                         output.accept(ModBlocks.WARPED_KITCHEN_DRAWER);
+
                         output.accept(ModBlocks.STRIPPED_OAK_KITCHEN_DRAWER);
                         output.accept(ModBlocks.STRIPPED_SPRUCE_KITCHEN_DRAWER);
                         output.accept(ModBlocks.STRIPPED_BIRCH_KITCHEN_DRAWER);
@@ -219,6 +239,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.BAMBOO_CABINET);
                         output.accept(ModBlocks.CRIMSON_CABINET);
                         output.accept(ModBlocks.WARPED_CABINET);
+
                         output.accept(ModBlocks.STRIPPED_OAK_CABINET);
                         output.accept(ModBlocks.STRIPPED_SPRUCE_CABINET);
                         output.accept(ModBlocks.STRIPPED_BIRCH_CABINET);

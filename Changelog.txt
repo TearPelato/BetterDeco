@@ -9,3 +9,11 @@ BetterDeco project.
 -Changed some file directories
 -Port to 1.21.4
 -Added pale Variants(1.21.4 NeoForge)
+1.0.4
+-Many fixes and changes
+
+1.1.0-NeoForge-1.21.1
+°Changelog
+-Many other changes
+-Many BugFixing
+-Added Colored Furniture Pieces

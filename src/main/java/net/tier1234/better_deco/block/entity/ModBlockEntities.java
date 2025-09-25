@@ -1,6 +1,7 @@
 package net.tier1234.better_deco.block.entity;
 
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.server.commands.BanListCommands;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -301,7 +302,26 @@ public class ModBlockEntities {
 
             ).build(null));
 
+    public static final Supplier<BlockEntityType<DeskCabinetBlockEntity>> DESK_CABINET =
+            BLOCK_ENTITIES.register("desk_cabinet", ()-> BlockEntityType.Builder.of(
+                    DeskCabinetBlockEntity::new
 
+            ).build(null));
+
+    public static final Supplier<BlockEntityType<FridgeBlockEntity>> FRIDGE =
+            BLOCK_ENTITIES.register("fridge", ()-> BlockEntityType.Builder.of(
+                    FridgeBlockEntity::new,
+                    ModBlocks.LIGHT_FRIDGE.get(),
+                    ModBlocks.DARK_FRIDGE.get()
+
+            ).build(null));
+
+    public static final Supplier<BlockEntityType<FreezerBlockEntity>> FREEZER =
+            BLOCK_ENTITIES.register("freezer", ()-> BlockEntityType.Builder.of(
+                    FreezerBlockEntity::new,
+                    ModBlocks.LIGHT_FREEZER.get(),
+                    ModBlocks.DARK_FREEZER.get()
+            ).build(null));
 
 
 
