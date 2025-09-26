@@ -25,7 +25,10 @@ repositories {
         name = "ModMaven"
         url = "https://modmaven.dev"
     }
-
+    maven {
+        name = "TerraformersMC"
+        url = "https://maven.terraformersmc.com/"
+    }
     exclusiveContent {
         forRepository {
             maven {
@@ -131,7 +134,8 @@ dependencies {
     implementation("net.liukrast:multipart_api-${minecraft_version}:${multipart_version}")
     jarJar("net.liukrast:multipart_api-${minecraft_version}:[${multipart_version},)")
 
-
+    compileOnly "dev.emi:emi-neoforge:${emi_version}:api"
+    runtimeOnly "dev.emi:emi-neoforge:${emi_version}"
 
     // compile against the JEI API but do not include it at runtime
     compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")

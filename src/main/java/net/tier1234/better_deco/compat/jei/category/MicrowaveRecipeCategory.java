@@ -1,4 +1,4 @@
-package net.tier1234.better_deco.compat;
+package net.tier1234.better_deco.compat.jei.category;
 
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;

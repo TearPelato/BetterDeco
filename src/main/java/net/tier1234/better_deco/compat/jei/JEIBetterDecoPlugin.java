@@ -1,4 +1,4 @@
-package net.tier1234.better_deco.compat;
+package net.tier1234.better_deco.compat.jei;
 
 
 import mezz.jei.api.IModPlugin;
@@ -14,6 +14,8 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.block.ModBlocks;
+import net.tier1234.better_deco.compat.jei.category.MicrowaveRecipeCategory;
+import net.tier1234.better_deco.compat.jei.category.OvenRecipeCategory;
 import net.tier1234.better_deco.recipe.MicrowaveRecipe;
 import net.tier1234.better_deco.recipe.ModRecipes;
 import net.tier1234.better_deco.recipe.OvenRecipe;
@@ -50,6 +52,7 @@ public class JEIBetterDecoPlugin implements IModPlugin {
         List<MicrowaveRecipe> microwaveRecipes = recipeManager
                 .getAllRecipesFor(ModRecipes.MICROWAVE_TYPE.get()).stream().map(RecipeHolder::value).toList();
         registration.addRecipes(MicrowaveRecipeCategory.MICROWAVE_RECIPE_RECIPE_TYPE, microwaveRecipes);
+
     }
 
     @Override

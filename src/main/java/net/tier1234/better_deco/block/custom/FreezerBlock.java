@@ -44,7 +44,7 @@ public class FreezerBlock extends FurnitureHorizontalBlock implements EntityBloc
     public static final BooleanProperty OPEN = BooleanProperty.create("open");
 
     public final ImmutableMap<BlockState, VoxelShape> SHAPES;
-    private final Supplier<DeferredRegister<Block>> fridge;
+    public final Supplier<DeferredRegister<Block>> fridge;
 
     public FreezerBlock(Properties properties, Supplier<DeferredRegister<Block>> fridge)
     {
