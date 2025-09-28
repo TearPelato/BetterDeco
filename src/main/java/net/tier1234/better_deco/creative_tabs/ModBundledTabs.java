@@ -204,6 +204,23 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.STRIPPED_CRIMSON_KITCHEN_DRAWER);
                         output.accept(ModBlocks.STRIPPED_WARPED_KITCHEN_DRAWER);
 
+                        output.accept(ModBlocks.WHITE_KITCHEN_DRAWER);
+                        output.accept(ModBlocks.LIGHT_GRAY_KITCHEN_DRAWER);
+                        output.accept(ModBlocks.GRAY_KITCHEN_DRAWER);
+                        output.accept(ModBlocks.BLACK_KITCHEN_DRAWER);
+                        output.accept(ModBlocks.RED_KITCHEN_DRAWER);
+                        output.accept(ModBlocks.ORANGE_KITCHEN_DRAWER);
+                        output.accept(ModBlocks.YELLOW_KITCHEN_DRAWER);
+                        output.accept(ModBlocks.LIME_KITCHEN_DRAWER);
+                        output.accept(ModBlocks.GREEN_KITCHEN_DRAWER);
+                        output.accept(ModBlocks.CYAN_KITCHEN_DRAWER);
+                        output.accept(ModBlocks.LIGHT_BLUE_KITCHEN_DRAWER);
+                        output.accept(ModBlocks.BLUE_KITCHEN_DRAWER);
+                        output.accept(ModBlocks.PURPLE_KITCHEN_DRAWER);
+                        output.accept(ModBlocks.MAGENTA_KITCHEN_DRAWER);
+                        output.accept(ModBlocks.PINK_KITCHEN_DRAWER);
+                        output.accept(ModBlocks.BROWN_KITCHEN_DRAWER);
+
                         output.accept(ModBlocks.OAK_SINK);
                         output.accept(ModBlocks.SPRUCE_SINK);
                         output.accept(ModBlocks.BIRCH_SINK);
@@ -227,6 +244,23 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.BAMBOO_SINK_DARK);
                         output.accept(ModBlocks.CRIMSON_SINK_DARK);
                         output.accept(ModBlocks.WARPED_SINK_DARK);
+
+                        output.accept(ModBlocks.WHITE_SINK);
+                        output.accept(ModBlocks.LIGHT_GRAY_SINK);
+                        output.accept(ModBlocks.GRAY_SINK);
+                        output.accept(ModBlocks.BLACK_SINK);
+                        output.accept(ModBlocks.RED_SINK);
+                        output.accept(ModBlocks.ORANGE_SINK);
+                        output.accept(ModBlocks.YELLOW_SINK);
+                        output.accept(ModBlocks.LIME_SINK);
+                        output.accept(ModBlocks.GREEN_SINK);
+                        output.accept(ModBlocks.CYAN_SINK);
+                        output.accept(ModBlocks.LIGHT_BLUE_SINK);
+                        output.accept(ModBlocks.BLUE_SINK);
+                        output.accept(ModBlocks.PURPLE_SINK);
+                        output.accept(ModBlocks.MAGENTA_SINK);
+                        output.accept(ModBlocks.PINK_SINK);
+                        output.accept(ModBlocks.BROWN_SINK);
 
                         output.accept(ModBlocks.OAK_CABINET);
                         output.accept(ModBlocks.SPRUCE_CABINET);
@@ -252,6 +286,22 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.STRIPPED_CRIMSON_CABINET);
                         output.accept(ModBlocks.STRIPPED_WARPED_CABINET);
 
+                        output.accept(ModBlocks.WHITE_CABINET);
+                        output.accept(ModBlocks.LIGHT_GRAY_CABINET);
+                        output.accept(ModBlocks.GRAY_CABINET);
+                        output.accept(ModBlocks.BLACK_CABINET);
+                        output.accept(ModBlocks.RED_CABINET);
+                        output.accept(ModBlocks.ORANGE_CABINET);
+                        output.accept(ModBlocks.YELLOW_CABINET);
+                        output.accept(ModBlocks.LIME_CABINET);
+                        output.accept(ModBlocks.GREEN_CABINET);
+                        output.accept(ModBlocks.CYAN_CABINET);
+                        output.accept(ModBlocks.LIGHT_BLUE_CABINET);
+                        output.accept(ModBlocks.BLUE_CABINET);
+                        output.accept(ModBlocks.PURPLE_CABINET);
+                        output.accept(ModBlocks.MAGENTA_CABINET);
+                        output.accept(ModBlocks.PINK_CABINET);
+                        output.accept(ModBlocks.BROWN_CABINET);
 
 
                         output.accept(ModBlocks.STONE_COUNTER);
@@ -576,6 +626,23 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.SPRUCE_DIORITE_OVEN);
                         output.accept(ModBlocks.DARK_OAK_CALCITE_OVEN);
                         output.accept(ModBlocks.OAK_ANDESITE_OVEN);
+
+                        output.accept(ModBlocks.WHITE_OVEN);
+                        output.accept(ModBlocks.LIGHT_GRAY_OVEN);
+                        output.accept(ModBlocks.GRAY_OVEN);
+                        output.accept(ModBlocks.BLACK_OVEN);
+                        output.accept(ModBlocks.RED_OVEN);
+                        output.accept(ModBlocks.ORANGE_OVEN);
+                        output.accept(ModBlocks.YELLOW_OVEN);
+                        output.accept(ModBlocks.LIME_OVEN);
+                        output.accept(ModBlocks.GREEN_OVEN);
+                        output.accept(ModBlocks.CYAN_OVEN);
+                        output.accept(ModBlocks.LIGHT_BLUE_OVEN);
+                        output.accept(ModBlocks.BLUE_OVEN);
+                        output.accept(ModBlocks.PURPLE_OVEN);
+                        output.accept(ModBlocks.MAGENTA_OVEN);
+                        output.accept(ModBlocks.PINK_OVEN);
+                        output.accept(ModBlocks.BROWN_OVEN);
 
                         output.accept(ModBlocks.LIGHT_MICROWAVE);
                         output.accept(ModBlocks.DARK_MICROWAVE);

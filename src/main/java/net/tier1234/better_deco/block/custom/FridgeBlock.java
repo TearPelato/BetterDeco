@@ -21,8 +21,8 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import net.tier1234.better_deco.block.entity.BasicLootBlockEntity;
-import net.tier1234.better_deco.block.entity.FridgeBlockEntity;
+import net.tier1234.better_deco.block.entity.core.BasicLootBlockEntity;
+import net.tier1234.better_deco.block.entity.custom.FridgeBlockEntity;
 import net.tier1234.better_deco.util.VoxelShapeHelper;
 import org.jetbrains.annotations.Nullable;
 

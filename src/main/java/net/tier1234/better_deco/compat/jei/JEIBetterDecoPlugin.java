@@ -113,6 +113,39 @@ public class JEIBetterDecoPlugin implements IModPlugin {
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.STRIPPED_WARPED_OVEN.get().asItem()),
                 OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
 
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.RED_OVEN.get().asItem()),
+                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.ORANGE_OVEN.get().asItem()),
+                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.YELLOW_OVEN.get().asItem()),
+                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.MAGENTA_OVEN.get().asItem()),
+                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.PINK_OVEN.get().asItem()),
+                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.PURPLE_OVEN.get().asItem()),
+                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.GREEN_OVEN.get().asItem()),
+                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.LIME_OVEN.get().asItem()),
+                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.CYAN_OVEN.get().asItem()),
+                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.LIGHT_BLUE_OVEN.get().asItem()),
+                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.BLUE_OVEN.get().asItem()),
+                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.WHITE_OVEN.get().asItem()),
+                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.BROWN_OVEN.get().asItem()),
+                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.BLACK_OVEN.get().asItem()),
+                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.GRAY_OVEN.get().asItem()),
+                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.LIGHT_GRAY_OVEN.get().asItem()),
+                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
+
 
         //Microwave
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.LIGHT_MICROWAVE.get().asItem()),

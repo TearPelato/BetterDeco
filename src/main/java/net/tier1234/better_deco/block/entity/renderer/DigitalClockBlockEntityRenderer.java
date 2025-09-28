@@ -11,7 +11,7 @@ import net.minecraft.network.chat.Style;
 import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.world.level.block.state.BlockState;
 import net.tier1234.better_deco.block.custom.DigitalClockBlock;
-import net.tier1234.better_deco.block.entity.DigitalClockBlockEntity;
+import net.tier1234.better_deco.block.entity.custom.DigitalClockBlockEntity;
 
 public class DigitalClockBlockEntityRenderer implements BlockEntityRenderer<DigitalClockBlockEntity> {
 

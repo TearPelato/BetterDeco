@@ -4,14 +4,12 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemDisplayContext;
-import net.minecraft.world.item.ItemStack;
 import net.tier1234.better_deco.block.custom.CustomShelfBlock;
-import net.tier1234.better_deco.block.entity.ShelfBlockEntity;
+import net.tier1234.better_deco.block.entity.custom.ShelfBlockEntity;
 import net.tier1234.better_deco.screen.ModInventory;
 
 public class ShelfBlockEntityRenderer implements BlockEntityRenderer<ShelfBlockEntity> {

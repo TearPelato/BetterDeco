@@ -24,7 +24,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
-import net.tier1234.better_deco.block.entity.CustomBarrelBlockEntity;
+import net.tier1234.better_deco.block.entity.custom.CustomBarrelBlockEntity;
 import net.tier1234.better_deco.block.entity.ModBlockEntities;
 
 public class CustomBarrelBlock extends BaseEntityBlock {
