@@ -69,7 +69,11 @@ public class BetterDeco {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+        if(event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+            event.accept(ModItems.IRON_CHISEL);
+            event.accept(ModItems.GOLD_CHISEL);
+            event.accept(ModItems.DIAMOND_CHISEL);
+            event.accept(ModItems.NETHERITE_CHISEL);
 
         }
 
@@ -78,31 +82,5 @@ public class BetterDeco {
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
-
     }
-    @EventBusSubscriber(modid = MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-    public static class ClientModEvents {
-        @SubscribeEvent
-        static void onClientSetup(FMLClientSetupEvent event) {
-            EntityRenderers.register(ModEntities.CHAIR_ENTITY.get(), ChairRenderer::new);
-        }
-        @SubscribeEvent
-        public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
-            event.registerBlockEntityRenderer(ModBlockEntities.PEDESTAL_BE.get(), PedestalBlockEntityRenderer::new);
-            event.registerBlockEntityRenderer(ModBlockEntities.GLASS_TECQUE.get(), TecqueBlockEntityRenderer::new);
-            event.registerBlockEntityRenderer(ModBlockEntities.SHELF_BE.get(), ShelfBlockEntityRenderer::new);
-            event.registerBlockEntityRenderer(ModBlockEntities.DIGITAL_CLOCK.get(), DigitalClockBlockEntityRenderer::new);
-            event.registerBlockEntityRenderer(ModBlockEntities.KITCHEN_SINK.get(), KitchenSinkBlockEntityRenderer::new);
-        }
-        @SubscribeEvent
-        public static void registerScreens(RegisterMenuScreensEvent event) {
-            event.register(ModMenuTypes.TECQUE_MENU.get(), TecqueScreen::new);
-            event.register(ModMenuTypes.PEDESTAL_MENU.get(), PedestalScreen::new);
-            event.register(ModMenuTypes.CRATE_MENU.get(), CrateScreen::new);
-            event.register(ModMenuTypes.SHELF_MENU.get(), ShelfScreen::new);
-            event.register(ModMenuTypes.OVEN_MENU.get(), OvenScreen::new);
-            event.register(ModMenuTypes.MICROWAVE_MENU.get(), MicrowaveScreen::new);
-            event.register(ModMenuTypes.SINK_MENU.get(), SinkScreen::new);
-        }
- }
 }
