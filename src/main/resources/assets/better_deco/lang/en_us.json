@@ -16,13 +16,12 @@
 "block.better_deco.warped_vertical_slab": "Warped Vertical Slab",
 
 
-  "bundled_tab.buildings.title": "Buildings",
-  "bundled_tab.items.title": "Items",
+  "bundled_tab.buildings.title": "Buildings Blocks",
   "bundled_tab.furniture.title": "Furniture",
-  "bundled_tab.utilities.title": "Utilities",
+  "bundled_tab.utilities.title": "Furniture Extras",
   "bundled_tab.buildings_extras": "Buildings Extras",
-  "bundled_tab.decoration": "Deco",
-  "bundled_tab.electronics.title": "Electronics",
+  "bundled_tab.decoration": "Decorative Blocks",
+  "bundled_tab.electronics.title": "Electronic Furnitures",
 
   "block.better_deco.red_stool": "Red Stool",
   "block.better_deco.orange_stool": "Orange Stool",

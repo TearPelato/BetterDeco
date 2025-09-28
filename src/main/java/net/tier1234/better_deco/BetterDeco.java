@@ -72,7 +72,11 @@ public class BetterDeco {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+        if(event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+            event.accept(ModItems.IRON_CHISEL);
+            event.accept(ModItems.GOLD_CHISEL);
+            event.accept(ModItems.DIAMOND_CHISEL);
+            event.accept(ModItems.NETHERITE_CHISEL);
 
         }
 

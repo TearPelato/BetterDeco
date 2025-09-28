@@ -433,11 +433,37 @@ public class ModBundledTabs {
                     .build()
     );
 
-    public static final BundledTabs UTILITIES = register(
+    public static final BundledTabs FURNITURE_EXTRAS = register(
             BundledTabs.builder()
                     .title(Component.translatable("bundled_tab.utilities.title"))
-                    .icon(new ItemStack(ModBlocks.PEDESTAL.get()))
+                    .icon(new ItemStack(ModBlocks.OAK_CRATE.get()))
                     .displayItems((provider, output) -> {
+
+
+                        output.accept(ModBlocks.OAK_CRATE);
+                        output.accept(ModBlocks.SPRUCE_CRATE);
+                        output.accept(ModBlocks.BIRCH_CRATE);
+                        output.accept(ModBlocks.JUNGLE_CRATE);
+                        output.accept(ModBlocks.ACACIA_CRATE);
+                        output.accept(ModBlocks.MANGROVE_CRATE);
+                        output.accept(ModBlocks.DARK_OAK_CRATE);
+                        output.accept(ModBlocks.CHERRY_CRATE);
+                        output.accept(ModBlocks.BAMBOO_CRATE);
+                        output.accept(ModBlocks.CRIMSON_CRATE);
+                        output.accept(ModBlocks.WARPED_CRATE);
+
+
+                        output.accept(ModBlocks.OAK_SHELF);
+                        output.accept(ModBlocks.SPRUCE_SHELF);
+                        output.accept(ModBlocks.BIRCH_SHELF);
+                        output.accept(ModBlocks.JUNGLE_SHELF);
+                        output.accept(ModBlocks.ACACIA_SHELF);
+                        output.accept(ModBlocks.DARK_OAK_SHELF);
+                        output.accept(ModBlocks.MANGROVE_SHELF);
+                        output.accept(ModBlocks.CHERRY_SHELF);
+                        output.accept(ModBlocks.BAMBOO_SHELF);
+                        output.accept(ModBlocks.CRIMSON_SHELF);
+                        output.accept(ModBlocks.WARPED_SHELF);
 
                         output.accept(ModBlocks.PEDESTAL);
                         output.accept(ModBlocks.STONE_PEDESTAL);
@@ -446,7 +472,9 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.DEEPSLATE_PEDESTAL);
                         output.accept(ModBlocks.DEEPSLATE_TILE_PEDESTAL);
                         output.accept(ModBlocks.BLACKSTONE_PEDESTAL);
+
                         output.accept(ModBlocks.STONE_GLASS_TECQUE);
+
                         output.accept(ModBlocks.OAK_GLASS_TECQUE);
                         output.accept(ModBlocks.SPRUCE_GLASS_TECQUE);
                         output.accept(ModBlocks.BIRCH_GLASS_TECQUE);
@@ -493,30 +521,6 @@ public class ModBundledTabs {
                     .icon(new ItemStack(ModBlocks.BIG_CHAIN.get()))
                     .displayItems((provider, output) -> {
 
-                        output.accept(ModBlocks.OAK_CRATE);
-                        output.accept(ModBlocks.SPRUCE_CRATE);
-                        output.accept(ModBlocks.BIRCH_CRATE);
-                        output.accept(ModBlocks.JUNGLE_CRATE);
-                        output.accept(ModBlocks.ACACIA_CRATE);
-                        output.accept(ModBlocks.MANGROVE_CRATE);
-                        output.accept(ModBlocks.DARK_OAK_CRATE);
-                        output.accept(ModBlocks.CHERRY_CRATE);
-                        output.accept(ModBlocks.BAMBOO_CRATE);
-                        output.accept(ModBlocks.CRIMSON_CRATE);
-                        output.accept(ModBlocks.WARPED_CRATE);
-
-
-                        output.accept(ModBlocks.OAK_SHELF);
-                        output.accept(ModBlocks.SPRUCE_SHELF);
-                        output.accept(ModBlocks.BIRCH_SHELF);
-                        output.accept(ModBlocks.JUNGLE_SHELF);
-                        output.accept(ModBlocks.ACACIA_SHELF);
-                        output.accept(ModBlocks.DARK_OAK_SHELF);
-                        output.accept(ModBlocks.MANGROVE_SHELF);
-                        output.accept(ModBlocks.CHERRY_SHELF);
-                        output.accept(ModBlocks.BAMBOO_SHELF);
-                        output.accept(ModBlocks.CRIMSON_SHELF);
-                        output.accept(ModBlocks.WARPED_SHELF);
 
                         output.accept(ModBlocks.BIG_CHAIN);
                         output.accept(ModBlocks.WALL_LANTERN);
@@ -531,22 +535,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.WAXED_WEATHERED_LANTERN);
                         output.accept(ModBlocks.WAXED_OXIDIZED_LANTERN);
 
-                        output.accept(ModBlocks.WHITE_DIGITAL_CLOCK);
-                        output.accept(ModBlocks.LIGHT_GRAY_DIGITAL_CLOCK);
-                        output.accept(ModBlocks.GRAY_DIGITAL_CLOCK);
-                        output.accept(ModBlocks.BLACK_DIGITAL_CLOCK);
-                        output.accept(ModBlocks.RED_DIGITAL_CLOCK);
-                        output.accept(ModBlocks.ORANGE_DIGITAL_CLOCK);
-                        output.accept(ModBlocks.YELLOW_DIGITAL_CLOCK);
-                        output.accept(ModBlocks.LIME_DIGITAL_CLOCK);
-                        output.accept(ModBlocks.GREEN_DIGITAL_CLOCK);
-                        output.accept(ModBlocks.CYAN_DIGITAL_CLOCK);
-                        output.accept(ModBlocks.LIGHT_BLUE_DIGITAL_CLOCK);
-                        output.accept(ModBlocks.BLUE_DIGITAL_CLOCK);
-                        output.accept(ModBlocks.PURPLE_DIGITAL_CLOCK);
-                        output.accept(ModBlocks.MAGENTA_DIGITAL_CLOCK);
-                        output.accept(ModBlocks.PINK_DIGITAL_CLOCK);
-                        output.accept(ModBlocks.BROWN_DIGITAL_CLOCK);
+
 
 
 
@@ -591,25 +580,28 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.LIGHT_MICROWAVE);
                         output.accept(ModBlocks.DARK_MICROWAVE);
 
+                        output.accept(ModBlocks.WHITE_DIGITAL_CLOCK);
+                        output.accept(ModBlocks.LIGHT_GRAY_DIGITAL_CLOCK);
+                        output.accept(ModBlocks.GRAY_DIGITAL_CLOCK);
+                        output.accept(ModBlocks.BLACK_DIGITAL_CLOCK);
+                        output.accept(ModBlocks.RED_DIGITAL_CLOCK);
+                        output.accept(ModBlocks.ORANGE_DIGITAL_CLOCK);
+                        output.accept(ModBlocks.YELLOW_DIGITAL_CLOCK);
+                        output.accept(ModBlocks.LIME_DIGITAL_CLOCK);
+                        output.accept(ModBlocks.GREEN_DIGITAL_CLOCK);
+                        output.accept(ModBlocks.CYAN_DIGITAL_CLOCK);
+                        output.accept(ModBlocks.LIGHT_BLUE_DIGITAL_CLOCK);
+                        output.accept(ModBlocks.BLUE_DIGITAL_CLOCK);
+                        output.accept(ModBlocks.PURPLE_DIGITAL_CLOCK);
+                        output.accept(ModBlocks.MAGENTA_DIGITAL_CLOCK);
+                        output.accept(ModBlocks.PINK_DIGITAL_CLOCK);
+                        output.accept(ModBlocks.BROWN_DIGITAL_CLOCK);
 
                     })
                     .build()
 
  );
 
-
-    public static final BundledTabs ITEMS = register(
-            BundledTabs.builder()
-                    .title(Component.translatable("bundled_tab.items.title"))
-                    .icon(new ItemStack(ModItems.IRON_CHISEL.get()))
-                    .displayItems((provider, output) -> {
-                        output.accept(ModItems.IRON_CHISEL);
-                        output.accept(ModItems.GOLD_CHISEL);
-                        output.accept(ModItems.DIAMOND_CHISEL);
-                        output.accept(ModItems.NETHERITE_CHISEL);
-                    })
-                    .build()
-    );
 
 
     public static BundledTabs register(BundledTabs builder) {

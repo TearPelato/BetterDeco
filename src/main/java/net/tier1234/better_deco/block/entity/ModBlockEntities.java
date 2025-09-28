@@ -310,17 +310,19 @@ public class ModBlockEntities {
 
     public static final Supplier<BlockEntityType<FridgeBlockEntity>> FRIDGE =
             BLOCK_ENTITIES.register("fridge", ()-> BlockEntityType.Builder.of(
-                    FridgeBlockEntity::new,
-                    ModBlocks.LIGHT_FRIDGE.get(),
+                    FridgeBlockEntity::new
+                    /* ModBlocks.LIGHT_FRIDGE.get(),
                     ModBlocks.DARK_FRIDGE.get()
-
+                    */
             ).build(null));
+
+
 
     public static final Supplier<BlockEntityType<FreezerBlockEntity>> FREEZER =
             BLOCK_ENTITIES.register("freezer", ()-> BlockEntityType.Builder.of(
-                    FreezerBlockEntity::new,
-                    ModBlocks.LIGHT_FREEZER.get(),
-                    ModBlocks.DARK_FREEZER.get()
+                    FreezerBlockEntity::new
+                   /* ModBlocks.LIGHT_FREEZER.get(),
+                    ModBlocks.DARK_FREEZER.get()*/
             ).build(null));
 
 

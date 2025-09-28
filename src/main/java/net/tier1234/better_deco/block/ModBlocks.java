@@ -26,7 +26,7 @@ public class ModBlocks {
 
     //Test
 
-    public static final DeferredBlock<Block> LIGHT_FRIDGE = registerBlock("fridge_light",
+    /* public static final DeferredBlock<Block> LIGHT_FRIDGE = registerBlock("fridge_light",
             ()-> new FridgeBlock(BlockBehaviour.Properties.of().strength(2.5f)));
     public static final DeferredBlock<Block> DARK_FRIDGE = registerBlock("fridge_dark",
             ()-> new FridgeBlock(BlockBehaviour.Properties.of().strength(2.5f)));
@@ -35,7 +35,7 @@ public class ModBlocks {
             ()-> new FreezerBlock(BlockBehaviour.Properties.of().strength(2.5f)));
     public static final DeferredBlock<Block> DARK_FREEZER = registerBlock("freezer_dark",
             ()-> new FreezerBlock(BlockBehaviour.Properties.of().strength(2.5f)));
-
+  */
     //Microwave
     public static final DeferredBlock<Block> LIGHT_MICROWAVE = registerBlock("microwave_light",
             ()-> new MicrowaveBlock(BlockBehaviour.Properties.of().strength(2.5f).sound(SoundType.METAL)

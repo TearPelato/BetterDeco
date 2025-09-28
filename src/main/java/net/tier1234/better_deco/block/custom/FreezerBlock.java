@@ -130,12 +130,12 @@ public class FreezerBlock extends FurnitureHorizontalBlock implements EntityBloc
         return reader.getBlockState(pos.above()).isAir();
     }
 
-    @Override
+    /* @Override
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack)
     {
         level.setBlockAndUpdate(pos.above(), this.fridge.get().get().defaultBlockState().setValue(DIRECTION, placer.getDirection()));
     }
-
+*/
     @Override
     public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player)
     {
