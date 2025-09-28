@@ -1334,6 +1334,28 @@ public static final DeferredBlock<Block> STONE_GLASS_TECQUE = registerBlock("sto
             (properties)-> new WallLanternBlock(properties.strength(2f).sound(SoundType.LANTERN).lightLevel(state -> 15)));
 
 
+    //PALE OAK WOOD VARIANTS
+    public static final DeferredBlock<Block> PALE_OAK_BARREL = registerBlock("pale_oak_barrel",
+            (properties)-> new CustomBarrelBlock(properties.strength(2f)));
+
+    public static final DeferredBlock<Block> PALE_OAK_PLANKS_BRICKS = registerBlock("pale_oak_planks_bricks",
+            (properties)-> new Block(properties.strength(2f)));
+
+    public static final DeferredBlock<Block> PALE_OAK_SOFT_BRICKS = registerBlock("pale_oak_soft_bricks",
+            (properties)-> new Block(properties.strength(2f)));
+
+    public static final DeferredBlock<Block> PALE_OAK_PLANKS_PILLAR = registerBlock("pale_oak_planks_pillar",
+            (properties)-> new RotatedPillarBlock(properties.strength(2f)));
+
+    public static final DeferredBlock<Block> PALE_OAK_LARGE_PLANKS = registerBlock("pale_oak_piled_planks",
+            (properties)-> new Block(properties.strength(2f)));
+
+    public static final DeferredBlock<Block> PALE_OAK_VERTICAL = registerBlock("pale_oak_vertical_planks",
+            (properties)-> new Block(properties.strength(2f)));
+
+    public static final DeferredBlock<Block> PALE_OAK_SMOOTH_PLANKS = registerBlock("pale_oak_polished_planks",
+            (properties)-> new Block(properties.strength(2f)));
+
 
     //REGISTRATION
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> function) {

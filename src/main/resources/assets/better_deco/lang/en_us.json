@@ -5,27 +5,26 @@
   "creativetab.better_deco.utilities": "BetterDeco:Utilities",
   "creativetab.better_deco.better_deco": "BetterDeco",
 
-"block.better_deco.oak_vertical_slab": "Oak Vertical Slab",
-"block.better_deco.spruce_vertical_slab": "Spruce Vertical Slab",
-"block.better_deco.birch_vertical_slab": "Birch Vertical Slab",
-"block.better_deco.jungle_vertical_slab": "Jungle Vertical Slab",
-"block.better_deco.acacia_vertical_slab": "Acacia Vertical Slab",
-"block.better_deco.dark_oak_vertical_slab": "Dark Oak Vertical Slab",
-"block.better_deco.mangrove_vertical_slab": "Mangrove Vertical Slab",
-"block.better_deco.cherry_vertical_slab": "Cherry Vertical Slab",
-"block.better_deco.pale_oak_vertical_slab": "Pale Oak Vertical Slab",
-"block.better_deco.bamboo_vertical_slab": "Bamboo Vertical Slab",
-"block.better_deco.crimson_vertical_slab": "Crimson Vertical Slab",
-"block.better_deco.warped_vertical_slab": "Warped Vertical Slab",
+  "block.better_deco.oak_vertical_slab": "Oak Vertical Slab",
+  "block.better_deco.spruce_vertical_slab": "Spruce Vertical Slab",
+  "block.better_deco.birch_vertical_slab": "Birch Vertical Slab",
+  "block.better_deco.jungle_vertical_slab": "Jungle Vertical Slab",
+  "block.better_deco.acacia_vertical_slab": "Acacia Vertical Slab",
+  "block.better_deco.dark_oak_vertical_slab": "Dark Oak Vertical Slab",
+  "block.better_deco.mangrove_vertical_slab": "Mangrove Vertical Slab",
+  "block.better_deco.cherry_vertical_slab": "Cherry Vertical Slab",
+  "block.better_deco.pale_oak_vertical_slab": "Pale Oak Vertical Slab",
+  "block.better_deco.bamboo_vertical_slab": "Bamboo Vertical Slab",
+  "block.better_deco.crimson_vertical_slab": "Crimson Vertical Slab",
+  "block.better_deco.warped_vertical_slab": "Warped Vertical Slab",
 
 
-  "bundled_tab.buildings.title": "Buildings",
-  "bundled_tab.items.title": "Items",
+  "bundled_tab.buildings.title": "Buildings Blocks",
   "bundled_tab.furniture.title": "Furniture",
-  "bundled_tab.utilities.title": "Utilities",
+  "bundled_tab.utilities.title": "Furniture Extras",
   "bundled_tab.buildings_extras": "Buildings Extras",
-  "bundled_tab.decoration": "Deco",
-  "bundled_tab.electronics.title": "Electronics",
+  "bundled_tab.decoration": "Decorative Blocks",
+  "bundled_tab.electronics.title": "Electronic Furnitures",
 
   "block.better_deco.red_stool": "Red Stool",
   "block.better_deco.orange_stool": "Orange Stool",
@@ -184,6 +183,7 @@
   "block.better_deco.spruce_planks_bricks": "Spruce Planks Bricks",
   "block.better_deco.birch_planks_bricks": "Birch Planks Bricks",
   "block.better_deco.cherry_planks_bricks": "Cherry Planks Bricks",
+  "block.better_deco.pale_oak_planks_bricks": "Pale Oak Planks Bricks",
   "block.better_deco.acacia_planks_bricks": "Acacia Planks Bricks",
   "block.better_deco.jungle_planks_bricks": "Jungle Planks Bricks",
   "block.better_deco.mangrove_planks_bricks": "Mangrove Planks Bricks",
@@ -222,6 +222,7 @@
   "block.better_deco.birch_planks_pillar": "Birch Planks Pillar",
   "block.better_deco.bamboo_planks_pillar": "Bamboo Planks Pillar",
   "block.better_deco.cherry_planks_pillar": "Cherry Planks Pillar",
+  "block.better_deco.pale_oak_planks_pillar": "Pale Oak Planks Pillar",
   "block.better_deco.oak_planks_pillar": "Oak Planks Pillar",
   "block.better_deco.dark_oak_planks_pillar": "Dark Oak Planks Pillar",
   "block.better_deco.spruce_planks_pillar": "Spruce Planks Pillar",
@@ -420,15 +421,15 @@
   "block.better_deco.warped_sink_dark": "Warped Sink (Dark)",
 
 
-"block.better_deco.stone_kitchen_counter": "Stone Kitchen Counter",
-"block.better_deco.stone_kitchen_drawer": "Stone Kitchen Drawer",
+  "block.better_deco.stone_kitchen_counter": "Stone Kitchen Counter",
+  "block.better_deco.stone_kitchen_drawer": "Stone Kitchen Drawer",
 
-"block.better_deco.stone_cabinet": "Stone Cabinet",
-"block.better_deco.diorite_cabinet": "Diorite Cabinet",
-"block.better_deco.granite_cabinet": "Granite Cabinet",
-"block.better_deco.deepslate_cabinet": "Deepslate Cabinet",
-"block.better_deco.deepslate_tiles_cabinet": "Deepslate Tiles Cabinet",
-"block.better_deco.blackstone_cabinet": "Blackstone Cabinet",
+  "block.better_deco.stone_cabinet": "Stone Cabinet",
+  "block.better_deco.diorite_cabinet": "Diorite Cabinet",
+  "block.better_deco.granite_cabinet": "Granite Cabinet",
+  "block.better_deco.deepslate_cabinet": "Deepslate Cabinet",
+  "block.better_deco.deepslate_tiles_cabinet": "Deepslate Tiles Cabinet",
+  "block.better_deco.blackstone_cabinet": "Blackstone Cabinet",
 
 
 
@@ -457,11 +458,11 @@
   "block.better_deco.blackstone_kitchen_counter": "Balckstone Kitchen Counter",
   "block.better_deco.deepslate_tiles_kitchen_counter": "Deepslate Tiles Kitchen Counter",
 
-    "block.better_deco.granite_kitchen_drawer": "Granite Kitchen Drawer",
-    "block.better_deco.diorite_kitchen_drawer": "Diorite Kitchen Drawer",
-    "block.better_deco.deepslate_kitchen_drawer": "Deepslate Kitchen Drawer",
-    "block.better_deco.deepslate_tiles_kitchen_drawer": "Deepslate Kitchen Tiles Drawer",
-    "block.better_deco.blackstone_kitchen_drawer": "Blackstone Kitchen Drawer",
+  "block.better_deco.granite_kitchen_drawer": "Granite Kitchen Drawer",
+  "block.better_deco.diorite_kitchen_drawer": "Diorite Kitchen Drawer",
+  "block.better_deco.deepslate_kitchen_drawer": "Deepslate Kitchen Drawer",
+  "block.better_deco.deepslate_tiles_kitchen_drawer": "Deepslate Kitchen Tiles Drawer",
+  "block.better_deco.blackstone_kitchen_drawer": "Blackstone Kitchen Drawer",
 
 
   "block.better_deco.pedestal": "Advanced Pedestal",
@@ -483,6 +484,7 @@
   "block.better_deco.acacia_soft_bricks": "Acacia Soft Bricks",
   "block.better_deco.mangrove_soft_bricks": "Mangrove Soft Bricks",
   "block.better_deco.cherry_soft_bricks": "Cherry Soft Bricks",
+  "block.better_deco.pale_oak_soft_bricks": "Pale Oak Soft Bricks",
   "block.better_deco.bamboo_soft_bricks": "Bamboo Soft Bricks",
   "block.better_deco.crimson_soft_bricks": "Crimson Soft Bricks",
   "block.better_deco.warped_soft_bricks": "Warped Soft Bricks",
@@ -495,6 +497,7 @@
   "block.better_deco.jungle_barrel": "Jungle Barrel",
   "block.better_deco.mangrove_barrel": "Mangrove Barrel",
   "block.better_deco.cherry_barrel": "Cherry Barrel",
+  "block.better_deco.pale_oak_barrel": "Pale Oak Barrel",
   "block.better_deco.bamboo_barrel": "Bamboo Barrel",
   "block.better_deco.crimson_barrel": "Crimson Barrel",
   "block.better_deco.warped_barrel": "Warped Barrel",
@@ -502,11 +505,11 @@
 
 
 
-"block.better_deco.andesite_array_bricks": "Andesite Array Bricks",
-"block.better_deco.andesite_mosaic_bricks": "Andesite Mosaic Bricks",
-"block.better_deco.andesite_mixed_bricks": "Andesite Mixed Bricks",
-"block.better_deco.andesite_bricks": "Andesite Bricks",
-"block.better_deco.raw_andesite": "Raw Andesite",
+  "block.better_deco.andesite_array_bricks": "Andesite Array Bricks",
+  "block.better_deco.andesite_mosaic_bricks": "Andesite Mosaic Bricks",
+  "block.better_deco.andesite_mixed_bricks": "Andesite Mixed Bricks",
+  "block.better_deco.andesite_bricks": "Andesite Bricks",
+  "block.better_deco.raw_andesite": "Raw Andesite",
 
   "block.better_deco.diorite_array_bricks": "Diorite Array Bricks",
   "block.better_deco.diorite_mosaic_bricks": "Diorite Mosaic Bricks",
@@ -520,9 +523,9 @@
   "block.better_deco.granite_bricks": "Granite Bricks",
   "block.better_deco.raw_granite": "Raw Granite",
 
-"block.better_deco.oak_piled_planks": "Oak Piled Planks",
-"block.better_deco.oak_vertical_planks": "Oak Vertical Planks",
-"block.better_deco.oak_polished_planks": "Oak Polished Planks",
+  "block.better_deco.oak_piled_planks": "Oak Piled Planks",
+  "block.better_deco.oak_vertical_planks": "Oak Vertical Planks",
+  "block.better_deco.oak_polished_planks": "Oak Polished Planks",
 
   "block.better_deco.birch_piled_planks": "Birch Piled Planks",
   "block.better_deco.birch_vertical_planks": "Birch Vertical Planks",
@@ -552,6 +555,10 @@
   "block.better_deco.cherry_vertical_planks": "Cherry Vertical Planks",
   "block.better_deco.cherry_polished_planks": "Cherry Polished Planks",
 
+  "block.better_deco.pale_oak_piled_planks": "Pale Oak Piled Planks",
+  "block.better_deco.pale_oak_vertical_planks": "Pale Oak Vertical Planks",
+  "block.better_deco.pale_oak_polished_planks": "Pale Oak Polished Planks",
+
   "block.better_deco.bamboo_piled_planks": "Bamboo Piled Planks",
   "block.better_deco.bamboo_vertical_planks": "Bamboo Vertical Planks",
   "block.better_deco.bamboo_polished_planks": "Bamboo Polished Planks",
@@ -563,6 +570,7 @@
   "block.better_deco.warped_piled_planks": "Warped Piled Planks",
   "block.better_deco.warped_vertical_planks": "Warped Vertical Planks",
   "block.better_deco.warped_polished_planks": "Warped Polished Planks",
+
 
 
 

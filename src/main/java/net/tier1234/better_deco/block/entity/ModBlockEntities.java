@@ -26,7 +26,9 @@ public class ModBlockEntities {
                                     ModBlocks.BAMBOO_BARREL.get(),
                                     ModBlocks.MANGROVE_BARREL.get(),
                                     ModBlocks.CRIMSON_BARREL.get(),
-                                    ModBlocks.WARPED_BARREL.get())
+                                    ModBlocks.WARPED_BARREL.get(),
+                                    ModBlocks.PALE_OAK_BARREL.get()
+                    )
             );
 
     public static final Supplier<BlockEntityType<KitchenDrawerBlockEntity>> CUSTOM_KITCHEN_DRAWER_BE =
