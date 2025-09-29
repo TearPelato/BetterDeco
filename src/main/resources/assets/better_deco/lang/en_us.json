@@ -203,6 +203,14 @@
   "gui.better_deco.oven": "Oven",
   "gui.better_deco.microwave": "Microwave",
   "gui.better_deco.generator": "Generator",
+  "gui.better_deco.freezer": "Freezer",
+  "gui.better_deco.fridge": "Fridge",
+
+  "block.better_deco.fridge_dark": "Fridge (Dark)",
+  "block.better_deco.fridge_light": "Fridge (Light)",
+
+  "block.better_deco.freezer_dark": "Freezer (Dark)",
+  "block.better_deco.freezer_light": "Freezer (Light)",
 
   "block.better_deco.generator": "Generator",
 

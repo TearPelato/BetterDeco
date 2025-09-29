@@ -9,7 +9,10 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.SimpleMenuProvider;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
@@ -26,10 +29,10 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.registries.DeferredBlock;
+import net.tier1234.better_deco.block.entity.ModBlockEntities;
 import net.tier1234.better_deco.block.entity.core.BasicLootBlockEntity;
 import net.tier1234.better_deco.block.entity.custom.FreezerBlockEntity;
-import net.tier1234.better_deco.block.entity.ModBlockEntities;
 import net.tier1234.better_deco.util.VoxelShapeHelper;
 import org.jetbrains.annotations.Nullable;
 
@@ -42,9 +45,9 @@ public class FreezerBlock extends FurnitureHorizontalBlock implements EntityBloc
     public static final BooleanProperty OPEN = BooleanProperty.create("open");
 
     public final ImmutableMap<BlockState, VoxelShape> SHAPES;
-    public final Supplier<DeferredRegister<Block>> fridge;
+    public final Supplier<DeferredBlock<Block>> fridge;
 
-    public FreezerBlock(Properties properties, Supplier<DeferredRegister<Block>> fridge)
+    public FreezerBlock(Properties properties, Supplier<DeferredBlock<Block>> fridge)
     {
         super(properties);
         this.fridge = fridge;
@@ -128,12 +131,12 @@ public class FreezerBlock extends FurnitureHorizontalBlock implements EntityBloc
         return reader.getBlockState(pos.above()).isAir();
     }
 
-    /* @Override
+    @Override
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack)
     {
         level.setBlockAndUpdate(pos.above(), this.fridge.get().get().defaultBlockState().setValue(DIRECTION, placer.getDirection()));
     }
-*/
+
     @Override
     public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player)
     {
@@ -162,5 +165,10 @@ public class FreezerBlock extends FurnitureHorizontalBlock implements EntityBloc
                         ? (lvl, pos, st, be) -> ((FreezerBlockEntity) be).tick(lvl, pos, st, (FreezerBlockEntity) be)
                         : null);
     }
-
+    @Override
+    public Item asItem()
+    {
+        return this.fridge.get().get().asItem();
+    }
 }
+

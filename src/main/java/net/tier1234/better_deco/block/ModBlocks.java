@@ -14,6 +14,8 @@ import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.block.custom.*;
 import net.tier1234.better_deco.block.custom.ChainBlock;
 import net.tier1234.better_deco.item.ModItems;
+
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 
@@ -25,18 +27,26 @@ public class ModBlocks {
 
 
     //Test
+    public static final DeferredBlock<Block> FREEZER_LIGHT = registerNoItem("freezer_light",
+            () -> new FreezerBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), () -> ModBlocks.FRIDGE_LIGHT));
+    public static final DeferredBlock<Block> FREEZER_DARK = registerNoItem("freezer_dark",
+            () -> new FreezerBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), () -> ModBlocks.FRIDGE_DARK));
 
-    /* public static final DeferredBlock<Block> LIGHT_FRIDGE = registerBlock("fridge_light",
-            ()-> new FridgeBlock(BlockBehaviour.Properties.of().strength(2.5f)));
-    public static final DeferredBlock<Block> DARK_FRIDGE = registerBlock("fridge_dark",
-            ()-> new FridgeBlock(BlockBehaviour.Properties.of().strength(2.5f)));
 
-    public static final DeferredBlock<Block> LIGHT_FREEZER = registerBlock("freezer_light",
-            ()-> new FreezerBlock(BlockBehaviour.Properties.of().strength(2.5f)));
-    public static final DeferredBlock<Block> DARK_FREEZER = registerBlock("freezer_dark",
-            ()-> new FreezerBlock(BlockBehaviour.Properties.of().strength(2.5f)));
-  */
-    //Microwave
+    public static final DeferredBlock<Block> FRIDGE_LIGHT = registerBlockWithCustomItem("fridge_light",
+            () -> new FridgeBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), () -> ModBlocks.FREEZER_LIGHT),
+            block -> () -> new BlockSupplierItem(new Item.Properties(), block.get(), ModBlocks.FREEZER_LIGHT));
+
+    public static final DeferredBlock<Block> FRIDGE_DARK = registerBlockWithCustomItem("fridge_dark",
+            () -> new FridgeBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), () -> ModBlocks.FREEZER_DARK),
+            block -> () -> new BlockSupplierItem(new Item.Properties(), block.get(), ModBlocks.FREEZER_DARK));
+
+
+
+
+
+
+
     public static final DeferredBlock<Block> LIGHT_MICROWAVE = registerBlock("microwave_light",
             ()-> new MicrowaveBlock(BlockBehaviour.Properties.of().strength(2.5f).sound(SoundType.METAL)
                     .requiresCorrectToolForDrops()));
@@ -1724,10 +1734,18 @@ public static final DeferredBlock<Block> STONE_GLASS_TECQUE = registerBlock("sto
 
 
 
+    private static <T extends Block> DeferredBlock<T> registerBlockWithCustomItem(String name, Supplier<T> block, Function<DeferredBlock<T>, Supplier<Item>> itemSupplier) {
+        DeferredBlock<T> toReturn = BLOCKS.register(name, block);
+
+        ModItems.ITEMS.register(name, itemSupplier.apply(toReturn));
+
+        return toReturn;
+    }
 
 
-
-
+    private static <T extends Block> DeferredBlock<T> registerNoItem(String name, Supplier<T> block) {
+        return BLOCKS.register(name, block);
+    }
 
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {

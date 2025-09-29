@@ -334,6 +334,9 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.DARK_OAK_CALCITE_CABINET);
                         output.accept(ModBlocks.OAK_ANDESITE_CABINET);
 
+                        output.accept(ModBlocks.FRIDGE_DARK);
+                        output.accept(ModBlocks.FRIDGE_LIGHT);
+
                         output.accept(ModBlocks.OAK_BEDSIDE);
                         output.accept(ModBlocks.SPRUCE_BEDSIDE);
                         output.accept(ModBlocks.BIRCH_BEDSIDE);

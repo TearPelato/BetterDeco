@@ -28,8 +28,8 @@ public class FreezerMenu extends AbstractContainerMenu {
         this.level = inv.player.level();
         this.data = data;
 
-        this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 0, 30, 17)); // Input
-        this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 1, 90, 17)); // Output
+        this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 0, 56, 17)); // Input
+        this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 2, 116, 35)); // Output
 
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
@@ -44,7 +44,7 @@ public class FreezerMenu extends AbstractContainerMenu {
     public int getScaledProgress() {
         int progress = this.data.get(0);
         int maxProgress = this.data.get(1);
-        int arrowPixelSize = 24; // larghezza freccia nella GUI
+        int arrowPixelSize = 24;
         return maxProgress != 0 && progress != 0 ? progress * arrowPixelSize / maxProgress : 0;
     }
 
@@ -56,7 +56,7 @@ public class FreezerMenu extends AbstractContainerMenu {
     private static final int VANILLA_FIRST_SLOT_INDEX = 0;
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
-    private static final int TE_INVENTORY_SLOT_COUNT = 2;
+    private static final int TE_INVENTORY_SLOT_COUNT = 3;
 
     @Override
     public ItemStack quickMoveStack(Player player, int index) {
@@ -90,7 +90,10 @@ public class FreezerMenu extends AbstractContainerMenu {
     @Override
     public boolean stillValid(Player player) {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()), player,
-               ModBlocks.OAK_PLANKS_BRICKS.get());
+               ModBlocks.FREEZER_DARK.get())
+                ||
+                stillValid(ContainerLevelAccess.create(level,blockEntity.getBlockPos()),player,
+                        ModBlocks.FREEZER_LIGHT.get());
     }
 
     private void addPlayerInventory(Inventory playerInventory) {
