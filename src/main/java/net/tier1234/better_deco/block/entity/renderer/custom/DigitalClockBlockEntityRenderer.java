@@ -1,27 +1,28 @@
-package net.tier1234.better_deco.block.entity.renderer;
+package net.tier1234.better_deco.block.entity.renderer.custom;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
-import net.minecraft.world.item.DyeColor;
+import net.minecraft.client.renderer.state.CameraRenderState;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.tier1234.better_deco.block.custom.DigitalClockBlock;
 import net.tier1234.better_deco.block.entity.DigitalClockBlockEntity;
+import net.tier1234.better_deco.block.entity.renderer.core.ModBlockEntityRendererState;
 
-public class DigitalClockBlockEntityRenderer implements BlockEntityRenderer<DigitalClockBlockEntity> {
+public class DigitalClockBlockEntityRenderer implements BlockEntityRenderer<DigitalClockBlockEntity, ModBlockEntityRendererState> {
 
     private final Font font;
 
     public DigitalClockBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
-        this.font = context.getFont();
+        this.font = context.font();
     }
 
-    @Override
     public void render(DigitalClockBlockEntity blockEntity, float partialTicks, PoseStack poseStack,
                        MultiBufferSource buffer, int packedLight, int packedOverlay, Vec3 vec3) {
 
@@ -48,5 +49,15 @@ public class DigitalClockBlockEntityRenderer implements BlockEntityRenderer<Digi
                 Font.DisplayMode.NORMAL, 0, packedLight);
 
         poseStack.popPose();
+    }
+
+    @Override
+    public ModBlockEntityRendererState createRenderState() {
+        return new ModBlockEntityRendererState();
+    }
+
+    @Override
+    public void submit(ModBlockEntityRendererState modBlockEntityRendererState, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, CameraRenderState cameraRenderState) {
+
     }
 }

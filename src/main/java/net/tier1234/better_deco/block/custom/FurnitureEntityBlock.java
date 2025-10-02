@@ -43,11 +43,6 @@ public abstract class FurnitureEntityBlock extends BaseEntityBlock
         return RenderShape.MODEL;
     }
 
-    @Override
-    public int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos)
-    {
-        return AbstractContainerMenu.getRedstoneSignalFromBlockEntity(level.getBlockEntity(pos));
-    }
 
     @Override
     public boolean hasAnalogOutputSignal(BlockState state)

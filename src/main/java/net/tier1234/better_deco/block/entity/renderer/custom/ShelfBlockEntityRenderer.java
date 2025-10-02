@@ -1,27 +1,27 @@
-package net.tier1234.better_deco.block.entity.renderer;
+package net.tier1234.better_deco.block.entity.renderer.custom;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
+import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
+import net.minecraft.client.renderer.state.CameraRenderState;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemDisplayContext;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
 import net.tier1234.better_deco.block.custom.CustomShelfBlock;
 import net.tier1234.better_deco.block.entity.ShelfBlockEntity;
+import net.tier1234.better_deco.block.entity.renderer.core.ModBlockEntityRendererState;
 import net.tier1234.better_deco.screen.ModInventory;
 
-public class ShelfBlockEntityRenderer implements BlockEntityRenderer<ShelfBlockEntity> {
+public class ShelfBlockEntityRenderer implements BlockEntityRenderer<ShelfBlockEntity, ModBlockEntityRendererState> {
     private static final float U1 = 1f / 16f;
 
     public ShelfBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
     }
 
-    @Override
     public void render(ShelfBlockEntity blockEntity, float partialTick,
                        PoseStack poseStack, MultiBufferSource bufferSource,
                        int packedLight, int packedOverlay, Vec3 vec3) {
@@ -124,6 +124,16 @@ public class ShelfBlockEntityRenderer implements BlockEntityRenderer<ShelfBlockE
             );
             poseStack.popPose();
         }
+    }
+
+    @Override
+    public ModBlockEntityRendererState createRenderState() {
+        return new ModBlockEntityRendererState();
+    }
+
+    @Override
+    public void submit(ModBlockEntityRendererState modBlockEntityRendererState, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, CameraRenderState cameraRenderState) {
+
     }
 }
 

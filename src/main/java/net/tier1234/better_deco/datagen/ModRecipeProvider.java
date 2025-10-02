@@ -3819,7 +3819,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern(" # ")
                 .pattern(" B ")
                 .pattern(" # ")
-                .define('B', Blocks.CHAIN.asItem())
+                .define('B', Blocks.IRON_CHAIN.asItem())
                 .define('#', Items.IRON_INGOT.asItem())
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);

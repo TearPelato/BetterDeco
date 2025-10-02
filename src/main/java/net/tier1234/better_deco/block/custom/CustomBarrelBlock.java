@@ -48,7 +48,7 @@ public class CustomBarrelBlock extends BaseEntityBlock {
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos,
                                                Player player, BlockHitResult hitResult) {
-        if (level.isClientSide) {
+        if (level.isClientSide()) {
             return InteractionResult.SUCCESS;
         } else {
             BlockEntity blockEntity = level.getBlockEntity(pos);
@@ -85,10 +85,7 @@ public class CustomBarrelBlock extends BaseEntityBlock {
         return true;
     }
 
-    @Override
-    protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
-        return AbstractContainerMenu.getRedstoneSignalFromBlockEntity(level.getBlockEntity(pos));
-    }
+
 
     @Override
     protected BlockState rotate(BlockState state, Rotation rotation) {

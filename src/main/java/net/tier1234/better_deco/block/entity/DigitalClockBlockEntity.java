@@ -28,7 +28,7 @@ public class DigitalClockBlockEntity extends BlockEntity {
     }
 
     public void sync() {
-        if (this.level != null && !this.level.isClientSide) {
+        if (this.level != null && !this.level.isClientSide()) {
             this.setChanged();
             this.level.sendBlockUpdated(this.worldPosition, this.getBlockState(), this.getBlockState(), 3);
         }

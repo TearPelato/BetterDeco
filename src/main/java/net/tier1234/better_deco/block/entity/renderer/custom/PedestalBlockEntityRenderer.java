@@ -1,13 +1,15 @@
-package net.tier1234.better_deco.block.entity.renderer;
+package net.tier1234.better_deco.block.entity.renderer.custom;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.entity.ItemRenderer;
+import net.minecraft.client.renderer.state.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemDisplayContext;
@@ -16,13 +18,13 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.phys.Vec3;
 import net.tier1234.better_deco.block.entity.PedestalBlockEntity;
+import net.tier1234.better_deco.block.entity.renderer.core.ModBlockEntityRendererState;
 
-public class PedestalBlockEntityRenderer implements BlockEntityRenderer<PedestalBlockEntity> {
+public class PedestalBlockEntityRenderer implements BlockEntityRenderer<PedestalBlockEntity, ModBlockEntityRendererState> {
     public PedestalBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
 
     }
 
-    @Override
     public void render(PedestalBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack,
                        MultiBufferSource pBufferSource, int pPackedLight, int pPackedOverlay, Vec3 vec3) {
         ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
@@ -42,5 +44,15 @@ public class PedestalBlockEntityRenderer implements BlockEntityRenderer<Pedestal
         int bLight = level.getBrightness(LightLayer.BLOCK, pos);
         int sLight = level.getBrightness(LightLayer.SKY, pos);
         return LightTexture.pack(bLight, sLight);
+    }
+
+    @Override
+    public ModBlockEntityRendererState createRenderState() {
+        return new ModBlockEntityRendererState();
+    }
+
+    @Override
+    public void submit(ModBlockEntityRendererState modBlockEntityRendererState, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, CameraRenderState cameraRenderState) {
+
     }
 }

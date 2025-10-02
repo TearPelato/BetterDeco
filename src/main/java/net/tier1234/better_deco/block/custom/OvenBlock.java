@@ -104,7 +104,7 @@ public class OvenBlock extends FurnitureHorizontalBlock implements EntityBlock
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-        return level.isClientSide ? null :
+        return level.isClientSide() ? null :
                 (type == ModBlockEntities.OVEN.get()
                         ? (lvl, pos, st, be) -> ((OvenBlockEntity) be).tick(lvl, pos, st)
                         : null);

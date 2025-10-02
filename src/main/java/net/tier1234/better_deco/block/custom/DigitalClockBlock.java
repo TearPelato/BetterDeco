@@ -87,7 +87,7 @@ public class DigitalClockBlock extends FurnitureHorizontalBlock implements Entit
     protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
                                           Player player, InteractionHand hand, BlockHitResult hitResult) {
         if (stack.getItem() instanceof DyeItem dyeItem) {
-            if (!level.isClientSide) {
+            if (!level.isClientSide()) {
                 BlockEntity blockEntity = level.getBlockEntity(pos);
                 if (blockEntity instanceof DigitalClockBlockEntity digitalClock) {
                     digitalClock.setTextColor(dyeItem.getDyeColor());
