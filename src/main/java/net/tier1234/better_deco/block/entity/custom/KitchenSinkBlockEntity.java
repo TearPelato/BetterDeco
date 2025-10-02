@@ -5,7 +5,6 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.fluids.FluidType;
 import net.tier1234.better_deco.block.entity.ModBlockEntities;
-import net.tier1234.better_deco.block.entity.core.FluidHandlerSyncedBlockEntity;
 
 public class KitchenSinkBlockEntity extends FluidHandlerSyncedBlockEntity
 {
