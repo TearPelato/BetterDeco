@@ -22,6 +22,7 @@
   "bundled_tab.buildings_extras": "Buildings Extras",
   "bundled_tab.decoration": "Decorative Blocks",
   "bundled_tab.electronics.title": "Electronic Furnitures",
+  "bundled_tab.external_deco": "External Decorations",
 
   "block.better_deco.red_stool": "Red Stool",
   "block.better_deco.orange_stool": "Orange Stool",
@@ -205,6 +206,7 @@
   "gui.better_deco.generator": "Generator",
   "gui.better_deco.freezer": "Freezer",
   "gui.better_deco.fridge": "Fridge",
+  "gui.better_deco.desk_cabinet": "Desk Cabinet",
 
   "block.better_deco.fridge_dark": "Fridge (Dark)",
   "block.better_deco.fridge_light": "Fridge (Light)",
@@ -674,6 +676,19 @@
   "block.better_deco.crimson_shelf": "Crimson Shelf",
   "block.better_deco.warped_shelf": "Warped Shelf",
 
+
+
+  "block.better_deco.oak_park_bench": "Oak Park Bench",
+  "block.better_deco.spruce_park_bench": "Spruce Park Bench",
+  "block.better_deco.birch_park_bench": "Birch Park Bench",
+  "block.better_deco.jungle_park_bench": "Jungle Park Bench",
+  "block.better_deco.acacia_park_bench": "Acacia Park Bench",
+  "block.better_deco.dark_oak_park_bench": "Dark Oak Park Bench",
+  "block.better_deco.mangrove_park_bench": "Mangrove Park Bench",
+  "block.better_deco.cherry_park_bench": "Cherry Park Bench",
+  "block.better_deco.bamboo_park_bench": "Bamboo Park Bench",
+  "block.better_deco.crimson_park_bench": "Crimson Park Bench",
+  "block.better_deco.warped_park_bench": "Warped Park Bench",
 
 
 

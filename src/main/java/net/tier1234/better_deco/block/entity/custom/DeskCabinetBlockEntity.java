@@ -37,7 +37,7 @@ public class DeskCabinetBlockEntity extends BasicLootBlockEntity
     @Override
     protected Component getDefaultName()
     {
-        return Component.translatable("container.cfm.desk_cabinet");
+        return Component.translatable("gui.better_deco.desk_cabinet");
     }
 
     @Override

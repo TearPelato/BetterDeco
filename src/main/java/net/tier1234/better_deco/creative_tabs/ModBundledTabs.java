@@ -422,7 +422,29 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.STRIPPED_CRIMSON_DINNING_TABLE);
                         output.accept(ModBlocks.STRIPPED_WARPED_DINNING_TABLE);
 
+                        output.accept(ModBlocks.OAK_DESK);
+                        output.accept(ModBlocks.SPRUCE_DESK);
+                        output.accept(ModBlocks.BIRCH_DESK);
+                        output.accept(ModBlocks.JUNGLE_DESK);
+                        output.accept(ModBlocks.ACACIA_DESK);
+                        output.accept(ModBlocks.DARK_OAK_DESK);
+                        output.accept(ModBlocks.MANGROVE_DESK);
+                        output.accept(ModBlocks.CHERRY_DESK);
+                        output.accept(ModBlocks.BAMBOO_DESK);
+                        output.accept(ModBlocks.CRIMSON_DESK);
+                        output.accept(ModBlocks.WARPED_DESK);
 
+                        output.accept(ModBlocks.OAK_DESK_CABINET);
+                        output.accept(ModBlocks.SPRUCE_DESK_CABINET);
+                        output.accept(ModBlocks.BIRCH_DESK_CABINET);
+                        output.accept(ModBlocks.JUNGLE_DESK_CABINET);
+                        output.accept(ModBlocks.ACACIA_DESK_CABINET);
+                        output.accept(ModBlocks.DARK_OAK_DESK_CABINET);
+                        output.accept(ModBlocks.MANGROVE_DESK_CABINET);
+                        output.accept(ModBlocks.CHERRY_DESK_CABINET);
+                        output.accept(ModBlocks.BAMBOO_DESK_CABINET);
+                        output.accept(ModBlocks.CRIMSON_DESK_CABINET);
+                        output.accept(ModBlocks.WARPED_DESK_CABINET);
 
 
                         output.accept(ModBlocks.OAK_CHAIR);
@@ -566,6 +588,30 @@ public class ModBundledTabs {
 
                             })
                     .build()
+    );
+
+    public static final BundledTabs EXTERNAL_DECORATIONS = register(
+            BundledTabs.builder()
+                    .title(Component.translatable("bundled_tab.external_deco"))
+                    .icon(new ItemStack(ModBlocks.OAK_PARK_BENCH.get()))
+                    .displayItems((provider, output) -> {
+                        output.accept(ModBlocks.OAK_PARK_BENCH);
+                        output.accept(ModBlocks.SPRUCE_PARK_BENCH);
+                        output.accept(ModBlocks.BIRCH_PARK_BENCH);
+                        output.accept(ModBlocks.JUNGLE_PARK_BENCH);
+                        output.accept(ModBlocks.ACACIA_PARK_BENCH);
+                        output.accept(ModBlocks.DARK_OAK_PARK_BENCH);
+                        output.accept(ModBlocks.MANGROVE_PARK_BENCH);
+                        output.accept(ModBlocks.CHERRY_PARK_BENCH);
+                        output.accept(ModBlocks.BAMBOO_PARK_BENCH);
+                        output.accept(ModBlocks.CRIMSON_PARK_BENCH);
+                        output.accept(ModBlocks.WARPED_PARK_BENCH);
+
+                        output.accept(ModBlocks.STONE_PATH);
+
+
+                    })
+                            .build()
     );
 
     public static final BundledTabs DECORATION = register(

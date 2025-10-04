@@ -142,26 +142,17 @@ public class DeskBlock extends FurnitureHorizontalBlock
     public enum MaterialType
     {
         OAK,
-        BIRCH,
         SPRUCE,
+        BIRCH,
         JUNGLE,
         ACACIA,
         DARK_OAK,
+        MANGROVE,
+        CHERRY,
+        BAMBOO,
         CRIMSON,
         WARPED,
-        MANGROVE,
-        STONE,
-        GRANITE,
-        DIORITE,
-        ANDESITE,
-        STRIPPED_OAK,
-        STRIPPED_BIRCH,
-        STRIPPED_SPRUCE,
-        STRIPPED_JUNGLE,
-        STRIPPED_ACACIA,
-        STRIPPED_DARK_OAK,
-        STRIPPED_CRIMSON,
-        STRIPPED_WARPED,
-        STRIPPED_MANGROVE
+
+
     }
 }

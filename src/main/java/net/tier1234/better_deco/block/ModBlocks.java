@@ -27,6 +27,93 @@ public class ModBlocks {
 
 
     //Test
+
+
+    //Desk
+
+    public static final DeferredBlock<Block> OAK_DESK = registerBlock("oak_desk",
+            ()-> new DeskBlock(BlockBehaviour.Properties.of(), DeskBlock.MaterialType.OAK));
+    public static final DeferredBlock<Block> SPRUCE_DESK = registerBlock("spruce_desk",
+            ()-> new DeskBlock(BlockBehaviour.Properties.of(), DeskBlock.MaterialType.SPRUCE));
+    public static final DeferredBlock<Block> BIRCH_DESK = registerBlock("birch_desk",
+            ()-> new DeskBlock(BlockBehaviour.Properties.of(), DeskBlock.MaterialType.BIRCH));
+    public static final DeferredBlock<Block> JUNGLE_DESK = registerBlock("jungle_desk",
+            ()-> new DeskBlock(BlockBehaviour.Properties.of(), DeskBlock.MaterialType.JUNGLE));
+    public static final DeferredBlock<Block> ACACIA_DESK = registerBlock("acacia_desk",
+            ()-> new DeskBlock(BlockBehaviour.Properties.of(), DeskBlock.MaterialType.ACACIA));
+    public static final DeferredBlock<Block> MANGROVE_DESK = registerBlock("mangrove_desk",
+            ()-> new DeskBlock(BlockBehaviour.Properties.of(), DeskBlock.MaterialType.MANGROVE));
+    public static final DeferredBlock<Block> DARK_OAK_DESK = registerBlock("dark_oak_desk",
+            ()-> new DeskBlock(BlockBehaviour.Properties.of(), DeskBlock.MaterialType.DARK_OAK));
+    public static final DeferredBlock<Block>  CHERRY_DESK = registerBlock("cherry_desk",
+            ()-> new DeskBlock(BlockBehaviour.Properties.of(), DeskBlock.MaterialType.CHERRY));
+    public static final DeferredBlock<Block> BAMBOO_DESK = registerBlock("bamboo_desk",
+            ()-> new DeskBlock(BlockBehaviour.Properties.of(), DeskBlock.MaterialType.BAMBOO));
+    public static final DeferredBlock<Block> CRIMSON_DESK = registerBlock("crimson_desk",
+            ()-> new DeskBlock(BlockBehaviour.Properties.of(), DeskBlock.MaterialType.CRIMSON));
+    public static final DeferredBlock<Block> WARPED_DESK = registerBlock("warped_desk",
+            ()-> new DeskBlock(BlockBehaviour.Properties.of(), DeskBlock.MaterialType.WARPED));
+
+    public static final DeferredBlock<Block> OAK_DESK_CABINET = registerBlock("oak_desk_cabinet",
+            ()-> new DeskCabinetBlock(BlockBehaviour.Properties.of(), DeskBlock.MaterialType.OAK));
+    public static final DeferredBlock<Block> SPRUCE_DESK_CABINET = registerBlock("spruce_desk_cabinet",
+            ()-> new DeskCabinetBlock(BlockBehaviour.Properties.of(), DeskBlock.MaterialType.SPRUCE));
+    public static final DeferredBlock<Block> BIRCH_DESK_CABINET = registerBlock("birch_desk_cabinet",
+            ()-> new DeskCabinetBlock(BlockBehaviour.Properties.of(), DeskBlock.MaterialType.BIRCH));
+    public static final DeferredBlock<Block> JUNGLE_DESK_CABINET = registerBlock("jungle_desk_cabinet",
+            ()-> new DeskCabinetBlock(BlockBehaviour.Properties.of(), DeskBlock.MaterialType.JUNGLE));
+    public static final DeferredBlock<Block> ACACIA_DESK_CABINET = registerBlock("acacia_desk_cabinet",
+            ()-> new DeskCabinetBlock(BlockBehaviour.Properties.of(), DeskBlock.MaterialType.ACACIA));
+    public static final DeferredBlock<Block> MANGROVE_DESK_CABINET = registerBlock("mangrove_desk_cabinet",
+            ()-> new DeskCabinetBlock(BlockBehaviour.Properties.of(), DeskBlock.MaterialType.MANGROVE));
+    public static final DeferredBlock<Block> DARK_OAK_DESK_CABINET = registerBlock("dark_oak_desk_cabinet",
+            ()-> new DeskCabinetBlock(BlockBehaviour.Properties.of(), DeskBlock.MaterialType.DARK_OAK));
+    public static final DeferredBlock<Block>  CHERRY_DESK_CABINET = registerBlock("cherry_desk_cabinet",
+            ()-> new DeskCabinetBlock(BlockBehaviour.Properties.of(), DeskBlock.MaterialType.CHERRY));
+    public static final DeferredBlock<Block> BAMBOO_DESK_CABINET = registerBlock("bamboo_desk_cabinet",
+            ()-> new DeskCabinetBlock(BlockBehaviour.Properties.of(), DeskBlock.MaterialType.BAMBOO));
+    public static final DeferredBlock<Block> CRIMSON_DESK_CABINET = registerBlock("crimson_desk_cabinet",
+            ()-> new DeskCabinetBlock(BlockBehaviour.Properties.of(), DeskBlock.MaterialType.CRIMSON));
+    public static final DeferredBlock<Block> WARPED_DESK_CABINET = registerBlock("warped_desk_cabinet",
+            ()-> new DeskCabinetBlock(BlockBehaviour.Properties.of(), DeskBlock.MaterialType.WARPED));
+
+
+
+    //Path
+    public static final DeferredBlock<Block> STONE_PATH = registerBlock("stone_path",
+            ()-> new RockPath(BlockBehaviour.Properties.of().strength(3.1f)));
+
+    //PARK BENCH
+
+    public static final DeferredBlock<Block> OAK_PARK_BENCH = registerBlock("oak_park_bench",
+            ()-> new ParkBenchBlock(BlockBehaviour.Properties.of().strength(2.5f)));
+    public static final DeferredBlock<Block> SPRUCE_PARK_BENCH = registerBlock("spruce_park_bench",
+            ()-> new ParkBenchBlock(BlockBehaviour.Properties.of().strength(2.5f)));
+    public static final DeferredBlock<Block> BIRCH_PARK_BENCH = registerBlock("birch_park_bench",
+            ()-> new ParkBenchBlock(BlockBehaviour.Properties.of().strength(2.5f)));
+    public static final DeferredBlock<Block> JUNGLE_PARK_BENCH = registerBlock("jungle_park_bench",
+            ()-> new ParkBenchBlock(BlockBehaviour.Properties.of().strength(2.5f)));
+    public static final DeferredBlock<Block> ACACIA_PARK_BENCH = registerBlock("acacia_park_bench",
+            ()-> new ParkBenchBlock(BlockBehaviour.Properties.of().strength(2.5f)));
+    public static final DeferredBlock<Block> DARK_OAK_PARK_BENCH = registerBlock("dark_oak_park_bench",
+            ()-> new ParkBenchBlock(BlockBehaviour.Properties.of().strength(2.5f)));
+    public static final DeferredBlock<Block> MANGROVE_PARK_BENCH = registerBlock("mangrove_park_bench",
+            ()-> new ParkBenchBlock(BlockBehaviour.Properties.of().strength(2.5f)));
+    public static final DeferredBlock<Block> CHERRY_PARK_BENCH = registerBlock("cherry_park_bench",
+            ()-> new ParkBenchBlock(BlockBehaviour.Properties.of().strength(2.5f)));
+    public static final DeferredBlock<Block> BAMBOO_PARK_BENCH = registerBlock("bamboo_park_bench",
+            ()-> new ParkBenchBlock(BlockBehaviour.Properties.of().strength(2.5f)));
+    public static final DeferredBlock<Block> CRIMSON_PARK_BENCH = registerBlock("crimson_park_bench",
+            ()-> new ParkBenchBlock(BlockBehaviour.Properties.of().strength(2.5f)));
+    public static final DeferredBlock<Block> WARPED_PARK_BENCH = registerBlock("warped_park_bench",
+            ()-> new ParkBenchBlock(BlockBehaviour.Properties.of().strength(2.5f)));
+
+
+
+
+
+
+    //FRIDGE & FREEZERS
     public static final DeferredBlock<Block> FREEZER_LIGHT = registerNoItem("freezer_light",
             () -> new FreezerBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), () -> ModBlocks.FRIDGE_LIGHT));
     public static final DeferredBlock<Block> FREEZER_DARK = registerNoItem("freezer_dark",

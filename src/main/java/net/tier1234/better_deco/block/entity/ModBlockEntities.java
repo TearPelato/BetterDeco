@@ -376,7 +376,18 @@ public class ModBlockEntities {
 
     public static final Supplier<BlockEntityType<DeskCabinetBlockEntity>> DESK_CABINET =
             BLOCK_ENTITIES.register("desk_cabinet", ()-> BlockEntityType.Builder.of(
-                    DeskCabinetBlockEntity::new
+                    DeskCabinetBlockEntity::new,
+                    ModBlocks.OAK_DESK_CABINET.get(),
+                    ModBlocks.SPRUCE_DESK_CABINET.get(),
+                    ModBlocks.BIRCH_DESK_CABINET.get(),
+                    ModBlocks.JUNGLE_DESK_CABINET.get(),
+                    ModBlocks.ACACIA_DESK_CABINET.get(),
+                    ModBlocks.DARK_OAK_DESK_CABINET.get(),
+                    ModBlocks.MANGROVE_DESK_CABINET.get(),
+                    ModBlocks.CHERRY_DESK_CABINET.get(),
+                    ModBlocks.BAMBOO_DESK_CABINET.get(),
+                    ModBlocks.CRIMSON_DESK_CABINET.get(),
+                    ModBlocks.WARPED_DESK_CABINET.get()
 
             ).build(null));
 
