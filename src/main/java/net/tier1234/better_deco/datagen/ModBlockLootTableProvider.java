@@ -606,6 +606,136 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.SPRUCE_DIORITE_OVEN.get());
         dropSelf(ModBlocks.DARK_OAK_CALCITE_OVEN.get());
 
+        dropSelf(ModBlocks.OAK_PARK_BENCH.get());
+        dropSelf(ModBlocks.SPRUCE_PARK_BENCH.get());
+        dropSelf(ModBlocks.BIRCH_PARK_BENCH.get());
+        dropSelf(ModBlocks.JUNGLE_PARK_BENCH.get());
+        dropSelf(ModBlocks.ACACIA_PARK_BENCH.get());
+        dropSelf(ModBlocks.DARK_OAK_PARK_BENCH.get());
+        dropSelf(ModBlocks.MANGROVE_PARK_BENCH.get());
+        dropSelf(ModBlocks.CHERRY_PARK_BENCH.get());
+        dropSelf(ModBlocks.BAMBOO_PARK_BENCH.get());
+        dropSelf(ModBlocks.CRIMSON_PARK_BENCH.get());
+        dropSelf(ModBlocks.WARPED_PARK_BENCH.get());
+
+        dropSelf(ModBlocks.OAK_DESK.get());
+        dropSelf(ModBlocks.SPRUCE_DESK.get());
+        dropSelf(ModBlocks.BIRCH_DESK.get());
+        dropSelf(ModBlocks.JUNGLE_DESK.get());
+        dropSelf(ModBlocks.ACACIA_DESK.get());
+        dropSelf(ModBlocks.DARK_OAK_DESK.get());
+        dropSelf(ModBlocks.MANGROVE_DESK.get());
+        dropSelf(ModBlocks.CHERRY_DESK.get());
+        dropSelf(ModBlocks.BAMBOO_DESK.get());
+        dropSelf(ModBlocks.CRIMSON_DESK.get());
+        dropSelf(ModBlocks.WARPED_DESK.get());
+
+        dropSelf(ModBlocks.OAK_DESK_CABINET.get());
+        dropSelf(ModBlocks.SPRUCE_DESK_CABINET.get());
+        dropSelf(ModBlocks.BIRCH_DESK_CABINET.get());
+        dropSelf(ModBlocks.JUNGLE_DESK_CABINET.get());
+        dropSelf(ModBlocks.ACACIA_DESK_CABINET.get());
+        dropSelf(ModBlocks.DARK_OAK_DESK_CABINET.get());
+        dropSelf(ModBlocks.MANGROVE_DESK_CABINET.get());
+        dropSelf(ModBlocks.CHERRY_DESK_CABINET.get());
+        dropSelf(ModBlocks.BAMBOO_DESK_CABINET.get());
+        dropSelf(ModBlocks.CRIMSON_DESK_CABINET.get());
+        dropSelf(ModBlocks.WARPED_DESK_CABINET.get());
+
+        dropSelf(ModBlocks.RED_KITCHEN_COUNTER.get());
+        dropSelf(ModBlocks.YELLOW_KITCHEN_COUNTER.get());
+        dropSelf(ModBlocks.PINK_KITCHEN_COUNTER.get());
+        dropSelf(ModBlocks.PURPLE_KITCHEN_COUNTER.get());
+        dropSelf(ModBlocks.BROWN_KITCHEN_COUNTER.get());
+        dropSelf(ModBlocks.ORANGE_KITCHEN_COUNTER.get());
+        dropSelf(ModBlocks.BLACK_KITCHEN_COUNTER.get());
+        dropSelf(ModBlocks.WHITE_KITCHEN_COUNTER.get());
+        dropSelf(ModBlocks.MAGENTA_KITCHEN_COUNTER.get());
+        dropSelf(ModBlocks.LIGHT_BLUE_KITCHEN_COUNTER.get());
+        dropSelf(ModBlocks.BLUE_KITCHEN_COUNTER.get());
+        dropSelf(ModBlocks.GREEN_KITCHEN_COUNTER.get());
+        dropSelf(ModBlocks.LIME_KITCHEN_COUNTER.get());
+        dropSelf(ModBlocks.LIGHT_GRAY_KITCHEN_COUNTER.get());
+        dropSelf(ModBlocks.GRAY_KITCHEN_COUNTER.get());
+        dropSelf(ModBlocks.CYAN_KITCHEN_COUNTER.get());
+
+        dropSelf(ModBlocks.RED_KITCHEN_DRAWER.get());
+        dropSelf(ModBlocks.YELLOW_KITCHEN_DRAWER.get());
+        dropSelf(ModBlocks.PINK_KITCHEN_DRAWER.get());
+        dropSelf(ModBlocks.PURPLE_KITCHEN_DRAWER.get());
+        dropSelf(ModBlocks.BROWN_KITCHEN_DRAWER.get());
+        dropSelf(ModBlocks.ORANGE_KITCHEN_DRAWER.get());
+        dropSelf(ModBlocks.BLACK_KITCHEN_DRAWER.get());
+        dropSelf(ModBlocks.WHITE_KITCHEN_DRAWER.get());
+        dropSelf(ModBlocks.MAGENTA_KITCHEN_DRAWER.get());
+        dropSelf(ModBlocks.LIGHT_BLUE_KITCHEN_DRAWER.get());
+        dropSelf(ModBlocks.BLUE_KITCHEN_DRAWER.get());
+        dropSelf(ModBlocks.GREEN_KITCHEN_DRAWER.get());
+        dropSelf(ModBlocks.LIME_KITCHEN_DRAWER.get());
+        dropSelf(ModBlocks.LIGHT_GRAY_KITCHEN_DRAWER.get());
+        dropSelf(ModBlocks.GRAY_KITCHEN_DRAWER.get());
+        dropSelf(ModBlocks.CYAN_KITCHEN_DRAWER.get());
+
+        dropSelf(ModBlocks.RED_OVEN.get());
+        dropSelf(ModBlocks.YELLOW_OVEN.get());
+        dropSelf(ModBlocks.PINK_OVEN.get());
+        dropSelf(ModBlocks.PURPLE_OVEN.get());
+        dropSelf(ModBlocks.BROWN_OVEN.get());
+        dropSelf(ModBlocks.ORANGE_OVEN.get());
+        dropSelf(ModBlocks.BLACK_OVEN.get());
+        dropSelf(ModBlocks.WHITE_OVEN.get());
+        dropSelf(ModBlocks.MAGENTA_OVEN.get());
+        dropSelf(ModBlocks.LIGHT_BLUE_OVEN.get());
+        dropSelf(ModBlocks.BLUE_OVEN.get());
+        dropSelf(ModBlocks.GREEN_OVEN.get());
+        dropSelf(ModBlocks.LIME_OVEN.get());
+        dropSelf(ModBlocks.LIGHT_GRAY_OVEN.get());
+        dropSelf(ModBlocks.GRAY_OVEN.get());
+        dropSelf(ModBlocks.CYAN_OVEN.get());
+
+        dropSelf(ModBlocks.RED_SINK.get());
+        dropSelf(ModBlocks.YELLOW_SINK.get());
+        dropSelf(ModBlocks.PINK_SINK.get());
+        dropSelf(ModBlocks.PURPLE_SINK.get());
+        dropSelf(ModBlocks.BROWN_SINK.get());
+        dropSelf(ModBlocks.ORANGE_SINK.get());
+        dropSelf(ModBlocks.BLACK_SINK.get());
+        dropSelf(ModBlocks.WHITE_SINK.get());
+        dropSelf(ModBlocks.MAGENTA_SINK.get());
+        dropSelf(ModBlocks.LIGHT_BLUE_SINK.get());
+        dropSelf(ModBlocks.BLUE_SINK.get());
+        dropSelf(ModBlocks.GREEN_SINK.get());
+        dropSelf(ModBlocks.LIME_SINK.get());
+        dropSelf(ModBlocks.LIGHT_GRAY_SINK.get());
+        dropSelf(ModBlocks.GRAY_SINK.get());
+        dropSelf(ModBlocks.CYAN_SINK.get());
+
+        dropSelf(ModBlocks.RED_CABINET.get());
+        dropSelf(ModBlocks.YELLOW_CABINET.get());
+        dropSelf(ModBlocks.PINK_CABINET.get());
+        dropSelf(ModBlocks.PURPLE_CABINET.get());
+        dropSelf(ModBlocks.BROWN_CABINET.get());
+        dropSelf(ModBlocks.ORANGE_CABINET.get());
+        dropSelf(ModBlocks.BLACK_CABINET.get());
+        dropSelf(ModBlocks.WHITE_CABINET.get());
+        dropSelf(ModBlocks.MAGENTA_CABINET.get());
+        dropSelf(ModBlocks.LIGHT_BLUE_CABINET.get());
+        dropSelf(ModBlocks.BLUE_CABINET.get());
+        dropSelf(ModBlocks.GREEN_CABINET.get());
+        dropSelf(ModBlocks.LIME_CABINET.get());
+        dropSelf(ModBlocks.LIGHT_GRAY_CABINET.get());
+        dropSelf(ModBlocks.GRAY_CABINET.get());
+        dropSelf(ModBlocks.CYAN_CABINET.get());
+
+        dropSelf(ModBlocks.FRIDGE_LIGHT.get());
+        dropSelf(ModBlocks.FRIDGE_DARK.get());
+
+        dropOther(ModBlocks.FREEZER_LIGHT.get(), ModBlocks.FRIDGE_LIGHT.get());
+        dropOther(ModBlocks.FREEZER_DARK.get(), ModBlocks.FRIDGE_DARK.get());
+
+        dropSelf(ModBlocks.STONE_PATH.get());
+
+
     }
 
 
