@@ -1,5 +1,6 @@
 {
 
+  "block.better_deco.stone_path": "Stone Path",
 
 "creativetab.better_deco.better_deco": "BetterDeco",
 
@@ -690,7 +691,29 @@
   "block.better_deco.crimson_park_bench": "Crimson Park Bench",
   "block.better_deco.warped_park_bench": "Warped Park Bench",
 
+  "block.better_deco.oak_desk": "Oak Desk",
+  "block.better_deco.spruce_desk": "Spruce Desk",
+  "block.better_deco.birch_desk": "Birch Desk",
+  "block.better_deco.jungle_desk": "Jungle Desk",
+  "block.better_deco.acacia_desk": "Acacia Desk",
+  "block.better_deco.dark_oak_desk": "Dark Oak Desk",
+  "block.better_deco.mangrove_desk": "Mangrove Desk",
+  "block.better_deco.cherry_desk": "Cherry Desk",
+  "block.better_deco.bamboo_desk": "Bamboo Desk",
+  "block.better_deco.crimson_desk": "Crimson Desk",
+  "block.better_deco.warped_desk": "Warped Desk",
 
+  "block.better_deco.oak_desk_cabinet": "Oak Desk Cabinet",
+  "block.better_deco.spruce_desk_cabinet": "Spruce Desk Cabinet",
+  "block.better_deco.birch_desk_cabinet": "Birch Desk Cabinet",
+  "block.better_deco.jungle_desk_cabinet": "Jungle Desk Cabinet",
+  "block.better_deco.acacia_desk_cabinet": "Acacia Desk Cabinet",
+  "block.better_deco.dark_oak_desk_cabinet": "Dark Oak Desk Cabinet",
+  "block.better_deco.mangrove_desk_cabinet": "Mangrove Desk Cabinet",
+  "block.better_deco.cherry_desk_cabinet": "Cherry Desk Cabinet",
+  "block.better_deco.bamboo_desk_cabinet": "Bamboo Desk Cabinet",
+  "block.better_deco.crimson_desk_cabinet": "Crimson Desk Cabinet",
+  "block.better_deco.warped_desk_cabinet": "Warped Desk Cabinet",
 
 
   "block.better_deco.limestone": "Limestone"
