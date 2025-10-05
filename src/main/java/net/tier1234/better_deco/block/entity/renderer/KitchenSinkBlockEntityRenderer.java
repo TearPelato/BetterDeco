@@ -16,7 +16,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.tier1234.better_deco.block.custom.FurnitureHorizontalBlock;
-import net.tier1234.better_deco.block.entity.KitchenSinkBlockEntity;
+import net.tier1234.better_deco.block.entity.custom.KitchenSinkBlockEntity;
 import org.joml.Matrix4f;
 
 public class KitchenSinkBlockEntityRenderer implements BlockEntityRenderer<KitchenSinkBlockEntity>

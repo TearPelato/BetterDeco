@@ -6,6 +6,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.block.ModBlocks;
+import net.tier1234.better_deco.block.entity.custom.*;
 
 import java.util.function.Supplier;
 
@@ -66,7 +67,24 @@ public class ModBlockEntities {
                                     ModBlocks.DARK_OAK_CALCITE_DRAWER.get(),
                                     ModBlocks.OAK_ANDESITE_DRAWER.get(),
                                     ModBlocks.PALE_OAK_KITCHEN_DRAWER.get(),
-                                    ModBlocks.STRIPPED_PALE_OAK_KITCHEN_DRAWER.get()
+                                    ModBlocks.STRIPPED_PALE_OAK_KITCHEN_DRAWER.get(),
+
+                                    ModBlocks.WHITE_KITCHEN_DRAWER.get(),
+                                    ModBlocks.LIGHT_GRAY_KITCHEN_DRAWER.get(),
+                                    ModBlocks.GRAY_KITCHEN_DRAWER.get(),
+                                    ModBlocks.BLACK_KITCHEN_DRAWER.get(),
+                                    ModBlocks.RED_KITCHEN_DRAWER.get(),
+                                    ModBlocks.ORANGE_KITCHEN_DRAWER.get(),
+                                    ModBlocks.YELLOW_KITCHEN_DRAWER.get(),
+                                    ModBlocks.LIME_KITCHEN_DRAWER.get(),
+                                    ModBlocks.GREEN_KITCHEN_DRAWER.get(),
+                                    ModBlocks.CYAN_KITCHEN_DRAWER.get(),
+                                    ModBlocks.LIGHT_BLUE_KITCHEN_DRAWER.get(),
+                                    ModBlocks.BLUE_KITCHEN_DRAWER.get(),
+                                    ModBlocks.PURPLE_KITCHEN_DRAWER.get(),
+                                    ModBlocks.MAGENTA_KITCHEN_DRAWER.get(),
+                                    ModBlocks.PINK_KITCHEN_DRAWER.get(),
+                                    ModBlocks.BROWN_KITCHEN_DRAWER.get()
                             )
             );
 
@@ -110,7 +128,25 @@ public class ModBlockEntities {
                                     ModBlocks.DARK_OAK_CALCITE_CABINET.get(),
                                     ModBlocks.OAK_ANDESITE_CABINET.get(),
                                     ModBlocks.PALE_OAK_CABINET.get(),
-                                    ModBlocks.STRIPPED_PALE_OAK_CABINET.get()
+                                    ModBlocks.STRIPPED_PALE_OAK_CABINET.get(),
+                                    ModBlocks.RED_CABINET.get(),
+                                    ModBlocks.ORANGE_CABINET.get(),
+                                    ModBlocks.YELLOW_CABINET.get(),
+                                    ModBlocks.GREEN_CABINET.get(),
+                                    ModBlocks.LIME_CABINET.get(),
+                                    ModBlocks.GRAY_CABINET.get(),
+                                    ModBlocks.LIGHT_GRAY_CABINET.get(),
+                                    ModBlocks.BLUE_CABINET.get(),
+                                    ModBlocks.CYAN_CABINET.get(),
+                                    ModBlocks.LIGHT_BLUE_CABINET.get(),
+                                    ModBlocks.MAGENTA_CABINET.get(),
+                                    ModBlocks.PURPLE_CABINET.get(),
+                                    ModBlocks.BROWN_CABINET.get(),
+                                    ModBlocks.BLACK_CABINET.get(),
+                                    ModBlocks.WHITE_CABINET.get(),
+                                    ModBlocks.PINK_CABINET.get()
+
+
                                     )
             );
 
@@ -176,7 +212,25 @@ public class ModBlockEntities {
                     ModBlocks.CRIMSON_SINK_DARK.get(),
                     ModBlocks.WARPED_SINK_DARK.get(),
                     ModBlocks.PALE_OAK_SINK.get(),
-                    ModBlocks.PALE_OAK_SINK_DARK.get()
+                    ModBlocks.PALE_OAK_SINK_DARK.get(),
+
+                    ModBlocks.RED_SINK.get(),
+                    ModBlocks.ORANGE_SINK.get(),
+                    ModBlocks.YELLOW_SINK.get(),
+                    ModBlocks.GREEN_SINK.get(),
+                    ModBlocks.LIME_SINK.get(),
+                    ModBlocks.GRAY_SINK.get(),
+                    ModBlocks.LIGHT_GRAY_SINK.get(),
+                    ModBlocks.BLUE_SINK.get(),
+                    ModBlocks.CYAN_SINK.get(),
+                    ModBlocks.LIGHT_BLUE_SINK.get(),
+                    ModBlocks.MAGENTA_SINK.get(),
+                    ModBlocks.PURPLE_SINK.get(),
+                    ModBlocks.BROWN_SINK.get(),
+                    ModBlocks.BLACK_SINK.get(),
+                    ModBlocks.WHITE_SINK.get(),
+                    ModBlocks.PINK_SINK.get()
+
 
             ));
 
@@ -294,7 +348,24 @@ public class ModBlockEntities {
                     ModBlocks.DARK_OAK_CALCITE_OVEN.get(),
                     ModBlocks.OAK_ANDESITE_OVEN.get(),
                     ModBlocks.PALE_OAK_OVEN.get(),
-                    ModBlocks.STRIPPED_PALE_OAK_OVEN.get()
+                    ModBlocks.STRIPPED_PALE_OAK_OVEN.get(),
+
+                    ModBlocks.WHITE_OVEN.get(),
+                    ModBlocks.LIGHT_GRAY_OVEN.get(),
+                    ModBlocks.GRAY_OVEN.get(),
+                    ModBlocks.BLACK_OVEN.get(),
+                    ModBlocks.RED_OVEN.get(),
+                    ModBlocks.ORANGE_OVEN.get(),
+                    ModBlocks.YELLOW_OVEN.get(),
+                    ModBlocks.LIME_OVEN.get(),
+                    ModBlocks.GREEN_OVEN.get(),
+                    ModBlocks.CYAN_OVEN.get(),
+                    ModBlocks.LIGHT_BLUE_OVEN.get(),
+                    ModBlocks.BLUE_OVEN.get(),
+                    ModBlocks.PURPLE_OVEN.get(),
+                    ModBlocks.MAGENTA_OVEN.get(),
+                    ModBlocks.PINK_OVEN.get(),
+                    ModBlocks.BROWN_OVEN.get()
 
 
             ));
@@ -308,9 +379,41 @@ public class ModBlockEntities {
 
             ));
 
+    public static final Supplier<BlockEntityType<DeskCabinetBlockEntity>> DESK_CABINET =
+            BLOCK_ENTITIES.register("desk_cabinet", ()-> new BlockEntityType<>(
+                    DeskCabinetBlockEntity::new,
+                    ModBlocks.OAK_DESK_CABINET.get(),
+                    ModBlocks.SPRUCE_DESK_CABINET.get(),
+                    ModBlocks.BIRCH_DESK_CABINET.get(),
+                    ModBlocks.JUNGLE_DESK_CABINET.get(),
+                    ModBlocks.ACACIA_DESK_CABINET.get(),
+                    ModBlocks.DARK_OAK_DESK_CABINET.get(),
+                    ModBlocks.MANGROVE_DESK_CABINET.get(),
+                    ModBlocks.CHERRY_DESK_CABINET.get(),
+                    ModBlocks.BAMBOO_DESK_CABINET.get(),
+                    ModBlocks.CRIMSON_DESK_CABINET.get(),
+                    ModBlocks.WARPED_DESK_CABINET.get()
+
+            ));
+
+
+    public static final Supplier<BlockEntityType<FridgeBlockEntity>> FRIDGE =
+            BLOCK_ENTITIES.register("fridge", ()-> new BlockEntityType<>(
+                    FridgeBlockEntity::new,
+                    ModBlocks.FRIDGE_LIGHT.get(),
+                    ModBlocks.FRIDGE_DARK.get()
+
+            ));
 
 
 
+    public static final Supplier<BlockEntityType<FreezerBlockEntity>> FREEZER =
+            BLOCK_ENTITIES.register("freezer", ()-> new BlockEntityType<>(
+                    FreezerBlockEntity::new,
+                    ModBlocks.FREEZER_LIGHT.get(),
+                    ModBlocks.FREEZER_DARK.get()
+
+            ));
 
 
 

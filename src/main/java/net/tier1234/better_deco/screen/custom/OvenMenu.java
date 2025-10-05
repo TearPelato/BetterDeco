@@ -10,7 +10,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.neoforged.neoforge.items.SlotItemHandler;
 import net.tier1234.better_deco.block.ModBlocks;
-import net.tier1234.better_deco.block.entity.OvenBlockEntity;
+import net.tier1234.better_deco.block.entity.custom.OvenBlockEntity;
 import net.tier1234.better_deco.screen.ModMenuTypes;
 
 public class OvenMenu extends AbstractContainerMenu {
@@ -121,9 +121,8 @@ public class OvenMenu extends AbstractContainerMenu {
                 pPlayer, ModBlocks.CRIMSON_OVEN.get())
                 || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
                 pPlayer, ModBlocks.WARPED_OVEN.get())
-                ||
-                stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                        pPlayer, ModBlocks.STRIPPED_OAK_OVEN.get())
+                ||stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                pPlayer, ModBlocks.STRIPPED_OAK_OVEN.get())
                 || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
                 pPlayer, ModBlocks.STRIPPED_SPRUCE_OVEN.get())
                 || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
@@ -153,7 +152,40 @@ public class OvenMenu extends AbstractContainerMenu {
                         || stillValid(ContainerLevelAccess.create(level,blockEntity.getBlockPos()),
                 pPlayer,ModBlocks.PALE_OAK_OVEN.get())
                         || stillValid(ContainerLevelAccess.create(level,blockEntity.getBlockPos()),
-                pPlayer,ModBlocks.STRIPPED_PALE_OAK_OVEN.get());
+                pPlayer,ModBlocks.STRIPPED_PALE_OAK_OVEN.get())
+                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                pPlayer, ModBlocks.RED_OVEN.get())
+                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                pPlayer, ModBlocks.ORANGE_OVEN.get())
+                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                pPlayer, ModBlocks.YELLOW_OVEN.get())
+                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                pPlayer, ModBlocks.MAGENTA_OVEN.get())
+                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                pPlayer, ModBlocks.PINK_OVEN.get())
+                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                pPlayer, ModBlocks.PURPLE_OVEN.get())
+                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                pPlayer, ModBlocks.BLUE_OVEN.get())
+                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                pPlayer, ModBlocks.LIGHT_BLUE_OVEN.get())
+                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                pPlayer, ModBlocks.GREEN_OVEN.get())
+                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                pPlayer, ModBlocks.LIME_OVEN.get())
+                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                pPlayer, ModBlocks.CYAN_OVEN.get())
+                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                pPlayer, ModBlocks.WHITE_OVEN.get())
+                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                pPlayer, ModBlocks.BLACK_OVEN.get())
+                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                pPlayer, ModBlocks.BROWN_OVEN.get())
+                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                pPlayer, ModBlocks.LIGHT_GRAY_OVEN.get())
+                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                pPlayer, ModBlocks.GRAY_OVEN.get());
+
     }
 
     private void addPlayerInventory(Inventory playerInventory) {

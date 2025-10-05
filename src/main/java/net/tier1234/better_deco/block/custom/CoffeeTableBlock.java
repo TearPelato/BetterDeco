@@ -40,6 +40,11 @@ public class CoffeeTableBlock extends FurnitureHorizontalBlock
         SHAPES = this.generateShapes(this.getStateDefinition().getPossibleStates());
     }
 
+    @Override
+    public BlockState updateShape(BlockState state, Direction direction, BlockState newState, LevelAccessor level, BlockPos pos, BlockPos newPos) {
+        return null;
+    }
+
     protected ImmutableMap<BlockState, VoxelShape> generateShapes(ImmutableList<BlockState> states)
     {
         final VoxelShape TABLE_TOP_SHORT = Block.box(0.0, 6.0, 0.0, 16.0, 8.0, 16.0);
