@@ -117,12 +117,15 @@ public class ModBlocks {
 
 
     public static final DeferredBlock<Block> FRIDGE_LIGHT = registerBlockWithCustomItem("fridge_light",
-            (properties) -> new FridgeBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), () -> ModBlocks.FREEZER_LIGHT),
-            block -> new BlockSupplierItem(new Item.Properties(), block.get(), ModBlocks.FREEZER_LIGHT));
+            (properties) -> new FridgeBlock(properties.strength(2.5f).noOcclusion(), () -> FREEZER_LIGHT),
+            block -> new BlockSupplierItem(new Item.Properties(), block.get(), FREEZER_LIGHT));
 
     public static final DeferredBlock<Block> FRIDGE_DARK = registerBlockWithCustomItem("fridge_dark",
-            (properties) -> new FridgeBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), () -> ModBlocks.FREEZER_DARK),
-            block -> new BlockSupplierItem(new Item.Properties(), block.get(), ModBlocks.FREEZER_DARK));
+            (properties) -> new FridgeBlock(properties.strength(2.5f).noOcclusion(), () -> FREEZER_DARK),
+            block -> new BlockSupplierItem(new Item.Properties(), block.get(), FREEZER_DARK));
+
+
+
 
     //Microwave
     public static final DeferredBlock<Block> LIGHT_MICROWAVE = registerBlock("microwave_light",
@@ -1644,6 +1647,7 @@ public static final DeferredBlock<Block> STONE_GLASS_TECQUE = registerBlock("sto
         ModItems.ITEMS.registerItem(name, itemFactory);
         return toReturn;
     }
+
 
 
     private static <T extends Block> DeferredBlock<T> registerNoItem(String name, Function<BlockBehaviour.Properties, T> function) {
