@@ -2,51 +2,58 @@ package net.tier1234.better_deco.block.custom;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.neoforged.neoforge.capabilities.Capabilities;
-import net.neoforged.neoforge.fluids.FluidStack;
-import net.neoforged.neoforge.fluids.FluidType;
-import net.neoforged.neoforge.fluids.FluidUtil;
-import net.neoforged.neoforge.fluids.capability.IFluidHandler;
+import net.tier1234.better_deco.Config;
 import net.tier1234.better_deco.block.entity.custom.KitchenSinkBlockEntity;
+import net.tier1234.better_deco.block.entity.custom.LiquidHolderBlockEntity;
+import net.tier1234.better_deco.util.FluidInteractionUtil;
 import net.tier1234.better_deco.util.VoxelShapeHelper;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class KitchenSinkBlock extends FurnitureHorizontalBlock implements EntityBlock
-{
-    private final boolean bigSink;
-
+public class KitchenSinkBlock extends FurnitureHorizontalBlock implements SimpleWaterloggedBlock, EntityBlock {
+    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+    public static final BooleanProperty HAS_WATER = ModBlockStateProperties.HAS_WATER;
     public final ImmutableMap<BlockState, VoxelShape> SHAPES;
 
-    public KitchenSinkBlock(Properties properties, boolean bigSink)
-    {
+    public KitchenSinkBlock(Properties properties) {
         super(properties);
-        this.bigSink = bigSink;
+        registerDefaultState(this.stateDefinition.any()
+                .setValue(FACING, Direction.SOUTH)
+                .setValue(HAS_WATER, false));
         SHAPES = this.generateShapes(this.getStateDefinition().getPossibleStates());
     }
 
@@ -58,113 +65,174 @@ public class KitchenSinkBlock extends FurnitureHorizontalBlock implements Entity
         {
             List<VoxelShape> shapes = new ArrayList<>();
             Direction direction = state.getValue(DIRECTION);
-            if(this.bigSink)
             {
                 shapes.add(VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(0.0, 0.0, 0.0, 16.0, 9.0, 15.0), Direction.SOUTH))[direction.get2DDataValue()]);
                 shapes.add(VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(0.0, 9.0, 0.0, 16.0, 16.0, 16.0), Direction.SOUTH))[direction.get2DDataValue()]);
             }
-            else
-            {
-                shapes.add(VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(0.0, 0.0, 0.0, 16.0, 13.0, 15.0), Direction.SOUTH))[direction.get2DDataValue()]);
-                shapes.add(VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(0.0, 13.0, 0.0, 16.0, 16.0, 16.0), Direction.SOUTH))[direction.get2DDataValue()]);
-            }
+
             builder.put(state, VoxelShapeHelper.combineAll(shapes));
         }
         return builder.build();
     }
 
-    @Override
-    public VoxelShape getShape(BlockState state, BlockGetter reader, BlockPos pos, CollisionContext context)
-    {
-        return SHAPES.get(state);
-    }
-
-    @Override
-    public VoxelShape getOcclusionShape(BlockState state, BlockGetter reader, BlockPos pos)
-    {
-        return SHAPES.get(state);
-    }
-
-    @Override
-    public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player,
-                                           InteractionHand hand, BlockHitResult hitResult)
-    {
-        if(!level.isClientSide())
-        {
-            ItemStack heldItem = player.getItemInHand(hand);
-            if(heldItem.getItem() == Items.GLASS_BOTTLE)
-            {
-                IFluidHandler handler = FluidUtil.getFluidHandler(level, pos, null).orElse(null);
-                if(handler.getFluidInTank(0).getAmount() > 0 && !level.isClientSide())
-                {
-                    if(!player.getAbilities().instabuild)
-                    {
-                        ItemStack waterPotion = new ItemStack(Items.POTION);
-                        heldItem.shrink(1);
-                        if(heldItem.isEmpty())
-                        {
-                            player.setItemInHand(hand, waterPotion);
-                        }
-                        else if(!player.getInventory().add(waterPotion))
-                        {
-                            player.drop(waterPotion, false);
-                        }
-                        else if(player instanceof ServerPlayer)
-                        {
-                            player.inventoryMenu.sendAllDataToRemote();
-                        }
-                    }
-
-                    level.playSound(null, pos, SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
-                    handler.drain(FluidType.BUCKET_VOLUME, IFluidHandler.FluidAction.EXECUTE);
-                }
-                return ItemInteractionResult.SUCCESS;
-            }
-
-            if (!heldItem.isEmpty() && heldItem.getCapability(Capabilities.FluidHandler.ITEM) != null) {
-                return FluidUtil.interactWithFluidHandler(player, hand, level, pos, hitResult.getDirection())
-                        ? ItemInteractionResult.SUCCESS : ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
-            }
-
-            BlockPos waterPos = pos.below().below();
-            if(this.isWaterSource(level, waterPos))
-            {
-                IFluidHandler handler = FluidUtil.getFluidHandler(level, pos, null).orElse(null);
-                if(handler.getFluidInTank(0).getAmount() != handler.getTankCapacity(0))
-                {
-                    handler.fill(new FluidStack(Fluids.WATER, FluidType.BUCKET_VOLUME), IFluidHandler.FluidAction.EXECUTE);
-                    level.playSound(null, pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
-
-                    Direction direction = state.getValue(DIRECTION);
-                    double posX = pos.getX() + 0.5 + direction.getNormal().getX() * 0.1;
-                    double posY = pos.getY() + 1.15;
-                    double posZ = pos.getZ() + 0.5 + direction.getNormal().getZ() * 0.1;
-                    ((ServerLevel) level).sendParticles(ParticleTypes.FALLING_WATER, posX, posY, posZ, 10, 0.01, 0.01, 0.01, 0);
-
-                    int adjacentSources = 0;
-                    adjacentSources += this.isWaterSource(level, waterPos.north()) ? 1 : 0;
-                    adjacentSources += this.isWaterSource(level, waterPos.east()) ? 1 : 0;
-                    adjacentSources += this.isWaterSource(level, waterPos.south()) ? 1 : 0;
-                    adjacentSources += this.isWaterSource(level, waterPos.west()) ? 1 : 0;
-                    if(adjacentSources < 2) //If it has less then two adjacent water sources, it is not infinite and thus it should be consumed
-                    {
-                        level.setBlockAndUpdate(waterPos, Blocks.AIR.defaultBlockState());
-                    }
-                }
-            }
-        }
-        return ItemInteractionResult.SUCCESS;
-    }
-
-    private boolean isWaterSource(Level level, BlockPos pos)
-    {
-        return level.getFluidState(pos).getType() == Fluids.WATER;
-    }
 
     @Nullable
     @Override
-    public BlockEntity newBlockEntity(BlockPos pos, BlockState state)
-    {
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return new KitchenSinkBlockEntity(pos, state);
+    }
+
+    @Override
+    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+        return InteractionResult.PASS;
+    }
+
+    @Override
+    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+        if (level.isClientSide) {
+            return ItemInteractionResult.SUCCESS;
+        }
+
+        BlockEntity blockEntity = level.getBlockEntity(pos);
+        if (!(blockEntity instanceof KitchenSinkBlockEntity sinkBE)) {
+            return ItemInteractionResult.FAIL;
+        }
+
+        // --- Handle Empty Hand Interaction (Fill from below) ---
+        if (stack.isEmpty()) {
+            BlockPos sourcePos = pos.below(2);
+            FluidState fluidStateBelow = level.getFluidState(sourcePos);
+
+            if (fluidStateBelow.isSource() && !fluidStateBelow.isEmpty()) {
+                Fluid fluidBelow = fluidStateBelow.getType();
+                if (!Config.isSinkUniversal() && fluidBelow != Fluids.WATER) {
+                    return ItemInteractionResult.FAIL;
+                }
+
+                int currentAmount = sinkBE.getStoredAmount();
+                int capacity = sinkBE.getCapacity();
+                int amountToAdd = LiquidHolderBlockEntity.BUCKET_VOLUME;
+
+                if ((sinkBE.isEmpty() || sinkBE.getFluid() == fluidBelow) && currentAmount + amountToAdd <= capacity) {
+                    sinkBE.setFluidAndAmount(fluidBelow, currentAmount + amountToAdd);
+                    level.playSound(null, pos, SoundEvents.BUCKET_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
+                    return ItemInteractionResult.SUCCESS;
+                } else {
+                    return ItemInteractionResult.FAIL;
+                }
+            } else {
+                return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+            }
+        }
+
+        // --- Handle Item Interactions (Existing Logic) ---
+        Item item = stack.getItem();
+
+
+
+        // --- Handle Filling with Fluid Container ---
+        Fluid fluidToFill = FluidInteractionUtil.getFluidFromItemStack(stack);
+        if (fluidToFill != Fluids.EMPTY && item != Items.BUCKET) {
+            if (!Config.isSinkUniversal() && fluidToFill != Fluids.WATER) {
+                return ItemInteractionResult.FAIL;
+            }
+
+            int currentAmount = sinkBE.getStoredAmount();
+            int capacity = sinkBE.getCapacity();
+            int amountToAdd = LiquidHolderBlockEntity.BUCKET_VOLUME;
+
+            if ((sinkBE.isEmpty() || sinkBE.getFluid() == fluidToFill) && currentAmount + amountToAdd <= capacity) {
+                sinkBE.setFluidAndAmount(fluidToFill, currentAmount + amountToAdd);
+                if (!player.isCreative()) {
+                    player.setItemInHand(hand, Items.BUCKET.getDefaultInstance());
+                }
+                SoundEvent fillSound = null;
+                if (fluidToFill == Fluids.WATER) fillSound = SoundEvents.BUCKET_EMPTY;
+                else if (fluidToFill == Fluids.LAVA) fillSound = SoundEvents.BUCKET_EMPTY_LAVA;
+
+                if (fillSound != null) {
+                    level.playSound(null, pos, fillSound, SoundSource.BLOCKS, 1.0F, 1.0F);
+                }
+                return ItemInteractionResult.SUCCESS;
+            } else {
+                return ItemInteractionResult.FAIL;
+            }
+        }
+
+        // --- Handle Emptying with an Empty Bucket ---
+        if (item == Items.BUCKET) {
+            int currentAmount = sinkBE.getStoredAmount();
+            int amountToRemove = LiquidHolderBlockEntity.BUCKET_VOLUME;
+            Fluid fluidInSink = sinkBE.getFluid();
+
+            if (!sinkBE.isEmpty() && currentAmount >= amountToRemove) {
+                Item filledBucketItem = fluidInSink.getBucket();
+                if (filledBucketItem != Items.AIR) {
+                    sinkBE.setFluidAndAmount(fluidInSink, currentAmount - amountToRemove);
+                    if (!player.isCreative()) {
+                        ItemStack filledBucketStack = filledBucketItem.getDefaultInstance();
+                        stack.shrink(1);
+                        if (stack.isEmpty()) {
+                            player.setItemInHand(hand, filledBucketStack);
+                        } else if (!player.getInventory().add(filledBucketStack)) {
+                            player.drop(filledBucketStack, false);
+                        }
+                    }
+                    SoundEvent emptySound = null;
+                    if (fluidInSink == Fluids.WATER) emptySound = SoundEvents.BUCKET_FILL;
+                    else if (fluidInSink == Fluids.LAVA) emptySound = SoundEvents.BUCKET_FILL_LAVA;
+
+                    if (emptySound != null) {
+                        level.playSound(null, pos, emptySound, SoundSource.BLOCKS, 1.0F, 1.0F);
+                    }
+                    return ItemInteractionResult.SUCCESS;
+                } else {
+                    return ItemInteractionResult.FAIL;
+                }
+            } else {
+                return ItemInteractionResult.FAIL;
+            }
+        }
+
+        // Default case if item interaction wasn't handled
+        return ItemInteractionResult.CONSUME;
+    }
+
+    @Override
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
+        return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
+
+    }
+
+    @Override
+    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        int shape = state.getValue(FACING).get2DDataValue();
+        return SHAPES.get(state);
+    }
+
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        builder.add(FACING, WATERLOGGED,HAS_WATER);
+    }
+
+    @Override
+    public BlockState rotate(BlockState state, Rotation rotation) {
+        return state.setValue(FACING, rotation.rotate(state.getValue(FACING)));
+    }
+
+    @Override
+    public BlockState mirror(BlockState state, Mirror mirror) {
+        return state.rotate(mirror.getRotation(state.getValue(FACING)));
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
+        if (Screen.hasShiftDown()) {
+            tooltip.add(Component.translatable("tooltip.better_deco.screen.blank"));
+            tooltip.add(Component.translatable("tooltip.better_deco.screen.properties"));
+        } else {
+            tooltip.add(Component.translatable("tooltip.better_deco.screen.shift"));
+        }
+        super.appendHoverText(stack, context, tooltip, flag);
     }
 }

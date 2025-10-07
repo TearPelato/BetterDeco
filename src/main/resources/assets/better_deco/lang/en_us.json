@@ -715,6 +715,21 @@
   "block.better_deco.crimson_desk_cabinet": "Crimson Desk Cabinet",
   "block.better_deco.warped_desk_cabinet": "Warped Desk Cabinet",
 
+  "better_deco.configuration.group.sink": "Sink Settings",
+
+  "better_deco.configuration.sink_allow_all_liquids": "Allow All Liquids",
+  "better_deco.configuration.sink_allow_all_liquids.tooltip": "If enabled, the sink can hold any fluid. If disabled, it only accepts water.",
+
+  "better_deco.configuration.sink_capacity_buckets": "Capacity (Buckets)",
+  "better_deco.configuration.sink_capacity_buckets.tooltip": "Sets the maximum number of buckets the sink can hold. Needs A game restart",
+
+
+  "tooltip.better_deco.screen.shift": "§eShift §rFor More Information",
+  "tooltip.better_deco.screen.blank": "",
+
+  "tooltip.better_deco.screen.properties": "§7Properties:",
+  "tooltip.better_deco.screen.sink_property": "This Block is Fully Customizable. Can be filled with all fluids ",
+
 
   "block.better_deco.limestone": "Limestone"
 }
