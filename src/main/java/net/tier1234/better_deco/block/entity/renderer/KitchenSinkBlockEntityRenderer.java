@@ -5,7 +5,6 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.core.Direction;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Fluid;
@@ -14,18 +13,17 @@ import net.minecraft.world.phys.AABB;
 import net.tier1234.better_deco.block.entity.custom.KitchenSinkBlockEntity;
 
 public class KitchenSinkBlockEntityRenderer implements BlockEntityRenderer<KitchenSinkBlockEntity> {
-    public KitchenSinkBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
-    }
-    @Override
-    public void render(KitchenSinkBlockEntity be, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
-        Fluid fluid = be.getFluid();
-        Level level = be.getLevel();
-        if (fluid == Fluids.EMPTY || level == null) return;
 
+    public KitchenSinkBlockEntityRenderer(BlockEntityRendererProvider.Context ctx) {}
+
+    @Override
+    public void render(KitchenSinkBlockEntity be, float partialTick, PoseStack ms, MultiBufferSource buf, int light, int overlay) {
+        Fluid fluid = be.getFluid();
+        if (fluid == Fluids.EMPTY || be.getLevel() == null) return;
         BlockState state = be.getBlockState();
         if (!state.hasProperty(BlockStateProperties.HORIZONTAL_FACING)) return;
-        Direction facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
-        AABB box = FluidContainerRenderer.createRotatedBox(facing, 2, 13, 2, 14, 15.9, 14);
-        FluidContainerRenderer.drawContainer(level, be.getBlockPos(), be, box, poseStack, bufferSource, packedLight);
+        Direction dir = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
+        AABB box = FluidContainerRenderer.createRotatedBox(dir, 2, 13, 2, 14, 15.9, 14);
+        FluidContainerRenderer.drawContainer(be.getLevel(), be.getBlockPos(), be, box, ms, buf, light);
     }
 }

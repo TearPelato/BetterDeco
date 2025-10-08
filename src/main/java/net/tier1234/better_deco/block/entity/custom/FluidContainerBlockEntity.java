@@ -19,119 +19,51 @@ public abstract class FluidContainerBlockEntity extends BlockEntity {
 
     public static final int BUCKET_VOLUME = 1000;
 
-    private Fluid storedFluid = Fluids.EMPTY;
-    private int storedAmount = 0;
+    private Fluid fluid = Fluids.EMPTY;
+    private int amount = 0;
     private final int capacity;
 
     public FluidContainerBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state, int capacity) {
-        super(type, pos, state);
+        super(type,pos,state);
         this.capacity = capacity;
     }
 
-    public Fluid getFluid() {
-        return this.storedFluid != null ? this.storedFluid : Fluids.EMPTY;
+    public Fluid getFluid() { return fluid != null ? fluid : Fluids.EMPTY; }
+    public int getStoredAmount() { return amount; }
+    public int getCapacity() { return capacity; }
+    public boolean isEmpty() { return fluid == Fluids.EMPTY || amount <= 0; }
+
+    public void setFluidAndAmount(Fluid f, int a) {
+        if (f == null) f = Fluids.EMPTY;
+        int clamped = Math.min(a, capacity);
+        if (clamped <= 0) { fluid = Fluids.EMPTY; amount = 0; }
+        else { fluid = f; amount = clamped; }
+        setChanged();
+        if (level != null && !level.isClientSide) level.sendBlockUpdated(worldPosition,getBlockState(),getBlockState(),3);
     }
 
-    public void setFluid(Fluid fluid) {
-        if (fluid == null || fluid == Fluids.EMPTY) {
-            setFluidAndAmount(Fluids.EMPTY, 0);
-        } else {
-            setFluidAndAmount(fluid, this.capacity);
-        }
-    }
-
-    public void setFluidAndAmount(Fluid fluid, int amount) {
-        if (fluid == null) fluid = Fluids.EMPTY;
-
-        boolean changed = false;
-        if (this.storedFluid != fluid || this.storedAmount != amount) {
-            this.storedFluid = fluid;
-            this.storedAmount = Math.min(amount, this.capacity);
-            if (this.storedAmount <= 0) {
-                this.storedFluid = Fluids.EMPTY;
-                this.storedAmount = 0;
-            }
-            changed = true;
-        }
-
-        if (changed) {
-            setChanged();
-            if (level != null && !level.isClientSide) {
-                level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);
-            }
-        }
-    }
-
-    public int getStoredAmount() {
-        return this.storedAmount;
-    }
-
-    public int getCapacity() {
-        return this.capacity;
-    }
-
-    public boolean isEmpty() {
-        return this.storedFluid == Fluids.EMPTY || this.storedAmount <= 0;
-    }
     @Override
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.saveAdditional(tag, registries);
-        if (!isEmpty()) {
-            ResourceLocation id = BuiltInRegistries.FLUID.getKey(getFluid());
-            if (id != null) {
-                tag.putString("FluidName", id.toString());
-                tag.putInt("Amount", this.storedAmount);
-                return;
-            }
-        }
-        tag.putString("FluidName", "minecraft:empty");
-        tag.putInt("Amount", 0);
+        super.saveAdditional(tag,registries);
+        tag.putString("FluidName", fluid == Fluids.EMPTY ? "minecraft:empty" : BuiltInRegistries.FLUID.getKey(fluid).toString());
+        tag.putInt("Amount", amount);
     }
+
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
-        if (tag.contains("FluidName")) {
-            String name = tag.getString("FluidName");
-            if ("minecraft:empty".equals(name)) {
-                this.storedFluid = Fluids.EMPTY;
-                this.storedAmount = 0;
-                return;
-            }
-
-            try {
-                ResourceLocation rl = ResourceLocation.parse(name);
-                Fluid loaded = BuiltInRegistries.FLUID.get(rl);
-                if (loaded == null || loaded == Fluids.EMPTY) {
-                    this.storedFluid = Fluids.EMPTY;
-                    this.storedAmount = 0;
-                } else {
-                    this.storedFluid = loaded;
-                    int amt = tag.getInt("Amount");
-                    if (amt <= 0) {
-                        this.storedFluid = Fluids.EMPTY;
-                        this.storedAmount = 0;
-                    } else {
-                        this.storedAmount = Math.min(amt, this.capacity);
-                    }
-                }
-            } catch (Exception e) {
-                this.storedFluid = Fluids.EMPTY;
-                this.storedAmount = 0;
-            }
-        } else {
-            this.storedFluid = Fluids.EMPTY;
-            this.storedAmount = 0;
-        }
+        super.loadAdditional(tag,registries);
+        String name = tag.getString("FluidName");
+        if ("minecraft:empty".equals(name)) { fluid = Fluids.EMPTY; amount = 0; return; }
+        Fluid f = BuiltInRegistries.FLUID.get(ResourceLocation.tryParse(name));
+        fluid = f != null ? f : Fluids.EMPTY;
+        amount = Math.min(tag.getInt("Amount"), capacity);
+        if (amount <= 0) fluid = Fluids.EMPTY;
     }
 
     @Nullable
     @Override
-    public Packet<ClientGamePacketListener> getUpdatePacket() {
-        return ClientboundBlockEntityDataPacket.create(this);
-    }
+    public Packet<ClientGamePacketListener> getUpdatePacket() { return ClientboundBlockEntityDataPacket.create(this); }
 
     @Override
-    public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
-        return saveWithoutMetadata(registries);
-    }
+    public CompoundTag getUpdateTag(HolderLookup.Provider registries) { return saveWithoutMetadata(registries); }
 }

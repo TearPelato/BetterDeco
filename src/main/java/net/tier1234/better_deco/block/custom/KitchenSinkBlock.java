@@ -4,9 +4,6 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
@@ -31,45 +28,44 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.tier1234.better_deco.Config;
-import net.tier1234.better_deco.block.entity.custom.KitchenSinkBlockEntity;
 import net.tier1234.better_deco.block.entity.custom.FluidContainerBlockEntity;
+import net.tier1234.better_deco.block.entity.custom.KitchenSinkBlockEntity;
 import net.tier1234.better_deco.util.FluidInteractionUtil;
 import net.tier1234.better_deco.util.VoxelShapeHelper;
 
 import javax.annotation.Nullable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 
 public class KitchenSinkBlock extends FurnitureHorizontalBlock implements SimpleWaterloggedBlock, EntityBlock {
+
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final BooleanProperty HAS_WATER = ModBlockStateProperties.HAS_WATER;
 
-    public final ImmutableMap<BlockState, VoxelShape> STATE_SHAPES;
+    private final ImmutableMap<BlockState, VoxelShape> shapesByState;
 
-    public KitchenSinkBlock(Properties properties) {
-        super(properties);
-        registerDefaultState(this.stateDefinition.any()
+    public KitchenSinkBlock(Properties props) {
+        super(props);
+        this.registerDefaultState(this.stateDefinition.any()
                 .setValue(DIRECTION, Direction.SOUTH)
                 .setValue(HAS_WATER, false));
-        STATE_SHAPES = generateShapes(this.getStateDefinition().getPossibleStates());
+        this.shapesByState = generateShapes(this.getStateDefinition().getPossibleStates());
     }
 
     public ImmutableMap<BlockState, VoxelShape> generateShapes(ImmutableList<BlockState> states) {
-        ImmutableMap.Builder<BlockState, VoxelShape> b = new ImmutableMap.Builder<>();
+        ImmutableMap.Builder<BlockState, VoxelShape> builder = ImmutableMap.builder();
         for (BlockState s : states) {
-            List<VoxelShape> parts = new ArrayList<>();
-            Direction d = s.getValue(DIRECTION);
-
-            VoxelShape[] baseTop = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(0.0, 9.0, 0.0, 16.0, 16.0, 16.0), Direction.SOUTH));
-            VoxelShape[] baseBottom = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(0.0, 0.0, 0.0, 16.0, 9.0, 15.0), Direction.SOUTH));
-
-            parts.add(baseBottom[d.get2DDataValue()]);
-            parts.add(baseTop[d.get2DDataValue()]);
-
-            b.put(s, VoxelShapeHelper.combineAll(parts));
+            Direction dir = s.getValue(DIRECTION);
+            VoxelShape lower = createShape(0, 0, 0, 16, 9, 15, dir);
+            VoxelShape upper = createShape(0, 9, 0, 16, 16, 16, dir);
+            builder.put(s, VoxelShapeHelper.combineAll(Arrays.asList(lower, upper)));
         }
-        return b.build();
+        return builder.build();
+    }
+
+    private VoxelShape createShape(double x1, double y1, double z1, double x2, double y2, double z2, Direction dir) {
+        VoxelShape[] rotated = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(x1, y1, z1, x2, y2, z2), Direction.SOUTH));
+        return rotated[dir.get2DDataValue()];
     }
 
     @Nullable
@@ -79,111 +75,57 @@ public class KitchenSinkBlock extends FurnitureHorizontalBlock implements Simple
     }
 
     @Override
-    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+    protected InteractionResult useWithoutItem(BlockState state, Level world, BlockPos pos, Player player, BlockHitResult hit) {
         return InteractionResult.PASS;
     }
 
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if (level.isClientSide) return ItemInteractionResult.SUCCESS;
+    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+        if (world.isClientSide) return ItemInteractionResult.SUCCESS;
+        BlockEntity be = world.getBlockEntity(pos);
+        if (!(be instanceof KitchenSinkBlockEntity sink)) return ItemInteractionResult.FAIL;
 
-        BlockEntity be = level.getBlockEntity(pos);
-        if (!(be instanceof KitchenSinkBlockEntity sinkBE)) return ItemInteractionResult.FAIL;
-        if (stack.isEmpty()) {
-            BlockPos source = pos.below(2);
-            FluidState fs = level.getFluidState(source);
-
-            if (fs.isSource() && !fs.isEmpty()) {
-                Fluid f = fs.getType();
-                if (!Config.isSinkUniversal() && f != Fluids.WATER) {
-                    return ItemInteractionResult.FAIL;
-                }
-
-                int cur = sinkBE.getStoredAmount();
-                int cap = sinkBE.getCapacity();
-                int add = FluidContainerBlockEntity.BUCKET_VOLUME;
-
-                if ((sinkBE.isEmpty() || sinkBE.getFluid() == f) && cur + add <= cap) {
-                    sinkBE.setFluidAndAmount(f, cur + add);
-                    level.playSound(null, pos, SoundEvents.BUCKET_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
-                    return ItemInteractionResult.SUCCESS;
-                } else {
-                    return ItemInteractionResult.FAIL;
-                }
-            } else {
-                return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
-            }
-        }
+        if (stack.isEmpty()) return fillFromNearbyFluid(sink, world, pos);
         Item item = stack.getItem();
-        Fluid fluidFromItem = FluidInteractionUtil.getFluidFromItemStack(stack);
-        if (fluidFromItem != Fluids.EMPTY && item != Items.BUCKET) {
-            if (!Config.isSinkUniversal() && fluidFromItem != Fluids.WATER) {
-                return ItemInteractionResult.FAIL;
-            }
+        if (item == Items.BUCKET) return handleBucket(sink, player, hand, stack);
+        return fillFromItemStack(sink, player, hand, stack);
+    }
 
-            int cur = sinkBE.getStoredAmount();
-            int cap = sinkBE.getCapacity();
-            int add = FluidContainerBlockEntity.BUCKET_VOLUME;
+    private ItemInteractionResult fillFromNearbyFluid(KitchenSinkBlockEntity sink, Level world, BlockPos pos) {
+        FluidState fs = world.getFluidState(pos.below(2));
+        if (!fs.isSource() || fs.isEmpty()) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        Fluid fluid = fs.getType();
+        if (!Config.isSinkUniversal() && fluid != Fluids.WATER) return ItemInteractionResult.FAIL;
+        return sink.addFluid(fluid) ? ItemInteractionResult.SUCCESS : ItemInteractionResult.FAIL;
+    }
 
-            if ((sinkBE.isEmpty() || sinkBE.getFluid() == fluidFromItem) && cur + add <= cap) {
-                sinkBE.setFluidAndAmount(fluidFromItem, cur + add);
+    private ItemInteractionResult fillFromItemStack(KitchenSinkBlockEntity sink, Player player, InteractionHand hand, ItemStack stack) {
+        Fluid fluid = FluidInteractionUtil.getFluidFromItemStack(stack);
+        if (fluid == Fluids.EMPTY || stack.getItem() == Items.BUCKET) return ItemInteractionResult.FAIL;
+        if (!Config.isSinkUniversal() && fluid != Fluids.WATER) return ItemInteractionResult.FAIL;
+        boolean success = sink.addFluid(fluid);
+        if (success && !player.isCreative()) player.setItemInHand(hand, Items.BUCKET.getDefaultInstance());
+        return success ? ItemInteractionResult.SUCCESS : ItemInteractionResult.FAIL;
+    }
 
-                if (!player.isCreative()) {
-                    player.setItemInHand(hand, Items.BUCKET.getDefaultInstance());
-                }
-
-                SoundEvent sfx = null;
-                if (fluidFromItem == Fluids.WATER) sfx = SoundEvents.BUCKET_EMPTY;
-                else if (fluidFromItem == Fluids.LAVA) sfx = SoundEvents.BUCKET_EMPTY_LAVA;
-
-                if (sfx != null) level.playSound(null, pos, sfx, SoundSource.BLOCKS, 1.0F, 1.0F);
-
-                return ItemInteractionResult.SUCCESS;
-            } else {
-                return ItemInteractionResult.FAIL;
-            }
+    private ItemInteractionResult handleBucket(KitchenSinkBlockEntity sink, Player player, InteractionHand hand, ItemStack stack) {
+        if (sink.isEmpty() || sink.getStoredAmount() < FluidContainerBlockEntity.BUCKET_VOLUME) return ItemInteractionResult.FAIL;
+        Fluid fluid = sink.getFluid();
+        Item filledBucket = fluid.getBucket();
+        if (filledBucket == Items.AIR) return ItemInteractionResult.FAIL;
+        sink.removeFluid(FluidContainerBlockEntity.BUCKET_VOLUME);
+        if (!player.isCreative()) {
+            ItemStack newStack = filledBucket.getDefaultInstance();
+            stack.shrink(1);
+            if (stack.isEmpty()) player.setItemInHand(hand, newStack);
+            else if (!player.getInventory().add(newStack)) player.drop(newStack, false);
         }
-        if (item == Items.BUCKET) {
-            int cur = sinkBE.getStoredAmount();
-            int take = FluidContainerBlockEntity.BUCKET_VOLUME;
-            Fluid fIn = sinkBE.getFluid();
-
-            if (!sinkBE.isEmpty() && cur >= take) {
-                Item filledBucket = fIn.getBucket();
-                if (filledBucket != Items.AIR) {
-                    sinkBE.setFluidAndAmount(fIn, cur - take);
-
-                    if (!player.isCreative()) {
-                        ItemStack newStack = filledBucket.getDefaultInstance();
-                        stack.shrink(1);
-                        if (stack.isEmpty()) {
-                            player.setItemInHand(hand, newStack);
-                        } else if (!player.getInventory().add(newStack)) {
-                            player.drop(newStack, false);
-                        }
-                    }
-
-                    SoundEvent sfx = null;
-                    if (fIn == Fluids.WATER) sfx = SoundEvents.BUCKET_FILL;
-                    else if (fIn == Fluids.LAVA) sfx = SoundEvents.BUCKET_FILL_LAVA;
-
-                    if (sfx != null) level.playSound(null, pos, sfx, SoundSource.BLOCKS, 1.0F, 1.0F);
-
-                    return ItemInteractionResult.SUCCESS;
-                } else {
-                    return ItemInteractionResult.FAIL;
-                }
-            } else {
-                return ItemInteractionResult.FAIL;
-            }
-        }
-
-        return ItemInteractionResult.CONSUME;
+        return ItemInteractionResult.SUCCESS;
     }
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return STATE_SHAPES.get(state);
+        return shapesByState.get(state);
     }
 
     @Override
