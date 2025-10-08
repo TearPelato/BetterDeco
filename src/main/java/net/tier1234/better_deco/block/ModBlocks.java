@@ -118,11 +118,11 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> FRIDGE_LIGHT = registerBlockWithCustomItem("fridge_light",
             (properties) -> new FridgeBlock(properties.strength(2.5f).noOcclusion(), () -> FREEZER_LIGHT),
-            block -> new BlockSupplierItem(new Item.Properties(), block.get(), FREEZER_LIGHT));
+            block -> new BlockItem(new Item.Properties(), block.get(), FREEZER_LIGHT));
 
     public static final DeferredBlock<Block> FRIDGE_DARK = registerBlockWithCustomItem("fridge_dark",
             (properties) -> new FridgeBlock(properties.strength(2.5f).noOcclusion(), () -> FREEZER_DARK),
-            block -> new BlockSupplierItem(new Item.Properties(), block.get(), FREEZER_DARK));
+            block -> new BlockItem(new Item.Properties(),block.get(), FREEZER_DARK));
 
 
 
