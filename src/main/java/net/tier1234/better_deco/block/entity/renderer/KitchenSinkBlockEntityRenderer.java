@@ -13,26 +13,19 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.AABB;
 import net.tier1234.better_deco.block.entity.custom.KitchenSinkBlockEntity;
 
-import java.util.Objects;
-
 public class KitchenSinkBlockEntityRenderer implements BlockEntityRenderer<KitchenSinkBlockEntity> {
     public KitchenSinkBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
     }
+    @Override
+    public void render(KitchenSinkBlockEntity be, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
+        Fluid fluid = be.getFluid();
+        Level level = be.getLevel();
+        if (fluid == Fluids.EMPTY || level == null) return;
 
-    public void render(KitchenSinkBlockEntity blockEntity, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
-        Fluid fluid = blockEntity.getFluid();
-        if (fluid == Fluids.EMPTY || blockEntity.getLevel() == null) {
-            return;
-        }
-
-        BlockState state = blockEntity.getBlockState();
-        if (!state.hasProperty(BlockStateProperties.HORIZONTAL_FACING)) {
-            return;
-        }
-
-        Direction direction = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
-        Level level = Objects.requireNonNull(blockEntity.getLevel());
-        AABB box = SimpleFluidRenderer.createRotatedBox(direction, 2, 13, 2, 14, 15.9, 14);
-        SimpleFluidRenderer.drawContainer(level, blockEntity.getBlockPos(), blockEntity, box, poseStack, bufferSource, packedLight);
+        BlockState state = be.getBlockState();
+        if (!state.hasProperty(BlockStateProperties.HORIZONTAL_FACING)) return;
+        Direction facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
+        AABB box = FluidContainerRenderer.createRotatedBox(facing, 2, 13, 2, 14, 15.9, 14);
+        FluidContainerRenderer.drawContainer(level, be.getBlockPos(), be, box, poseStack, bufferSource, packedLight);
     }
 }

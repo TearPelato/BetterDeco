@@ -5,13 +5,13 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.tier1234.better_deco.Config;
 import net.tier1234.better_deco.block.entity.ModBlockEntities;
 
-public class KitchenSinkBlockEntity extends LiquidHolderBlockEntity {
+public class KitchenSinkBlockEntity extends FluidContainerBlockEntity {
 
     public KitchenSinkBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.KITCHEN_SINK.get(),
                 pos,
                 state,
-                Config.getSinkCapacityBuckets() * LiquidHolderBlockEntity.BUCKET_VOLUME);
+                Config.getSinkCapacityBuckets() * FluidContainerBlockEntity.BUCKET_VOLUME);
     }
 
 }
