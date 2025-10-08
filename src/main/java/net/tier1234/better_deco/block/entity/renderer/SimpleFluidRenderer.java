@@ -92,7 +92,7 @@ public class SimpleFluidRenderer
         minY /= 16.0;
         minZ /= 16.0;
         maxX /= 16.0;
-        maxY /= 16.0;
+        maxY /= 17.0;
         maxZ /= 16.0;
         return switch(direction)
         {

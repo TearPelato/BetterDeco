@@ -2,10 +2,8 @@ package net.tier1234.better_deco.block.custom;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -16,17 +14,16 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
@@ -44,7 +41,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class KitchenSinkBlock extends FurnitureHorizontalBlock implements SimpleWaterloggedBlock, EntityBlock {
-    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final BooleanProperty HAS_WATER = ModBlockStateProperties.HAS_WATER;
     public final ImmutableMap<BlockState, VoxelShape> SHAPES;
@@ -52,7 +48,7 @@ public class KitchenSinkBlock extends FurnitureHorizontalBlock implements Simple
     public KitchenSinkBlock(Properties properties) {
         super(properties);
         registerDefaultState(this.stateDefinition.any()
-                .setValue(FACING, Direction.SOUTH)
+                .setValue(DIRECTION, Direction.SOUTH)
                 .setValue(HAS_WATER, false));
         SHAPES = this.generateShapes(this.getStateDefinition().getPossibleStates());
     }
@@ -98,7 +94,6 @@ public class KitchenSinkBlock extends FurnitureHorizontalBlock implements Simple
             return ItemInteractionResult.FAIL;
         }
 
-        // --- Handle Empty Hand Interaction (Fill from below) ---
         if (stack.isEmpty()) {
             BlockPos sourcePos = pos.below(2);
             FluidState fluidStateBelow = level.getFluidState(sourcePos);
@@ -125,12 +120,10 @@ public class KitchenSinkBlock extends FurnitureHorizontalBlock implements Simple
             }
         }
 
-        // --- Handle Item Interactions (Existing Logic) ---
         Item item = stack.getItem();
 
 
 
-        // --- Handle Filling with Fluid Container ---
         Fluid fluidToFill = FluidInteractionUtil.getFluidFromItemStack(stack);
         if (fluidToFill != Fluids.EMPTY && item != Items.BUCKET) {
             if (!Config.isSinkUniversal() && fluidToFill != Fluids.WATER) {
@@ -159,7 +152,6 @@ public class KitchenSinkBlock extends FurnitureHorizontalBlock implements Simple
             }
         }
 
-        // --- Handle Emptying with an Empty Bucket ---
         if (item == Items.BUCKET) {
             int currentAmount = sinkBE.getStoredAmount();
             int amountToRemove = LiquidHolderBlockEntity.BUCKET_VOLUME;
@@ -194,45 +186,18 @@ public class KitchenSinkBlock extends FurnitureHorizontalBlock implements Simple
             }
         }
 
-        // Default case if item interaction wasn't handled
         return ItemInteractionResult.CONSUME;
     }
 
-    @Override
-    public BlockState getStateForPlacement(BlockPlaceContext context) {
-        return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
-
-    }
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        int shape = state.getValue(FACING).get2DDataValue();
+        int shape = state.getValue(DIRECTION).get2DDataValue();
         return SHAPES.get(state);
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING, WATERLOGGED,HAS_WATER);
-    }
-
-    @Override
-    public BlockState rotate(BlockState state, Rotation rotation) {
-        return state.setValue(FACING, rotation.rotate(state.getValue(FACING)));
-    }
-
-    @Override
-    public BlockState mirror(BlockState state, Mirror mirror) {
-        return state.rotate(mirror.getRotation(state.getValue(FACING)));
-    }
-
-    @Override
-    public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
-        if (Screen.hasShiftDown()) {
-            tooltip.add(Component.translatable("tooltip.better_deco.screen.blank"));
-            tooltip.add(Component.translatable("tooltip.better_deco.screen.properties"));
-        } else {
-            tooltip.add(Component.translatable("tooltip.better_deco.screen.shift"));
-        }
-        super.appendHoverText(stack, context, tooltip, flag);
+        builder.add(DIRECTION, WATERLOGGED,HAS_WATER);
     }
 }
