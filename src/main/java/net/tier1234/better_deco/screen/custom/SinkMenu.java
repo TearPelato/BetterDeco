@@ -142,7 +142,56 @@ public class SinkMenu extends AbstractContainerMenu {
                         player, ModBlocks.CRIMSON_SINK_DARK.get())
                 ||
                 stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                        player, ModBlocks.WARPED_SINK_DARK.get());
+                        player, ModBlocks.WARPED_SINK_DARK.get())
+
+                ||
+                stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                        player, ModBlocks.RED_SINK.get())
+                ||
+                stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                        player, ModBlocks.ORANGE_SINK.get())
+                ||
+                stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                        player, ModBlocks.YELLOW_SINK.get())
+                ||
+                stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                        player, ModBlocks.MAGENTA_SINK.get())
+                ||
+                stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                        player, ModBlocks.PINK_SINK.get())
+                ||
+                stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                        player, ModBlocks.PURPLE_SINK.get())
+                ||
+                stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                        player, ModBlocks.BLUE_SINK.get())
+                ||
+                stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                        player, ModBlocks.LIGHT_BLUE_SINK.get())
+                ||
+                stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                        player, ModBlocks.CYAN_SINK.get())
+                ||
+                stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                        player, ModBlocks.GREEN_SINK.get())
+                ||
+                stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                        player, ModBlocks.LIME_SINK.get())
+                ||
+                stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                        player, ModBlocks.GRAY_SINK.get())
+                ||
+                stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                        player, ModBlocks.LIGHT_GRAY_SINK.get())
+                ||
+                stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                        player, ModBlocks.BLACK_SINK.get())
+                ||
+                stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                        player, ModBlocks.BROWN_SINK.get())
+                ||
+                stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                        player, ModBlocks.WHITE_SINK.get());
 
 
 
