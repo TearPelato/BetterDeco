@@ -45,7 +45,7 @@ public class BarStoolBlock extends Block {
         this.SHAPES = this.generateShapes(this.stateDefinition.getPossibleStates());
     }
 
-    private ImmutableMap<BlockState, VoxelShape> generateShapes(ImmutableList<BlockState> states) {
+    protected ImmutableMap<BlockState, VoxelShape> generateShapes(ImmutableList<BlockState> states) {
         final VoxelShape baseShape = Block.box(2, 0, 2, 13, 9, 13);
         final VoxelShape legFrontLeft = Block.box(2, 0, 2, 4, 13, 4);
         final VoxelShape legFrontRight = Block.box(12, 0, 2, 14, 13, 4);

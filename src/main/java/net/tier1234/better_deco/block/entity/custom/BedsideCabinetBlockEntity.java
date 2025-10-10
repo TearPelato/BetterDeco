@@ -12,6 +12,7 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ChestMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.tier1234.better_deco.block.custom.BedsideCabinetBlock;
 import net.tier1234.better_deco.block.entity.ModBlockEntities;
@@ -24,6 +25,10 @@ public class BedsideCabinetBlockEntity extends BasicLootBlockEntity
         super(ModBlockEntities.BEDSIDE_CABINET.get(), pos, state);
     }
 
+    protected BedsideCabinetBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state)
+    {
+        super(type, pos, state);
+    }
 
     @Override
     public int getContainerSize()
@@ -34,7 +39,7 @@ public class BedsideCabinetBlockEntity extends BasicLootBlockEntity
     @Override
     protected Component getDefaultName()
     {
-        return Component.translatable("Bedside");
+        return Component.literal("Bedside");
     }
 
     @Override
@@ -78,5 +83,4 @@ public class BedsideCabinetBlockEntity extends BasicLootBlockEntity
             level.setBlock(this.getBlockPos(), blockState.setValue(BedsideCabinetBlock.OPEN, open), 3);
         }
     }
-
 }

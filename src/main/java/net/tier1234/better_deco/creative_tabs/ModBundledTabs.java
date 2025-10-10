@@ -4,7 +4,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Blocks;
 import net.tier1234.better_deco.block.ModBlocks;
-import net.tier1234.better_deco.item.ModItems;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -320,11 +319,11 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.STRIPPED_WARPED_CABINET);
 
                         //TEST FRIDGE REGISTER
-                       /*
+
                         output.accept(ModBlocks.FRIDGE_LIGHT);
                         output.accept(ModBlocks.FRIDGE_DARK);
 
-                         */
+
 
 
 
@@ -459,6 +458,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.DARK_OAK_DESK);
                         output.accept(ModBlocks.MANGROVE_DESK);
                         output.accept(ModBlocks.CHERRY_DESK);
+                        output.accept(ModBlocks.PALE_OAK_DESK);
                         output.accept(ModBlocks.BAMBOO_DESK);
                         output.accept(ModBlocks.CRIMSON_DESK);
                         output.accept(ModBlocks.WARPED_DESK);
@@ -471,6 +471,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.DARK_OAK_DESK_CABINET);
                         output.accept(ModBlocks.MANGROVE_DESK_CABINET);
                         output.accept(ModBlocks.CHERRY_DESK_CABINET);
+                        output.accept(ModBlocks.PALE_OAK_DESK_CABINET);
                         output.accept(ModBlocks.BAMBOO_DESK_CABINET);
                         output.accept(ModBlocks.CRIMSON_DESK_CABINET);
                         output.accept(ModBlocks.WARPED_DESK_CABINET);
@@ -638,6 +639,7 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.DARK_OAK_PARK_BENCH);
                         output.accept(ModBlocks.MANGROVE_PARK_BENCH);
                         output.accept(ModBlocks.CHERRY_PARK_BENCH);
+                        output.accept(ModBlocks.PALE_OAK_PARK_BENCH);
                         output.accept(ModBlocks.BAMBOO_PARK_BENCH);
                         output.accept(ModBlocks.CRIMSON_PARK_BENCH);
                         output.accept(ModBlocks.WARPED_PARK_BENCH);

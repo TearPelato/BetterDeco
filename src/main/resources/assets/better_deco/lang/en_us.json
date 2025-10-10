@@ -48,6 +48,7 @@
   "block.better_deco.dark_oak_desk": "Dark Oak Desk",
   "block.better_deco.mangrove_desk": "Mangrove Desk",
   "block.better_deco.cherry_desk": "Cherry Desk",
+  "block.better_deco.pale_oak_desk": "Pale Oak Desk",
   "block.better_deco.bamboo_desk": "Bamboo Desk",
   "block.better_deco.crimson_desk": "Crimson Desk",
   "block.better_deco.warped_desk": "Warped Desk",
@@ -62,6 +63,7 @@
   "block.better_deco.dark_oak_park_bench": "Dark Oak Park Bench",
   "block.better_deco.mangrove_park_bench": "Mangrove Park Bench",
   "block.better_deco.cherry_park_bench": "Cherry Park Bench",
+  "block.better_deco.pale_oak_park_bench": "Pale Oak Park Bench",
   "block.better_deco.bamboo_park_bench": "Bamboo Park Bench",
   "block.better_deco.crimson_park_bench": "Crimson Park Bench",
   "block.better_deco.warped_park_bench": "Warped Park Bench",
@@ -160,6 +162,7 @@
   "block.better_deco.dark_oak_desk_cabinet": "Dark Oak Desk Cabinet",
   "block.better_deco.mangrove_desk_cabinet": "Mangrove Desk Cabinet",
   "block.better_deco.cherry_desk_cabinet": "Cherry Desk Cabinet",
+  "block.better_deco.pale_oak_desk_cabinet": "Pale Oak Desk Cabinet",
   "block.better_deco.bamboo_desk_cabinet": "Bamboo Desk Cabinet",
   "block.better_deco.crimson_desk_cabinet": "Crimson Desk Cabinet",
   "block.better_deco.warped_desk_cabinet": "Warped Desk Cabinet",
@@ -210,7 +213,11 @@
   "block.better_deco.stripped_crimson_oven": "Stripped Crimson Oven",
   "block.better_deco.stripped_warped_oven": "Stripped Warped Oven",
 
+  "block.better_deco.fridge_dark": "Fridge (Dark)",
+  "block.better_deco.fridge_light": "Fridge (Light)",
 
+  "block.better_deco.freezer_dark": "Freezer (Dark)",
+  "block.better_deco.freezer_light": "Freezer (Light)",
 
 
   "block.minecraft.chain": "Iron Chain",
@@ -230,6 +237,11 @@
   "gui.better_deco.oven": "Oven",
   "gui.better_deco.microwave": "Microwave",
   "gui.better_deco.generator": "Generator",
+  "gui.better_deco.freezer": "Freezer",
+  "gui.better_deco.fridge": "Fridge",
+  "gui.better_deco.desk_cabinet": "Desk Cabinet",
+  "gui.better_deco.sink": "Sink",
+
 
   "block.better_deco.generator": "Generator",
 
@@ -736,7 +748,11 @@
   "block.better_deco.pale_oak_shelf": "Pale Oak Shelf",
 
 
+  "better_deco.configuration.sink_allow_all_liquids": "Allow All Types of Fluids",
+  "better_deco.configuration.sink_allow_all_liquids.tooltip": "If enabled, the sink can hold any fluid. If disabled, it only accepts water.",
 
+  "better_deco.configuration.sink_capacity_buckets": "Capacity of Sink (in Buckets)",
+  "better_deco.configuration.sink_capacity_buckets.tooltip": "Sets the maximum number of buckets the sink can hold. Needs A game restart(Maximum n° Buckets is 10)",
 
 
   "block.better_deco.limestone": "Limestone",

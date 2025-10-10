@@ -390,6 +390,7 @@ public class ModBlockEntities {
                     ModBlocks.DARK_OAK_DESK_CABINET.get(),
                     ModBlocks.MANGROVE_DESK_CABINET.get(),
                     ModBlocks.CHERRY_DESK_CABINET.get(),
+                    ModBlocks.PALE_OAK_DESK_CABINET.get(),
                     ModBlocks.BAMBOO_DESK_CABINET.get(),
                     ModBlocks.CRIMSON_DESK_CABINET.get(),
                     ModBlocks.WARPED_DESK_CABINET.get()

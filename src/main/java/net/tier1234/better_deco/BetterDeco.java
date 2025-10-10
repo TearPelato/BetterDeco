@@ -10,6 +10,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
@@ -33,7 +34,7 @@ import org.slf4j.Logger;
 @Mod(BetterDeco.MOD_ID)
 public class BetterDeco {
     public static final String MOD_ID = "better_deco";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public BetterDeco(IEventBus modEventBus, ModContainer modContainer) {
@@ -56,6 +57,7 @@ public class BetterDeco {
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
+        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
     public static ResourceLocation id(String path, Object... args) {

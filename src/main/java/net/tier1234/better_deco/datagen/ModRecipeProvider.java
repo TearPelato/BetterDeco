@@ -3,19 +3,18 @@ package net.tier1234.better_deco.datagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
+import net.neoforged.neoforge.common.Tags;
+import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.block.ModBlocks;
 import net.tier1234.better_deco.item.ModItems;
 import net.tier1234.better_deco.util.Constants;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -4742,18 +4741,6 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stick", has(Items.STICK))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModItems.NETHERITE_CHISEL.get())
-                .pattern("   ")
-                .pattern(" # ")
-                .pattern("B  ")
-                .define('B', Items.STICK.asItem())
-                .define('#', Items.NETHERITE_INGOT.asItem())
-                .unlockedBy("has_netherite", has(Items.NETHERITE_INGOT))
-                .unlockedBy("has_stick", has(Items.STICK))
-                .save(output);
-
-
-
         shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_DIORITE_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
@@ -4888,9 +4875,887 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
 
+        SmithingTransformRecipeBuilder.smithing(
+                        Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
+                        Ingredient.of(ModItems.DIAMOND_CHISEL),
+                        Ingredient.of(Items.NETHERITE_INGOT),
+                        RecipeCategory.TOOLS,
+                        ModItems.NETHERITE_CHISEL.get()
+                )
+                .unlocks("has_custom_template", has(Items.NETHERITE_INGOT))
+                .save(output, String.valueOf(ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, "netherite_chisel")));
 
 
 
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.RED_KITCHEN_COUNTER.get())
+                .pattern("###")
+                .pattern("B B")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.RED_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.RED_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.YELLOW_KITCHEN_COUNTER.get())
+                .pattern("###")
+                .pattern("B B")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.YELLOW_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.YELLOW_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.ORANGE_KITCHEN_COUNTER.get())
+                .pattern("###")
+                .pattern("B B")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.ORANGE_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.ORANGE_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.PURPLE_KITCHEN_COUNTER.get())
+                .pattern("###")
+                .pattern("B B")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.PURPLE_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.PURPLE_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.MAGENTA_KITCHEN_COUNTER.get())
+                .pattern("###")
+                .pattern("B B")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.MAGENTA_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.MAGENTA_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.PINK_KITCHEN_COUNTER.get())
+                .pattern("###")
+                .pattern("B B")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.PINK_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.PINK_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.BLUE_KITCHEN_COUNTER.get())
+                .pattern("###")
+                .pattern("B B")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.BLUE_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.BLUE_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.CYAN_KITCHEN_COUNTER.get())
+                .pattern("###")
+                .pattern("B B")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.CYAN_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.CYAN_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_BLUE_KITCHEN_COUNTER.get())
+                .pattern("###")
+                .pattern("B B")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.LIGHT_BLUE_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.LIGHT_BLUE_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.GREEN_KITCHEN_COUNTER.get())
+                .pattern("###")
+                .pattern("B B")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.GREEN_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.GREEN_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIME_KITCHEN_COUNTER.get())
+                .pattern("###")
+                .pattern("B B")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.LIME_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.LIME_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.GRAY_KITCHEN_COUNTER.get())
+                .pattern("###")
+                .pattern("B B")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.GRAY_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.GRAY_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_GRAY_KITCHEN_COUNTER.get())
+                .pattern("###")
+                .pattern("B B")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.LIGHT_GRAY_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.LIGHT_GRAY_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACK_KITCHEN_COUNTER.get())
+                .pattern("###")
+                .pattern("B B")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.BLACK_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.BLACK_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.WHITE_KITCHEN_COUNTER.get())
+                .pattern("###")
+                .pattern("B B")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.WHITE_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.WHITE_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.BROWN_KITCHEN_COUNTER.get())
+                .pattern("###")
+                .pattern("B B")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.BROWN_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.BROWN_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+
+
+
+
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.RED_KITCHEN_DRAWER.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('X', Items.SMOKER.asItem())
+                .define('#', Blocks.RED_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.RED_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.YELLOW_KITCHEN_DRAWER.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('X', Items.SMOKER.asItem())
+                .define('#', Blocks.YELLOW_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.YELLOW_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.ORANGE_KITCHEN_DRAWER.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('X', Items.SMOKER.asItem())
+                .define('#', Blocks.ORANGE_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.ORANGE_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.PURPLE_KITCHEN_DRAWER.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('X', Items.SMOKER.asItem())
+                .define('#', Blocks.PURPLE_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.PURPLE_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.MAGENTA_KITCHEN_DRAWER.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('X', Items.SMOKER.asItem())
+                .define('#', Blocks.MAGENTA_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.MAGENTA_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.PINK_KITCHEN_DRAWER.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('X', Items.SMOKER.asItem())
+                .define('#', Blocks.PINK_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.PINK_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.BLUE_KITCHEN_DRAWER.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('X', Items.SMOKER.asItem())
+                .define('#', Blocks.BLUE_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.BLUE_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.CYAN_KITCHEN_DRAWER.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('X', Items.SMOKER.asItem())
+                .define('#', Blocks.CYAN_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.CYAN_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_BLUE_KITCHEN_DRAWER.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('X', Items.SMOKER.asItem())
+                .define('#', Blocks.LIGHT_BLUE_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.LIGHT_BLUE_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.GREEN_KITCHEN_DRAWER.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('X', Items.SMOKER.asItem())
+                .define('#', Blocks.GREEN_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.GREEN_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIME_KITCHEN_DRAWER.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('X', Items.SMOKER.asItem())
+                .define('#', Blocks.LIME_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.LIME_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.GRAY_KITCHEN_DRAWER.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('X', Items.SMOKER.asItem())
+                .define('#', Blocks.GRAY_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.GRAY_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_GRAY_KITCHEN_DRAWER.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('X', Items.SMOKER.asItem())
+                .define('#', Blocks.LIGHT_GRAY_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.LIGHT_GRAY_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACK_KITCHEN_DRAWER.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('X', Items.SMOKER.asItem())
+                .define('#', Blocks.BLACK_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.BLACK_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.WHITE_KITCHEN_DRAWER.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('X', Items.SMOKER.asItem())
+                .define('#', Blocks.WHITE_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.WHITE_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.BROWN_KITCHEN_DRAWER.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('X', Items.SMOKER.asItem())
+                .define('#', Blocks.BROWN_CONCRETE.asItem())
+                .unlockedBy("has_concrete", has(Blocks.BROWN_CONCRETE))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.RED_SINK.get())
+                .pattern("BXB")
+                .pattern("BBB")
+                .pattern("# #")
+                .define('B', Items.RED_CONCRETE.asItem())
+                .define('X', Items.BUCKET.asItem())
+                .define('#', Blocks.QUARTZ_BLOCK.asItem())
+                .unlockedBy("has_concrete", has(Blocks.RED_CONCRETE))
+                .unlockedBy("has_bucket", has(Items.BUCKET))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.ORANGE_SINK.get())
+                .pattern("BXB")
+                .pattern("BBB")
+                .pattern("# #")
+                .define('B', Items.ORANGE_CONCRETE.asItem())
+                .define('X', Items.BUCKET.asItem())
+                .define('#', Blocks.QUARTZ_BLOCK.asItem())
+                .unlockedBy("has_concrete", has(Blocks.ORANGE_CONCRETE))
+                .unlockedBy("has_bucket", has(Items.BUCKET))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.YELLOW_SINK.get())
+                .pattern("BXB")
+                .pattern("BBB")
+                .pattern("# #")
+                .define('B', Items.YELLOW_CONCRETE.asItem())
+                .define('X', Items.BUCKET.asItem())
+                .define('#', Blocks.QUARTZ_BLOCK.asItem())
+                .unlockedBy("has_concrete", has(Blocks.YELLOW_CONCRETE))
+                .unlockedBy("has_bucket", has(Items.BUCKET))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.PURPLE_SINK.get())
+                .pattern("BXB")
+                .pattern("BBB")
+                .pattern("# #")
+                .define('B', Items.PURPLE_CONCRETE.asItem())
+                .define('X', Items.BUCKET.asItem())
+                .define('#', Blocks.QUARTZ_BLOCK.asItem())
+                .unlockedBy("has_concrete", has(Blocks.PURPLE_CONCRETE))
+                .unlockedBy("has_bucket", has(Items.BUCKET))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.MAGENTA_SINK.get())
+                .pattern("BXB")
+                .pattern("BBB")
+                .pattern("# #")
+                .define('B', Items.MAGENTA_CONCRETE.asItem())
+                .define('X', Items.BUCKET.asItem())
+                .define('#', Blocks.QUARTZ_BLOCK.asItem())
+                .unlockedBy("has_concrete", has(Blocks.MAGENTA_CONCRETE))
+                .unlockedBy("has_bucket", has(Items.BUCKET))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.PINK_SINK.get())
+                .pattern("BXB")
+                .pattern("BBB")
+                .pattern("# #")
+                .define('B', Items.PINK_CONCRETE.asItem())
+                .define('X', Items.BUCKET.asItem())
+                .define('#', Blocks.QUARTZ_BLOCK.asItem())
+                .unlockedBy("has_concrete", has(Blocks.PINK_CONCRETE))
+                .unlockedBy("has_bucket", has(Items.BUCKET))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.CYAN_SINK.get())
+                .pattern("BXB")
+                .pattern("BBB")
+                .pattern("# #")
+                .define('B', Items.CYAN_CONCRETE.asItem())
+                .define('X', Items.BUCKET.asItem())
+                .define('#', Blocks.QUARTZ_BLOCK.asItem())
+                .unlockedBy("has_concrete", has(Blocks.CYAN_CONCRETE))
+                .unlockedBy("has_bucket", has(Items.BUCKET))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_BLUE_SINK.get())
+                .pattern("BXB")
+                .pattern("BBB")
+                .pattern("# #")
+                .define('B', Items.LIGHT_BLUE_CONCRETE.asItem())
+                .define('X', Items.BUCKET.asItem())
+                .define('#', Blocks.QUARTZ_BLOCK.asItem())
+                .unlockedBy("has_concrete", has(Blocks.LIGHT_BLUE_CONCRETE))
+                .unlockedBy("has_bucket", has(Items.BUCKET))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.BLUE_SINK.get())
+                .pattern("BXB")
+                .pattern("BBB")
+                .pattern("# #")
+                .define('B', Items.BLUE_CONCRETE.asItem())
+                .define('X', Items.BUCKET.asItem())
+                .define('#', Blocks.QUARTZ_BLOCK.asItem())
+                .unlockedBy("has_concrete", has(Blocks.BLUE_CONCRETE))
+                .unlockedBy("has_bucket", has(Items.BUCKET))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.GREEN_SINK.get())
+                .pattern("BXB")
+                .pattern("BBB")
+                .pattern("# #")
+                .define('B', Items.GREEN_CONCRETE.asItem())
+                .define('X', Items.BUCKET.asItem())
+                .define('#', Blocks.QUARTZ_BLOCK.asItem())
+                .unlockedBy("has_concrete", has(Blocks.GREEN_CONCRETE))
+                .unlockedBy("has_bucket", has(Items.BUCKET))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIME_SINK.get())
+                .pattern("BXB")
+                .pattern("BBB")
+                .pattern("# #")
+                .define('B', Items.LIME_CONCRETE.asItem())
+                .define('X', Items.BUCKET.asItem())
+                .define('#', Blocks.QUARTZ_BLOCK.asItem())
+                .unlockedBy("has_concrete", has(Blocks.LIME_CONCRETE))
+                .unlockedBy("has_bucket", has(Items.BUCKET))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.GRAY_SINK.get())
+                .pattern("BXB")
+                .pattern("BBB")
+                .pattern("# #")
+                .define('B', Items.GRAY_CONCRETE.asItem())
+                .define('X', Items.BUCKET.asItem())
+                .define('#', Blocks.QUARTZ_BLOCK.asItem())
+                .unlockedBy("has_concrete", has(Blocks.GRAY_CONCRETE))
+                .unlockedBy("has_bucket", has(Items.BUCKET))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_GRAY_SINK.get())
+                .pattern("BXB")
+                .pattern("BBB")
+                .pattern("# #")
+                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
+                .define('X', Items.BUCKET.asItem())
+                .define('#', Blocks.QUARTZ_BLOCK.asItem())
+                .unlockedBy("has_concrete", has(Blocks.LIGHT_GRAY_CONCRETE))
+                .unlockedBy("has_bucket", has(Items.BUCKET))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACK_SINK.get())
+                .pattern("BXB")
+                .pattern("BBB")
+                .pattern("# #")
+                .define('B', Items.BLACK_CONCRETE.asItem())
+                .define('X', Items.BUCKET.asItem())
+                .define('#', Blocks.QUARTZ_BLOCK.asItem())
+                .unlockedBy("has_concrete", has(Blocks.BLACK_CONCRETE))
+                .unlockedBy("has_bucket", has(Items.BUCKET))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.WHITE_SINK.get())
+                .pattern("BXB")
+                .pattern("BBB")
+                .pattern("# #")
+                .define('B', Items.WHITE_CONCRETE.asItem())
+                .define('X', Items.BUCKET.asItem())
+                .define('#', Blocks.QUARTZ_BLOCK.asItem())
+                .unlockedBy("has_concrete", has(Blocks.WHITE_CONCRETE))
+                .unlockedBy("has_bucket", has(Items.BUCKET))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.BROWN_SINK.get())
+                .pattern("BXB")
+                .pattern("BBB")
+                .pattern("# #")
+                .define('B', Items.BROWN_CONCRETE.asItem())
+                .define('X', Items.BUCKET.asItem())
+                .define('#', Blocks.QUARTZ_BLOCK.asItem())
+                .unlockedBy("has_concrete", has(Blocks.BROWN_CONCRETE))
+                .unlockedBy("has_bucket", has(Items.BUCKET))
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .save(output);
+
+
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.RED_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.RED_CONCRETE.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .unlockedBy("has_concrete", has(Blocks.RED_CONCRETE))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.YELLOW_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.YELLOW_CONCRETE.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .unlockedBy("has_concrete", has(Blocks.YELLOW_CONCRETE))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.ORANGE_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.ORANGE_CONCRETE.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .unlockedBy("has_concrete", has(Blocks.ORANGE_CONCRETE))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.PURPLE_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.PURPLE_CONCRETE.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .unlockedBy("has_concrete", has(Blocks.PURPLE_CONCRETE))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.MAGENTA_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.MAGENTA_CONCRETE.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .unlockedBy("has_concrete", has(Blocks.MAGENTA_CONCRETE))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.PINK_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.PINK_CONCRETE.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .unlockedBy("has_concrete", has(Blocks.PINK_CONCRETE))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.CYAN_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.CYAN_CONCRETE.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .unlockedBy("has_concrete", has(Blocks.CYAN_CONCRETE))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.BLUE_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.BLUE_CONCRETE.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .unlockedBy("has_concrete", has(Blocks.BLUE_CONCRETE))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_BLUE_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.LIGHT_BLUE_CONCRETE.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .unlockedBy("has_concrete", has(Blocks.LIGHT_BLUE_CONCRETE))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.GREEN_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.GREEN_CONCRETE.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .unlockedBy("has_concrete", has(Blocks.GREEN_CONCRETE))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIME_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.LIME_CONCRETE.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .unlockedBy("has_concrete", has(Blocks.LIME_CONCRETE))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.GRAY_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.GRAY_CONCRETE.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .unlockedBy("has_concrete", has(Blocks.GRAY_CONCRETE))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_GRAY_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.LIGHT_GRAY_CONCRETE.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .unlockedBy("has_concrete", has(Blocks.LIGHT_GRAY_CONCRETE))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.BROWN_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.BROWN_CONCRETE.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .unlockedBy("has_concrete", has(Blocks.BROWN_CONCRETE))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACK_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.BLACK_CONCRETE.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .unlockedBy("has_concrete", has(Blocks.BLACK_CONCRETE))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.WHITE_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.QUARTZ_BLOCK.asItem())
+                .define('#', Blocks.WHITE_CONCRETE.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
+                .unlockedBy("has_concrete", has(Blocks.WHITE_CONCRETE))
+                .save(output);
+
+
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_PARK_BENCH, 4)
+                .pattern("PPP")
+                .pattern("PPP")
+                .pattern("L L")
+                .define('L', Blocks.OAK_LOG.asItem())
+                .define('P', Blocks.OAK_PLANKS.asItem())
+                .group("park_bench")
+                .unlockedBy("has_log", has(Blocks.OAK_LOG.asItem()))
+                .unlockedBy("has_planks", has(Blocks.OAK_PLANKS.asItem()))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_PARK_BENCH, 4)
+                .pattern("PPP")
+                .pattern("PPP")
+                .pattern("L L")
+                .define('L', Blocks.SPRUCE_LOG.asItem())
+                .define('P', Blocks.SPRUCE_PLANKS.asItem())
+                .group("park_bench")
+                .unlockedBy("has_log", has(Blocks.SPRUCE_LOG.asItem()))
+                .unlockedBy("has_planks", has(Blocks.SPRUCE_PLANKS.asItem()))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_PARK_BENCH, 4)
+                .pattern("PPP")
+                .pattern("PPP")
+                .pattern("L L")
+                .define('L', Blocks.BIRCH_LOG.asItem())
+                .define('P', Blocks.BIRCH_PLANKS.asItem())
+                .group("park_bench")
+                .unlockedBy("has_log", has(Blocks.BIRCH_LOG.asItem()))
+                .unlockedBy("has_planks", has(Blocks.BIRCH_PLANKS.asItem()))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_PARK_BENCH, 4)
+                .pattern("PPP")
+                .pattern("PPP")
+                .pattern("L L")
+                .define('L', Blocks.JUNGLE_LOG.asItem())
+                .define('P', Blocks.JUNGLE_PLANKS.asItem())
+                .group("park_bench")
+                .unlockedBy("has_log", has(Blocks.JUNGLE_LOG.asItem()))
+                .unlockedBy("has_planks", has(Blocks.JUNGLE_PLANKS.asItem()))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_PARK_BENCH, 4)
+                .pattern("PPP")
+                .pattern("PPP")
+                .pattern("L L")
+                .define('L', Blocks.ACACIA_LOG.asItem())
+                .define('P', Blocks.ACACIA_PLANKS.asItem())
+                .group("park_bench")
+                .unlockedBy("has_log", has(Blocks.ACACIA_LOG.asItem()))
+                .unlockedBy("has_planks", has(Blocks.ACACIA_PLANKS.asItem()))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_PARK_BENCH, 4)
+                .pattern("PPP")
+                .pattern("PPP")
+                .pattern("L L")
+                .define('L', Blocks.DARK_OAK_LOG.asItem())
+                .define('P', Blocks.DARK_OAK_PLANKS.asItem())
+                .group("park_bench")
+                .unlockedBy("has_log", has(Blocks.DARK_OAK_LOG.asItem()))
+                .unlockedBy("has_planks", has(Blocks.DARK_OAK_PLANKS.asItem()))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_PARK_BENCH, 4)
+                .pattern("PPP")
+                .pattern("PPP")
+                .pattern("L L")
+                .define('L', Blocks.MANGROVE_LOG.asItem())
+                .define('P', Blocks.MANGROVE_PLANKS.asItem())
+                .group("park_bench")
+                .unlockedBy("has_log", has(Blocks.MANGROVE_LOG.asItem()))
+                .unlockedBy("has_planks", has(Blocks.MANGROVE_PLANKS.asItem()))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_PARK_BENCH, 4)
+                .pattern("PPP")
+                .pattern("PPP")
+                .pattern("L L")
+                .define('L', Blocks.CHERRY_LOG.asItem())
+                .define('P', Blocks.CHERRY_PLANKS.asItem())
+                .group("park_bench")
+                .unlockedBy("has_log", has(Blocks.CHERRY_LOG.asItem()))
+                .unlockedBy("has_planks", has(Blocks.CHERRY_PLANKS.asItem()))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_PARK_BENCH, 4)
+                .pattern("PPP")
+                .pattern("PPP")
+                .pattern("L L")
+                .define('L', Blocks.BAMBOO_BLOCK.asItem())
+                .define('P', Blocks.BAMBOO_PLANKS.asItem())
+                .group("park_bench")
+                .unlockedBy("has_log", has(Blocks.BAMBOO_BLOCK.asItem()))
+                .unlockedBy("has_planks", has(Blocks.BAMBOO_PLANKS.asItem()))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_PARK_BENCH, 4)
+                .pattern("PPP")
+                .pattern("PPP")
+                .pattern("L L")
+                .define('L', Blocks.CRIMSON_STEM.asItem())
+                .define('P', Blocks.CRIMSON_PLANKS.asItem())
+                .group("park_bench")
+                .unlockedBy("has_log", has(Blocks.CRIMSON_STEM.asItem()))
+                .unlockedBy("has_planks", has(Blocks.CRIMSON_PLANKS.asItem()))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_PARK_BENCH, 4)
+                .pattern("PPP")
+                .pattern("PPP")
+                .pattern("L L")
+                .define('L', Blocks.WARPED_STEM.asItem())
+                .define('P', Blocks.WARPED_PLANKS.asItem())
+                .group("park_bench")
+                .unlockedBy("has_log", has(Blocks.WARPED_STEM.asItem()))
+                .unlockedBy("has_planks", has(Blocks.WARPED_PLANKS.asItem()))
+                .save(output);
+
+
+            shaped(RecipeCategory.DECORATIONS, ModBlocks.STONE_PATH.get(), 16)
+                    .pattern("SA")
+                    .pattern("AS")
+                    .define('S', Blocks.STONE)
+                    .define('A', Blocks.ANDESITE)
+                    .unlockedBy("has_stone", has(Blocks.STONE))
+                    .unlockedBy("has_andesite", has(Blocks.ANDESITE))
+                    .save(output);
+
+            shaped(RecipeCategory.DECORATIONS, ModBlocks.FRIDGE_LIGHT.get())
+                    .pattern("CIC")
+                    .pattern("IBI")
+                    .pattern("CIC")
+                    .define('C', Blocks.WHITE_CONCRETE)
+                    .define('I', Tags.Items.INGOTS_IRON)
+                    .define('B', Tags.Items.CHESTS_WOODEN)
+                    .group("fridge")
+                    .unlockedBy("has_iron", has(Tags.Items.INGOTS_IRON))
+                    .unlockedBy("has_chest", has(Tags.Items.CHESTS_WOODEN))
+                    .save(output);
+
+            shaped(RecipeCategory.DECORATIONS, ModBlocks.FRIDGE_DARK.get())
+                    .pattern("CIC")
+                    .pattern("IBI")
+                    .pattern("CIC")
+                    .define('C', Blocks.GRAY_CONCRETE)
+                    .define('I', Tags.Items.INGOTS_IRON)
+                    .define('B', Tags.Items.CHESTS_WOODEN)
+                    .group("fridge")
+                    .unlockedBy("has_iron", has(Tags.Items.INGOTS_IRON))
+                    .unlockedBy("has_chest", has(Tags.Items.CHESTS_WOODEN))
+                    .save(output);
 
 
 

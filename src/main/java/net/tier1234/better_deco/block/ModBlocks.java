@@ -1,13 +1,12 @@
 package net.tier1234.better_deco.block;
 
 
-
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.bus.api.IEventBus;
@@ -15,11 +14,9 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.block.custom.*;
-import net.tier1234.better_deco.block.custom.ChainBlock;
 import net.tier1234.better_deco.item.ModItems;
 
 import java.util.function.Function;
-import java.util.function.Supplier;
 
 
 public class ModBlocks {
@@ -47,6 +44,8 @@ public class ModBlocks {
             (properties)-> new DeskBlock(properties, DeskBlock.MaterialType.DARK_OAK));
     public static final DeferredBlock<Block>  CHERRY_DESK = registerBlock("cherry_desk",
             (properties)-> new DeskBlock(properties, DeskBlock.MaterialType.CHERRY));
+    public static final DeferredBlock<Block>  PALE_OAK_DESK = registerBlock("pale_oak_desk",
+            (properties)-> new DeskBlock(properties, DeskBlock.MaterialType.PALE_OAK));
     public static final DeferredBlock<Block> BAMBOO_DESK = registerBlock("bamboo_desk",
             (properties)-> new DeskBlock(properties, DeskBlock.MaterialType.BAMBOO));
     public static final DeferredBlock<Block> CRIMSON_DESK = registerBlock("crimson_desk",
@@ -70,6 +69,8 @@ public class ModBlocks {
             (properties)-> new DeskCabinetBlock(properties, DeskBlock.MaterialType.DARK_OAK));
     public static final DeferredBlock<Block>  CHERRY_DESK_CABINET = registerBlock("cherry_desk_cabinet",
             (properties)-> new DeskCabinetBlock(properties, DeskBlock.MaterialType.CHERRY));
+    public static final DeferredBlock<Block>  PALE_OAK_DESK_CABINET = registerBlock("pale_oak_desk_cabinet",
+            (properties)-> new DeskCabinetBlock(properties, DeskBlock.MaterialType.PALE_OAK));
     public static final DeferredBlock<Block> BAMBOO_DESK_CABINET = registerBlock("bamboo_desk_cabinet",
             (properties)-> new DeskCabinetBlock(properties, DeskBlock.MaterialType.BAMBOO));
     public static final DeferredBlock<Block> CRIMSON_DESK_CABINET = registerBlock("crimson_desk_cabinet",
@@ -101,6 +102,8 @@ public class ModBlocks {
             (properties)-> new ParkBenchBlock(properties.strength(2.5f)));
     public static final DeferredBlock<Block> CHERRY_PARK_BENCH = registerBlock("cherry_park_bench",
             (properties)-> new ParkBenchBlock(properties.strength(2.5f)));
+    public static final DeferredBlock<Block> PALE_OAK_PARK_BENCH = registerBlock("pale_oak_park_bench",
+            (properties)-> new ParkBenchBlock(properties.strength(2.5f)));
     public static final DeferredBlock<Block> BAMBOO_PARK_BENCH = registerBlock("bamboo_park_bench",
             (properties)-> new ParkBenchBlock(properties.strength(2.5f)));
     public static final DeferredBlock<Block> CRIMSON_PARK_BENCH = registerBlock("crimson_park_bench",
@@ -116,13 +119,11 @@ public class ModBlocks {
             (properties) -> new FreezerBlock(properties.strength(2.5f).noOcclusion(), () -> ModBlocks.FRIDGE_DARK));
 
 
-    public static final DeferredBlock<Block> FRIDGE_LIGHT = registerBlockWithCustomItem("fridge_light",
-            (properties) -> new FridgeBlock(properties.strength(2.5f).noOcclusion(), () -> FREEZER_LIGHT),
-            block -> new BlockItem(new Item.Properties(), block.get(), FREEZER_LIGHT));
+    public static final DeferredBlock<Block> FRIDGE_LIGHT = registerBlock("fridge_light",
+            (properties) -> new FridgeBlock(properties.strength(2.5f).noOcclusion(), () -> FREEZER_LIGHT));
 
-    public static final DeferredBlock<Block> FRIDGE_DARK = registerBlockWithCustomItem("fridge_dark",
-            (properties) -> new FridgeBlock(properties.strength(2.5f).noOcclusion(), () -> FREEZER_DARK),
-            block -> new BlockItem(new Item.Properties(),block.get(), FREEZER_DARK));
+    public static final DeferredBlock<Block> FRIDGE_DARK = registerBlock("fridge_dark",
+            (properties) -> new FridgeBlock(properties.strength(2.5f).noOcclusion(), () -> FREEZER_DARK));
 
 
 

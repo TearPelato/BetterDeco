@@ -1,0 +1,7 @@
+{
+  "parent": "better_deco:block/desk_middle",
+  "textures": {
+    "base": "minecraft:block/pale_oak_planks",
+    "top": "minecraft:block/pale_oak_log"
+  }
+}

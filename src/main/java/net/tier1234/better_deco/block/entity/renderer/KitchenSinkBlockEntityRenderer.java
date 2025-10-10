@@ -11,57 +11,29 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.Direction;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.phys.AABB;
 import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.tier1234.better_deco.block.custom.FurnitureHorizontalBlock;
 import net.tier1234.better_deco.block.entity.custom.KitchenSinkBlockEntity;
 import org.joml.Matrix4f;
 
-public class KitchenSinkBlockEntityRenderer implements BlockEntityRenderer<KitchenSinkBlockEntity>
-{
-    public KitchenSinkBlockEntityRenderer(BlockEntityRendererProvider.Context context) {}
+public class KitchenSinkBlockEntityRenderer implements BlockEntityRenderer<KitchenSinkBlockEntity> {
+
+    public KitchenSinkBlockEntityRenderer(BlockEntityRendererProvider.Context ctx) {}
 
     @Override
-    public void render(KitchenSinkBlockEntity tileEntity, float partialTicks, PoseStack poseStack, MultiBufferSource source, int light, int overlay)
-    {
-        poseStack.pushPose();
-        poseStack.translate(0.5, 0.5, 0.5);
-        Direction direction = tileEntity.getBlockState().getValue(FurnitureHorizontalBlock.DIRECTION);
-        poseStack.mulPose(Axis.YP.rotationDegrees(direction.get2DDataValue() * -90F - 90F));
-        poseStack.translate(-0.5, -0.5, -0.5);
-        this.drawFluid(tileEntity, poseStack, source, 2F * 0.0625F, 10F * 0.0625F, 2F * 0.0625F, 10F * 0.0625F, 5F * 0.0625F, 12F * 0.0625F, light);
-        poseStack.popPose();
-    }
-
-    private void drawFluid(KitchenSinkBlockEntity te, PoseStack poseStack, MultiBufferSource source, float x, float y, float z, float width, float height, float depth, int light)
-    {
-        FluidStack fluidStack = te.getTank().getFluid();
-        Fluid fluid = fluidStack.getFluid();
-        if(fluid == Fluids.EMPTY)
-            return;
-
-        IClientFluidTypeExtensions fluidType = IClientFluidTypeExtensions.of(fluid);
-        TextureAtlasSprite sprite = Minecraft.getInstance().getTextureAtlas(TextureAtlas.LOCATION_BLOCKS).apply(fluidType.getStillTexture(fluid.defaultFluidState(), te.getLevel(), te.getBlockPos()));
-        float minU = sprite.getU0();
-        float maxU = Math.min(minU + (sprite.getU1() - minU) * depth, sprite.getU1());
-        float minV = sprite.getV0();
-        float maxV = Math.min(minV + (sprite.getV1() - minV) * width, sprite.getV1());
-        int waterColor = fluidType.getTintColor(fluid.defaultFluidState(), te.getLevel(), te.getBlockPos());
-        float red = (float) (waterColor >> 16 & 255) / 255.0F;
-        float green = (float) (waterColor >> 8 & 255) / 255.0F;
-        float blue = (float) (waterColor & 255) / 255.0F;
-
-        height *= ((double) te.getTank().getFluidAmount() / (double) te.getTank().getCapacity());
-
-        VertexConsumer consumer = source.getBuffer(RenderType.translucent());
-        Matrix4f matrix = poseStack.last().pose();
-        consumer.addVertex(matrix, x, y + height, z).setColor(red, green, blue, 1.0F).setUv(maxU, minV).setNormal(0.0F, 1.0F, 0.0F);
-        consumer.addVertex(matrix, x, y + height, z + depth).setColor(red, green, blue, 1.0F).setUv(minU, minV).setNormal(0.0F, 1.0F, 0.0F);
-        consumer.addVertex(matrix, x + width, y + height, z + depth).setColor(red, green, blue, 1.0F).setUv(minU, maxV).setNormal(0.0F, 1.0F, 0.0F);
-        consumer.addVertex(matrix, x + width, y + height, z).setColor(red, green, blue, 1.0F).setUv(maxU, maxV).setNormal(0.0F, 1.0F, 0.0F);
-
-
+    public void render(KitchenSinkBlockEntity be, float partialTick, PoseStack ms, MultiBufferSource buf, int light, int overlay) {
+        Fluid fluid = be.getFluid();
+        if (fluid == Fluids.EMPTY || be.getLevel() == null) return;
+        BlockState state = be.getBlockState();
+        if (!state.hasProperty(BlockStateProperties.HORIZONTAL_FACING)) return;
+        Direction dir = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
+        AABB box = FluidContainerRenderer.createRotatedBox(dir, 2, 13, 2, 14, 15.9, 14);
+        FluidContainerRenderer.drawContainer(be.getLevel(), be.getBlockPos(), be, box, ms, buf, light);
     }
 }
