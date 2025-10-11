@@ -120,10 +120,10 @@ public class ModBlocks {
 
 
     public static final DeferredBlock<Block> FRIDGE_LIGHT = registerBlock("fridge_light",
-            (properties) -> new FridgeBlock(properties.strength(2.5f).noOcclusion(), () -> FREEZER_LIGHT));
+            (properties) -> new FridgeBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), () -> ModBlocks.FREEZER_LIGHT));
 
     public static final DeferredBlock<Block> FRIDGE_DARK = registerBlock("fridge_dark",
-            (properties) -> new FridgeBlock(properties.strength(2.5f).noOcclusion(), () -> FREEZER_DARK));
+            (properties) -> new FridgeBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), () -> ModBlocks.FREEZER_DARK));
 
 
 
@@ -1643,7 +1643,7 @@ public static final DeferredBlock<Block> STONE_GLASS_TECQUE = registerBlock("sto
 
     //REGISTRATION
 
-    private static <T extends Block> DeferredBlock<T> registerBlockWithCustomItem(String name, Function<BlockBehaviour.Properties, T> block, Function<Item.Properties, Item> itemFactory) {
+    public static <T extends Block> DeferredBlock<T> registerBlockWithCustomItem(String name, Function<BlockBehaviour.Properties, T> block, Function<Item.Properties, Item> itemFactory) {
         DeferredBlock<T> toReturn = BLOCKS.registerBlock(name, block);
         ModItems.ITEMS.registerItem(name, itemFactory);
         return toReturn;
