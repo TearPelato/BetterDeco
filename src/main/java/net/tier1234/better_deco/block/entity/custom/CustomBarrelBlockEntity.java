@@ -1,4 +1,4 @@
-package net.tier1234.better_deco.block.entity;
+package net.tier1234.better_deco.block.entity.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
@@ -10,6 +10,7 @@ import net.minecraft.world.inventory.ChestMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.tier1234.better_deco.block.entity.ModBlockEntities;
 
 public class CustomBarrelBlockEntity extends RandomizableContainerBlockEntity
         implements MenuProvider {

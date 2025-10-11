@@ -1,4 +1,4 @@
-package net.tier1234.better_deco.block.entity;
+package net.tier1234.better_deco.block.entity.custom;
 
 
 import net.minecraft.core.BlockPos;
@@ -15,6 +15,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.items.ItemStackHandler;
+import net.tier1234.better_deco.block.entity.ModBlockEntities;
 import net.tier1234.better_deco.screen.custom.CrateMenu;
 import org.jetbrains.annotations.Nullable;
 

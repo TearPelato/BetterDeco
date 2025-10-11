@@ -1,4 +1,4 @@
-package net.tier1234.better_deco.block.entity;
+package net.tier1234.better_deco.block.entity.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -17,10 +17,11 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.items.ItemStackHandler;
-import net.tier1234.better_deco.screen.custom.TecqueMenu;
+import net.tier1234.better_deco.block.entity.ModBlockEntities;
+import net.tier1234.better_deco.screen.custom.PedestalMenu;
 import org.jetbrains.annotations.Nullable;
 
-public class TecqueBlockEntity extends BlockEntity implements MenuProvider {
+public class PedestalBlockEntity extends BlockEntity implements MenuProvider {
     public final ItemStackHandler inventory = new ItemStackHandler(1) {
         @Override
         protected int getStackLimit(int slot, ItemStack stack) {
@@ -37,14 +38,8 @@ public class TecqueBlockEntity extends BlockEntity implements MenuProvider {
     };
     private float rotation;
 
-    public TecqueBlockEntity(BlockPos pos, BlockState blockState) {
-        super(ModBlockEntities.GLASS_TECQUE.get(), pos, blockState);
-    }
-
-    @Override
-    public void preRemoveSideEffects(BlockPos pos, BlockState state) {
-        drops();
-        super.preRemoveSideEffects(pos, state);
+    public PedestalBlockEntity(BlockPos pos, BlockState blockState) {
+        super(ModBlockEntities.PEDESTAL_BE.get(), pos, blockState);
     }
 
     public float getRenderingRotation() {
@@ -79,16 +74,20 @@ public class TecqueBlockEntity extends BlockEntity implements MenuProvider {
         super.loadAdditional(tag, registries);
         inventory.deserializeNBT(registries, tag.getCompound("inventory").get());
     }
-
+    @Override
+    public void preRemoveSideEffects(BlockPos pos, BlockState state) {
+        drops();
+        super.preRemoveSideEffects(pos, state);
+    }
     @Override
     public Component getDisplayName() {
-        return Component.literal("Tecque");
+        return Component.literal("Pedestal");
     }
 
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int i, Inventory inventory, Player player) {
-        return new TecqueMenu(i, inventory, this);
+        return new PedestalMenu(i, inventory, this);
     }
 
 

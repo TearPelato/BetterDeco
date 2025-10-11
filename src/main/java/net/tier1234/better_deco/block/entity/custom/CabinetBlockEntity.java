@@ -1,11 +1,10 @@
-package net.tier1234.better_deco.block.entity;
+package net.tier1234.better_deco.block.entity.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -14,24 +13,27 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.items.ItemStackHandler;
+import net.tier1234.better_deco.block.entity.ModBlockEntities;
 
-public class KitchenDrawerBlockEntity extends RandomizableContainerBlockEntity
+public class CabinetBlockEntity extends RandomizableContainerBlockEntity
         implements MenuProvider {
-    public final ItemStackHandler inventory = new ItemStackHandler(9);
-    private NonNullList<ItemStack> items = NonNullList.withSize(9, ItemStack.EMPTY);
 
-    public KitchenDrawerBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.CUSTOM_KITCHEN_DRAWER_BE.get(), pos, state);
+    public final ItemStackHandler inventory = new ItemStackHandler(18);
+
+    private NonNullList<ItemStack> items = NonNullList.withSize(18, ItemStack.EMPTY);
+
+    public CabinetBlockEntity(BlockPos pos, BlockState state) {
+        super(ModBlockEntities.CUSTOM_CABINET_BE.get(), pos, state);
     }
 
     @Override
     protected Component getDefaultName() {
-        return Component.literal("Kitchen Drawer");
+        return Component.literal("Kitchen Cabinet");
     }
 
     @Override
     protected AbstractContainerMenu createMenu(int id, Inventory playerInventory) {
-        return ChestMenu.oneRow(id, playerInventory);
+        return ChestMenu.twoRows(id, playerInventory );
     }
 
     @Override
@@ -60,5 +62,5 @@ public class KitchenDrawerBlockEntity extends RandomizableContainerBlockEntity
         super.loadAdditional(tag, registries);
         inventory.deserializeNBT(registries, tag.getCompound("inventory").get());
     }
-}
 
+}
