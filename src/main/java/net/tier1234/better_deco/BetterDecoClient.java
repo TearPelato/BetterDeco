@@ -1,5 +1,6 @@
 package net.tier1234.better_deco;
 
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -12,6 +13,8 @@ import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.tier1234.better_deco.block.entity.ModBlockEntities;
 import net.tier1234.better_deco.block.entity.renderer.*;
+import net.tier1234.better_deco.entity.ModEntities;
+import net.tier1234.better_deco.entity.client.ChairRenderer;
 import net.tier1234.better_deco.screen.ModMenuTypes;
 import net.tier1234.better_deco.screen.custom.*;
 
@@ -24,7 +27,7 @@ public class BetterDecoClient {
     }
     @SubscribeEvent
     static void onClientSetup(FMLClientSetupEvent event) {
-
+        EntityRenderers.register(ModEntities.CHAIR_ENTITY.get(), ChairRenderer::new);
     }
     @SubscribeEvent
     public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
