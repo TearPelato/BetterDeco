@@ -120,10 +120,10 @@ public class ModBlocks {
 
 
     public static final DeferredBlock<Block> FRIDGE_LIGHT = registerBlock("fridge_light",
-            (properties) -> new FridgeBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), () -> ModBlocks.FREEZER_LIGHT));
+            (properties) -> new FridgeBlock(properties.strength(2.5f).noOcclusion(), () -> ModBlocks.FREEZER_LIGHT));
 
     public static final DeferredBlock<Block> FRIDGE_DARK = registerBlock("fridge_dark",
-            (properties) -> new FridgeBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), () -> ModBlocks.FREEZER_DARK));
+            (properties) -> new FridgeBlock(properties.strength(2.5f).noOcclusion(), () -> ModBlocks.FREEZER_DARK));
 
 
 

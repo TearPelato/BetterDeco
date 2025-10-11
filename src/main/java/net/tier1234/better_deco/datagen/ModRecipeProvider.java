@@ -43,7 +43,7 @@ public class ModRecipeProvider extends RecipeProvider  {
     protected void buildRecipes(){
         List<ItemLike> PLANKS = List.of(Blocks.OAK_PLANKS,
                 Blocks.SPRUCE_PLANKS, Blocks.BIRCH_PLANKS, Blocks.JUNGLE_PLANKS, Blocks.ACACIA_PLANKS, Blocks.DARK_OAK_PLANKS,
-                Blocks.MANGROVE_PLANKS,Blocks.CHERRY_PLANKS,Blocks.BAMBOO_PLANKS,Blocks.CRIMSON_PLANKS,Blocks.WARPED_PLANKS);
+                Blocks.MANGROVE_PLANKS,Blocks.CHERRY_PLANKS,Blocks.PALE_OAK_PLANKS,Blocks.BAMBOO_PLANKS,Blocks.CRIMSON_PLANKS,Blocks.WARPED_PLANKS);
 
 
         //StoneCutter
@@ -99,6 +99,57 @@ public class ModRecipeProvider extends RecipeProvider  {
                         ModBlocks.OAK_SOFT_BRICKS.get()
                 )
                 .unlockedBy("has_oak_planks", has(Blocks.OAK_PLANKS.asItem()))
+                .save(output);
+
+        //Pale Oak
+
+        SingleItemRecipeBuilder.stonecutting(
+                        Ingredient.of(Blocks.PALE_OAK_PLANKS.asItem()),
+                        RecipeCategory.MISC,
+                        ModBlocks.PALE_OAK_PLANKS_BRICKS.get()
+                )
+                .unlockedBy("has_pale_oak_planks", has(Blocks.PALE_OAK_PLANKS.asItem()))
+                .save(output);
+
+        SingleItemRecipeBuilder.stonecutting(
+                        Ingredient.of(Blocks.PALE_OAK_PLANKS.asItem()),
+                        RecipeCategory.MISC,
+                        ModBlocks.PALE_OAK_PLANKS_PILLAR.get()
+                )
+                .unlockedBy("has_pale_oak_planks", has(Blocks.PALE_OAK_PLANKS.asItem()))
+                .save(output);
+
+        SingleItemRecipeBuilder.stonecutting(
+                        Ingredient.of(Blocks.PALE_OAK_PLANKS.asItem()),
+                        RecipeCategory.MISC,
+                        ModBlocks.PALE_OAK_VERTICAL.get()
+                )
+                .unlockedBy("has_pale_oak_planks", has(Blocks.PALE_OAK_PLANKS.asItem()))
+                .save(output);
+
+        SingleItemRecipeBuilder.stonecutting(
+                        Ingredient.of(Blocks.PALE_OAK_PLANKS.asItem()),
+                        RecipeCategory.MISC,
+                        ModBlocks.PALE_OAK_SMOOTH_PLANKS.get()
+                )
+                .unlockedBy("has_pale_oak_planks", has(Blocks.PALE_OAK_PLANKS.asItem()))
+                .save(output);
+
+        SingleItemRecipeBuilder.stonecutting(
+                        Ingredient.of(Blocks.PALE_OAK_PLANKS.asItem()),
+                        RecipeCategory.MISC,
+                        ModBlocks.PALE_OAK_LARGE_PLANKS.get()
+                )
+                .unlockedBy("has_pale_oak_planks", has(Blocks.PALE_OAK_PLANKS.asItem()))
+                .save(output);
+
+
+        SingleItemRecipeBuilder.stonecutting(
+                        Ingredient.of(Blocks.PALE_OAK_PLANKS.asItem()),
+                        RecipeCategory.MISC,
+                        ModBlocks.PALE_OAK_SOFT_BRICKS.get()
+                )
+                .unlockedBy("has_pale_oak_planks", has(Blocks.PALE_OAK_PLANKS.asItem()))
                 .save(output);
 
 //Spruce
@@ -675,6 +726,16 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .define('#', Blocks.CHERRY_SLAB.asItem())
                 .unlockedBy("has_cherry", has(Blocks.CHERRY_PLANKS))
                 .unlockedBy("has_cherry_slab", has(Blocks.CHERRY_SLAB))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, ModBlocks.PALE_OAK_BARREL.get())
+                .pattern("B#B")
+                .pattern("B B")
+                .pattern("B#B")
+                .define('B', Blocks.PALE_OAK_PLANKS.asItem())
+                .define('#', Blocks.PALE_OAK_SLAB.asItem())
+                .unlockedBy("has_pale_oak", has(Blocks.PALE_OAK_PLANKS))
+                .unlockedBy("has_pale_oak_slab", has(Blocks.PALE_OAK_SLAB))
                 .save(output);
 
         shaped(RecipeCategory.MISC, ModBlocks.BAMBOO_BARREL.get())
@@ -5613,6 +5674,17 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_planks", has(Blocks.OAK_PLANKS.asItem()))
                 .save(output);
 
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_PARK_BENCH, 4)
+                .pattern("PPP")
+                .pattern("PPP")
+                .pattern("L L")
+                .define('L', Blocks.PALE_OAK_LOG.asItem())
+                .define('P', Blocks.PALE_OAK_PLANKS.asItem())
+                .group("park_bench")
+                .unlockedBy("has_log", has(Blocks.PALE_OAK_LOG.asItem()))
+                .unlockedBy("has_planks", has(Blocks.PALE_OAK_PLANKS.asItem()))
+                .save(output);
+
         shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_PARK_BENCH, 4)
                 .pattern("PPP")
                 .pattern("PPP")
@@ -5759,9 +5831,294 @@ public class ModRecipeProvider extends RecipeProvider  {
 
 
 
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_DESK.get())
+                .pattern("CCC")
+                .pattern("I I")
+                .pattern("I I")
+                .define('C', Blocks.OAK_LOG)
+                .define('I', Blocks.OAK_PLANKS)
+                .unlockedBy("has_log", has(Blocks.OAK_LOG.asItem()))
+                .unlockedBy("has_chest", has( Blocks.OAK_PLANKS.asItem()))
+                .save(output);
+
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_DESK.get())
+                .pattern("CCC")
+                .pattern("I I")
+                .pattern("I I")
+                .define('C', Blocks.SPRUCE_LOG)
+                .define('I', Blocks.SPRUCE_PLANKS)
+                .unlockedBy("has_log", has(Blocks.SPRUCE_LOG.asItem()))
+                .unlockedBy("has_chest", has( Blocks.SPRUCE_PLANKS.asItem()))
+                .save(output);
+
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_DESK.get())
+                .pattern("CCC")
+                .pattern("I I")
+                .pattern("I I")
+                .define('C', Blocks.BIRCH_LOG)
+                .define('I', Blocks.BIRCH_PLANKS)
+                .unlockedBy("has_log", has(Blocks.BIRCH_LOG.asItem()))
+                .unlockedBy("has_chest", has( Blocks.BIRCH_PLANKS.asItem()))
+                .save(output);
+
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_DESK.get())
+                .pattern("CCC")
+                .pattern("I I")
+                .pattern("I I")
+                .define('C', Blocks.JUNGLE_LOG)
+                .define('I', Blocks.JUNGLE_PLANKS)
+                .unlockedBy("has_log", has(Blocks.JUNGLE_LOG.asItem()))
+                .unlockedBy("has_chest", has( Blocks.JUNGLE_PLANKS.asItem()))
+                .save(output);
+
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_DESK.get())
+                .pattern("CCC")
+                .pattern("I I")
+                .pattern("I I")
+                .define('C', Blocks.ACACIA_LOG)
+                .define('I', Blocks.ACACIA_PLANKS)
+                .unlockedBy("has_log", has(Blocks.ACACIA_LOG.asItem()))
+                .unlockedBy("has_chest", has( Blocks.ACACIA_PLANKS.asItem()))
+                .save(output);
+
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_DESK.get())
+                .pattern("CCC")
+                .pattern("I I")
+                .pattern("I I")
+                .define('C', Blocks.DARK_OAK_LOG)
+                .define('I', Blocks.DARK_OAK_PLANKS)
+                .unlockedBy("has_log", has(Blocks.DARK_OAK_LOG.asItem()))
+                .unlockedBy("has_chest", has( Blocks.DARK_OAK_PLANKS.asItem()))
+                .save(output);
+
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_DESK.get())
+                .pattern("CCC")
+                .pattern("I I")
+                .pattern("I I")
+                .define('C', Blocks.MANGROVE_LOG)
+                .define('I', Blocks.MANGROVE_PLANKS)
+                .unlockedBy("has_log", has(Blocks.MANGROVE_LOG.asItem()))
+                .unlockedBy("has_chest", has( Blocks.MANGROVE_PLANKS.asItem()))
+                .save(output);
+
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_DESK.get())
+                .pattern("CCC")
+                .pattern("I I")
+                .pattern("I I")
+                .define('C', Blocks.CHERRY_LOG)
+                .define('I', Blocks.CHERRY_PLANKS)
+                .unlockedBy("has_log", has(Blocks.CHERRY_LOG.asItem()))
+                .unlockedBy("has_chest", has( Blocks.CHERRY_PLANKS.asItem()))
+                .save(output);
+
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_DESK.get())
+                .pattern("CCC")
+                .pattern("I I")
+                .pattern("I I")
+                .define('C', Blocks.PALE_OAK_LOG)
+                .define('I', Blocks.PALE_OAK_PLANKS)
+                .unlockedBy("has_log", has(Blocks.PALE_OAK_LOG.asItem()))
+                .unlockedBy("has_chest", has( Blocks.PALE_OAK_PLANKS.asItem()))
+                .save(output);
+
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_DESK.get())
+                .pattern("CCC")
+                .pattern("I I")
+                .pattern("I I")
+                .define('C', Blocks.BAMBOO_BLOCK)
+                .define('I', Blocks.BAMBOO_PLANKS)
+                .unlockedBy("has_log", has(Blocks.BAMBOO_BLOCK.asItem()))
+                .unlockedBy("has_chest", has( Blocks.BAMBOO_PLANKS.asItem()))
+                .save(output);
+
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_DESK.get())
+                .pattern("CCC")
+                .pattern("I I")
+                .pattern("I I")
+                .define('C', Blocks.CRIMSON_STEM)
+                .define('I', Blocks.CRIMSON_PLANKS)
+                .unlockedBy("has_log", has(Blocks.CRIMSON_STEM.asItem()))
+                .unlockedBy("has_chest", has( Blocks.CRIMSON_PLANKS.asItem()))
+                .save(output);
+
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_DESK.get())
+                .pattern("CCC")
+                .pattern("I I")
+                .pattern("I I")
+                .define('C', Blocks.WARPED_STEM)
+                .define('I', Blocks.WARPED_PLANKS)
+                .unlockedBy("has_log", has(Blocks.WARPED_STEM.asItem()))
+                .unlockedBy("has_chest", has( Blocks.WARPED_PLANKS.asItem()))
+                .save(output);
 
 
 
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_DESK_CABINET.get())
+                .pattern("CCC")
+                .pattern("IBI")
+                .pattern("I I")
+                .define('C', Blocks.OAK_LOG)
+                .define('I', Blocks.OAK_PLANKS)
+                .define('B', Blocks.CHEST)
+                .unlockedBy("has_log", has(Blocks.OAK_LOG.asItem()))
+                .unlockedBy("has_chest", has( Blocks.OAK_PLANKS.asItem()))
+                .unlockedBy("has_chest", has( Blocks.CHEST.asItem()))
+                .save(output);
+
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_DESK_CABINET.get())
+                .pattern("CCC")
+                .pattern("IBI")
+                .pattern("I I")
+                .define('C', Blocks.SPRUCE_LOG)
+                .define('I', Blocks.SPRUCE_PLANKS)
+                .define('B', Blocks.CHEST)
+                .unlockedBy("has_chest", has( Blocks.CHEST.asItem()))
+                .unlockedBy("has_log", has(Blocks.SPRUCE_LOG.asItem()))
+                .unlockedBy("has_chest", has( Blocks.SPRUCE_PLANKS.asItem()))
+                .save(output);
+
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_DESK_CABINET.get())
+                .pattern("CCC")
+                .pattern("IBI")
+                .pattern("I I")
+                .define('C', Blocks.BIRCH_LOG)
+                .define('I', Blocks.BIRCH_PLANKS)
+                .define('B', Blocks.CHEST)
+                .unlockedBy("has_chest", has( Blocks.CHEST.asItem()))
+                .unlockedBy("has_log", has(Blocks.BIRCH_LOG.asItem()))
+                .unlockedBy("has_chest", has( Blocks.BIRCH_PLANKS.asItem()))
+                .save(output);
+
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_DESK_CABINET.get())
+                .pattern("CCC")
+                .pattern("IBI")
+                .pattern("I I")
+                .define('C', Blocks.JUNGLE_LOG)
+                .define('I', Blocks.JUNGLE_PLANKS)
+                .define('B', Blocks.CHEST)
+                .unlockedBy("has_chest", has( Blocks.CHEST.asItem()))
+                .unlockedBy("has_log", has(Blocks.JUNGLE_LOG.asItem()))
+                .unlockedBy("has_chest", has( Blocks.JUNGLE_PLANKS.asItem()))
+                .save(output);
+
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_DESK_CABINET.get())
+                .pattern("CCC")
+                .pattern("IBI")
+                .pattern("I I")
+                .define('C', Blocks.ACACIA_LOG)
+                .define('I', Blocks.ACACIA_PLANKS)
+                .define('B', Blocks.CHEST)
+                .unlockedBy("has_chest", has( Blocks.CHEST.asItem()))
+                .unlockedBy("has_log", has(Blocks.ACACIA_LOG.asItem()))
+                .unlockedBy("has_chest", has( Blocks.ACACIA_PLANKS.asItem()))
+                .save(output);
+
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_DESK_CABINET.get())
+                .pattern("CCC")
+                .pattern("IBI")
+                .pattern("I I")
+                .define('C', Blocks.DARK_OAK_LOG)
+                .define('I', Blocks.DARK_OAK_PLANKS)
+                .define('B', Blocks.CHEST)
+                .unlockedBy("has_chest", has( Blocks.CHEST.asItem()))
+                .unlockedBy("has_log", has(Blocks.DARK_OAK_LOG.asItem()))
+                .unlockedBy("has_chest", has( Blocks.DARK_OAK_PLANKS.asItem()))
+                .save(output);
+
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_DESK_CABINET.get())
+                .pattern("CCC")
+                .pattern("IBI")
+                .pattern("I I")
+                .define('C', Blocks.MANGROVE_LOG)
+                .define('I', Blocks.MANGROVE_PLANKS)
+                .define('B', Blocks.CHEST)
+                .unlockedBy("has_chest", has( Blocks.CHEST.asItem()))
+                .unlockedBy("has_log", has(Blocks.MANGROVE_LOG.asItem()))
+                .unlockedBy("has_chest", has( Blocks.MANGROVE_PLANKS.asItem()))
+                .save(output);
+
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_DESK_CABINET.get())
+                .pattern("CCC")
+                .pattern("IBI")
+                .pattern("I I")
+                .define('C', Blocks.CHERRY_LOG)
+                .define('I', Blocks.CHERRY_PLANKS)
+                .define('B', Blocks.CHEST)
+                .unlockedBy("has_chest", has( Blocks.CHEST.asItem()))
+                .unlockedBy("has_log", has(Blocks.CHERRY_LOG.asItem()))
+                .unlockedBy("has_chest", has( Blocks.CHERRY_PLANKS.asItem()))
+                .save(output);
+
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_DESK_CABINET.get())
+                .pattern("CCC")
+                .pattern("IBI")
+                .pattern("I I")
+                .define('C', Blocks.PALE_OAK_LOG)
+                .define('I', Blocks.PALE_OAK_PLANKS)
+                .define('B', Blocks.CHEST)
+                .unlockedBy("has_chest", has( Blocks.CHEST.asItem()))
+                .unlockedBy("has_log", has(Blocks.PALE_OAK_LOG.asItem()))
+                .unlockedBy("has_chest", has( Blocks.PALE_OAK_PLANKS.asItem()))
+                .save(output);
+
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_DESK_CABINET.get())
+                .pattern("CCC")
+                .pattern("IBI")
+                .pattern("I I")
+                .define('C', Blocks.BAMBOO_BLOCK)
+                .define('I', Blocks.BAMBOO_PLANKS)
+                .define('B', Blocks.CHEST)
+                .unlockedBy("has_chest", has( Blocks.CHEST.asItem()))
+                .unlockedBy("has_log", has(Blocks.BAMBOO_BLOCK.asItem()))
+                .unlockedBy("has_chest", has( Blocks.BAMBOO_PLANKS.asItem()))
+                .save(output);
+
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_DESK_CABINET.get())
+                .pattern("CCC")
+                .pattern("IBI")
+                .pattern("I I")
+                .define('C', Blocks.CRIMSON_STEM)
+                .define('I', Blocks.CRIMSON_PLANKS)
+                .define('B', Blocks.CHEST)
+                .unlockedBy("has_chest", has( Blocks.CHEST.asItem()))
+                .unlockedBy("has_log", has(Blocks.CRIMSON_STEM.asItem()))
+                .unlockedBy("has_chest", has( Blocks.CRIMSON_PLANKS.asItem()))
+                .save(output);
+
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_DESK_CABINET.get())
+                .pattern("CCC")
+                .pattern("IBI")
+                .pattern("I I")
+                .define('C', Blocks.WARPED_STEM)
+                .define('I', Blocks.WARPED_PLANKS)
+                .define('B', Blocks.CHEST)
+                .unlockedBy("has_chest", has( Blocks.CHEST.asItem()))
+                .unlockedBy("has_log", has(Blocks.WARPED_STEM.asItem()))
+                .unlockedBy("has_chest", has( Blocks.WARPED_PLANKS.asItem()))
+                .save(output);
 
 
 

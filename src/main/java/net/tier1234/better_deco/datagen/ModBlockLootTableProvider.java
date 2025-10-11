@@ -764,6 +764,9 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.STONE_PATH.get());
 
         dropSelf(ModBlocks.PALE_OAK_BARREL.get());
+        dropSelf(ModBlocks.PALE_OAK_DESK.get());
+        dropSelf(ModBlocks.PALE_OAK_DESK_CABINET.get());
+        dropSelf(ModBlocks.PALE_OAK_PARK_BENCH.get());
         dropSelf(ModBlocks.PALE_OAK_SOFT_BRICKS.get());
         dropSelf(ModBlocks.PALE_OAK_PLANKS_BRICKS.get());
         dropSelf(ModBlocks.PALE_OAK_PLANKS_PILLAR.get());

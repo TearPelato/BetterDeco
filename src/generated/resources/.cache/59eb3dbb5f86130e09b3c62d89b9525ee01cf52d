@@ -1,4 +1,4 @@
-// 1.21.4	2025-10-10T21:32:59.7117469	Loot Tables
+// 1.21.4	2025-10-11T11:40:25.3257484	Loot Tables
 c275d17a98fbf9a86f83c408f6ce53f925c165b9 data/better_deco/loot_table/blocks/acacia_barrel.json
 a3a550e985f91cd952484fe2aba00e9eee359c7a data/better_deco/loot_table/blocks/acacia_bedside.json
 78435e1dd436e2deaddb64fa06e5ef5148692b6d data/better_deco/loot_table/blocks/acacia_cabinet.json
@@ -371,11 +371,14 @@ ce452e0f51eaf128447707b27ddd25c4066492ba data/better_deco/loot_table/blocks/oran
 e2772f191f91fad7e7d4bb6c9b57b59ec04f9df6 data/better_deco/loot_table/blocks/pale_oak_cabinet.json
 3b4fd82f9ddbba4c13ba646f109e035a80788965 data/better_deco/loot_table/blocks/pale_oak_chair.json
 bf88863796dcccbf8951addfff73b49a330057a3 data/better_deco/loot_table/blocks/pale_oak_coffee_table.json
+70e269ddabe0b522fd6b0d734b4ef0626096bfce data/better_deco/loot_table/blocks/pale_oak_desk.json
+7e135fb3741b530c42c6084fd1a6a2d13ff4b732 data/better_deco/loot_table/blocks/pale_oak_desk_cabinet.json
 b3aec62293fd8c8f636a7ac32bf0760e466bae1e data/better_deco/loot_table/blocks/pale_oak_dinning_table.json
 b2128509d5880123ca1f09dbe41b0a46d5fecf0f data/better_deco/loot_table/blocks/pale_oak_glass_tecque.json
 d9e542cf8cb0cac047d2c1c1625a11346325d66e data/better_deco/loot_table/blocks/pale_oak_kitchen_counter.json
 771a4f3bea1c4c07c26c4b0c9cb84511fad5404f data/better_deco/loot_table/blocks/pale_oak_kitchen_drawer.json
 5e429808e0c084f5d978c7f1df68763364e1fc15 data/better_deco/loot_table/blocks/pale_oak_oven.json
+c859c9643f1878c7ac39b9a582bcb73616603ea2 data/better_deco/loot_table/blocks/pale_oak_park_bench.json
 c8536c1a9cd2ccc3620bde49f0eb15a2ac492021 data/better_deco/loot_table/blocks/pale_oak_piled_planks.json
 a4a21f70434fd507a7c1a3a1f70d495fe3ceec20 data/better_deco/loot_table/blocks/pale_oak_planks_bricks.json
 b9abd2c24cffd4b99841bf4eb179f7610130bc4e data/better_deco/loot_table/blocks/pale_oak_planks_pillar.json
