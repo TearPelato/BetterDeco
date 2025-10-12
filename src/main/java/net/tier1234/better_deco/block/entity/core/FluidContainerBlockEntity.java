@@ -8,7 +8,6 @@ import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.Mth;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -52,12 +51,12 @@ public abstract class FluidContainerBlockEntity extends BlockEntity {
 
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
+        super.loadAdditional(tag,registries);
         String name = String.valueOf(tag.getString("FluidName"));
-        if ("minecraft:empty".equals(name)) { fluid = Fluids.EMPTY;amount = 0;return;}
+        if ("minecraft:empty".equals(name)) { fluid = Fluids.EMPTY; amount = 0; return; }
         Fluid f = BuiltInRegistries.FLUID.getValue(ResourceLocation.tryParse(name));
         fluid = f != null ? f : Fluids.EMPTY;
-        amount = Math.min(tag.getInt("Amount"), 0, capacity);
+        amount = Math.min(tag.getInt("Amount").get(), capacity);
         if (amount <= 0) fluid = Fluids.EMPTY;
     }
 
