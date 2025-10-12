@@ -10,6 +10,7 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 
 import java.util.Set;
 
+
 @EventBusSubscriber(modid = BetterDeco.MOD_ID)
 public class Config {
 
