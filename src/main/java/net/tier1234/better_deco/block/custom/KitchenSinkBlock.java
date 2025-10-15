@@ -51,6 +51,11 @@ public class KitchenSinkBlock extends FurnitureHorizontalBlock implements Simple
         this.shapesByState = generateShapes(this.getStateDefinition().getPossibleStates());
     }
 
+    @Override
+    public BlockState updateShape(BlockState state, Direction direction, BlockState newState, LevelAccessor level, BlockPos pos, BlockPos newPos) {
+        return null;
+    }
+
     public ImmutableMap<BlockState, VoxelShape> generateShapes(ImmutableList<BlockState> states) {
         ImmutableMap.Builder<BlockState, VoxelShape> builder = ImmutableMap.builder();
         for (BlockState s : states) {

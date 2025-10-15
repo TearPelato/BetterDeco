@@ -3,6 +3,7 @@ package net.tier1234.better_deco.block;
 
 
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
@@ -26,6 +27,270 @@ public class ModBlocks {
 
     //Test
 
+    public static final DeferredBlock<Block> RED_KITCHEN_COUNTER = registerBlock("red_kitchen_counter",
+            (properties)-> new KitchenCounterBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> YELLOW_KITCHEN_COUNTER = registerBlock("yellow_kitchen_counter",
+            (properties)-> new KitchenCounterBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> ORANGE_KITCHEN_COUNTER = registerBlock("orange_kitchen_counter",
+            (properties)-> new KitchenCounterBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> MAGENTA_KITCHEN_COUNTER = registerBlock("magenta_kitchen_counter",
+            (properties)-> new KitchenCounterBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> PURPLE_KITCHEN_COUNTER = registerBlock("purple_kitchen_counter",
+            (properties)-> new KitchenCounterBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> PINK_KITCHEN_COUNTER = registerBlock("pink_kitchen_counter",
+            (properties)-> new KitchenCounterBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> BLUE_KITCHEN_COUNTER = registerBlock("blue_kitchen_counter",
+            (properties)-> new KitchenCounterBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> LIGHT_BLUE_KITCHEN_COUNTER = registerBlock("light_blue_kitchen_counter",
+            (properties)-> new KitchenCounterBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> CYAN_KITCHEN_COUNTER = registerBlock("cyan_kitchen_counter",
+            (properties)-> new KitchenCounterBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> GREEN_KITCHEN_COUNTER = registerBlock("green_kitchen_counter",
+            (properties)-> new KitchenCounterBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> LIME_KITCHEN_COUNTER = registerBlock("lime_kitchen_counter",
+            (properties)-> new KitchenCounterBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> GRAY_KITCHEN_COUNTER = registerBlock("gray_kitchen_counter",
+            (properties)-> new KitchenCounterBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> LIGHT_GRAY_KITCHEN_COUNTER = registerBlock("light_gray_kitchen_counter",
+            (properties)-> new KitchenCounterBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> BLACK_KITCHEN_COUNTER = registerBlock("black_kitchen_counter",
+            (properties)-> new KitchenCounterBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> BROWN_KITCHEN_COUNTER = registerBlock("brown_kitchen_counter",
+            (properties)-> new KitchenCounterBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> WHITE_KITCHEN_COUNTER = registerBlock("white_kitchen_counter",
+            (properties)-> new KitchenCounterBlock(properties.strength(2.5f).noOcclusion()));
+
+    //Colored Drawers
+
+    public static final DeferredBlock<Block> RED_KITCHEN_DRAWER = registerBlock("red_kitchen_drawer",
+            (properties)-> new KitchenDrawerBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> YELLOW_KITCHEN_DRAWER = registerBlock("yellow_kitchen_drawer",
+            (properties)-> new KitchenDrawerBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> ORANGE_KITCHEN_DRAWER = registerBlock("orange_kitchen_drawer",
+            (properties)-> new KitchenDrawerBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> MAGENTA_KITCHEN_DRAWER = registerBlock("magenta_kitchen_drawer",
+            (properties)-> new KitchenDrawerBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> PURPLE_KITCHEN_DRAWER = registerBlock("purple_kitchen_drawer",
+            (properties)-> new KitchenDrawerBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> PINK_KITCHEN_DRAWER = registerBlock("pink_kitchen_drawer",
+            (properties)-> new KitchenDrawerBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> BLUE_KITCHEN_DRAWER = registerBlock("blue_kitchen_drawer",
+            (properties)-> new KitchenDrawerBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> LIGHT_BLUE_KITCHEN_DRAWER = registerBlock("light_blue_kitchen_drawer",
+            (properties)-> new KitchenDrawerBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> CYAN_KITCHEN_DRAWER = registerBlock("cyan_kitchen_drawer",
+            (properties)-> new KitchenDrawerBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> GREEN_KITCHEN_DRAWER = registerBlock("green_kitchen_drawer",
+            (properties)-> new KitchenDrawerBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> LIME_KITCHEN_DRAWER = registerBlock("lime_kitchen_drawer",
+            (properties)-> new KitchenDrawerBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> GRAY_KITCHEN_DRAWER = registerBlock("gray_kitchen_drawer",
+            (properties)-> new KitchenDrawerBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> LIGHT_GRAY_KITCHEN_DRAWER = registerBlock("light_gray_kitchen_drawer",
+            (properties)-> new KitchenDrawerBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> BLACK_KITCHEN_DRAWER = registerBlock("black_kitchen_drawer",
+            (properties)-> new KitchenDrawerBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> BROWN_KITCHEN_DRAWER = registerBlock("brown_kitchen_drawer",
+            (properties)-> new KitchenDrawerBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> WHITE_KITCHEN_DRAWER = registerBlock("white_kitchen_drawer",
+            (properties)-> new KitchenDrawerBlock(properties.strength(2.5f).noOcclusion()));
+
+    //Oven
+    public static final DeferredBlock<Block> RED_OVEN = registerBlock("red_oven",
+            (properties)-> new OvenBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> YELLOW_OVEN = registerBlock("yellow_oven",
+            (properties)-> new OvenBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> ORANGE_OVEN = registerBlock("orange_oven",
+            (properties)-> new OvenBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> MAGENTA_OVEN = registerBlock("magenta_oven",
+            (properties)-> new OvenBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> PURPLE_OVEN = registerBlock("purple_oven",
+            (properties)-> new OvenBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> PINK_OVEN = registerBlock("pink_oven",
+            (properties)-> new OvenBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> BLUE_OVEN = registerBlock("blue_oven",
+            (properties)-> new OvenBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> LIGHT_BLUE_OVEN = registerBlock("light_blue_oven",
+            (properties)-> new OvenBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> CYAN_OVEN = registerBlock("cyan_oven",
+            (properties)-> new OvenBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> GREEN_OVEN = registerBlock("green_oven",
+            (properties)-> new OvenBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> LIME_OVEN = registerBlock("lime_oven",
+            (properties)-> new OvenBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> GRAY_OVEN = registerBlock("gray_oven",
+            (properties)-> new OvenBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> LIGHT_GRAY_OVEN = registerBlock("light_gray_oven",
+            (properties)-> new OvenBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> BLACK_OVEN = registerBlock("black_oven",
+            (properties)-> new OvenBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> BROWN_OVEN = registerBlock("brown_oven",
+            (properties)-> new OvenBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> WHITE_OVEN = registerBlock("white_oven",
+            (properties)-> new OvenBlock(properties.strength(2.5f).noOcclusion()));
+
+
+    public static final DeferredBlock<Block> RED_SINK = registerBlock("red_sink",
+            (properties)-> new KitchenSinkBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> YELLOW_SINK = registerBlock("yellow_sink",
+            (properties)-> new KitchenSinkBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> ORANGE_SINK = registerBlock("orange_sink",
+            (properties)-> new KitchenSinkBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> MAGENTA_SINK = registerBlock("magenta_sink",
+            (properties)-> new KitchenSinkBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> PURPLE_SINK = registerBlock("purple_sink",
+            (properties)-> new KitchenSinkBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> PINK_SINK = registerBlock("pink_sink",
+            (properties)-> new KitchenSinkBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> BLUE_SINK = registerBlock("blue_sink",
+            (properties)-> new KitchenSinkBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> LIGHT_BLUE_SINK = registerBlock("light_blue_sink",
+            (properties)-> new KitchenSinkBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> CYAN_SINK = registerBlock("cyan_sink",
+            (properties)-> new KitchenSinkBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> GREEN_SINK = registerBlock("green_sink",
+            (properties)-> new KitchenSinkBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> LIME_SINK = registerBlock("lime_sink",
+            (properties)-> new KitchenSinkBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> GRAY_SINK = registerBlock("gray_sink",
+            (properties)-> new KitchenSinkBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> LIGHT_GRAY_SINK = registerBlock("light_gray_sink",
+            (properties)-> new KitchenSinkBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> BLACK_SINK = registerBlock("black_sink",
+            (properties)-> new KitchenSinkBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> BROWN_SINK = registerBlock("brown_sink",
+            (properties)-> new KitchenSinkBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> WHITE_SINK = registerBlock("white_sink",
+            (properties)-> new KitchenSinkBlock(properties.strength(2.5f).noOcclusion()));
+
+
+    public static final DeferredBlock<Block> RED_CABINET = registerBlock("red_cabinet",
+            (properties)-> new CabinetBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> YELLOW_CABINET = registerBlock("yellow_cabinet",
+            (properties)-> new CabinetBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> ORANGE_CABINET = registerBlock("orange_cabinet",
+            (properties)-> new CabinetBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> MAGENTA_CABINET = registerBlock("magenta_cabinet",
+            (properties)-> new CabinetBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> PURPLE_CABINET = registerBlock("purple_cabinet",
+            (properties)-> new CabinetBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> PINK_CABINET = registerBlock("pink_cabinet",
+            (properties)-> new CabinetBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> BLUE_CABINET = registerBlock("blue_cabinet",
+            (properties)-> new CabinetBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> LIGHT_BLUE_CABINET = registerBlock("light_blue_cabinet",
+            (properties)-> new CabinetBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> CYAN_CABINET = registerBlock("cyan_cabinet",
+            (properties)-> new CabinetBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> GREEN_CABINET = registerBlock("green_cabinet",
+            (properties)-> new CabinetBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> LIME_CABINET = registerBlock("lime_cabinet",
+            (properties)-> new CabinetBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> GRAY_CABINET = registerBlock("gray_cabinet",
+            (properties)-> new CabinetBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> LIGHT_GRAY_CABINET = registerBlock("light_gray_cabinet",
+            (properties)-> new CabinetBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> BLACK_CABINET = registerBlock("black_cabinet",
+            (properties)-> new CabinetBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> BROWN_CABINET = registerBlock("brown_cabinet",
+            (properties)-> new CabinetBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<Block> WHITE_CABINET = registerBlock("white_cabinet",
+            (properties)-> new CabinetBlock(properties.strength(2.5f).noOcclusion()));
+
+//Desk
+    public static final DeferredBlock<Block> OAK_DESK = registerBlock("oak_desk",
+            (properties)-> new DeskBlock(properties, DeskBlock.MaterialType.OAK));
+    public static final DeferredBlock<Block> SPRUCE_DESK = registerBlock("spruce_desk",
+            (properties)-> new DeskBlock(properties, DeskBlock.MaterialType.SPRUCE));
+    public static final DeferredBlock<Block> BIRCH_DESK = registerBlock("birch_desk",
+            (properties)-> new DeskBlock(properties, DeskBlock.MaterialType.BIRCH));
+    public static final DeferredBlock<Block> JUNGLE_DESK = registerBlock("jungle_desk",
+            (properties)-> new DeskBlock(properties, DeskBlock.MaterialType.JUNGLE));
+    public static final DeferredBlock<Block> ACACIA_DESK = registerBlock("acacia_desk",
+            (properties)-> new DeskBlock(properties, DeskBlock.MaterialType.ACACIA));
+    public static final DeferredBlock<Block> MANGROVE_DESK = registerBlock("mangrove_desk",
+            (properties)-> new DeskBlock(properties, DeskBlock.MaterialType.MANGROVE));
+    public static final DeferredBlock<Block> DARK_OAK_DESK = registerBlock("dark_oak_desk",
+            (properties)-> new DeskBlock(properties, DeskBlock.MaterialType.DARK_OAK));
+    public static final DeferredBlock<Block>  CHERRY_DESK = registerBlock("cherry_desk",
+            (properties)-> new DeskBlock(properties, DeskBlock.MaterialType.CHERRY));
+    public static final DeferredBlock<Block> BAMBOO_DESK = registerBlock("bamboo_desk",
+            (properties)-> new DeskBlock(properties, DeskBlock.MaterialType.BAMBOO));
+    public static final DeferredBlock<Block> CRIMSON_DESK = registerBlock("crimson_desk",
+            (properties)-> new DeskBlock(properties, DeskBlock.MaterialType.CRIMSON));
+    public static final DeferredBlock<Block> WARPED_DESK = registerBlock("warped_desk",
+            (properties)-> new DeskBlock(properties, DeskBlock.MaterialType.WARPED));
+
+    public static final DeferredBlock<Block> OAK_DESK_CABINET = registerBlock("oak_desk_cabinet",
+            (properties)-> new DeskCabinetBlock(properties, DeskBlock.MaterialType.OAK));
+    public static final DeferredBlock<Block> SPRUCE_DESK_CABINET = registerBlock("spruce_desk_cabinet",
+            (properties)-> new DeskCabinetBlock(properties, DeskBlock.MaterialType.SPRUCE));
+    public static final DeferredBlock<Block> BIRCH_DESK_CABINET = registerBlock("birch_desk_cabinet",
+            (properties)-> new DeskCabinetBlock(properties, DeskBlock.MaterialType.BIRCH));
+    public static final DeferredBlock<Block> JUNGLE_DESK_CABINET = registerBlock("jungle_desk_cabinet",
+            (properties)-> new DeskCabinetBlock(properties, DeskBlock.MaterialType.JUNGLE));
+    public static final DeferredBlock<Block> ACACIA_DESK_CABINET = registerBlock("acacia_desk_cabinet",
+            (properties)-> new DeskCabinetBlock(properties, DeskBlock.MaterialType.ACACIA));
+    public static final DeferredBlock<Block> MANGROVE_DESK_CABINET = registerBlock("mangrove_desk_cabinet",
+            (properties)-> new DeskCabinetBlock(properties, DeskBlock.MaterialType.MANGROVE));
+    public static final DeferredBlock<Block> DARK_OAK_DESK_CABINET = registerBlock("dark_oak_desk_cabinet",
+            (properties)-> new DeskCabinetBlock(properties, DeskBlock.MaterialType.DARK_OAK));
+    public static final DeferredBlock<Block>  CHERRY_DESK_CABINET = registerBlock("cherry_desk_cabinet",
+            (properties)-> new DeskCabinetBlock(properties, DeskBlock.MaterialType.CHERRY));
+    public static final DeferredBlock<Block> BAMBOO_DESK_CABINET = registerBlock("bamboo_desk_cabinet",
+            (properties)-> new DeskCabinetBlock(properties, DeskBlock.MaterialType.BAMBOO));
+    public static final DeferredBlock<Block> CRIMSON_DESK_CABINET = registerBlock("crimson_desk_cabinet",
+            (properties)-> new DeskCabinetBlock(properties, DeskBlock.MaterialType.CRIMSON));
+    public static final DeferredBlock<Block> WARPED_DESK_CABINET = registerBlock("warped_desk_cabinet",
+            (properties)-> new DeskCabinetBlock(properties, DeskBlock.MaterialType.WARPED));
+
+
+
+    //Path
+    public static final DeferredBlock<Block> STONE_PATH = registerBlock("stone_path",
+            (properties)-> new RockPath(properties.strength(3.1f)));
+
+    //PARK BENCH
+
+    public static final DeferredBlock<Block> OAK_PARK_BENCH = registerBlock("oak_park_bench",
+            (properties)-> new ParkBenchBlock(properties.strength(2.5f)));
+    public static final DeferredBlock<Block> SPRUCE_PARK_BENCH = registerBlock("spruce_park_bench",
+            (properties)-> new ParkBenchBlock(properties.strength(2.5f)));
+    public static final DeferredBlock<Block> BIRCH_PARK_BENCH = registerBlock("birch_park_bench",
+            (properties)-> new ParkBenchBlock(properties.strength(2.5f)));
+    public static final DeferredBlock<Block> JUNGLE_PARK_BENCH = registerBlock("jungle_park_bench",
+            (properties)-> new ParkBenchBlock(properties.strength(2.5f)));
+    public static final DeferredBlock<Block> ACACIA_PARK_BENCH = registerBlock("acacia_park_bench",
+            (properties)-> new ParkBenchBlock(properties.strength(2.5f)));
+    public static final DeferredBlock<Block> DARK_OAK_PARK_BENCH = registerBlock("dark_oak_park_bench",
+            (properties)-> new ParkBenchBlock(properties.strength(2.5f)));
+    public static final DeferredBlock<Block> MANGROVE_PARK_BENCH = registerBlock("mangrove_park_bench",
+            (properties)-> new ParkBenchBlock(properties.strength(2.5f)));
+    public static final DeferredBlock<Block> CHERRY_PARK_BENCH = registerBlock("cherry_park_bench",
+            (properties)-> new ParkBenchBlock(properties.strength(2.5f)));
+    public static final DeferredBlock<Block> BAMBOO_PARK_BENCH = registerBlock("bamboo_park_bench",
+            (properties)-> new ParkBenchBlock(properties.strength(2.5f)));
+    public static final DeferredBlock<Block> CRIMSON_PARK_BENCH = registerBlock("crimson_park_bench",
+            (properties)-> new ParkBenchBlock(properties.strength(2.5f)));
+    public static final DeferredBlock<Block> WARPED_PARK_BENCH = registerBlock("warped_park_bench",
+            (properties)-> new ParkBenchBlock(properties.strength(2.5f)));
+
+//Fridge and Freezer
+
+   /* public static final DeferredBlock<Block> FREEZER_LIGHT = registerNoItem("freezer_light",
+            (properties) -> new FreezerBlock(properties.strength(2.5f).noOcclusion(), () -> ModBlocks.FRIDGE_LIGHT));
+    public static final DeferredBlock<Block> FREEZER_DARK = registerNoItem("freezer_dark",
+            (properties) -> new FreezerBlock(properties.strength(2.5f).noOcclusion(), () -> ModBlocks.FRIDGE_DARK));
+
+
+    public static final DeferredBlock<Block> FRIDGE_LIGHT = registerBlockWithCustomItem("fridge_light",
+            (properties) -> new FridgeBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), () -> ModBlocks.FREEZER_LIGHT),
+            block -> new BlockSupplierItem(new Item.Properties(), block.get(), ModBlocks.FREEZER_LIGHT));
+
+    public static final DeferredBlock<Block> FRIDGE_DARK = registerBlockWithCustomItem("fridge_dark",
+            (properties) -> new FridgeBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), () -> ModBlocks.FREEZER_DARK),
+            block -> new BlockSupplierItem(new Item.Properties(), block.get(), ModBlocks.FREEZER_DARK));
+*/
     //Microwave
     public static final DeferredBlock<Block> LIGHT_MICROWAVE = registerBlock("microwave_light",
             (properties)-> new MicrowaveBlock(properties.sound(SoundType.METAL)
@@ -1355,7 +1620,27 @@ public static final DeferredBlock<Block> STONE_GLASS_TECQUE = registerBlock("sto
     public static final DeferredBlock<Block> PALE_OAK_SMOOTH_PLANKS = registerBlock("pale_oak_polished_planks",
             (properties)-> new Block(properties.strength(2f)));
 
+
+
+
+
+
+
+
+
     //REGISTRATION
+
+    private static <T extends Block> DeferredBlock<T> registerBlockWithCustomItem(String name, Function<BlockBehaviour.Properties, T> block, Function<Item.Properties, Item> itemFactory) {
+        DeferredBlock<T> toReturn = BLOCKS.registerBlock(name, block);
+        ModItems.ITEMS.registerItem(name, itemFactory);
+        return toReturn;
+    }
+
+
+    private static <T extends Block> DeferredBlock<T> registerNoItem(String name, Function<BlockBehaviour.Properties, T> function) {
+        return BLOCKS.registerBlock(name, function);
+    }
+
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> function) {
         DeferredBlock<T> toReturn = BLOCKS.registerBlock(name, function);
         registerBlockItem(name, toReturn);
