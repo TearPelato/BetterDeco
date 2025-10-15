@@ -148,6 +148,7 @@ public class DeskBlock extends FurnitureHorizontalBlock
         BAMBOO,
         CRIMSON,
         WARPED,
+        PALE_OAK,
 
 
     }
