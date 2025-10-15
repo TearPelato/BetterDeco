@@ -20,7 +20,7 @@ import org.joml.Matrix4f;
 public class FluidContainerRenderer {
 
     public static void drawContainer(Level world, BlockPos pos, FluidContainerBlockEntity be, AABB box, PoseStack ms, MultiBufferSource buf, int light) {
-        Fluid fluid = be.getFluid().getFluid();
+        Fluid fluid = be.getFluid();
         if (fluid == Fluids.EMPTY) return;
         FluidStack stack = new FluidStack(fluid, be.getStoredAmount());
         TextureAtlasSprite[] sprites = FluidContainerRendererUtil.getFluidSprites(fluid);

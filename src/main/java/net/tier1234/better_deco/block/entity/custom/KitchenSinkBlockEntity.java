@@ -24,7 +24,7 @@ public class KitchenSinkBlockEntity extends FluidContainerBlockEntity implements
     public boolean addFluid(Fluid fluid) {
         int current = getStoredAmount();
         int max = getCapacity();
-        if (isEmpty() || getFluid().getFluid() == fluid) {
+        if (isEmpty() || getFluid() == fluid) {
             if (current + BUCKET_VOLUME <= max) {
                 setFluidAndAmount(fluid, current + BUCKET_VOLUME);
                 return true;
@@ -35,7 +35,7 @@ public class KitchenSinkBlockEntity extends FluidContainerBlockEntity implements
 
     public void removeFluid(int amount) {
         int remaining = getStoredAmount() - amount;
-        setFluidAndAmount(getFluid().getFluid(), Math.max(remaining, 0));
+        setFluidAndAmount(getFluid(), Math.max(remaining, 0));
     }
 
     @Override

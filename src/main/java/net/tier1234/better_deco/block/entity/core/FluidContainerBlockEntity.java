@@ -2,99 +2,62 @@ package net.tier1234.better_deco.block.entity.core;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.fluids.FluidStack;
-import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.Fluids;
 import org.jetbrains.annotations.Nullable;
 
 public abstract class FluidContainerBlockEntity extends BlockEntity {
 
     public static final int BUCKET_VOLUME = 1000;
 
-    protected final FluidTank tank;
+    private Fluid fluid = Fluids.EMPTY;
+    private int amount = 0;
+    private final int capacity;
 
     public FluidContainerBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state, int capacity) {
-        super(type, pos, state);
-        this.tank = new FluidTank(capacity, this::isFluidValid);
+        super(type,pos,state);
+        this.capacity = capacity;
     }
 
-    public FluidStack getFluid() {
-        return tank.getFluid();
-    }
+    public Fluid getFluid() { return fluid != null ? fluid : Fluids.EMPTY; }
+    public int getStoredAmount() { return amount; }
+    public int getCapacity() { return capacity; }
+    public boolean isEmpty() { return fluid == Fluids.EMPTY || amount <= 0; }
 
-    public int getStoredAmount() {
-        return tank.getFluidAmount();
-    }
-
-    public int getCapacity() {
-        return tank.getCapacity();
-    }
-
-    public boolean isEmpty() {
-        return tank.isEmpty();
-    }
-
-    protected boolean isFluidValid(FluidStack stack) {
-        return true;
-    }
-
-    public void setFluidAndAmount(FluidStack stack) {
-        if (stack == null || stack.isEmpty()) {
-            tank.setFluid(FluidStack.EMPTY);
-        } else {
-            FluidStack copy = stack.copy();
-            if (copy.getAmount() > tank.getCapacity()) {
-                copy.setAmount(tank.getCapacity());
-            }
-            tank.setFluid(copy);
-        }
-
+    public void setFluidAndAmount(Fluid f, int a) {
+        if (f == null) f = Fluids.EMPTY;
+        int clamped = Math.min(a, capacity);
+        if (clamped <= 0) { fluid = Fluids.EMPTY; amount = 0; }
+        else { fluid = f; amount = clamped; }
         setChanged();
-        if (level != null && !level.isClientSide) {
-            level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);
-        }
-    }
-
-    public int fill(FluidStack stack, boolean simulate) {
-        int filled = tank.fill(stack, simulate);
-        if (!simulate && filled > 0) {
-            setChanged();
-            if (level != null && !level.isClientSide)
-                level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);
-        }
-        return filled;
-    }
-
-    public FluidStack drain(int amount, boolean simulate) {
-        FluidStack drained = tank.drain(amount, simulate);
-        if (!simulate && !drained.isEmpty()) {
-            setChanged();
-            if (level != null && !level.isClientSide)
-                level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);
-        }
-        return drained;
+        if (level != null && !level.isClientSide) level.sendBlockUpdated(worldPosition,getBlockState(),getBlockState(),3);
     }
 
     @Override
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);
-        tag.put("Tank", tank.writeToNBT(new CompoundTag()));
+        tag.putString("FluidName", fluid == Fluids.EMPTY ? "minecraft:empty" : BuiltInRegistries.FLUID.getKey(fluid).toString());
+        tag.putInt("Amount", amount);
     }
 
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
-        if (tag.contains("Tank")) {
-            tank.readFromNBT(tag.getCompound("Tank"));
-        } else {
-            tank.setFluid(FluidStack.EMPTY);
-        }
+        String name =  tag.getString("FluidName").orElse("minecraft:empty");
+        if ("minecraft:empty".equals(name)) { fluid = Fluids.EMPTY;  amount = 0;  return; }
+        Fluid f = BuiltInRegistries.FLUID.getValue(ResourceLocation.tryParse(name));
+        fluid = f != null ? f : Fluids.EMPTY;
+        amount = Math.min(tag.getInt("Amount").orElse(0), capacity);
+        if (amount <= 0) fluid = Fluids.EMPTY;
     }
 
     @Nullable
