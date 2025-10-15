@@ -15,8 +15,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.phys.Vec3;
-import net.tier1234.better_deco.block.entity.PedestalBlockEntity;
-import net.tier1234.better_deco.block.entity.TecqueBlockEntity;
+import net.tier1234.better_deco.block.entity.custom.TecqueBlockEntity;
 
 public class TecqueBlockEntityRenderer implements BlockEntityRenderer<TecqueBlockEntity> {
     public TecqueBlockEntityRenderer(BlockEntityRendererProvider.Context context) {

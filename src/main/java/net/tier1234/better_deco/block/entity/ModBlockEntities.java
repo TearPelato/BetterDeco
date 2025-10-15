@@ -6,6 +6,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.block.ModBlocks;
+import net.tier1234.better_deco.block.entity.custom.*;
 
 import java.util.function.Supplier;
 
@@ -149,10 +150,9 @@ public class ModBlockEntities {
 
 
 
-
     public static final Supplier<BlockEntityType<KitchenSinkBlockEntity>> KITCHEN_SINK =
             BLOCK_ENTITIES.register("kitchen_sink", () -> new BlockEntityType<>(
-                   KitchenSinkBlockEntity::new,
+                    KitchenSinkBlockEntity::new,
                     ModBlocks.OAK_SINK.get(),
                     ModBlocks.SPRUCE_SINK.get(),
                     ModBlocks.BIRCH_SINK.get(),
@@ -179,7 +179,27 @@ public class ModBlockEntities {
                     ModBlocks.PALE_OAK_SINK.get(),
                     ModBlocks.PALE_OAK_SINK_DARK.get()
 
+                 /*   ModBlocks.RED_SINK.get(),
+                    ModBlocks.ORANGE_SINK.get(),
+                    ModBlocks.YELLOW_SINK.get(),
+                    ModBlocks.GREEN_SINK.get(),
+                    ModBlocks.LIME_SINK.get(),
+                    ModBlocks.GRAY_SINK.get(),
+                    ModBlocks.LIGHT_GRAY_SINK.get(),
+                    ModBlocks.BLUE_SINK.get(),
+                    ModBlocks.CYAN_SINK.get(),
+                    ModBlocks.LIGHT_BLUE_SINK.get(),
+                    ModBlocks.MAGENTA_SINK.get(),
+                    ModBlocks.PURPLE_SINK.get(),
+                    ModBlocks.BROWN_SINK.get(),
+                    ModBlocks.BLACK_SINK.get(),
+                    ModBlocks.WHITE_SINK.get(),
+                    ModBlocks.PINK_SINK.get()*/
+
+
             ));
+
+
 
     public static final Supplier<BlockEntityType<TecqueBlockEntity>> GLASS_TECQUE =
             BLOCK_ENTITIES.register("glass_tecque", () -> new BlockEntityType<>(

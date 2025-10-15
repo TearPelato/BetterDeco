@@ -1,4 +1,4 @@
-package net.tier1234.better_deco.block.entity;
+package net.tier1234.better_deco.block.entity.custom;
 
 
 import net.minecraft.core.BlockPos;
@@ -7,8 +7,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.Containers;
-import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ChestMenu;
@@ -16,6 +14,8 @@ import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.tier1234.better_deco.block.custom.BedsideCabinetBlock;
+import net.tier1234.better_deco.block.entity.ModBlockEntities;
+import net.tier1234.better_deco.block.entity.core.BasicLootBlockEntity;
 
 public class BedsideCabinetBlockEntity extends BasicLootBlockEntity
 {

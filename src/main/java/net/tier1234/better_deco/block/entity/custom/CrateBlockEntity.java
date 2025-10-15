@@ -1,12 +1,8 @@
-package net.tier1234.better_deco.block.entity;
+package net.tier1234.better_deco.block.entity.custom;
+
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.protocol.game.ClientGamePacketListener;
-import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -19,11 +15,12 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.neoforged.neoforge.items.ItemStackHandler;
-import net.tier1234.better_deco.screen.custom.TecqueMenu;
+import net.tier1234.better_deco.block.entity.ModBlockEntities;
+import net.tier1234.better_deco.screen.custom.CrateMenu;
 import org.jetbrains.annotations.Nullable;
 
-public class TecqueBlockEntity extends BlockEntity implements MenuProvider {
-    public final ItemStackHandler inventory = new ItemStackHandler(1) {
+public class CrateBlockEntity extends BlockEntity implements MenuProvider {
+    public final ItemStackHandler inventory = new ItemStackHandler(66) {
         @Override
         protected int getStackLimit(int slot, ItemStack stack) {
             return 1;
@@ -37,33 +34,15 @@ public class TecqueBlockEntity extends BlockEntity implements MenuProvider {
             }
         }
     };
-    private float rotation;
 
-    public TecqueBlockEntity(BlockPos pos, BlockState blockState) {
-        super(ModBlockEntities.GLASS_TECQUE.get(), pos, blockState);
+    public CrateBlockEntity(BlockPos pos, BlockState blockState) {
+        super(ModBlockEntities.STORAGE_CRATE.get(), pos, blockState);
     }
 
-    @Override
-    public void preRemoveSideEffects(BlockPos pos, BlockState state) {
-        drops();
-        super.preRemoveSideEffects(pos, state);
-    }
-
-    public float getRenderingRotation() {
-        rotation += 0.5f;
-        if(rotation >= 360) {
-            rotation = 0;
-        }
-        return rotation;
-    }
-
-    public void clearContents() {
-        inventory.setStackInSlot(0, ItemStack.EMPTY);
-    }
 
     public void drops() {
         SimpleContainer inv = new SimpleContainer(inventory.getSlots());
-        for(int i = 0; i < inventory.getSlots(); i++) {
+        for(int i = 66; i < inventory.getSlots(); i++) {
             inv.setItem(i, inventory.getStackInSlot(i));
         }
 
@@ -73,35 +52,22 @@ public class TecqueBlockEntity extends BlockEntity implements MenuProvider {
     @Override
     protected void saveAdditional(ValueOutput output) {
         super.saveAdditional(output);
-        inventory.serialize(output);
     }
 
     @Override
     protected void loadAdditional(ValueInput input) {
         super.loadAdditional(input);
-        inventory.deserialize(input);
     }
 
     @Override
     public Component getDisplayName() {
-        return Component.literal("Tecque");
+        return Component.literal("Crate");
     }
 
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int i, Inventory inventory, Player player) {
-        return new TecqueMenu(i, inventory, this);
+        return new CrateMenu(i, inventory, this);
     }
 
-
-    @Nullable
-    @Override
-    public Packet<ClientGamePacketListener> getUpdatePacket() {
-        return ClientboundBlockEntityDataPacket.create(this);
-    }
-
-    @Override
-    public CompoundTag getUpdateTag(HolderLookup.Provider pRegistries) {
-        return saveWithoutMetadata(pRegistries);
-    }
 }

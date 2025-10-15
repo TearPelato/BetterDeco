@@ -1,37 +1,28 @@
-package net.tier1234.better_deco.block.entity;
+package net.tier1234.better_deco.block.entity.custom;
 
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
-import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import net.neoforged.neoforge.items.ItemStackHandler;
+import net.tier1234.better_deco.block.entity.ModBlockEntities;
 import net.tier1234.better_deco.screen.ModInventory;
-import net.tier1234.better_deco.screen.custom.CrateMenu;
-import net.tier1234.better_deco.screen.custom.PedestalMenu;
 import net.tier1234.better_deco.screen.custom.ShelfMenu;
-import net.tier1234.better_deco.screen.custom.ShelfScreen;
 import org.jetbrains.annotations.Nullable;
-import org.objectweb.asm.tree.analysis.Value;
 
 public class ShelfBlockEntity extends RandomizableContainerBlockEntity implements MenuProvider {
 

@@ -21,7 +21,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.tier1234.better_deco.block.entity.TecqueBlockEntity;
+import net.tier1234.better_deco.block.entity.custom.TecqueBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
 

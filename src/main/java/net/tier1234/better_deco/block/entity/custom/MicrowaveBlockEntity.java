@@ -1,4 +1,4 @@
-package net.tier1234.better_deco.block.entity;
+package net.tier1234.better_deco.block.entity.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -23,6 +23,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.neoforged.neoforge.items.ItemStackHandler;
+import net.tier1234.better_deco.block.entity.ModBlockEntities;
 import net.tier1234.better_deco.recipe.*;
 import net.tier1234.better_deco.screen.custom.MicrowaveMenu;
 import org.jetbrains.annotations.Nullable;

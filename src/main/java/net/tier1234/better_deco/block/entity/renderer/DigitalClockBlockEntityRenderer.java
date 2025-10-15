@@ -7,11 +7,10 @@ import net.minecraft.client.gui.Font;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
-import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.tier1234.better_deco.block.custom.DigitalClockBlock;
-import net.tier1234.better_deco.block.entity.DigitalClockBlockEntity;
+import net.tier1234.better_deco.block.entity.custom.DigitalClockBlockEntity;
 
 public class DigitalClockBlockEntityRenderer implements BlockEntityRenderer<DigitalClockBlockEntity> {
 

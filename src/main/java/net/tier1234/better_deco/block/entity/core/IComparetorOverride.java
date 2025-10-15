@@ -1,4 +1,4 @@
-package net.tier1234.better_deco.block.entity;
+package net.tier1234.better_deco.block.entity.core;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
