@@ -12,7 +12,7 @@ import net.minecraft.client.renderer.state.CameraRenderState;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.tier1234.better_deco.block.custom.DigitalClockBlock;
-import net.tier1234.better_deco.block.entity.DigitalClockBlockEntity;
+import net.tier1234.better_deco.block.entity.custom.DigitalClockBlockEntity;
 import net.tier1234.better_deco.block.entity.renderer.core.ModBlockEntityRendererState;
 
 public class DigitalClockBlockEntityRenderer implements BlockEntityRenderer<DigitalClockBlockEntity, ModBlockEntityRendererState> {

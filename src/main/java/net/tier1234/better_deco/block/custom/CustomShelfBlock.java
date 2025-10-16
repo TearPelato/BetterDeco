@@ -20,7 +20,7 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.tier1234.better_deco.block.entity.ShelfBlockEntity;
+import net.tier1234.better_deco.block.entity.custom.ShelfBlockEntity;
 
 public class CustomShelfBlock extends Block implements EntityBlock {
     public static final EnumProperty<Direction> FACING = HorizontalDirectionalBlock.FACING;

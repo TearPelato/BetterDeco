@@ -10,7 +10,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.neoforged.neoforge.items.SlotItemHandler;
 import net.tier1234.better_deco.block.ModBlocks;
-import net.tier1234.better_deco.block.entity.OvenBlockEntity;
+import net.tier1234.better_deco.block.entity.custom.OvenBlockEntity;
 import net.tier1234.better_deco.screen.ModMenuTypes;
 
 public class OvenMenu extends AbstractContainerMenu {

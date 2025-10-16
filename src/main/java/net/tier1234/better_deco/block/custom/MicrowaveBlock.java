@@ -26,7 +26,7 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.tier1234.better_deco.block.entity.MicrowaveBlockEntity;
+import net.tier1234.better_deco.block.entity.custom.MicrowaveBlockEntity;
 import net.tier1234.better_deco.block.entity.ModBlockEntities;
 import org.jetbrains.annotations.Nullable;
 

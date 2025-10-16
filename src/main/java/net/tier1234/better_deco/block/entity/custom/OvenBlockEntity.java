@@ -1,9 +1,8 @@
-package net.tier1234.better_deco.block.entity;
+package net.tier1234.better_deco.block.entity.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -24,6 +23,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.neoforged.neoforge.items.ItemStackHandler;
+import net.tier1234.better_deco.block.entity.ModBlockEntities;
 import net.tier1234.better_deco.recipe.ModRecipes;
 import net.tier1234.better_deco.recipe.OvenRecipe;
 import net.tier1234.better_deco.recipe.OvenRecipeInput;
