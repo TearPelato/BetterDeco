@@ -1,0 +1,242 @@
+package net.tier1234.better_deco.block.entity.custom;
+
+import com.google.common.collect.Maps;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.Containers;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.items.ItemStackHandler;
+import net.tier1234.better_deco.block.entity.ModBlockEntities;
+import net.tier1234.better_deco.recipe.FreezerRecipe;
+import net.tier1234.better_deco.recipe.FreezerRecipeInput;
+import net.tier1234.better_deco.recipe.ModRecipes;
+import net.tier1234.better_deco.screen.custom.FreezerMenu;
+
+import javax.annotation.Nullable;
+import java.util.Map;
+import java.util.Optional;
+
+
+public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
+    public final ItemStackHandler itemHandler = new ItemStackHandler(3) {
+        @Override
+        protected void onContentsChanged(int slot) {
+            setChanged();
+            if (!level.isClientSide()) {
+                level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
+            }
+        }
+    };
+
+    public static final int SLOT_INPUT = 0;
+    public static final int SLOT_FUEL = 1;
+    public static final int SLOT_OUTPUT = 2;
+
+    private int fuelTime;
+    private int fuelTimeTotal;
+    private int freezeTime;
+    private int freezeTimeTotal;
+
+    private final Map<ResourceLocation, Integer> usedRecipeCount = Maps.newHashMap();
+
+    protected final ContainerData data;
+
+    public FreezerBlockEntity(BlockPos pos, BlockState state) {
+        super(ModBlockEntities.FREEZER.get(), pos, state);
+
+        this.data = new ContainerData() {
+            @Override
+            public int get(int index) {
+                return switch (index) {
+                    case 0 -> fuelTime;
+                    case 1 -> fuelTimeTotal;
+                    case 2 -> freezeTime;
+                    case 3 -> freezeTimeTotal;
+                    default -> 0;
+                };
+            }
+
+            @Override
+            public void set(int index, int value) {
+                switch (index) {
+                    case 0 -> fuelTime = value;
+                    case 1 -> fuelTimeTotal = value;
+                    case 2 -> freezeTime = value;
+                    case 3 -> freezeTimeTotal = value;
+                }
+            }
+
+            @Override
+            public int getCount() {
+                return 4;
+            }
+        };
+    }
+
+    @Override
+    public Component getDisplayName() {
+        return Component.translatable("block.better_deco.freezer");
+    }
+
+    @Nullable
+    @Override
+    public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
+        return new FreezerMenu(id, inv, this, this.data);
+    }
+
+    public void drops() {
+        SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
+        for (int i = 0; i < itemHandler.getSlots(); i++) {
+            inventory.setItem(i, itemHandler.getStackInSlot(i));
+        }
+        Containers.dropContents(this.level, this.worldPosition, inventory);
+    }
+
+    private Optional<RecipeHolder<FreezerRecipe>> getRecipeFor(ItemStack input) {
+        return ((ServerLevel) this.level).recipeAccess()
+                .getRecipeFor(ModRecipes.FREEZER_TYPE.get(), new FreezerRecipeInput(input), level);
+    }
+
+    public static void tick(Level level, BlockPos pos, BlockState state, FreezerBlockEntity be) {
+        boolean dirty = false;
+
+        if (be.isFreezing()) {
+            be.fuelTime--;
+        }
+
+        ItemStack fuelStack = be.itemHandler.getStackInSlot(SLOT_FUEL);
+        ItemStack inputStack = be.itemHandler.getStackInSlot(SLOT_INPUT);
+
+        Optional<RecipeHolder<FreezerRecipe>> recipe = be.getRecipeFor(inputStack);
+
+        if (!be.isFreezing() && recipe.isPresent() && be.canFreeze(recipe.get()) && !fuelStack.isEmpty()) {
+            be.fuelTime = be.getFuelTime(fuelStack);
+            be.fuelTimeTotal = be.fuelTime;
+            if (be.isFreezing()) {
+                fuelStack.shrink(1);
+                dirty = true;
+            }
+        }
+
+        if (be.isFreezing() && recipe.isPresent() && be.canFreeze(recipe.get())) {
+            be.freezeTime++;
+            be.freezeTimeTotal = be.getFreezeTime(recipe.get());
+            if (be.freezeTime >= be.freezeTimeTotal) {
+                be.freezeTime = 0;
+                be.freeze(recipe.get());
+                dirty = true;
+            }
+        } else {
+            be.freezeTime = 0;
+        }
+
+        if (dirty) {
+            setChanged(level, pos, state);
+        }
+    }
+    private boolean isFreezing() {
+        return this.fuelTime > 0;
+    }
+
+    private int getFuelTime(ItemStack stack) {
+        if (stack.isEmpty()) return 0;
+        if (stack.is(Items.ICE)) return 2000;
+        if (stack.is(Items.PACKED_ICE)) return 18000;
+        if (stack.is(Items.BLUE_ICE)) return 162000;
+        return 0;
+    }
+
+    private int getFreezeTime(RecipeHolder<FreezerRecipe> recipe) {
+        return recipe.value().getFreezeTime();
+    }
+
+    private boolean canFreeze(RecipeHolder<FreezerRecipe> recipe) {
+        ItemStack output = recipe.value().output();
+        if (output.isEmpty()) return false;
+
+        ItemStack resultStack = itemHandler.getStackInSlot(SLOT_OUTPUT);
+        if (resultStack.isEmpty()) return true;
+        return resultStack.getCount() + output.getCount() <= resultStack.getMaxStackSize();
+    }
+
+    private void freeze(RecipeHolder<FreezerRecipe> recipe) {
+        if (!canFreeze(recipe)) return;
+
+        itemHandler.extractItem(SLOT_INPUT, 1, false);
+
+        ItemStack resultStack = itemHandler.getStackInSlot(SLOT_OUTPUT);
+        ItemStack output = recipe.value().output();
+
+        if (resultStack.isEmpty()) {
+            itemHandler.setStackInSlot(SLOT_OUTPUT, output.copy());
+        } else {
+            resultStack.grow(output.getCount());
+        }
+
+        if (!level.isClientSide) {
+            usedRecipeCount.merge(recipe.id().registry(), 1, Integer::sum);
+        }
+    }
+
+
+
+
+    @Override
+    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        tag.put("inventory", itemHandler.serializeNBT(registries));
+        tag.putInt("FuelTime", fuelTime);
+        tag.putInt("FuelTimeTotal", fuelTimeTotal);
+        tag.putInt("FreezeTime", freezeTime);
+        tag.putInt("FreezeTimeTotal", freezeTimeTotal);
+
+        tag.putInt("RecipesUsedSize", usedRecipeCount.size());
+        int i = 0;
+        for (Map.Entry<ResourceLocation, Integer> e : usedRecipeCount.entrySet()) {
+            tag.putString("RecipeLocation" + i, e.getKey().toString());
+            tag.putInt("RecipeAmount" + i, e.getValue());
+            i++;
+        }
+
+        super.saveAdditional(tag, registries);
+    }
+
+    @Override
+    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.loadAdditional(tag, registries);
+        itemHandler.deserializeNBT(registries, tag.getCompound("inventory").get());
+        fuelTime = tag.getInt("FuelTime").orElse(0);
+        fuelTimeTotal = tag.getInt("FuelTimeTotal").orElse(0);
+        freezeTime = tag.getInt("FreezeTime").orElse(0);
+        freezeTimeTotal = tag.getInt("FreezeTimeTotal").orElse(0);
+
+    }
+
+    @Override
+    public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
+        return saveWithoutMetadata(registries);
+    }
+
+    @Nullable
+    @Override
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
+    }
+}

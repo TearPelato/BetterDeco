@@ -396,7 +396,7 @@ public class ModBlockEntities {
 
             ));
 
-/*    public static final Supplier<BlockEntityType<FridgeBlockEntity>> FRIDGE =
+    public static final Supplier<BlockEntityType<FridgeBlockEntity>> FRIDGE =
             BLOCK_ENTITIES.register("fridge", ()-> new BlockEntityType<>(
                     FridgeBlockEntity::new,
                     ModBlocks.FRIDGE_LIGHT.get(),
@@ -412,7 +412,7 @@ public class ModBlockEntities {
                     ModBlocks.FREEZER_LIGHT.get(),
                     ModBlocks.FREEZER_DARK.get()
 
-            ));*/
+            ));
 
 
 

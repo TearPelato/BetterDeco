@@ -1,10 +1,12 @@
 package net.tier1234.better_deco.block;
 
 
-
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.bus.api.IEventBus;
@@ -12,11 +14,10 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.block.custom.*;
-import net.tier1234.better_deco.block.custom.ChainBlock;
-import net.tier1234.better_deco.item.ModItems;
 
 import java.util.function.Function;
 
+import static net.tier1234.better_deco.item.ModItems.ITEMS;
 
 
 public class ModBlocks {
@@ -281,20 +282,24 @@ public class ModBlocks {
             (properties)-> new ParkBenchBlock(properties.strength(2.5f)));
 //Fridge and Freezer
 
-   /* public static final DeferredBlock<Block> FREEZER_LIGHT = registerNoItem("freezer_light",
+    public static final DeferredBlock<Block> FREEZER_LIGHT = registerNoItem("freezer_light",
             (properties) -> new FreezerBlock(properties.strength(2.5f).noOcclusion(), () -> ModBlocks.FRIDGE_LIGHT));
     public static final DeferredBlock<Block> FREEZER_DARK = registerNoItem("freezer_dark",
             (properties) -> new FreezerBlock(properties.strength(2.5f).noOcclusion(), () -> ModBlocks.FRIDGE_DARK));
 
 
-    public static final DeferredBlock<Block> FRIDGE_LIGHT = registerBlockWithCustomItem("fridge_light",
-            (properties) -> new FridgeBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), () -> ModBlocks.FREEZER_LIGHT),
-            block -> new BlockSupplierItem(new Item.Properties(), block.get(), ModBlocks.FREEZER_LIGHT));
+    public static final DeferredBlock<Block> FRIDGE_LIGHT = registerBlockWithCustomItem(
+            "fridge_light",
+            props -> new FridgeBlock(props.strength(2.5f).noOcclusion(), () -> FREEZER_LIGHT),
+            block -> new BlockSupplierItem(new Item.Properties(), block.get(), () -> FREEZER_LIGHT.get())
+    );
+    public static final DeferredBlock<Block> FRIDGE_DARK = registerBlockWithCustomItem(
+            "fridge_dark",
+            props -> new FridgeBlock(props.strength(2.5f).noOcclusion(), () -> FREEZER_DARK),
+            block -> new BlockSupplierItem(new Item.Properties(), block.get(), () -> FREEZER_DARK.get())
+    );
 
-    public static final DeferredBlock<Block> FRIDGE_DARK = registerBlockWithCustomItem("fridge_dark",
-            (properties) -> new FridgeBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), () -> ModBlocks.FREEZER_DARK),
-            block -> new BlockSupplierItem(new Item.Properties(), block.get(), ModBlocks.FREEZER_DARK));
-*/
+
     //Microwave
     public static final DeferredBlock<Block> LIGHT_MICROWAVE = registerBlock("microwave_light",
             (properties)-> new MicrowaveBlock(properties.sound(SoundType.METAL)
@@ -1634,10 +1639,10 @@ public static final DeferredBlock<Block> STONE_GLASS_TECQUE = registerBlock("sto
 
     //REGISTRATION
 
-    private static <T extends Block> DeferredBlock<T> registerBlockWithCustomItem(String name, Function<BlockBehaviour.Properties, T> block, Function<Item.Properties, Item> itemFactory) {
-        DeferredBlock<T> toReturn = BLOCKS.registerBlock(name, block);
-        ModItems.ITEMS.registerItem(name, itemFactory);
-        return toReturn;
+    private static <T extends Block> DeferredBlock<T> registerBlockWithCustomItem(String name, Function<BlockBehaviour.Properties, T> blockFactory, Function<DeferredBlock<T>, Item> itemFactory) {
+        DeferredBlock<T> block = BLOCKS.registerBlock(name,blockFactory);
+        ITEMS.registerItem(name, (properties) -> new BlockItem(block.get(), properties.useBlockDescriptionPrefix()));
+        return block;
     }
 
 
@@ -1652,7 +1657,7 @@ public static final DeferredBlock<Block> STONE_GLASS_TECQUE = registerBlock("sto
     }
 
     private static <T extends Block> void registerBlockItem(String name, DeferredBlock<T> block) {
-        ModItems.ITEMS.registerItem(name, (properties) -> new BlockItem(block.get(), properties.useBlockDescriptionPrefix()));
+        ITEMS.registerItem(name, (properties) -> new BlockItem(block.get(), properties.useBlockDescriptionPrefix()));
     }
 
     public static void register(IEventBus eventBus) {
