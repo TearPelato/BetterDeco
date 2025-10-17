@@ -1,14 +1,10 @@
 package net.tier1234.better_deco.block.entity.custom;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluid;
-import net.neoforged.neoforge.fluids.FluidType;
 import net.tier1234.better_deco.Config;
 import net.tier1234.better_deco.block.entity.ModBlockEntities;
-import net.tier1234.better_deco.block.entity.core.FluidHandlerSyncedBlockEntity;
 
 public class KitchenSinkBlockEntity extends FluidContainerBlockEntity {
 

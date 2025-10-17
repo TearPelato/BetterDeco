@@ -29,7 +29,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.tier1234.better_deco.Config;
 import net.tier1234.better_deco.block.entity.custom.FluidContainerBlockEntity;
 import net.tier1234.better_deco.block.entity.custom.KitchenSinkBlockEntity;
-import net.tier1234.better_deco.util.FluidInteractionUtil;
 import net.tier1234.better_deco.util.VoxelShapeHelper;
 import org.jetbrains.annotations.Nullable;
 
@@ -86,7 +85,8 @@ public class KitchenSinkBlock extends FurnitureHorizontalBlock implements Simple
         if (stack.isEmpty()) return fillFromNearbyFluid(sink, world, pos);
         Item item = stack.getItem();
         if (item == Items.BUCKET) return handleBucket(sink, player, hand, stack);
-        return fillFromItemStack(sink, player, hand, stack);
+//TODO       return fillFromItemStack(sink, player, hand, stack);
+        return null;
     }
 
     private InteractionResult fillFromNearbyFluid(KitchenSinkBlockEntity sink, Level world, BlockPos pos) {
@@ -97,14 +97,14 @@ public class KitchenSinkBlock extends FurnitureHorizontalBlock implements Simple
         return sink.addFluid(fluid) ? InteractionResult.SUCCESS : InteractionResult.FAIL;
     }
 
-    private InteractionResult fillFromItemStack(KitchenSinkBlockEntity sink, Player player, InteractionHand hand, ItemStack stack) {
-        Fluid fluid = FluidInteractionUtil.getFluidFromItemStack(stack);
-        if (fluid == Fluids.EMPTY || stack.getItem() == Items.BUCKET) return InteractionResult.FAIL;
-        if (!Config.isSinkUniversal() && fluid != Fluids.WATER) return InteractionResult.FAIL;
-        boolean success = sink.addFluid(fluid);
-        if (success && !player.isCreative()) player.setItemInHand(hand, Items.BUCKET.getDefaultInstance());
-        return success ? InteractionResult.SUCCESS : InteractionResult.FAIL;
-    }
+//    private InteractionResult fillFromItemStack(KitchenSinkBlockEntity sink, Player player, InteractionHand hand, ItemStack stack) {
+//        Fluid fluid = FluidInteractionUtil.getFluidFromItemStack(stack);
+//        if (fluid == Fluids.EMPTY || stack.getItem() == Items.BUCKET) return InteractionResult.FAIL;
+//        if (!Config.isSinkUniversal() && fluid != Fluids.WATER) return InteractionResult.FAIL;
+//        boolean success = sink.addFluid(fluid);
+//        if (success && !player.isCreative()) player.setItemInHand(hand, Items.BUCKET.getDefaultInstance());
+//        return success ? InteractionResult.SUCCESS : InteractionResult.FAIL;
+//    }
 
     private InteractionResult handleBucket(KitchenSinkBlockEntity sink, Player player, InteractionHand hand, ItemStack stack) {
         if (sink.isEmpty() || sink.getStoredAmount() < FluidContainerBlockEntity.BUCKET_VOLUME) return InteractionResult.FAIL;
