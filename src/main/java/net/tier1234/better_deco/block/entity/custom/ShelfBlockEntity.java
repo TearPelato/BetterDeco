@@ -1,6 +1,7 @@
 package net.tier1234.better_deco.block.entity.custom;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
@@ -10,21 +11,24 @@ import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
+import net.minecraft.world.entity.ItemOwner;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.ShelfBlock;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
+import net.minecraft.world.phys.Vec3;
 import net.tier1234.better_deco.block.entity.ModBlockEntities;
 import net.tier1234.better_deco.screen.ModInventory;
 import net.tier1234.better_deco.screen.custom.ShelfMenu;
 import org.jetbrains.annotations.Nullable;
 
-public class ShelfBlockEntity extends RandomizableContainerBlockEntity implements MenuProvider {
+public class ShelfBlockEntity extends RandomizableContainerBlockEntity implements MenuProvider, ItemOwner {
 
     public final ModInventory handler;
 
@@ -54,7 +58,7 @@ public class ShelfBlockEntity extends RandomizableContainerBlockEntity implement
     }
 
     @Override
-    protected NonNullList<ItemStack> getItems() {
+    public NonNullList<ItemStack> getItems() {
         NonNullList<ItemStack> items = NonNullList.withSize(getContainerSize(), ItemStack.EMPTY);
         for (int i = 0; i < getContainerSize(); i++) {
             items.set(i, handler.getStackInSlot(i));
@@ -125,5 +129,20 @@ public class ShelfBlockEntity extends RandomizableContainerBlockEntity implement
     @Override
     public AbstractContainerMenu createMenu(int containerId, Inventory playerInventory) {
         return new ShelfMenu(containerId, playerInventory, this);
+    }
+
+    @Override
+    public Level level() {
+        return this.level;
+    }
+
+    @Override
+    public Vec3 position() {
+        return this.getBlockPos().getCenter();
+    }
+
+    @Override
+    public float getVisualRotationYInDegrees() {
+        return ((Direction)this.getBlockState().getValue(ShelfBlock.FACING)).getOpposite().toYRot();
     }
 }
