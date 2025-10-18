@@ -95,10 +95,6 @@ public class ShelfBlockEntityRenderer implements BlockEntityRenderer<ShelfBlockE
             float yOffset = (row == 0) ? 1.0f : 0.3f;
             float zOffset = -0.25f;
 
-
-
-
-
             poseStack.translate(xOffset, yOffset, zOffset);
             poseStack.scale(0.4f, 0.4f, 0.4f);
             itemState.submit(poseStack, submitNodeCollector, light, OverlayTexture.NO_OVERLAY, 0);
