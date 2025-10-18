@@ -4,9 +4,7 @@ import net.tier1234.better_deco.block.entity.custom.FluidContainerBlockEntity;
 
 import javax.annotation.Nullable;
 
-public interface FluidContainerBlockEntityUtil
-{
+public interface FluidContainerBlockEntityUtil {
     @Nullable
     FluidContainerBlockEntity getFluidContainer();
-
 }
