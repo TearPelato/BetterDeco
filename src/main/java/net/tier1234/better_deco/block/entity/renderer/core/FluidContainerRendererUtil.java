@@ -4,6 +4,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
@@ -16,9 +17,7 @@ public class FluidContainerRendererUtil {
     public static TextureAtlasSprite[] getFluidSprites(Fluid fluid) {
         IClientFluidTypeExtensions ext = IClientFluidTypeExtensions.of(fluid);
 
-        TextureAtlas atlas = Minecraft.getInstance()
-                .getModelManager()
-                .getAtlas(TextureAtlas.LOCATION_BLOCKS);
+        TextureAtlas atlas = (TextureAtlas) Minecraft.getInstance().getTextureManager().getTexture(TextureAtlas.LOCATION_BLOCKS);
 
         TextureAtlasSprite still = ext.getStillTexture() != null ? atlas.getSprite(ext.getStillTexture()) : null;
         TextureAtlasSprite flowing = ext.getFlowingTexture() != null ? atlas.getSprite(ext.getFlowingTexture()) : null;

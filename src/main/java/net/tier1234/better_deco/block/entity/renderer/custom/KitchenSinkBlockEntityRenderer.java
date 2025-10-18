@@ -37,7 +37,7 @@ public class KitchenSinkBlockEntityRenderer implements BlockEntityRenderer<Kitch
     public void extractRenderState(KitchenSinkBlockEntity entity, FluidRenderState renderState, float partialTick, Vec3 camera, @Nullable ModelFeatureRenderer.CrumblingOverlay overlay)
     {
         BlockEntityRenderer.super.extractRenderState(entity, renderState, partialTick, camera, overlay);
-        FluidRenderState.extract(renderState, (FluidContainerBlockEntityUtil) entity, entity.getLevel(), entity.getBlockPos());
+//        FluidRenderState.extract(renderState, entity, entity.getLevel(), entity.getBlockPos());
         BlockState blockState = entity.getBlockState();
         if(blockState.hasProperty(KitchenSinkBlock.DIRECTION))
         {
