@@ -15,10 +15,9 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import net.tier1234.better_deco.block.entity.core.FluidContainerBlockEntityUtil;
 import org.jetbrains.annotations.Nullable;
 
-public abstract class FluidContainerBlockEntity extends BlockEntity implements FluidContainerBlockEntityUtil {
+public abstract class FluidContainerBlockEntity extends BlockEntity  {
 
     public static final int BUCKET_VOLUME = 1000;
 
@@ -73,10 +72,5 @@ public abstract class FluidContainerBlockEntity extends BlockEntity implements F
     public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
         return saveWithoutMetadata(registries);
     }
-    @Override
-    @Nullable
-    public FluidContainerBlockEntity getFluidContainer() {
-        // Ritorna sé stesso.
-        return this;
-    }
+
 }

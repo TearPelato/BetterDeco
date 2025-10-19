@@ -617,6 +617,13 @@
   "block.better_deco.pale_oak_shelf": "Pale Oak Shelf",
 
 
+  "better_deco.configuration.group.sink": "Sink Settings",
+
+  "better_deco.configuration.sink_allow_all_liquids": "Allow All Types of Fluids",
+  "better_deco.configuration.sink_allow_all_liquids.tooltip": "If enabled, the sink can hold any fluid. If disabled, it only accepts water.",
+
+  "better_deco.configuration.sink_capacity_buckets": "Capacity of Sink (in Buckets)",
+  "better_deco.configuration.sink_capacity_buckets.tooltip": "Sets the maximum number of buckets the sink can hold. Needs A game restart(Maximum n° Buckets is 10)",
 
 
 
