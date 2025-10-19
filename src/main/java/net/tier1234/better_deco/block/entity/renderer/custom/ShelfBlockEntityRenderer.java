@@ -20,7 +20,7 @@ import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.phys.Vec3;
 import net.tier1234.better_deco.block.entity.custom.ShelfBlockEntity;
-import net.tier1234.better_deco.block.entity.renderer.core.ShelfRendererState;
+import net.tier1234.better_deco.block.entity.renderer.core.render_state.ShelfRendererState;
 import org.jetbrains.annotations.Nullable;
 
 public class ShelfBlockEntityRenderer implements BlockEntityRenderer<ShelfBlockEntity, ShelfRendererState> {

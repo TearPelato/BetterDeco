@@ -17,8 +17,8 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.tier1234.better_deco.block.entity.custom.KitchenSinkBlockEntity;
-import net.tier1234.better_deco.block.entity.renderer.core.FluidContainerRenderer;
-import net.tier1234.better_deco.block.entity.renderer.core.FluidRenderState;
+import net.tier1234.better_deco.block.entity.renderer.core.core_render.FluidContainerRenderer;
+import net.tier1234.better_deco.block.entity.renderer.core.render_state.FluidRenderState;
 
 import javax.annotation.Nullable;
 
@@ -67,20 +67,15 @@ public class KitchenSinkBlockEntityRenderer implements BlockEntityRenderer<Kitch
             return;
 
         poseStack.pushPose();
+        final RenderType fluidRenderType = RenderType.translucentMovingBlock();
         MultiBufferSource bufferSource = Minecraft.getInstance().renderBuffers().bufferSource();
-        VertexConsumer consumer = bufferSource.getBuffer(RenderType.translucentMovingBlock());
-        FluidContainerRenderer.drawContainer(
-                renderState.level,
-                renderState.blockPos,
-                renderState.fluid,
-                renderState.box,
-                poseStack,
-                renderState.fullness,
-                renderState.light,
-                consumer
-        );
+        VertexConsumer consumer = bufferSource.getBuffer(fluidRenderType);
 
-        bufferSource.getBuffer(RenderType.translucentMovingBlock());
+        FluidContainerRenderer.drawContainer(renderState.level, renderState.blockPos,renderState.fluid, renderState.box, poseStack,renderState.fullness,renderState.light,consumer);
+
+        if (bufferSource instanceof MultiBufferSource.BufferSource bs) {
+            bs.endBatch(fluidRenderType);
+        }
 
         poseStack.popPose();
     }

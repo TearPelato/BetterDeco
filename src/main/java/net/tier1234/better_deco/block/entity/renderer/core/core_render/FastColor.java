@@ -1,4 +1,4 @@
-package net.tier1234.better_deco.block.entity.renderer.core;
+package net.tier1234.better_deco.block.entity.renderer.core.core_render;
 
 import net.minecraft.util.Mth;
 
