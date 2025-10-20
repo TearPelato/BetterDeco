@@ -23,6 +23,10 @@ import net.tier1234.better_deco.screen.custom.*;
 @EventBusSubscriber(modid = BetterDeco.MOD_ID, value = Dist.CLIENT)
 public class BetterDecoClient {
 
+    public BetterDecoClient(ModContainer container) {
+        
+        container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
+    }
 
     @SubscribeEvent
     static void onClientSetup(FMLClientSetupEvent event) {
@@ -46,5 +50,6 @@ public class BetterDecoClient {
         event.register(ModMenuTypes.OVEN_MENU.get(), OvenScreen::new);
         event.register(ModMenuTypes.MICROWAVE_MENU.get(), MicrowaveScreen::new);
         event.register(ModMenuTypes.SINK_MENU.get(), SinkScreen::new);
+        event.register(ModMenuTypes.FREEZER_MENU.get(), FreezerScreen::new);
     }
 }

@@ -1,21 +1,22 @@
 package net.tier1234.better_deco.block;
 
 
-
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.block.custom.*;
-import net.tier1234.better_deco.block.custom.ChainBlock;
 import net.tier1234.better_deco.item.ModItems;
 
 import java.util.function.Function;
-
 
 
 public class ModBlocks {
@@ -1358,6 +1359,9 @@ public static final DeferredBlock<Block> STONE_GLASS_TECQUE = registerBlock("sto
 
 
     //REGISTRATION
+
+
+
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> function) {
         DeferredBlock<T> toReturn = BLOCKS.registerBlock(name, function);
         registerBlockItem(name, toReturn);

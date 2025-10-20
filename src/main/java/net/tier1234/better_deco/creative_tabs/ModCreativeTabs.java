@@ -24,7 +24,8 @@ public class ModCreativeTabs {
             "better_deco",
             () -> CreativeModeTab.builder(CreativeModeTab.Row.TOP, 3)
                     .withSearchBar()
-                    .title(Component.translatable("creativetab.better_deco.better_deco"))
+                   // TODO .withTabsImage(ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, "resources/better_deco_logo_4"))
+                    .title(Component.translatable("creativetab.better_deco.better_deco").withStyle(ChatFormatting.GOLD))
                     .icon(() -> new ItemStack(ModBlocks.OAK_BARREL))
                     .displayItems((parameters, output) -> {
                         List<BundledTabs> filters = ModBundledTabs.getFilters();
