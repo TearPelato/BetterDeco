@@ -4,6 +4,7 @@ package net.tier1234.better_deco.creative_tabs;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.IEventBus;
@@ -24,7 +25,7 @@ public class ModCreativeTabs {
             "better_deco",
             () -> CreativeModeTab.builder(CreativeModeTab.Row.TOP, 3)
                     .withSearchBar()
-                   // TODO .withTabsImage(ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, "resources/better_deco_logo_4"))
+                    .withTabsImage(ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, "resources/better_deco_logo_4"))
                     .title(Component.translatable("creativetab.better_deco.better_deco").withStyle(ChatFormatting.GOLD))
                     .icon(() -> new ItemStack(ModBlocks.OAK_BARREL))
                     .displayItems((parameters, output) -> {

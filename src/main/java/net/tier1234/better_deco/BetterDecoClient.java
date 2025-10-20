@@ -28,6 +28,7 @@ public class BetterDecoClient {
         container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
     }
 
+
     @SubscribeEvent
     static void onClientSetup(FMLClientSetupEvent event) {
         EntityRenderers.register(ModEntities.CHAIR_ENTITY.get(), ChairRenderer::new);
