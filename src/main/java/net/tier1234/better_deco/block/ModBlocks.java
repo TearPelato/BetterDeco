@@ -223,6 +223,9 @@ public class ModBlocks {
             (properties)-> new DeskBlock(properties, DeskBlock.MaterialType.CRIMSON));
     public static final DeferredBlock<Block> WARPED_DESK = registerBlock("warped_desk",
             (properties)-> new DeskBlock(properties, DeskBlock.MaterialType.WARPED));
+    public static final DeferredBlock<Block>  PALE_OAK_DESK = registerBlock("pale_oak_desk",
+            (properties)-> new DeskBlock(properties, DeskBlock.MaterialType.PALE_OAK));
+
 
     public static final DeferredBlock<Block> OAK_DESK_CABINET = registerBlock("oak_desk_cabinet",
             (properties)-> new DeskCabinetBlock(properties, DeskBlock.MaterialType.OAK));
@@ -246,7 +249,8 @@ public class ModBlocks {
             (properties)-> new DeskCabinetBlock(properties, DeskBlock.MaterialType.CRIMSON));
     public static final DeferredBlock<Block> WARPED_DESK_CABINET = registerBlock("warped_desk_cabinet",
             (properties)-> new DeskCabinetBlock(properties, DeskBlock.MaterialType.WARPED));
-
+    public static final DeferredBlock<Block>  PALE_OAK_DESK_CABINET = registerBlock("pale_oak_desk_cabinet",
+            (properties)-> new DeskCabinetBlock(properties, DeskBlock.MaterialType.PALE_OAK));
 
 
     //Path
@@ -277,7 +281,8 @@ public class ModBlocks {
             (properties)-> new ParkBenchBlock(properties.strength(2.5f)));
     public static final DeferredBlock<Block> WARPED_PARK_BENCH = registerBlock("warped_park_bench",
             (properties)-> new ParkBenchBlock(properties.strength(2.5f)));
-
+    public static final DeferredBlock<Block> PALE_OAK_PARK_BENCH = registerBlock("pale_oak_park_bench",
+            (properties)-> new ParkBenchBlock(properties.strength(2.5f)));
 
 //Fridge and Freezer
 
