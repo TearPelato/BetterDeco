@@ -1,4 +1,4 @@
-// 1.21.5	2025-10-15T21:49:43.2954132	Loot Tables
+// 1.21.5	2025-10-22T20:40:25.1197348	Loot Tables
 c275d17a98fbf9a86f83c408f6ce53f925c165b9 data/better_deco/loot_table/blocks/acacia_barrel.json
 a3a550e985f91cd952484fe2aba00e9eee359c7a data/better_deco/loot_table/blocks/acacia_bedside.json
 78435e1dd436e2deaddb64fa06e5ef5148692b6d data/better_deco/loot_table/blocks/acacia_cabinet.json
@@ -206,6 +206,10 @@ a25440f07b5fc80ee0a5d9039223d92b09bda1b3 data/better_deco/loot_table/blocks/deep
 6a02384f81fccc74c96e301fd327db0ce644da43 data/better_deco/loot_table/blocks/diorite_mosaic_bricks.json
 8784186586c11a2b76797179e1ac1468affd9401 data/better_deco/loot_table/blocks/diorite_pedestal.json
 f6a85808f10e911e340201750ecb377850b51ddd data/better_deco/loot_table/blocks/exposed_copper_lantern.json
+83b02b74312a736d581cecbb652acb02d763ed41 data/better_deco/loot_table/blocks/freezer_dark.json
+08a078df1d6bdf07e39945c27bdcf4523e19c7d0 data/better_deco/loot_table/blocks/freezer_light.json
+abe04c165383d534109f6febf10af5af99d6e43e data/better_deco/loot_table/blocks/fridge_dark.json
+8d778ea0f8c75ec0f63c97d2513c4d23117cf889 data/better_deco/loot_table/blocks/fridge_light.json
 7dbe0b69b938a352ed7921ec88dc07113ad45056 data/better_deco/loot_table/blocks/granite_array_bricks.json
 e8b081d89013e43504ee509f5e524f8128f4f207 data/better_deco/loot_table/blocks/granite_bricks.json
 c1eaf931dc7e34b2c3072683a8cba04bfd666eee data/better_deco/loot_table/blocks/granite_cabinet.json
