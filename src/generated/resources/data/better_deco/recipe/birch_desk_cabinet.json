@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": "minecraft:chest",
+    "C": "minecraft:birch_log",
+    "I": "minecraft:birch_planks"
+  },
+  "pattern": [
+    "CCC",
+    "IBI",
+    "I I"
+  ],
+  "result": {
+    "count": 1,
+    "id": "better_deco:birch_desk_cabinet"
+  }
+}

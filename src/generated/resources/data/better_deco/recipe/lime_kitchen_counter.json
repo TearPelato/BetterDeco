@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:lime_concrete",
+    "B": "minecraft:quartz_block"
+  },
+  "pattern": [
+    "###",
+    "B B",
+    "BBB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "better_deco:lime_kitchen_counter"
+  }
+}
