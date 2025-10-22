@@ -128,7 +128,25 @@ public class ModBlockEntities {
                                     ModBlocks.DARK_OAK_CALCITE_CABINET.get(),
                                     ModBlocks.OAK_ANDESITE_CABINET.get(),
                                     ModBlocks.PALE_OAK_CABINET.get(),
-                                    ModBlocks.STRIPPED_PALE_OAK_CABINET.get()
+                                    ModBlocks.STRIPPED_PALE_OAK_CABINET.get(),
+                                    ModBlocks.RED_CABINET.get(),
+                                    ModBlocks.ORANGE_CABINET.get(),
+                                    ModBlocks.YELLOW_CABINET.get(),
+                                    ModBlocks.GREEN_CABINET.get(),
+                                    ModBlocks.LIME_CABINET.get(),
+                                    ModBlocks.GRAY_CABINET.get(),
+                                    ModBlocks.LIGHT_GRAY_CABINET.get(),
+                                    ModBlocks.BLUE_CABINET.get(),
+                                    ModBlocks.CYAN_CABINET.get(),
+                                    ModBlocks.LIGHT_BLUE_CABINET.get(),
+                                    ModBlocks.MAGENTA_CABINET.get(),
+                                    ModBlocks.PURPLE_CABINET.get(),
+                                    ModBlocks.BROWN_CABINET.get(),
+                                    ModBlocks.BLACK_CABINET.get(),
+                                    ModBlocks.WHITE_CABINET.get(),
+                                    ModBlocks.PINK_CABINET.get()
+
+
                                     )
             );
 
@@ -394,23 +412,7 @@ public class ModBlockEntities {
                     ModBlocks.CHERRY_DESK_CABINET.get(),
                     ModBlocks.BAMBOO_DESK_CABINET.get(),
                     ModBlocks.CRIMSON_DESK_CABINET.get(),
-                    ModBlocks.WARPED_DESK_CABINET.get(),
-                    ModBlocks.RED_CABINET.get(),
-                    ModBlocks.ORANGE_CABINET.get(),
-                    ModBlocks.YELLOW_CABINET.get(),
-                    ModBlocks.GREEN_CABINET.get(),
-                    ModBlocks.LIME_CABINET.get(),
-                    ModBlocks.GRAY_CABINET.get(),
-                    ModBlocks.LIGHT_GRAY_CABINET.get(),
-                    ModBlocks.BLUE_CABINET.get(),
-                    ModBlocks.CYAN_CABINET.get(),
-                    ModBlocks.LIGHT_BLUE_CABINET.get(),
-                    ModBlocks.MAGENTA_CABINET.get(),
-                    ModBlocks.PURPLE_CABINET.get(),
-                    ModBlocks.BROWN_CABINET.get(),
-                    ModBlocks.BLACK_CABINET.get(),
-                    ModBlocks.WHITE_CABINET.get(),
-                    ModBlocks.PINK_CABINET.get()
+                    ModBlocks.WARPED_DESK_CABINET.get()
 
 
             ));
