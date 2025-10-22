@@ -4,9 +4,12 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -71,7 +74,6 @@ public class DeskBlock extends FurnitureHorizontalBlock
     {
         return SHAPES.get(state);
     }
-
 
 
     @Override
@@ -148,6 +150,7 @@ public class DeskBlock extends FurnitureHorizontalBlock
         BAMBOO,
         CRIMSON,
         WARPED,
+        PALE_OAK,
 
 
     }
