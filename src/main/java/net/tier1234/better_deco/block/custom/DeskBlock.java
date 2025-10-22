@@ -75,11 +75,21 @@ public class DeskBlock extends FurnitureHorizontalBlock
         return SHAPES.get(state);
     }
 
+    @Override
+    public BlockState updateShape(BlockState state, Direction direction, BlockState newState, LevelAccessor level, BlockPos pos, BlockPos newPos) {
+        return null;
+    }
 
     @Override
-    public BlockState updateShape(BlockState state, Direction direction, BlockState newState, LevelAccessor level, BlockPos pos, BlockPos newPos)
+    public BlockState updateShape(BlockState state, LevelReader reader, ScheduledTickAccess access, BlockPos pos,
+                                  Direction direction, BlockPos pos1, BlockState state1, RandomSource rand)
     {
-        Direction dir = state.getValue(DIRECTION);
+        return this.getDeskState(state, (LevelAccessor) reader, pos, state.getValue(DIRECTION));
+    }
+
+
+    private BlockState getDeskState(BlockState state, LevelAccessor level, BlockPos pos, Direction dir)
+    {
         boolean left = this.isDesk(level, pos, dir.getCounterClockWise(), dir);
         boolean right = this.isDesk(level, pos, dir.getClockWise(), dir);
         if(left && right)
