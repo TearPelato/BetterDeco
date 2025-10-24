@@ -17,7 +17,7 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import org.jetbrains.annotations.Nullable;
 
-public abstract class FluidContainerBlockEntity extends BlockEntity  {
+public abstract class FluidContainerBlockEntity extends BlockEntity {
 
     public static final int BUCKET_VOLUME = 1000;
 
@@ -72,5 +72,4 @@ public abstract class FluidContainerBlockEntity extends BlockEntity  {
     public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
         return saveWithoutMetadata(registries);
     }
-
 }

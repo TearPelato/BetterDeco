@@ -5,15 +5,12 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.Fluid;
-import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.phys.AABB;
+import net.tier1234.better_deco.block.entity.custom.KitchenSinkBlockEntity;
 
 public class FluidRenderState extends BlockEntityRenderState {
-    public Fluid fluid = Fluids.EMPTY;
-    public Direction direction = Direction.NORTH;
-    public AABB box;
-    public int light;
+    public Direction facing;
+    public Fluid fluid;
     public Level level;
-    public BlockPos blockPos;
-    public float fullness;
+    public BlockPos pos;
+    public KitchenSinkBlockEntity be;
 }
