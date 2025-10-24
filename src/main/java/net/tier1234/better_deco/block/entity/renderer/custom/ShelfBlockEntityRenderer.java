@@ -24,33 +24,21 @@ import net.tier1234.better_deco.block.entity.renderer.core.render_state.ShelfRen
 import org.jetbrains.annotations.Nullable;
 
 public class ShelfBlockEntityRenderer implements BlockEntityRenderer<ShelfBlockEntity, ShelfRendererState> {
-
-
-
     private final ItemModelResolver itemModelResolver;
-
-
+    private static final float U1 = 1f / 16f;
 
     public ShelfBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
-
         this.itemModelResolver = context.itemModelResolver();
-
     }
 
 
 
     @Override
-
     public ShelfRendererState createRenderState() {
-
         return new ShelfRendererState();
-
     }
 
-
-
     @Override
-
     public void extractRenderState(ShelfBlockEntity blockEntity, ShelfRendererState state, float partialTick,
                                    Vec3 cameraPos, @Nullable ModelFeatureRenderer.CrumblingOverlay crumblingOverlay) {
 
@@ -70,10 +58,9 @@ public class ShelfBlockEntityRenderer implements BlockEntityRenderer<ShelfBlockE
                         0
                 );
             }
-
         }
-        state.facing = blockEntity.getBlockState().getValue(HorizontalDirectionalBlock.FACING);
 
+        state.facing = blockEntity.getBlockState().getValue(HorizontalDirectionalBlock.FACING);
     }
 
     @Override
@@ -86,20 +73,32 @@ public class ShelfBlockEntityRenderer implements BlockEntityRenderer<ShelfBlockE
         poseStack.mulPose(Axis.YP.rotationDegrees(-facing.toYRot()));
         int light = getLightLevel(state.blockEntityLevel, state.lightPosition);
 
+        float scale = 0.30f;
+        float xOffset = 5.2f;
+        float yOffset = 3.5f;
+        float yOffset2 = 4.5f;
+        float zOffset = 0.15f;
+
         for (int i = 0; i < state.itemRenderStates.size(); i++) {
             ItemStackRenderState itemState = state.itemRenderStates.get(i);
             poseStack.pushPose();
+
+            // Calcolo della riga e colonna (3 per riga)
             int row = i / 3;
             int col = i % 3;
-            float xOffset = (col - 1) * 0.35f;
-            float yOffset = (row == 0) ? 1.0f : 0.3f;
-            float zOffset = -0.25f;
 
-            poseStack.translate(xOffset, yOffset, zOffset);
-            poseStack.scale(0.4f, 0.4f, 0.4f);
+            // Posizioni base (centro mensola)
+            float baseX = -0.35f + (col * 0.35f); // da sinistra a destra
+            float baseY = 0.25f + (row * 0.5f);  // da basso l'alto
+            float baseZ = -0.3f;                  // leggermente dentro la mensola
+
+            poseStack.translate(baseX, baseY, baseZ);
+            poseStack.scale(0.35f, 0.35f, 0.35f);
+
             itemState.submit(poseStack, submitNodeCollector, light, OverlayTexture.NO_OVERLAY, 0);
             poseStack.popPose();
         }
+
         poseStack.popPose();
     }
 
