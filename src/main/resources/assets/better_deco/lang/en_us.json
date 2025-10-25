@@ -108,7 +108,16 @@
   "gui.better_deco.oven": "Oven",
   "gui.better_deco.microwave": "Microwave",
   "gui.better_deco.generator": "Generator",
+  "gui.better_deco.freezer": "Freezer",
+  "gui.better_deco.fridge": "Fridge",
+  "gui.better_deco.desk_cabinet": "Desk Cabinet",
+  "gui.better_deco.sink": "Sink",
 
+  "block.better_deco.fridge_dark": "Fridge (Dark)",
+  "block.better_deco.fridge_light": "Fridge (Light)",
+
+  "block.better_deco.freezer_dark": "Freezer (Dark)",
+  "block.better_deco.freezer_light": "Freezer (Light)",
   "block.better_deco.generator": "Generator",
 
   "block.better_deco.microwave_light": "Microwave (Light)",
@@ -745,6 +754,10 @@
   "block.better_deco.bamboo_desk_cabinet": "Bamboo Desk Cabinet",
   "block.better_deco.crimson_desk_cabinet": "Crimson Desk Cabinet",
   "block.better_deco.warped_desk_cabinet": "Warped Desk Cabinet",
+
+  "block.better_deco.pale_oak_desk_cabinet": "Pale Oak Desk Cabinet",
+  "block.better_deco.pale_oak_desk": "Pale Oak Desk",
+  "block.better_deco.pale_oak_park_bench": "Pale Oak Park Bench",
 
   "block.better_deco.limestone": "Limestone"
 }
