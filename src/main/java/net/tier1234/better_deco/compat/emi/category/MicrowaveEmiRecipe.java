@@ -13,16 +13,17 @@ import net.tier1234.better_deco.recipe.MicrowaveRecipe;
 
 import java.util.List;
 
-public class MicrowaveRecipeCategory implements EmiRecipe {
-    private final Ingredient id;
-    private final List<EmiIngredient> input;
-    private final List<EmiStack> output;
+public class MicrowaveEmiRecipe implements EmiRecipe {
+    private final ResourceLocation id;
+    private final List<EmiIngredient> inputs;
+    private final List<EmiStack> outputs;
 
-
-    public MicrowaveRecipeCategory(MicrowaveRecipe recipe) {
-        this.id = recipe.inputItem();
-        this.input = List.of(EmiIngredient.of(recipe.getIngredients().get(0)));
-        this.output = List.of(EmiStack.of(recipe.output()));
+    public MicrowaveEmiRecipe(MicrowaveRecipe recipe) {
+        this.id = recipe.getId();
+        this.inputs = recipe.getIngredients().isEmpty()
+                ? List.of()
+                : List.of(EmiIngredient.of(recipe.getIngredients().get(0)));
+        this.outputs = List.of(EmiStack.of(recipe.output()));
     }
 
     @Override
@@ -32,17 +33,17 @@ public class MicrowaveRecipeCategory implements EmiRecipe {
 
     @Override
     public ResourceLocation getId() {
-        return getId();
+        return id;
     }
 
     @Override
     public List<EmiIngredient> getInputs() {
-        return input;
+        return inputs;
     }
 
     @Override
     public List<EmiStack> getOutputs() {
-        return output;
+        return outputs;
     }
 
     @Override
@@ -57,15 +58,14 @@ public class MicrowaveRecipeCategory implements EmiRecipe {
 
     @Override
     public void addWidgets(WidgetHolder widgets) {
-        // Add an arrow texture to indicate processing
+        // freccia di processo
         widgets.addTexture(EmiTexture.EMPTY_ARROW, 26, 1);
-
-        // Adds an input slot on the left
-        widgets.addSlot(input.get(0), 0, 0);
-
-        // Adds an output slot on the right
-        // Note that output slots need to call `recipeContext` to inform EMI about their recipe context
-        // This includes being able to resolve recipe trees, favorite stacks with recipe context, and more
-        widgets.addSlot(output.get(0), 58, 0).recipeContext(this);
+        // slot input/output
+        if (!inputs.isEmpty()) {
+            widgets.addSlot(inputs.get(0), 0, 0);
+        }
+        if (!outputs.isEmpty()) {
+            widgets.addSlot(outputs.get(0), 58, 0).recipeContext(this);
+        }
     }
 }
