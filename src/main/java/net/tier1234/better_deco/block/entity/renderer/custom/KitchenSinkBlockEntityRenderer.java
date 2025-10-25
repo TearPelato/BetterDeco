@@ -59,7 +59,6 @@ public class KitchenSinkBlockEntityRenderer implements BlockEntityRenderer<Kitch
         poseStack.pushPose();
         Direction dir = state.facing;
 
-        //TEST
         poseStack.translate(0.5, 0, 0.5);
         poseStack.mulPose(Axis.YP.rotationDegrees(-90F * dir.get2DDataValue()));
         poseStack.translate(-0.5, 0, -0.5);
