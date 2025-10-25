@@ -1,6 +1,3 @@
 {
-  "parent": "better_deco:item/fridge_light",
-  "textures": {
-    "base": "minecraft:block/gray_concrete"
-  }
+  "parent": "better_deco:block/fridge_dark"
 }
