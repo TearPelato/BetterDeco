@@ -46,6 +46,9 @@ public abstract class FurnitureHorizontalBlock extends FurnitureBlock
         return state.rotate(mirror.getRotation(state.getValue(DIRECTION)));
     }
 
+    public abstract BlockState updateShape(BlockState state, Direction direction, BlockState newState, LevelAccessor level, BlockPos pos,
+                                           BlockPos newPos);
+
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder)
     {

@@ -1,0 +1,7 @@
+{
+  "parent": "better_deco:block/park_bench_single",
+  "textures": {
+    "legs": "minecraft:block/pale_oak_log",
+    "plank": "minecraft:block/pale_oak_planks"
+  }
+}
