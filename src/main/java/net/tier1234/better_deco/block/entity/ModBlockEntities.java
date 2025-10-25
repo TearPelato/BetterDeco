@@ -405,7 +405,7 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("fridge", () -> new BlockEntityType<>(
                     FridgeBlockEntity::new,
                     ModBlocks.FRIDGE_LIGHT.get(),
-                    ModBlocks.FREEZER_DARK.get()
+                    ModBlocks.FRIDGE_DARK.get()
 
             ));
 
