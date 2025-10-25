@@ -55,16 +55,17 @@ public class KitchenSinkBlockEntityRenderer implements BlockEntityRenderer<Kitch
     @Override
     public void submit(FluidRenderState state, PoseStack poseStack,
                        SubmitNodeCollector submitNodeCollector, CameraRenderState camera) {
-
         if (state.fluid == Fluids.EMPTY || state.level == null || state.facing == null) return;
         poseStack.pushPose();
         Direction dir = state.facing;
+
+        //TEST
         poseStack.translate(0.5, 0, 0.5);
         poseStack.mulPose(Axis.YP.rotationDegrees(-90F * dir.get2DDataValue()));
+        poseStack.translate(-0.5, 0, -0.5);
 
-        AABB box = FluidContainerRenderer.createRotatedBox(dir, 2, 13, 2, 14, 15.0, 14);
+        AABB box = FluidContainerRenderer.createRotatedBox(dir, 2, 13, 2, 14, 15.9, 14);
         int light = getLightLevel(state.level, state.pos);
-
 
         FluidContainerRenderer.drawContainer(state.level, state.pos, state.be, box, poseStack,
                 Minecraft.getInstance().renderBuffers().bufferSource(), light);
