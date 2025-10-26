@@ -177,27 +177,22 @@ public class NewFridgeBlock extends BaseEntityBlock {
 
 
     private static final VoxelShape FRIDGE = Stream.of(
-            Block.box(0, 0, 1, 16, 32, 16),
-            Block.box(2, 2, 0, 14, 21, 1),
-            Block.box(2, 24, 0, 14, 30, 1),
-            Block.box(12, 28, -1, 13, 29, 0),
-            Block.box(12, 25, -1, 13, 26, 0),
-            Block.box(12, 25, -2, 13, 29, -1),
-            Block.box(12, 16, -2, 13, 20, -1),
-            Block.box(12, 19, -1, 13, 20, 0),
-            Block.box(12, 16, -1, 13, 17, 0)
+            // Fridge (Corpo principale. Corretto Y=32 -> Y=16 per il blocco inferiore)
+            Block.box(0, 0, 4, 16, 23, 12),  // Corpo: Z da 4 a 12 (Base Y 0-16, Z 4-12)
+            Block.box(0, 0, 0, 16, 23, 4),   // Corpo: Z da 0 a 4
+            Block.box(0, 0, 12, 16, 23, 16), // Corpo: Z da 12 a 16
+            // Base
+            Block.box(0, 0, 2, 16, 2, 16)
+
     ).reduce((v1, v2) -> Shapes.or(v1, v2)).get();
 
     private static final VoxelShape FREEZER = Stream.of(
-            Block.box(0, -16, 1, 16, 16, 16),
-            Block.box(2, -14, 0, 14, 5, 1),
-            Block.box(2, 8, 0, 14, 14, 1),
-            Block.box(12, 12, -1, 13, 13, 0),
-            Block.box(12, 9, -1, 13, 10, 0),
-            Block.box(12, 9, -2, 13, 13, -1),
-            Block.box(12, 0, -2, 13, 4, -1),
-            Block.box(12, 3, -1, 13, 4, 0),
-            Block.box(12, 0, -1, 13, 1, 0)
+            // Freezer (Corpo principale. Y va da 7 a 16)
+            Block.box(0, 7, 4, 16, 16, 12),
+            Block.box(0, 7, 0, 16, 16, 4),
+            Block.box(0, 7, 12, 16, 16, 16)
+
+
     ).reduce((v1, v2) -> Shapes.or(v1, v2)).get();
 
 
