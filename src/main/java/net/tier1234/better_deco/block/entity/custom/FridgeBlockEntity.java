@@ -32,7 +32,7 @@ public class FridgeBlockEntity extends BasicLootBlockEntity
     @Override
     public int getContainerSize()
     {
-        return 27;
+        return 45;
     }
 
     @Override
@@ -44,7 +44,7 @@ public class FridgeBlockEntity extends BasicLootBlockEntity
     @Override
     protected AbstractContainerMenu createMenu(int windowId, Inventory playerInventory)
     {
-        return new ChestMenu(MenuType.GENERIC_9x3, windowId, playerInventory, this, 3);
+        return new ChestMenu(MenuType.GENERIC_9x5, windowId, playerInventory, this, 5);
     }
 
     @Override

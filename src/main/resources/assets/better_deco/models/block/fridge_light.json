@@ -3,8 +3,8 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [128, 128],
 	"textures": {
-		"0": "better_deco:block/furniture/fridge/fridge_light",
-		"particle": "block/light_gray_concrete"
+		"0": "better_deco:block/fridge_light",
+		"particle": "light_gray_concrete"
 	},
 	"elements": [
 		{
@@ -48,7 +48,7 @@
 		{
 			"from": [0, 23, 12],
 			"to": [16, 32, 16],
-			"rotation": {"angle": 0, "axis": "y", "origin": [0, 23, 12]},
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 24, 12]},
 			"faces": {
 				"north": {"uv": [6, 1.5, 8, 2.625], "texture": "#missing"},
 				"east": {"uv": [4, 2.625, 4.5, 3.75], "texture": "#0"},

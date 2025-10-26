@@ -403,8 +403,8 @@ public class ModBlockEntities {
     public static final Supplier<BlockEntityType<FreezerBlockEntity>> FREEZER =
             BLOCK_ENTITIES.register("freezer", ()-> BlockEntityType.Builder.of(
                     FreezerBlockEntity::new,
-                    ModBlocks.FREEZER_LIGHT.get(),
-                    ModBlocks.FREEZER_DARK.get()
+                    ModBlocks.FRIDGE_LIGHT.get(),
+                    ModBlocks.FRIDGE_DARK.get()
             ).build(null));
 
 

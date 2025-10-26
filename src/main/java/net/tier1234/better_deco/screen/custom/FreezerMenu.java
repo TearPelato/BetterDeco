@@ -90,10 +90,10 @@ import net.tier1234.better_deco.screen.ModMenuTypes;
         @Override
         public boolean stillValid(Player player) {
             return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()), player,
-                    ModBlocks.FREEZER_DARK.get())
+                    ModBlocks.FRIDGE_DARK.get())
                     ||
                     stillValid(ContainerLevelAccess.create(level,blockEntity.getBlockPos()),player,
-                            ModBlocks.FREEZER_LIGHT.get());
+                            ModBlocks.FRIDGE_LIGHT.get());
         }
 
         private void addPlayerInventory(Inventory playerInventory) {

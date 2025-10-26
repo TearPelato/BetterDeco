@@ -114,24 +114,12 @@ public class ModBlocks {
 
 
     //FRIDGE & FREEZERS
-    public static final DeferredBlock<Block> FREEZER_LIGHT = registerNoItem("freezer_light",
-            () -> new FreezerBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), () -> ModBlocks.FRIDGE_LIGHT));
-    public static final DeferredBlock<Block> FREEZER_DARK = registerNoItem("freezer_dark",
-            () -> new FreezerBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), () -> ModBlocks.FRIDGE_DARK));
 
+        public static final DeferredBlock<NewFridgeBlock> FRIDGE_LIGHT = registerBlock("fridge_light",
+                () -> new NewFridgeBlock(BlockBehaviour.Properties.of()));
 
-    public static final DeferredBlock<Block> FRIDGE_LIGHT = registerBlockWithCustomItem("fridge_light",
-            () -> new FridgeBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), () -> ModBlocks.FREEZER_LIGHT),
-            block -> () -> new BlockSupplierItem(new Item.Properties(), block.get(), ModBlocks.FREEZER_LIGHT));
-
-    public static final DeferredBlock<Block> FRIDGE_DARK = registerBlockWithCustomItem("fridge_dark",
-            () -> new FridgeBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), () -> ModBlocks.FREEZER_DARK),
-            block -> () -> new BlockSupplierItem(new Item.Properties(), block.get(), ModBlocks.FREEZER_DARK));
-
-
-
-
-
+    public static final DeferredBlock<NewFridgeBlock> FRIDGE_DARK = registerBlock("fridge_dark",
+            () -> new NewFridgeBlock(BlockBehaviour.Properties.of()));
 
 
     public static final DeferredBlock<Block> LIGHT_MICROWAVE = registerBlock("microwave_light",

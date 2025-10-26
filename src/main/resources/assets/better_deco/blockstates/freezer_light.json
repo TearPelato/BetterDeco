@@ -5,7 +5,7 @@
       "y": 0
     },
     "facing=north,open=false": {
-      "model": "better_deco:block/freezer_light_closed",
+      "model": "better_deco:block/freezer_light",
       "y": 0
     },
     "facing=east,open=true": {
@@ -13,7 +13,7 @@
       "y": 90
     },
     "facing=east,open=false": {
-      "model": "better_deco:block/freezer_light_closed",
+      "model": "better_deco:block/freezer_light",
       "y": 90
     },
     "facing=south,open=true": {
@@ -21,7 +21,7 @@
       "y": 180
     },
     "facing=south,open=false": {
-      "model": "better_deco:block/freezer_light_closed",
+      "model": "better_deco:block/freezer_light",
       "y": 180
     },
     "facing=west,open=true": {
@@ -29,7 +29,7 @@
       "y": 270
     },
     "facing=west,open=false": {
-      "model": "better_deco:block/freezer_light_closed",
+      "model": "better_deco:block/freezer_light",
       "y": 270
     }
   }
