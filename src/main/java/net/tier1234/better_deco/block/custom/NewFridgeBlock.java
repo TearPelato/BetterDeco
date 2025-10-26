@@ -141,10 +141,10 @@ public class NewFridgeBlock extends BaseEntityBlock {
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
         super.setPlacedBy(level, pos, state, placer, stack);
         if (!level.isClientSide) {
-            // La parte sopra è impostata come TOP
-            level.setBlock(pos.above(), state.setValue(MODEL_TYPE, FridgeModelType.FREEZER), Block.UPDATE_ALL);
-            level.blockUpdated(pos, Blocks.AIR);
-            state.updateNeighbourShapes(level, pos, Block.UPDATE_ALL);
+            BlockPos above = pos.above();
+            if (level.getBlockState(above).canBeReplaced()) {
+                level.setBlock(above, state.setValue(MODEL_TYPE, FridgeModelType.FREEZER), Block.UPDATE_ALL);
+            }
         }
     }
 
