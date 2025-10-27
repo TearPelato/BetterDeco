@@ -29,6 +29,7 @@ import net.tier1234.better_deco.screen.ModMenuTypes;
             this.data = data;
 
             this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 0, 56, 17)); // Input
+            this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 1, 56, 53)); // Input
             this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 2, 116, 35)); // Output
 
             addPlayerInventory(inv);

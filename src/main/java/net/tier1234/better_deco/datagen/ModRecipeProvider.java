@@ -14,6 +14,7 @@ import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.block.ModBlocks;
 import net.tier1234.better_deco.item.ModItems;
+import net.tier1234.better_deco.recipe.ModRecipes;
 import net.tier1234.better_deco.util.Constants;
 
 import java.util.List;
@@ -5613,7 +5614,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_iron", has(Tags.Items.INGOTS_IRON))
                 .unlockedBy("has_chest", has(Tags.Items.CHESTS_WOODEN))
                 .save(recipeOutput);
-
 
 
 

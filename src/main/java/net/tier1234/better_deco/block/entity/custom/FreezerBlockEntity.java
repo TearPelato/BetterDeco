@@ -68,8 +68,9 @@ public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
 
     private int fuelTime;
     private int fuelTimeTotal;
-    private int freezeTime;
-    private int freezeTimeTotal;
+
+    private int progress = 0;
+    private int maxProgress = 200;
 
     private final Map<ResourceLocation, Integer> usedRecipeCount = Maps.newHashMap();
 
@@ -84,8 +85,8 @@ public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
                 return switch (index) {
                     case 0 -> fuelTime;
                     case 1 -> fuelTimeTotal;
-                    case 2 -> freezeTime;
-                    case 3 -> freezeTimeTotal;
+                    case 2 -> progress;
+                    case 3 -> maxProgress;
                     default -> 0;
                 };
             }
@@ -95,8 +96,8 @@ public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
                 switch (index) {
                     case 0 -> fuelTime = value;
                     case 1 -> fuelTimeTotal = value;
-                    case 2 -> freezeTime = value;
-                    case 3 -> freezeTimeTotal = value;
+                    case 2 -> progress = value;
+                    case 3 -> maxProgress = value;
                 }
             }
 
@@ -133,10 +134,6 @@ public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
     public static void tick(Level level, BlockPos pos, BlockState state, FreezerBlockEntity be) {
         boolean dirty = false;
 
-        if (be.isFreezing()) {
-            be.fuelTime--;
-        }
-
         ItemStack fuelStack = be.itemHandler.getStackInSlot(SLOT_FUEL);
         ItemStack inputStack = be.itemHandler.getStackInSlot(SLOT_INPUT);
 
@@ -152,21 +149,23 @@ public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
         }
 
         if (be.isFreezing() && recipe.isPresent() && be.canFreeze(recipe.get())) {
-            be.freezeTime++;
-            be.freezeTimeTotal = be.getFreezeTime(recipe.get());
-            if (be.freezeTime >= be.freezeTimeTotal) {
-                be.freezeTime = 0;
-                be.freeze(recipe.get());
+            be.progress++;
+            be.maxProgress = be.getProgressTime(recipe.get());
+
+            if (be.progress >= be.maxProgress) {
+                be.progress = 0;
+                be.craftItem(recipe.get());
                 dirty = true;
             }
         } else {
-            be.freezeTime = 0;
+            be.progress = 0;
         }
 
         if (dirty) {
             setChanged(level, pos, state);
         }
     }
+
     private boolean isFreezing() {
         return this.fuelTime > 0;
     }
@@ -179,8 +178,9 @@ public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
         return 0;
     }
 
-    private int getFreezeTime(RecipeHolder<FreezerRecipe> recipe) {
-        return recipe.value().getFreezeTime();
+    private int getProgressTime(RecipeHolder<FreezerRecipe> recipe) {
+        // qui puoi decidere un tempo standard o un tempo personalizzato per ricetta
+        return 72; // esempio: come nel microwave
     }
 
     private boolean canFreeze(RecipeHolder<FreezerRecipe> recipe) {
@@ -192,7 +192,7 @@ public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
         return resultStack.getCount() + output.getCount() <= resultStack.getMaxStackSize();
     }
 
-    private void freeze(RecipeHolder<FreezerRecipe> recipe) {
+    private void craftItem(RecipeHolder<FreezerRecipe> recipe) {
         if (!canFreeze(recipe)) return;
 
         itemHandler.extractItem(SLOT_INPUT, 1, false);
@@ -211,16 +211,13 @@ public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
         }
     }
 
-
-
-
     @Override
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         tag.put("inventory", itemHandler.serializeNBT(registries));
         tag.putInt("FuelTime", fuelTime);
         tag.putInt("FuelTimeTotal", fuelTimeTotal);
-        tag.putInt("FreezeTime", freezeTime);
-        tag.putInt("FreezeTimeTotal", freezeTimeTotal);
+        tag.putInt("Progress", progress);
+        tag.putInt("MaxProgress", maxProgress);
 
         tag.putInt("RecipesUsedSize", usedRecipeCount.size());
         int i = 0;
@@ -239,9 +236,8 @@ public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
         itemHandler.deserializeNBT(registries, tag.getCompound("inventory"));
         fuelTime = tag.getInt("FuelTime");
         fuelTimeTotal = tag.getInt("FuelTimeTotal");
-        freezeTime = tag.getInt("FreezeTime");
-        freezeTimeTotal = tag.getInt("FreezeTimeTotal");
-
+        progress = tag.getInt("Progress");
+        maxProgress = tag.getInt("MaxProgress");
     }
 
     @Override
