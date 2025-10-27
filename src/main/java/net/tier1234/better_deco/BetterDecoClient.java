@@ -19,7 +19,6 @@ import net.tier1234.better_deco.screen.ModMenuTypes;
 import net.tier1234.better_deco.screen.custom.*;
 
 @Mod(value = BetterDeco.MOD_ID, dist = Dist.CLIENT)
-// You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
 @EventBusSubscriber(modid = BetterDeco.MOD_ID, value = Dist.CLIENT)
 public class BetterDecoClient {
     public BetterDecoClient(ModContainer container) {
