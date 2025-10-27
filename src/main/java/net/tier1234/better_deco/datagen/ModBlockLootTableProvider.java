@@ -562,7 +562,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.STRIPPED_CRIMSON_DINNING_TABLE.get());
         dropSelf(ModBlocks.STRIPPED_WARPED_DINNING_TABLE.get());
 
-        add(ModBlocks.OAK_VERTICAL_SLAB.get(), p_249031_ -> createSlabItemTable(p_249031_));
 
         dropSelf(ModBlocks.OAK_OVEN.get());
         dropSelf(ModBlocks.SPRUCE_OVEN.get());
