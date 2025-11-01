@@ -14,10 +14,12 @@ public record OvenRecipe(Ingredient inputItem, ItemStack output) implements Reci
     // inputItem & output ==> Read From JSON File!
     // OvenRecipeInput --> INVENTORY of the Block Entity
 
+
     public NonNullList<Ingredient> getIngredients() {
         NonNullList<Ingredient> list = NonNullList.create();
         list.add(inputItem);
         return list;
+
     }
 
     @Override
@@ -76,4 +78,9 @@ public record OvenRecipe(Ingredient inputItem, ItemStack output) implements Reci
             return STREAM_CODEC;
         }
     }
+
+    public ItemStack getResult() {
+        return this.output.copy();
+ }
+
 }

@@ -77,4 +77,8 @@ public record MicrowaveRecipe(Ingredient inputItem, ItemStack output) implements
             return STREAM_CODEC;
         }
     }
+
+    public ItemStack getResult() {
+        return this.output.copy();
+    }
 }
