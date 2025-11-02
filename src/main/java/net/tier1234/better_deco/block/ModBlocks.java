@@ -113,19 +113,11 @@ public class ModBlocks {
 
 //Fridge and Freezer
 
-    public static final DeferredBlock<Block> FREEZER_LIGHT = registerNoItem("freezer_light",
-            (properties) -> new FreezerBlock(properties.strength(2.5f).noOcclusion(), () -> ModBlocks.FRIDGE_LIGHT));
-    public static final DeferredBlock<Block> FREEZER_DARK = registerNoItem("freezer_dark",
-            (properties) -> new FreezerBlock(properties.strength(2.5f).noOcclusion(), () -> ModBlocks.FRIDGE_DARK));
+    public static final DeferredBlock<NewFridgeBlock> FRIDGE_LIGHT = registerBlock("fridge_light",
+            (properties) -> new NewFridgeBlock(properties.strength(2.7f)));
 
-
-    public static final DeferredBlock<Block> FRIDGE_LIGHT = registerBlock("fridge_light",
-            (properties) -> new FridgeBlock(properties.strength(2.5f).noOcclusion(), () -> ModBlocks.FREEZER_LIGHT));
-
-    public static final DeferredBlock<Block> FRIDGE_DARK = registerBlock("fridge_dark",
-            (properties) -> new FridgeBlock(properties.strength(2.5f).noOcclusion(), () -> ModBlocks.FREEZER_DARK));
-
-
+    public static final DeferredBlock<NewFridgeBlock> FRIDGE_DARK = registerBlock("fridge_dark",
+            (properties) -> new NewFridgeBlock(properties.strength(2.7f)));
 
 
     //Microwave
