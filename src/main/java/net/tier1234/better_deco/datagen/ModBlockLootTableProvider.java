@@ -487,6 +487,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
 
      // Vertical slab
+        add(ModBlocks.OAK_VERTICAL_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.OAK_VERTICAL_SLAB.get()));
         add(ModBlocks.SPRUCE_VERTICAL_SLAB.get(),
                 block -> createSlabItemTable(ModBlocks.SPRUCE_VERTICAL_SLAB.get()));
         add(ModBlocks.BIRCH_VERTICAL_SLAB.get(),
@@ -729,8 +731,11 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.FRIDGE_LIGHT.get());
         dropSelf(ModBlocks.FRIDGE_DARK.get());
 
+        dropSelf(ModBlocks.TOASTER_LIGHT.get());
+        dropSelf(ModBlocks.TOASTER_DARK.get());
 
         dropSelf(ModBlocks.STONE_PATH.get());
+        dropSelf(ModBlocks.CHOPPING_BOARD.get());
 
 
     }

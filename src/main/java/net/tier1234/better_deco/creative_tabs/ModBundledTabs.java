@@ -4,7 +4,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Blocks;
 import net.tier1234.better_deco.block.ModBlocks;
-import net.tier1234.better_deco.item.ModItems;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -336,6 +335,11 @@ public class ModBundledTabs {
 
                         output.accept(ModBlocks.FRIDGE_DARK);
                         output.accept(ModBlocks.FRIDGE_LIGHT);
+
+                        output.accept(ModBlocks.TOASTER_DARK);
+                        output.accept(ModBlocks.TOASTER_LIGHT);
+
+                        output.accept(ModBlocks.CHOPPING_BOARD);
 
                         output.accept(ModBlocks.OAK_BEDSIDE);
                         output.accept(ModBlocks.SPRUCE_BEDSIDE);

@@ -1,7 +1,6 @@
 package net.tier1234.better_deco.block;
 
 
-
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
@@ -15,7 +14,6 @@ import net.tier1234.better_deco.block.custom.*;
 import net.tier1234.better_deco.block.custom.ChainBlock;
 import net.tier1234.better_deco.item.ModItems;
 
-import java.util.function.Function;
 import java.util.function.Supplier;
 
 
@@ -112,7 +110,11 @@ public class ModBlocks {
 
 
 
+    public static final DeferredBlock<Block> TOASTER_LIGHT = registerBlock("toaster_light",
+            ()->  new ToasterBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
 
+    public static final DeferredBlock<Block> TOASTER_DARK = registerBlock("toaster_dark",
+            ()->  new ToasterBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
 
 
     //FRIDGE & FREEZERS
@@ -1810,20 +1812,7 @@ public static final DeferredBlock<Block> STONE_GLASS_TECQUE = registerBlock("sto
 
 
 
-
-    private static <T extends Block> DeferredBlock<T> registerBlockWithCustomItem(String name, Supplier<T> block, Function<DeferredBlock<T>, Supplier<Item>> itemSupplier) {
-        DeferredBlock<T> toReturn = BLOCKS.register(name, block);
-
-        ModItems.ITEMS.register(name, itemSupplier.apply(toReturn));
-
-        return toReturn;
-    }
-
-
-    private static <T extends Block> DeferredBlock<T> registerNoItem(String name, Supplier<T> block) {
-        return BLOCKS.register(name, block);
-    }
-
+  //REGISTER
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);

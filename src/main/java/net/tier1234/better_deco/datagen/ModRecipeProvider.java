@@ -5616,7 +5616,25 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(recipeOutput);
 
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.TOASTER_LIGHT.get())
+                .pattern("C C")
+                .pattern("I I")
+                .pattern("III")
+                .define('C', Items.REDSTONE)
+                .define('I', Items.IRON_INGOT)
+                .group("fridge")
+                .unlockedBy("has_iron", has(Items.IRON_INGOT))
+                .unlockedBy("has_chest", has(Items.REDSTONE))
+                .save(recipeOutput);
 
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.TOASTER_DARK.get())
+                .pattern("CI")
+                .define('C', ModBlocks.TOASTER_LIGHT)
+                .define('I', Items.BLACK_DYE)
+                .unlockedBy("toaster", has(ModBlocks.TOASTER_LIGHT))
+                .unlockedBy("black_dye", has(Items.BLACK_DYE))
+                .save(recipeOutput);
 
 
 

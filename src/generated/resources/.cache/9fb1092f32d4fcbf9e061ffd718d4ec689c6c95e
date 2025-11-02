@@ -1,4 +1,4 @@
-// 1.21.1	2025-10-04T18:25:10.3568827	Recipes
+// 1.21.1	2025-11-02T14:30:40.2398523	Recipes
 fcd3ba1341ea94eb7603d28a2f3ac1a458074bb1 data/better_deco/advancement/recipes/decorations/acacia_bedside.json
 ad92318f6344a8124934084484b01b2978c0c616 data/better_deco/advancement/recipes/decorations/acacia_cabinet.json
 6c4951b1f094abef825290001dd54cf49e129392 data/better_deco/advancement/recipes/decorations/acacia_coffee_table.json
@@ -344,6 +344,8 @@ d299335339d276576f25240c875ec68de9e991c7 data/better_deco/advancement/recipes/de
 b3f67a428be93ba0ef24b4be7a6d0156c7468fbc data/better_deco/advancement/recipes/decorations/stripped_warped_kitchen_drawer.json
 9e8ffe8f6efb3f6b9827138bd11f6b284dc787ab data/better_deco/advancement/recipes/decorations/stripped_warped_oven.json
 0088db7e91026016b0aed94d3983eaaa2ebc1c4e data/better_deco/advancement/recipes/decorations/stripped_warped_table.json
+b8bfaa2f31ce492207f9a82153091fa73ae5aaf7 data/better_deco/advancement/recipes/decorations/toaster_dark.json
+929f0c9cd06ff95ea8415d70135002e43d59aa15 data/better_deco/advancement/recipes/decorations/toaster_light.json
 e424bf24ac60cacf8018fe04a8379102c79af84d data/better_deco/advancement/recipes/decorations/wall_lantern.json
 55cd942ee95f74485d3bf742fefc71cc14085fa3 data/better_deco/advancement/recipes/decorations/warped_bedside.json
 2f577718d110add31c5d8ed6846cff465209a01c data/better_deco/advancement/recipes/decorations/warped_cabinet.json
@@ -994,6 +996,8 @@ c3098ff2945be9da95fe3aadd0a7aa7f1a5e8af0 data/better_deco/recipe/stripped_warped
 3b81b69f7f8bfb539ad04e46f23c47f1ee6afea8 data/better_deco/recipe/stripped_warped_kitchen_drawer.json
 f204665238064db55f15018e1a2ea2d6ec8cf6a5 data/better_deco/recipe/stripped_warped_oven.json
 5161c6a52cbf119643988c0d64530b4c4e76e72e data/better_deco/recipe/stripped_warped_table.json
+314edf84007c621066e1549c6f6cdbff71040a48 data/better_deco/recipe/toaster_dark.json
+638ab4fd69f17a0332e17dc53e79c9683cda9f78 data/better_deco/recipe/toaster_light.json
 7a442da7740063dd6669f492d245b9f749d59034 data/better_deco/recipe/wall_lantern.json
 cf0702734ddb2cc549b28e6371e17b0566e99035 data/better_deco/recipe/warped_barrel.json
 6e1d2b19c17ca3ccc17489995288dab93d7d0f98 data/better_deco/recipe/warped_bedside.json
