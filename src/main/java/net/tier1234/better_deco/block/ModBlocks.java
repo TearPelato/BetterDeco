@@ -2,7 +2,6 @@ package net.tier1234.better_deco.block;
 
 
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SoundType;
@@ -26,6 +25,10 @@ public class ModBlocks {
 
 
     //Test
+
+    public static final DeferredBlock<Block> CHOPPING_BOARD = registerBlock("chopping_board",
+            (properties)-> new ChoppingBoardBlock(properties.strength(2.5f)));
+
     //Desk
 
     public static final DeferredBlock<Block> OAK_DESK = registerBlock("oak_desk",
@@ -110,6 +113,16 @@ public class ModBlocks {
             (properties)-> new ParkBenchBlock(properties.strength(2.5f)));
     public static final DeferredBlock<Block> WARPED_PARK_BENCH = registerBlock("warped_park_bench",
             (properties)-> new ParkBenchBlock(properties.strength(2.5f)));
+
+
+
+    //Toaster
+
+    public static final DeferredBlock<Block> TOASTER_LIGHT = registerBlock("toaster_light",
+            (properties)->  new ToasterBlock(properties.strength(2f).noOcclusion()));
+
+    public static final DeferredBlock<Block> TOASTER_DARK = registerBlock("toaster_dark",
+            (properties)->  new ToasterBlock(properties.strength(2f).noOcclusion()));
 
 //Fridge and Freezer
 
@@ -1635,17 +1648,6 @@ public static final DeferredBlock<Block> STONE_GLASS_TECQUE = registerBlock("sto
 
     //REGISTRATION
 
-    public static <T extends Block> DeferredBlock<T> registerBlockWithCustomItem(String name, Function<BlockBehaviour.Properties, T> block, Function<Item.Properties, Item> itemFactory) {
-        DeferredBlock<T> toReturn = BLOCKS.registerBlock(name, block);
-        ModItems.ITEMS.registerItem(name, itemFactory);
-        return toReturn;
-    }
-
-
-
-    private static <T extends Block> DeferredBlock<T> registerNoItem(String name, Function<BlockBehaviour.Properties, T> function) {
-        return BLOCKS.registerBlock(name, function);
-    }
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> function) {
         DeferredBlock<T> toReturn = BLOCKS.registerBlock(name, function);

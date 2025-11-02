@@ -799,9 +799,10 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.STRIPPED_PALE_OAK_DINNING_TABLE.get());
         dropSelf(ModBlocks.STRIPPED_PALE_OAK_COFFEE_TABLE.get());
 
+        dropSelf(ModBlocks.TOASTER_LIGHT.get());
+        dropSelf(ModBlocks.TOASTER_DARK.get());
 
-
-
+        dropSelf(ModBlocks.CHOPPING_BOARD.get());
 
     }
 

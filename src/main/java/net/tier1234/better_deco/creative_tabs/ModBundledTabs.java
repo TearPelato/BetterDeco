@@ -323,7 +323,10 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.FRIDGE_LIGHT);
                         output.accept(ModBlocks.FRIDGE_DARK);
 
+                        output.accept(ModBlocks.TOASTER_DARK);
+                        output.accept(ModBlocks.TOASTER_LIGHT);
 
+                        output.accept(ModBlocks.CHOPPING_BOARD);
 
 
 
