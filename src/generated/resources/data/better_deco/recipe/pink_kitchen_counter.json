@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:pink_concrete",
+    "B": "minecraft:quartz_block"
+  },
+  "pattern": [
+    "###",
+    "B B",
+    "BBB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "better_deco:pink_kitchen_counter"
+  }
+}

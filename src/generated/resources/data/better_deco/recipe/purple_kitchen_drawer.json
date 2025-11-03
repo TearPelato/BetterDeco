@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:purple_concrete",
+    "B": "minecraft:quartz_block",
+    "X": "minecraft:chest"
+  },
+  "pattern": [
+    "###",
+    "BXB",
+    "BBB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "better_deco:purple_kitchen_drawer"
+  }
+}

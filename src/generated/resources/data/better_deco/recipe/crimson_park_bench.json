@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "park_bench",
+  "key": {
+    "L": "minecraft:crimson_stem",
+    "P": "minecraft:crimson_planks"
+  },
+  "pattern": [
+    "PPP",
+    "PPP",
+    "L L"
+  ],
+  "result": {
+    "count": 4,
+    "id": "better_deco:crimson_park_bench"
+  }
+}
