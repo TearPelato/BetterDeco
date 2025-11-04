@@ -1,6 +1,6 @@
 package net.tier1234.better_deco.block;
 
-
+import net.tier1234.better_deco.*;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
@@ -25,6 +25,44 @@ public class ModBlocks {
 
 
     //Test
+
+
+    //PaleOak Combos
+
+    //Balckstone
+    public static final DeferredBlock<Block> PALE_OAK_BALCKSTONE_KITCHEN_COUNTER = registerBlock("pale_oak_blackstone_kitchen_counter",
+            (properties)-> new KitchenCounterBlock(properties.strength(2f).noOcclusion()));
+
+    public static final DeferredBlock<Block> PALE_OAK_BALCKSTONE_KITCHEN_DRAWER = registerBlock("pale_oak_blackstone_kitchen_drawer",
+            (properties)-> new KitchenDrawerBlock(properties.strength(2f).noOcclusion()));
+
+    public static final DeferredBlock<Block> PALE_OAK_BALCKSTONE_CABINET = registerBlock("pale_oak_blackstone_cabinet",
+            (properties)-> new CabinetBlock(properties.strength(2f).noOcclusion()));
+
+    public static final DeferredBlock<Block> PALE_OAK_BALCKSTONE_SINK = registerBlock("pale_oak_blackstone_sink",
+            (properties) -> new KitchenSinkBlock(properties.strength(2f).noOcclusion()));
+
+    public static final DeferredBlock<Block> PALE_OAK_BALCKSTONE_OVEN = registerBlock("pale_oak_blackstone_oven",
+            (properties)-> new OvenBlock(properties.strength(2.5f).noOcclusion()));
+
+    //Deepslate
+
+    public static final DeferredBlock<Block> PALE_OAK_DEEPSLATE_KITCHEN_COUNTER = registerBlock("pale_oak_blackstone_kitchen_counter",
+            (properties)-> new KitchenCounterBlock(properties.strength(2f).noOcclusion()));
+
+    public static final DeferredBlock<Block> PALE_OAK_DEEPSLATE_KITCHEN_DRAWER = registerBlock("pale_oak_blackstone_kitchen_drawer",
+            (properties)-> new KitchenDrawerBlock(properties.strength(2f).noOcclusion()));
+
+    public static final DeferredBlock<Block> PALE_OAK_DEEPSLATE_CABINET = registerBlock("pale_oak_blackstone_cabinet",
+            (properties)-> new CabinetBlock(properties.strength(2f).noOcclusion()));
+
+    public static final DeferredBlock<Block> PALE_OAK_DEEPSLATE_SINK = registerBlock("pale_oak_blackstone_sink",
+            (properties) -> new KitchenSinkBlock(properties.strength(2f).noOcclusion()));
+
+    public static final DeferredBlock<Block> PALE_OAK_DEEPSLATE_OVEN = registerBlock("pale_oak_blackstone_oven",
+            (properties)-> new OvenBlock(properties.strength(2.5f).noOcclusion()));
+
+
 
     public static final DeferredBlock<Block> CHOPPING_BOARD = registerBlock("chopping_board",
             (properties)-> new ChoppingBoardBlock(properties.strength(2.5f)));

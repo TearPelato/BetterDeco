@@ -245,6 +245,9 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.CRIMSON_SINK);
                         output.accept(ModBlocks.WARPED_SINK);
 
+                        output.accept(ModBlocks.PALE_OAK_BALCKSTONE_SINK);
+                        output.accept(ModBlocks.PALE_OAK_DEEPSLATE_SINK);
+
                         output.accept(ModBlocks.WHITE_SINK);
                         output.accept(ModBlocks.LIGHT_GRAY_SINK);
                         output.accept(ModBlocks.GRAY_SINK);
@@ -318,7 +321,6 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.STRIPPED_CRIMSON_CABINET);
                         output.accept(ModBlocks.STRIPPED_WARPED_CABINET);
 
-                        //TEST FRIDGE REGISTER
 
                         output.accept(ModBlocks.FRIDGE_LIGHT);
                         output.accept(ModBlocks.FRIDGE_DARK);
@@ -338,9 +340,13 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.DEEPSLATE_COUNTER);
                         output.accept(ModBlocks.DEEPSLATE_TILE_COUNTER);
                         output.accept(ModBlocks.BLACKSTONE_COUNTER);
+
                         output.accept(ModBlocks.SPRUCE_DIORITE_COUNTER);
                         output.accept(ModBlocks.DARK_OAK_CALCITE_COUNTER);
                         output.accept(ModBlocks.OAK_ANDESITE_COUNTER);
+
+                        output.accept(ModBlocks.PALE_OAK_BALCKSTONE_KITCHEN_COUNTER);
+                        output.accept(ModBlocks.PALE_OAK_DEEPSLATE_KITCHEN_COUNTER);
 
                         output.accept(ModBlocks.STONE_DRAWER);
                         output.accept(ModBlocks.GRANITE_DRAWER);
@@ -348,9 +354,15 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.DEEPSLATE_DRAWER);
                         output.accept(ModBlocks.DEEPSLATE_TILES_DRAWER);
                         output.accept(ModBlocks.BLACKSTONE_DRAWER);
+
                         output.accept(ModBlocks.SPRUCE_DIORITE_KITCHEN_DRAWER);
                         output.accept(ModBlocks.DARK_OAK_CALCITE_DRAWER);
                         output.accept(ModBlocks.OAK_ANDESITE_DRAWER);
+
+                        output.accept(ModBlocks.PALE_OAK_BALCKSTONE_KITCHEN_DRAWER);
+                        output.accept(ModBlocks.PALE_OAK_DEEPSLATE_KITCHEN_DRAWER);
+
+
 
                         output.accept(ModBlocks.STONE_CABINET);
                         output.accept(ModBlocks.GRANITE_CABINET);
@@ -358,9 +370,15 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.DEEPSLATE_CABINET);
                         output.accept(ModBlocks.DEEPSLATE_TILES_CABINET);
                         output.accept(ModBlocks.BLACKSTONE_CABINET);
+
                         output.accept(ModBlocks.SPRUCE_DIORITE_CABINET);
                         output.accept(ModBlocks.DARK_OAK_CALCITE_CABINET);
                         output.accept(ModBlocks.OAK_ANDESITE_CABINET);
+
+                        output.accept(ModBlocks.PALE_OAK_BALCKSTONE_CABINET);
+                        output.accept(ModBlocks.PALE_OAK_DEEPSLATE_CABINET);
+
+
 
                         output.accept(ModBlocks.OAK_BEDSIDE);
                         output.accept(ModBlocks.SPRUCE_BEDSIDE);
@@ -719,6 +737,9 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.SPRUCE_DIORITE_OVEN);
                         output.accept(ModBlocks.DARK_OAK_CALCITE_OVEN);
                         output.accept(ModBlocks.OAK_ANDESITE_OVEN);
+
+                        output.accept(ModBlocks.PALE_OAK_BALCKSTONE_OVEN);
+                        output.accept(ModBlocks.PALE_OAK_DEEPSLATE_OVEN);
 
                         output.accept(ModBlocks.WHITE_OVEN);
                         output.accept(ModBlocks.LIGHT_GRAY_OVEN);
