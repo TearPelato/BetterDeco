@@ -47,19 +47,19 @@ public class ModBlocks {
 
     //Deepslate
 
-    public static final DeferredBlock<Block> PALE_OAK_DEEPSLATE_KITCHEN_COUNTER = registerBlock("pale_oak_blackstone_kitchen_counter",
+    public static final DeferredBlock<Block> PALE_OAK_DEEPSLATE_KITCHEN_COUNTER = registerBlock("pale_oak_deepslate_kitchen_counter",
             (properties)-> new KitchenCounterBlock(properties.strength(2f).noOcclusion()));
 
-    public static final DeferredBlock<Block> PALE_OAK_DEEPSLATE_KITCHEN_DRAWER = registerBlock("pale_oak_blackstone_kitchen_drawer",
+    public static final DeferredBlock<Block> PALE_OAK_DEEPSLATE_KITCHEN_DRAWER = registerBlock("pale_oak_deepslate_kitchen_drawer",
             (properties)-> new KitchenDrawerBlock(properties.strength(2f).noOcclusion()));
 
-    public static final DeferredBlock<Block> PALE_OAK_DEEPSLATE_CABINET = registerBlock("pale_oak_blackstone_cabinet",
+    public static final DeferredBlock<Block> PALE_OAK_DEEPSLATE_CABINET = registerBlock("pale_oak_deepslate_cabinet",
             (properties)-> new CabinetBlock(properties.strength(2f).noOcclusion()));
 
-    public static final DeferredBlock<Block> PALE_OAK_DEEPSLATE_SINK = registerBlock("pale_oak_blackstone_sink",
+    public static final DeferredBlock<Block> PALE_OAK_DEEPSLATE_SINK = registerBlock("pale_oak_deepslate_sink",
             (properties) -> new KitchenSinkBlock(properties.strength(2f).noOcclusion()));
 
-    public static final DeferredBlock<Block> PALE_OAK_DEEPSLATE_OVEN = registerBlock("pale_oak_blackstone_oven",
+    public static final DeferredBlock<Block> PALE_OAK_DEEPSLATE_OVEN = registerBlock("pale_oak_deepslate_oven",
             (properties)-> new OvenBlock(properties.strength(2.5f).noOcclusion()));
 
 
