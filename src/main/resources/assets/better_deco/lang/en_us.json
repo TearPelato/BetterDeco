@@ -708,6 +708,18 @@
 
 
 
+  "block.better_deco.pale_oak_blackstone_kitchen_counter": "Pale Oak-Blackstone Kitchen Counter",
+  "block.better_deco.pale_oak_blackstone_kitchen_drawer": "Pale Oak-Blackstone Kitchen Drawer",
+  "block.better_deco.pale_oak_blackstone_oven": "Pale Oak-Blackstone Oven",
+  "block.better_deco.pale_oak_blackstone_sink": "Pale Oak-Blackstone Sink",
+  "block.better_deco.pale_oak_blackstone_cabinet": "Pale Oak-Blackstone Cabinet",
+
+  "block.better_deco.pale_oak_deepslate_kitchen_counter": "Pale Oak-Deepslate Kitchen Counter",
+  "block.better_deco.pale_oak_deepslate_kitchen_drawer": "Pale Oak-Deepslate Kitchen Drawer",
+  "block.better_deco.pale_oak_deepslate_oven": "Pale Oak-Deepslate Oven",
+  "block.better_deco.pale_oak_deepslate_sink": "Pale Oak-Deepslate Sink",
+  "block.better_deco.pale_oak_deepslate_cabinet": "Pale Oak-Deepslate Cabinet",
+
 
 
   "item.better_deco.iron_chisel": "Iron Chisel",
