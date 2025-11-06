@@ -6250,6 +6250,16 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_deepslate_tiles", has(Blocks.DEEPSLATE_TILES))
                 .save(output);
 
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.OAK_LOG.asItem())
+                .define('#', Blocks.OAK_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_oak_log", has(Blocks.OAK_LOG))
+                .unlockedBy("has_oak", has(Blocks.OAK_PLANKS))
+                .save(output);
 
 
 
