@@ -21,14 +21,16 @@ import net.neoforged.neoforge.fluids.FluidStack;
 import net.tier1234.better_deco.block.custom.FurnitureHorizontalBlock;
 import net.tier1234.better_deco.block.entity.custom.KitchenSinkBlockEntity;
 import org.joml.Matrix4f;
+import org.lwjgl.system.NonnullDefault;
 
+@NonnullDefault
 public class KitchenSinkBlockEntityRenderer implements BlockEntityRenderer<KitchenSinkBlockEntity> {
 
-    public KitchenSinkBlockEntityRenderer(BlockEntityRendererProvider.Context ctx) {}
+    public KitchenSinkBlockEntityRenderer(BlockEntityRendererProvider.Context ignored) {}
 
     @Override
     public void render(KitchenSinkBlockEntity be, float partialTick, PoseStack ms, MultiBufferSource buf, int light, int overlay) {
-        Fluid fluid = be.getFluid();
+        Fluid fluid = be.getFluidStack().getFluid();
         if (fluid == Fluids.EMPTY || be.getLevel() == null) return;
         BlockState state = be.getBlockState();
         if (!state.hasProperty(BlockStateProperties.HORIZONTAL_FACING)) return;
