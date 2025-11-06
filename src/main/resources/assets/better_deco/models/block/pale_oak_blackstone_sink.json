@@ -1,0 +1,7 @@
+{
+  "parent": "better_deco:block/kitchen_sink",
+  "textures": {
+    "base": "minecraft:block/pale_oak_planks",
+    "sink": "minecraft:block/polished_blackstone_bricks"
+  }
+}

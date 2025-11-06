@@ -1,0 +1,7 @@
+{
+  "parent": "better_deco:block/cabinet_closed",
+  "textures": {
+    "door": "block/pale_oak_planks",
+    "base": "block/polished_blackstone_bricks"
+  }
+}

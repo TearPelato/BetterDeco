@@ -14,10 +14,6 @@ import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.block.ModBlocks;
 import net.tier1234.better_deco.item.ModItems;
 import net.tier1234.better_deco.util.Constants;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -6141,6 +6137,137 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
 
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.TOASTER_LIGHT.get())
+                .pattern("C C")
+                .pattern("I I")
+                .pattern("III")
+                .define('C', Items.REDSTONE)
+                .define('I', Items.IRON_INGOT)
+                .group("fridge")
+                .unlockedBy("has_iron", has(Items.IRON_INGOT))
+                .unlockedBy("has_chest", has(Items.REDSTONE))
+                .save(output);
+
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.TOASTER_DARK.get())
+                .pattern("CI")
+                .define('C', ModBlocks.TOASTER_LIGHT)
+                .define('I', Items.BLACK_DYE)
+                .unlockedBy("toaster", has(ModBlocks.TOASTER_LIGHT))
+                .unlockedBy("black_dye", has(Items.BLACK_DYE))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_BALCKSTONE_KITCHEN_COUNTER.get())
+                .pattern("###")
+                .pattern("B B")
+                .pattern("BBB")
+                .define('B', Items.PALE_OAK_PLANKS.asItem())
+                .define('#', Blocks.POLISHED_BLACKSTONE_BRICKS.asItem())
+                .unlockedBy("has_blackstone_bricks", has(Blocks.POLISHED_BLACKSTONE_BRICKS))
+                .unlockedBy("has_pale_oak", has(Blocks.PALE_OAK_PLANKS))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_BALCKSTONE_KITCHEN_DRAWER.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.PALE_OAK_PLANKS.asItem())
+                .define('#', Blocks.POLISHED_BLACKSTONE_BRICKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_blackstone_bricks", has(Blocks.POLISHED_BLACKSTONE_BRICKS))
+                .unlockedBy("has_pale_oak", has(Blocks.PALE_OAK_PLANKS))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_BALCKSTONE_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.POLISHED_BLACKSTONE_BRICKS.asItem())
+                .define('#', Blocks.PALE_OAK_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_blackstone_bricks", has(Blocks.POLISHED_BLACKSTONE_BRICKS))
+                .unlockedBy("has_pale_oak", has(Blocks.PALE_OAK_PLANKS))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_BALCKSTONE_OVEN.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.PALE_OAK_PLANKS.asItem())
+                .define('#', Blocks.POLISHED_BLACKSTONE_BRICKS.asItem())
+                .define('X', Blocks.SMOKER.asItem())
+                .unlockedBy("has_blackstone_bricks", has(Blocks.POLISHED_BLACKSTONE_BRICKS))
+                .unlockedBy("has_pale_oak", has(Blocks.PALE_OAK_PLANKS))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_BALCKSTONE_SINK.get())
+                .pattern("BXB")
+                .pattern("BBB")
+                .pattern("# #")
+                .define('B', Items.POLISHED_BLACKSTONE_BRICKS.asItem())
+                .define('X', Items.BUCKET.asItem())
+                .define('#', Blocks.PALE_OAK_PLANKS.asItem())
+                .unlockedBy("has_pale_oak", has(Blocks.PALE_OAK_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .unlockedBy("has_blackstone_bricks", has(Blocks.POLISHED_BLACKSTONE_BRICKS))
+                .save(output);
+
+        //Deepslate
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_DEEPSLATE_KITCHEN_COUNTER.get())
+                .pattern("###")
+                .pattern("B B")
+                .pattern("BBB")
+                .define('B', Items.PALE_OAK_PLANKS.asItem())
+                .define('#', Blocks.DEEPSLATE_TILES.asItem())
+                .unlockedBy("has_deepslate_tiles", has(Blocks.DEEPSLATE_TILES))
+                .unlockedBy("has_pale_oak", has(Blocks.PALE_OAK_PLANKS))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_DEEPSLATE_KITCHEN_DRAWER.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.PALE_OAK_PLANKS.asItem())
+                .define('#', Blocks.DEEPSLATE_TILES.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_deepslate_tiles", has(Blocks.DEEPSLATE_TILES))
+                .unlockedBy("has_pale_oak", has(Blocks.PALE_OAK_PLANKS))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_DEEPSLATE_CABINET.get())
+                .pattern("#BB")
+                .pattern("#XB")
+                .pattern("#BB")
+                .define('B', Items.DEEPSLATE_TILES.asItem())
+                .define('#', Blocks.PALE_OAK_PLANKS.asItem())
+                .define('X', Blocks.CHEST.asItem())
+                .unlockedBy("has_deepslate_tiles", has(Blocks.DEEPSLATE_TILES))
+                .unlockedBy("has_pale_oak", has(Blocks.PALE_OAK_PLANKS))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_DEEPSLATE_OVEN.get())
+                .pattern("###")
+                .pattern("BXB")
+                .pattern("BBB")
+                .define('B', Items.PALE_OAK_PLANKS.asItem())
+                .define('#', Blocks.DEEPSLATE_TILES.asItem())
+                .define('X', Blocks.SMOKER.asItem())
+                .unlockedBy("has_deepslate_tiles", has(Blocks.DEEPSLATE_TILES))
+                .unlockedBy("has_pale_oak", has(Blocks.PALE_OAK_PLANKS))
+                .save(output);
+
+        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_DEEPSLATE_SINK.get())
+                .pattern("BXB")
+                .pattern("BBB")
+                .pattern("# #")
+                .define('B', Items.DEEPSLATE_TILES.asItem())
+                .define('X', Items.BUCKET.asItem())
+                .define('#', Blocks.PALE_OAK_PLANKS.asItem())
+                .unlockedBy("has_pale_oak", has(Blocks.PALE_OAK_PLANKS))
+                .unlockedBy("has_chest", has(Blocks.CHEST))
+                .unlockedBy("has_deepslate_tiles", has(Blocks.DEEPSLATE_TILES))
+                .save(output);
 
 
 
