@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:glass",
+    "B": "minecraft:pale_oak_slab"
+  },
+  "pattern": [
+    "###",
+    "# #",
+    "BBB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "better_deco:pale_oak_glass_tecque"
+  }
+}

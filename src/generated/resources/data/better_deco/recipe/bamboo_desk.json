@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": "minecraft:bamboo_block",
+    "I": "minecraft:bamboo_planks"
+  },
+  "pattern": [
+    "CCC",
+    "I I",
+    "I I"
+  ],
+  "result": {
+    "count": 1,
+    "id": "better_deco:bamboo_desk"
+  }
+}
