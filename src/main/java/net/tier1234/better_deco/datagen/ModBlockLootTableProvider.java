@@ -804,6 +804,19 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         dropSelf(ModBlocks.CHOPPING_BOARD.get());
 
+
+        dropSelf(ModBlocks.PALE_OAK_BALCKSTONE_KITCHEN_COUNTER.get());
+        dropSelf(ModBlocks.PALE_OAK_BALCKSTONE_KITCHEN_DRAWER.get());
+        dropSelf(ModBlocks.PALE_OAK_BALCKSTONE_OVEN.get());
+        dropSelf(ModBlocks.PALE_OAK_BALCKSTONE_SINK.get());
+        dropSelf(ModBlocks.PALE_OAK_BALCKSTONE_CABINET.get());
+
+        dropSelf(ModBlocks.PALE_OAK_DEEPSLATE_KITCHEN_COUNTER.get());
+        dropSelf(ModBlocks.PALE_OAK_DEEPSLATE_KITCHEN_DRAWER.get());
+        dropSelf(ModBlocks.PALE_OAK_DEEPSLATE_OVEN.get());
+        dropSelf(ModBlocks.PALE_OAK_DEEPSLATE_SINK.get());
+        dropSelf(ModBlocks.PALE_OAK_DEEPSLATE_CABINET.get());
+
     }
 
 

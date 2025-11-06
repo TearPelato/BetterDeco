@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:pale_oak_planks",
+    "B": "minecraft:polished_blackstone_bricks",
+    "X": "minecraft:bucket"
+  },
+  "pattern": [
+    "BXB",
+    "BBB",
+    "# #"
+  ],
+  "result": {
+    "count": 1,
+    "id": "better_deco:pale_oak_blackstone_sink"
+  }
+}
