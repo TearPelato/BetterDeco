@@ -13,6 +13,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
@@ -50,6 +51,11 @@ public class KitchenSinkBlock extends FurnitureHorizontalBlock implements Simple
                 .setValue(DIRECTION, Direction.SOUTH)
                 .setValue(HAS_WATER, false));
         this.shapesByState = generateShapes(this.getStateDefinition().getPossibleStates());
+    }
+
+    @Override
+    public BlockState updateShape(BlockState state, Direction direction, BlockState newState, LevelAccessor level, BlockPos pos, BlockPos newPos) {
+        return null;
     }
 
     public ImmutableMap<BlockState, VoxelShape> generateShapes(ImmutableList<BlockState> states) {
@@ -97,6 +103,7 @@ public class KitchenSinkBlock extends FurnitureHorizontalBlock implements Simple
         Fluid fluid = fs.getType();
         if (!Config.isSinkUniversal() && fluid != Fluids.WATER) return ItemInteractionResult.FAIL;
         return sink.addFluid(fluid) ? ItemInteractionResult.SUCCESS : ItemInteractionResult.FAIL;
+
     }
 
     private ItemInteractionResult fillFromItemStack(KitchenSinkBlockEntity sink, Player player, InteractionHand hand, ItemStack stack) {
@@ -109,8 +116,8 @@ public class KitchenSinkBlock extends FurnitureHorizontalBlock implements Simple
     }
 
     private ItemInteractionResult handleBucket(KitchenSinkBlockEntity sink, Player player, InteractionHand hand, ItemStack stack) {
-        if (sink.isEmpty() || sink.getStoredAmount() < FluidContainerBlockEntity.BUCKET_VOLUME) return ItemInteractionResult.FAIL;
-        Fluid fluid = sink.getFluid();
+        if (sink.isEmpty() || sink.getFluidStack().getAmount() < FluidContainerBlockEntity.BUCKET_VOLUME) return ItemInteractionResult.FAIL;
+        Fluid fluid = sink.getFluidStack().getFluid();
         Item filledBucket = fluid.getBucket();
         if (filledBucket == Items.AIR) return ItemInteractionResult.FAIL;
         sink.removeFluid(FluidContainerBlockEntity.BUCKET_VOLUME);
