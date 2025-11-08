@@ -101,6 +101,7 @@ public class KitchenSinkBlock extends FurnitureHorizontalBlock implements Simple
         Fluid fluid = fs.getType();
         if (!Config.isSinkUniversal() && fluid != Fluids.WATER) return InteractionResult.FAIL;
         return sink.addFluid(fluid) ? InteractionResult.SUCCESS : InteractionResult.FAIL;
+
     }
 
     private InteractionResult fillFromItemStack(KitchenSinkBlockEntity sink, Player player, InteractionHand hand, ItemStack stack) {
