@@ -101,6 +101,7 @@ public class KitchenSinkBlock extends FurnitureHorizontalBlock implements Simple
         Fluid fluid = fs.getType();
         if (!Config.isSinkUniversal() && fluid != Fluids.WATER) return InteractionResult.FAIL;
         return sink.addFluid(fluid) ? InteractionResult.SUCCESS : InteractionResult.FAIL;
+
     }
 
     private InteractionResult fillFromItemStack(KitchenSinkBlockEntity sink, Player player, InteractionHand hand, ItemStack stack) {
@@ -113,8 +114,8 @@ public class KitchenSinkBlock extends FurnitureHorizontalBlock implements Simple
     }
 
     private InteractionResult handleBucket(KitchenSinkBlockEntity sink, Player player, InteractionHand hand, ItemStack stack) {
-        if (sink.isEmpty() || sink.getStoredAmount() < FluidContainerBlockEntity.BUCKET_VOLUME) return InteractionResult.FAIL;
-        Fluid fluid = sink.getFluid();
+        if (sink.isEmpty() || sink.getFluidStack().getAmount() < FluidContainerBlockEntity.BUCKET_VOLUME) return InteractionResult.FAIL;
+        Fluid fluid = sink.getFluidStack().getFluid();
         Item filledBucket = fluid.getBucket();
         if (filledBucket == Items.AIR) return InteractionResult.FAIL;
         sink.removeFluid(FluidContainerBlockEntity.BUCKET_VOLUME);

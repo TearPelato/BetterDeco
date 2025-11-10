@@ -757,7 +757,12 @@
   "better_deco.configuration.sink_capacity_buckets": "Capacity of Sink (in Buckets)",
   "better_deco.configuration.sink_capacity_buckets.tooltip": "Sets the maximum number of buckets the sink can hold. Needs A game restart(Maximum n° Buckets is 10)",
 
+   "block.better_deco.fridge_dark": "Fridge (Dark)",
+   "block.better_deco.fridge_light": "Fridge (Light)",
 
+  "block.better_deco.toaster_dark": "Toaster (Dark)",
+  "block.better_deco.toaster_light": "Toaster (Light)",
 
-  "block.better_deco.limestone": "Limestone"
+  "block.better_deco.limestone": "Limestone",
+  "block.better_deco.chopping_board": "Chopping Board"
 }
