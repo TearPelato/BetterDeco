@@ -1,9 +1,11 @@
 package net.tier1234.better_deco.block.entity.core;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtOps;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
@@ -15,31 +17,37 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
+import net.neoforged.neoforge.fluids.FluidStack;
 import org.jetbrains.annotations.Nullable;
+import org.lwjgl.system.NonnullDefault;
 
+import java.util.Optional;
+
+@NonnullDefault
 public abstract class FluidContainerBlockEntity extends BlockEntity {
 
     public static final int BUCKET_VOLUME = 1000;
 
-    private Fluid fluid = Fluids.EMPTY;
-    private int amount = 0;
+    private FluidStack stack = new FluidStack(Fluids.EMPTY, 0);
     private final int capacity;
 
     public FluidContainerBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state, int capacity) {
-        super(type,pos,state);
+        super(type, pos, state);
         this.capacity = capacity;
     }
 
-    public Fluid getFluid() { return fluid != null ? fluid : Fluids.EMPTY; }
-    public int getStoredAmount() { return amount; }
-    public int getCapacity() { return capacity; }
-    public boolean isEmpty() { return fluid == Fluids.EMPTY || amount <= 0; }
+    public FluidStack getFluidStack() {
+        return this.stack;
+    }
 
-    public void setFluidAndAmount(Fluid f, int a) {
-        if (f == null) f = Fluids.EMPTY;
-        int clamped = Math.min(a, capacity);
-        if (clamped <= 0) { fluid = Fluids.EMPTY; amount = 0; }
-        else { fluid = f; amount = clamped; }
+    public int getCapacity() { return capacity; }
+    public boolean isEmpty() {
+        return stack.isEmpty();
+    }
+
+    public void setFluidStack(FluidStack stack) {
+        if(stack.getAmount() > capacity) this.stack = new FluidStack(stack.getFluid(), capacity);
+        else this.stack = stack;
         setChanged();
         if (level != null && !level.isClientSide) level.sendBlockUpdated(worldPosition,getBlockState(),getBlockState(),3);
     }
@@ -47,26 +55,39 @@ public abstract class FluidContainerBlockEntity extends BlockEntity {
     @Override
     protected void saveAdditional(ValueOutput output) {
         super.saveAdditional(output);
-        output.putString("FluidName", fluid == Fluids.EMPTY ? "minecraft:empty" : BuiltInRegistries.FLUID.getKey(fluid).toString());
-        output.putInt("Amount", amount);
+        if(stack.isEmpty()) return;
+        output.set("FluidStack", FluidStack.CODEC.encode(stack, NbtOps.INSTANCE, new CompoundTag()).getOrThrow());
     }
 
     @Override
     protected void loadAdditional(ValueInput input) {
         super.loadAdditional(input);
-        String name =  input.getString("FluidName").orElse("minecraft:empty");
-        if ("minecraft:empty".equals(name)) { fluid = Fluids.EMPTY;  amount = 0;  return; }
-        Fluid f = BuiltInRegistries.FLUID.getValue(ResourceLocation.tryParse(name));
-        fluid = f != null ? f : Fluids.EMPTY;
-        amount = Math.min(input.getInt("Amount").orElse(0), capacity);
-        if (amount <= 0) fluid = Fluids.EMPTY;
+        /* CODICE DA TOGLIERE QUANDO TUTTI AVRANNO CONVERTITO (PROBABILMENTE MAI) */
+        if(input.contains("FluidName")) { //LEGACY ENCODING
+            String name = input.getString("FluidName").orElse("minecraft:empty");
+            if ("minecraft:empty".equals(name)) {
+                this.stack = new FluidStack(Fluids.EMPTY, 0);
+                return;
+            }
+            Optional<Holder.Reference<Fluid>> fluid = BuiltInRegistries.FLUID.get(ResourceLocation.parse(name));
+            if (fluid.isEmpty()) {
+                this.stack = new FluidStack(Fluids.EMPTY, 0);
+                return;
+            }
+            int amount = Math.min(input.getInt("Amount").orElse(0), capacity);
+            if (amount <= 0) {
+                this.stack = new FluidStack(Fluids.EMPTY, 0);
+                return;
+            }
+            var ref = fluid.get();
+            this.stack = new FluidStack(ref, amount);
+        } else if(input.contains("FluidStack")) this.stack = FluidStack.CODEC.decode(NbtOps.INSTANCE, input.get("FluidStack")).getOrThrow().getFirst();
+        else this.stack = new FluidStack(Fluids.EMPTY, 0);
     }
 
     @Nullable
     @Override
-    public Packet<ClientGamePacketListener> getUpdatePacket() {
-        return ClientboundBlockEntityDataPacket.create(this);
-    }
+    public Packet<ClientGamePacketListener> getUpdatePacket() { return ClientboundBlockEntityDataPacket.create(this); }
 
     @Override
     public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
