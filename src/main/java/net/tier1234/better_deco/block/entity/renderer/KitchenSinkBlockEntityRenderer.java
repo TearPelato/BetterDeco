@@ -22,7 +22,7 @@ public class KitchenSinkBlockEntityRenderer implements BlockEntityRenderer<Kitch
 
     @Override
     public void render(KitchenSinkBlockEntity be, float partialTick, PoseStack ms, MultiBufferSource buf, int light, int overlay, Vec3 vec3) {
-        Fluid fluid = be.getFluidStack().getFluid();
+        Fluid fluid = be.getFluid();
         if (fluid == Fluids.EMPTY || be.getLevel() == null) return;
         BlockState state = be.getBlockState();
         if (!state.hasProperty(BlockStateProperties.HORIZONTAL_FACING)) return;
