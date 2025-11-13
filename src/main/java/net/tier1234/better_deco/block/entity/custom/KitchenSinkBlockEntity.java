@@ -17,8 +17,7 @@ import org.lwjgl.system.NonnullDefault;
 
 import javax.annotation.Nullable;
 
-@NonnullDefault
-public class KitchenSinkBlockEntity extends FluidContainerBlockEntity implements MenuProvider {
+public class KitchenSinkBlockEntity extends FluidContainerBlockEntity {
 
     public KitchenSinkBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.KITCHEN_SINK.get(), pos, state,
@@ -26,11 +25,11 @@ public class KitchenSinkBlockEntity extends FluidContainerBlockEntity implements
     }
 
     public boolean addFluid(Fluid fluid) {
-        int current = getFluidStack().getAmount();
+        int current = getStoredAmount();
         int max = getCapacity();
-        if (isEmpty() || getFluidStack().getFluid() == fluid) {
+        if (isEmpty() || getFluid() == fluid) {
             if (current + BUCKET_VOLUME <= max) {
-                setFluidStack(new FluidStack(fluid, current + BUCKET_VOLUME));
+                setFluidAndAmount(fluid, current + BUCKET_VOLUME);
                 return true;
             }
         }
@@ -38,18 +37,8 @@ public class KitchenSinkBlockEntity extends FluidContainerBlockEntity implements
     }
 
     public void removeFluid(int amount) {
-        int remaining = getFluidStack().getAmount() - amount;
-        setFluidStack(new FluidStack(getFluidStack().getFluid(), Math.max(remaining, 0)));
+        int remaining = getStoredAmount() - amount;
+        setFluidAndAmount(getFluid(), Math.max(remaining, 0));
     }
 
-    @Override
-    public Component getDisplayName() {
-        return Component.translatable("gui.better_deco.sink");
-    }
-
-    @Nullable
-    @Override
-    public AbstractContainerMenu createMenu(int i, Inventory inventory, Player player) {
-        return new SinkMenu(i, inventory,this);
-    }
 }

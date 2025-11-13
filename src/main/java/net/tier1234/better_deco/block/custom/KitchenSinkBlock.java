@@ -85,7 +85,7 @@ public class KitchenSinkBlock extends FurnitureHorizontalBlock implements Simple
 
     @Override
     protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        if (world.isClientSide) return InteractionResult.SUCCESS;
+        if (world.isClientSide()) return InteractionResult.SUCCESS;
         BlockEntity be = world.getBlockEntity(pos);
         if (!(be instanceof KitchenSinkBlockEntity sink)) return InteractionResult.FAIL;
 
@@ -101,7 +101,6 @@ public class KitchenSinkBlock extends FurnitureHorizontalBlock implements Simple
         Fluid fluid = fs.getType();
         if (!Config.isSinkUniversal() && fluid != Fluids.WATER) return InteractionResult.FAIL;
         return sink.addFluid(fluid) ? InteractionResult.SUCCESS : InteractionResult.FAIL;
-
     }
 
     private InteractionResult fillFromItemStack(KitchenSinkBlockEntity sink, Player player, InteractionHand hand, ItemStack stack) {
@@ -114,8 +113,8 @@ public class KitchenSinkBlock extends FurnitureHorizontalBlock implements Simple
     }
 
     private InteractionResult handleBucket(KitchenSinkBlockEntity sink, Player player, InteractionHand hand, ItemStack stack) {
-        if (sink.isEmpty() || sink.getFluidStack().getAmount() < FluidContainerBlockEntity.BUCKET_VOLUME) return InteractionResult.FAIL;
-        Fluid fluid = sink.getFluidStack().getFluid();
+        if (sink.isEmpty() || sink.getStoredAmount() < FluidContainerBlockEntity.BUCKET_VOLUME) return InteractionResult.FAIL;
+        Fluid fluid = sink.getFluid();
         Item filledBucket = fluid.getBucket();
         if (filledBucket == Items.AIR) return InteractionResult.FAIL;
         sink.removeFluid(FluidContainerBlockEntity.BUCKET_VOLUME);
