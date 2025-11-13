@@ -56,14 +56,14 @@ public abstract class FluidContainerBlockEntity extends BlockEntity {
     protected void saveAdditional(ValueOutput output) {
         super.saveAdditional(output);
         if(stack.isEmpty()) return;
-        output.set("FluidStack", FluidStack.CODEC.encode(stack, NbtOps.INSTANCE, new CompoundTag()).getOrThrow());
+        output.store("FluidStack", FluidStack.CODEC, stack);
     }
 
     @Override
     protected void loadAdditional(ValueInput input) {
         super.loadAdditional(input);
         /* CODICE DA TOGLIERE QUANDO TUTTI AVRANNO CONVERTITO (PROBABILMENTE MAI) */
-        if(input.contains("FluidName")) { //LEGACY ENCODING
+        if(input.getString("FluidName").isPresent()) { //LEGACY ENCODING
             String name = input.getString("FluidName").orElse("minecraft:empty");
             if ("minecraft:empty".equals(name)) {
                 this.stack = new FluidStack(Fluids.EMPTY, 0);
@@ -81,7 +81,7 @@ public abstract class FluidContainerBlockEntity extends BlockEntity {
             }
             var ref = fluid.get();
             this.stack = new FluidStack(ref, amount);
-        } else if(input.contains("FluidStack")) this.stack = FluidStack.CODEC.decode(NbtOps.INSTANCE, input.get("FluidStack")).getOrThrow().getFirst();
+        } else if(input.getString("FluidStack").isPresent()) this.stack = input.read("FluidStack", FluidStack.CODEC).orElse(new FluidStack(Fluids.EMPTY, 0));
         else this.stack = new FluidStack(Fluids.EMPTY, 0);
     }
 
