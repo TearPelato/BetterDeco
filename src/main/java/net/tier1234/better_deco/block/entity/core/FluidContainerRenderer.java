@@ -3,8 +3,6 @@ package net.tier1234.better_deco.block.entity.core;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.BiomeColors;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.texture.TextureAtlas;
@@ -13,9 +11,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.AABB;
 import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.neoforged.neoforge.fluids.FluidStack;
@@ -48,7 +44,9 @@ public class FluidContainerRenderer {
         float r = FastColor.ARGB32.red(color) / 255f;
         float g = FastColor.ARGB32.green(color) / 255f;
         float b = FastColor.ARGB32.blue(color) / 255f;
+
         float a = 1.0f;*/
+
 
         float fullness = (float) be.getFluidStack().getAmount() / be.getCapacity();
         float y = (float) box.minY + (float)(box.maxY - box.minY) * fullness;
@@ -64,6 +62,7 @@ public class FluidContainerRenderer {
         vc.addVertex(mat, (float) box.minX, y, (float) box.maxZ).setColor(r,g,b,a).setUv(u0,v1).setLight(light).setNormal(0,1,0);
         vc.addVertex(mat, (float) box.maxX, y, (float) box.maxZ).setColor(r,g,b,a).setUv(u1,v1).setLight(light).setNormal(0,1,0);
         vc.addVertex(mat, (float) box.maxX, y, (float) box.minZ).setColor(r,g,b,a).setUv(u1,v0).setLight(light).setNormal(0,1,0);
+
     }
 
     public static AABB createRotatedBox(Direction dir, double minX, double minY, double minZ, double maxX, double maxY, double maxZ) {
@@ -75,5 +74,6 @@ public class FluidContainerRenderer {
             case SOUTH -> new AABB(1-minZ,minY,minX,1-maxZ,maxY,maxX);
             default -> new AABB(minX,minY,minZ,maxX,maxY,maxZ);
         };
+
     }
 }
