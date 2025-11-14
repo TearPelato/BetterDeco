@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "fridge",
+  "key": {
+    "C": "minecraft:redstone",
+    "I": "minecraft:iron_ingot"
+  },
+  "pattern": [
+    "C C",
+    "I I",
+    "III"
+  ],
+  "result": {
+    "count": 1,
+    "id": "better_deco:toaster_light"
+  }
+}

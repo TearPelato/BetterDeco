@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:stripped_pale_oak_log",
+    "B": "minecraft:pale_oak_log"
+  },
+  "pattern": [
+    "#  ",
+    "###",
+    "B B"
+  ],
+  "result": {
+    "count": 1,
+    "id": "better_deco:stripped_pale_oak_chair"
+  }
+}

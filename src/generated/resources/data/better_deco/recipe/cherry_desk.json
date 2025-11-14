@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": "minecraft:cherry_log",
+    "I": "minecraft:cherry_planks"
+  },
+  "pattern": [
+    "CCC",
+    "I I",
+    "I I"
+  ],
+  "result": {
+    "count": 1,
+    "id": "better_deco:cherry_desk"
+  }
+}

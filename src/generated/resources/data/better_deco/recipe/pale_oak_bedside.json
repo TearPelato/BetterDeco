@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:pale_oak_planks",
+    "B": "minecraft:pale_oak_log",
+    "X": "minecraft:chest"
+  },
+  "pattern": [
+    "BBB",
+    "#X#",
+    "BBB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "better_deco:pale_oak_bedside"
+  }
+}

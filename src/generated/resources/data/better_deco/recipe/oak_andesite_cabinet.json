@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:oak_planks",
+    "B": "minecraft:andesite",
+    "X": "minecraft:chest"
+  },
+  "pattern": [
+    "#BB",
+    "#XB",
+    "#BB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "better_deco:oak_andesite_cabinet"
+  }
+}

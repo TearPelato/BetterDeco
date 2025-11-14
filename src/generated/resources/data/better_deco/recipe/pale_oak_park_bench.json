@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "park_bench",
+  "key": {
+    "L": "minecraft:pale_oak_log",
+    "P": "minecraft:pale_oak_planks"
+  },
+  "pattern": [
+    "PPP",
+    "PPP",
+    "L L"
+  ],
+  "result": {
+    "count": 4,
+    "id": "better_deco:pale_oak_park_bench"
+  }
+}
