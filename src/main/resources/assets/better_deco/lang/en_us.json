@@ -758,5 +758,15 @@
   "block.better_deco.crimson_desk_cabinet": "Crimson Desk Cabinet",
   "block.better_deco.warped_desk_cabinet": "Warped Desk Cabinet",
 
+
+  "block.better_deco.fridge_dark": "Fridge (Dark)",
+  "block.better_deco.fridge_light": "Fridge (Light)",
+
+  "block.better_deco.chopping_board": "Chopping Board",
+
+  "block.better_deco.toaster_dark": "Toaster (Dark)",
+  "block.better_deco.toaster_light": "Toaster (Light",
+
+
   "block.better_deco.limestone": "Limestone"
 }
