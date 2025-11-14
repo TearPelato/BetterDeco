@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "better_deco:item/fridge_dark"
+    "model": "better_deco:block/fridge_dark"
   }
 }
