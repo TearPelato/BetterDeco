@@ -90,10 +90,10 @@ public class FreezerMenu extends AbstractContainerMenu {
     @Override
     public boolean stillValid(Player player) {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()), player,
-                ModBlocks.FREEZER_DARK.get())
+                ModBlocks.FRIDGE_DARK.get())
                 ||
                 stillValid(ContainerLevelAccess.create(level,blockEntity.getBlockPos()),player,
-                        ModBlocks.FREEZER_LIGHT.get());
+                        ModBlocks.FRIDGE_LIGHT.get());
 
 
     }

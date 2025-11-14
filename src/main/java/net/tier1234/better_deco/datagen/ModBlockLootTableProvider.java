@@ -732,9 +732,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.FRIDGE_LIGHT.get());
         dropSelf(ModBlocks.FRIDGE_DARK.get());
 
-        dropOther(ModBlocks.FREEZER_LIGHT.get(), ModBlocks.FRIDGE_LIGHT.get());
-        dropOther(ModBlocks.FREEZER_DARK.get(), ModBlocks.FRIDGE_DARK.get());
-
         dropSelf(ModBlocks.STONE_PATH.get());
 
         dropSelf(ModBlocks.PALE_OAK_BARREL.get());
@@ -788,6 +785,23 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.PALE_OAK_GLASS_TECQUE.get());
         dropSelf(ModBlocks.PALE_OAK_CHAIR.get());
         dropSelf(ModBlocks.STRIPPED_PALE_OAK_TABLE.get());
+
+        dropSelf(ModBlocks.TOASTER_LIGHT.get());
+        dropSelf(ModBlocks.TOASTER_DARK.get());
+
+        dropSelf(ModBlocks.CHOPPING_BOARD.get());
+
+        dropSelf(ModBlocks.PALE_OAK_BALCKSTONE_KITCHEN_COUNTER.get());
+        dropSelf(ModBlocks.PALE_OAK_BALCKSTONE_KITCHEN_DRAWER.get());
+        dropSelf(ModBlocks.PALE_OAK_BALCKSTONE_OVEN.get());
+        dropSelf(ModBlocks.PALE_OAK_BALCKSTONE_SINK.get());
+        dropSelf(ModBlocks.PALE_OAK_BALCKSTONE_CABINET.get());
+
+        dropSelf(ModBlocks.PALE_OAK_DEEPSLATE_KITCHEN_COUNTER.get());
+        dropSelf(ModBlocks.PALE_OAK_DEEPSLATE_KITCHEN_DRAWER.get());
+        dropSelf(ModBlocks.PALE_OAK_DEEPSLATE_OVEN.get());
+        dropSelf(ModBlocks.PALE_OAK_DEEPSLATE_SINK.get());
+        dropSelf(ModBlocks.PALE_OAK_DEEPSLATE_CABINET.get());
     }
 
 

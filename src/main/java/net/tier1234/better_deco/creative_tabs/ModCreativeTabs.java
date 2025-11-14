@@ -1,7 +1,6 @@
 package net.tier1234.better_deco.creative_tabs;
 
 
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;

@@ -84,7 +84,9 @@ public class ModBlockEntities {
                                     ModBlocks.PURPLE_KITCHEN_DRAWER.get(),
                                     ModBlocks.MAGENTA_KITCHEN_DRAWER.get(),
                                     ModBlocks.PINK_KITCHEN_DRAWER.get(),
-                                    ModBlocks.BROWN_KITCHEN_DRAWER.get()
+                                    ModBlocks.BROWN_KITCHEN_DRAWER.get(),
+                                    ModBlocks.PALE_OAK_DEEPSLATE_KITCHEN_DRAWER.get(),
+                                    ModBlocks.PALE_OAK_BALCKSTONE_KITCHEN_DRAWER.get()
                             )
             );
 
@@ -144,7 +146,9 @@ public class ModBlockEntities {
                                     ModBlocks.BROWN_CABINET.get(),
                                     ModBlocks.BLACK_CABINET.get(),
                                     ModBlocks.WHITE_CABINET.get(),
-                                    ModBlocks.PINK_CABINET.get()
+                                    ModBlocks.PINK_CABINET.get(),
+                                    ModBlocks.PALE_OAK_DEEPSLATE_CABINET.get(),
+                                    ModBlocks.PALE_OAK_BALCKSTONE_CABINET.get()
                                     )
             );
 
@@ -226,7 +230,9 @@ public class ModBlockEntities {
                     ModBlocks.BROWN_SINK.get(),
                     ModBlocks.BLACK_SINK.get(),
                     ModBlocks.WHITE_SINK.get(),
-                    ModBlocks.PINK_SINK.get()
+                    ModBlocks.PINK_SINK.get(),
+                    ModBlocks.PALE_OAK_DEEPSLATE_SINK.get(),
+                    ModBlocks.PALE_OAK_BALCKSTONE_SINK.get()
 
 
             ));
@@ -361,7 +367,9 @@ public class ModBlockEntities {
                     ModBlocks.PURPLE_OVEN.get(),
                     ModBlocks.MAGENTA_OVEN.get(),
                     ModBlocks.PINK_OVEN.get(),
-                    ModBlocks.BROWN_OVEN.get()
+                    ModBlocks.BROWN_OVEN.get(),
+                    ModBlocks.PALE_OAK_DEEPSLATE_OVEN.get(),
+                    ModBlocks.PALE_OAK_BALCKSTONE_OVEN.get()
 
 
 
@@ -413,8 +421,8 @@ public class ModBlockEntities {
     public static final Supplier<BlockEntityType<FreezerBlockEntity>> FREEZER =
             BLOCK_ENTITIES.register("freezer", () -> new BlockEntityType<>(
                     FreezerBlockEntity::new,
-                    ModBlocks.FREEZER_LIGHT.get(),
-                    ModBlocks.FREEZER_DARK.get()
+                    ModBlocks.FRIDGE_LIGHT.get(),
+                    ModBlocks.FRIDGE_DARK.get()
 
 
             ));

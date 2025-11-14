@@ -1,0 +1,11 @@
+{
+  "parent": "better_deco:block/oven",
+  "textures": {
+    "0": "block/deepslate_tiles",
+    "1": "block/pale_oak_planks",
+    "2": "block/anvil",
+    "3": "better_deco:block/front",
+    "4": "better_deco:block/grill",
+    "particle": "block/pale_oak_planks"
+ }
+}

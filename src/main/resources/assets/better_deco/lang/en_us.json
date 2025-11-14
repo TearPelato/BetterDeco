@@ -113,11 +113,7 @@
   "gui.better_deco.desk_cabinet": "Desk Cabinet",
   "gui.better_deco.sink": "Sink",
 
-  "block.better_deco.fridge_dark": "Fridge (Dark)",
-  "block.better_deco.fridge_light": "Fridge (Light)",
 
-  "block.better_deco.freezer_dark": "Freezer (Dark)",
-  "block.better_deco.freezer_light": "Freezer (Light)",
   "block.better_deco.generator": "Generator",
 
   "block.better_deco.microwave_light": "Microwave (Light)",
@@ -759,5 +755,30 @@
   "block.better_deco.pale_oak_desk": "Pale Oak Desk",
   "block.better_deco.pale_oak_park_bench": "Pale Oak Park Bench",
 
+
+  "block.better_deco.pale_oak_blackstone_kitchen_counter": "Pale Oak-Blackstone Kitchen Counter",
+  "block.better_deco.pale_oak_blackstone_kitchen_drawer": "Pale Oak-Blackstone Kitchen Drawer",
+  "block.better_deco.pale_oak_blackstone_oven": "Pale Oak-Blackstone Oven",
+  "block.better_deco.pale_oak_blackstone_sink": "Pale Oak-Blackstone Sink",
+  "block.better_deco.pale_oak_blackstone_cabinet": "Pale Oak-Blackstone Cabinet",
+
+  "block.better_deco.pale_oak_deepslate_kitchen_counter": "Pale Oak-Deepslate Kitchen Counter",
+  "block.better_deco.pale_oak_deepslate_kitchen_drawer": "Pale Oak-Deepslate Kitchen Drawer",
+  "block.better_deco.pale_oak_deepslate_oven": "Pale Oak-Deepslate Oven",
+  "block.better_deco.pale_oak_deepslate_sink": "Pale Oak-Deepslate Sink",
+  "block.better_deco.pale_oak_deepslate_cabinet": "Pale Oak-Deepslate Cabinet",
+
+
+  "block.better_deco.fridge_dark": "Fridge (Dark)",
+  "block.better_deco.fridge_light": "Fridge (Light)",
+
+  "block.better_deco.chopping_board": "Chopping Board",
+
+  "block.better_deco.toaster_dark": "Toaster (Dark)",
+  "block.better_deco.toaster_light": "Toaster (Light",
+
+
   "block.better_deco.limestone": "Limestone"
+
+
 }

@@ -27,7 +27,58 @@ public class ModBlocks {
 
 
     //Test
+    //Toaster
+    public static final DeferredBlock<Block> TOASTER_LIGHT = registerBlock("toaster_light",
+            (properties)->  new ToasterBlock(properties.strength(2f).noOcclusion()));
 
+    public static final DeferredBlock<Block> TOASTER_DARK = registerBlock("toaster_dark",
+            (properties)->  new ToasterBlock(properties.strength(2f).noOcclusion()));
+
+    //PaleOak Combos
+
+    //Balckstone
+    public static final DeferredBlock<Block> PALE_OAK_BALCKSTONE_KITCHEN_COUNTER = registerBlock("pale_oak_blackstone_kitchen_counter",
+            (properties)-> new KitchenCounterBlock(properties.strength(2f).noOcclusion()));
+
+    public static final DeferredBlock<Block> PALE_OAK_BALCKSTONE_KITCHEN_DRAWER = registerBlock("pale_oak_blackstone_kitchen_drawer",
+            (properties)-> new KitchenDrawerBlock(properties.strength(2f).noOcclusion()));
+
+    public static final DeferredBlock<Block> PALE_OAK_BALCKSTONE_CABINET = registerBlock("pale_oak_blackstone_cabinet",
+            (properties)-> new CabinetBlock(properties.strength(2f).noOcclusion()));
+
+    public static final DeferredBlock<Block> PALE_OAK_BALCKSTONE_SINK = registerBlock("pale_oak_blackstone_sink",
+            (properties) -> new KitchenSinkBlock(properties.strength(2f).noOcclusion()));
+
+    public static final DeferredBlock<Block> PALE_OAK_BALCKSTONE_OVEN = registerBlock("pale_oak_blackstone_oven",
+            (properties)-> new OvenBlock(properties.strength(2.5f).noOcclusion()));
+
+    //Deepslate
+
+    public static final DeferredBlock<Block> PALE_OAK_DEEPSLATE_KITCHEN_COUNTER = registerBlock("pale_oak_deepslate_kitchen_counter",
+            (properties)-> new KitchenCounterBlock(properties.strength(2f).noOcclusion()));
+
+    public static final DeferredBlock<Block> PALE_OAK_DEEPSLATE_KITCHEN_DRAWER = registerBlock("pale_oak_deepslate_kitchen_drawer",
+            (properties)-> new KitchenDrawerBlock(properties.strength(2f).noOcclusion()));
+
+    public static final DeferredBlock<Block> PALE_OAK_DEEPSLATE_CABINET = registerBlock("pale_oak_deepslate_cabinet",
+            (properties)-> new CabinetBlock(properties.strength(2f).noOcclusion()));
+
+    public static final DeferredBlock<Block> PALE_OAK_DEEPSLATE_SINK = registerBlock("pale_oak_deepslate_sink",
+            (properties) -> new KitchenSinkBlock(properties.strength(2f).noOcclusion()));
+
+    public static final DeferredBlock<Block> PALE_OAK_DEEPSLATE_OVEN = registerBlock("pale_oak_deepslate_oven",
+            (properties)-> new OvenBlock(properties.strength(2.5f).noOcclusion()));
+
+
+
+
+
+
+
+    //Chopping Board
+
+    public static final DeferredBlock<ChoppingBoardBlock> CHOPPING_BOARD = registerBlock("chopping_board",
+            (properties)-> new  ChoppingBoardBlock(properties.strength(2F)));
 
     public static final DeferredBlock<Block> RED_KITCHEN_COUNTER = registerBlock("red_kitchen_counter",
             (properties)-> new KitchenCounterBlock(properties.strength(2.5f).noOcclusion()));
@@ -286,22 +337,10 @@ public class ModBlocks {
 
 //FRIDGES AND FREEZER
 
-    public static final DeferredBlock<Block> FREEZER_LIGHT = registerNoItem("freezer_light",
-            (properties) -> new FreezerBlock(properties.strength(2.5f).noOcclusion(), () -> ModBlocks.FRIDGE_LIGHT));
-    public static final DeferredBlock<Block> FREEZER_DARK = registerNoItem("freezer_dark",
-            (properties) -> new FreezerBlock(properties.strength(2.5f).noOcclusion(), () -> ModBlocks.FRIDGE_DARK));
-
-    public static final DeferredBlock<Block> FRIDGE_LIGHT = registerBlockWithCustomItem(
-            "fridge_light",
-            props -> new FridgeBlock(props.strength(2.5f).noOcclusion(), () -> FREEZER_LIGHT),
-            block -> new BlockSupplierItem(new Item.Properties(), block.get(), () -> FREEZER_LIGHT.get())
-    );
-    public static final DeferredBlock<Block> FRIDGE_DARK = registerBlockWithCustomItem(
-            "fridge_dark",
-            props -> new FridgeBlock(props.strength(2.5f).noOcclusion(), () -> FREEZER_DARK),
-            block -> new BlockSupplierItem(new Item.Properties(), block.get(), () -> FREEZER_DARK.get())
-    );
-
+    public static final DeferredBlock<NewFridgeBlock> FRIDGE_LIGHT = registerBlock("fridge_light",
+            (properties) -> new NewFridgeBlock(properties.strength(2.5f).noOcclusion()));
+    public static final DeferredBlock<NewFridgeBlock> FRIDGE_DARK = registerBlock("fridge_dark",
+            (properties) -> new NewFridgeBlock(properties.strength(2.5f).noOcclusion()));
     //Microwave
     public static final DeferredBlock<Block> LIGHT_MICROWAVE = registerBlock("microwave_light",
             (properties)-> new MicrowaveBlock(properties.sound(SoundType.METAL)
@@ -1634,16 +1673,6 @@ public static final DeferredBlock<Block> STONE_GLASS_TECQUE = registerBlock("sto
 
 
     //REGISTRATION
-
-    private static <T extends Block> DeferredBlock<T> registerBlockWithCustomItem(String name, Function<BlockBehaviour.Properties, T> blockFactory, Function<DeferredBlock<T>, Item> itemFactory) {
-        DeferredBlock<T> block = BLOCKS.registerBlock(name,blockFactory);
-        ITEMS.registerItem(name, (properties) -> new BlockItem(block.get(), properties.useBlockDescriptionPrefix()));
-        return block;
-    }
-
-    private static <T extends Block> DeferredBlock<T> registerNoItem(String name, Function<BlockBehaviour.Properties, T> function) {
-        return BLOCKS.registerBlock(name, function);
-    }
 
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> function) {
