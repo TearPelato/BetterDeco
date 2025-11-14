@@ -37,7 +37,6 @@ import net.tier1234.better_deco.util.VoxelShapeHelper;
 import javax.annotation.Nullable;
 import java.util.Arrays;
 
-
 public class KitchenSinkBlock extends FurnitureHorizontalBlock implements SimpleWaterloggedBlock, EntityBlock {
 
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;

@@ -59,16 +59,18 @@ public abstract class FluidContainerBlockEntity extends BlockEntity {
 
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag,registries);
+        super.loadAdditional(tag, registries);
+
         /* CODICE DA TOGLIERE QUANDO TUTTI AVRANNO CONVERTITO (PROBABILMENTE MAI) */
-        if(tag.contains("FluidName")) { //LEGACY ENCODING
+        if (tag.contains("FluidName")) { // LEGACY ENCODING
             String name = tag.getString("FluidName");
             if ("minecraft:empty".equals(name)) {
                 this.stack = new FluidStack(Fluids.EMPTY, 0);
                 return;
             }
-            //Todo Optional<Holder.Reference<Fluid>> fluid FIX
-            Optional<Holder.Reference<Fluid>> fluid= BuiltInRegistries.FLUID.getHolder(ResourceLocation.parse(name));
+            Optional<Holder.Reference<Fluid>> fluid =
+                    BuiltInRegistries.FLUID.getHolder(ResourceLocation.parse(name));
+
             if (fluid.isEmpty()) {
                 this.stack = new FluidStack(Fluids.EMPTY, 0);
                 return;
@@ -80,8 +82,15 @@ public abstract class FluidContainerBlockEntity extends BlockEntity {
             }
             var ref = fluid.get();
             this.stack = new FluidStack(ref, amount);
-        } else if(tag.contains("FluidStack")) this.stack = FluidStack.CODEC.decode(NbtOps.INSTANCE, tag.get("FluidStack")).getOrThrow().getFirst();
-        else this.stack = new FluidStack(Fluids.EMPTY, 0);
+
+        } else if (tag.contains("FluidStack")) {
+            this.stack = FluidStack.CODEC.decode(NbtOps.INSTANCE, tag.get("FluidStack"))
+                    .getOrThrow()
+                    .getFirst();
+
+        } else {
+            this.stack = new FluidStack(Fluids.EMPTY, 0);
+        }
     }
 
     @Nullable
