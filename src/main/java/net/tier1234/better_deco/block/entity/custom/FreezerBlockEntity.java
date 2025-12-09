@@ -8,7 +8,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
@@ -54,7 +54,7 @@ public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
     private int freezeTime;
     private int freezeTimeTotal;
 
-    private final Map<ResourceLocation, Integer> usedRecipeCount = Maps.newHashMap();
+    private final Map<Identifier, Integer> usedRecipeCount = Maps.newHashMap();
 
     protected final ContainerData data;
 
@@ -208,7 +208,7 @@ public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
 
         output.putInt("RecipesUsedSize", usedRecipeCount.size());
         int i = 0;
-        for (Map.Entry<ResourceLocation, Integer> e : usedRecipeCount.entrySet()) {
+        for (Map.Entry<Identifier, Integer> e : usedRecipeCount.entrySet()) {
             output.putString("RecipeLocation" + i, e.getKey().toString());
             output.putInt("RecipeAmount" + i, e.getValue());
             i++;

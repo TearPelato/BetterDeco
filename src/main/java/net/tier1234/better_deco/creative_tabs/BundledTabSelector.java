@@ -8,15 +8,13 @@ import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
 import net.minecraft.client.renderer.RenderPipelines;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.client.event.ContainerScreenEvent;
 import net.neoforged.neoforge.client.event.ScreenEvent;
-import net.neoforged.neoforge.client.stencil.StencilTest;
 import net.tier1234.better_deco.mixin.access.CreativeModeInventoryScreenAccessor;
 import net.tier1234.better_deco.mixin.access.ScreenAccessor;
 import org.joml.Matrix3x2f;
@@ -29,8 +27,8 @@ import java.util.function.Consumer;
  * @author BlackGear
  */
 public class BundledTabSelector {
-    private static final ResourceLocation SELECTOR_BAR =
-            ResourceLocation.fromNamespaceAndPath("better_deco","textures/gui/tab_selector/tab_selector.png");
+    private static final Identifier SELECTOR_BAR =
+            Identifier.fromNamespaceAndPath("better_deco","textures/gui/tab_selector/tab_selector.png");
     private static final int VISIBLE_CATEGORIES = 5;
 
     private static BundledTabSelector instance;
@@ -211,7 +209,7 @@ public class BundledTabSelector {
         }
 
         @Override
-        protected void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
+        protected void renderContents(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
             this.renderSelected(graphics);
             graphics.renderItem(this.bundle.getIcon(), this.getX(), this.getY());
             this.renderHighlight(graphics);
@@ -245,7 +243,7 @@ public class BundledTabSelector {
         }
 
         @Override
-        public void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
+        protected void renderContents(GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
             int textureY = this.isHovered ? 17 : 6;
             graphics.blit(RenderPipelines.GUI_TEXTURED,SELECTOR_BAR, this.getX(), this.getY(), this.uOffset, textureY, 18, 9,256,256);
         }

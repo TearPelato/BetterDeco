@@ -6,7 +6,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Container;
 import net.minecraft.world.WorldlyContainer;
@@ -25,14 +25,14 @@ import java.util.stream.Stream;
 public class Utils
 {
     /**
-     * Utility to create a ResourceLocation specific to this mod
+     * Utility to create a Identifier specific to this mod
      *
      * @param name the name of the resource. can be a path
      * @return a resource location instance
      */
-    public static ResourceLocation resource(String name)
+    public static Identifier resource(String name)
     {
-        return ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, name);
+        return Identifier.fromNamespaceAndPath(Constants.MOD_ID, name);
     }
 
     /**

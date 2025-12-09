@@ -1,6 +1,6 @@
 package net.tier1234.better_deco.util;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
@@ -13,13 +13,13 @@ public class ModTags {
         public static final TagKey<Block> OVEN = createTag("OVEN");
 
         private static TagKey<Block> createTag(String name) {
-            return BlockTags.create(ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, name));
+            return BlockTags.create(Identifier.fromNamespaceAndPath(BetterDeco.MOD_ID, name));
         }
     }
     public static class Items {
 
         private static TagKey<Item> createTag(String name) {
-            return ItemTags.create(ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, name));
+            return ItemTags.create(Identifier.fromNamespaceAndPath(BetterDeco.MOD_ID, name));
         }
     }
 }

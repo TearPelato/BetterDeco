@@ -7,7 +7,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -56,7 +56,7 @@ public abstract class FluidContainerBlockEntity extends BlockEntity {
         super.loadAdditional(input);
         String name =  input.getString("FluidName").orElse("minecraft:empty");
         if ("minecraft:empty".equals(name)) { fluid = Fluids.EMPTY;  amount = 0;  return; }
-        Fluid f = BuiltInRegistries.FLUID.getValue(ResourceLocation.tryParse(name));
+        Fluid f = BuiltInRegistries.FLUID.getValue(Identifier.tryParse(name));
         fluid = f != null ? f : Fluids.EMPTY;
         amount = Math.min(input.getInt("Amount").orElse(0), capacity);
         if (amount <= 0) fluid = Fluids.EMPTY;

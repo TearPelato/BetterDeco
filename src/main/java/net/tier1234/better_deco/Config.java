@@ -1,7 +1,7 @@
 package net.tier1234.better_deco;
 
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -43,7 +43,7 @@ public class Config {
 
     private static boolean validateItemName(final Object obj) {
         return obj instanceof String itemName &&
-                BuiltInRegistries.ITEM.containsKey(ResourceLocation.parse(itemName));
+                BuiltInRegistries.ITEM.containsKey(Identifier.parse(itemName));
     }
 
     public static boolean isSinkUniversal() {

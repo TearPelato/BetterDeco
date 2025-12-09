@@ -3,7 +3,7 @@ package net.tier1234.better_deco.datagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -4749,7 +4749,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                         ModItems.NETHERITE_CHISEL.get()
                 )
                 .unlocks("has_netherite_ingot", has(Items.NETHERITE_INGOT))
-                .save(output, String.valueOf(ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, "netherite_chisel")));
+                .save(output, String.valueOf(Identifier.fromNamespaceAndPath(BetterDeco.MOD_ID, "netherite_chisel")));
 
 
 

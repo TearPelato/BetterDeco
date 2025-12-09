@@ -6,13 +6,13 @@ import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
 import net.tier1234.better_deco.util.Constants;
 
 public class TecqueScreen extends AbstractContainerScreen<TecqueMenu> {
-    private static final ResourceLocation GUI_TEXTURE =
-            ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "textures/gui/pedestal/pedestal_gui_new.png");
+    private static final Identifier GUI_TEXTURE =
+            Identifier.fromNamespaceAndPath(Constants.MOD_ID, "textures/gui/pedestal/pedestal_gui_new.png");
 
     public TecqueScreen(TecqueMenu menu, Inventory playerInventory, Component title) {
         super(menu, playerInventory, title);

@@ -6,15 +6,15 @@ import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
 import net.tier1234.better_deco.BetterDeco;
 
 
 public class CrateScreen extends AbstractContainerScreen<CrateMenu> {
 
-    public static final ResourceLocation GUI_TEXTURE =
-            ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, "textures/gui/crate/crate_1.png");
+    public static final Identifier GUI_TEXTURE =
+            Identifier.fromNamespaceAndPath(BetterDeco.MOD_ID, "textures/gui/crate/crate_1.png");
 
 
     public CrateScreen(CrateMenu menu, Inventory playerInventory, Component title) {
