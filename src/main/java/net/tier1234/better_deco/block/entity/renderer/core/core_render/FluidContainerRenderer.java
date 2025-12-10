@@ -4,6 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -42,7 +43,7 @@ public class FluidContainerRenderer {
         float v0 = still.getV0() + (still.getV1() - still.getV0()) * (float) (box.minZ - Math.floor(box.minZ));
         float v1 = still.getV0() + (still.getV1() - still.getV0()) * (float) (box.maxZ - Math.floor(box.minZ));
 
-        VertexConsumer vc = buf.getBuffer(RenderType.translucentMovingBlock());
+        VertexConsumer vc = buf.getBuffer(RenderTypes.translucentMovingBlock());
         Matrix4f mat = ms.last().pose();
         vc.addVertex(mat, (float) box.minX, y, (float) box.minZ).setColor(r,g,b,a).setUv(u0,v0).setLight(light).setNormal(0,1,0);
         vc.addVertex(mat, (float) box.minX, y, (float) box.maxZ).setColor(r,g,b,a).setUv(u0,v1).setLight(light).setNormal(0,1,0);
