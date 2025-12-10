@@ -4,7 +4,6 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
-import net.neoforged.neoforge.client.event.ContainerScreenEvent;
 import net.neoforged.neoforge.client.event.ScreenEvent;
 import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.creative_tabs.BundledTabSelector;
@@ -23,7 +22,7 @@ public class ModClientEvents {
     }
 
     @SubscribeEvent
-    public static void onContainerRender(ContainerScreenEvent.Render.Background event) {
+    public static void onContainerRender(ScreenEvent.Render.Background event) {
         BundledTabSelector.bootstrap().renderBackground(event);
     }
 

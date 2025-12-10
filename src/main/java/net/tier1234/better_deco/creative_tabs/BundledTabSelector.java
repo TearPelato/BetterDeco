@@ -68,8 +68,8 @@ public class BundledTabSelector {
         }
     }
 
-    public void renderBackground(ContainerScreenEvent.Render event) {
-        Screen screen = event.getContainerScreen();
+    public void renderBackground(ScreenEvent.Render.Background event) {
+        Screen screen = event.getScreen();
         GuiGraphics graphics = event.getGuiGraphics();
         if (screen instanceof CreativeModeInventoryScreen creativeScreen) {
             CreativeModeTab tab = CreativeModeInventoryScreenAccessor.getSelectedTab();
