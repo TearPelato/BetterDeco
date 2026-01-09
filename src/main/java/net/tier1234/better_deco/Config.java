@@ -21,7 +21,7 @@ public class Config {
 
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
-    // === CATEGORIA: Sink Category ===
+    //Sink Category
     private static final ModConfigSpec.BooleanValue SINK_ALLOW_ALL_LIQUIDS;
     private static final ModConfigSpec.IntValue SINK_CAPACITY_BUCKETS;
 
@@ -41,7 +41,6 @@ public class Config {
 
     public static final ModConfigSpec SPEC = BUILDER.build();
 
-    // Optional: esempio set
     public static Set<Item> items;
 
     private static boolean validateItemName(final Object obj) {
@@ -49,7 +48,7 @@ public class Config {
                 BuiltInRegistries.ITEM.containsKey(ResourceLocation.parse(itemName));
     }
 
-    // === Getters ===
+    //Getters
     public static boolean isSinkUniversal() {
         return SINK_ALLOW_ALL_LIQUIDS.get();
     }
