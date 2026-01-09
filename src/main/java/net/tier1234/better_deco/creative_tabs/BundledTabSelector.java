@@ -12,6 +12,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.neoforged.fml.loading.FMLEnvironment;
 import net.neoforged.neoforge.client.event.ContainerScreenEvent;
 import net.neoforged.neoforge.client.event.ScreenEvent;
 import net.tier1234.better_deco.mixin.access.CreativeModeInventoryScreenAccessor;
@@ -32,10 +33,12 @@ public class BundledTabSelector {
     private static BundledTabSelector instance;
 
     public static BundledTabSelector bootstrap() {
+        if (FMLEnvironment.dist != net.neoforged.api.distmarker.Dist.CLIENT) {
+            return null;
+        }
         if (instance == null) {
             instance = new BundledTabSelector();
         }
-
         return instance;
     }
 
@@ -67,6 +70,9 @@ public class BundledTabSelector {
     }
 
     public void renderBackground(ContainerScreenEvent.Render.Background event) {
+        if (FMLEnvironment.dist != net.neoforged.api.distmarker.Dist.CLIENT) {
+            return;
+        }
         Screen screen = event.getContainerScreen();
         GuiGraphics graphics = event.getGuiGraphics();
         if (screen instanceof CreativeModeInventoryScreen creativeScreen) {
@@ -88,6 +94,9 @@ public class BundledTabSelector {
     }
 
     public void onClose(ScreenEvent.Closing event) {
+        if (FMLEnvironment.dist != net.neoforged.api.distmarker.Dist.CLIENT) {
+            return;
+        }
         Screen screen = event.getScreen();
         if (screen instanceof CreativeModeInventoryScreen) {
             this.scrollUpButton = null;
@@ -137,6 +146,9 @@ public class BundledTabSelector {
     }
 
     private void updateItems(CreativeModeInventoryScreen screen) {
+        if (FMLEnvironment.dist != net.neoforged.api.distmarker.Dist.CLIENT) {
+            return;
+        }
         Set<ItemStack> seenItems = new HashSet<>();
         LinkedHashSet<ItemStack> displayItems = new LinkedHashSet<>();
 
