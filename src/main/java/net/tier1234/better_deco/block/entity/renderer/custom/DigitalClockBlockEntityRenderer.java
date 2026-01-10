@@ -1,12 +1,9 @@
 package net.tier1234.better_deco.block.entity.renderer.custom;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.Tesselator;
 import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
-import net.minecraft.client.renderer.LightTexture;
-import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
@@ -70,7 +67,8 @@ public class DigitalClockBlockEntityRenderer implements BlockEntityRenderer<Digi
         float baseScale = 0.010416667F * 1.5F;
         poseStack.scale(baseScale, -baseScale, baseScale);
 
-        int light = getLightLevel(state.level, state.lightPosition);
+        int light = 0;
+         //       = getLightLevel(state.level, state.lightPosition);
 
         font.drawInBatch(
                 state.timeText,
@@ -87,10 +85,10 @@ public class DigitalClockBlockEntityRenderer implements BlockEntityRenderer<Digi
         poseStack.popPose();
     }
 
-    private int getLightLevel(Level level, BlockPos pos) {
+  /*  private int getLightLevel(Level level, BlockPos pos) {
         if (level == null || pos == null) return LightTexture.pack(15, 15);
         int bLight = level.getBrightness(LightLayer.BLOCK, pos);
         int sLight = level.getBrightness(LightLayer.SKY, pos);
         return LightTexture.pack(bLight, sLight);
-    }
+    }*/
 }

@@ -14,8 +14,8 @@ public class FreezerScreen extends AbstractContainerScreen<FreezerMenu> {
 
     public FreezerScreen(FreezerMenu menu, Inventory playerInventory, Component title) {
         super(menu, playerInventory, title);
-        this.imageWidth = 176;
-        this.imageHeight = 166;
+       /* this.imageWidth = 176;
+        this.imageHeight = 166;*/
     }
 
     @Override

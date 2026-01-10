@@ -66,7 +66,7 @@ public class BedsideCabinetBlockEntity extends BasicLootBlockEntity
         Level level = this.getLevel();
         if(level != null)
         {
-            level.playSound(null, x, y, z, soundEvent, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.1F + 0.9F);
+            level.playSound(null, x, y, z, soundEvent, SoundSource.BLOCKS, 0.5F, level.getRandom().nextFloat() * 0.1F + 0.9F);
         }
     }
 

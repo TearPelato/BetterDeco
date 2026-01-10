@@ -2,7 +2,6 @@ package net.tier1234.better_deco.block.entity.renderer.custom;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
-import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
@@ -71,7 +70,8 @@ public class ShelfBlockEntityRenderer implements BlockEntityRenderer<ShelfBlockE
         Direction facing = state.facing != null ? state.facing : Direction.NORTH;
         poseStack.translate(0.5f, 0.0f, 0.5f);
         poseStack.mulPose(Axis.YP.rotationDegrees(-facing.toYRot()));
-        int light = getLightLevel(state.blockEntityLevel, state.lightPosition);
+        int light = 0;
+                //getLightLevel(state.blockEntityLevel, state.lightPosition);
 
         float scale = 0.30f;
         float xOffset = 5.2f;
@@ -102,10 +102,10 @@ public class ShelfBlockEntityRenderer implements BlockEntityRenderer<ShelfBlockE
         poseStack.popPose();
     }
 
-    private int getLightLevel(Level level, BlockPos pos) {
+ /*   private int getLightLevel(Level level, BlockPos pos) {
         if (level == null || pos == null) return LightTexture.pack(15, 15);
         int bLight = level.getBrightness(LightLayer.BLOCK, pos);
         int sLight = level.getBrightness(LightLayer.SKY, pos);
         return LightTexture.pack(bLight, sLight);
-    }
+    }*/
 }

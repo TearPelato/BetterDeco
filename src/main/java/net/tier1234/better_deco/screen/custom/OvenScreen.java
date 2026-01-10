@@ -18,8 +18,8 @@ public class OvenScreen extends AbstractContainerScreen<OvenMenu> {
 
     public OvenScreen(OvenMenu menu, Inventory playerInventory, Component title) {
         super(menu, playerInventory, title);
-        this.imageWidth = 176;
-        this.imageHeight = 184;
+       /* this.imageWidth = 176;
+        this.imageHeight = 184;*/
     }
 
 

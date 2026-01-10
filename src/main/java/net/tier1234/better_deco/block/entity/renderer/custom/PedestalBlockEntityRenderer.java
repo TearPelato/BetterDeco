@@ -2,7 +2,6 @@ package net.tier1234.better_deco.block.entity.renderer.custom;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
-import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
@@ -61,6 +60,6 @@ public class PedestalBlockEntityRenderer implements BlockEntityRenderer<Pedestal
     private int getLightLevel(Level level, BlockPos pos) {
         int bLight = level.getBrightness(LightLayer.BLOCK, pos);
         int sLight = level.getBrightness(LightLayer.SKY, pos);
-        return LightTexture.pack(bLight, sLight);
+        return (sLight << 16) | (bLight & 0xFFFF);
     }
 }

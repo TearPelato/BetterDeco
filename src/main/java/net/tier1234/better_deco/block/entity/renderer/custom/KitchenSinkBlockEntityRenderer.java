@@ -3,7 +3,6 @@ package net.tier1234.better_deco.block.entity.renderer.custom;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
@@ -64,7 +63,8 @@ public class KitchenSinkBlockEntityRenderer implements BlockEntityRenderer<Kitch
         poseStack.translate(-0.5, 0, -0.5);
 
         AABB box = FluidContainerRenderer.createRotatedBox(dir, 2, 13, 2, 14, 15.9, 14);
-        int light = getLightLevel(state.level, state.pos);
+        int light=0;
+                //= getLightLevel(state.level, state.pos);
 
         FluidContainerRenderer.drawContainer(state.level, state.pos, state.be, box, poseStack,
                 Minecraft.getInstance().renderBuffers().bufferSource(), light);
@@ -72,10 +72,10 @@ public class KitchenSinkBlockEntityRenderer implements BlockEntityRenderer<Kitch
         poseStack.popPose();
     }
 
-    private int getLightLevel(Level level, BlockPos pos) {
+  /*  private int getLightLevel(Level level, BlockPos pos) {
         if (level == null || pos == null) return LightTexture.pack(15, 15);
         int bLight = level.getBrightness(LightLayer.BLOCK, pos);
         int sLight = level.getBrightness(LightLayer.SKY, pos);
         return LightTexture.pack(bLight, sLight);
-    }
+    }*/
 }

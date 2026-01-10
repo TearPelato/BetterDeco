@@ -2,7 +2,6 @@ package net.tier1234.better_deco.block.entity.renderer.custom;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
-import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
@@ -48,7 +47,7 @@ public class TecqueBlockEntityRenderer implements BlockEntityRenderer<TecqueBloc
     public void submit(RotationRendererState renderState, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, CameraRenderState cameraRenderState) {
         poseStack.pushPose();
 
-        poseStack.translate(0.5f, 1.15f, 0.5f);
+        poseStack.translate(0.5f, 0.32f, 0.5f);
         poseStack.scale(0.5f, 0.5f, 0.5f);
         poseStack.mulPose(Axis.YP.rotationDegrees(renderState.rotation));
 
@@ -61,7 +60,7 @@ public class TecqueBlockEntityRenderer implements BlockEntityRenderer<TecqueBloc
     private int getLightLevel(Level level, BlockPos pos) {
         int bLight = level.getBrightness(LightLayer.BLOCK, pos);
         int sLight = level.getBrightness(LightLayer.SKY, pos);
-        return LightTexture.pack(bLight, sLight);
+        return (sLight << 16) | (bLight & 0xFFFF);
     }
 }
 
