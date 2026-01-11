@@ -11,4 +11,9 @@ public interface CreativeModeInventoryScreenAccessor {
     static CreativeModeTab getSelectedTab() {
         throw new UnsupportedOperationException();
     }
+    @Accessor("scrollOffs")
+    float getScrollOffs();
+
+    @Accessor("scrollOffs")
+    void setScrollOffs(float value);
 }

@@ -175,7 +175,14 @@ public class BundledTabSelector {
         NonNullList<ItemStack> items = screen.getMenu().items;
         items.clear();
         items.addAll(displayItems);
-        screen.getMenu().scrollTo(0);
+        if (screen instanceof CreativeModeInventoryScreen creativeScreen) {
+            CreativeModeInventoryScreenAccessor accessor =
+                    (CreativeModeInventoryScreenAccessor) creativeScreen;
+
+            accessor.setScrollOffs(0.0F);
+            creativeScreen.getMenu().scrollTo(0);
+        }
+
     }
 
     private void updateWidgets() {
