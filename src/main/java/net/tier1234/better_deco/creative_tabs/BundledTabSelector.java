@@ -15,6 +15,7 @@ import net.minecraft.world.item.ItemStack;
 import net.neoforged.fml.loading.FMLEnvironment;
 import net.neoforged.neoforge.client.event.ContainerScreenEvent;
 import net.neoforged.neoforge.client.event.ScreenEvent;
+import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.mixin.access.CreativeModeInventoryScreenAccessor;
 import net.tier1234.better_deco.mixin.access.ScreenAccessor;
 
@@ -27,7 +28,7 @@ import java.util.function.Consumer;
  */
 public class BundledTabSelector {
     private static final ResourceLocation SELECTOR_BAR =
-            ResourceLocation.fromNamespaceAndPath("better_deco","textures/gui/tab_selector/tab_selector.png");
+            ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID,"textures/gui/tab_selector/tab_selector.png");
     private static final int VISIBLE_CATEGORIES = 5;
 
     private static BundledTabSelector instance;
