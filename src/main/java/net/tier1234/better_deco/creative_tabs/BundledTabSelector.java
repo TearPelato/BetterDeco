@@ -12,6 +12,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.neoforged.api.distmarker.Dist;
 import net.neoforged.fml.loading.FMLEnvironment;
 import net.neoforged.neoforge.client.event.ContainerScreenEvent;
 import net.neoforged.neoforge.client.event.ScreenEvent;
@@ -34,15 +35,11 @@ public class BundledTabSelector {
     private static BundledTabSelector instance;
 
     public static BundledTabSelector bootstrap() {
-        if (FMLEnvironment.dist != net.neoforged.api.distmarker.Dist.CLIENT) {
-            return null;
-        }
         if (instance == null) {
             instance = new BundledTabSelector();
         }
         return instance;
     }
-
     private int guiLeft;
     private int guiTop;
     private int scroll;
@@ -102,7 +99,7 @@ public class BundledTabSelector {
         if (screen instanceof CreativeModeInventoryScreen) {
             this.scrollUpButton = null;
             this.scrollDownButton = null;
-
+            if (this.bundles == null) return;
             this.bundles.forEach(bundle -> {
                 bundle.setContentTab(null);
                 bundle.deselect();
@@ -111,11 +108,13 @@ public class BundledTabSelector {
     }
 
     private void injectWidgets(CreativeModeInventoryScreen screen, Consumer<AbstractWidget> widgets) {
+        if (this.bundles == null) return;
         this.bundles.forEach(category -> {
             Tab tab = new Tab(this.guiLeft - 26, this.guiTop + 7, category, button -> {
                 if (category.isSelected()) {
                     category.deselect();
                 } else {
+                    if (this.bundles == null) return;
                     this.bundles.forEach(BundledTabs::deselect);
                     category.select();
                 }
@@ -147,12 +146,12 @@ public class BundledTabSelector {
     }
 
     private void updateItems(CreativeModeInventoryScreen screen) {
-        if (FMLEnvironment.dist != net.neoforged.api.distmarker.Dist.CLIENT) {
+        if (FMLEnvironment.dist != Dist.CLIENT) {
             return;
         }
         Set<ItemStack> seenItems = new HashSet<>();
         LinkedHashSet<ItemStack> displayItems = new LinkedHashSet<>();
-
+        if (this.bundles == null) return;
         boolean hasSelected = this.bundles.stream().anyMatch(BundledTabs::isSelected);
 
         ModCreativeTabs.BETTER_DECO.get().getDisplayItems().forEach(stack -> {
@@ -180,6 +179,7 @@ public class BundledTabSelector {
     }
 
     private void updateWidgets() {
+        if (this.bundles == null) return;
         this.bundles.forEach(bundle -> bundle.setVisible(false));
 
         for (int i = this.scroll; i < this.scroll + VISIBLE_CATEGORIES && i < this.bundles.size(); i++) {

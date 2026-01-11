@@ -1,5 +1,6 @@
 package net.tier1234.better_deco.event;
 
+import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -14,28 +15,28 @@ import net.tier1234.better_deco.creative_tabs.BundledTabSelector;
 public class ModClientEvents {
 
     private static final boolean IS_CLIENT = FMLEnvironment.dist == Dist.CLIENT;
-
+/*
     @SubscribeEvent
     public static void onPlayerJoinLevel(ClientPlayerNetworkEvent.LoggingIn event) {
         if (!IS_CLIENT) return;
         BundledTabSelector.bootstrap();
     }
-
+*/
     @SubscribeEvent
     public static void onContainerInit(ScreenEvent.Init.Post event) {
-        if (!IS_CLIENT) return;
+        if (!(event.getScreen() instanceof CreativeModeInventoryScreen)) return;
         BundledTabSelector.bootstrap().init(event);
     }
 
     @SubscribeEvent
     public static void onContainerRender(ContainerScreenEvent.Render.Background event) {
-        if (!IS_CLIENT) return;
+        if (!(event.getContainerScreen() instanceof CreativeModeInventoryScreen)) return;
         BundledTabSelector.bootstrap().renderBackground(event);
     }
 
     @SubscribeEvent
     public static void onContainerClose(ScreenEvent.Closing event) {
-        if (!IS_CLIENT) return;
+        if (!(event.getScreen() instanceof CreativeModeInventoryScreen)) return;
         BundledTabSelector.bootstrap().onClose(event);
     }
 }
