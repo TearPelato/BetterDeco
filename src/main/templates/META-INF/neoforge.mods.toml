@@ -12,7 +12,7 @@ description = '''${mod_description}'''
 logoFile = "better_deco_logo_4.png"
 displayURL="https://github.com/TearPelato/BetterDeco"
 credits = "LiukRast, BlackGear"
-updateJSONURL="..."
+updateJSONURL="https://tearpelato.github.io/BetterDeco/version-check-nf.json"
 
 [[mixins]]
 config = "${mod_id}.mixins.json"
