@@ -15,13 +15,13 @@ import net.tier1234.better_deco.creative_tabs.BundledTabSelector;
 public class ModClientEvents {
 
     private static final boolean IS_CLIENT = FMLEnvironment.dist == Dist.CLIENT;
-/*
+
     @SubscribeEvent
     public static void onPlayerJoinLevel(ClientPlayerNetworkEvent.LoggingIn event) {
         if (!IS_CLIENT) return;
         BundledTabSelector.bootstrap();
     }
-*/
+
     @SubscribeEvent
     public static void onContainerInit(ScreenEvent.Init.Post event) {
         if (!(event.getScreen() instanceof CreativeModeInventoryScreen)) return;
