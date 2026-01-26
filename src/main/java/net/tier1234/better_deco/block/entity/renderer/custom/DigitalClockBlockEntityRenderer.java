@@ -45,7 +45,7 @@ public class DigitalClockBlockEntityRenderer implements BlockEntityRenderer<Digi
             return;
 
         state.facing = blockState.getValue(DigitalClockBlock.DIRECTION);
-        state.timeText = DigitalClockBlockEntity.getFormattedTime(blockEntity.getLevel().getDayTime());
+        state.timeText = DigitalClockBlockEntity.getFormattedTime(blockEntity.getLevel().getGameTime());
         state.color = DigitalClockBlockEntity.getFromColor(blockEntity.getTextColor());
         state.lightPosition = blockEntity.getBlockPos();
         state.level = blockEntity.getLevel();
