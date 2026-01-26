@@ -28,8 +28,9 @@ public record FreezerRecipe(Ingredient inputItem, ItemStack output, int freezeTi
         return inputItem.test(recipeInput.getItem(0));
     }
 
+
     @Override
-    public ItemStack assemble(FreezerRecipeInput recipeInput, HolderLookup.Provider provider) {
+    public ItemStack assemble(FreezerRecipeInput recipeInput) {
         return output.copy();
     }
 

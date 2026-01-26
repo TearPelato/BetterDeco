@@ -31,7 +31,7 @@ public record MicrowaveRecipe(Ingredient inputItem, ItemStack output) implements
     }
 
     @Override
-    public ItemStack assemble(MicrowaveRecipeInput MicrowaveRecipeInput, HolderLookup.Provider provider) {
+    public ItemStack assemble(MicrowaveRecipeInput microwaveRecipeInput) {
         return output.copy();
     }
 

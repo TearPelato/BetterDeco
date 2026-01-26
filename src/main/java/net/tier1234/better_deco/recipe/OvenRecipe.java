@@ -30,7 +30,7 @@ public record OvenRecipe(Ingredient inputItem, ItemStack output) implements Reci
     }
 
     @Override
-    public ItemStack assemble(OvenRecipeInput OvenRecipeInput, HolderLookup.Provider provider) {
+    public ItemStack assemble(OvenRecipeInput ovenRecipeInput) {
         return output.copy();
     }
 
