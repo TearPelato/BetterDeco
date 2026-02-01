@@ -21,6 +21,7 @@ import org.lwjgl.system.NonnullDefault;
 
 import java.util.Optional;
 
+@Deprecated(forRemoval = true)
 @NonnullDefault
 public abstract class FluidContainerBlockEntity extends BlockEntity {
 

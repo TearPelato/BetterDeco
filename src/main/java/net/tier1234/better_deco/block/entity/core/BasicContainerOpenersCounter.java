@@ -5,7 +5,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.ContainerOpenersCounter;
 import net.minecraft.world.level.block.state.BlockState;
-
+@Deprecated(forRemoval = true)
 public class BasicContainerOpenersCounter extends ContainerOpenersCounter
 {
     private final BasicLootBlockEntity blockEntity;

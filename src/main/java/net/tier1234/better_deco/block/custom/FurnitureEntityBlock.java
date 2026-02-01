@@ -18,7 +18,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
-
+@Deprecated(forRemoval = true)
 public abstract class FurnitureEntityBlock extends BaseEntityBlock
 {
     protected final Map<BlockState, VoxelShape> shapes;

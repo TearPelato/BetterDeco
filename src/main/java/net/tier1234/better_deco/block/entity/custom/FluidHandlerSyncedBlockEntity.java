@@ -12,6 +12,7 @@ import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 import org.jetbrains.annotations.Nullable;
 
+@Deprecated(forRemoval = true)
 public abstract class FluidHandlerSyncedBlockEntity extends BlockEntity
 {
     protected final FluidTank tank;

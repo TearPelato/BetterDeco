@@ -18,6 +18,7 @@ import net.neoforged.neoforge.fluids.FluidStack;
 import net.tier1234.better_deco.block.entity.custom.FluidContainerBlockEntity;
 import org.joml.Matrix4f;
 
+@Deprecated(forRemoval = true)
 public class FluidContainerRenderer {
 
     public static void drawContainer(Level level, BlockPos pos, FluidContainerBlockEntity be, AABB box, PoseStack ms, MultiBufferSource buf, int light) {

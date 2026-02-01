@@ -7,6 +7,7 @@ import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.fluids.capability.IFluidHandlerItem;
 
+@Deprecated(forRemoval = true)
 public class FluidInteractionUtil {
 
     public static Fluid getFluidFromItemStack(ItemStack stack) {

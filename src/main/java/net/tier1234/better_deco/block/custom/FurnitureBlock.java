@@ -11,6 +11,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.Map;
 
+@Deprecated(forRemoval = true)
 public abstract class FurnitureBlock extends Block
 {
     protected final Map<BlockState, VoxelShape> shapes;

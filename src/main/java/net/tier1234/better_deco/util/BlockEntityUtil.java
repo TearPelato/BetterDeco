@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 
 import java.util.List;
 
+@Deprecated(forRemoval = true)
 public class BlockEntityUtil {
 
     /**

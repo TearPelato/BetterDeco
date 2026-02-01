@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 
 import java.util.Properties;
-
+@Deprecated(forRemoval = true)
 public abstract class FurnitureHorizontalEntityBlock extends FurnitureEntityBlock
 {
     public static final EnumProperty<Direction> DIRECTION = BlockStateProperties.HORIZONTAL_FACING;

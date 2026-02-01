@@ -23,6 +23,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Iterator;
 import java.util.stream.IntStream;
 
+@Deprecated(forRemoval = true)
 public abstract class BasicLootBlockEntity extends RandomizableContainerBlockEntity implements WorldlyContainer
 {
     private final int[] slots;

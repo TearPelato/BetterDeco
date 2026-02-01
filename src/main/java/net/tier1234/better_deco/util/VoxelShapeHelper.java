@@ -12,6 +12,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
+@Deprecated(forRemoval = true)
 public class VoxelShapeHelper
 {
     public static VoxelShape combineAll(Collection<VoxelShape> shapes)
