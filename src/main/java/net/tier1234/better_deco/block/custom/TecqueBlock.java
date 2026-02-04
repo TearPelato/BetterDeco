@@ -7,7 +7,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -28,26 +28,26 @@ import org.jetbrains.annotations.Nullable;
 
 public class TecqueBlock extends BaseEntityBlock {
     public static final VoxelShape SHAPE = Block.box(1, 0, 1, 15, 11, 15);
-    public static final MapCodec<TecqueBlock> CODEC = simpleCodec(TecqueBlock::new);
+    //public static final MapCodec<TecqueBlock> CODEC = simpleCodec(TecqueBlock::new);
 
     public TecqueBlock(Properties properties) {
         super(properties);
     }
 
     @Override
-    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return SHAPE;
     }
-
+/*
     @Override
-    protected MapCodec<? extends BaseEntityBlock> codec() {
+    public MapCodec<? extends BaseEntityBlock> codec() {
         return CODEC;
     }
-
+*/
     /* BLOCK ENTITY */
 
     @Override
-    protected RenderShape getRenderShape(BlockState state) {
+    public RenderShape getRenderShape(BlockState state) {
         return RenderShape.MODEL;
     }
 
@@ -58,7 +58,7 @@ public class TecqueBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
+    public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
         if(state.getBlock() != newState.getBlock()) {
             if(level.getBlockEntity(pos) instanceof TecqueBlockEntity tecqueBlockEntity) {
                 tecqueBlockEntity.drops();
@@ -69,28 +69,26 @@ public class TecqueBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
-                                              Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if(level.getBlockEntity(pos) instanceof TecqueBlockEntity tecqueBlockEntity) {
-            if(player.isCrouching() && !level.isClientSide()) {
-                ((ServerPlayer) player).openMenu(new SimpleMenuProvider(tecqueBlockEntity, Component.literal("Tecque")), pos);
-                return ItemInteractionResult.SUCCESS;
+    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        if(pLevel.getBlockEntity(pPos) instanceof TecqueBlockEntity tecqueBlockEntity) {
+            if(pPlayer.isCrouching() && !pLevel.isClientSide()) {
+                ((ServerPlayer) pPlayer).openMenu(new SimpleMenuProvider(tecqueBlockEntity, Component.literal("Tecque")), pos);
+                return InteractionResult.SUCCESS;
             }
 
             if(tecqueBlockEntity.inventory.getStackInSlot(0).isEmpty() && !stack.isEmpty()) {
                 tecqueBlockEntity.inventory.insertItem(0, stack.copy(), false);
                 stack.shrink(1);
-                level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 2f);
+                pLevel.playSound(pPlayer, pPos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 2f);
             } else if(stack.isEmpty()) {
                 ItemStack stackOnTecque = tecqueBlockEntity.inventory.extractItem(0, 1, false);
-                player.setItemInHand(InteractionHand.MAIN_HAND, stackOnTecque);
+                pPlayer.setItemInHand(InteractionHand.MAIN_HAND, stackOnTecque);
                 tecqueBlockEntity.clearContents();
-                level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 1f);
+                pLevel.playSound(pPlayer, pPos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 1f);
             }
         }
 
         return ItemInteractionResult.SUCCESS;
     }
-
 
 }

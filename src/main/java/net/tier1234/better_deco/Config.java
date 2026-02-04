@@ -4,26 +4,26 @@ package net.tier1234.better_deco;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.fml.event.config.ModConfigEvent;
-import net.neoforged.neoforge.common.ModConfigSpec;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.config.ModConfigEvent;
 import org.slf4j.Logger;
 
 import java.util.Set;
 
 
-@EventBusSubscriber(modid = BetterDeco.MOD_ID, value = Dist.CLIENT)
+@Mod.EventBusSubscriber(modid = BetterDeco.MOD_ID, value = Dist.CLIENT)
 public class Config {
 
     private static final Logger LOGGER = BetterDeco.LOGGER;
 
-    private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
+    private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
 
     //Sink Category
-    private static final ModConfigSpec.BooleanValue SINK_ALLOW_ALL_LIQUIDS;
-    private static final ModConfigSpec.IntValue SINK_CAPACITY_BUCKETS;
+    private static final ForgeConfigSpec.BooleanValue SINK_ALLOW_ALL_LIQUIDS;
+    private static final ForgeConfigSpec.IntValue SINK_CAPACITY_BUCKETS;
 
     static {
         BUILDER.push("sink_category"); // crea la categoria principale
@@ -39,7 +39,7 @@ public class Config {
         BUILDER.pop(); // chiude la categoria
     }
 
-    public static final ModConfigSpec SPEC = BUILDER.build();
+    public static final ForgeConfigSpec SPEC = BUILDER.build();
 
     public static Set<Item> items;
 

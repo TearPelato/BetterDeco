@@ -126,19 +126,20 @@ public class SofaBlock extends FurnitureHorizontalBlock
     }
 
     @Override
-    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
-        if (!level.isClientSide()) {
+    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        if (!pLevel.isClientSide()) {
             Entity entity;
-            List<ChairEntity> entities = level.getEntities(ModEntities.CHAIR_ENTITY.get(), new AABB(pos), chair -> true);
+            List<ChairEntity> entities = pLevel.getEntities(ModEntities.CHAIR_ENTITY.get(), new AABB(pPos), chair -> true);
             if (entities.isEmpty()) {
-                entity = ModEntities.CHAIR_ENTITY.get().spawn((ServerLevel) level, pos, MobSpawnType.TRIGGERED);
+                entity = ModEntities.CHAIR_ENTITY.get().spawn((ServerLevel) pLevel, pPos, MobSpawnType.TRIGGERED);
             } else {
                 entity = entities.get(0);
             }
-            player.startRiding(entity);
+            pPlayer.startRiding(entity);
         }
         return InteractionResult.SUCCESS;
     }
+
 
     @Override
     public BlockState updateShape(BlockState state, Direction direction, BlockState newState, LevelAccessor level, BlockPos pos, BlockPos newPos)

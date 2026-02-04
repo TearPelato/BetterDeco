@@ -5,9 +5,9 @@ import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -21,7 +21,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.neoforged.neoforge.registries.DeferredBlock;
+import net.minecraftforge.registries.RegistryObject;
 import net.tier1234.better_deco.block.entity.core.BasicLootBlockEntity;
 import net.tier1234.better_deco.block.entity.custom.FridgeBlockEntity;
 import net.tier1234.better_deco.util.VoxelShapeHelper;
@@ -36,9 +36,9 @@ public class FridgeBlock extends FurnitureHorizontalBlock implements EntityBlock
     public static final BooleanProperty OPEN = BooleanProperty.create("open");
 
     public final ImmutableMap<BlockState, VoxelShape> SHAPES;
-    private final Supplier<DeferredBlock<Block>> freezer;
+    private final Supplier<RegistryObject<Block>> freezer;
 
-    public FridgeBlock(Properties properties, Supplier<DeferredBlock<Block>> freezer)
+    public FridgeBlock(Properties properties, Supplier<RegistryObject<Block>> freezer)
     {
         super(properties);
         this.freezer = freezer;
@@ -84,20 +84,21 @@ public class FridgeBlock extends FurnitureHorizontalBlock implements EntityBlock
     }
 
     @Override
-    public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player playerEntity, BlockHitResult result)
-    {
-        if(state.getValue(DIRECTION).getOpposite() == result.getDirection())
+    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        if(pState.getValue(DIRECTION).getOpposite() == pHit.getDirection())
         {
-            if(!level.isClientSide())
+            if(!pLevel.isClientSide())
             {
-                if(level.getBlockEntity(pos) instanceof FridgeBlockEntity blockEntity)
+                if(pLevel.getBlockEntity(pPos) instanceof FridgeBlockEntity blockEntity)
                 {
-                    playerEntity.openMenu(blockEntity);
+                    pPlayer.openMenu(blockEntity);
                 }
             }
         }
         return InteractionResult.SUCCESS;
     }
+
+
 
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random)
@@ -116,7 +117,7 @@ public class FridgeBlock extends FurnitureHorizontalBlock implements EntityBlock
     }
 
     @Override
-    public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player)
+    public void playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player)
     {
         BlockState belowState = level.getBlockState(pos.below());
         if(belowState.getBlock() instanceof FreezerBlock)
@@ -125,7 +126,6 @@ public class FridgeBlock extends FurnitureHorizontalBlock implements EntityBlock
             level.levelEvent(player, 2001, pos.below(), Block.getId(belowState));
         }
         super.playerWillDestroy(level, pos, state, player);
-        return belowState;
     }
 
 

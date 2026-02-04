@@ -9,8 +9,8 @@ import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.inventory.RecipeHolder;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.block.ModBlocks;
@@ -45,12 +45,10 @@ public class JEIBetterDecoPlugin implements IModPlugin {
     public void registerRecipes(IRecipeRegistration registration) {
         RecipeManager recipeManager = Minecraft.getInstance().level.getRecipeManager();
 
-        List<OvenRecipe> ovenRecipes = recipeManager
-                .getAllRecipesFor(ModRecipes.OVEN_TYPE.get()).stream().map(RecipeHolder::value).toList();
+        List<OvenRecipe> ovenRecipes = recipeManager.getAllRecipesFor(OvenRecipe.Type.INSTANCE);
         registration.addRecipes(OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE, ovenRecipes);
 
-        List<MicrowaveRecipe> microwaveRecipes = recipeManager
-                .getAllRecipesFor(ModRecipes.MICROWAVE_TYPE.get()).stream().map(RecipeHolder::value).toList();
+        List<MicrowaveRecipe> microwaveRecipes = recipeManager.getAllRecipesFor(MicrowaveRecipe.Type.INSTANCE);
         registration.addRecipes(MicrowaveRecipeCategory.MICROWAVE_RECIPE_RECIPE_TYPE, microwaveRecipes);
 
     }
@@ -153,4 +151,5 @@ public class JEIBetterDecoPlugin implements IModPlugin {
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.DARK_MICROWAVE.get().asItem()),
                 MicrowaveRecipeCategory.MICROWAVE_RECIPE_RECIPE_TYPE);
     }
+
 }

@@ -7,6 +7,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
@@ -83,7 +84,7 @@ public class CrateBlock extends FurnitureHorizontalBlock implements EntityBlock
     }
 
     @Override
-    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
+    public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
         if(state.getBlock() != newState.getBlock()) {
             if(level.getBlockEntity(pos) instanceof CrateBlockEntity crateBlockEntity) {
                 crateBlockEntity.drops();
@@ -94,19 +95,20 @@ public class CrateBlock extends FurnitureHorizontalBlock implements EntityBlock
     }
 
     @Override
-    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos,
-                                               Player player, BlockHitResult hitResult) {
-        if (level.isClientSide) {
-            return InteractionResult.SUCCESS;
-        } else {
-            BlockEntity blockEntity = level.getBlockEntity(pos);
-            if (blockEntity instanceof CrateBlockEntity crateBlockEntity) {
-                ((ServerPlayer)player).openMenu(new SimpleMenuProvider(crateBlockEntity, Component.literal("Crate")), pos);
+    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {{
+            if (pLevel.isClientSide) {
                 return InteractionResult.SUCCESS;
+            } else {
+                BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
+                if (blockEntity instanceof CrateBlockEntity crateBlockEntity) {
+                    ((ServerPlayer)pPlayer).openMenu(new SimpleMenuProvider(crateBlockEntity, Component.literal("Crate")));
+                    return InteractionResult.SUCCESS;
+                }
+                return InteractionResult.PASS;
             }
-            return InteractionResult.PASS;
-        }
     }
+    }
+
 
 
     @Override

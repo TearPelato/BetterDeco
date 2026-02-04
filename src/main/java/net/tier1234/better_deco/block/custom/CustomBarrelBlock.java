@@ -8,6 +8,7 @@ import net.minecraft.stats.Stats;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Container;
 import net.minecraft.world.Containers;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.monster.piglin.PiglinAi;
 import net.minecraft.world.entity.player.Player;
@@ -28,15 +29,15 @@ import net.tier1234.better_deco.block.entity.custom.CustomBarrelBlockEntity;
 import net.tier1234.better_deco.block.entity.ModBlockEntities;
 
 public class CustomBarrelBlock extends BaseEntityBlock {
-    public static final MapCodec<CustomBarrelBlock> CODEC = simpleCodec(CustomBarrelBlock::new);
+    //public static final MapCodec<CustomBarrelBlock> CODEC = simpleCodec(CustomBarrelBlock::new);
     public static final DirectionProperty FACING = BlockStateProperties.FACING;
     public static final BooleanProperty OPEN = BlockStateProperties.OPEN;
 
-    @Override
-    protected MapCodec<? extends BaseEntityBlock> codec() {
+   /* @Override
+    public MapCodec<? extends BaseEntityBlock> codec() {
         return CODEC;
-    }
-
+    }*/
+    
     public CustomBarrelBlock(BlockBehaviour.Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any()
@@ -45,16 +46,15 @@ public class CustomBarrelBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos,
-                                               Player player, BlockHitResult hitResult) {
-        if (level.isClientSide) {
+    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        if (pLevel.isClientSide) {
             return InteractionResult.SUCCESS;
         } else {
-            BlockEntity blockEntity = level.getBlockEntity(pos);
+            BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
             if (blockEntity instanceof CustomBarrelBlockEntity barrel) {
-                player.openMenu(barrel);
-                player.awardStat(Stats.OPEN_BARREL);
-                PiglinAi.angerNearbyPiglins(player, true);
+                pPlayer.openMenu(barrel);
+                pPlayer.awardStat(Stats.OPEN_BARREL);
+                PiglinAi.angerNearbyPiglins(pPlayer, true);
                 return InteractionResult.CONSUME;
             }
             return InteractionResult.PASS;
@@ -86,32 +86,32 @@ public class CustomBarrelBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected RenderShape getRenderShape(BlockState state) {
+    public RenderShape getRenderShape(BlockState state) {
         return RenderShape.MODEL;
     }
 
     @Override
-    protected boolean hasAnalogOutputSignal(BlockState state) {
+    public boolean hasAnalogOutputSignal(BlockState state) {
         return true;
     }
 
     @Override
-    protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
+    public int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
         return AbstractContainerMenu.getRedstoneSignalFromBlockEntity(level.getBlockEntity(pos));
     }
 
     @Override
-    protected BlockState rotate(BlockState state, Rotation rotation) {
+    public BlockState rotate(BlockState state, Rotation rotation) {
         return state.setValue(FACING, rotation.rotate(state.getValue(FACING)));
     }
 
     @Override
-    protected BlockState mirror(BlockState state, Mirror mirror) {
+    public BlockState mirror(BlockState state, Mirror mirror) {
         return state.rotate(mirror.getRotation(state.getValue(FACING)));
     }
 
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+    public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(FACING, OPEN);
     }
 

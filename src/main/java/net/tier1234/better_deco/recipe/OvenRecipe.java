@@ -1,40 +1,52 @@
 package net.tier1234.better_deco.recipe;
 
-import com.mojang.serialization.MapCodec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.core.HolderLookup;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import net.minecraft.core.NonNullList;
-import net.minecraft.network.RegistryFriendlyByteBuf;
-import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.GsonHelper;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.Recipe;
-import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
+import net.tier1234.better_deco.BetterDeco;
+import org.jetbrains.annotations.Nullable;
 
-public record OvenRecipe(Ingredient inputItem, ItemStack output) implements Recipe<OvenRecipeInput> {
-    // inputItem & output ==> Read From JSON File!
-    // OvenRecipeInput --> INVENTORY of the Block Entity
+public class OvenRecipe implements Recipe<SimpleContainer> {
 
-    @Override
-    public NonNullList<Ingredient> getIngredients() {
-        NonNullList<Ingredient> list = NonNullList.create();
-        list.add(inputItem);
-        return list;
+    private final NonNullList<Ingredient> inputItems;
+    private final ItemStack output;
+    private final ResourceLocation id;
+
+    public OvenRecipe(NonNullList<Ingredient> inputItems, ItemStack output, ResourceLocation id) {
+        this.inputItems = inputItems;
+        this.output = output;
+        this.id = id;
     }
 
     @Override
-    public boolean matches(OvenRecipeInput OvenRecipeInput, Level level) {
+    public NonNullList<Ingredient> getIngredients() {
+        return inputItems;
+    }
+
+    @Override
+    public ResourceLocation getId() {
+        return id;
+    }
+
+    @Override
+    public boolean matches(SimpleContainer simpleContainer, Level level) {
         if (level.isClientSide()) {
             return false;
         }
 
-        return inputItem.test(OvenRecipeInput.getItem(0));
+        return inputItems.get(0).test(simpleContainer.getItem(0));
     }
 
     @Override
-    public ItemStack assemble(OvenRecipeInput OvenRecipeInput, HolderLookup.Provider provider) {
+    public ItemStack assemble(SimpleContainer simpleContainer, RegistryAccess registryAccess) {
         return output.copy();
     }
 
@@ -44,9 +56,10 @@ public record OvenRecipe(Ingredient inputItem, ItemStack output) implements Reci
     }
 
     @Override
-    public ItemStack getResultItem(HolderLookup.Provider provider) {
+    public ItemStack getResultItem(RegistryAccess registryAccess) {
         return output;
     }
+
 
     @Override
     public RecipeSerializer<?> getSerializer() {
@@ -55,29 +68,53 @@ public record OvenRecipe(Ingredient inputItem, ItemStack output) implements Reci
 
     @Override
     public RecipeType<?> getType() {
-        return ModRecipes.OVEN_TYPE.get();
+        return Type.INSTANCE;
+    }
+    public static class Type implements RecipeType<OvenRecipe> {
+        public static final Type INSTANCE = new Type();
+        public static final String ID = "oven";
     }
 
     public static class Serializer implements RecipeSerializer<OvenRecipe> {
-        public static final MapCodec<OvenRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
-                Ingredient.CODEC_NONEMPTY.fieldOf("ingredient").forGetter(OvenRecipe::inputItem),
-                ItemStack.CODEC.fieldOf("result").forGetter(OvenRecipe::output)
-        ).apply(inst, OvenRecipe::new));
+        public static final Serializer INSTANCE = new Serializer();
+        public static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, "oven");
 
-        public static final StreamCodec<RegistryFriendlyByteBuf, OvenRecipe> STREAM_CODEC =
-                StreamCodec.composite(
-                        Ingredient.CONTENTS_STREAM_CODEC, OvenRecipe::inputItem,
-                        ItemStack.STREAM_CODEC, OvenRecipe::output,
-                        OvenRecipe::new);
 
         @Override
-        public MapCodec<OvenRecipe> codec() {
-            return CODEC;
+        public OvenRecipe fromJson(ResourceLocation resourceLocation, JsonObject jsonObject) {
+            ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(jsonObject, "output"));
+
+            JsonArray ingredients = GsonHelper.getAsJsonArray(jsonObject, "ingredients");
+            NonNullList<Ingredient> inputs = NonNullList.withSize(1, Ingredient.EMPTY);
+
+            for(int i = 0; i < inputs.size(); i++) {
+                inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
+            }
+
+            return new OvenRecipe(inputs, output, resourceLocation);
         }
 
         @Override
-        public StreamCodec<RegistryFriendlyByteBuf, OvenRecipe> streamCodec() {
-            return STREAM_CODEC;
+        public @Nullable OvenRecipe fromNetwork(ResourceLocation resourceLocation, FriendlyByteBuf friendlyByteBuf) {
+            NonNullList<Ingredient> inputs = NonNullList.withSize(friendlyByteBuf.readInt(), Ingredient.EMPTY);
+
+            for(int i = 0; i < inputs.size(); i++) {
+                inputs.set(i, Ingredient.fromNetwork(friendlyByteBuf));
+            }
+
+            ItemStack output = friendlyByteBuf.readItem();
+            return new OvenRecipe(inputs, output, resourceLocation);
+        }
+
+        @Override
+        public void toNetwork(FriendlyByteBuf friendlyByteBuf, OvenRecipe ovenRecipe) {
+            friendlyByteBuf.writeInt(ovenRecipe.inputItems.size());
+
+            for (Ingredient ingredient : ovenRecipe.getIngredients()) {
+                ingredient.toNetwork(friendlyByteBuf);
+            }
+
+            friendlyByteBuf.writeItemStack(ovenRecipe.getResultItem(null), false);
         }
     }
 }

@@ -16,7 +16,7 @@ import net.tier1234.better_deco.block.ModBlocks;
 import net.tier1234.better_deco.recipe.OvenRecipe;
 import org.jetbrains.annotations.Nullable;
 
-public class OvenRecipeCategory implements IRecipeCategory<OvenRecipe> {
+public class OvenRecipeCategory implements IRecipeCategory<OvenRecipe>{
 
     public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, "oven");
     public static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID,
@@ -31,7 +31,7 @@ public class OvenRecipeCategory implements IRecipeCategory<OvenRecipe> {
 
     public OvenRecipeCategory(IGuiHelper helper) {
         this.background = helper.createDrawable(TEXTURE, 0,0,176, 81);
-        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.OAK_OVEN));
+        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.OAK_OVEN.get()));
 
     }
 

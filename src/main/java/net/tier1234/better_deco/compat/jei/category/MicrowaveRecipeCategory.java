@@ -16,7 +16,7 @@ import net.tier1234.better_deco.block.ModBlocks;
 import net.tier1234.better_deco.recipe.MicrowaveRecipe;
 import org.jetbrains.annotations.Nullable;
 
-public class MicrowaveRecipeCategory implements IRecipeCategory<MicrowaveRecipe> {
+public class MicrowaveRecipeCategory implements IRecipeCategory<MicrowaveRecipe>{
 
     public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, "microwave");
     public static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID,
@@ -31,7 +31,7 @@ public class MicrowaveRecipeCategory implements IRecipeCategory<MicrowaveRecipe>
 
     public MicrowaveRecipeCategory(IGuiHelper helper) {
         this.background = helper.createDrawable(TEXTURE, 0,0,176, 85);
-        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.LIGHT_MICROWAVE));
+        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.LIGHT_MICROWAVE.get()));
 
     }
 
@@ -61,5 +61,4 @@ public class MicrowaveRecipeCategory implements IRecipeCategory<MicrowaveRecipe>
 
         builder.addSlot(RecipeIngredientRole.OUTPUT, 104, 34).addItemStack(recipe.getResultItem(null));
     }
-
 }

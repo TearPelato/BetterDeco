@@ -18,14 +18,12 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.items.ItemStackHandler;
+import net.minecraftforge.items.ItemStackHandler;
 import net.tier1234.better_deco.block.entity.ModBlockEntities;
 import net.tier1234.better_deco.recipe.FreezerRecipe;
-import net.tier1234.better_deco.recipe.FreezerRecipeInput;
 import net.tier1234.better_deco.recipe.ModRecipes;
 import net.tier1234.better_deco.screen.custom.FreezerMenu;
 
@@ -109,14 +107,14 @@ public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
         Containers.dropContents(this.level, this.worldPosition, inventory);
     }
 
-    private Optional<RecipeHolder<FreezerRecipe>> getCurrentRecipe(ItemStack input) {
+  /*  private Optional<RecipeHolder<FreezerRecipe>> getCurrentRecipe(ItemStack input) {
         return level.getRecipeManager().getRecipeFor(ModRecipes.FREEZER_TYPE.get(), new FreezerRecipeInput(input), level);
-    }
+    }*/
 
     public static void tick(Level level, BlockPos pos, BlockState state, FreezerBlockEntity be) {
         boolean dirty = false;
 
-        ItemStack fuelStack = be.itemHandler.getStackInSlot(SLOT_FUEL);
+        /*ItemStack fuelStack = be.itemHandler.getStackInSlot(SLOT_FUEL);
         ItemStack inputStack = be.itemHandler.getStackInSlot(SLOT_INPUT);
 
         Optional<RecipeHolder<FreezerRecipe>> recipe = be.getCurrentRecipe(inputStack);
@@ -145,10 +143,10 @@ public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
 
         if (dirty) {
             setChanged(level, pos, state);
-        }
+        }*/
     }
 
-    private boolean isFreezing() {
+    /*private boolean isFreezing() {
         return this.fuelTime > 0;
     }
 
@@ -174,8 +172,7 @@ public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
         return resultStack.getCount() + output.getCount() <= resultStack.getMaxStackSize();
     }
 
-    private void craftItem(RecipeHolder<FreezerRecipe> recipe) {
-        if (!canFreeze(recipe)) return;
+    private void craftItem() {
 
         itemHandler.extractItem(SLOT_INPUT, 1, false);
 
@@ -191,11 +188,11 @@ public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
         if (!level.isClientSide) {
             usedRecipeCount.merge(recipe.id(), 1, Integer::sum);
         }
-    }
+    }*/
 
     @Override
-    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        tag.put("inventory", itemHandler.serializeNBT(registries));
+    protected void saveAdditional(CompoundTag tag) {
+        tag.put("inventory", itemHandler.serializeNBT());
         tag.putInt("FuelTime", fuelTime);
         tag.putInt("FuelTimeTotal", fuelTimeTotal);
         tag.putInt("Progress", progress);
@@ -209,13 +206,13 @@ public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
             i++;
         }
 
-        super.saveAdditional(tag, registries);
+        super.saveAdditional(tag);
     }
 
     @Override
-    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
-        itemHandler.deserializeNBT(registries, tag.getCompound("inventory"));
+    public void load(CompoundTag tag) {
+        super.load(tag);
+        itemHandler.deserializeNBT(tag.getCompound("inventory"));
         fuelTime = tag.getInt("FuelTime");
         fuelTimeTotal = tag.getInt("FuelTimeTotal");
         progress = tag.getInt("Progress");
@@ -223,8 +220,8 @@ public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     @Override
-    public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
-        return saveWithoutMetadata(registries);
+    public CompoundTag getUpdateTag() {
+        return saveWithoutMetadata();
     }
 
     @Nullable

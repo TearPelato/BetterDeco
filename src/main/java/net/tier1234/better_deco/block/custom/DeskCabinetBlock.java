@@ -5,6 +5,7 @@ import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -71,21 +72,22 @@ public class DeskCabinetBlock extends DeskBlock implements EntityBlock
     }
 
     @Override
-    public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult result)
-    {
-        if(state.getValue(DIRECTION).getOpposite() == result.getDirection())
+    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        if(pState.getValue(DIRECTION).getOpposite() == pHit.getDirection())
         {
-            if(!level.isClientSide())
+            if(!pLevel.isClientSide())
             {
-                if(level.getBlockEntity(pos) instanceof DeskCabinetBlockEntity blockEntity)
+                if(pLevel.getBlockEntity(pPos) instanceof DeskCabinetBlockEntity blockEntity)
                 {
-                    player.openMenu(blockEntity);
+                    pPlayer.openMenu(blockEntity);
                 }
             }
             return InteractionResult.SUCCESS;
         }
         return InteractionResult.PASS;
     }
+
+
 
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random)

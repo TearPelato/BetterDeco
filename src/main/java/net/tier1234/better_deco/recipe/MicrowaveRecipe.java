@@ -1,46 +1,57 @@
 package net.tier1234.better_deco.recipe;
 
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
-import net.minecraft.network.RegistryFriendlyByteBuf;
-import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.GsonHelper;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.Recipe;
-import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
+import net.tier1234.better_deco.BetterDeco;
+import org.jetbrains.annotations.Nullable;
 
-public record MicrowaveRecipe(ResourceLocation id, Ingredient inputItem, ItemStack output)
-        implements Recipe<MicrowaveRecipeInput> {
+public class MicrowaveRecipe implements Recipe<SimpleContainer> {
     // inputItem & output ==> Read From JSON File!
     // MicrowaveRecipeInput --> INVENTORY of the Block Entity
+    private final NonNullList<Ingredient> inputItems;
+    private final ItemStack output;
+    private final ResourceLocation id;
 
+    public MicrowaveRecipe(NonNullList<Ingredient> inputItems, ItemStack output, ResourceLocation id) {
+        this.inputItems = inputItems;
+        this.output = output;
+        this.id = id;
+    }
+
+    @Override
+    public NonNullList<Ingredient> getIngredients() {
+        return inputItems;
+    }
+
+    @Override
     public ResourceLocation getId() {
         return id;
     }
 
     @Override
-    public NonNullList<Ingredient> getIngredients() {
-        NonNullList<Ingredient> list = NonNullList.create();
-        list.add(inputItem);
-        return list;
-    }
-
-    @Override
-    public boolean matches(MicrowaveRecipeInput microwaveRecipeInput, Level level) {
+    public boolean matches(SimpleContainer simpleContainer, Level level) {
         if (level.isClientSide()) {
             return false;
         }
-        return inputItem.test(microwaveRecipeInput.getItem(0));
+
+        return inputItems.get(0).test(simpleContainer.getItem(0));
     }
 
     @Override
-    public ItemStack assemble(MicrowaveRecipeInput microwaveRecipeInput, HolderLookup.Provider provider) {
+    public ItemStack assemble(SimpleContainer simpleContainer, RegistryAccess registryAccess) {
         return output.copy();
     }
 
@@ -50,43 +61,65 @@ public record MicrowaveRecipe(ResourceLocation id, Ingredient inputItem, ItemSta
     }
 
     @Override
-    public ItemStack getResultItem(HolderLookup.Provider provider) {
+    public ItemStack getResultItem(RegistryAccess registryAccess) {
         return output;
     }
 
+
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return ModRecipes.MICROWAVE_SERIALIZER.get();
+        return ModRecipes.OVEN_SERIALIZER.get();
     }
-
     @Override
     public RecipeType<?> getType() {
-        return ModRecipes.MICROWAVE_TYPE.get();
+        return Type.INSTANCE;
     }
 
-    public static class Serializer implements RecipeSerializer<MicrowaveRecipe> {
-        public static final MapCodec<MicrowaveRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
-                ResourceLocation.CODEC.fieldOf("id").forGetter(MicrowaveRecipe::getId),
-                Ingredient.CODEC_NONEMPTY.fieldOf("ingredient").forGetter(MicrowaveRecipe::inputItem),
-                ItemStack.CODEC.fieldOf("result").forGetter(MicrowaveRecipe::output)
-        ).apply(inst, MicrowaveRecipe::new));
 
-        public static final StreamCodec<RegistryFriendlyByteBuf, MicrowaveRecipe> STREAM_CODEC =
-                StreamCodec.composite(
-                        ResourceLocation.STREAM_CODEC, MicrowaveRecipe::getId,
-                        Ingredient.CONTENTS_STREAM_CODEC, MicrowaveRecipe::inputItem,
-                        ItemStack.STREAM_CODEC, MicrowaveRecipe::output,
-                        MicrowaveRecipe::new
-                );
+    public static class Type implements RecipeType<MicrowaveRecipe> {
+        public static final MicrowaveRecipe.Type INSTANCE = new MicrowaveRecipe.Type();
+        public static final String ID = "microwave";
+    }
+    public static class Serializer implements RecipeSerializer<MicrowaveRecipe> {
+        public static final MicrowaveRecipe.Serializer INSTANCE = new MicrowaveRecipe.Serializer();
+        public static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, "oven");
+
 
         @Override
-        public MapCodec<MicrowaveRecipe> codec() {
-            return CODEC;
+        public MicrowaveRecipe fromJson(ResourceLocation resourceLocation, JsonObject jsonObject) {
+            ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(jsonObject, "output"));
+
+            JsonArray ingredients = GsonHelper.getAsJsonArray(jsonObject, "ingredients");
+            NonNullList<Ingredient> inputs = NonNullList.withSize(1, Ingredient.EMPTY);
+
+            for(int i = 0; i < inputs.size(); i++) {
+                inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
+            }
+
+            return new MicrowaveRecipe(inputs, output, resourceLocation);
         }
 
         @Override
-        public StreamCodec<RegistryFriendlyByteBuf, MicrowaveRecipe> streamCodec() {
-            return STREAM_CODEC;
+        public @Nullable MicrowaveRecipe fromNetwork(ResourceLocation resourceLocation, FriendlyByteBuf friendlyByteBuf) {
+            NonNullList<Ingredient> inputs = NonNullList.withSize(friendlyByteBuf.readInt(), Ingredient.EMPTY);
+
+            for(int i = 0; i < inputs.size(); i++) {
+                inputs.set(i, Ingredient.fromNetwork(friendlyByteBuf));
+            }
+
+            ItemStack output = friendlyByteBuf.readItem();
+            return new MicrowaveRecipe(inputs, output, resourceLocation);
+        }
+
+        @Override
+        public void toNetwork(FriendlyByteBuf friendlyByteBuf, MicrowaveRecipe MicrowaveRecipe) {
+            friendlyByteBuf.writeInt(MicrowaveRecipe.inputItems.size());
+
+            for (Ingredient ingredient : MicrowaveRecipe.getIngredients()) {
+                ingredient.toNetwork(friendlyByteBuf);
+            }
+
+            friendlyByteBuf.writeItemStack(MicrowaveRecipe.getResultItem(null), false);
         }
     }
 }

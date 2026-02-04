@@ -15,15 +15,13 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.items.ItemStackHandler;
+import net.minecraftforge.items.ItemStackHandler;
 import net.tier1234.better_deco.block.entity.ModBlockEntities;
 import net.tier1234.better_deco.recipe.ModRecipes;
 import net.tier1234.better_deco.recipe.OvenRecipe;
-import net.tier1234.better_deco.recipe.OvenRecipeInput;
 import net.tier1234.better_deco.screen.custom.OvenMenu;
 import org.jetbrains.annotations.Nullable;
 
@@ -109,23 +107,27 @@ public class OvenBlockEntity extends BlockEntity implements MenuProvider {
         ItemStack inputStack = itemHandler.getStackInSlot(inputSlot);
         if(inputStack.isEmpty()) return false;
 
-        Optional<RecipeHolder<OvenRecipe>> recipe = getRecipeFor(inputStack);
+        Optional<OvenRecipe> recipe = getCurrentRecipe( );
         if(recipe.isEmpty()) return false;
 
-        ItemStack output = recipe.get().value().output();
+        ItemStack output = recipe.get().getResultItem(null);
         return canInsert(output, outputSlot);
     }
+    private Optional<OvenRecipe> getCurrentRecipe() {
+        SimpleContainer inventory = new SimpleContainer(this.itemHandler.getSlots());
+        for(int i = 0; i < itemHandler.getSlots(); i++) {
+            inventory.setItem(i, this.itemHandler.getStackInSlot(i));
+        }
 
-    private Optional<RecipeHolder<OvenRecipe>> getRecipeFor(ItemStack input) {
-        return level.getRecipeManager().getRecipeFor(ModRecipes.OVEN_TYPE.get(), new OvenRecipeInput(input), level);
+        return this.level.getRecipeManager().getRecipeFor(OvenRecipe.Type.INSTANCE, inventory, level);
     }
 
     private void craftItem(int inputSlot, int outputSlot) {
         ItemStack inputStack = itemHandler.getStackInSlot(inputSlot);
-        Optional<RecipeHolder<OvenRecipe>> recipe = getRecipeFor(inputStack);
+        Optional<OvenRecipe> recipe = getCurrentRecipe();
         if(recipe.isEmpty()) return;
 
-        ItemStack output = recipe.get().value().output();
+        ItemStack output = recipe.get().getResultItem(null);
         itemHandler.extractItem(inputSlot, 1, false);
 
         ItemStack existing = itemHandler.getStackInSlot(outputSlot);
@@ -139,21 +141,23 @@ public class OvenBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        tag.put("inventory", itemHandler.serializeNBT(registries));
+    protected void saveAdditional(CompoundTag tag) {
+        tag.put("inventory", itemHandler.serializeNBT());
         for(int i=0;i<3;i++) tag.putInt("progress" + i, progress[i]);
-        super.saveAdditional(tag, registries);
+        super.saveAdditional(tag);
     }
 
     @Override
-    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
-        itemHandler.deserializeNBT(registries, tag.getCompound("inventory"));
+    public void load(CompoundTag tag) {
+        super.load(tag);
+        itemHandler.deserializeNBT(tag.getCompound("inventory"));
         for(int i=0;i<3;i++) progress[i] = tag.getInt("progress" + i);
     }
 
     @Override
-    public CompoundTag getUpdateTag(HolderLookup.Provider registries) { return saveWithoutMetadata(registries); }
+    public CompoundTag getUpdateTag() {
+        return saveWithoutMetadata();
+    }
 
     @Nullable
     @Override

@@ -6,6 +6,7 @@ import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.MobSpawnType;
@@ -90,6 +91,23 @@ public class BarStoolBlock extends Block {
     }
 
     @Override
+    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        if(!pLevel.isClientSide()) {
+            Entity entity = null;
+            List<ChairEntity> entities = pLevel.getEntities(ModEntities.CHAIR_ENTITY.get(), new AABB(pPos), chair -> true);
+            if(entities.isEmpty()) {
+                entity = ModEntities.CHAIR_ENTITY.get().spawn(((ServerLevel) pLevel), pPos, MobSpawnType.TRIGGERED);
+            } else {
+                entity = entities.get(0);
+            }
+
+            pPlayer.startRiding(entity);
+        }
+
+        return InteractionResult.SUCCESS;
+    }
+
+  /*  @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         if(!level.isClientSide()) {
             Entity entity = null;
@@ -104,7 +122,7 @@ public class BarStoolBlock extends Block {
         }
 
         return InteractionResult.SUCCESS;
-    }
+    }*/
 
 
 

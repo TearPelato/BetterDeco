@@ -6,10 +6,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.StringRepresentable;
-import net.minecraft.world.Container;
-import net.minecraft.world.Containers;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.SimpleMenuProvider;
+import net.minecraft.world.*;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -39,7 +36,7 @@ import java.util.Locale;
 import java.util.stream.Stream;
 
 public class NewFridgeBlock extends BaseEntityBlock {
-    public static final MapCodec<NewFridgeBlock> CODEC = simpleCodec(NewFridgeBlock::new);
+    //public static final MapCodec<NewFridgeBlock> CODEC = simpleCodec(NewFridgeBlock::new);
     public static final DirectionProperty DURECTION = BlockStateProperties.HORIZONTAL_FACING;
     public static final EnumProperty<FridgeModelType> MODEL_TYPE = EnumProperty.create("model", FridgeModelType.class);
 
@@ -52,10 +49,10 @@ public class NewFridgeBlock extends BaseEntityBlock {
 
     }
 
-    @Override
+    /*@Override
     protected MapCodec<? extends BaseEntityBlock> codec() {
         return CODEC;
-    }
+    }*/
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
@@ -73,26 +70,27 @@ public class NewFridgeBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
-        if (level.isClientSide) {
+    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        if (pLevel.isClientSide) {
             return InteractionResult.SUCCESS;
         }
 
-        BlockEntity blockEntity = level.getBlockEntity(pos);
-        if (state.getValue(MODEL_TYPE) == FridgeModelType.FRIDGE) {
+        BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
+        if (pState.getValue(MODEL_TYPE) == FridgeModelType.FRIDGE) {
             if (blockEntity instanceof FridgeBlockEntity fridgeBlockEntity) {
-                player.openMenu(fridgeBlockEntity);
+                pPlayer.openMenu(fridgeBlockEntity);
                 return InteractionResult.CONSUME;
             }
-        } else if (state.getValue(MODEL_TYPE) == FridgeModelType.FREEZER ) {
+        } else if (pState.getValue(MODEL_TYPE) == FridgeModelType.FREEZER ) {
             if (blockEntity instanceof FreezerBlockEntity freezerBlockEntity) {
-                ((ServerPlayer) player).openMenu(
-                        new SimpleMenuProvider(freezerBlockEntity, Component.translatable("gui.better_deco.freezer")), pos);
+                ((ServerPlayer) pPlayer).openMenu(
+                        new SimpleMenuProvider(freezerBlockEntity, Component.translatable("gui.better_deco.freezer")));
             }
         }
 
         return InteractionResult.CONSUME;
     }
+
 
     public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
         if (state.is(newState.getBlock())) return;
@@ -110,7 +108,7 @@ public class NewFridgeBlock extends BaseEntityBlock {
     }
 
     @Override
-    public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
+    public void playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
         if (!level.isClientSide) {
             FridgeModelType modelType = state.getValue(MODEL_TYPE);
             BlockPos otherPos = pos.relative(getNeighbourDirection(modelType));
@@ -133,7 +131,7 @@ public class NewFridgeBlock extends BaseEntityBlock {
             }
         }
 
-        return super.playerWillDestroy(level, pos, state, player);
+        super.playerWillDestroy(level, pos, state, player);
     }
 
 

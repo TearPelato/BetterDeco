@@ -1,55 +1,77 @@
 package net.tier1234.better_deco.recipe;
 
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.network.RegistryFriendlyByteBuf;
-import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.core.NonNullList;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.GsonHelper;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.Recipe;
-import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
+import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.block.ModBlocks;
+import org.jetbrains.annotations.Nullable;
 
-public record FreezerRecipe(ResourceLocation id, Ingredient input, ItemStack output, int freezeTime, float experience)
-        implements Recipe<FreezerRecipeInput> {
+public class FreezerRecipe implements Recipe<SimpleContainer> {
+    private final NonNullList<Ingredient> inputItems;
+    private final ItemStack output;
+    private final ResourceLocation id;
 
-    @Override
-    public boolean matches(FreezerRecipeInput container, Level level) {
-        return input.test(container.getInput());
+
+    public FreezerRecipe(NonNullList<Ingredient> inputItems, ItemStack output, ResourceLocation id) {
+        this.inputItems = inputItems;
+        this.output = output;
+        this.id = id;
     }
 
     @Override
-    public ItemStack assemble(FreezerRecipeInput container, HolderLookup.Provider registries) {
-        return output.copy();
+    public NonNullList<Ingredient> getIngredients() {
+        return inputItems;
     }
 
     @Override
-    public boolean canCraftInDimensions(int width, int height) {
-        return true;
-    }
-
-    @Override
-    public ItemStack getResultItem(HolderLookup.Provider registries) {
-        return output;
-    }
-
     public ResourceLocation getId() {
         return id;
     }
 
-    public int getFreezeTime() {
+    @Override
+    public boolean matches(SimpleContainer simpleContainer, Level level) {
+        if (level.isClientSide()) {
+            return false;
+        }
+
+        return inputItems.get(0).test(simpleContainer.getItem(0));
+    }
+
+    @Override
+    public ItemStack assemble(SimpleContainer simpleContainer, RegistryAccess registryAccess) {
+        return output.copy();
+    }
+
+    @Override
+    public boolean canCraftInDimensions(int i, int i1) {
+        return true;
+    }
+
+    @Override
+    public ItemStack getResultItem(RegistryAccess registryAccess) {
+        return output;
+    }
+   /* public int getFreezeTime() {
         return freezeTime;
     }
 
     public float getExperience() {
         return experience;
-    }
+    }*/
 
     @Override
     public RecipeSerializer<?> getSerializer() {
@@ -58,7 +80,7 @@ public record FreezerRecipe(ResourceLocation id, Ingredient input, ItemStack out
 
     @Override
     public RecipeType<?> getType() {
-        return ModRecipes.FREEZER_TYPE.get();
+        return Type.INSTANCE;
     }
 
     @Override
@@ -66,53 +88,51 @@ public record FreezerRecipe(ResourceLocation id, Ingredient input, ItemStack out
         return new ItemStack(ModBlocks.FRIDGE_LIGHT.get());
     }
 
+    public static class Type implements RecipeType<MicrowaveRecipe> {
+        public static final MicrowaveRecipe.Type INSTANCE = new MicrowaveRecipe.Type();
+        public static final String ID = "freezer";
+    }
+
     public static class Serializer implements RecipeSerializer<FreezerRecipe> {
-        public static final MapCodec<FreezerRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
-                ResourceLocation.CODEC.fieldOf("id").forGetter(FreezerRecipe::getId),
-                Ingredient.CODEC_NONEMPTY.fieldOf("ingredient").forGetter(FreezerRecipe::input),
-                ItemStack.CODEC.fieldOf("result").forGetter(FreezerRecipe::output),
-                Codec.INT.fieldOf("cookingtime").forGetter(FreezerRecipe::getFreezeTime),
-                Codec.FLOAT.fieldOf("experience").forGetter(FreezerRecipe::getExperience)
-        ).apply(inst, FreezerRecipe::new));
+        public static final FreezerRecipe.Serializer INSTANCE = new FreezerRecipe.Serializer();
+        public static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, "oven");
 
-        public static final StreamCodec<RegistryFriendlyByteBuf, FreezerRecipe> STREAM_CODEC =
-                StreamCodec.composite(
-                        ResourceLocation.STREAM_CODEC, FreezerRecipe::getId,
-                        Ingredient.CONTENTS_STREAM_CODEC, FreezerRecipe::input,
-                        ItemStack.STREAM_CODEC, FreezerRecipe::output,
-                        new StreamCodec<RegistryFriendlyByteBuf, Integer>() { // int codec
-                            @Override
-                            public void encode(RegistryFriendlyByteBuf buf, Integer value) {
-                                buf.writeInt(value);
-                            }
-
-                            @Override
-                            public Integer decode(RegistryFriendlyByteBuf buf) {
-                                return buf.readInt();
-                            }
-                        }, FreezerRecipe::getFreezeTime,
-                        new StreamCodec<RegistryFriendlyByteBuf, Float>() { // float codec
-                            @Override
-                            public void encode(RegistryFriendlyByteBuf buf, Float value) {
-                                buf.writeFloat(value);
-                            }
-
-                            @Override
-                            public Float decode(RegistryFriendlyByteBuf buf) {
-                                return buf.readFloat();
-                            }
-                        }, FreezerRecipe::getExperience,
-                        FreezerRecipe::new
-                );
 
         @Override
-        public MapCodec<FreezerRecipe> codec() {
-            return CODEC;
+        public FreezerRecipe fromJson(ResourceLocation resourceLocation, JsonObject jsonObject) {
+            ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(jsonObject, "output"));
+
+            JsonArray ingredients = GsonHelper.getAsJsonArray(jsonObject, "ingredients");
+            NonNullList<Ingredient> inputs = NonNullList.withSize(1, Ingredient.EMPTY);
+
+            for(int i = 0; i < inputs.size(); i++) {
+                inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
+            }
+
+            return new FreezerRecipe(inputs, output, resourceLocation);
         }
 
         @Override
-        public StreamCodec<RegistryFriendlyByteBuf, FreezerRecipe> streamCodec() {
-            return STREAM_CODEC;
+        public @Nullable FreezerRecipe fromNetwork(ResourceLocation resourceLocation, FriendlyByteBuf friendlyByteBuf) {
+            NonNullList<Ingredient> inputs = NonNullList.withSize(friendlyByteBuf.readInt(), Ingredient.EMPTY);
+
+            for(int i = 0; i < inputs.size(); i++) {
+                inputs.set(i, Ingredient.fromNetwork(friendlyByteBuf));
+            }
+
+            ItemStack output = friendlyByteBuf.readItem();
+            return new FreezerRecipe(inputs, output, resourceLocation);
+        }
+
+        @Override
+        public void toNetwork(FriendlyByteBuf friendlyByteBuf, FreezerRecipe FreezerRecipe) {
+            friendlyByteBuf.writeInt(FreezerRecipe.inputItems.size());
+
+            for (Ingredient ingredient : FreezerRecipe.getIngredients()) {
+                ingredient.toNetwork(friendlyByteBuf);
+            }
+
+            friendlyByteBuf.writeItemStack(FreezerRecipe.getResultItem(null), false);
         }
     }
 }

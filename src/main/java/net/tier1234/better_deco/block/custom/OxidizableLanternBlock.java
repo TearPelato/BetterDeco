@@ -23,13 +23,13 @@ public class OxidizableLanternBlock extends LanternBlock implements WeatheringCo
         this.weatherState = weatherState;
     }
 
-    protected void randomTick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, RandomSource randomSource) {
+    public void randomTick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, RandomSource randomSource) {
         this.changeOverTime(blockState, serverLevel, blockPos, randomSource);
     }
 
-    protected boolean isRandomlyTicking(BlockState blockState) {
+   /* public boolean isRandomlyTicking(BlockState blockState) {
         return WeatheringBlocksCustom.getNext(blockState.getBlock()).isPresent();
-    }
+    }*/
 
     public WeatherState getAge() {
         return this.weatherState;

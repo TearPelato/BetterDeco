@@ -6,6 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.monster.piglin.PiglinAi;
 import net.minecraft.world.entity.player.Player;
@@ -103,21 +104,21 @@ public class BedsideCabinetBlock extends FurnitureHorizontalBlock implements Ent
     }
 
     @Override
-    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos,
-                                               Player player, BlockHitResult hitResult) {
-        if (level.isClientSide) {
+    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        if (pLevel.isClientSide) {
             return InteractionResult.SUCCESS;
         } else {
-            BlockEntity blockEntity = level.getBlockEntity(pos);
+            BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
             if (blockEntity instanceof BedsideCabinetBlockEntity) {
-                player.openMenu((BedsideCabinetBlockEntity) blockEntity);
-                player.awardStat(Stats.OPEN_BARREL);
-                PiglinAi.angerNearbyPiglins(player, false);
+                pPlayer.openMenu((BedsideCabinetBlockEntity) blockEntity);
+                pPlayer.awardStat(Stats.OPEN_BARREL);
+                PiglinAi.angerNearbyPiglins(pPlayer, false);
                 return InteractionResult.CONSUME;
             }
             return InteractionResult.PASS;
         }
     }
+
 
 
     @Override

@@ -18,7 +18,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class WallLanternBlock extends HorizontalDirectionalBlock {
-    public static final MapCodec<WallLanternBlock> CODEC = simpleCodec(WallLanternBlock::new);
+  //  public static final MapCodec<WallLanternBlock> CODEC = simpleCodec(WallLanternBlock::new);
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
     // NORTH (base di riferimento, dal JSON)
@@ -66,11 +66,11 @@ public class WallLanternBlock extends HorizontalDirectionalBlock {
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
 
-    @Override
+   /* @Override
     protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
         return CODEC;
     }
-
+*/
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(FACING);

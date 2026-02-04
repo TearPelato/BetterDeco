@@ -7,7 +7,8 @@ import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -90,20 +91,20 @@ public class OvenBlock extends FurnitureHorizontalBlock implements EntityBlock
     }
 
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
-                                              Player player, InteractionHand hand, BlockHitResult hit) {
-        if (!level.isClientSide()) {
-            BlockEntity entity = level.getBlockEntity(pos);
+    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        if (!pLevel.isClientSide()) {
+            BlockEntity entity = pLevel.getBlockEntity(pPos);
             if (entity instanceof OvenBlockEntity ovenBlockEntity) {
-                ((ServerPlayer) player).openMenu(
-                        new SimpleMenuProvider(ovenBlockEntity, Component.translatable("gui.better_deco.oven")), pos);
+                ((ServerPlayer) pPlayer).openMenu(
+                        new SimpleMenuProvider(ovenBlockEntity, Component.translatable("gui.better_deco.oven")));
             } else {
                 throw new IllegalStateException("Oven container provider is missing!");
             }
         }
-        return ItemInteractionResult.sidedSuccess(level.isClientSide());
-
+        return InteractionResult.sidedSuccess(pLevel.isClientSide());
     }
+
+
 
     @Nullable
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {

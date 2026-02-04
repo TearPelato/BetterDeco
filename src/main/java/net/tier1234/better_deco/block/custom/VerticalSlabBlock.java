@@ -22,13 +22,13 @@ import org.lwjgl.system.NonnullDefault;
 
 @NonnullDefault
 public class VerticalSlabBlock extends SlabBlock {
-    private static final MapCodec<VerticalSlabBlock> CODEC = simpleCodec(VerticalSlabBlock::new);
+    //private static final MapCodec<VerticalSlabBlock> CODEC = simpleCodec(VerticalSlabBlock::new);
     public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.HORIZONTAL_AXIS;
 
-    protected static final VoxelShape WEST_SHAPE = Block.box(0.0D, 0.0D, 0.0D, 8.0D, 16.0D, 16.0D);
-    protected static final VoxelShape EAST_SHAPE = Block.box(8D, 0.0D, 0.0D, 16D, 16.0D, 16.0D);
-    protected static final VoxelShape NORTH_SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16D, 16D, 8D);
-    protected static final VoxelShape SOUTH_SHAPE = Block.box(0.0D, 0.0D, 8D, 16D, 16D, 16D);
+    public static final VoxelShape WEST_SHAPE = Block.box(0.0D, 0.0D, 0.0D, 8.0D, 16.0D, 16.0D);
+    public static final VoxelShape EAST_SHAPE = Block.box(8D, 0.0D, 0.0D, 16D, 16.0D, 16.0D);
+    public static final VoxelShape NORTH_SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16D, 16D, 8D);
+    public static final VoxelShape SOUTH_SHAPE = Block.box(0.0D, 0.0D, 8D, 16D, 16D, 16D);
 
     public VerticalSlabBlock(Properties properties) {
         super(properties);
@@ -36,7 +36,7 @@ public class VerticalSlabBlock extends SlabBlock {
     }
 
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+    public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
         builder.add(AXIS);
     }
@@ -62,18 +62,18 @@ public class VerticalSlabBlock extends SlabBlock {
     }
 
     @Override
-    protected BlockState mirror(BlockState state, Mirror mirror) {
+    public BlockState mirror(BlockState state, Mirror mirror) {
         //noinspection deprecation
         return state.rotate(mirror.getRotation(toDirection(state)));
     }
 
     @Override
-    protected BlockState rotate(BlockState state, Rotation rotation) {
+    public BlockState rotate(BlockState state, Rotation rotation) {
         return applyBlockState(state, rotation.rotate(toDirection(state)));
     }
 
     @Override
-    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         var slabType = state.getValue(TYPE);
         if(slabType == SlabType.DOUBLE) return Shapes.block();
         return switch (toDirection(state)) {
@@ -96,13 +96,13 @@ public class VerticalSlabBlock extends SlabBlock {
         return applyBlockState(toPlace, context.getHorizontalDirection());
     }
 
-    @Override
+   /* @Override
     public MapCodec<? extends SlabBlock> codec() {
         return CODEC;
     }
-
+*/
     @Override
-    protected boolean canBeReplaced(BlockState state, BlockPlaceContext useContext) {
+    public boolean canBeReplaced(BlockState state, BlockPlaceContext useContext) {
         ItemStack stack = useContext.getItemInHand();
         SlabType type = state.getValue(TYPE);
         if(type == SlabType.DOUBLE || !stack.is(this.asItem())) return false;

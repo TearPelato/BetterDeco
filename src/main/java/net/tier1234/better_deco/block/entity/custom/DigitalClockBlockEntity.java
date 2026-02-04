@@ -22,23 +22,23 @@ public class DigitalClockBlockEntity extends BlockEntity {
     }
 
     @Override
-    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
+    public void load(CompoundTag tag) {
+        super.load(tag);
         if (tag.contains("TextColor")) {
             this.textColor = DyeColor.byName(tag.getString("TextColor"), DyeColor.WHITE);
         }
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.saveAdditional(tag, registries);
+    protected void saveAdditional(CompoundTag tag) {
+        super.saveAdditional(tag);
         // Salva i dati extra
         tag.putString("TextColor", this.textColor.getName());
     }
 
     @Override
-    public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
-        return saveWithFullMetadata(registries);
+    public CompoundTag getUpdateTag() {
+        return saveWithFullMetadata();
     }
 
     @Nullable
@@ -48,10 +48,10 @@ public class DigitalClockBlockEntity extends BlockEntity {
     }
 
     @Override
-    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt, HolderLookup.Provider registries) {
+    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt) {
         CompoundTag compound = pkt.getTag();
         if (compound != null) {
-            this.loadAdditional(compound, registries);
+            this.load(compound);
         }
     }
 

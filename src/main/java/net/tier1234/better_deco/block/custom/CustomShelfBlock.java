@@ -57,19 +57,19 @@ public class CustomShelfBlock extends Block implements EntityBlock {
     }
 
     @Override
-    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos,
-                                               Player player, BlockHitResult hitResult) {
-        if (level.isClientSide) {
+    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        if (pLevel.isClientSide) {
             return InteractionResult.SUCCESS;
         } else {
-            BlockEntity blockEntity = level.getBlockEntity(pos);
+            BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
             if (blockEntity instanceof ShelfBlockEntity shelfBlockEntity) {
-                ((ServerPlayer)player).openMenu(new SimpleMenuProvider(shelfBlockEntity, Component.literal("Shelf")), pos);
+                ((ServerPlayer)pPlayer).openMenu(new SimpleMenuProvider(shelfBlockEntity, Component.literal("Shelf")));
                 return InteractionResult.SUCCESS;
             }
             return InteractionResult.PASS;
         }
     }
+
 
     public int getBookSum(BlockState state, LevelReader level, BlockPos pos) {
         BlockEntity blockEntity = level.getBlockEntity(pos);

@@ -6,7 +6,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -31,7 +31,7 @@ import net.tier1234.better_deco.block.entity.ModBlockEntities;
 import org.jetbrains.annotations.Nullable;
 
 public class MicrowaveBlock extends BaseEntityBlock {
-    public static final MapCodec<MicrowaveBlock> CODEC = simpleCodec(MicrowaveBlock::new);
+   // public static final MapCodec<MicrowaveBlock> CODEC = simpleCodec(MicrowaveBlock::new);
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
     private static final VoxelShape SHAPE_NORTH = Block.box(1.0, 0.0, 3.0, 15.0, 8.0, 13.0);
@@ -45,10 +45,10 @@ public class MicrowaveBlock extends BaseEntityBlock {
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
 
-    @Override
+    /*@Override
     protected MapCodec<? extends BaseEntityBlock> codec() {
         return CODEC;
-    }
+    }*/
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
@@ -85,7 +85,7 @@ public class MicrowaveBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected RenderShape getRenderShape(BlockState state) {
+    public RenderShape getRenderShape(BlockState state) {
         return RenderShape.MODEL;
     }
 
@@ -102,19 +102,19 @@ public class MicrowaveBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack pStack, BlockState pState, Level pLevel, BlockPos pPos,
-                                              Player pPlayer, InteractionHand pHand, BlockHitResult pHitResult) {
+    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if (!pLevel.isClientSide()) {
             BlockEntity entity = pLevel.getBlockEntity(pPos);
             if(entity instanceof MicrowaveBlockEntity microwaveBlockEntity) {
-                ((ServerPlayer) pPlayer).openMenu(new SimpleMenuProvider(microwaveBlockEntity, Component.translatable("gui.better_deco.microwave")), pPos);
+                ((ServerPlayer) pPlayer).openMenu(new SimpleMenuProvider(microwaveBlockEntity, Component.translatable("gui.better_deco.microwave")));
             } else {
                 throw new IllegalStateException("Our Container provider is missing!");
             }
         }
 
-        return ItemInteractionResult.sidedSuccess(pLevel.isClientSide());
+        return InteractionResult.sidedSuccess(pLevel.isClientSide());
     }
+
 
     @Nullable
     @Override

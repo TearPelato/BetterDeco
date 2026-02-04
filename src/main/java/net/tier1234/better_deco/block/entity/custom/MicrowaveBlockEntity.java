@@ -16,11 +16,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.items.ItemStackHandler;
+import net.minecraftforge.items.ItemStackHandler;
 import net.tier1234.better_deco.block.entity.ModBlockEntities;
 import net.tier1234.better_deco.recipe.*;
 import net.tier1234.better_deco.screen.custom.MicrowaveMenu;
@@ -93,8 +92,8 @@ public class MicrowaveBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     private void craftItem() {
-        Optional<RecipeHolder<MicrowaveRecipe>> recipe = getCurrentRecipe();
-        ItemStack output = recipe.get().value().output();
+        Optional<MicrowaveRecipe> recipe = getCurrentRecipe();
+        ItemStack output = recipe.get().getResultItem(null);
 
         itemHandler.extractItem(INPUT_SLOT, 1, false);
         itemHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(output.getItem(),
@@ -115,18 +114,23 @@ public class MicrowaveBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     private boolean hasRecipe() {
-        Optional<RecipeHolder<MicrowaveRecipe>> recipe = getCurrentRecipe();
+        Optional<MicrowaveRecipe> recipe = getCurrentRecipe();
         if(recipe.isEmpty()) {
             return false;
         }
 
-        ItemStack output = recipe.get().value().output();
+        ItemStack output = recipe.get().getResultItem(null);
         return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output);
     }
 
-    private Optional<RecipeHolder<MicrowaveRecipe>> getCurrentRecipe() {
+    public Optional<MicrowaveRecipe> getCurrentRecipe() {
+        SimpleContainer inventory = new SimpleContainer(this.itemHandler.getSlots());
+        for(int i = 0; i < itemHandler.getSlots(); i++) {
+            inventory.setItem(i, this.itemHandler.getStackInSlot(i));
+        }
+
         return this.level.getRecipeManager()
-                .getRecipeFor(ModRecipes.MICROWAVE_TYPE.get(), new MicrowaveRecipeInput(itemHandler.getStackInSlot(INPUT_SLOT)), level);
+                .getRecipeFor(MicrowaveRecipe.Type.INSTANCE, inventory, level);
     }
 
     private boolean canInsertItemIntoOutputSlot(ItemStack output) {
@@ -151,19 +155,19 @@ public class MicrowaveBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     @Override
-    protected void saveAdditional(CompoundTag pTag, HolderLookup.Provider pRegistries) {
-        pTag.put("inventory", itemHandler.serializeNBT(pRegistries));
+    protected void saveAdditional(CompoundTag pTag) {
+        pTag.put("inventory", itemHandler.serializeNBT());
         pTag.putInt("growth_chamber.progress", progress);
         pTag.putInt("growth_chamber.max_progress", maxProgress);
 
-        super.saveAdditional(pTag, pRegistries);
+        super.saveAdditional(pTag);
     }
 
     @Override
-    protected void loadAdditional(CompoundTag pTag, HolderLookup.Provider pRegistries) {
-        super.loadAdditional(pTag, pRegistries);
+    public void load(CompoundTag pTag) {
+        super.load(pTag);
 
-        itemHandler.deserializeNBT(pRegistries, pTag.getCompound("inventory"));
+        itemHandler.deserializeNBT(pTag.getCompound("inventory"));
         progress = pTag.getInt("growth_chamber.progress");
         maxProgress = pTag.getInt("growth_chamber.max_progress");
     }
@@ -176,13 +180,13 @@ public class MicrowaveBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     @Override
-    public CompoundTag getUpdateTag(HolderLookup.Provider provider) {
-        return saveWithoutMetadata(provider);
+    public CompoundTag getUpdateTag() {
+        return saveWithoutMetadata();
     }
 
     @Override
-    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt, HolderLookup.Provider provider) {
-        super.onDataPacket(net, pkt, provider);
+    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt) {
+        super.onDataPacket(net, pkt);
     }
 
 

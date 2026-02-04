@@ -5,8 +5,8 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.registries.DeferredRegister;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.registries.DeferredRegister;
 import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.block.ModBlocks;
 
@@ -24,7 +24,7 @@ public class ModCreativeTabs {
             () -> CreativeModeTab.builder(CreativeModeTab.Row.TOP, 1)
                     .withSearchBar()
                     .title(Component.translatable("creativetab.better_deco.better_deco"))
-                    .icon(() -> new ItemStack(ModBlocks.OAK_BARREL))
+                    .icon(() -> new ItemStack(ModBlocks.OAK_BARREL.get()))
                     .displayItems((parameters, output) -> {
                         List<BundledTabs> filters = ModBundledTabs.getFilters();
                         Collections.reverse(filters);

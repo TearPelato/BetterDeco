@@ -24,20 +24,18 @@ public interface WeatheringBlocksCustom extends ChangeOverTimeBlock<WeatheringCo
                     .put(ModBlocks.WEATHERED_LANTERN.get(), ModBlocks.OXIDIZED_LANTERN.get())
                     .build()
     );
-    /**
-     * @deprecated Neo: Use the {@link net.neoforged.neoforge.common.DataMapHooks#INVERSE_OXIDIZABLES_DATAMAP inverse map} generated from the data map, this field will be ignored in a future version
-     */
+
     @Deprecated
     Supplier<BiMap<Block, Block>> PREVIOUS_BY_BLOCK = Suppliers.memoize(() -> NEXT_BY_BLOCK.get().inverse());
 
-    static Optional<Block> getPrevious(Block block) {
-        return Optional.ofNullable(net.neoforged.neoforge.common.DataMapHooks.getPreviousOxidizedStage(block));
+    /*static Optional<Block> getPrevious(Block block) {
+        return Optional.ofNullable(DataMapHooks.getPreviousOxidizedStage(block));
     }
 
     static Block getFirst(Block p_block) {
         Block block = p_block;
 
-        for (Block block1 = net.neoforged.neoforge.common.DataMapHooks.getPreviousOxidizedStage(p_block); block1 != null; block1 = net.neoforged.neoforge.common.DataMapHooks.getPreviousOxidizedStage(block1)) {
+        for (Block block1 = DataMapHooks.getPreviousOxidizedStage(p_block); block1 != null; block1 = net.neoforged.neoforge.common.DataMapHooks.getPreviousOxidizedStage(block1)) {
             block = block1;
         }
 
@@ -60,7 +58,7 @@ public interface WeatheringBlocksCustom extends ChangeOverTimeBlock<WeatheringCo
     default Optional<BlockState> getNext(BlockState state) {
         return getNext(state.getBlock()).map(p_154896_ -> p_154896_.withPropertiesOf(state));
     }
-
+*/
     @Override
     default float getChanceModifier() {
         return this.getAge() == net.minecraft.world.level.block.WeatheringCopper.WeatherState.UNAFFECTED ? 0.75F : 1.0F;
@@ -72,7 +70,7 @@ public interface WeatheringBlocksCustom extends ChangeOverTimeBlock<WeatheringCo
         WEATHERED("weathered"),
         OXIDIZED("oxidized");
 
-        public static final Codec<WeatheringCopper.WeatherState> CODEC = StringRepresentable.fromEnum(net.minecraft.world.level.block.WeatheringCopper.WeatherState::values);
+      //  public static final Codec<WeatheringCopper.WeatherState> CODEC = StringRepresentable.fromEnum(WeatheringCopper.WeatherState::values);
         private final String name;
 
         private WeatherState(String name) {
