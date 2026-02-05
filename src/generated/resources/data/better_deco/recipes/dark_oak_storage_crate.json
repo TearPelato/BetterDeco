@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:dark_oak_planks"
+    },
+    "X": {
+      "item": "minecraft:chest"
+    }
+  },
+  "pattern": [
+    "BBB",
+    "BXB",
+    "BBB"
+  ],
+  "result": {
+    "item": "better_deco:dark_oak_storage_crate"
+  },
+  "show_notification": true
+}

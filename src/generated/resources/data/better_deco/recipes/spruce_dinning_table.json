@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:spruce_log"
+    },
+    "X": {
+      "item": "minecraft:stripped_spruce_log"
+    }
+  },
+  "pattern": [
+    "BBB",
+    "X X",
+    "X X"
+  ],
+  "result": {
+    "item": "better_deco:spruce_dinning_table"
+  },
+  "show_notification": true
+}

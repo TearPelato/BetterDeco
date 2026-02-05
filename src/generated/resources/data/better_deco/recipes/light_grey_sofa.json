@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:light_gray_wool"
+    },
+    "B": {
+      "item": "minecraft:oak_log"
+    }
+  },
+  "pattern": [
+    "#  ",
+    "###",
+    "B B"
+  ],
+  "result": {
+    "item": "better_deco:light_grey_sofa"
+  },
+  "show_notification": true
+}

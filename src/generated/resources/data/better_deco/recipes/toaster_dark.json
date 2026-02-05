@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "better_deco:toaster_light"
+    },
+    "I": {
+      "item": "minecraft:black_dye"
+    }
+  },
+  "pattern": [
+    "CI"
+  ],
+  "result": {
+    "item": "better_deco:toaster_dark"
+  },
+  "show_notification": true
+}

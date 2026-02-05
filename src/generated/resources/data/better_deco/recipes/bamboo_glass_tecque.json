@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:glass"
+    },
+    "B": {
+      "item": "minecraft:bamboo_slab"
+    }
+  },
+  "pattern": [
+    "###",
+    "# #",
+    "BBB"
+  ],
+  "result": {
+    "item": "better_deco:bamboo_glass_tecque"
+  },
+  "show_notification": true
+}

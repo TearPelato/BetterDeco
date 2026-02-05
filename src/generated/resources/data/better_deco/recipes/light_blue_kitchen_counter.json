@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:light_blue_concrete"
+    },
+    "B": {
+      "item": "minecraft:quartz_block"
+    }
+  },
+  "pattern": [
+    "###",
+    "B B",
+    "BBB"
+  ],
+  "result": {
+    "item": "better_deco:light_blue_kitchen_counter"
+  },
+  "show_notification": true
+}

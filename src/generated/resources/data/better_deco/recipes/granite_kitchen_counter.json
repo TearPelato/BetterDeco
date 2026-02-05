@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:polished_granite"
+    },
+    "B": {
+      "item": "minecraft:granite"
+    }
+  },
+  "pattern": [
+    "###",
+    "B B",
+    "BBB"
+  ],
+  "result": {
+    "item": "better_deco:granite_kitchen_counter"
+  },
+  "show_notification": true
+}

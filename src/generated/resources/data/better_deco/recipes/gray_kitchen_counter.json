@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:gray_concrete"
+    },
+    "B": {
+      "item": "minecraft:quartz_block"
+    }
+  },
+  "pattern": [
+    "###",
+    "B B",
+    "BBB"
+  ],
+  "result": {
+    "item": "better_deco:gray_kitchen_counter"
+  },
+  "show_notification": true
+}

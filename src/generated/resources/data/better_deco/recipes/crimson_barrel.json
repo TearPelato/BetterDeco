@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:crimson_slab"
+    },
+    "B": {
+      "item": "minecraft:crimson_planks"
+    }
+  },
+  "pattern": [
+    "B#B",
+    "B B",
+    "B#B"
+  ],
+  "result": {
+    "item": "better_deco:crimson_barrel"
+  },
+  "show_notification": true
+}

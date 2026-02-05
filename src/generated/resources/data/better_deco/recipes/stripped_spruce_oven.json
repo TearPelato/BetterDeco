@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:stripped_spruce_log"
+    },
+    "B": {
+      "item": "minecraft:spruce_planks"
+    },
+    "X": {
+      "item": "minecraft:smoker"
+    }
+  },
+  "pattern": [
+    "###",
+    "BXB",
+    "BBB"
+  ],
+  "result": {
+    "item": "better_deco:stripped_spruce_oven"
+  },
+  "show_notification": true
+}

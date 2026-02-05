@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:jungle_slab"
+    },
+    "B": {
+      "item": "minecraft:jungle_planks"
+    }
+  },
+  "pattern": [
+    "B#B",
+    "B B",
+    "B#B"
+  ],
+  "result": {
+    "item": "better_deco:jungle_barrel"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:purple_wool"
+    },
+    "B": {
+      "item": "minecraft:oak_log"
+    }
+  },
+  "pattern": [
+    "#  ",
+    "###",
+    "B B"
+  ],
+  "result": {
+    "item": "better_deco:purple_sofa"
+  },
+  "show_notification": true
+}

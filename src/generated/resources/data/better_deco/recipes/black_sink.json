@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:quartz_block"
+    },
+    "B": {
+      "item": "minecraft:black_concrete"
+    },
+    "X": {
+      "item": "minecraft:bucket"
+    }
+  },
+  "pattern": [
+    "BXB",
+    "BBB",
+    "# #"
+  ],
+  "result": {
+    "item": "better_deco:black_sink"
+  },
+  "show_notification": true
+}

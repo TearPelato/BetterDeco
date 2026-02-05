@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:warped_stem"
+    },
+    "X": {
+      "item": "minecraft:stripped_warped_stem"
+    }
+  },
+  "pattern": [
+    "BBB",
+    " X ",
+    " X "
+  ],
+  "result": {
+    "item": "better_deco:warped_table"
+  },
+  "show_notification": true
+}

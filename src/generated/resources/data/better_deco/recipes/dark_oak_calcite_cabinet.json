@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:dark_oak_planks"
+    },
+    "B": {
+      "item": "minecraft:calcite"
+    },
+    "X": {
+      "item": "minecraft:chest"
+    }
+  },
+  "pattern": [
+    "#BB",
+    "#XB",
+    "#BB"
+  ],
+  "result": {
+    "item": "better_deco:dark_oak_calcite_cabinet"
+  },
+  "show_notification": true
+}

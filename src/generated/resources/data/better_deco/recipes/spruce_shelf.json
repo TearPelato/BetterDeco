@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:spruce_planks"
+    },
+    "B": {
+      "item": "minecraft:spruce_slab"
+    },
+    "X": {
+      "item": "minecraft:item_frame"
+    }
+  },
+  "pattern": [
+    "#B#",
+    "#X#",
+    "#B#"
+  ],
+  "result": {
+    "item": "better_deco:spruce_shelf"
+  },
+  "show_notification": true
+}

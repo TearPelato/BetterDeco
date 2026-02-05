@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:stripped_jungle_log"
+    },
+    "B": {
+      "item": "minecraft:jungle_log"
+    }
+  },
+  "pattern": [
+    "#  ",
+    "###",
+    "B B"
+  ],
+  "result": {
+    "item": "better_deco:stripped_jungle_chair"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:spruce_planks"
+    },
+    "B": {
+      "item": "minecraft:diorite"
+    },
+    "X": {
+      "item": "minecraft:chest"
+    }
+  },
+  "pattern": [
+    "#BB",
+    "#XB",
+    "#BB"
+  ],
+  "result": {
+    "item": "better_deco:spruce_diorite_cabinet"
+  },
+  "show_notification": true
+}

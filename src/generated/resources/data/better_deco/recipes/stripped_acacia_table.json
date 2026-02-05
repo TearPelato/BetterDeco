@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:stripped_acacia_log"
+    },
+    "X": {
+      "item": "minecraft:acacia_log"
+    }
+  },
+  "pattern": [
+    "BBB",
+    " X ",
+    " X "
+  ],
+  "result": {
+    "item": "better_deco:stripped_acacia_table"
+  },
+  "show_notification": true
+}
