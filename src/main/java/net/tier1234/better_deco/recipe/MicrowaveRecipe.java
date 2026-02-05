@@ -19,8 +19,6 @@ import net.tier1234.better_deco.BetterDeco;
 import org.jetbrains.annotations.Nullable;
 
 public class MicrowaveRecipe implements Recipe<SimpleContainer> {
-    // inputItem & output ==> Read From JSON File!
-    // MicrowaveRecipeInput --> INVENTORY of the Block Entity
     private final NonNullList<Ingredient> inputItems;
     private final ItemStack output;
     private final ResourceLocation id;
@@ -32,8 +30,32 @@ public class MicrowaveRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
+    public boolean matches(SimpleContainer pContainer, Level pLevel) {
+        if(pLevel.isClientSide()) {
+            return false;
+        }
+
+        return inputItems.get(0).test(pContainer.getItem(0));
+    }
+
+    @Override
     public NonNullList<Ingredient> getIngredients() {
         return inputItems;
+    }
+
+    @Override
+    public ItemStack assemble(SimpleContainer pContainer, RegistryAccess pRegistryAccess) {
+        return output.copy();
+    }
+
+    @Override
+    public boolean canCraftInDimensions(int pWidth, int pHeight) {
+        return true;
+    }
+
+    @Override
+    public ItemStack getResultItem(RegistryAccess pRegistryAccess) {
+        return output.copy();
     }
 
     @Override
@@ -42,84 +64,59 @@ public class MicrowaveRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
-    public boolean matches(SimpleContainer simpleContainer, Level level) {
-        if (level.isClientSide()) {
-            return false;
-        }
-
-        return inputItems.get(0).test(simpleContainer.getItem(0));
-    }
-
-    @Override
-    public ItemStack assemble(SimpleContainer simpleContainer, RegistryAccess registryAccess) {
-        return output.copy();
-    }
-
-    @Override
-    public boolean canCraftInDimensions(int i, int i1) {
-        return true;
-    }
-
-    @Override
-    public ItemStack getResultItem(RegistryAccess registryAccess) {
-        return output;
-    }
-
-
-    @Override
     public RecipeSerializer<?> getSerializer() {
-        return ModRecipes.OVEN_SERIALIZER.get();
+        return Serializer.INSTANCE;
     }
+
     @Override
     public RecipeType<?> getType() {
         return Type.INSTANCE;
     }
 
-
     public static class Type implements RecipeType<MicrowaveRecipe> {
-        public static final MicrowaveRecipe.Type INSTANCE = new MicrowaveRecipe.Type();
+        public static final Type INSTANCE = new Type();
         public static final String ID = "microwave";
     }
-    public static class Serializer implements RecipeSerializer<MicrowaveRecipe> {
-        public static final MicrowaveRecipe.Serializer INSTANCE = new MicrowaveRecipe.Serializer();
-        public static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, "oven");
 
+    public static class Serializer implements RecipeSerializer<MicrowaveRecipe> {
+        public static final Serializer INSTANCE = new Serializer();
+        public static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, "microwave");
 
         @Override
-        public MicrowaveRecipe fromJson(ResourceLocation resourceLocation, JsonObject jsonObject) {
-            ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(jsonObject, "output"));
+        public MicrowaveRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
+            ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "output"));
 
-            JsonArray ingredients = GsonHelper.getAsJsonArray(jsonObject, "ingredients");
+            JsonArray ingredients = GsonHelper.getAsJsonArray(pSerializedRecipe, "ingredients");
             NonNullList<Ingredient> inputs = NonNullList.withSize(1, Ingredient.EMPTY);
 
             for(int i = 0; i < inputs.size(); i++) {
                 inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
             }
 
-            return new MicrowaveRecipe(inputs, output, resourceLocation);
+            return new MicrowaveRecipe(inputs, output, pRecipeId);
         }
 
         @Override
-        public @Nullable MicrowaveRecipe fromNetwork(ResourceLocation resourceLocation, FriendlyByteBuf friendlyByteBuf) {
-            NonNullList<Ingredient> inputs = NonNullList.withSize(friendlyByteBuf.readInt(), Ingredient.EMPTY);
+        public @Nullable MicrowaveRecipe fromNetwork(ResourceLocation pRecipeId, FriendlyByteBuf pBuffer) {
+            NonNullList<Ingredient> inputs = NonNullList.withSize(pBuffer.readInt(), Ingredient.EMPTY);
 
             for(int i = 0; i < inputs.size(); i++) {
-                inputs.set(i, Ingredient.fromNetwork(friendlyByteBuf));
+                inputs.set(i, Ingredient.fromNetwork(pBuffer));
             }
 
-            ItemStack output = friendlyByteBuf.readItem();
-            return new MicrowaveRecipe(inputs, output, resourceLocation);
+            ItemStack output = pBuffer.readItem();
+            return new MicrowaveRecipe(inputs, output, pRecipeId);
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf friendlyByteBuf, MicrowaveRecipe MicrowaveRecipe) {
-            friendlyByteBuf.writeInt(MicrowaveRecipe.inputItems.size());
+        public void toNetwork(FriendlyByteBuf pBuffer, MicrowaveRecipe pRecipe) {
+            pBuffer.writeInt(pRecipe.inputItems.size());
 
-            for (Ingredient ingredient : MicrowaveRecipe.getIngredients()) {
-                ingredient.toNetwork(friendlyByteBuf);
+            for (Ingredient ingredient : pRecipe.getIngredients()) {
+                ingredient.toNetwork(pBuffer);
             }
 
-            friendlyByteBuf.writeItemStack(MicrowaveRecipe.getResultItem(null), false);
+            pBuffer.writeItemStack(pRecipe.getResultItem(null), false);
         }
     }
 }
