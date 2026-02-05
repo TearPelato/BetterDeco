@@ -1,5 +1,5 @@
 package net.tier1234.better_deco.compat.jei.category;
-
+/*
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -7,7 +7,7 @@ import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
-import mezz.jei.api.recipe.category.IRecipeCategory;
+import mezz.jei.api.recipe.category.IRecipeCategory;*/
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -16,8 +16,10 @@ import net.tier1234.better_deco.block.ModBlocks;
 import net.tier1234.better_deco.recipe.MicrowaveRecipe;
 import org.jetbrains.annotations.Nullable;
 
-public class MicrowaveRecipeCategory implements IRecipeCategory<MicrowaveRecipe>{
-
+public class MicrowaveRecipeCategory
+    //    implements IRecipeCategory<MicrowaveRecipe>
+{
+/*
     public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, "microwave");
     public static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID,
             "textures/gui/microwave/growth_chamber_gui_jei.png");
@@ -60,5 +62,5 @@ public class MicrowaveRecipeCategory implements IRecipeCategory<MicrowaveRecipe>
         builder.addSlot(RecipeIngredientRole.INPUT, 54, 34).addIngredients(recipe.getIngredients().get(0));
 
         builder.addSlot(RecipeIngredientRole.OUTPUT, 104, 34).addItemStack(recipe.getResultItem(null));
-    }
+    }*/
 }

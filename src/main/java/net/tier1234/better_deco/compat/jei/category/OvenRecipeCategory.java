@@ -1,5 +1,5 @@
 package net.tier1234.better_deco.compat.jei.category;
-
+/*
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -7,7 +7,7 @@ import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
-import mezz.jei.api.recipe.category.IRecipeCategory;
+import mezz.jei.api.recipe.category.IRecipeCategory;*/
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -16,8 +16,10 @@ import net.tier1234.better_deco.block.ModBlocks;
 import net.tier1234.better_deco.recipe.OvenRecipe;
 import org.jetbrains.annotations.Nullable;
 
-public class OvenRecipeCategory implements IRecipeCategory<OvenRecipe>{
-
+public class OvenRecipeCategory
+//        implements IRecipeCategory<OvenRecipe>
+{
+/*
     public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, "oven");
     public static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID,
             "textures/gui/oven/oven_jei_2.png");
@@ -61,5 +63,5 @@ public class OvenRecipeCategory implements IRecipeCategory<OvenRecipe>{
 
         builder.addSlot(RecipeIngredientRole.OUTPUT, 78, 53).addItemStack(recipe.getResultItem(null));
     }
-
+*/
 }

@@ -1,12 +1,12 @@
 package net.tier1234.better_deco.compat.jei;
 
-
+/*
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.registration.IGuiHandlerRegistration;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
-import mezz.jei.api.registration.IRecipeRegistration;
+import mezz.jei.api.registration.IRecipeRegistration;*/
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.RecipeHolder;
@@ -24,9 +24,11 @@ import net.tier1234.better_deco.screen.custom.OvenScreen;
 
 import java.util.List;
 
-@JeiPlugin
-public class JEIBetterDecoPlugin implements IModPlugin {
-    @Override
+//@JeiPlugin
+public class JEIBetterDecoPlugin
+        //implements IModPlugin
+{
+  /*  @Override
     public ResourceLocation getPluginUid() {
         return ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, "jei_plugin");
     }
@@ -151,5 +153,5 @@ public class JEIBetterDecoPlugin implements IModPlugin {
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.DARK_MICROWAVE.get().asItem()),
                 MicrowaveRecipeCategory.MICROWAVE_RECIPE_RECIPE_TYPE);
     }
-
+*/
 }
