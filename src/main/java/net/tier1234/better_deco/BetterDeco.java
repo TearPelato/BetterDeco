@@ -99,6 +99,7 @@ public class BetterDeco {
             MenuScreens.register(ModMenuTypes.FREEZER_MENU.get(), FreezerScreen::new);
             MenuScreens.register(ModMenuTypes.SHELF_MENU.get(), ShelfScreen::new);
             MenuScreens.register(ModMenuTypes.PEDESTAL_MENU.get(), PedestalScreen::new);
+            MenuScreens.register(ModMenuTypes.TECQUE_MENU.get(),TecqueScreen::new);
             MenuScreens.register(ModMenuTypes.SINK_MENU.get(), SinkScreen::new);
             MenuScreens.register(ModMenuTypes.MICROWAVE_MENU.get(), MicrowaveScreen::new);
             MenuScreens.register(ModMenuTypes.OVEN_MENU.get(), OvenScreen::new);
