@@ -67,7 +67,7 @@ public class OvenBlockEntity extends BlockEntity implements MenuProvider {
 
     @Override
     public Component getDisplayName() {
-        return Component.translatable("block.better_deco.oven");
+        return Component.translatable("gui.better_deco.oven");
     }
 
     @Nullable

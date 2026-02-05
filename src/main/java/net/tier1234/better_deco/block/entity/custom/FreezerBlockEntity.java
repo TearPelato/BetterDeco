@@ -90,7 +90,7 @@ public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
 
     @Override
     public Component getDisplayName() {
-        return Component.translatable("block.better_deco.freezer");
+        return Component.translatable("gui.better_deco.freezer");
     }
 
     @Nullable
