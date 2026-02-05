@@ -21,6 +21,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.network.NetworkHooks;
 import net.tier1234.better_deco.block.entity.custom.TecqueBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
@@ -72,7 +73,7 @@ public class TecqueBlock extends BaseEntityBlock {
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if(pLevel.getBlockEntity(pPos) instanceof TecqueBlockEntity tecqueBlockEntity) {
             if(pPlayer.isCrouching() && !pLevel.isClientSide()) {
-                ((ServerPlayer) pPlayer).openMenu(new SimpleMenuProvider(tecqueBlockEntity, Component.literal("Tecque")));
+                NetworkHooks.openScreen(((ServerPlayer)pPlayer), tecqueBlockEntity, pPos);
                 return InteractionResult.SUCCESS;
             }
             ItemStack stack = pPlayer.getItemInHand(pHand);

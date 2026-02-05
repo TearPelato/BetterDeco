@@ -20,6 +20,7 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.network.NetworkHooks;
 import net.tier1234.better_deco.block.entity.custom.ShelfBlockEntity;
 
 public class CustomShelfBlock extends Block implements EntityBlock {
@@ -63,7 +64,7 @@ public class CustomShelfBlock extends Block implements EntityBlock {
         } else {
             BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
             if (blockEntity instanceof ShelfBlockEntity shelfBlockEntity) {
-                ((ServerPlayer)pPlayer).openMenu(new SimpleMenuProvider(shelfBlockEntity, Component.literal("Shelf")));
+                NetworkHooks.openScreen(((ServerPlayer)pPlayer), shelfBlockEntity, pPos);
                 return InteractionResult.SUCCESS;
             }
             return InteractionResult.PASS;

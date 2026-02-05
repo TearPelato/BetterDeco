@@ -24,6 +24,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.network.NetworkHooks;
 import net.tier1234.better_deco.block.entity.core.BasicLootBlockEntity;
 import net.tier1234.better_deco.block.entity.custom.CrateBlockEntity;
 import net.tier1234.better_deco.util.VoxelShapeHelper;
@@ -101,7 +102,7 @@ public class CrateBlock extends FurnitureHorizontalBlock implements EntityBlock
             } else {
                 BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
                 if (blockEntity instanceof CrateBlockEntity crateBlockEntity) {
-                    ((ServerPlayer)pPlayer).openMenu(new SimpleMenuProvider(crateBlockEntity, Component.literal("Crate")));
+                    NetworkHooks.openScreen(((ServerPlayer)pPlayer), crateBlockEntity, pPos);
                     return InteractionResult.SUCCESS;
                 }
                 return InteractionResult.PASS;

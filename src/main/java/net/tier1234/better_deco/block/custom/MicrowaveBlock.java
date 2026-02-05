@@ -26,6 +26,7 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.network.NetworkHooks;
 import net.tier1234.better_deco.block.entity.custom.MicrowaveBlockEntity;
 import net.tier1234.better_deco.block.entity.ModBlockEntities;
 import org.jetbrains.annotations.Nullable;
@@ -106,7 +107,7 @@ public class MicrowaveBlock extends BaseEntityBlock {
         if (!pLevel.isClientSide()) {
             BlockEntity entity = pLevel.getBlockEntity(pPos);
             if(entity instanceof MicrowaveBlockEntity microwaveBlockEntity) {
-                ((ServerPlayer) pPlayer).openMenu(new SimpleMenuProvider(microwaveBlockEntity, Component.translatable("gui.better_deco.microwave")));
+                NetworkHooks.openScreen(((ServerPlayer)pPlayer), microwaveBlockEntity, pPos);
             } else {
                 throw new IllegalStateException("Our Container provider is missing!");
             }

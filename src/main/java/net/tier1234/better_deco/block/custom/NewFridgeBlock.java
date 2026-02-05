@@ -27,6 +27,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.network.NetworkHooks;
 import net.tier1234.better_deco.block.entity.custom.FreezerBlockEntity;
 import net.tier1234.better_deco.block.entity.custom.FridgeBlockEntity;
 import net.tier1234.better_deco.util.VoxelShapeHelper;
@@ -83,8 +84,7 @@ public class NewFridgeBlock extends BaseEntityBlock {
             }
         } else if (pState.getValue(MODEL_TYPE) == FridgeModelType.FREEZER ) {
             if (blockEntity instanceof FreezerBlockEntity freezerBlockEntity) {
-                ((ServerPlayer) pPlayer).openMenu(
-                        new SimpleMenuProvider(freezerBlockEntity, Component.translatable("gui.better_deco.freezer")));
+                NetworkHooks.openScreen(((ServerPlayer)pPlayer), freezerBlockEntity, pPos);
             }
         }
 

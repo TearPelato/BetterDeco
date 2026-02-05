@@ -23,6 +23,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.network.NetworkHooks;
 import net.tier1234.better_deco.block.entity.ModBlockEntities;
 import net.tier1234.better_deco.block.entity.custom.OvenBlockEntity;
 import net.tier1234.better_deco.util.VoxelShapeHelper;
@@ -95,8 +96,7 @@ public class OvenBlock extends FurnitureHorizontalBlock implements EntityBlock
         if (!pLevel.isClientSide()) {
             BlockEntity entity = pLevel.getBlockEntity(pPos);
             if (entity instanceof OvenBlockEntity ovenBlockEntity) {
-                ((ServerPlayer) pPlayer).openMenu(
-                        new SimpleMenuProvider(ovenBlockEntity, Component.translatable("gui.better_deco.oven")));
+                NetworkHooks.openScreen(((ServerPlayer)pPlayer), ovenBlockEntity, pPos);
             } else {
                 throw new IllegalStateException("Oven container provider is missing!");
             }
