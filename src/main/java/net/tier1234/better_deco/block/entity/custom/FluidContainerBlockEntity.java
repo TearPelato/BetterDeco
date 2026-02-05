@@ -27,7 +27,7 @@ public abstract class FluidContainerBlockEntity extends BlockEntity {
 
     public static final int BUCKET_VOLUME = 1000;
 
-    private FluidStack stack = new FluidStack(Fluids.EMPTY, 0);
+    private FluidStack stack = FluidStack.EMPTY;
     private final int capacity;
 
     public FluidContainerBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state, int capacity) {
@@ -36,67 +36,80 @@ public abstract class FluidContainerBlockEntity extends BlockEntity {
     }
 
     public FluidStack getFluidStack() {
-        return this.stack;
+        return stack;
     }
 
-    public int getCapacity() { return capacity; }
+    public int getCapacity() {
+        return capacity;
+    }
+
     public boolean isEmpty() {
         return stack.isEmpty();
     }
 
     public void setFluidStack(FluidStack stack) {
-        if(stack.getAmount() > capacity) this.stack = new FluidStack(stack.getFluid(), capacity);
-        else this.stack = stack;
+        if (stack.getAmount() > capacity) {
+            this.stack = new FluidStack(stack.getFluid(), capacity);
+        } else {
+            this.stack = stack.copy();
+        }
+
         setChanged();
-        if (level != null && !level.isClientSide) level.sendBlockUpdated(worldPosition,getBlockState(),getBlockState(),3);
+        if (level != null && !level.isClientSide) {
+            level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);
+        }
     }
 
     @Override
     protected void saveAdditional(CompoundTag tag) {
         super.saveAdditional(tag);
-        if(stack.isEmpty()) return;
-        tag.put("FluidStack", FluidStack.CODEC.encode(stack, NbtOps.INSTANCE, new CompoundTag()).getOrThrow());
+
+        if (!stack.isEmpty()) {
+            FluidStack.CODEC
+                    .encodeStart(NbtOps.INSTANCE, stack)
+                    .resultOrPartial(err -> {})
+                    .ifPresent(nbt -> tag.put("FluidStack", nbt));
+        }
     }
 
     @Override
     public void load(CompoundTag tag) {
         super.load(tag);
 
-        /* CODICE DA TOGLIERE QUANDO TUTTI AVRANNO CONVERTITO (PROBABILMENTE MAI) */
-        if (tag.contains("FluidName")) { // LEGACY ENCODING
-            String name = tag.getString("FluidName");
-            if ("minecraft:empty".equals(name)) {
-                this.stack = new FluidStack(Fluids.EMPTY, 0);
+        if (tag.contains("FluidName")) {
+            ResourceLocation id = ResourceLocation.tryParse(tag.getString("FluidName"));
+            if (id == null) {
+                stack = FluidStack.EMPTY;
                 return;
             }
-            Optional<Holder.Reference<Fluid>> fluid =
-                    BuiltInRegistries.FLUID.getHolder(ResourceLocation.parse(name));
 
-            if (fluid.isEmpty()) {
-                this.stack = new FluidStack(Fluids.EMPTY, 0);
+            Fluid fluid = BuiltInRegistries.FLUID.get(id);
+            if (fluid == Fluids.EMPTY) {
+                stack = FluidStack.EMPTY;
                 return;
             }
+
             int amount = Math.min(tag.getInt("Amount"), capacity);
-            if (amount <= 0) {
-                this.stack = new FluidStack(Fluids.EMPTY, 0);
-                return;
-            }
-            var ref = fluid.get();
-            this.stack = new FluidStack(ref, amount);
-
-        } else if (tag.contains("FluidStack")) {
-            this.stack = FluidStack.CODEC.decode(NbtOps.INSTANCE, tag.get("FluidStack"))
-                    .getOrThrow()
-                    .getFirst();
-
-        } else {
-            this.stack = new FluidStack(Fluids.EMPTY, 0);
+            stack = amount > 0 ? new FluidStack(fluid, amount) : FluidStack.EMPTY;
+            return;
         }
+
+        if (tag.contains("FluidStack")) {
+            FluidStack.CODEC
+                    .parse(NbtOps.INSTANCE, tag.get("FluidStack"))
+                    .resultOrPartial(err -> {})
+                    .ifPresent(fs -> stack = fs);
+            return;
+        }
+
+        stack = FluidStack.EMPTY;
     }
 
     @Nullable
     @Override
-    public Packet<ClientGamePacketListener> getUpdatePacket() { return ClientboundBlockEntityDataPacket.create(this); }
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
+    }
 
     @Override
     public CompoundTag getUpdateTag() {

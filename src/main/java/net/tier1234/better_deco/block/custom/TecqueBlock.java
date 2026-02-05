@@ -72,10 +72,10 @@ public class TecqueBlock extends BaseEntityBlock {
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if(pLevel.getBlockEntity(pPos) instanceof TecqueBlockEntity tecqueBlockEntity) {
             if(pPlayer.isCrouching() && !pLevel.isClientSide()) {
-                ((ServerPlayer) pPlayer).openMenu(new SimpleMenuProvider(tecqueBlockEntity, Component.literal("Tecque")), pos);
+                ((ServerPlayer) pPlayer).openMenu(new SimpleMenuProvider(tecqueBlockEntity, Component.literal("Tecque")));
                 return InteractionResult.SUCCESS;
             }
-
+            ItemStack stack = pPlayer.getItemInHand(pHand);
             if(tecqueBlockEntity.inventory.getStackInSlot(0).isEmpty() && !stack.isEmpty()) {
                 tecqueBlockEntity.inventory.insertItem(0, stack.copy(), false);
                 stack.shrink(1);
@@ -88,7 +88,7 @@ public class TecqueBlock extends BaseEntityBlock {
             }
         }
 
-        return ItemInteractionResult.SUCCESS;
+        return InteractionResult.SUCCESS;
     }
 
 }

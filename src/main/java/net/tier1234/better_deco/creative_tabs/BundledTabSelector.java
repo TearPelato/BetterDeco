@@ -26,7 +26,8 @@ import java.util.function.Consumer;
  * @author BlackGear
  */
 public class BundledTabSelector {
-    private static final ResourceLocation SELECTOR_BAR = BetterDeco.id("textures/gui/tab_selector/tab_selector.png");
+    private static final ResourceLocation SELECTOR_BAR =
+            ResourceLocation.fromNamespaceAndPath("better_deco","textures/gui/tab_selector/tab_selector.png");
     private static final int VISIBLE_CATEGORIES = 5;
 
     private static BundledTabSelector instance;
@@ -75,7 +76,7 @@ public class BundledTabSelector {
             graphics.pose().translate(0.0, 0.0, 0.0);
 
             if (this.isValidTab(tab)) {
-                graphics.blit(SELECTOR_BAR, this.guiLeft - 35, this.guiTop + 2, 11, 3, 34, 121,256,256);
+                graphics.blit(SELECTOR_BAR, this.guiLeft - 35, this.guiTop + 2, 11, 3, 34, 121);
             }
 
             if (this.lastTab != tab) {
@@ -203,7 +204,7 @@ public class BundledTabSelector {
             super(x, y, 16, 16, Component.empty(), onPress, DEFAULT_NARRATION);
             this.bundle = bundle;
             bundle.setContentTab(this);
-            this.setTooltip(Tooltip.create(bundle.getTooltip()));
+            this.setTooltip(Tooltip.create(bundle.tooltip));
         }
 
         @Override
@@ -215,7 +216,7 @@ public class BundledTabSelector {
 
         private void renderSelected(GuiGraphics graphics) {
             if (this.bundle.isSelected()) {
-                graphics.blit(SELECTOR_BAR, this.getX() - 7, this.getY() - 1, 64, 29, 30, 19,256,256);
+                graphics.blit(SELECTOR_BAR, this.getX() - 7, this.getY() - 1, 64, 29, 30, 19);
             }
         }
 
@@ -225,7 +226,7 @@ public class BundledTabSelector {
                 graphics.pose().translate(0.0, 0.0, 200.0);
                 RenderSystem.enableBlend();
                 RenderSystem.defaultBlendFunc();
-                graphics.blit(SELECTOR_BAR, this.getX(), this.getY(), 48, 48, 16, 16,256,256);
+                graphics.blit(SELECTOR_BAR, this.getX(), this.getY(), 48, 48, 16, 16);
                 RenderSystem.disableBlend();
                 graphics.pose().popPose();
             }
@@ -243,7 +244,7 @@ public class BundledTabSelector {
         @Override
         public void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
             int textureY = this.isHovered ? 17 : 6;
-            graphics.blit(SELECTOR_BAR, this.getX(), this.getY(), this.uOffset, textureY, 18, 9,256,256);
+            graphics.blit(SELECTOR_BAR, this.getX(), this.getY(), this.uOffset, textureY, 18, 9);
         }
     }
 }

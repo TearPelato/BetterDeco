@@ -70,10 +70,10 @@ public class PedestalBlock extends BaseEntityBlock {
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if(pLevel.getBlockEntity(pPos) instanceof PedestalBlockEntity pedestalBlockEntity) {
             if(pPlayer.isCrouching() && !pLevel.isClientSide()) {
-                ((ServerPlayer) pPlayer).openMenu(new SimpleMenuProvider(pedestalBlockEntity, Component.literal("Pedestal")), pos);
+                ((ServerPlayer) pPlayer).openMenu(new SimpleMenuProvider(pedestalBlockEntity, Component.literal("Pedestal")));
                 return InteractionResult.SUCCESS;
             }
-
+            ItemStack stack = pPlayer.getItemInHand(pHand);
             if(pedestalBlockEntity.inventory.getStackInSlot(0).isEmpty() && !stack.isEmpty()) {
                 pedestalBlockEntity.inventory.insertItem(0, stack.copy(), false);
                 stack.shrink(1);

@@ -83,7 +83,7 @@ public class KitchenSinkBlock extends FurnitureHorizontalBlock implements Simple
         if (pLevel.isClientSide) return InteractionResult.SUCCESS;
         BlockEntity be = pLevel.getBlockEntity(pPos);
         if (!(be instanceof KitchenSinkBlockEntity sink)) return InteractionResult.FAIL;
-
+        ItemStack stack = pPlayer.getItemInHand(pHand);
         if (stack.isEmpty()) return fillFromNearbyFluid(sink, pLevel, pPos);
         Item item = stack.getItem();
         if (item == Items.BUCKET) return handleBucket(sink, pPlayer, pHand, stack);

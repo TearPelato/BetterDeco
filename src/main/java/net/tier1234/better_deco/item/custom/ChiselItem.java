@@ -169,8 +169,8 @@ public class ChiselItem extends Item {
             if(!level.isClientSide()) {
                 level.setBlockAndUpdate(context.getClickedPos(), CHISEL_MAP.get().get(clickedBlock).defaultBlockState());
 
-                context.getItemInHand().hurtAndBreak(1, ((ServerLevel) level), context.getPlayer(),
-                        item -> context.getPlayer().onEquippedItemBroken(item, EquipmentSlot.MAINHAND));
+                context.getItemInHand().hurtAndBreak(1, context.getPlayer(),
+                        item -> context.getPlayer().broadcastBreakEvent(EquipmentSlot.MAINHAND));
 
                 level.playSound(null, context.getClickedPos(), SoundEvents.UI_STONECUTTER_TAKE_RESULT, SoundSource.BLOCKS);
             }

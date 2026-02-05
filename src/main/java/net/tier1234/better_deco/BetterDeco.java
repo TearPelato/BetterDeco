@@ -2,7 +2,6 @@ package net.tier1234.better_deco;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -23,24 +22,23 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.tier1234.better_deco.block.ModBlocks;
 import net.tier1234.better_deco.block.entity.ModBlockEntities;
 import net.tier1234.better_deco.block.entity.renderer.*;
+import net.tier1234.better_deco.creative_tabs.ModCreativeTabs;
 import net.tier1234.better_deco.entity.ModEntities;
 import net.tier1234.better_deco.entity.client.ChairRenderer;
 import net.tier1234.better_deco.item.ModItems;
-import net.tier1234.better_deco.creative_tabs.ModCreativeTabs;
 import net.tier1234.better_deco.recipe.ModRecipes;
 import net.tier1234.better_deco.screen.ModMenuTypes;
 import net.tier1234.better_deco.screen.custom.*;
 import org.slf4j.Logger;
 
-// The value here should match an entry in the META-INF/neoforge.mods.toml file
+// The value here should match an entry in the META-INF/mods.toml file
 @Mod(BetterDeco.MOD_ID)
 public class BetterDeco {
     public static final String MOD_ID = "better_deco";
     public static final Logger LOGGER = LogUtils.getLogger();
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
-    public BetterDeco(ModContainer modContainer) {
-        // Register the commonSetup method for mod loading
+    public BetterDeco() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.

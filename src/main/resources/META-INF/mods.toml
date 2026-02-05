@@ -14,19 +14,19 @@ displayURL="https://github.com/TearPelato/BetterDeco"
 credits = "LiukRast, BlackGear"
 updateJSONURL="https://tearpelato.github.io/BetterDeco/version-check-nf.json"
 
-[[mixins]]
-config = "${mod_id}.mixins.json"
+#[[mixins]]
+#config = "${mod_id}.mixins.json"
 
 [[dependencies."${mod_id}"]]
-modId = "neoforge"
-type = "required"
-versionRange = "${neo_version_range}"
+modId = "forge"
+mandatory = true
+versionRange = "${forge_version_range}"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies."${mod_id}"]]
 modId = "minecraft"
-type = "required"
+mandatory = true
 versionRange = "${minecraft_version_range}"
 ordering = "NONE"
 side = "BOTH"
