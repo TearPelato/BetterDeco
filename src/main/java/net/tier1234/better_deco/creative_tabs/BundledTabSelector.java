@@ -223,7 +223,7 @@ public class BundledTabSelector {
         private void renderHighlight(GuiGraphics graphics) {
             if (this.isHovered() && !this.bundle.isSelected()) {
                 graphics.pose().pushPose();
-                graphics.pose().translate(0.0, 0.0, 200.0);
+                graphics.pose().translate(0.0, 0.0, 20.0);
                 RenderSystem.enableBlend();
                 RenderSystem.defaultBlendFunc();
                 graphics.blit(SELECTOR_BAR, this.getX(), this.getY(), 48, 48, 16, 16);
@@ -244,7 +244,10 @@ public class BundledTabSelector {
         @Override
         public void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
             int textureY = this.isHovered ? 17 : 6;
+            graphics.pose().popPose();
+            graphics.pose().translate(0.0, 0.0, 20.0);
             graphics.blit(SELECTOR_BAR, this.getX(), this.getY(), this.uOffset, textureY, 18, 9);
+            graphics.pose().pushPose();
         }
     }
 }
