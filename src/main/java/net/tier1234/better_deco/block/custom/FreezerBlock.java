@@ -30,6 +30,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.registries.DeferredBlock;
+import net.tearpelato.deco_lib.api.block.furniture.FurnitureHorizontalBlock;
 import net.tier1234.better_deco.block.entity.ModBlockEntities;
 import net.tier1234.better_deco.block.entity.core.BasicLootBlockEntity;
 import net.tier1234.better_deco.block.entity.custom.FreezerBlockEntity;

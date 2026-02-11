@@ -14,6 +14,9 @@ repositories {
     maven {
         url = "https://maven.liukrast.net/"
     }
+    maven {
+        url = "https://maven.liukrast.net/tearpelato"
+    }
 
     maven {
         // location of the maven that hosts JEI files since January 2023
@@ -129,6 +132,8 @@ dependencies {
     // Example mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"
+    implementation("net.tearpelato:deco_lib-1.21.1:${deco_lib_version}")
+    jarJar("net.tearpelato:deco_lib-1.21.1:${deco_lib_version}")
     implementation("net.liukrast:connected_textures_api-${minecraft_version}:${connected_textures_api_version}")
     jarJar("net.liukrast:connected_textures_api-${minecraft_version}:[${connected_textures_api_version},)")
     implementation("net.liukrast:multipart_api-${minecraft_version}:${multipart_version}")

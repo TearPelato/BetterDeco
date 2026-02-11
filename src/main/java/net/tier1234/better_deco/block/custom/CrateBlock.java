@@ -23,6 +23,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.tearpelato.deco_lib.api.block.furniture.FurnitureHorizontalBlock;
 import net.tier1234.better_deco.block.entity.core.BasicLootBlockEntity;
 import net.tier1234.better_deco.block.entity.custom.CrateBlockEntity;
 import net.tier1234.better_deco.util.VoxelShapeHelper;

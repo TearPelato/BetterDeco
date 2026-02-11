@@ -28,6 +28,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.tearpelato.deco_lib.api.block.furniture.FurnitureHorizontalBlock;
 import net.tier1234.better_deco.Config;
 import net.tier1234.better_deco.block.entity.custom.FluidContainerBlockEntity;
 import net.tier1234.better_deco.block.entity.custom.KitchenSinkBlockEntity;
