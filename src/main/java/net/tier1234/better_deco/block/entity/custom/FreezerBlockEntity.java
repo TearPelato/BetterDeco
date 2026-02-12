@@ -23,10 +23,10 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.items.ItemStackHandler;
-import net.tier1234.better_deco.block.entity.ModBlockEntities;
+import net.tier1234.better_deco.init.ModBlockEntities;
 import net.tier1234.better_deco.recipe.FreezerRecipe;
 import net.tier1234.better_deco.recipe.FreezerRecipeInput;
-import net.tier1234.better_deco.recipe.ModRecipes;
+import net.tier1234.better_deco.init.ModRecipes;
 import net.tier1234.better_deco.screen.custom.FreezerMenu;
 
 import javax.annotation.Nullable;

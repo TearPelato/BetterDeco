@@ -5,7 +5,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
-import net.tier1234.better_deco.block.ModBlocks;
+import net.tier1234.better_deco.init.ModBlocks;
 
 import java.util.Set;
 

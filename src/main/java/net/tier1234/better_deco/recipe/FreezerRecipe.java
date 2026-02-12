@@ -14,7 +14,8 @@ import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
-import net.tier1234.better_deco.block.ModBlocks;
+import net.tier1234.better_deco.init.ModBlocks;
+import net.tier1234.better_deco.init.ModRecipes;
 
 public record FreezerRecipe(ResourceLocation id, Ingredient input, ItemStack output, int freezeTime, float experience)
         implements Recipe<FreezerRecipeInput> {

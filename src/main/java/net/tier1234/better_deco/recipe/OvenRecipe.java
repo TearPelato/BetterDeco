@@ -12,6 +12,7 @@ import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
+import net.tier1234.better_deco.init.ModRecipes;
 
 public record OvenRecipe(Ingredient inputItem, ItemStack output) implements Recipe<OvenRecipeInput> {
     // inputItem & output ==> Read From JSON File!

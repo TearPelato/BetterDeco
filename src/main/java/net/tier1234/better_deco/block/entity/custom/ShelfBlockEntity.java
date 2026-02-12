@@ -17,8 +17,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.tier1234.better_deco.block.entity.ModBlockEntities;
-import net.tier1234.better_deco.screen.ModInventory;
+import net.tier1234.better_deco.init.ModBlockEntities;
+import net.tier1234.better_deco.init.ModInventory;
 import net.tier1234.better_deco.screen.custom.ShelfMenu;
 import org.jetbrains.annotations.Nullable;
 

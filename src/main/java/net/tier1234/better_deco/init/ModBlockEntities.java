@@ -1,12 +1,10 @@
-package net.tier1234.better_deco.block.entity;
+package net.tier1234.better_deco.init;
 
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.tier1234.better_deco.BetterDeco;
-import net.tier1234.better_deco.block.ModBlocks;
 import net.tier1234.better_deco.block.entity.custom.*;
 
 import java.util.function.Supplier;

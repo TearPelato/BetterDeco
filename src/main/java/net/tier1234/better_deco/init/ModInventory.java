@@ -1,4 +1,4 @@
-package net.tier1234.better_deco.screen;
+package net.tier1234.better_deco.init;
 
 import net.neoforged.neoforge.items.ItemStackHandler;
 

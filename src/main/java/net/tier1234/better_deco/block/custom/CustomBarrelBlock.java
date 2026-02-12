@@ -25,7 +25,7 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.tier1234.better_deco.block.entity.custom.CustomBarrelBlockEntity;
-import net.tier1234.better_deco.block.entity.ModBlockEntities;
+import net.tier1234.better_deco.init.ModBlockEntities;
 
 public class CustomBarrelBlock extends BaseEntityBlock {
     public static final MapCodec<CustomBarrelBlock> CODEC = simpleCodec(CustomBarrelBlock::new);

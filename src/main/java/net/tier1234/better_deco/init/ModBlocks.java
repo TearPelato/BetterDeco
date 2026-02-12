@@ -1,4 +1,4 @@
-package net.tier1234.better_deco.block;
+package net.tier1234.better_deco.init;
 
 
 import net.minecraft.world.item.BlockItem;
@@ -12,7 +12,6 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.block.custom.*;
 import net.tier1234.better_deco.block.custom.ChainBlock;
-import net.tier1234.better_deco.item.ModItems;
 
 import java.util.function.Supplier;
 

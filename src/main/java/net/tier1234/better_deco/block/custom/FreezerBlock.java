@@ -33,7 +33,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.tearpelato.deco_lib.api.block.furniture.FurnitureHorizontalBlock;
 import net.tearpelato.deco_lib.api.block_entity.BasicLootBlockEntity;
 import net.tearpelato.deco_lib.api.shape.VoxelShapeHelper;
-import net.tier1234.better_deco.block.entity.ModBlockEntities;
+import net.tier1234.better_deco.init.ModBlockEntities;
 import net.tier1234.better_deco.block.entity.custom.FreezerBlockEntity;
 import org.jetbrains.annotations.Nullable;
 

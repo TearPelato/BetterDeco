@@ -11,11 +11,11 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
-import net.tier1234.better_deco.block.entity.ModBlockEntities;
+import net.tier1234.better_deco.init.ModBlockEntities;
 import net.tier1234.better_deco.block.entity.renderer.*;
-import net.tier1234.better_deco.entity.ModEntities;
+import net.tier1234.better_deco.init.ModEntities;
 import net.tier1234.better_deco.entity.client.ChairRenderer;
-import net.tier1234.better_deco.screen.ModMenuTypes;
+import net.tier1234.better_deco.init.ModMenuTypes;
 import net.tier1234.better_deco.screen.custom.*;
 
 @Mod(value = BetterDeco.MOD_ID, dist = Dist.CLIENT)
