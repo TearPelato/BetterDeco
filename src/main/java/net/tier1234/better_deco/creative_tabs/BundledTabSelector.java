@@ -205,7 +205,7 @@ public class BundledTabSelector {
             super(x, y, 16, 16, Component.empty(), onPress, DEFAULT_NARRATION);
             this.bundle = bundle;
             bundle.setContentTab(this);
-            this.setTooltip(Tooltip.create(bundle.tooltip));
+            this.setTooltip(Tooltip.create(bundle.getTooltip()));
         }
 
         @Override
