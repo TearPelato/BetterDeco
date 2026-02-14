@@ -26,8 +26,10 @@ public class ModCreativeTabs {
                     .title(Component.translatable("creativetab.better_deco.better_deco"))
                     .icon(() -> new ItemStack(ModBlocks.OAK_BARREL))
                     .displayItems((parameters, output) -> {
+                        var provider = parameters.holders();
                         List<BundledTabs> filters = ModBundledTabs.getFilters();
                         Collections.reverse(filters);
+                        filters.forEach(tab -> tab.populate(provider));
                         filters.stream()
                                 .flatMap(filter -> filter.getDisplayItems().stream())
                                 .forEach(output::accept);
