@@ -1,4 +1,4 @@
-package net.tier1234.better_deco.creative_tabs;
+package net.tier1234.better_deco.init;
 
 
 import net.minecraft.core.registries.Registries;
@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.tier1234.better_deco.BetterDeco;
-import net.tier1234.better_deco.block.ModBlocks;
+import net.tier1234.better_deco.creative_tabs.bundled.BundledTabs;
 
 import java.util.Collections;
 import java.util.List;

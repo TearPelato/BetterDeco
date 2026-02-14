@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.neoforged.neoforge.items.ItemStackHandler;
-import net.tier1234.better_deco.block.entity.ModBlockEntities;
+import net.tier1234.better_deco.init.ModBlockEntities;
 
 public class CabinetBlockEntity extends RandomizableContainerBlockEntity
         implements MenuProvider {

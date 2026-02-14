@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ChangeOverTimeBlock;
 import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.BlockState;
-import net.tier1234.better_deco.block.ModBlocks;
+import net.tier1234.better_deco.init.ModBlocks;
 
 import java.util.Optional;
 import java.util.function.Supplier;

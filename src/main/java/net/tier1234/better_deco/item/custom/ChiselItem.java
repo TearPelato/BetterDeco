@@ -14,7 +14,7 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.tier1234.better_deco.block.ModBlocks;
+import net.tier1234.better_deco.init.ModBlocks;
 
 import java.util.function.Supplier;
 

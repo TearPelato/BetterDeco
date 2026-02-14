@@ -9,9 +9,9 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.tier1234.better_deco.block.ModBlocks;
+import net.tier1234.better_deco.init.ModBlocks;
 import net.tier1234.better_deco.block.entity.custom.KitchenSinkBlockEntity;
-import net.tier1234.better_deco.screen.ModMenuTypes;
+import net.tier1234.better_deco.init.ModMenuTypes;
 
 public class SinkMenu extends AbstractContainerMenu {
     public final KitchenSinkBlockEntity blockEntity;

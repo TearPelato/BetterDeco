@@ -27,7 +27,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.tier1234.better_deco.block.entity.custom.MicrowaveBlockEntity;
-import net.tier1234.better_deco.block.entity.ModBlockEntities;
+import net.tier1234.better_deco.init.ModBlockEntities;
 import org.jetbrains.annotations.Nullable;
 
 public class MicrowaveBlock extends BaseEntityBlock {

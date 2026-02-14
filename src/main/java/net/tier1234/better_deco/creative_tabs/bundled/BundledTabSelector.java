@@ -1,4 +1,4 @@
-package net.tier1234.better_deco.creative_tabs;
+package net.tier1234.better_deco.creative_tabs.bundled;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.gui.GuiGraphics;
@@ -13,8 +13,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.neoforged.neoforge.client.event.ContainerScreenEvent;
 import net.neoforged.neoforge.client.event.ScreenEvent;
+import net.tier1234.better_deco.init.ModBundledTabs;
+import net.tier1234.better_deco.init.ModCreativeTabs;
 import net.tier1234.better_deco.mixin.access.CreativeModeInventoryScreenAccessor;
 import net.tier1234.better_deco.mixin.access.ScreenAccessor;
 import org.joml.Matrix3x2f;

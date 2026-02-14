@@ -1,4 +1,4 @@
-package net.tier1234.better_deco.item;
+package net.tier1234.better_deco.init;
 
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;

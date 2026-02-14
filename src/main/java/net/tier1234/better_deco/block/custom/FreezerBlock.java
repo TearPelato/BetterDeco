@@ -13,10 +13,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.EntityBlock;
@@ -31,10 +28,11 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.registries.DeferredBlock;
-import net.tier1234.better_deco.block.entity.ModBlockEntities;
-import net.tier1234.better_deco.block.entity.core.BasicLootBlockEntity;
+import net.tearpelato.deco_lib.api.block.furniture.FurnitureHorizontalBlock;
+import net.tearpelato.deco_lib.api.block_entity.BasicLootBlockEntity;
+import net.tearpelato.deco_lib.api.shape.VoxelShapeHelper;
+import net.tier1234.better_deco.init.ModBlockEntities;
 import net.tier1234.better_deco.block.entity.custom.FreezerBlockEntity;
-import net.tier1234.better_deco.util.VoxelShapeHelper;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -115,9 +113,10 @@ public class FreezerBlock extends FurnitureHorizontalBlock implements EntityBloc
     }
 
     @Override
-    public BlockState updateShape(BlockState state, Direction direction, BlockState newState, LevelAccessor level, BlockPos pos, BlockPos newPos) {
+    protected BlockState updateShape(BlockState state, LevelReader level, ScheduledTickAccess scheduledTickAccess, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, RandomSource random) {
         return null;
     }
+
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder)

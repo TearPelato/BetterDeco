@@ -9,6 +9,7 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
+import net.tier1234.better_deco.init.ModRecipes;
 
 public record OvenRecipe(Ingredient inputItem, ItemStack output) implements Recipe<OvenRecipeInput> {
     // inputItem & output ==> Read From JSON File!

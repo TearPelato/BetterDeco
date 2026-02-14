@@ -14,13 +14,14 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.core.Direction;
-import net.tier1234.better_deco.util.VoxelShapeHelper;
 
 import java.util.List;
 import java.util.ArrayList;
 
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
+import net.tearpelato.deco_lib.api.block.furniture.FurnitureHorizontalBlock;
+import net.tearpelato.deco_lib.api.shape.VoxelShapeHelper;
 
 public class KitchenCounterBlock extends FurnitureHorizontalBlock {
     public static final EnumProperty<Type> TYPE = EnumProperty.create("type", Type.class);
@@ -33,10 +34,6 @@ public class KitchenCounterBlock extends FurnitureHorizontalBlock {
         SHAPES = this.generateShapes(this.getStateDefinition().getPossibleStates());
     }
 
-    @Override
-    public BlockState updateShape(BlockState state, Direction direction, BlockState newState, LevelAccessor level, BlockPos pos, BlockPos newPos) {
-        return null;
-    }
 
     protected ImmutableMap<BlockState, VoxelShape> generateShapes(ImmutableList<BlockState> states) {
         final VoxelShape TOP = Block.box(0, 13, 0, 16, 16, 16);

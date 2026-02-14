@@ -12,8 +12,8 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
 import net.tier1234.better_deco.BetterDeco;
-import net.tier1234.better_deco.block.ModBlocks;
-import net.tier1234.better_deco.item.ModItems;
+import net.tier1234.better_deco.init.ModBlocks;
+import net.tier1234.better_deco.init.ModItems;
 import net.tier1234.better_deco.util.Constants;
 
 import java.util.List;

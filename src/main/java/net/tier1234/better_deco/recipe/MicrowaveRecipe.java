@@ -10,6 +10,7 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
+import net.tier1234.better_deco.init.ModRecipes;
 
 public record MicrowaveRecipe(Ingredient inputItem, ItemStack output) implements Recipe<MicrowaveRecipeInput> {
     // inputItem & output ==> Read From JSON File!

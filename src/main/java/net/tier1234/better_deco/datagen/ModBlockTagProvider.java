@@ -5,7 +5,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.tier1234.better_deco.BetterDeco;
-import net.tier1234.better_deco.block.ModBlocks;
+import net.tier1234.better_deco.init.ModBlocks;
 
 import java.util.concurrent.CompletableFuture;
 

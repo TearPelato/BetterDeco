@@ -5,7 +5,6 @@ import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
@@ -14,10 +13,10 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.tier1234.better_deco.util.VoxelShapeHelper;
+import net.tearpelato.deco_lib.api.block.furniture.FurnitureHorizontalBlock;
+import net.tearpelato.deco_lib.api.shape.VoxelShapeHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,10 +41,6 @@ public class DinningTableBlock extends FurnitureHorizontalBlock
         SHAPES = this.generateShapes(this.getStateDefinition().getPossibleStates());
     }
 
-    @Override
-    public BlockState updateShape(BlockState state, Direction direction, BlockState newState, LevelAccessor level, BlockPos pos, BlockPos newPos) {
-        return null;
-    }
 
     protected ImmutableMap<BlockState, VoxelShape> generateShapes(ImmutableList<BlockState> states)
     {

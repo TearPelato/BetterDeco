@@ -6,7 +6,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
 import net.neoforged.neoforge.client.event.ScreenEvent;
 import net.tier1234.better_deco.BetterDeco;
-import net.tier1234.better_deco.creative_tabs.BundledTabSelector;
+import net.tier1234.better_deco.creative_tabs.bundled.BundledTabSelector;
 
 @EventBusSubscriber(modid = BetterDeco.MOD_ID, value =  Dist.CLIENT)
 public class ModClientEvents {
