@@ -12,13 +12,7 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import net.tier1234.better_deco.init.ModBlocks;
-import net.tier1234.better_deco.init.ModBlockEntities;
-import net.tier1234.better_deco.init.ModEntities;
-import net.tier1234.better_deco.init.ModItems;
-import net.tier1234.better_deco.init.ModCreativeTabs;
-import net.tier1234.better_deco.init.ModRecipes;
-import net.tier1234.better_deco.init.ModMenuTypes;
+import net.tier1234.better_deco.init.*;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file

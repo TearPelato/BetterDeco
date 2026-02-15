@@ -8,6 +8,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.recipe.FreezerRecipe;
+import net.tier1234.better_deco.recipe.FurniCraftingRecipe;
 import net.tier1234.better_deco.recipe.MicrowaveRecipe;
 import net.tier1234.better_deco.recipe.OvenRecipe;
 
@@ -46,6 +47,16 @@ public class ModRecipes {
                 @Override
                 public String toString() {
                     return "freezer";
+                }
+            } );
+
+    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<FurniCraftingRecipe>> WORKBENCH_SERIALIZER =
+            SERIALIZERS.register("workbench", FurniCraftingRecipe.Serializer::new);
+    public static final DeferredHolder<RecipeType<?>, RecipeType<FurniCraftingRecipe>> WORKBENCH_TYPE =
+            TYPES.register("workbench", ()-> new RecipeType<FurniCraftingRecipe>() {
+                @Override
+                public String toString() {
+                    return "workbench";
                 }
             } );
 

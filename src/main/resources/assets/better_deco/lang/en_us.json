@@ -736,6 +736,7 @@
   "tooltip.better_deco.screen.properties": "§7Properties:",
   "tooltip.better_deco.screen.sink_property": "This Block is Fully Customizable. Can be filled with all fluids ",
 
-
+  "container.better_deco.workbench": "Furniture Workbench",
+  "gui.better_deco.hold_shift_for_details": "Holde SHIFT for Details",
   "block.better_deco.limestone": "Limestone"
 }

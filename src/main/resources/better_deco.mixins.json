@@ -8,7 +8,8 @@
   ],
   "client": [
     "access.CreativeModeInventoryScreenAccessor",
-    "access.ScreenAccessor"
+    "access.ScreenAccessor",
+    "GuiGraphicsInvoker"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -138,6 +138,7 @@ public class ModBundledTabs {
                     .title(Component.translatable("bundled_tab.furniture.title"))
                     .icon(new ItemStack(ModBlocks.OAK_CHAIR.get()))
                     .displayItems((provider, output) -> {
+                        output.accept(ModBlocks.FURNI_WORKBENCH);
                         output.accept(ModBlocks.OAK_KITCHEN_COUNTER);
                         output.accept(ModBlocks.SPRUCE_KITCHEN_COUNTER);
                         output.accept(ModBlocks.BIRCH_KITCHEN_COUNTER);

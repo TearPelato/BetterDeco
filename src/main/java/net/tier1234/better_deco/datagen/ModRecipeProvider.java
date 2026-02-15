@@ -6,15 +6,21 @@ import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.item.crafting.AbstractCookingRecipe;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 import net.tier1234.better_deco.BetterDeco;
+import net.tier1234.better_deco.datagen.custom.FurniWorkbenchRecipeBuilder;
+import net.tier1234.better_deco.datagen.custom.Material;
 import net.tier1234.better_deco.init.ModBlocks;
 import net.tier1234.better_deco.init.ModItems;
 import net.tier1234.better_deco.util.Constants;
+import net.tier1234.better_deco.util.Utils;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -5635,10 +5641,20 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("black_dye", has(Items.BLACK_DYE))
                 .save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.FURNI_WORKBENCH.get())
+                .pattern("PPP")
+                .pattern("ICI")
+                .pattern("I I")
+                .define('P', Blocks.OAK_PLANKS)
+                .define('I', Tags.Items.INGOTS_IRON)
+                .define('C', Blocks.CRAFTING_TABLE)
+                .unlockedBy("has_crafting_table", has(Blocks.CRAFTING_TABLE))
+                .save(recipeOutput);
 
-
-
-
+          /*  workbenchBuild(recipeOutput, "oak_chair")
+                    .requires(Items.OAK_PLANKS, 4)
+                    .requires(Items.STICK, 2)
+                    .save(recipeOutput);*/
 
 
 
@@ -5689,6 +5705,20 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
 
     }
+
+
+  /* private FurniWorkbenchRecipeBuilder workbenchBuild(RecipeOutput output, String name) {
+            return FurniWorkbenchRecipeBuilder.workbench(ModBlocks.get(name))
+                    .unlockedBy("has_furni_workbench", has(ModBlocks.FURNI_WORKBENCH.get()));
+        }
+
+        /**
+         * Helper method with custom result item and count
+
+        private FurniWorkbenchRecipeBuilder workbenchBuild(RecipeOutput output, String name, int count) {
+            return FurniWorkbenchRecipeBuilder.workbench(ModBlocks.get(name), count)
+                    .unlockedBy("has_furni_workbench", has(ModBlocks.FURNI_WORKBENCH.get()));
+        }*/
     protected static void netheriteSmithing(RecipeOutput recipeOutput, Item ingredientItem, RecipeCategory category, Item resultItem) {
         SmithingTransformRecipeBuilder.smithing(
                         Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE), Ingredient.of(ingredientItem), Ingredient.of(Items.NETHERITE_INGOT), category, resultItem

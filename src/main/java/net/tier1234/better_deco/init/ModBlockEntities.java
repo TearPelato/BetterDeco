@@ -405,7 +405,11 @@ public class ModBlockEntities {
                     ModBlocks.FRIDGE_DARK.get()
             ).build(null));
 
-
+    public static final Supplier<BlockEntityType<FurniWorkbenchBlockEntity>> FURNI_WORKBENCH =
+            BLOCK_ENTITIES.register("workbench", ()-> BlockEntityType.Builder.of(
+                    FurniWorkbenchBlockEntity::new,
+                    ModBlocks.FURNI_WORKBENCH.get()
+            ).build(null));
 
 
 

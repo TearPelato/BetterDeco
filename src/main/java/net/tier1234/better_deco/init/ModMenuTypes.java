@@ -39,6 +39,8 @@ public class ModMenuTypes {
 
     public static final DeferredHolder<MenuType<?>, MenuType<FreezerMenu>> FREEZER_MENU =
             registerMenuType("freezer_menu", FreezerMenu::new);
+    public static final DeferredHolder<MenuType<?>, MenuType<FurniWorkbenchMenu>> FURNI_WORKBENCH =
+            registerMenuType("workbench", FurniWorkbenchMenu::new);
 
 
 

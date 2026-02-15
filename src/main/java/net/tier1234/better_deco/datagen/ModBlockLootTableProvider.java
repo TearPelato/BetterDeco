@@ -737,6 +737,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.STONE_PATH.get());
         dropSelf(ModBlocks.CHOPPING_BOARD.get());
 
+        dropSelf(ModBlocks.FURNI_WORKBENCH.get());
+
 
     }
 

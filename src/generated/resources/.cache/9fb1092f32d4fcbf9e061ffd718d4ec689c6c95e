@@ -1,4 +1,4 @@
-// 1.21.1	2025-11-02T14:30:40.2398523	Recipes
+// 1.21.1	2026-02-15T15:52:21.7594555	Recipes
 fcd3ba1341ea94eb7603d28a2f3ac1a458074bb1 data/better_deco/advancement/recipes/decorations/acacia_bedside.json
 ad92318f6344a8124934084484b01b2978c0c616 data/better_deco/advancement/recipes/decorations/acacia_cabinet.json
 6c4951b1f094abef825290001dd54cf49e129392 data/better_deco/advancement/recipes/decorations/acacia_coffee_table.json
@@ -124,6 +124,7 @@ ed8ee38ed42866334ae8a3486f920e4b01e5ae98 data/better_deco/advancement/recipes/de
 7ac3e54d02f1b022bd22aefa6b51fd5f348419bf data/better_deco/advancement/recipes/decorations/diorite_pedestal.json
 39d4013c20b305cfd68136c7120bf04ece9144fd data/better_deco/advancement/recipes/decorations/fridge_dark.json
 aca2ce6b7df3fd89e4599a46d2d9d8d3c5d8781d data/better_deco/advancement/recipes/decorations/fridge_light.json
+e113892f909586f4c1ff32b6bb0e7cfc8efe43f9 data/better_deco/advancement/recipes/decorations/furni_workbench.json
 b773ffa77e6907577560420d21675e4ddbe631cf data/better_deco/advancement/recipes/decorations/granite_cabinet.json
 5290ac9813f0e11eccbb3296a79a4ff7c7891c4e data/better_deco/advancement/recipes/decorations/granite_kitchen_counter.json
 fe3180cd3e2cd8105d7c9e2fcc7af9d4856b7999 data/better_deco/advancement/recipes/decorations/granite_kitchen_drawer.json
@@ -709,6 +710,7 @@ afdd8837c167b4ac671ca10ab6d48293d1974431 data/better_deco/recipe/deepslate_tile_
 96b8f26a8d3b1eb4f1b530eb05ff68e4d55ba30d data/better_deco/recipe/diorite_pedestal.json
 801d7430a050650c38b180a9d1278933bae79f80 data/better_deco/recipe/fridge_dark.json
 f5d47a0d8ed210fe282f008df448f25c1c06514b data/better_deco/recipe/fridge_light.json
+b256413f4e5ff35dd001da75460b2c6bef294f90 data/better_deco/recipe/furni_workbench.json
 99be414afe5ab242a4d23f33fff7e9009eabac95 data/better_deco/recipe/gold_chisel.json
 672002988f8ba6911aab4fa7a60d16aa6e4c965b data/better_deco/recipe/granite_array_bricks.json
 52e620fbafa6d3b588c99ed483043f2059961366 data/better_deco/recipe/granite_bricks.json

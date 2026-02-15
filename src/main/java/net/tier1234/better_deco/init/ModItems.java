@@ -22,10 +22,6 @@ public class ModItems {
             () -> new ChiselItem(new Item.Properties().durability(2031)));
 
 
-
-
-
-
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

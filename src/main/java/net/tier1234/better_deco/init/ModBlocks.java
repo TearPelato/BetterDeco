@@ -25,6 +25,9 @@ public class ModBlocks {
 
     //Test
 
+    public static final DeferredBlock<Block> FURNI_WORKBENCH = registerBlock("furni_workbench",
+            ()-> new FurniWorkbench(BlockBehaviour.Properties.of().strength(2.7f)));
+
     public static final DeferredBlock<Block> CHOPPING_BOARD = registerBlock("chopping_board",
             ()-> new ChoppingBoardBlock(BlockBehaviour.Properties.of().strength(2.5f)));
 
