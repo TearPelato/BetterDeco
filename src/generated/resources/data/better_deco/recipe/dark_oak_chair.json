@@ -1,21 +1,21 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "misc",
-  "key": {
-    "#": {
-      "item": "minecraft:dark_oak_planks"
+  "type": "better_deco:workbench",
+  "materials": [
+    {
+      "count": 2,
+      "item": {
+        "item": "minecraft:stick"
+      }
     },
-    "B": {
-      "item": "minecraft:stick"
+    {
+      "count": 4,
+      "item": {
+        "item": "minecraft:dark_oak_planks"
+      }
     }
-  },
-  "pattern": [
-    "#  ",
-    "###",
-    "B B"
   ],
   "result": {
-    "count": 1,
+    "count": 4,
     "id": "better_deco:dark_oak_chair"
   }
 }

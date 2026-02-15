@@ -1,21 +1,21 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "misc",
-  "key": {
-    "B": {
-      "item": "minecraft:crimson_stem"
+  "type": "better_deco:workbench",
+  "materials": [
+    {
+      "count": 1,
+      "item": {
+        "item": "minecraft:crimson_stem"
+      }
     },
-    "X": {
-      "item": "minecraft:stripped_crimson_stem"
+    {
+      "count": 2,
+      "item": {
+        "item": "minecraft:crimson_planks"
+      }
     }
-  },
-  "pattern": [
-    "   ",
-    "BBB",
-    "X X"
   ],
   "result": {
-    "count": 1,
+    "count": 3,
     "id": "better_deco:crimson_coffee_table"
   }
 }

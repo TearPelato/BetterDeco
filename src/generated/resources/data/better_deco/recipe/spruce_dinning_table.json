@@ -1,21 +1,21 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "misc",
-  "key": {
-    "B": {
-      "item": "minecraft:spruce_log"
+  "type": "better_deco:workbench",
+  "materials": [
+    {
+      "count": 2,
+      "item": {
+        "item": "minecraft:spruce_log"
+      }
     },
-    "X": {
-      "item": "minecraft:stripped_spruce_log"
+    {
+      "count": 3,
+      "item": {
+        "item": "minecraft:spruce_planks"
+      }
     }
-  },
-  "pattern": [
-    "BBB",
-    "X X",
-    "X X"
   ],
   "result": {
-    "count": 1,
+    "count": 2,
     "id": "better_deco:spruce_dinning_table"
   }
 }

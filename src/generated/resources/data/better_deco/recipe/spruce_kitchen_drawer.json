@@ -1,24 +1,27 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "misc",
-  "key": {
-    "#": {
-      "item": "minecraft:spruce_log"
+  "type": "better_deco:workbench",
+  "materials": [
+    {
+      "count": 2,
+      "item": {
+        "item": "minecraft:spruce_log"
+      }
     },
-    "B": {
-      "item": "minecraft:spruce_planks"
+    {
+      "count": 6,
+      "item": {
+        "item": "minecraft:spruce_planks"
+      }
     },
-    "X": {
-      "item": "minecraft:chest"
+    {
+      "count": 1,
+      "item": {
+        "item": "minecraft:chest"
+      }
     }
-  },
-  "pattern": [
-    "###",
-    "BXB",
-    "BBB"
   ],
   "result": {
-    "count": 1,
+    "count": 2,
     "id": "better_deco:spruce_kitchen_drawer"
   }
 }

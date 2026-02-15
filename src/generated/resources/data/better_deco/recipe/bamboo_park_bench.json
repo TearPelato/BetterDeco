@@ -1,19 +1,18 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "misc",
-  "group": "park_bench",
-  "key": {
-    "L": {
-      "item": "minecraft:bamboo_block"
+  "type": "better_deco:workbench",
+  "materials": [
+    {
+      "count": 5,
+      "item": {
+        "item": "minecraft:bamboo_planks"
+      }
     },
-    "P": {
-      "item": "minecraft:bamboo_planks"
+    {
+      "count": 4,
+      "item": {
+        "item": "minecraft:bamboo_block"
+      }
     }
-  },
-  "pattern": [
-    "PPP",
-    "PPP",
-    "L L"
   ],
   "result": {
     "count": 4,

@@ -1,21 +1,24 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "misc",
-  "key": {
-    "#": {
-      "item": "minecraft:birch_log"
+  "type": "better_deco:workbench",
+  "materials": [
+    {
+      "count": 1,
+      "item": {
+        "item": "minecraft:smoker"
+      }
     },
-    "B": {
-      "item": "minecraft:birch_planks"
+    {
+      "count": 5,
+      "item": {
+        "item": "minecraft:birch_planks"
+      }
     },
-    "X": {
-      "item": "minecraft:smoker"
+    {
+      "count": 2,
+      "item": {
+        "item": "minecraft:birch_log"
+      }
     }
-  },
-  "pattern": [
-    "###",
-    "BXB",
-    "BBB"
   ],
   "result": {
     "count": 1,

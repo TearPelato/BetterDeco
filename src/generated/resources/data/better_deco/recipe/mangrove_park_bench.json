@@ -1,19 +1,18 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "misc",
-  "group": "park_bench",
-  "key": {
-    "L": {
-      "item": "minecraft:mangrove_log"
+  "type": "better_deco:workbench",
+  "materials": [
+    {
+      "count": 5,
+      "item": {
+        "item": "minecraft:mangrove_planks"
+      }
     },
-    "P": {
-      "item": "minecraft:mangrove_planks"
+    {
+      "count": 4,
+      "item": {
+        "item": "minecraft:mangrove_log"
+      }
     }
-  },
-  "pattern": [
-    "PPP",
-    "PPP",
-    "L L"
   ],
   "result": {
     "count": 4,

@@ -1,21 +1,21 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "misc",
-  "key": {
-    "B": {
-      "item": "minecraft:bamboo_block"
+  "type": "better_deco:workbench",
+  "materials": [
+    {
+      "count": 2,
+      "item": {
+        "item": "minecraft:bamboo_block"
+      }
     },
-    "X": {
-      "item": "minecraft:stripped_bamboo_block"
+    {
+      "count": 4,
+      "item": {
+        "item": "minecraft:bamboo_planks"
+      }
     }
-  },
-  "pattern": [
-    "BBB",
-    " X ",
-    " X "
   ],
   "result": {
-    "count": 1,
+    "count": 4,
     "id": "better_deco:bamboo_table"
   }
 }

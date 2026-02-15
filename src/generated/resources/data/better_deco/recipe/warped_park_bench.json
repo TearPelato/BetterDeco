@@ -1,19 +1,18 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "misc",
-  "group": "park_bench",
-  "key": {
-    "L": {
-      "item": "minecraft:warped_stem"
+  "type": "better_deco:workbench",
+  "materials": [
+    {
+      "count": 5,
+      "item": {
+        "item": "minecraft:warped_planks"
+      }
     },
-    "P": {
-      "item": "minecraft:warped_planks"
+    {
+      "count": 4,
+      "item": {
+        "item": "minecraft:warped_stem"
+      }
     }
-  },
-  "pattern": [
-    "PPP",
-    "PPP",
-    "L L"
   ],
   "result": {
     "count": 4,

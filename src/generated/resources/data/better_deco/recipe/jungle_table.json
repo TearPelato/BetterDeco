@@ -1,21 +1,21 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "misc",
-  "key": {
-    "B": {
-      "item": "minecraft:jungle_log"
+  "type": "better_deco:workbench",
+  "materials": [
+    {
+      "count": 2,
+      "item": {
+        "item": "minecraft:jungle_log"
+      }
     },
-    "X": {
-      "item": "minecraft:stripped_jungle_log"
+    {
+      "count": 4,
+      "item": {
+        "item": "minecraft:jungle_planks"
+      }
     }
-  },
-  "pattern": [
-    "BBB",
-    " X ",
-    " X "
   ],
   "result": {
-    "count": 1,
+    "count": 4,
     "id": "better_deco:jungle_table"
   }
 }

@@ -1,24 +1,27 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "misc",
-  "key": {
-    "#": {
-      "item": "minecraft:dark_oak_log"
+  "type": "better_deco:workbench",
+  "materials": [
+    {
+      "count": 2,
+      "item": {
+        "item": "minecraft:dark_oak_log"
+      }
     },
-    "B": {
-      "item": "minecraft:dark_oak_planks"
+    {
+      "count": 6,
+      "item": {
+        "item": "minecraft:dark_oak_planks"
+      }
     },
-    "X": {
-      "item": "minecraft:chest"
+    {
+      "count": 1,
+      "item": {
+        "item": "minecraft:chest"
+      }
     }
-  },
-  "pattern": [
-    "###",
-    "BXB",
-    "BBB"
   ],
   "result": {
-    "count": 1,
+    "count": 2,
     "id": "better_deco:dark_oak_kitchen_drawer"
   }
 }

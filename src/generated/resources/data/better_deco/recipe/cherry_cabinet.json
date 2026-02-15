@@ -1,21 +1,24 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "misc",
-  "key": {
-    "#": {
-      "item": "minecraft:cherry_planks"
+  "type": "better_deco:workbench",
+  "materials": [
+    {
+      "count": 2,
+      "item": {
+        "item": "minecraft:cherry_log"
+      }
     },
-    "B": {
-      "item": "minecraft:cherry_log"
+    {
+      "count": 3,
+      "item": {
+        "item": "minecraft:cherry_planks"
+      }
     },
-    "X": {
-      "item": "minecraft:chest"
+    {
+      "count": 1,
+      "item": {
+        "item": "minecraft:chest"
+      }
     }
-  },
-  "pattern": [
-    "#BB",
-    "#XB",
-    "#BB"
   ],
   "result": {
     "count": 1,

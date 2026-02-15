@@ -1,19 +1,18 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "misc",
-  "group": "park_bench",
-  "key": {
-    "L": {
-      "item": "minecraft:jungle_log"
+  "type": "better_deco:workbench",
+  "materials": [
+    {
+      "count": 5,
+      "item": {
+        "item": "minecraft:jungle_planks"
+      }
     },
-    "P": {
-      "item": "minecraft:jungle_planks"
+    {
+      "count": 4,
+      "item": {
+        "item": "minecraft:jungle_log"
+      }
     }
-  },
-  "pattern": [
-    "PPP",
-    "PPP",
-    "L L"
   ],
   "result": {
     "count": 4,

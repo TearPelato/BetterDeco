@@ -1,24 +1,27 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "misc",
-  "key": {
-    "#": {
-      "item": "minecraft:acacia_planks"
+  "type": "better_deco:workbench",
+  "materials": [
+    {
+      "count": 2,
+      "item": {
+        "item": "minecraft:acacia_log"
+      }
     },
-    "B": {
-      "item": "minecraft:acacia_log"
+    {
+      "count": 5,
+      "item": {
+        "item": "minecraft:acacia_planks"
+      }
     },
-    "X": {
-      "item": "minecraft:chest"
+    {
+      "count": 1,
+      "item": {
+        "item": "minecraft:chest"
+      }
     }
-  },
-  "pattern": [
-    "BBB",
-    "#X#",
-    "BBB"
   ],
   "result": {
-    "count": 1,
+    "count": 2,
     "id": "better_deco:acacia_bedside"
   }
 }

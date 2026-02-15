@@ -1,21 +1,21 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "misc",
-  "key": {
-    "B": {
-      "item": "minecraft:warped_stem"
+  "type": "better_deco:workbench",
+  "materials": [
+    {
+      "count": 1,
+      "item": {
+        "item": "minecraft:warped_stem"
+      }
     },
-    "X": {
-      "item": "minecraft:stripped_warped_stem"
+    {
+      "count": 2,
+      "item": {
+        "item": "minecraft:warped_planks"
+      }
     }
-  },
-  "pattern": [
-    "   ",
-    "BBB",
-    "X X"
   ],
   "result": {
-    "count": 1,
+    "count": 3,
     "id": "better_deco:warped_coffee_table"
   }
 }

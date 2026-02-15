@@ -1,21 +1,21 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "misc",
-  "key": {
-    "#": {
-      "item": "minecraft:acacia_log"
+  "type": "better_deco:workbench",
+  "materials": [
+    {
+      "count": 2,
+      "item": {
+        "item": "minecraft:acacia_log"
+      }
     },
-    "B": {
-      "item": "minecraft:acacia_planks"
+    {
+      "count": 6,
+      "item": {
+        "item": "minecraft:acacia_planks"
+      }
     }
-  },
-  "pattern": [
-    "###",
-    "B B",
-    "BBB"
   ],
   "result": {
-    "count": 1,
+    "count": 2,
     "id": "better_deco:acacia_kitchen_counter"
   }
 }

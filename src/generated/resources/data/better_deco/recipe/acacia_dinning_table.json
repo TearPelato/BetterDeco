@@ -1,21 +1,21 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "misc",
-  "key": {
-    "B": {
-      "item": "minecraft:acacia_log"
+  "type": "better_deco:workbench",
+  "materials": [
+    {
+      "count": 2,
+      "item": {
+        "item": "minecraft:acacia_log"
+      }
     },
-    "X": {
-      "item": "minecraft:stripped_acacia_log"
+    {
+      "count": 3,
+      "item": {
+        "item": "minecraft:acacia_planks"
+      }
     }
-  },
-  "pattern": [
-    "BBB",
-    "X X",
-    "X X"
   ],
   "result": {
-    "count": 1,
+    "count": 2,
     "id": "better_deco:acacia_dinning_table"
   }
 }
