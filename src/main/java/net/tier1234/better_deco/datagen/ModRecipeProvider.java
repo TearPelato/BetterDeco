@@ -290,7 +290,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
 
         //CUSTOM WORKBENCH RECIPE
-
+//OAK
         FurniCraftingRecipeBuilder.crafting(ModBlocks.OAK_TABLE.get(), 4)
                 .requires(Blocks.OAK_LOG,2)
                 .requires(Blocks.OAK_PLANKS, 4)
@@ -380,85 +380,85 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         FurniCraftingRecipeBuilder.crafting(ModBlocks.DARK_OAK_TABLE.get(), 4)
                 .requires(Blocks.DARK_OAK_LOG,2)
                 .requires(Blocks.DARK_OAK_PLANKS, 4)
-                .unlockedBy("has_dark_oak_planks", has(Items.DARK_OAK_PLANKS))
+                .unlockedBy("has_dark_oak", has(Items.DARK_OAK_PLANKS))
                 .save(recipeOutput);
 
         FurniCraftingRecipeBuilder.crafting(ModBlocks.DARK_OAK_CHAIR.get(), 4)
                 .requires(Items.STICK,2)
                 .requires(Blocks.DARK_OAK_PLANKS, 4)
-                .unlockedBy("has_dark_oak_planks", has(Items.DARK_OAK_PLANKS))
+                .unlockedBy("has_dark_oak", has(Items.DARK_OAK_PLANKS))
                 .save(recipeOutput);
 
         FurniCraftingRecipeBuilder.crafting(ModBlocks.DARK_OAK_KITCHEN_COUNTER.get(), 2)
                 .requires(Items.DARK_OAK_LOG,2)
                 .requires(Items.DARK_OAK_PLANKS, 6)
-                .unlockedBy("has_dark_oak_planks", has(Items.DARK_OAK_PLANKS))
+                .unlockedBy("has_dark_oak", has(Items.DARK_OAK_PLANKS))
                 .save(recipeOutput);
 
         FurniCraftingRecipeBuilder.crafting(ModBlocks.DARK_OAK_KITCHEN_DRAWER.get(), 2)
                 .requires(Items.DARK_OAK_LOG,2)
                 .requires(Items.DARK_OAK_PLANKS, 6)
                 .requires(Items.CHEST, 1)
-                .unlockedBy("has_dark_oak_planks", has(Items.DARK_OAK_PLANKS))
+                .unlockedBy("has_dark_oak", has(Items.DARK_OAK_PLANKS))
                 .save(recipeOutput);
 
         FurniCraftingRecipeBuilder.crafting(ModBlocks.DARK_OAK_CABINET.get(), 1)
                 .requires(Items.DARK_OAK_LOG,2)
                 .requires(Items.DARK_OAK_PLANKS, 3)
                 .requires(Items.CHEST, 1)
-                .unlockedBy("has_dark_oak_planks", has(Items.DARK_OAK_PLANKS))
+                .unlockedBy("has_dark_oak", has(Items.DARK_OAK_PLANKS))
                 .save(recipeOutput);
 
         FurniCraftingRecipeBuilder.crafting(ModBlocks.DARK_OAK_COFFEE_TABLE.get(), 3)
                 .requires(Items.DARK_OAK_LOG,1)
                 .requires(Items.DARK_OAK_PLANKS, 2)
-                .unlockedBy("has_dark_oak_planks", has(Items.DARK_OAK_PLANKS))
+                .unlockedBy("has_dark_oak", has(Items.DARK_OAK_PLANKS))
                 .save(recipeOutput);
 
         FurniCraftingRecipeBuilder.crafting(ModBlocks.DARK_OAK_DINNING_TABLE.get(), 2)
                 .requires(Items.DARK_OAK_LOG,2)
                 .requires(Items.DARK_OAK_PLANKS, 3)
-                .unlockedBy("has_dark_oak_planks", has(Items.DARK_OAK_PLANKS))
+                .unlockedBy("has_dark_oak", has(Items.DARK_OAK_PLANKS))
                 .save(recipeOutput);
 
         FurniCraftingRecipeBuilder.crafting(ModBlocks.DARK_OAK_CRATE.get(), 1)
                 .requires(Items.CHEST,1)
                 .requires(Items.DARK_OAK_PLANKS, 6)
-                .unlockedBy("has_dark_oak_planks", has(Items.DARK_OAK_PLANKS))
+                .unlockedBy("has_dark_oak", has(Items.DARK_OAK_PLANKS))
                 .save(recipeOutput);
 
         FurniCraftingRecipeBuilder.crafting(ModBlocks.DARK_OAK_BEDSIDE.get(), 2)
                 .requires(Items.DARK_OAK_LOG,2)
                 .requires(Items.DARK_OAK_PLANKS, 5)
                 .requires(Items.CHEST, 1)
-                .unlockedBy("has_dark_oak_planks", has(Items.DARK_OAK_PLANKS))
+                .unlockedBy("has_dark_oak", has(Items.DARK_OAK_PLANKS))
                 .save(recipeOutput);
 
         FurniCraftingRecipeBuilder.crafting(ModBlocks.DARK_OAK_SINK.get(), 2)
                 .requires(Items.BUCKET,1)
                 .requires(Items.DARK_OAK_PLANKS, 3)
                 .requires(Items.WHITE_CONCRETE, 2)
-                .unlockedBy("has_dark_oak_planks", has(Items.DARK_OAK_PLANKS))
+                .unlockedBy("has_dark_oak", has(Items.DARK_OAK_PLANKS))
                 .save(recipeOutput);
 
         FurniCraftingRecipeBuilder.crafting(ModBlocks.DARK_OAK_SINK_DARK.get(), 2)
                 .requires(Items.BUCKET,1)
                 .requires(Items.DARK_OAK_PLANKS, 3)
                 .requires(Items.GRAY_CONCRETE, 2)
-                .unlockedBy("has_dark_oak_planks", has(Items.DARK_OAK_PLANKS))
+                .unlockedBy("has_dark_oak", has(Items.DARK_OAK_PLANKS))
                 .save(recipeOutput);
 
         FurniCraftingRecipeBuilder.crafting(ModBlocks.DARK_OAK_OVEN.get(), 1)
                 .requires(Items.SMOKER,1)
                 .requires(Items.DARK_OAK_PLANKS, 5)
                 .requires(Items.DARK_OAK_LOG, 2)
-                .unlockedBy("has_dark_oak_planks", has(Items.DARK_OAK_PLANKS))
+                .unlockedBy("has_dark_oak", has(Items.DARK_OAK_PLANKS))
                 .save(recipeOutput);
 
         FurniCraftingRecipeBuilder.crafting(ModBlocks.DARK_OAK_PARK_BENCH.get(), 4)
                 .requires(Items.DARK_OAK_PLANKS,5)
                 .requires(Items.DARK_OAK_LOG,4)
-                .unlockedBy("has_dark_oak_planks", has(Items.DARK_OAK_PLANKS))
+                .unlockedBy("has_dark_oak", has(Items.DARK_OAK_PLANKS))
                 .save(recipeOutput);
 
         // SPRUCE
@@ -977,85 +977,85 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         FurniCraftingRecipeBuilder.crafting(ModBlocks.BAMBOO_TABLE.get(), 4)
                 .requires(Blocks.BAMBOO_BLOCK,2)
                 .requires(Blocks.BAMBOO_PLANKS, 4)
-                .unlockedBy("has_bamboo_planks", has(Items.BAMBOO_PLANKS))
+                .unlockedBy("has_bamboo_block", has(Items.BAMBOO_PLANKS))
                 .save(recipeOutput);
 
         FurniCraftingRecipeBuilder.crafting(ModBlocks.BAMBOO_CHAIR.get(), 4)
                 .requires(Items.STICK,2)
                 .requires(Blocks.BAMBOO_PLANKS, 4)
-                .unlockedBy("has_bamboo_planks", has(Items.BAMBOO_PLANKS))
+                .unlockedBy("has_bamboo_block", has(Items.BAMBOO_PLANKS))
                 .save(recipeOutput);
 
         FurniCraftingRecipeBuilder.crafting(ModBlocks.BAMBOO_KITCHEN_COUNTER.get(), 2)
                 .requires(Items.BAMBOO_BLOCK,2)
                 .requires(Items.BAMBOO_PLANKS, 6)
-                .unlockedBy("has_bamboo_planks", has(Items.BAMBOO_PLANKS))
+                .unlockedBy("has_bamboo_block", has(Items.BAMBOO_PLANKS))
                 .save(recipeOutput);
 
         FurniCraftingRecipeBuilder.crafting(ModBlocks.BAMBOO_KITCHEN_DRAWER.get(), 2)
                 .requires(Items.BAMBOO_BLOCK,2)
                 .requires(Items.BAMBOO_PLANKS, 6)
                 .requires(Items.CHEST, 1)
-                .unlockedBy("has_bamboo_planks", has(Items.BAMBOO_PLANKS))
+                .unlockedBy("has_bamboo_block", has(Items.BAMBOO_PLANKS))
                 .save(recipeOutput);
 
         FurniCraftingRecipeBuilder.crafting(ModBlocks.BAMBOO_CABINET.get(), 1)
                 .requires(Items.BAMBOO_BLOCK,2)
                 .requires(Items.BAMBOO_PLANKS, 3)
                 .requires(Items.CHEST, 1)
-                .unlockedBy("has_bamboo_planks", has(Items.BAMBOO_PLANKS))
+                .unlockedBy("has_bamboo_block", has(Items.BAMBOO_PLANKS))
                 .save(recipeOutput);
 
         FurniCraftingRecipeBuilder.crafting(ModBlocks.BAMBOO_COFFEE_TABLE.get(), 3)
                 .requires(Items.BAMBOO_BLOCK,1)
                 .requires(Items.BAMBOO_PLANKS, 2)
-                .unlockedBy("has_bamboo_planks", has(Items.BAMBOO_PLANKS))
+                .unlockedBy("has_bamboo_block", has(Items.BAMBOO_PLANKS))
                 .save(recipeOutput);
 
         FurniCraftingRecipeBuilder.crafting(ModBlocks.BAMBOO_DINNING_TABLE.get(), 2)
                 .requires(Items.BAMBOO_BLOCK,2)
                 .requires(Items.BAMBOO_PLANKS, 3)
-                .unlockedBy("has_bamboo_planks", has(Items.BAMBOO_PLANKS))
+                .unlockedBy("has_bamboo_block", has(Items.BAMBOO_PLANKS))
                 .save(recipeOutput);
 
         FurniCraftingRecipeBuilder.crafting(ModBlocks.BAMBOO_CRATE.get(), 1)
                 .requires(Items.CHEST,1)
                 .requires(Items.BAMBOO_PLANKS, 6)
-                .unlockedBy("has_bamboo_planks", has(Items.BAMBOO_PLANKS))
+                .unlockedBy("has_bamboo_block", has(Items.BAMBOO_PLANKS))
                 .save(recipeOutput);
 
         FurniCraftingRecipeBuilder.crafting(ModBlocks.BAMBOO_BEDSIDE.get(), 2)
                 .requires(Items.BAMBOO_BLOCK,2)
                 .requires(Items.BAMBOO_PLANKS, 5)
                 .requires(Items.CHEST, 1)
-                .unlockedBy("has_bamboo_planks", has(Items.BAMBOO_PLANKS))
+                .unlockedBy("has_bamboo_block", has(Items.BAMBOO_PLANKS))
                 .save(recipeOutput);
 
         FurniCraftingRecipeBuilder.crafting(ModBlocks.BAMBOO_SINK.get(), 2)
                 .requires(Items.BUCKET,1)
                 .requires(Items.BAMBOO_PLANKS, 3)
                 .requires(Items.WHITE_CONCRETE, 2)
-                .unlockedBy("has_bamboo_planks", has(Items.BAMBOO_PLANKS))
+                .unlockedBy("has_bamboo_block", has(Items.BAMBOO_PLANKS))
                 .save(recipeOutput);
 
         FurniCraftingRecipeBuilder.crafting(ModBlocks.BAMBOO_SINK_DARK.get(), 2)
                 .requires(Items.BUCKET,1)
                 .requires(Items.BAMBOO_PLANKS, 3)
                 .requires(Items.GRAY_CONCRETE, 2)
-                .unlockedBy("has_bamboo_planks", has(Items.BAMBOO_PLANKS))
+                .unlockedBy("has_bamboo_block", has(Items.BAMBOO_PLANKS))
                 .save(recipeOutput);
 
         FurniCraftingRecipeBuilder.crafting(ModBlocks.BAMBOO_OVEN.get(), 1)
                 .requires(Items.SMOKER,1)
                 .requires(Items.BAMBOO_PLANKS, 5)
                 .requires(Items.BAMBOO_BLOCK, 2)
-                .unlockedBy("has_bamboo_planks", has(Items.BAMBOO_PLANKS))
+                .unlockedBy("has_bamboo_block", has(Items.BAMBOO_PLANKS))
                 .save(recipeOutput);
 
         FurniCraftingRecipeBuilder.crafting(ModBlocks.BAMBOO_PARK_BENCH.get(), 4)
                 .requires(Items.BAMBOO_PLANKS,5)
                 .requires(Items.BAMBOO_BLOCK,4)
-                .unlockedBy("has_bamboo_planks", has(Items.BAMBOO_PLANKS))
+                .unlockedBy("has_bamboo_block", has(Items.BAMBOO_PLANKS))
                 .save(recipeOutput);
 
         //CRIMSON
@@ -1229,20 +1229,587 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_warped_planks", has(Items.WARPED_PLANKS))
                 .save(recipeOutput);
         
+        // STRIPED VARIANTS
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_OAK_TABLE.get(), 4)
+                .requires(Blocks.STRIPPED_OAK_LOG,2)
+                .requires(Blocks.OAK_PLANKS, 4)
+                .unlockedBy("has_oak_planks", has(Items.OAK_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_OAK_CHAIR.get(), 4)
+                .requires(Items.STICK,2)
+                .requires(Blocks.STRIPPED_OAK_LOG, 4)
+                .unlockedBy("has_oak_planks", has(Items.OAK_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_OAK_KITCHEN_COUNTER.get(), 2)
+                .requires(Items.STRIPPED_OAK_LOG,2)
+                .requires(Items.OAK_PLANKS, 6)
+                .unlockedBy("has_oak_planks", has(Items.OAK_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_OAK_KITCHEN_DRAWER.get(), 2)
+                .requires(Items.STRIPPED_OAK_LOG,2)
+                .requires(Items.OAK_PLANKS, 6)
+                .requires(Items.CHEST, 1)
+                .unlockedBy("has_oak_planks", has(Items.OAK_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_OAK_CABINET.get(), 1)
+                .requires(Items.STRIPPED_OAK_LOG,2)
+                .requires(Items.OAK_PLANKS, 3)
+                .requires(Items.CHEST, 1)
+                .unlockedBy("has_oak_planks", has(Items.OAK_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_OAK_COFFEE_TABLE.get(), 3)
+                .requires(Items.STRIPPED_OAK_LOG,1)
+                .requires(Items.OAK_PLANKS, 2)
+                .unlockedBy("has_oak_planks", has(Items.OAK_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_OAK_DINNING_TABLE.get(), 2)
+                .requires(Items.STRIPPED_OAK_LOG,2)
+                .requires(Items.OAK_PLANKS, 3)
+                .unlockedBy("has_oak_planks", has(Items.OAK_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_OAK_OVEN.get(), 1)
+                .requires(Items.SMOKER,1)
+                .requires(Items.OAK_PLANKS, 5)
+                .requires(Items.STRIPPED_OAK_LOG, 2)
+                .unlockedBy("has_oak_planks", has(Items.OAK_PLANKS))
+                .save(recipeOutput);
         
+        // DARK OAK
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_DARK_OAK_TABLE.get(), 4)
+                .requires(Blocks.STRIPPED_DARK_OAK_LOG,2)
+                .requires(Blocks.DARK_OAK_PLANKS, 4)
+                .unlockedBy("has_dark_oak", has(Items.DARK_OAK_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_DARK_OAK_CHAIR.get(), 4)
+                .requires(Items.STICK,2)
+                .requires(Blocks.STRIPPED_DARK_OAK_LOG, 4)
+                .unlockedBy("has_dark_oak", has(Items.DARK_OAK_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_DARK_OAK_KITCHEN_COUNTER.get(), 2)
+                .requires(Items.STRIPPED_DARK_OAK_LOG,2)
+                .requires(Items.DARK_OAK_PLANKS, 6)
+                .unlockedBy("has_dark_oak", has(Items.DARK_OAK_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_DARK_OAK_KITCHEN_DRAWER.get(), 2)
+                .requires(Items.STRIPPED_DARK_OAK_LOG,2)
+                .requires(Items.DARK_OAK_PLANKS, 6)
+                .requires(Items.CHEST, 1)
+                .unlockedBy("has_dark_oak", has(Items.DARK_OAK_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_DARK_OAK_CABINET.get(), 1)
+                .requires(Items.STRIPPED_DARK_OAK_LOG,2)
+                .requires(Items.DARK_OAK_PLANKS, 3)
+                .requires(Items.CHEST, 1)
+                .unlockedBy("has_dark_oak", has(Items.DARK_OAK_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_DARK_OAK_COFFEE_TABLE.get(), 3)
+                .requires(Items.STRIPPED_DARK_OAK_LOG,1)
+                .requires(Items.DARK_OAK_PLANKS, 2)
+                .unlockedBy("has_dark_oak", has(Items.DARK_OAK_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_DARK_OAK_DINNING_TABLE.get(), 2)
+                .requires(Items.STRIPPED_DARK_OAK_LOG,2)
+                .requires(Items.DARK_OAK_PLANKS, 3)
+                .unlockedBy("has_dark_oak", has(Items.DARK_OAK_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_DARK_OAK_OVEN.get(), 1)
+                .requires(Items.SMOKER,1)
+                .requires(Items.DARK_OAK_PLANKS, 5)
+                .requires(Items.STRIPPED_DARK_OAK_LOG, 2)
+                .unlockedBy("has_dark_oak", has(Items.DARK_OAK_PLANKS))
+                .save(recipeOutput);
         
+        // SPRUCE
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_SPRUCE_TABLE.get(), 4)
+                .requires(Blocks.STRIPPED_SPRUCE_LOG,2)
+                .requires(Blocks.SPRUCE_PLANKS, 4)
+                .unlockedBy("has_spruce_planks", has(Items.SPRUCE_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_SPRUCE_CHAIR.get(), 4)
+                .requires(Items.STICK,2)
+                .requires(Blocks.STRIPPED_SPRUCE_LOG, 4)
+                .unlockedBy("has_spruce_planks", has(Items.SPRUCE_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_SPRUCE_KITCHEN_COUNTER.get(), 2)
+                .requires(Items.STRIPPED_SPRUCE_LOG,2)
+                .requires(Items.SPRUCE_PLANKS, 6)
+                .unlockedBy("has_spruce_planks", has(Items.SPRUCE_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_SPRUCE_KITCHEN_DRAWER.get(), 2)
+                .requires(Items.STRIPPED_SPRUCE_LOG,2)
+                .requires(Items.SPRUCE_PLANKS, 6)
+                .requires(Items.CHEST, 1)
+                .unlockedBy("has_spruce_planks", has(Items.SPRUCE_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_SPRUCE_CABINET.get(), 1)
+                .requires(Items.STRIPPED_SPRUCE_LOG,2)
+                .requires(Items.SPRUCE_PLANKS, 3)
+                .requires(Items.CHEST, 1)
+                .unlockedBy("has_spruce_planks", has(Items.SPRUCE_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_SPRUCE_COFFEE_TABLE.get(), 3)
+                .requires(Items.STRIPPED_SPRUCE_LOG,1)
+                .requires(Items.SPRUCE_PLANKS, 2)
+                .unlockedBy("has_spruce_planks", has(Items.SPRUCE_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_SPRUCE_DINNING_TABLE.get(), 2)
+                .requires(Items.STRIPPED_SPRUCE_LOG,2)
+                .requires(Items.SPRUCE_PLANKS, 3)
+                .unlockedBy("has_spruce_planks", has(Items.SPRUCE_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_SPRUCE_OVEN.get(), 1)
+                .requires(Items.SMOKER,1)
+                .requires(Items.SPRUCE_PLANKS, 5)
+                .requires(Items.STRIPPED_SPRUCE_LOG, 2)
+                .unlockedBy("has_spruce_planks", has(Items.SPRUCE_PLANKS))
+                .save(recipeOutput);
         
+        //BIRCH
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_BIRCH_TABLE.get(), 4)
+                .requires(Blocks.STRIPPED_BIRCH_LOG,2)
+                .requires(Blocks.BIRCH_PLANKS, 4)
+                .unlockedBy("has_birch_planks", has(Items.BIRCH_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_BIRCH_CHAIR.get(), 4)
+                .requires(Items.STICK,2)
+                .requires(Blocks.STRIPPED_BIRCH_LOG, 4)
+                .unlockedBy("has_birch_planks", has(Items.BIRCH_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_BIRCH_KITCHEN_COUNTER.get(), 2)
+                .requires(Items.STRIPPED_BIRCH_LOG,2)
+                .requires(Items.BIRCH_PLANKS, 6)
+                .unlockedBy("has_birch_planks", has(Items.BIRCH_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_BIRCH_KITCHEN_DRAWER.get(), 2)
+                .requires(Items.STRIPPED_BIRCH_LOG,2)
+                .requires(Items.BIRCH_PLANKS, 6)
+                .requires(Items.CHEST, 1)
+                .unlockedBy("has_birch_planks", has(Items.BIRCH_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_BIRCH_CABINET.get(), 1)
+                .requires(Items.STRIPPED_BIRCH_LOG,2)
+                .requires(Items.BIRCH_PLANKS, 3)
+                .requires(Items.CHEST, 1)
+                .unlockedBy("has_birch_planks", has(Items.BIRCH_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_BIRCH_COFFEE_TABLE.get(), 3)
+                .requires(Items.STRIPPED_BIRCH_LOG,1)
+                .requires(Items.BIRCH_PLANKS, 2)
+                .unlockedBy("has_birch_planks", has(Items.BIRCH_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_BIRCH_DINNING_TABLE.get(), 2)
+                .requires(Items.STRIPPED_BIRCH_LOG,2)
+                .requires(Items.BIRCH_PLANKS, 3)
+                .unlockedBy("has_birch_planks", has(Items.BIRCH_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_BIRCH_OVEN.get(), 1)
+                .requires(Items.SMOKER,1)
+                .requires(Items.BIRCH_PLANKS, 5)
+                .requires(Items.STRIPPED_BIRCH_LOG, 2)
+                .unlockedBy("has_birch_planks", has(Items.BIRCH_PLANKS))
+                .save(recipeOutput);
         
+        // ACACIA
         
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_ACACIA_TABLE.get(), 4)
+                .requires(Blocks.STRIPPED_ACACIA_LOG,2)
+                .requires(Blocks.ACACIA_PLANKS, 4)
+                .unlockedBy("has_acacia_planks", has(Items.ACACIA_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_ACACIA_CHAIR.get(), 4)
+                .requires(Items.STICK,2)
+                .requires(Blocks.STRIPPED_ACACIA_LOG, 4)
+                .unlockedBy("has_acacia_planks", has(Items.ACACIA_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_ACACIA_KITCHEN_COUNTER.get(), 2)
+                .requires(Items.STRIPPED_ACACIA_LOG,2)
+                .requires(Items.ACACIA_PLANKS, 6)
+                .unlockedBy("has_acacia_planks", has(Items.ACACIA_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_ACACIA_KITCHEN_DRAWER.get(), 2)
+                .requires(Items.STRIPPED_ACACIA_LOG,2)
+                .requires(Items.ACACIA_PLANKS, 6)
+                .requires(Items.CHEST, 1)
+                .unlockedBy("has_acacia_planks", has(Items.ACACIA_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_ACACIA_CABINET.get(), 1)
+                .requires(Items.STRIPPED_ACACIA_LOG,2)
+                .requires(Items.ACACIA_PLANKS, 3)
+                .requires(Items.CHEST, 1)
+                .unlockedBy("has_acacia_planks", has(Items.ACACIA_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_ACACIA_COFFEE_TABLE.get(), 3)
+                .requires(Items.STRIPPED_ACACIA_LOG,1)
+                .requires(Items.ACACIA_PLANKS, 2)
+                .unlockedBy("has_acacia_planks", has(Items.ACACIA_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_ACACIA_DINNING_TABLE.get(), 2)
+                .requires(Items.STRIPPED_ACACIA_LOG,2)
+                .requires(Items.ACACIA_PLANKS, 3)
+                .unlockedBy("has_acacia_planks", has(Items.ACACIA_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_ACACIA_OVEN.get(), 1)
+                .requires(Items.SMOKER,1)
+                .requires(Items.ACACIA_PLANKS, 5)
+                .requires(Items.STRIPPED_ACACIA_LOG, 2)
+                .unlockedBy("has_acacia_planks", has(Items.ACACIA_PLANKS))
+                .save(recipeOutput);
         
+        // JUNGLE
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_JUNGLE_TABLE.get(), 4)
+                .requires(Blocks.STRIPPED_JUNGLE_LOG,2)
+                .requires(Blocks.JUNGLE_PLANKS, 4)
+                .unlockedBy("has_jungle_planks", has(Items.JUNGLE_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_JUNGLE_CHAIR.get(), 4)
+                .requires(Items.STICK,2)
+                .requires(Blocks.STRIPPED_JUNGLE_LOG, 4)
+                .unlockedBy("has_jungle_planks", has(Items.JUNGLE_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_JUNGLE_KITCHEN_COUNTER.get(), 2)
+                .requires(Items.STRIPPED_JUNGLE_LOG,2)
+                .requires(Items.JUNGLE_PLANKS, 6)
+                .unlockedBy("has_jungle_planks", has(Items.JUNGLE_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_JUNGLE_KITCHEN_DRAWER.get(), 2)
+                .requires(Items.STRIPPED_JUNGLE_LOG,2)
+                .requires(Items.JUNGLE_PLANKS, 6)
+                .requires(Items.CHEST, 1)
+                .unlockedBy("has_jungle_planks", has(Items.JUNGLE_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_JUNGLE_CABINET.get(), 1)
+                .requires(Items.STRIPPED_JUNGLE_LOG,2)
+                .requires(Items.JUNGLE_PLANKS, 3)
+                .requires(Items.CHEST, 1)
+                .unlockedBy("has_jungle_planks", has(Items.JUNGLE_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_JUNGLE_COFFEE_TABLE.get(), 3)
+                .requires(Items.STRIPPED_JUNGLE_LOG,1)
+                .requires(Items.JUNGLE_PLANKS, 2)
+                .unlockedBy("has_jungle_planks", has(Items.JUNGLE_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_JUNGLE_DINNING_TABLE.get(), 2)
+                .requires(Items.STRIPPED_JUNGLE_LOG,2)
+                .requires(Items.JUNGLE_PLANKS, 3)
+                .unlockedBy("has_jungle_planks", has(Items.JUNGLE_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_JUNGLE_OVEN.get(), 1)
+                .requires(Items.SMOKER,1)
+                .requires(Items.JUNGLE_PLANKS, 5)
+                .requires(Items.STRIPPED_JUNGLE_LOG, 2)
+                .unlockedBy("has_jungle_planks", has(Items.JUNGLE_PLANKS))
+                .save(recipeOutput);
+
         
+        // CHERRY
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_CHERRY_TABLE.get(), 4)
+                .requires(Blocks.STRIPPED_CHERRY_LOG,2)
+                .requires(Blocks.CHERRY_PLANKS, 4)
+                .unlockedBy("has_cherry_planks", has(Items.CHERRY_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_CHERRY_CHAIR.get(), 4)
+                .requires(Items.STICK,2)
+                .requires(Blocks.STRIPPED_CHERRY_LOG, 4)
+                .unlockedBy("has_cherry_planks", has(Items.CHERRY_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_CHERRY_KITCHEN_COUNTER.get(), 2)
+                .requires(Items.STRIPPED_CHERRY_LOG,2)
+                .requires(Items.CHERRY_PLANKS, 6)
+                .unlockedBy("has_cherry_planks", has(Items.CHERRY_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_CHERRY_KITCHEN_DRAWER.get(), 2)
+                .requires(Items.STRIPPED_CHERRY_LOG,2)
+                .requires(Items.CHERRY_PLANKS, 6)
+                .requires(Items.CHEST, 1)
+                .unlockedBy("has_cherry_planks", has(Items.CHERRY_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_CHERRY_CABINET.get(), 1)
+                .requires(Items.STRIPPED_CHERRY_LOG,2)
+                .requires(Items.CHERRY_PLANKS, 3)
+                .requires(Items.CHEST, 1)
+                .unlockedBy("has_cherry_planks", has(Items.CHERRY_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_CHERRY_COFFEE_TABLE.get(), 3)
+                .requires(Items.STRIPPED_CHERRY_LOG,1)
+                .requires(Items.CHERRY_PLANKS, 2)
+                .unlockedBy("has_cherry_planks", has(Items.CHERRY_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_CHERRY_DINNING_TABLE.get(), 2)
+                .requires(Items.STRIPPED_CHERRY_LOG,2)
+                .requires(Items.CHERRY_PLANKS, 3)
+                .unlockedBy("has_cherry_planks", has(Items.CHERRY_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_CHERRY_OVEN.get(), 1)
+                .requires(Items.SMOKER,1)
+                .requires(Items.CHERRY_PLANKS, 5)
+                .requires(Items.STRIPPED_CHERRY_LOG, 2)
+                .unlockedBy("has_cherry_planks", has(Items.CHERRY_PLANKS))
+                .save(recipeOutput);
+
         
+        // BAMBOO
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_BAMBOO_TABLE.get(), 4)
+                .requires(Blocks.STRIPPED_BAMBOO_BLOCK,2)
+                .requires(Blocks.BAMBOO_PLANKS, 4)
+                .unlockedBy("has_bamboo_block", has(Items.BAMBOO_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_BAMBOO_CHAIR.get(), 4)
+                .requires(Items.STICK,2)
+                .requires(Blocks.STRIPPED_BAMBOO_BLOCK, 4)
+                .unlockedBy("has_bamboo_block", has(Items.BAMBOO_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_BAMBOO_KITCHEN_COUNTER.get(), 2)
+                .requires(Items.STRIPPED_BAMBOO_BLOCK,2)
+                .requires(Items.BAMBOO_PLANKS, 6)
+                .unlockedBy("has_bamboo_block", has(Items.BAMBOO_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_BAMBOO_KITCHEN_DRAWER.get(), 2)
+                .requires(Items.STRIPPED_BAMBOO_BLOCK,2)
+                .requires(Items.BAMBOO_PLANKS, 6)
+                .requires(Items.CHEST, 1)
+                .unlockedBy("has_bamboo_block", has(Items.BAMBOO_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_BAMBOO_CABINET.get(), 1)
+                .requires(Items.STRIPPED_BAMBOO_BLOCK,2)
+                .requires(Items.BAMBOO_PLANKS, 3)
+                .requires(Items.CHEST, 1)
+                .unlockedBy("has_bamboo_block", has(Items.BAMBOO_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_BAMBOO_COFFEE_TABLE.get(), 3)
+                .requires(Items.STRIPPED_BAMBOO_BLOCK,1)
+                .requires(Items.BAMBOO_PLANKS, 2)
+                .unlockedBy("has_bamboo_block", has(Items.BAMBOO_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_BAMBOO_DINNING_TABLE.get(), 2)
+                .requires(Items.STRIPPED_BAMBOO_BLOCK,2)
+                .requires(Items.BAMBOO_PLANKS, 3)
+                .unlockedBy("has_bamboo_block", has(Items.BAMBOO_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_BAMBOO_OVEN.get(), 1)
+                .requires(Items.SMOKER,1)
+                .requires(Items.BAMBOO_PLANKS, 5)
+                .requires(Items.STRIPPED_BAMBOO_BLOCK, 2)
+                .unlockedBy("has_bamboo_block", has(Items.BAMBOO_PLANKS))
+                .save(recipeOutput);
+
+        //CRIMSON
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_CRIMSON_TABLE.get(), 4)
+                .requires(Blocks.STRIPPED_CRIMSON_STEM,2)
+                .requires(Blocks.CRIMSON_PLANKS, 4)
+                .unlockedBy("has_crimson_planks", has(Items.CRIMSON_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_CRIMSON_CHAIR.get(), 4)
+                .requires(Items.STICK,2)
+                .requires(Blocks.STRIPPED_CRIMSON_STEM, 4)
+                .unlockedBy("has_crimson_planks", has(Items.CRIMSON_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_CRIMSON_KITCHEN_COUNTER.get(), 2)
+                .requires(Items.STRIPPED_CRIMSON_STEM,2)
+                .requires(Items.CRIMSON_PLANKS, 6)
+                .unlockedBy("has_crimson_planks", has(Items.CRIMSON_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_CRIMSON_KITCHEN_DRAWER.get(), 2)
+                .requires(Items.STRIPPED_CRIMSON_STEM,2)
+                .requires(Items.CRIMSON_PLANKS, 6)
+                .requires(Items.CHEST, 1)
+                .unlockedBy("has_crimson_planks", has(Items.CRIMSON_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_CRIMSON_CABINET.get(), 1)
+                .requires(Items.STRIPPED_CRIMSON_STEM,2)
+                .requires(Items.CRIMSON_PLANKS, 3)
+                .requires(Items.CHEST, 1)
+                .unlockedBy("has_crimson_planks", has(Items.CRIMSON_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_CRIMSON_COFFEE_TABLE.get(), 3)
+                .requires(Items.STRIPPED_CRIMSON_STEM,1)
+                .requires(Items.CRIMSON_PLANKS, 2)
+                .unlockedBy("has_crimson_planks", has(Items.CRIMSON_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_CRIMSON_DINNING_TABLE.get(), 2)
+                .requires(Items.STRIPPED_CRIMSON_STEM,2)
+                .requires(Items.CRIMSON_PLANKS, 3)
+                .unlockedBy("has_crimson_planks", has(Items.CRIMSON_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_CRIMSON_OVEN.get(), 1)
+                .requires(Items.SMOKER,1)
+                .requires(Items.CRIMSON_PLANKS, 5)
+                .requires(Items.STRIPPED_CRIMSON_STEM, 2)
+                .unlockedBy("has_crimson_planks", has(Items.CRIMSON_PLANKS))
+                .save(recipeOutput);
+
+        // WARPED
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_WARPED_TABLE.get(), 4)
+                .requires(Blocks.STRIPPED_WARPED_STEM,2)
+                .requires(Blocks.WARPED_PLANKS, 4)
+                .unlockedBy("has_warped_planks", has(Items.WARPED_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_WARPED_CHAIR.get(), 4)
+                .requires(Items.STICK,2)
+                .requires(Blocks.STRIPPED_WARPED_STEM, 4)
+                .unlockedBy("has_warped_planks", has(Items.WARPED_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_WARPED_KITCHEN_COUNTER.get(), 2)
+                .requires(Items.STRIPPED_WARPED_STEM,2)
+                .requires(Items.WARPED_PLANKS, 6)
+                .unlockedBy("has_warped_planks", has(Items.WARPED_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_WARPED_KITCHEN_DRAWER.get(), 2)
+                .requires(Items.STRIPPED_WARPED_STEM,2)
+                .requires(Items.WARPED_PLANKS, 6)
+                .requires(Items.CHEST, 1)
+                .unlockedBy("has_warped_planks", has(Items.WARPED_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_WARPED_CABINET.get(), 1)
+                .requires(Items.STRIPPED_WARPED_STEM,2)
+                .requires(Items.WARPED_PLANKS, 3)
+                .requires(Items.CHEST, 1)
+                .unlockedBy("has_warped_planks", has(Items.WARPED_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_WARPED_COFFEE_TABLE.get(), 3)
+                .requires(Items.STRIPPED_WARPED_STEM,1)
+                .requires(Items.WARPED_PLANKS, 2)
+                .unlockedBy("has_warped_planks", has(Items.WARPED_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_WARPED_DINNING_TABLE.get(), 2)
+                .requires(Items.STRIPPED_WARPED_STEM,2)
+                .requires(Items.WARPED_PLANKS, 3)
+                .unlockedBy("has_warped_planks", has(Items.WARPED_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_WARPED_OVEN.get(), 1)
+                .requires(Items.SMOKER,1)
+                .requires(Items.WARPED_PLANKS, 5)
+                .requires(Items.STRIPPED_WARPED_STEM, 2)
+                .unlockedBy("has_warped_planks", has(Items.WARPED_PLANKS))
+                .save(recipeOutput);
         
-        
-        
-        
-        
-        
+        // MANGROVE
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_MANGROVE_TABLE.get(), 4)
+                .requires(Blocks.STRIPPED_MANGROVE_LOG,2)
+                .requires(Blocks.MANGROVE_PLANKS, 4)
+                .unlockedBy("has_mangrove_planks", has(Items.MANGROVE_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_MANGROVE_CHAIR.get(), 4)
+                .requires(Items.STICK,2)
+                .requires(Blocks.STRIPPED_MANGROVE_LOG, 4)
+                .unlockedBy("has_mangrove_planks", has(Items.MANGROVE_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_MANGROVE_KITCHEN_COUNTER.get(), 2)
+                .requires(Items.STRIPPED_MANGROVE_LOG,2)
+                .requires(Items.MANGROVE_PLANKS, 6)
+                .unlockedBy("has_mangrove_planks", has(Items.MANGROVE_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_MANGROVE_KITCHEN_DRAWER.get(), 2)
+                .requires(Items.STRIPPED_MANGROVE_LOG,2)
+                .requires(Items.MANGROVE_PLANKS, 6)
+                .requires(Items.CHEST, 1)
+                .unlockedBy("has_mangrove_planks", has(Items.MANGROVE_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_MANGROVE_CABINET.get(), 1)
+                .requires(Items.STRIPPED_MANGROVE_LOG,2)
+                .requires(Items.MANGROVE_PLANKS, 3)
+                .requires(Items.CHEST, 1)
+                .unlockedBy("has_mangrove_planks", has(Items.MANGROVE_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_MANGROVE_COFFEE_TABLE.get(), 3)
+                .requires(Items.STRIPPED_MANGROVE_LOG,1)
+                .requires(Items.MANGROVE_PLANKS, 2)
+                .unlockedBy("has_mangrove_planks", has(Items.MANGROVE_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_MANGROVE_DINNING_TABLE.get(), 2)
+                .requires(Items.STRIPPED_MANGROVE_LOG,2)
+                .requires(Items.MANGROVE_PLANKS, 3)
+                .unlockedBy("has_mangrove_planks", has(Items.MANGROVE_PLANKS))
+                .save(recipeOutput);
+
+        FurniCraftingRecipeBuilder.crafting(ModBlocks.STRIPPED_MANGROVE_OVEN.get(), 1)
+                .requires(Items.SMOKER,1)
+                .requires(Items.MANGROVE_PLANKS, 5)
+                .requires(Items.STRIPPED_MANGROVE_LOG, 2)
+                .unlockedBy("has_mangrove_planks", has(Items.MANGROVE_PLANKS))
+                .save(recipeOutput);
+
+
 
 
 
@@ -1291,14 +1858,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(Items.CHEST,1)
                 .requires(Items.WHITE_CONCRETE, 5)
                 .requires(Items.IRON_INGOT, 2)
-                .unlockedBy("has_oak_planks", has(Items.OAK_PLANKS))
+                .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
                 .save(recipeOutput);
 
         FurniCraftingRecipeBuilder.crafting(ModBlocks.FRIDGE_DARK.get(), 1)
                 .requires(Items.CHEST,1)
-                .requires(Items.WHITE_CONCRETE, 5)
+                .requires(Items.GRAY_CONCRETE, 5)
                 .requires(Items.IRON_INGOT, 2)
-                .unlockedBy("has_oak_planks", has(Items.OAK_PLANKS))
+                .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
                 .save(recipeOutput);
 
 
