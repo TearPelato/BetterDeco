@@ -2,6 +2,7 @@ package net.tier1234.better_deco.screen.custom;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent;
@@ -11,6 +12,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.neoforged.neoforge.network.PacketDistributor;
 import net.tier1234.better_deco.BetterDeco;
@@ -33,12 +35,12 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
     private static final int RECIPES_PER_ROW = 6;
     private static final int BUTTON_SIZE = 20;
     private static final int GRID_X_OFFSET = 7;
-    private static final int GRID_Y_OFFSET = 18;
+    private static final int GRID_Y_OFFSET = 39;
     private static final int WINDOW_WIDTH = RECIPES_PER_ROW * BUTTON_SIZE;
-    private static final int WINDOW_HEIGHT = 88;
+    private static final int WINDOW_HEIGHT = 67;
     private static final int SCROLL_SPEED = 10;
     private static final int SCROLLBAR_HEIGHT = 15;
-    private static final int SCROLLBAR_AREA = 88;
+    private static final int SCROLLBAR_AREA = 67;
 
     private static final int SCROLLBAR_TEXTURE_ENABLED_X = 176;
     private static final int SCROLLBAR_TEXTURE_DISABLED_X = 188;
@@ -50,6 +52,7 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
     private double scroll = 0;
     private int hoveredRecipeIndex = -1;
     private int clickedY = -1;
+    private EditBox searchField;
 
     public FurniWorkbenchScreen(FurniWorkbenchMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
@@ -59,17 +62,31 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
         updateRecipes();
     }
 
+    @Override
+    protected void init() {
+        super.init();
+
+        this.searchField = new EditBox(this.font, this.leftPos + 7, this.topPos + 18, 120, 20, Component.translatable("text.better_deco.recipe.search"));
+
+        this.searchField.setResponder(s -> applySearchFilter());
+        this.searchField.setMaxLength(50);
+
+        this.addRenderableWidget(this.searchField);
+    }
+
+
     private void updateRecipes() {
         this.recipes = menu.getAvailableRecipes().stream()
                 .map(RecipeHolder::value)
                 .toList();
+        applySearchFilter();
     }
 
     @Override
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
         super.render(graphics, mouseX, mouseY, partialTick);
         this.renderTooltip(graphics, mouseX, mouseY);
-
+        this.searchField.render(graphics, mouseX, mouseY, partialTick);
         if (hoveredRecipeIndex != -1 && isMouseWithinBounds(mouseX, mouseY, leftPos + GRID_X_OFFSET, topPos + GRID_Y_OFFSET, WINDOW_WIDTH, WINDOW_HEIGHT)) {
             renderRecipeTooltip(graphics, mouseX, mouseY, hoveredRecipeIndex);
         }
@@ -108,6 +125,23 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
         renderRecipes(graphics, mouseX, mouseY);
         renderScrollbar(graphics, mouseY);
     }
+
+    @Override
+    public boolean charTyped(char codePoint, int modifiers) {
+        if (this.searchField.charTyped(codePoint, modifiers)) {
+            return true;
+        }
+        return super.charTyped(codePoint, modifiers);
+    }
+
+    @Override
+    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+        if (this.searchField.keyPressed(keyCode, scanCode, modifiers)) {
+            return true;
+        }
+        return super.keyPressed(keyCode, scanCode, modifiers);
+    }
+
 
     private void renderRecipes(GuiGraphics graphics, int mouseX, int mouseY) {
         hoveredRecipeIndex = -1;
@@ -216,4 +250,28 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
     public void updateRecipeButtons() {
         updateRecipes();
     }
+    private void applySearchFilter() {
+        if (this.searchField == null) {
+            this.recipes = new ArrayList<>(this.recipes);
+            return;
+        }
+
+        String query = this.searchField.getValue().toLowerCase().trim();
+
+        if (query.isEmpty()) {
+            this.recipes = new ArrayList<>(this.recipes);
+            return;
+        }
+
+        this.recipes = this.recipes.stream()
+                .filter(recipe -> {
+                    ItemStack result = recipe.getResultItem(null);
+                    String name = result.getHoverName().getString().toLowerCase();
+                    return name.contains(query);
+                })
+                .toList();
+
+        this.scroll = 0;
+    }
+
 }
