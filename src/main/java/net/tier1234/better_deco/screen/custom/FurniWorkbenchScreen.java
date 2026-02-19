@@ -136,11 +136,19 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
 
     @Override
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
-        if (this.searchField.keyPressed(keyCode, scanCode, modifiers)) {
-            return true;
+        if (this.searchField != null && this.searchField.isFocused()) {
+            if (this.searchField.keyPressed(keyCode, scanCode, modifiers)) {
+                return true;
+            }
+
+            if (keyCode == Minecraft.getInstance().options.keyInventory.getKey().getValue()) {
+                return true;
+            }
         }
+
         return super.keyPressed(keyCode, scanCode, modifiers);
     }
+
 
 
     private void renderRecipes(GuiGraphics graphics, int mouseX, int mouseY) {
@@ -177,11 +185,21 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
 
     private void renderScrollbar(GuiGraphics graphics, int mouseY) {
         int maxScroll = getMaxScroll();
+
+        if (maxScroll <= 0) return;
+
         int scrollbarX = leftPos + GRID_X_OFFSET + WINDOW_WIDTH + 3;
         int scrollbarY = topPos + GRID_Y_OFFSET - Y_OFFSET_CORRECTION;
-        int scrollbarPos = (int) ((getScrollAmount(mouseY) / (double) maxScroll) * (SCROLLBAR_AREA - SCROLLBAR_HEIGHT));
-        int textureX = maxScroll > 0 ? SCROLLBAR_TEXTURE_ENABLED_X : SCROLLBAR_TEXTURE_DISABLED_X;
-        graphics.blit(TEXTURE, scrollbarX, scrollbarY + scrollbarPos, textureX, SCROLLBAR_TEXTURE_Y, 12, SCROLLBAR_HEIGHT, 256, 256);
+        int scrollbarPos = (int) ((scroll / (double) maxScroll) * (SCROLLBAR_AREA - SCROLLBAR_HEIGHT));
+        graphics.blit(TEXTURE,
+                scrollbarX,
+                scrollbarY + scrollbarPos,
+                SCROLLBAR_TEXTURE_ENABLED_X,
+                SCROLLBAR_TEXTURE_Y,
+                12,
+                SCROLLBAR_HEIGHT,
+                256,
+                256);
     }
 
     private int getMaxScroll() {
@@ -236,12 +254,21 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
 
     @Override
     public boolean mouseScrolled(double mouseX, double mouseY, double deltaX, double deltaY) {
-        if (clickedY == -1 && isMouseWithinBounds(mouseX, mouseY, leftPos + GRID_X_OFFSET, topPos + GRID_Y_OFFSET, WINDOW_WIDTH + 15, WINDOW_HEIGHT)) {
+        if (getMaxScroll() > 0 &&
+                clickedY == -1 &&
+                isMouseWithinBounds(mouseX, mouseY,
+                        leftPos + GRID_X_OFFSET,
+                        topPos + GRID_Y_OFFSET,
+                        WINDOW_WIDTH + 15,
+                        WINDOW_HEIGHT)) {
+
             scroll = Mth.clamp(scroll - deltaY * SCROLL_SPEED, 0, getMaxScroll());
             return true;
         }
+
         return super.mouseScrolled(mouseX, mouseY, deltaX, deltaY);
     }
+
 
     private void craftItem(int recipeIndex) {
         PacketDistributor.sendToServer(new CraftRecipePayload(menu.containerId, recipeIndex));
@@ -273,5 +300,6 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
 
         this.scroll = 0;
     }
+
 
 }
