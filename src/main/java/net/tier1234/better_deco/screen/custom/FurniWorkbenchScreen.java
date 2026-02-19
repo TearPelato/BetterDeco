@@ -2,6 +2,7 @@ package net.tier1234.better_deco.screen.custom;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -53,6 +54,7 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
     private int hoveredRecipeIndex = -1;
     private int clickedY = -1;
     private EditBox searchField;
+    private Button sortToggleButton;
 
     public FurniWorkbenchScreen(FurniWorkbenchMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
@@ -70,19 +72,31 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
 
         this.searchField.setResponder(s -> applySearchFilter());
         this.searchField.setMaxLength(50);
+        this.searchField.setHint(Component.translatable("text.better_deco.recipe.search"));
 
         this.addRenderableWidget(this.searchField);
+
+        this.sortToggleButton = Button.builder(Component.empty(), btn -> {
+            this.sortMode = this.sortMode == SortMode.CREATIVE_TAB
+                    ? SortMode.ALPHABETICAL
+                    : SortMode.CREATIVE_TAB;
+
+            applySearchFilter();
+        }).bounds(this.leftPos + 129, this.topPos + 17, 13, 22).build();
+
+        this.addRenderableWidget(this.sortToggleButton);
     }
 
 
     private void updateRecipes() {
         this.recipes = menu.getAvailableRecipes().stream()
                 .map(RecipeHolder::value)
-                .sorted(creativeTabComparator())
+                .sorted(getActiveComparator())
                 .toList();
 
         applySearchFilter();
     }
+
     @Override
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
         super.render(graphics, mouseX, mouseY, partialTick);
@@ -91,6 +105,14 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
         if (hoveredRecipeIndex != -1 && isMouseWithinBounds(mouseX, mouseY, leftPos + GRID_X_OFFSET, topPos + GRID_Y_OFFSET, WINDOW_WIDTH, WINDOW_HEIGHT)) {
             renderRecipeTooltip(graphics, mouseX, mouseY, hoveredRecipeIndex);
         }
+        if (this.sortToggleButton.isHovered()) {
+            Component tooltip = this.sortMode == SortMode.CREATIVE_TAB
+                    ? Component.translatable("text.better_deco.recipe.sort_creative")
+                    : Component.translatable("text.better_deco.filter.alphabetical");
+
+            graphics.renderTooltip(this.font, tooltip, mouseX, mouseY);
+        }
+
     }
 
     private void renderRecipeTooltip(GuiGraphics graphics, int mouseX, int mouseY, int recipeIndex) {
@@ -297,9 +319,8 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
                     String name = result.getHoverName().getString().toLowerCase();
                     return name.contains(query);
                 })
-                .sorted(creativeTabComparator())
+                .sorted(getActiveComparator())
                 .toList();
-
 
         this.scroll = 0;
     }
@@ -330,5 +351,21 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
             return CREATIVE_ORDER.getOrDefault(item, Integer.MAX_VALUE);
         });
     }
+    private Comparator<FurniCraftingRecipe> getActiveComparator() {
+        return switch (this.sortMode) {
+            case ALPHABETICAL -> Comparator.comparing(recipe ->
+                    recipe.getResultItem(null).getHoverName().getString().toLowerCase()
+            );
+            case CREATIVE_TAB -> creativeTabComparator();
+        };
+    }
+
+
+    private enum SortMode {
+        ALPHABETICAL,
+        CREATIVE_TAB
+    }
+
+    private SortMode sortMode = SortMode.CREATIVE_TAB;
 
 }
