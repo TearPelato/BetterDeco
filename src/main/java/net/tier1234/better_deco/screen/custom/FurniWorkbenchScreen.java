@@ -12,10 +12,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.neoforged.neoforge.network.PacketDistributor;
 import net.tier1234.better_deco.BetterDeco;
+import net.tier1234.better_deco.creative_tabs.BundledTabs;
+import net.tier1234.better_deco.init.ModBundledTabs;
 import net.tier1234.better_deco.mixin.GuiGraphicsInvoker;
 import net.tier1234.better_deco.network.message.CraftRecipePayload;
 import net.tier1234.better_deco.recipe.CountedIngredient;
@@ -24,10 +27,7 @@ import net.tier1234.better_deco.screen.tooltip.ClientFurnicrafterRecipeIngredien
 import net.tier1234.better_deco.screen.tooltip.ClientFurnicrafterRecipeTooltip;
 import org.lwjgl.glfw.GLFW;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbenchMenu> {
     public static final ResourceLocation TEXTURE = BetterDeco.id("textures/gui/workbench/workbench_interface.png");
@@ -45,7 +45,7 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
     private static final int SCROLLBAR_TEXTURE_ENABLED_X = 176;
     private static final int SCROLLBAR_TEXTURE_DISABLED_X = 188;
     private static final int SCROLLBAR_TEXTURE_Y = 40;
-
+    private static Map<Item, Integer> CREATIVE_ORDER = null;
     private static final int Y_OFFSET_CORRECTION = 0;
 
     private List<FurniCraftingRecipe> recipes = new ArrayList<>();
@@ -78,10 +78,11 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
     private void updateRecipes() {
         this.recipes = menu.getAvailableRecipes().stream()
                 .map(RecipeHolder::value)
+                .sorted(creativeTabComparator())
                 .toList();
+
         applySearchFilter();
     }
-
     @Override
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
         super.render(graphics, mouseX, mouseY, partialTick);
@@ -296,10 +297,38 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
                     String name = result.getHoverName().getString().toLowerCase();
                     return name.contains(query);
                 })
+                .sorted(creativeTabComparator())
                 .toList();
+
 
         this.scroll = 0;
     }
+    private static Map<Item, Integer> buildCreativeOrder() {
+        Map<Item, Integer> order = new HashMap<>();
+        int index = 0;
 
+        for (BundledTabs tab : ModBundledTabs.getFilters()) {
+            tab.populate(Minecraft.getInstance().level.registryAccess());
+
+            for (ItemStack stack : tab.getDisplayItems()) {
+                Item item = stack.getItem();
+                if (!order.containsKey(item)) {
+                    order.put(item, index++);
+                }
+            }
+        }
+
+        return order;
+    }
+    private Comparator<FurniCraftingRecipe> creativeTabComparator() {
+        if (CREATIVE_ORDER == null) {
+            CREATIVE_ORDER = buildCreativeOrder();
+        }
+
+        return Comparator.comparingInt(recipe -> {
+            Item item = recipe.getResultItem(null).getItem();
+            return CREATIVE_ORDER.getOrDefault(item, Integer.MAX_VALUE);
+        });
+    }
 
 }
