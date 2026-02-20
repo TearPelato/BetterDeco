@@ -54,7 +54,8 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
     private int clickedY = -1;
     private EditBox searchField;
     private Button sortToggleButton;
-    private boolean showCraftableOnly = false;
+
+    private boolean showCraftableOnly = false; // default show all
 
     public FurniWorkbenchScreen(FurniWorkbenchMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
@@ -69,21 +70,21 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
         super.init();
 
         this.searchField = new EditBox(this.font, this.leftPos + 7, this.topPos + 18, 120, 20, Component.translatable("text.better_deco.recipe.search"));
-
         this.searchField.setResponder(s -> applySearchFilter());
         this.searchField.setMaxLength(50);
         this.searchField.setHint(Component.translatable("text.better_deco.recipe.search"));
-
         this.addRenderableWidget(this.searchField);
 
-        this.sortToggleButton = Button.builder(Component.empty(), btn -> {
+        this.sortToggleButton = Button.builder(Component.translatable("text.better_deco.recipe.show_all"), btn -> {
             showCraftableOnly = !showCraftableOnly;
-            applySearchFilter(); // ricalcola le ricette visibili
-        }).bounds(this.leftPos + 129, this.topPos + 17, 13, 22).build();
+            applySearchFilter();
+            sortToggleButton.setMessage(showCraftableOnly
+                    ? Component.translatable("text.better_deco.recipe.show_craftable")
+                    : Component.translatable("text.better_deco.recipe.show_all"));
+        }).bounds(this.leftPos + 129, this.topPos + 17, 40, 22).build();
 
         this.addRenderableWidget(this.sortToggleButton);
     }
-
 
     private void updateRecipes() {
         this.recipes = menu.getAvailableRecipes().stream()
@@ -101,14 +102,6 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
         if (hoveredRecipeIndex != -1 && isMouseWithinBounds(mouseX, mouseY, leftPos + GRID_X_OFFSET, topPos + GRID_Y_OFFSET, WINDOW_WIDTH, WINDOW_HEIGHT)) {
             renderRecipeTooltip(graphics, mouseX, mouseY, hoveredRecipeIndex);
         }
-        if (this.sortToggleButton.isHovered()) {
-            Component tooltip = showCraftableOnly
-                    ? Component.translatable("text.better_deco.recipe.show_craftable_only")
-                    : Component.translatable("text.better_deco.recipe.show_all");
-
-            graphics.renderTooltip(this.font, tooltip, mouseX, mouseY);
-        }
-
     }
 
     private void renderRecipeTooltip(GuiGraphics graphics, int mouseX, int mouseY, int recipeIndex) {
@@ -147,28 +140,18 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
 
     @Override
     public boolean charTyped(char codePoint, int modifiers) {
-        if (this.searchField.charTyped(codePoint, modifiers)) {
-            return true;
-        }
+        if (this.searchField.charTyped(codePoint, modifiers)) return true;
         return super.charTyped(codePoint, modifiers);
     }
 
     @Override
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
         if (this.searchField != null && this.searchField.isFocused()) {
-            if (this.searchField.keyPressed(keyCode, scanCode, modifiers)) {
-                return true;
-            }
-
-            if (keyCode == Minecraft.getInstance().options.keyInventory.getKey().getValue()) {
-                return true;
-            }
+            if (this.searchField.keyPressed(keyCode, scanCode, modifiers)) return true;
+            if (keyCode == Minecraft.getInstance().options.keyInventory.getKey().getValue()) return true;
         }
-
         return super.keyPressed(keyCode, scanCode, modifiers);
     }
-
-
 
     private void renderRecipes(GuiGraphics graphics, int mouseX, int mouseY) {
         hoveredRecipeIndex = -1;
@@ -204,28 +187,25 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
 
     private void renderScrollbar(GuiGraphics graphics, int mouseY) {
         int maxScroll = getMaxScroll();
-
         if (maxScroll <= 0) return;
 
         int scrollbarX = leftPos + GRID_X_OFFSET + WINDOW_WIDTH + 3;
         int scrollbarY = topPos + GRID_Y_OFFSET - Y_OFFSET_CORRECTION;
-        int scrollbarPos = (int) ((getScrollAmount(mouseY) / (double) maxScroll) * (SCROLLBAR_AREA - SCROLLBAR_HEIGHT));
-        int textureX = maxScroll > 0 ? SCROLLBAR_TEXTURE_ENABLED_X : SCROLLBAR_TEXTURE_DISABLED_X;
-        graphics.blit(TEXTURE, scrollbarX, scrollbarY + scrollbarPos, textureX, SCROLLBAR_TEXTURE_Y, 12, SCROLLBAR_HEIGHT, 256, 256);
+        int scrollbarPos = (int) ((scroll / (double) maxScroll) * (SCROLLBAR_AREA - SCROLLBAR_HEIGHT));
+        graphics.blit(TEXTURE,
+                scrollbarX,
+                scrollbarY + scrollbarPos,
+                SCROLLBAR_TEXTURE_ENABLED_X,
+                SCROLLBAR_TEXTURE_Y,
+                12,
+                SCROLLBAR_HEIGHT,
+                256,
+                256);
     }
 
     private int getMaxScroll() {
         int totalRows = (int) Math.ceil(recipes.size() / (double) RECIPES_PER_ROW);
         return Math.max(0, totalRows * BUTTON_SIZE - WINDOW_HEIGHT);
-    }
-
-    private double getScrollAmount(int mouseY) {
-        return Mth.clamp(scroll + getScrollbarDelta(mouseY), 0, getMaxScroll());
-    }
-
-    private int getScrollbarDelta(int mouseY) {
-        double scrollPerUnit = getMaxScroll() / (double) (SCROLLBAR_AREA - SCROLLBAR_HEIGHT);
-        return clickedY != -1 ? (int) ((mouseY - clickedY) * scrollPerUnit) : 0;
     }
 
     private boolean isMouseWithinBounds(double mouseX, double mouseY, int x, int y, int width, int height) {
@@ -238,14 +218,13 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
             if (hoveredRecipeIndex != -1) {
                 craftItem(hoveredRecipeIndex);
                 Minecraft.getInstance().getSoundManager().play(
-                        net.minecraft.client.resources.sounds.SimpleSoundInstance.forUI(
-                                SoundEvents.UI_BUTTON_CLICK, 1.0F
-                        )
+                        net.minecraft.client.resources.sounds.SimpleSoundInstance.forUI(SoundEvents.UI_BUTTON_CLICK, 1.0F)
                 );
                 return true;
             }
+
             int scrollbarX = leftPos + GRID_X_OFFSET + WINDOW_WIDTH + 3;
-            int scrollbarPos = (int) ((getScrollAmount((int) mouseY) / (double) getMaxScroll()) * (SCROLLBAR_AREA - SCROLLBAR_HEIGHT));
+            int scrollbarPos = (int) ((scroll / (double) getMaxScroll()) * (SCROLLBAR_AREA - SCROLLBAR_HEIGHT));
             if (isMouseWithinBounds(mouseX, mouseY, scrollbarX, topPos + GRID_Y_OFFSET - Y_OFFSET_CORRECTION + scrollbarPos, 12, SCROLLBAR_HEIGHT)) {
                 clickedY = (int) mouseY;
                 return true;
@@ -257,7 +236,7 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
     @Override
     public boolean mouseReleased(double mouseX, double mouseY, int button) {
         if (button == GLFW.GLFW_MOUSE_BUTTON_LEFT && clickedY != -1) {
-            scroll = getScrollAmount((int) mouseY);
+            scroll = Mth.clamp(scroll, 0, getMaxScroll());
             clickedY = -1;
             return true;
         }
@@ -266,21 +245,13 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
 
     @Override
     public boolean mouseScrolled(double mouseX, double mouseY, double deltaX, double deltaY) {
-        if (getMaxScroll() > 0 &&
-                clickedY == -1 &&
-                isMouseWithinBounds(mouseX, mouseY,
-                        leftPos + GRID_X_OFFSET,
-                        topPos + GRID_Y_OFFSET,
-                        WINDOW_WIDTH + 15,
-                        WINDOW_HEIGHT)) {
-
+        if (getMaxScroll() > 0 && clickedY == -1 &&
+                isMouseWithinBounds(mouseX, mouseY, leftPos + GRID_X_OFFSET, topPos + GRID_Y_OFFSET, WINDOW_WIDTH + 15, WINDOW_HEIGHT)) {
             scroll = Mth.clamp(scroll - deltaY * SCROLL_SPEED, 0, getMaxScroll());
             return true;
         }
-
         return super.mouseScrolled(mouseX, mouseY, deltaX, deltaY);
     }
-
 
     private void craftItem(int recipeIndex) {
         PacketDistributor.sendToServer(new CraftRecipePayload(menu.containerId, recipeIndex));
@@ -292,9 +263,7 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
 
     private void applySearchFilter() {
         if (this.searchField == null) {
-            this.recipes = new ArrayList<>(menu.getAvailableRecipes().stream()
-                    .map(RecipeHolder::value)
-                    .toList());
+            this.recipes = new ArrayList<>(this.recipes);
             return;
         }
 
@@ -303,14 +272,13 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
         this.recipes = menu.getAvailableRecipes().stream()
                 .map(RecipeHolder::value)
                 .filter(recipe -> {
-                    if (showCraftableOnly && !menu.canCraft(recipe)) return false;
-                    if (query.isEmpty()) return true;
-                    ItemStack result = recipe.getResultItem(null);
-                    return result.getHoverName().getString().toLowerCase().contains(query);
+                    boolean matchesSearch = query.isEmpty() || recipe.getResultItem(null)
+                            .getHoverName().getString().toLowerCase().contains(query);
+                    boolean matchesCraftable = !showCraftableOnly || menu.canCraft(recipe);
+                    return matchesSearch && matchesCraftable;
                 })
                 .toList();
 
         this.scroll = 0;
     }
-
 }
