@@ -55,6 +55,7 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
     private int clickedY = -1;
     private EditBox searchField;
     private Button sortToggleButton;
+    private boolean showCraftableOnly = false;
 
     public FurniWorkbenchScreen(FurniWorkbenchMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
@@ -77,11 +78,8 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
         this.addRenderableWidget(this.searchField);
 
         this.sortToggleButton = Button.builder(Component.empty(), btn -> {
-            this.sortMode = this.sortMode == SortMode.CREATIVE_TAB
-                    ? SortMode.ALPHABETICAL
-                    : SortMode.CREATIVE_TAB;
-
-            applySearchFilter();
+            showCraftableOnly = !showCraftableOnly;
+            applySearchFilter(); // ricalcola le ricette visibili
         }).bounds(this.leftPos + 129, this.topPos + 17, 13, 22).build();
 
         this.addRenderableWidget(this.sortToggleButton);
@@ -91,7 +89,6 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
     private void updateRecipes() {
         this.recipes = menu.getAvailableRecipes().stream()
                 .map(RecipeHolder::value)
-                .sorted(getActiveComparator())
                 .toList();
 
         applySearchFilter();
@@ -106,9 +103,9 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
             renderRecipeTooltip(graphics, mouseX, mouseY, hoveredRecipeIndex);
         }
         if (this.sortToggleButton.isHovered()) {
-            Component tooltip = this.sortMode == SortMode.CREATIVE_TAB
-                    ? Component.translatable("text.better_deco.recipe.sort_creative")
-                    : Component.translatable("text.better_deco.filter.alphabetical");
+            Component tooltip = showCraftableOnly
+                    ? Component.translatable("text.better_deco.recipe.show_craftable_only")
+                    : Component.translatable("text.better_deco.recipe.show_all");
 
             graphics.renderTooltip(this.font, tooltip, mouseX, mouseY);
         }
@@ -213,16 +210,9 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
 
         int scrollbarX = leftPos + GRID_X_OFFSET + WINDOW_WIDTH + 3;
         int scrollbarY = topPos + GRID_Y_OFFSET - Y_OFFSET_CORRECTION;
-        int scrollbarPos = (int) ((scroll / (double) maxScroll) * (SCROLLBAR_AREA - SCROLLBAR_HEIGHT));
-        graphics.blit(TEXTURE,
-                scrollbarX,
-                scrollbarY + scrollbarPos,
-                SCROLLBAR_TEXTURE_ENABLED_X,
-                SCROLLBAR_TEXTURE_Y,
-                12,
-                SCROLLBAR_HEIGHT,
-                256,
-                256);
+        int scrollbarPos = (int) ((getScrollAmount(mouseY) / (double) maxScroll) * (SCROLLBAR_AREA - SCROLLBAR_HEIGHT));
+        int textureX = maxScroll > 0 ? SCROLLBAR_TEXTURE_ENABLED_X : SCROLLBAR_TEXTURE_DISABLED_X;
+        graphics.blit(TEXTURE, scrollbarX, scrollbarY + scrollbarPos, textureX, SCROLLBAR_TEXTURE_Y, 12, SCROLLBAR_HEIGHT, 256, 256);
     }
 
     private int getMaxScroll() {
@@ -300,26 +290,25 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
     public void updateRecipeButtons() {
         updateRecipes();
     }
+
     private void applySearchFilter() {
         if (this.searchField == null) {
-            this.recipes = new ArrayList<>(this.recipes);
+            this.recipes = new ArrayList<>(menu.getAvailableRecipes().stream()
+                    .map(RecipeHolder::value)
+                    .toList());
             return;
         }
 
         String query = this.searchField.getValue().toLowerCase().trim();
 
-        if (query.isEmpty()) {
-            this.recipes = new ArrayList<>(this.recipes);
-            return;
-        }
-
-        this.recipes = this.recipes.stream()
+        this.recipes = menu.getAvailableRecipes().stream()
+                .map(RecipeHolder::value)
                 .filter(recipe -> {
+                    if (showCraftableOnly && !menu.canCraft(recipe)) return false;
+                    if (query.isEmpty()) return true;
                     ItemStack result = recipe.getResultItem(null);
-                    String name = result.getHoverName().getString().toLowerCase();
-                    return name.contains(query);
+                    return result.getHoverName().getString().toLowerCase().contains(query);
                 })
-                .sorted(getActiveComparator())
                 .toList();
 
         this.scroll = 0;
@@ -351,21 +340,5 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
             return CREATIVE_ORDER.getOrDefault(item, Integer.MAX_VALUE);
         });
     }
-    private Comparator<FurniCraftingRecipe> getActiveComparator() {
-        return switch (this.sortMode) {
-            case ALPHABETICAL -> Comparator.comparing(recipe ->
-                    recipe.getResultItem(null).getHoverName().getString().toLowerCase()
-            );
-            case CREATIVE_TAB -> creativeTabComparator();
-        };
-    }
-
-
-    private enum SortMode {
-        ALPHABETICAL,
-        CREATIVE_TAB
-    }
-
-    private SortMode sortMode = SortMode.CREATIVE_TAB;
 
 }
