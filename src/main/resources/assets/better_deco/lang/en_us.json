@@ -740,6 +740,10 @@
   "text.better_deco.recipe.sort_creative": "Creative Filter",
   "text.better_deco.filter.alphabetical": "Alphabetical",
   "text.better_deco.recipe.search": "Search...",
+
+  "text.better_deco.recipe.show_all": "Show All",
+  "text.better_deco.recipe.show_craftable": "Show Craftable Only",
+
   "container.better_deco.workbench": "Furniture Workbench",
   "gui.better_deco.hold_shift_for_details": "Holde SHIFT for Details",
   "block.better_deco.limestone": "Limestone"
