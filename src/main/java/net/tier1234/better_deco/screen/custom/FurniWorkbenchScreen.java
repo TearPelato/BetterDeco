@@ -46,7 +46,6 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
     private static final int SCROLLBAR_TEXTURE_ENABLED_X = 176;
     private static final int SCROLLBAR_TEXTURE_DISABLED_X = 188;
     private static final int SCROLLBAR_TEXTURE_Y = 40;
-    private static Map<Item, Integer> CREATIVE_ORDER = null;
     private static final int Y_OFFSET_CORRECTION = 0;
 
     private List<FurniCraftingRecipe> recipes = new ArrayList<>();
@@ -312,33 +311,6 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
                 .toList();
 
         this.scroll = 0;
-    }
-    private static Map<Item, Integer> buildCreativeOrder() {
-        Map<Item, Integer> order = new HashMap<>();
-        int index = 0;
-
-        for (BundledTabs tab : ModBundledTabs.getFilters()) {
-            tab.populate(Minecraft.getInstance().level.registryAccess());
-
-            for (ItemStack stack : tab.getDisplayItems()) {
-                Item item = stack.getItem();
-                if (!order.containsKey(item)) {
-                    order.put(item, index++);
-                }
-            }
-        }
-
-        return order;
-    }
-    private Comparator<FurniCraftingRecipe> creativeTabComparator() {
-        if (CREATIVE_ORDER == null) {
-            CREATIVE_ORDER = buildCreativeOrder();
-        }
-
-        return Comparator.comparingInt(recipe -> {
-            Item item = recipe.getResultItem(null).getItem();
-            return CREATIVE_ORDER.getOrDefault(item, Integer.MAX_VALUE);
-        });
     }
 
 }
