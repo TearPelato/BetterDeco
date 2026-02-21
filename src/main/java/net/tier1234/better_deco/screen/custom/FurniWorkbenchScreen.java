@@ -36,10 +36,8 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
 
     public static final ResourceLocation TEXTURE = BetterDeco.id("textures/gui/workbench/workbench_interface.png");
     private static final WidgetSprites BUTTON_TEXTURE = new WidgetSprites(
-            BetterDeco.id(""),
-            BetterDeco.id(""),
-            BetterDeco.id(""),
-            BetterDeco.id("")
+            BetterDeco.id("textures/gui/workbench/toggle_disabled.png"),
+            BetterDeco.id("textures/gui/workbench/toggle_enabled.png")
     );
 
     private static final int RECIPES_PER_ROW = 6;
@@ -59,13 +57,13 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
 
     private List<FurniCraftingRecipe> recipes = new ArrayList<>();
     private double scroll = 0;
-    private double targetScroll = 0;                 // NEW: animazione thumb
+    private double targetScroll = 0;
     private int hoveredRecipeIndex = -1;
-    private int selectedRecipeIndex = -1;            // NEW: highlight selezione
+    private int selectedRecipeIndex = -1;
     private int clickedY = -1;
 
     private EditBox searchField;
-    private ImageButton sortToggleButton;             // FIX: ImageButton
+    private ImageButton sortToggleButton;
     private boolean showCraftableOnly = false;
 
     public FurniWorkbenchScreen(FurniWorkbenchMenu menu, Inventory inventory, Component title) {
@@ -87,13 +85,18 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
         this.searchField.setHint(Component.translatable("text.better_deco.recipe.search"));
         this.addRenderableWidget(this.searchField);
 
-        this.sortToggleButton = new ImageButton(this.leftPos + 130, this.topPos + 18, 12, 21, BUTTON_TEXTURE, btn ->{
+        this.sortToggleButton = new ImageButton(this.leftPos + 130, this.topPos + 18, 12, 21, BUTTON_TEXTURE, btn -> {
             showCraftableOnly = !showCraftableOnly;
-            sortToggleButton.setMessage(showCraftableOnly
-            ? Component.translatable("text.better_deco.recipe.show_all")
-            : Component.translatable("text.better_deco.recipe.show_craftable"));
             applySearchFilter();
-        });
+        }) {
+            @Override
+            public void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
+                ResourceLocation sprite = showCraftableOnly
+                        ? BUTTON_TEXTURE.enabled()
+                        : BUTTON_TEXTURE.disabled();
+                graphics.blit(sprite, this.getX(), this.getY(), 0, 0, this.width, this.height, this.width, this.height);
+            }
+        };
 
         this.addRenderableWidget(this.sortToggleButton);
         this.addRenderableWidget(this.sortToggleButton);
@@ -109,7 +112,6 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
 
     @Override
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-        // NEW: animazione fluida thumb
         scroll = Mth.lerp(0.3f, scroll, targetScroll);
 
         super.render(graphics, mouseX, mouseY, partialTick);
@@ -238,9 +240,7 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
         if (button == GLFW.GLFW_MOUSE_BUTTON_LEFT) {
             if (hoveredRecipeIndex != -1) {
-                selectedRecipeIndex = hoveredRecipeIndex; // NEW: selezione
-
-                boolean craftAll = Screen.hasControlDown() || Screen.hasShiftDown(); // NEW
+                selectedRecipeIndex = hoveredRecipeIndex;
                 craftItem(hoveredRecipeIndex);
 
                 Minecraft.getInstance().getSoundManager().play(
@@ -250,7 +250,7 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
             }
 
             int scrollbarX = leftPos + GRID_X_OFFSET + WINDOW_WIDTH + 3;
-            int scrollbarPos = (int) ((scroll / (double) getMaxScroll()) * (SCROLLBAR_AREA - SCROLLBAR_HEIGHT));
+            int scrollbarPos = (int) ((targetScroll / (double) getMaxScroll()) * (SCROLLBAR_AREA - SCROLLBAR_HEIGHT));
             if (isMouseWithinBounds(mouseX, mouseY, scrollbarX,
                     topPos + GRID_Y_OFFSET - Y_OFFSET_CORRECTION + scrollbarPos, 12, SCROLLBAR_HEIGHT)) {
                 clickedY = (int) mouseY;
@@ -283,9 +283,42 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
         }
         return super.mouseScrolled(mouseX, mouseY, deltaX, deltaY);
     }
+    @Override
+    public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
+        if (button == GLFW.GLFW_MOUSE_BUTTON_LEFT && clickedY != -1) {
+            int scrollbarY = topPos + GRID_Y_OFFSET - Y_OFFSET_CORRECTION;
+            int maxScroll = getMaxScroll();
 
-    private void craftItem(int recipeIndex) {
-        PacketDistributor.sendToServer(new CraftRecipePayload(menu.containerId, recipeIndex));
+            double relativeY = mouseY - scrollbarY - (SCROLLBAR_HEIGHT / 2.0);
+            double percent = Mth.clamp(relativeY / (SCROLLBAR_AREA - SCROLLBAR_HEIGHT), 0.0, 1.0);
+
+            targetScroll = percent * maxScroll;
+            return true;
+        }
+        return super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
+    }
+
+    @Override
+    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+        if (this.searchField != null && this.searchField.isFocused()) {
+            if (this.searchField.keyPressed(keyCode, scanCode, modifiers)) {
+                return true;
+            }
+        }
+        return super.keyPressed(keyCode, scanCode, modifiers);
+    }
+
+    private void craftItem(int filteredIndex) {
+        FurniCraftingRecipe recipe = recipes.get(filteredIndex);
+
+        int realIndex = menu.getAvailableRecipes().stream()
+                .map(RecipeHolder::value)
+                .toList()
+                .indexOf(recipe);
+
+        if (realIndex >= 0) {
+            PacketDistributor.sendToServer(new CraftRecipePayload(menu.containerId, realIndex));
+        }
     }
 
     public void updateRecipeButtons() {
