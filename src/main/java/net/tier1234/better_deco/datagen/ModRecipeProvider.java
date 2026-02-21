@@ -17,7 +17,7 @@ import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.datagen.custom.FurniCraftingRecipeBuilder;
 import net.tier1234.better_deco.init.ModBlocks;
 import net.tier1234.better_deco.init.ModItems;
-import net.tier1234.better_deco.util.Constants;
+import net.tier1234.better_deco.Constants;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;

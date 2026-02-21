@@ -9,7 +9,7 @@ import net.neoforged.neoforge.network.IContainerFactory;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.tier1234.better_deco.screen.custom.*;
-import net.tier1234.better_deco.util.Constants;
+import net.tier1234.better_deco.Constants;
 
 public class ModMenuTypes {
     public static final DeferredRegister<MenuType<?>> MENUS =
