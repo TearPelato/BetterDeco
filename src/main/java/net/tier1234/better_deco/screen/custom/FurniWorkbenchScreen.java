@@ -35,6 +35,8 @@ import java.util.Map;
 public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbenchMenu> {
 
     public static final ResourceLocation TEXTURE = BetterDeco.id("textures/gui/workbench/workbench_interface.png");
+    private static final ResourceLocation TOGGLE_OFF = BetterDeco.id("textures/gui/workbench/toggle_disabled.png");
+    private static final ResourceLocation TOGGLE_ON  = BetterDeco.id("textures/gui/workbench/toggle_enabled.png");
     private static final WidgetSprites BUTTON_TEXTURE = new WidgetSprites(
             BetterDeco.id("textures/gui/workbench/toggle_disabled.png"),
             BetterDeco.id("textures/gui/workbench/toggle_enabled.png")
@@ -90,9 +92,7 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
         }) {
             @Override
             public void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-                ResourceLocation sprite = showCraftableOnly
-                        ? BUTTON_TEXTURE.enabled()
-                        : BUTTON_TEXTURE.disabled();
+                ResourceLocation sprite = showCraftableOnly ? TOGGLE_ON : TOGGLE_OFF;
                 graphics.blit(sprite, this.getX(), this.getY(), 0, 0, this.width, this.height, this.width, this.height);
             }
         };
@@ -181,12 +181,12 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
         boolean mouseInGrid = isMouseWithinBounds(mouseX, mouseY, clipX, clipY, WINDOW_WIDTH, WINDOW_HEIGHT);
 
         for (int i = startIndex; i < endIndex; i++) {
-            int visibleIndex = i - startIndex; // FIX: hover e posizioni corrette
+            int visibleIndex = i - startIndex;
             int row = visibleIndex / RECIPES_PER_ROW;
             int col = visibleIndex % RECIPES_PER_ROW;
 
             int x = leftPos + GRID_X_OFFSET + col * BUTTON_SIZE;
-            int y = topPos + GRID_Y_OFFSET + row * BUTTON_SIZE - Y_OFFSET_CORRECTION;
+            int y = topPos + GRID_Y_OFFSET + row * BUTTON_SIZE - (int) scroll - Y_OFFSET_CORRECTION;
 
             FurniCraftingRecipe recipe = recipes.get(i);
             boolean canCraft = menu.canCraft(recipe);
@@ -211,7 +211,7 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
         int maxScroll = getMaxScroll();
         int scrollbarX = leftPos + GRID_X_OFFSET + WINDOW_WIDTH + 3;
         int scrollbarY = topPos + GRID_Y_OFFSET - Y_OFFSET_CORRECTION;
-        int scrollbarPos = (int) ((getScrollAmount(mouseY) / (double) maxScroll) * (SCROLLBAR_AREA - SCROLLBAR_HEIGHT));
+        int scrollbarPos = maxScroll > 0 ? (int) ((scroll / (double) maxScroll) * (SCROLLBAR_AREA - SCROLLBAR_HEIGHT)) : 0;
         int textureX = maxScroll > 0 ? SCROLLBAR_TEXTURE_ENABLED_X : SCROLLBAR_TEXTURE_DISABLED_X;
         graphics.blit(TEXTURE, scrollbarX, scrollbarY + scrollbarPos, textureX, SCROLLBAR_TEXTURE_Y, 12, SCROLLBAR_HEIGHT, 256, 256);
     }
@@ -268,20 +268,14 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
     }
 
     @Override
-    public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
-        if (button == GLFW.GLFW_MOUSE_BUTTON_LEFT && clickedY != -1) {
-            scroll = getScrollAmount((int) mouseY);
-            return true;
-        }
-        return super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
-    }
-
-    @Override
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
         if (this.searchField != null && this.searchField.isFocused()) {
-            if (this.searchField.keyPressed(keyCode, scanCode, modifiers)) {
+            if (keyCode == GLFW.GLFW_KEY_ESCAPE) {
+                this.searchField.setFocused(false);
                 return true;
             }
+            this.searchField.keyPressed(keyCode, scanCode, modifiers);
+            return true;
         }
         return super.keyPressed(keyCode, scanCode, modifiers);
     }
