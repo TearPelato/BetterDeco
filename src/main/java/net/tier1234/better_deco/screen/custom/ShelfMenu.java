@@ -115,7 +115,9 @@ public class ShelfMenu extends AbstractContainerMenu {
                         player, ModBlocks.CRIMSON_SHELF.get())
                 ||
                 stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                        player, ModBlocks.WARPED_SHELF.get());
+                        player, ModBlocks.WARPED_SHELF.get())
+                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                        player, ModBlocks.PALE_OAK_SHELF.get());
 
 
 
