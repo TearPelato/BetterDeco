@@ -57,7 +57,6 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
 
     private List<FurniCraftingRecipe> recipes = new ArrayList<>();
     private double scroll = 0;
-    private double targetScroll = 0;
     private int hoveredRecipeIndex = -1;
     private int selectedRecipeIndex = -1;
     private int clickedY = -1;
@@ -99,7 +98,6 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
         };
 
         this.addRenderableWidget(this.sortToggleButton);
-        this.addRenderableWidget(this.sortToggleButton);
     }
 
     private void updateRecipes() {
@@ -112,7 +110,6 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
 
     @Override
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-        scroll = Mth.lerp(0.3f, scroll, targetScroll);
 
         super.render(graphics, mouseX, mouseY, partialTick);
         this.renderTooltip(graphics, mouseX, mouseY);
@@ -212,23 +209,11 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
 
     private void renderScrollbar(GuiGraphics graphics, int mouseY) {
         int maxScroll = getMaxScroll();
-        if (maxScroll <= 0) return;
-
         int scrollbarX = leftPos + GRID_X_OFFSET + WINDOW_WIDTH + 3;
         int scrollbarY = topPos + GRID_Y_OFFSET - Y_OFFSET_CORRECTION;
-
-        int scrollbarPos = maxScroll == 0 ? 0 :
-                (int) (scroll * (SCROLLBAR_AREA - SCROLLBAR_HEIGHT) / (double) maxScroll);
-
-        graphics.blit(TEXTURE,
-                scrollbarX,
-                scrollbarY + scrollbarPos,
-                SCROLLBAR_TEXTURE_ENABLED_X,
-                SCROLLBAR_TEXTURE_Y,
-                12,
-                SCROLLBAR_HEIGHT,
-                256,
-                256);
+        int scrollbarPos = (int) ((getScrollAmount(mouseY) / (double) maxScroll) * (SCROLLBAR_AREA - SCROLLBAR_HEIGHT));
+        int textureX = maxScroll > 0 ? SCROLLBAR_TEXTURE_ENABLED_X : SCROLLBAR_TEXTURE_DISABLED_X;
+        graphics.blit(TEXTURE, scrollbarX, scrollbarY + scrollbarPos, textureX, SCROLLBAR_TEXTURE_Y, 12, SCROLLBAR_HEIGHT, 256, 256);
     }
 
     private int getMaxScroll() {
@@ -236,23 +221,26 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
         return Math.max(0, totalRows * BUTTON_SIZE - WINDOW_HEIGHT);
     }
 
+    private double getScrollAmount(int mouseY) {
+        return Mth.clamp(scroll + getScrollbarDelta(mouseY), 0, getMaxScroll());
+    }
+
+    private int getScrollbarDelta(int mouseY) {
+        double scrollPerUnit = getMaxScroll() / (double) (SCROLLBAR_AREA - SCROLLBAR_HEIGHT);
+        return clickedY != -1 ? (int) ((mouseY - clickedY) * scrollPerUnit) : 0;
+    }
+
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
         if (button == GLFW.GLFW_MOUSE_BUTTON_LEFT) {
             if (hoveredRecipeIndex != -1) {
-                selectedRecipeIndex = hoveredRecipeIndex;
                 craftItem(hoveredRecipeIndex);
-
-                Minecraft.getInstance().getSoundManager().play(
-                        SimpleSoundInstance.forUI(SoundEvents.UI_BUTTON_CLICK, 1.0F)
-                );
+                Minecraft.getInstance().getSoundManager().play(SimpleSoundInstance.forUI(SoundEvents.UI_BUTTON_CLICK, 1.0F));
                 return true;
             }
-
             int scrollbarX = leftPos + GRID_X_OFFSET + WINDOW_WIDTH + 3;
-            int scrollbarPos = (int) ((targetScroll / (double) getMaxScroll()) * (SCROLLBAR_AREA - SCROLLBAR_HEIGHT));
-            if (isMouseWithinBounds(mouseX, mouseY, scrollbarX,
-                    topPos + GRID_Y_OFFSET - Y_OFFSET_CORRECTION + scrollbarPos, 12, SCROLLBAR_HEIGHT)) {
+            int scrollbarPos = (int) ((getScrollAmount((int) mouseY) / (double) getMaxScroll()) * (SCROLLBAR_AREA - SCROLLBAR_HEIGHT));
+            if (isMouseWithinBounds(mouseX, mouseY, scrollbarX, topPos + GRID_Y_OFFSET - Y_OFFSET_CORRECTION + scrollbarPos, 12, SCROLLBAR_HEIGHT)) {
                 clickedY = (int) mouseY;
                 return true;
             }
@@ -263,7 +251,7 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
     @Override
     public boolean mouseReleased(double mouseX, double mouseY, int button) {
         if (button == GLFW.GLFW_MOUSE_BUTTON_LEFT && clickedY != -1) {
-            targetScroll = Mth.clamp(targetScroll, 0, getMaxScroll()); // FIX: usa targetScroll
+            scroll = getScrollAmount((int) mouseY);
             clickedY = -1;
             return true;
         }
@@ -272,27 +260,17 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
 
     @Override
     public boolean mouseScrolled(double mouseX, double mouseY, double deltaX, double deltaY) {
-        if (getMaxScroll() > 0 && clickedY == -1 &&
-                isMouseWithinBounds(mouseX, mouseY,
-                        leftPos + GRID_X_OFFSET,
-                        topPos + GRID_Y_OFFSET,
-                        WINDOW_WIDTH + 15,
-                        WINDOW_HEIGHT)) {
-            targetScroll = Mth.clamp(targetScroll - deltaY * SCROLL_SPEED, 0, getMaxScroll()); // FIX: targetScroll
+        if (clickedY == -1 && isMouseWithinBounds(mouseX, mouseY, leftPos + GRID_X_OFFSET, topPos + GRID_Y_OFFSET, WINDOW_WIDTH + 15, WINDOW_HEIGHT)) {
+            scroll = Mth.clamp(scroll - deltaY * SCROLL_SPEED, 0, getMaxScroll());
             return true;
         }
         return super.mouseScrolled(mouseX, mouseY, deltaX, deltaY);
     }
+
     @Override
     public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
         if (button == GLFW.GLFW_MOUSE_BUTTON_LEFT && clickedY != -1) {
-            int scrollbarY = topPos + GRID_Y_OFFSET - Y_OFFSET_CORRECTION;
-            int maxScroll = getMaxScroll();
-
-            double relativeY = mouseY - scrollbarY - (SCROLLBAR_HEIGHT / 2.0);
-            double percent = Mth.clamp(relativeY / (SCROLLBAR_AREA - SCROLLBAR_HEIGHT), 0.0, 1.0);
-
-            targetScroll = percent * maxScroll;
+            scroll = getScrollAmount((int) mouseY);
             return true;
         }
         return super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
@@ -340,7 +318,6 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
                 })
                 .toList();
 
-        targetScroll = 0;
         scroll = 0;
     }
 
