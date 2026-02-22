@@ -737,10 +737,7 @@
   "tooltip.better_deco.screen.properties": "§7Properties:",
   "tooltip.better_deco.screen.sink_property": "This Block is Fully Customizable. Can be filled with all fluids ",
 
-  "text.better_deco.recipe.sort_creative": "Creative Filter",
-  "text.better_deco.filter.alphabetical": "Alphabetical",
   "text.better_deco.recipe.search": "Search...",
-
   "text.better_deco.recipe.show_all": "Show All",
   "text.better_deco.recipe.show_craftable": "Show Craftable Only",
 

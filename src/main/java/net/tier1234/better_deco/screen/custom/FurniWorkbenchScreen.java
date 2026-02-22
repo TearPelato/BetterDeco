@@ -29,9 +29,12 @@ import net.tier1234.better_deco.screen.tooltip.ClientFurnicrafterRecipeTooltip;
 import org.lwjgl.glfw.GLFW;
 
 import java.util.*;
+import java.util.stream.Stream;
 
 public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbenchMenu> {
     public static final ResourceLocation TEXTURE = BetterDeco.id("textures/gui/workbench/workbench_interface.png");
+    public static final ResourceLocation BUTTON_ENABLED = BetterDeco.id("textures/gui/workbench/toggle_enabled.png");
+    public static final ResourceLocation BUTTON_DISABLED = BetterDeco.id("textures/gui/workbench/toggle_disabled.png");
 
     private static final int RECIPES_PER_ROW = 6;
     private static final int BUTTON_SIZE = 20;
@@ -47,6 +50,9 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
     private static final int SCROLLBAR_TEXTURE_DISABLED_X = 188;
     private static final int SCROLLBAR_TEXTURE_Y = 40;
 
+    private static final int TOGGLE_BUTTON_WIDTH = 12;
+    private static final int TOGGLE_BUTTON_HEIGHT = 21;
+
     private static final int Y_OFFSET_CORRECTION = 0;
 
     private List<RecipeHolder<FurniCraftingRecipe>> allRecipes = new ArrayList<>();
@@ -58,6 +64,8 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
     private int clickedY = -1;
     private int scrollbarDragOffset = 0;
     private String lastQuery = "";
+
+    private boolean filterCraftable = false;
 
     public FurniWorkbenchScreen(FurniWorkbenchMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
@@ -80,7 +88,7 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
                 y,
                 120,
                 20,
-                Component.translatable("gui.better_deco.search")
+                Component.translatable("text.better_deco.recipe.search")
         );
         this.searchBox.setMaxLength(64);
         this.searchBox.setBordered(true);
@@ -108,19 +116,31 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
             lastQuery = query;
         }
 
-        if (query.isEmpty()) {
-            this.visibleRecipes = new ArrayList<>(this.allRecipes);
-        } else {
-            String q = query;
-            this.visibleRecipes = this.allRecipes.stream()
-                    .filter(holder -> holder.value()
-                            .getResultItem(null)
-                            .getHoverName()
-                            .getString()
-                            .toLowerCase(Locale.ROOT)
-                            .contains(q))
-                    .toList();
+        Stream<RecipeHolder<FurniCraftingRecipe>> stream = this.allRecipes.stream();
+
+        if (filterCraftable) {
+            stream = stream.filter(holder -> menu.canCraft(holder.value()));
         }
+
+        if (!query.isEmpty()) {
+            String q = query;
+            stream = stream.filter(holder -> holder.value()
+                    .getResultItem(null)
+                    .getHoverName()
+                    .getString()
+                    .toLowerCase(Locale.ROOT)
+                    .contains(q));
+        }
+
+        this.visibleRecipes = stream.toList();
+    }
+
+    private int getToggleButtonX() {
+        return leftPos + 130;
+    }
+
+    private int getToggleButtonY() {
+        return topPos + 18;
     }
 
     @Override
@@ -130,6 +150,15 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
 
         if (hoveredRecipeIndex != -1 && isMouseWithinBounds(mouseX, mouseY, leftPos + GRID_X_OFFSET, topPos + GRID_Y_OFFSET, WINDOW_WIDTH, WINDOW_HEIGHT)) {
             renderRecipeTooltip(graphics, mouseX, mouseY, hoveredRecipeIndex);
+        }
+
+        int tbX = getToggleButtonX();
+        int tbY = getToggleButtonY();
+        if (isMouseWithinBounds(mouseX, mouseY, tbX, tbY, TOGGLE_BUTTON_WIDTH, TOGGLE_BUTTON_HEIGHT)) {
+            Component tooltipText = filterCraftable
+                    ? Component.translatable("text.better_deco.recipe.show_craftable")
+                    : Component.translatable("text.better_deco.recipe.show_all");
+            graphics.renderTooltip(this.font, tooltipText, mouseX, mouseY);
         }
     }
 
@@ -165,6 +194,14 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
         graphics.blit(TEXTURE, leftPos, topPos, 0, 0, imageWidth, imageHeight, 256, 256);
         renderRecipes(graphics, mouseX, mouseY);
         renderScrollbar(graphics);
+        renderToggleButton(graphics);
+    }
+
+    private void renderToggleButton(GuiGraphics graphics) {
+        int tbX = getToggleButtonX();
+        int tbY = getToggleButtonY();
+        ResourceLocation texture = filterCraftable ? BUTTON_ENABLED : BUTTON_DISABLED;
+        graphics.blit(texture, tbX, tbY, 0, 0, TOGGLE_BUTTON_WIDTH, TOGGLE_BUTTON_HEIGHT, TOGGLE_BUTTON_WIDTH, TOGGLE_BUTTON_HEIGHT);
     }
 
     private void renderRecipes(GuiGraphics graphics, int mouseX, int mouseY) {
@@ -224,12 +261,23 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
         if (button == GLFW.GLFW_MOUSE_BUTTON_LEFT) {
+            int tbX = getToggleButtonX();
+            int tbY = getToggleButtonY();
+            if (isMouseWithinBounds(mouseX, mouseY, tbX, tbY, TOGGLE_BUTTON_WIDTH, TOGGLE_BUTTON_HEIGHT)) {
+                filterCraftable = !filterCraftable;
+                this.scroll = 0;
+                applySearchFilter();
+                Minecraft.getInstance().getSoundManager().play(SimpleSoundInstance.forUI(SoundEvents.UI_BUTTON_CLICK, 1.0F));
+                return true;
+            }
+
             if (hoveredRecipeIndex != -1) {
                 int amount = getRequestedAmount();
                 craftItem(hoveredRecipeIndex, amount);
                 Minecraft.getInstance().getSoundManager().play(SimpleSoundInstance.forUI(SoundEvents.UI_BUTTON_CLICK, 1.0F));
                 return true;
             }
+
             int scrollbarX = leftPos + GRID_X_OFFSET + WINDOW_WIDTH + 3;
             int scrollbarY = topPos + GRID_Y_OFFSET - Y_OFFSET_CORRECTION;
             int maxScroll = getMaxScroll();
@@ -247,25 +295,20 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
     @Override
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
         if (this.searchBox != null && this.searchBox.isFocused()) {
-
             if (keyCode == GLFW.GLFW_KEY_ESCAPE) {
                 this.searchBox.setFocused(false);
                 return true;
             }
-
             if (this.minecraft != null
                     && this.minecraft.options != null
                     && this.minecraft.options.keyInventory.matches(keyCode, scanCode)) {
                 return true;
             }
-
             if (this.searchBox.keyPressed(keyCode, scanCode, modifiers)) {
                 return true;
             }
-
             return true;
         }
-
         return super.keyPressed(keyCode, scanCode, modifiers);
     }
 
@@ -326,9 +369,7 @@ public class FurniWorkbenchScreen extends AbstractContainerScreen<FurniWorkbench
         int serverIndex = menu.getAvailableRecipes().indexOf(holder);
         if (serverIndex < 0) return;
 
-        if (serverIndex >= 0) {
-            PacketDistributor.sendToServer(new CraftRecipePayload(menu.containerId, serverIndex));
-        }
+        PacketDistributor.sendToServer(new CraftRecipePayload(menu.containerId, serverIndex));
     }
 
     public void updateRecipeButtons() {
