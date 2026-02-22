@@ -34,6 +34,16 @@ public record FreezerRecipe(Ingredient inputItem, ItemStack output, int freezeTi
         return output.copy();
     }
 
+    @Override
+    public boolean showNotification() {
+        return false;
+    }
+
+    @Override
+    public String group() {
+        return "";
+    }
+
 
     @Override
     public RecipeSerializer<? extends Recipe<FreezerRecipeInput>> getSerializer() {

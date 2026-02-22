@@ -35,6 +35,16 @@ public record OvenRecipe(Ingredient inputItem, ItemStack output) implements Reci
     }
 
     @Override
+    public boolean showNotification() {
+        return false;
+    }
+
+    @Override
+    public String group() {
+        return "";
+    }
+
+    @Override
     public RecipeSerializer<? extends Recipe<OvenRecipeInput>> getSerializer() {
         return ModRecipes.OVEN_SERIALIZER.get();
     }

@@ -36,6 +36,16 @@ public record MicrowaveRecipe(Ingredient inputItem, ItemStack output) implements
     }
 
     @Override
+    public boolean showNotification() {
+        return false;
+    }
+
+    @Override
+    public String group() {
+        return "";
+    }
+
+    @Override
     public RecipeSerializer<? extends Recipe<MicrowaveRecipeInput>> getSerializer() {
         return ModRecipes.MICROWAVE_SERIALIZER.get();
     }

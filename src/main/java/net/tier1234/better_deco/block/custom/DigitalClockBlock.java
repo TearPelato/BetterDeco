@@ -97,7 +97,7 @@ public class DigitalClockBlock extends FurnitureHorizontalBlock implements Entit
             if (!level.isClientSide()) {
                 BlockEntity blockEntity = level.getBlockEntity(pos);
                 if (blockEntity instanceof DigitalClockBlockEntity digitalClock) {
-                    digitalClock.setTextColor(dyeItem.getDyeColor());
+                    digitalClock.setTextColor(digitalClock.getTextColor());
                     if (!player.isCreative()) {
                         stack.shrink(1);
                     }
