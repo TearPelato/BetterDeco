@@ -41,12 +41,6 @@ public class CabinetBlock extends FurnitureHorizontalBlock implements EntityBloc
     }
 
     @Override
-    protected BlockState updateShape(BlockState state, LevelReader level, ScheduledTickAccess scheduledTickAccess, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, RandomSource random) {
-        return null;
-    }
-
-
-    @Override
     public VoxelShape getCollisionShape(BlockState state, BlockGetter world, BlockPos pos, net.minecraft.world.phys.shapes.CollisionContext context) {
         return SHAPES.get(state);
     }
