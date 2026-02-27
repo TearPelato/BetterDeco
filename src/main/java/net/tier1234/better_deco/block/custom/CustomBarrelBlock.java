@@ -27,6 +27,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.tier1234.better_deco.block.entity.custom.CustomBarrelBlockEntity;
 import net.tier1234.better_deco.init.ModBlockEntities;
 
+@Deprecated(forRemoval = true)
 public class CustomBarrelBlock extends BaseEntityBlock {
     public static final MapCodec<CustomBarrelBlock> CODEC = simpleCodec(CustomBarrelBlock::new);
     public static final DirectionProperty FACING = BlockStateProperties.FACING;

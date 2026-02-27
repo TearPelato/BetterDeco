@@ -17,6 +17,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+@Deprecated(forRemoval = true)
 public class WallLanternBlock extends HorizontalDirectionalBlock {
     public static final MapCodec<WallLanternBlock> CODEC = simpleCodec(WallLanternBlock::new);
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;

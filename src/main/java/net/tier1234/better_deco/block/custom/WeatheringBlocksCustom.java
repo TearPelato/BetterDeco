@@ -14,6 +14,7 @@ import net.tier1234.better_deco.init.ModBlocks;
 import java.util.Optional;
 import java.util.function.Supplier;
 
+@Deprecated(forRemoval = true)
 public interface WeatheringBlocksCustom extends ChangeOverTimeBlock<WeatheringCopper.WeatherState> {
 
     @Deprecated

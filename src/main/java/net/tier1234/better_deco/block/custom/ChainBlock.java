@@ -17,6 +17,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+@Deprecated(forRemoval = true)
 public class ChainBlock extends RotatedPillarBlock implements SimpleWaterloggedBlock {
     private static final double d0 = 4D;
     private static final double d1 = 12D;

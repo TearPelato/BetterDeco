@@ -17,7 +17,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.tier1234.better_deco.init.ModBlocks;
 
 import java.util.function.Supplier;
-
+@Deprecated(forRemoval = true)
 public class ChiselItem extends Item {
     Supplier<BiMap<Block, Block>> CHISEL_MAP = Suppliers.memoize(
             () -> ImmutableBiMap.<Block, Block>builder()

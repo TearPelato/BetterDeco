@@ -7,6 +7,7 @@ import net.minecraft.world.level.block.Block;
 import java.util.Map;
 import java.util.function.Supplier;
 
+@Deprecated(forRemoval = true)
 public class BlockSupplierItem extends BlockItem
 {
     public final Block block;

@@ -12,6 +12,7 @@ import java.util.function.BiFunction;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
+@Deprecated(forRemoval = true)
 public record WeatheringCopperBlocks(Block unaffected, Block exposed, Block weathered, Block oxidized, Block waxed, Block waxedExposed, Block waxedWeathered, Block waxedOxidized) {
     public static <WaxedBlock extends Block, WeatheringBlock extends Block & WeatheringCopper> WeatheringCopperBlocks create(String string, TriFunction<String, Function<BlockBehaviour.Properties, Block>, BlockBehaviour.Properties, Block> triFunction, Function<BlockBehaviour.Properties, WaxedBlock> function, BiFunction<WeatheringCopper.WeatherState, BlockBehaviour.Properties, WeatheringBlock> biFunction, Function<WeatheringCopper.WeatherState, BlockBehaviour.Properties> function2) {
         Block var10002 = (Block)triFunction.apply(string, (Function)(properties) -> (Block)biFunction.apply(WeatheringCopper.WeatherState.UNAFFECTED, (BlockBehaviour.Properties) properties), (BlockBehaviour.Properties)function2.apply(WeatheringCopper.WeatherState.UNAFFECTED));

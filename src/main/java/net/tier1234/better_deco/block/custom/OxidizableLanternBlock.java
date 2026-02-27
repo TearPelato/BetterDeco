@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 
+@Deprecated(forRemoval = true)
 public class OxidizableLanternBlock extends LanternBlock implements WeatheringCopper {
     public static final MapCodec<OxidizableLanternBlock> CODEC = RecordCodecBuilder.mapCodec((instance) ->
             instance.group(WeatherState.CODEC.fieldOf("weathering_state").forGetter(OxidizableLanternBlock::getAge),

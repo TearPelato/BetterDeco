@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.tier1234.better_deco.init.ModBlockEntities;
 
+@Deprecated(forRemoval = true)
 public class CustomBarrelBlockEntity extends RandomizableContainerBlockEntity
         implements MenuProvider {
 
