@@ -751,56 +751,56 @@ public static final DeferredBlock<Block> BIRCH_CHAIR = registerBlock("birch_chai
 
     //Counters
 
-    public static final DeferredBlock<Block> OAK_KITCHEN_COUNTER = registerBlock("oak_kitchen_counter",
+    public static final DeferredBlock<KitchenCounterBlock> OAK_KITCHEN_COUNTER = registerBlock("oak_kitchen_counter",
             ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-    public static final DeferredBlock<Block> SPRUCE_KITCHEN_COUNTER = registerBlock("spruce_kitchen_counter",
+    public static final DeferredBlock<KitchenCounterBlock> SPRUCE_KITCHEN_COUNTER = registerBlock("spruce_kitchen_counter",
             ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-    public static final DeferredBlock<Block> BIRCH_KITCHEN_COUNTER = registerBlock("birch_kitchen_counter",
+    public static final DeferredBlock<KitchenCounterBlock> BIRCH_KITCHEN_COUNTER = registerBlock("birch_kitchen_counter",
             ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-    public static final DeferredBlock<Block> JUNGLE_KITCHEN_COUNTER = registerBlock("jungle_kitchen_counter",
+    public static final DeferredBlock<KitchenCounterBlock> JUNGLE_KITCHEN_COUNTER = registerBlock("jungle_kitchen_counter",
             ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-    public static final DeferredBlock<Block> ACACIA_KITCHEN_COUNTER = registerBlock("acacia_kitchen_counter",
+    public static final DeferredBlock<KitchenCounterBlock> ACACIA_KITCHEN_COUNTER = registerBlock("acacia_kitchen_counter",
             ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-    public static final DeferredBlock<Block> DARK_OAK_KITCHEN_COUNTER = registerBlock("dark_oak_kitchen_counter",
+    public static final DeferredBlock<KitchenCounterBlock> DARK_OAK_KITCHEN_COUNTER = registerBlock("dark_oak_kitchen_counter",
             ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-    public static final DeferredBlock<Block> MANGROVE_KITCHEN_COUNTER = registerBlock("mangrove_kitchen_counter",
+    public static final DeferredBlock<KitchenCounterBlock> MANGROVE_KITCHEN_COUNTER = registerBlock("mangrove_kitchen_counter",
             ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-    public static final DeferredBlock<Block> CHERRY_KITCHEN_COUNTER = registerBlock("cherry_kitchen_counter",
+    public static final DeferredBlock<KitchenCounterBlock> CHERRY_KITCHEN_COUNTER = registerBlock("cherry_kitchen_counter",
             ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-    public static final DeferredBlock<Block> BAMBOO_KITCHEN_COUNTER = registerBlock("bamboo_kitchen_counter",
+    public static final DeferredBlock<KitchenCounterBlock> BAMBOO_KITCHEN_COUNTER = registerBlock("bamboo_kitchen_counter",
             ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-    public static final DeferredBlock<Block> CRIMSON_KITCHEN_COUNTER = registerBlock("crimson_kitchen_counter",
+    public static final DeferredBlock<KitchenCounterBlock> CRIMSON_KITCHEN_COUNTER = registerBlock("crimson_kitchen_counter",
             ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-    public static final DeferredBlock<Block> WARPED_KITCHEN_COUNTER = registerBlock("warped_kitchen_counter",
+    public static final DeferredBlock<KitchenCounterBlock> WARPED_KITCHEN_COUNTER = registerBlock("warped_kitchen_counter",
             ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
 
             //Stripped Counters Variant
 
-    public static final DeferredBlock<Block> STRIPPED_OAK_KITCHEN_COUNTER = registerBlock("stripped_oak_kitchen_counter",
+    public static final DeferredBlock<KitchenCounterBlock> STRIPPED_OAK_KITCHEN_COUNTER = registerBlock("stripped_oak_kitchen_counter",
             ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-    public static final DeferredBlock<Block> STRIPPED_SPRUCE_KITCHEN_COUNTER = registerBlock("stripped_spruce_kitchen_counter",
+    public static final DeferredBlock<KitchenCounterBlock> STRIPPED_SPRUCE_KITCHEN_COUNTER = registerBlock("stripped_spruce_kitchen_counter",
             ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-    public static final DeferredBlock<Block> STRIPPED_BIRCH_KITCHEN_COUNTER = registerBlock("stripped_birch_kitchen_counter",
+    public static final DeferredBlock<KitchenCounterBlock> STRIPPED_BIRCH_KITCHEN_COUNTER = registerBlock("stripped_birch_kitchen_counter",
             ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-    public static final DeferredBlock<Block> STRIPPED_JUNGLE_KITCHEN_COUNTER = registerBlock("stripped_jungle_kitchen_counter",
+    public static final DeferredBlock<KitchenCounterBlock> STRIPPED_JUNGLE_KITCHEN_COUNTER = registerBlock("stripped_jungle_kitchen_counter",
             ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-    public static final DeferredBlock<Block> STRIPPED_ACACIA_KITCHEN_COUNTER = registerBlock("stripped_acacia_kitchen_counter",
+    public static final DeferredBlock<KitchenCounterBlock> STRIPPED_ACACIA_KITCHEN_COUNTER = registerBlock("stripped_acacia_kitchen_counter",
             ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-    public static final DeferredBlock<Block> STRIPPED_DARK_OAK_KITCHEN_COUNTER = registerBlock("stripped_dark_oak_kitchen_counter",
+    public static final DeferredBlock<KitchenCounterBlock> STRIPPED_DARK_OAK_KITCHEN_COUNTER = registerBlock("stripped_dark_oak_kitchen_counter",
             ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-    public static final DeferredBlock<Block> STRIPPED_MANGROVE_KITCHEN_COUNTER = registerBlock("stripped_mangrove_kitchen_counter",
+    public static final DeferredBlock<KitchenCounterBlock> STRIPPED_MANGROVE_KITCHEN_COUNTER = registerBlock("stripped_mangrove_kitchen_counter",
             ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-    public static final DeferredBlock<Block> STRIPPED_CHERRY_KITCHEN_COUNTER = registerBlock("stripped_cherry_kitchen_counter",
+    public static final DeferredBlock<KitchenCounterBlock> STRIPPED_CHERRY_KITCHEN_COUNTER = registerBlock("stripped_cherry_kitchen_counter",
             ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-    public static final DeferredBlock<Block> STRIPPED_BAMBOO_KITCHEN_COUNTER = registerBlock("stripped_bamboo_kitchen_counter",
+    public static final DeferredBlock<KitchenCounterBlock> STRIPPED_BAMBOO_KITCHEN_COUNTER = registerBlock("stripped_bamboo_kitchen_counter",
             ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-    public static final DeferredBlock<Block> STRIPPED_CRIMSON_KITCHEN_COUNTER = registerBlock("stripped_crimson_kitchen_counter",
+    public static final DeferredBlock<KitchenCounterBlock> STRIPPED_CRIMSON_KITCHEN_COUNTER = registerBlock("stripped_crimson_kitchen_counter",
             ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-    public static final DeferredBlock<Block> STRIPPED_WARPED_KITCHEN_COUNTER = registerBlock("stripped_warped_kitchen_counter",
+    public static final DeferredBlock<KitchenCounterBlock> STRIPPED_WARPED_KITCHEN_COUNTER = registerBlock("stripped_warped_kitchen_counter",
             ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-    public static final DeferredBlock<Block> DARK_OAK_CALCITE_COUNTER = registerBlock("dark_oak_calcite_kitchen_counter",
+    public static final DeferredBlock<KitchenCounterBlock> DARK_OAK_CALCITE_COUNTER = registerBlock("dark_oak_calcite_kitchen_counter",
             ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(3f)));
-    public static final DeferredBlock<Block> OAK_ANDESITE_COUNTER = registerBlock("oak_andesite_kitchen_counter",
+    public static final DeferredBlock<KitchenCounterBlock> OAK_ANDESITE_COUNTER = registerBlock("oak_andesite_kitchen_counter",
             ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(3f)));
 
   //Drawers
