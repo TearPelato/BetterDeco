@@ -1,7 +1,6 @@
 {
   "parent": "better_deco:block/kitchen_counter_left_corner_inverted",
   "textures": {
-    "top": "minecraft:block/oak_log",
-    "base": "minecraft:block/oak_planks"
+    "0": "textures/block/furniture/kitchen_counter/oak_kitchen_counter"
   }
 }
