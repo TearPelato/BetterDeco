@@ -6,8 +6,8 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
 
-public class ChairEntity extends Entity {
-    public ChairEntity(EntityType<?> entityType, Level level) {
+public class SeatEntity extends Entity {
+    public SeatEntity(EntityType<?> entityType, Level level) {
         super(entityType, level);
     }
 

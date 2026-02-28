@@ -14,7 +14,7 @@ import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.tier1234.better_deco.init.ModBlockEntities;
 import net.tier1234.better_deco.block.entity.renderer.*;
 import net.tier1234.better_deco.init.ModEntities;
-import net.tier1234.better_deco.entity.client.ChairRenderer;
+import net.tier1234.better_deco.entity.client.SeatRender;
 import net.tier1234.better_deco.init.ModMenuTypes;
 import net.tier1234.better_deco.screen.custom.*;
 
@@ -26,7 +26,7 @@ public class BetterDecoClient {
     }
     @SubscribeEvent
     static void onClientSetup(FMLClientSetupEvent event) {
-        EntityRenderers.register(ModEntities.CHAIR_ENTITY.get(), ChairRenderer::new);
+        EntityRenderers.register(ModEntities.CHAIR_ENTITY.get(), SeatRender::new);
 
     }
     @SubscribeEvent

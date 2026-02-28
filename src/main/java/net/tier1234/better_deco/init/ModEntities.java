@@ -7,7 +7,7 @@ import net.minecraft.world.entity.MobCategory;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.tier1234.better_deco.BetterDeco;
-import net.tier1234.better_deco.entity.custom.ChairEntity;
+import net.tier1234.better_deco.entity.custom.SeatEntity;
 
 import java.util.function.Supplier;
 
@@ -16,8 +16,8 @@ public class ModEntities {
             DeferredRegister.create(BuiltInRegistries.ENTITY_TYPE, BetterDeco.MOD_ID);
 
 
-    public static final Supplier<EntityType<ChairEntity>> CHAIR_ENTITY =
-            ENTITY_TYPES.register("chair_entity", () -> EntityType.Builder.of(ChairEntity::new, MobCategory.MISC)
+    public static final Supplier<EntityType<SeatEntity>> CHAIR_ENTITY =
+            ENTITY_TYPES.register("chair_entity", () -> EntityType.Builder.of(SeatEntity::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build("chair_entity"));
 
 

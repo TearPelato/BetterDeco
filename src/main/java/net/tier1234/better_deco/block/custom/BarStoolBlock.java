@@ -23,7 +23,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.tearpelato.deco_lib.api.shape.VoxelShapeHelper;
 import net.tier1234.better_deco.init.ModEntities;
-import net.tier1234.better_deco.entity.custom.ChairEntity;
+import net.tier1234.better_deco.entity.custom.SeatEntity;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -93,7 +93,7 @@ public class BarStoolBlock extends Block {
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         if(!level.isClientSide()) {
             Entity entity = null;
-            List<ChairEntity> entities = level.getEntities(ModEntities.CHAIR_ENTITY.get(), new AABB(pos), chair -> true);
+            List<SeatEntity> entities = level.getEntities(ModEntities.CHAIR_ENTITY.get(), new AABB(pos), chair -> true);
             if(entities.isEmpty()) {
                 entity = ModEntities.CHAIR_ENTITY.get().spawn(((ServerLevel) level), pos, MobSpawnType.TRIGGERED);
             } else {
