@@ -13,6 +13,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.tier1234.better_deco.BetterDeco;
+import net.tier1234.better_deco.Constants;
 import net.tier1234.better_deco.init.ModBlocks;
 import net.tier1234.better_deco.compat.jei.category.MicrowaveRecipeCategory;
 import net.tier1234.better_deco.compat.jei.category.OvenRecipeCategory;
@@ -28,7 +29,7 @@ import java.util.List;
 public class JEIBetterDecoPlugin implements IModPlugin {
     @Override
     public ResourceLocation getPluginUid() {
-        return ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, "jei_plugin");
+        return Constants.id("jei_plugin");
     }
 
     @Override

@@ -11,16 +11,15 @@ import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import net.tier1234.better_deco.BetterDeco;
+import net.tier1234.better_deco.Constants;
 import net.tier1234.better_deco.init.ModBlocks;
 import net.tier1234.better_deco.recipe.MicrowaveRecipe;
 import org.jetbrains.annotations.Nullable;
 
 public class MicrowaveRecipeCategory implements IRecipeCategory<MicrowaveRecipe> {
 
-    public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, "microwave");
-    public static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID,
-            "textures/gui/microwave/growth_chamber_gui_jei.png");
+    public static final ResourceLocation UID = Constants.id("microwave");
+    public static final ResourceLocation TEXTURE = Constants.id("textures/gui/microwave/growth_chamber_gui_jei.png");
 
     public static final RecipeType<MicrowaveRecipe> MICROWAVE_RECIPE_RECIPE_TYPE =
             new RecipeType<>(UID, MicrowaveRecipe.class);
