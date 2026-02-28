@@ -601,6 +601,11 @@ public static final DeferredBlock<Block> OAK_VERTICAL_PLANKS = registerBlock("oa
 
 
 
+    @Deprecated(forRemoval = true)
+
+    /**Planks pilalr are outdated and will be removed
+     * IDK if will be readded on the addon
+     * */
     //Pillars
     public static final DeferredBlock<Block> ACACIA_PLANKS_PILLAR = registerBlock("acacia_planks_pillar",
             () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PURPUR_PILLAR) .strength(2f)));
