@@ -37,7 +37,7 @@ public class KitchenCounterBlock extends FurnitureHorizontalBlock
     protected ImmutableMap<BlockState, VoxelShape> generateShapes(ImmutableList<BlockState> states)
     {
         final VoxelShape TOP = Block.box(0, 13, 0, 16, 16, 16);
-        final VoxelShape[] DEFAULT_BASE = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(0, 0, 0, 16, 13, 15), Direction.SOUTH));
+        final VoxelShape[] DEFAULT_BASE = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(0, 0, 0, 16, 13, 14), Direction.SOUTH));
         final VoxelShape[] LEFT_INVERTED_BASE = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(1, 0, 0, 16, 13, 15), Direction.SOUTH));
         final VoxelShape[] RIGHT_INVERTED_BASE = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(0, 0, 0, 15, 13, 15), Direction.SOUTH));
         final VoxelShape[] LEFT_CORNER_BASE = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(0, 0, 15, 15, 13, 16), Direction.SOUTH));
