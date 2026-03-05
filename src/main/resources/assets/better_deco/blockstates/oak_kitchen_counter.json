@@ -6,11 +6,11 @@
     },
     "facing=north,type=left_corner": {
       "model": "better_deco:block/oak_kitchen_counter_left_corner",
-      "y": 180
+      "y": 0
     },
     "facing=north,type=right_corner": {
       "model": "better_deco:block/oak_kitchen_counter_right_corner",
-      "y": 180
+      "y": 0
     },
     "facing=north,type=left_corner_inverted": {
       "model": "better_deco:block/oak_kitchen_counter_left_corner_inverted",
@@ -26,11 +26,11 @@
     },
     "facing=east,type=left_corner": {
       "model": "better_deco:block/oak_kitchen_counter_left_corner",
-      "y": 270
+      "y": 90
     },
     "facing=east,type=right_corner": {
       "model": "better_deco:block/oak_kitchen_counter_right_corner",
-      "y": 270
+      "y": 90
     },
     "facing=east,type=left_corner_inverted": {
       "model": "better_deco:block/oak_kitchen_counter_left_corner_inverted",
@@ -46,11 +46,11 @@
     },
     "facing=south,type=left_corner": {
       "model": "better_deco:block/oak_kitchen_counter_left_corner",
-      "y": 0
+      "y": 180
     },
     "facing=south,type=right_corner": {
       "model": "better_deco:block/oak_kitchen_counter_right_corner",
-      "y": 0
+      "y": 180
     },
     "facing=south,type=left_corner_inverted": {
       "model": "better_deco:block/oak_kitchen_counter_left_corner_inverted",
@@ -66,11 +66,11 @@
     },
     "facing=west,type=left_corner": {
       "model": "better_deco:block/oak_kitchen_counter_left_corner",
-      "y": 90
+      "y": 270
     },
     "facing=west,type=right_corner": {
       "model": "better_deco:block/oak_kitchen_counter_right_corner",
-      "y": 90
+      "y": 270
     },
     "facing=west,type=left_corner_inverted": {
       "model": "better_deco:block/oak_kitchen_counter_left_corner_inverted",
