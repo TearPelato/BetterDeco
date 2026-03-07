@@ -239,7 +239,7 @@ public class BundledTabSelector {
         private final int uOffset;
 
         public ScrollButton(int x, int y, int uOffset, OnPress onPress) {
-            super(x, y, 18, 20, Component.empty(), onPress, DEFAULT_NARRATION);
+            super(x, y, 18, 9, Component.empty(), onPress, DEFAULT_NARRATION);
             this.uOffset = uOffset;
         }
 
