@@ -14,11 +14,6 @@ displayURL="https://github.com/TearPelato/BetterDeco"
 credits = "LiukRast, BlackGear"
 updateJSONURL="https://tearpelato.github.io/BetterDeco/version-check-nf.json"
 
-[[accessTransformers]]
-file ="META-INF/accesstransformer.cfg"
-
-[[mixins]]
-config = "${mod_id}.mixins.json"
 
 [[dependencies."${mod_id}"]]
 modId = "forge"

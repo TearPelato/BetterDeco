@@ -9,6 +9,6 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 
 @Mixin(Screen.class)
 public interface ScreenAccessor {
-    @Invoker
-    <T extends GuiEventListener & Renderable & NarratableEntry> T callAddRenderableWidget(T widget);
+    @Invoker("addRenderableWidget")
+    <T extends GuiEventListener & Renderable & NarratableEntry> T invokeAddRenderableWidget(T widget);
 }
