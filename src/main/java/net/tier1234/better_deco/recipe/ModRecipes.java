@@ -15,7 +15,7 @@ public class ModRecipes {
             DeferredRegister.create(Registries.RECIPE_TYPE, BetterDeco.MOD_ID);
 
     public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<OvenRecipe>>OVEN_SERIALIZER =
-            SERIALIZERS.register("oven", OvenRecipe.Serializer::new);
+            SERIALIZERS.register("oven", ()-> new RecipeSerializer<>(OvenRecipe.CODEC, OvenRecipe.STREAM_CODEC));
     public static final DeferredHolder<RecipeType<?>, RecipeType<OvenRecipe>> OVEN_TYPE =
             TYPES.register("oven", () -> new RecipeType<OvenRecipe>() {
                 @Override
@@ -26,7 +26,7 @@ public class ModRecipes {
 
 
     public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<MicrowaveRecipe>> MICROWAVE_SERIALIZER =
-            SERIALIZERS.register("microwave", MicrowaveRecipe.Serializer::new);
+            SERIALIZERS.register("microwave", ()-> new RecipeSerializer<>(MicrowaveRecipe.CODEC, MicrowaveRecipe.STREAM_CODEC));
     public static final DeferredHolder<RecipeType<?>, RecipeType<MicrowaveRecipe>> MICROWAVE_TYPE =
             TYPES.register("microwave", () -> new RecipeType<MicrowaveRecipe>() {
                 @Override
@@ -36,7 +36,7 @@ public class ModRecipes {
             });
 
     public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<FreezerRecipe>> FREEZER_SERIALIZER =
-            SERIALIZERS.register("freezer", FreezerRecipe.Serializer::new);
+            SERIALIZERS.register("freezer", ()-> new RecipeSerializer<>(FreezerRecipe.CODEC, FreezerRecipe.STREAM_CODEC));
     public static final DeferredHolder<RecipeType<?>, RecipeType<FreezerRecipe>> FREEZER_TYPE =
             TYPES.register("freezer", ()-> new RecipeType<FreezerRecipe>() {
                 @Override

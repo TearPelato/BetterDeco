@@ -55,7 +55,7 @@ public class ModRecipeProvider extends RecipeProvider  {
        SingleItemRecipeBuilder.stonecutting(
                Ingredient.of(Blocks.OAK_PLANKS.asItem()),
                RecipeCategory.MISC,
-               ModBlocks.OAK_PLANKS_BRICKS.get()
+               ModBlocks.OAK_PLANKS_BRICKS.get(),1
        )
                .unlockedBy("has_oak_planks", has(Blocks.OAK_PLANKS.asItem()))
                .save(output);
@@ -63,7 +63,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.OAK_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.OAK_PLANKS_PILLAR.get()
+                        ModBlocks.OAK_PLANKS_PILLAR.get(),1
                 )
                 .unlockedBy("has_oak_planks", has(Blocks.OAK_PLANKS.asItem()))
                 .save(output);
@@ -71,7 +71,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.OAK_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.OAK_VERTICAL_PLANKS.get()
+                        ModBlocks.OAK_VERTICAL_PLANKS.get(),1
                 )
                 .unlockedBy("has_oak_planks", has(Blocks.OAK_PLANKS.asItem()))
                 .save(output);
@@ -79,7 +79,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.OAK_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.OAK_POLISHED_PLANKS.get()
+                        ModBlocks.OAK_POLISHED_PLANKS.get(),1
                 )
                 .unlockedBy("has_oak_planks", has(Blocks.OAK_PLANKS.asItem()))
                 .save(output);
@@ -87,7 +87,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.OAK_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.OAK_PILED_PLANKS.get()
+                        ModBlocks.OAK_PILED_PLANKS.get(),1
                 )
                 .unlockedBy("has_oak_planks", has(Blocks.OAK_PLANKS.asItem()))
                 .save(output);
@@ -96,7 +96,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.OAK_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.OAK_SOFT_BRICKS.get()
+                        ModBlocks.OAK_SOFT_BRICKS.get(),1
                 )
                 .unlockedBy("has_oak_planks", has(Blocks.OAK_PLANKS.asItem()))
                 .save(output);
@@ -106,7 +106,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.SPRUCE_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.SPRUCE_PLANKS_BRICKS.get()
+                        ModBlocks.SPRUCE_PLANKS_BRICKS.get(),1
                 )
                 .unlockedBy("has_spruce_planks", has(Blocks.SPRUCE_PLANKS.asItem()))
                 .save(output);
@@ -114,7 +114,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.SPRUCE_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.SPRUCE_PLANKS_PILLAR.get()
+                        ModBlocks.SPRUCE_PLANKS_PILLAR.get(),1
                 )
                 .unlockedBy("has_spruce_planks", has(Blocks.SPRUCE_PLANKS.asItem()))
                 .save(output);
@@ -122,7 +122,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.SPRUCE_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.SPRUCE_SOFT_BRICKS.get()
+                        ModBlocks.SPRUCE_SOFT_BRICKS.get(),1
                 )
                 .unlockedBy("has_spruce_planks", has(Blocks.SPRUCE_PLANKS.asItem()))
                 .save(output);
@@ -130,7 +130,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.SPRUCE_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.SPRUCE_VERTICAL_PLANKS.get()
+                        ModBlocks.SPRUCE_VERTICAL_PLANKS.get(),1
                 )
                 .unlockedBy("has_spruce_planks", has(Blocks.SPRUCE_PLANKS.asItem()))
                 .save(output);
@@ -138,7 +138,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.SPRUCE_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.SPRUCE_PILED_PLANKS.get()
+                        ModBlocks.SPRUCE_PILED_PLANKS.get(),1
                 )
                 .unlockedBy("has_spruce_planks", has(Blocks.SPRUCE_PLANKS.asItem()))
                 .save(output);
@@ -146,7 +146,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.SPRUCE_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.SPRUCE_POLISHED_PLANKS.get()
+                        ModBlocks.SPRUCE_POLISHED_PLANKS.get(),1
                 )
                 .unlockedBy("has_spruce_planks", has(Blocks.SPRUCE_PLANKS.asItem()))
                 .save(output);
@@ -156,7 +156,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.BIRCH_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.BIRCH_PLANKS_BRICKS.get()
+                        ModBlocks.BIRCH_PLANKS_BRICKS.get(),1
                 )
                 .unlockedBy("has_birch_planks", has(Blocks.BIRCH_PLANKS.asItem()))
                 .save(output);
@@ -164,7 +164,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.BIRCH_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.BIRCH_PLANKS_PILLAR.get()
+                        ModBlocks.BIRCH_PLANKS_PILLAR.get(),1
                 )
                 .unlockedBy("has_birch_planks", has(Blocks.BIRCH_PLANKS.asItem()))
                 .save(output);
@@ -172,7 +172,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.BIRCH_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.BIRCH_SOFT_BRICKS.get()
+                        ModBlocks.BIRCH_SOFT_BRICKS.get(),1
                 )
                 .unlockedBy("has_birch_planks", has(Blocks.BIRCH_PLANKS.asItem()))
                 .save(output);
@@ -180,7 +180,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.BIRCH_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.BIRCH_PILED_PLANKS.get()
+                        ModBlocks.BIRCH_PILED_PLANKS.get(),1
                 )
                 .unlockedBy("has_birch_planks", has(Blocks.BIRCH_PLANKS.asItem()))
                 .save(output);
@@ -188,7 +188,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.BIRCH_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.BIRCH_POLISHED_PLANKS.get()
+                        ModBlocks.BIRCH_POLISHED_PLANKS.get(),1
                 )
                 .unlockedBy("has_birch_planks", has(Blocks.BIRCH_PLANKS.asItem()))
                 .save(output);
@@ -196,7 +196,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.BIRCH_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.BIRCH_VERTICAL_PLANKS.get()
+                        ModBlocks.BIRCH_VERTICAL_PLANKS.get(),1
                 )
                 .unlockedBy("has_birch_planks", has(Blocks.BIRCH_PLANKS.asItem()))
                 .save(output);
@@ -205,7 +205,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.JUNGLE_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.JUNGLE_PLANKS_BRICKS.get()
+                        ModBlocks.JUNGLE_PLANKS_BRICKS.get(),1
                 )
                 .unlockedBy("has_jungle_planks", has(Blocks.JUNGLE_PLANKS.asItem()))
                 .save(output);
@@ -213,7 +213,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.JUNGLE_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.JUNGLE_PLANKS_PILLAR.get()
+                        ModBlocks.JUNGLE_PLANKS_PILLAR.get(),1
                 )
                 .unlockedBy("has_jungle_planks", has(Blocks.JUNGLE_PLANKS.asItem()))
                 .save(output);
@@ -221,7 +221,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.JUNGLE_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.JUNGLE_SOFT_BRICKS.get()
+                        ModBlocks.JUNGLE_SOFT_BRICKS.get(),1
                 )
                 .unlockedBy("has_jungle_planks", has(Blocks.JUNGLE_PLANKS.asItem()))
                 .save(output);
@@ -229,7 +229,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.JUNGLE_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.JUNGLE_PILED_PLANKS.get()
+                        ModBlocks.JUNGLE_PILED_PLANKS.get(),1
                 )
                 .unlockedBy("has_jungle_planks", has(Blocks.JUNGLE_PLANKS.asItem()))
                 .save(output);
@@ -237,7 +237,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.JUNGLE_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.JUNGLE_POLISHED_PLANKS.get()
+                        ModBlocks.JUNGLE_POLISHED_PLANKS.get(),1
                 )
                 .unlockedBy("has_jungle_planks", has(Blocks.JUNGLE_PLANKS.asItem()))
                 .save(output);
@@ -245,7 +245,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.JUNGLE_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.JUNGLE_VERTICAL_PLANKS.get()
+                        ModBlocks.JUNGLE_VERTICAL_PLANKS.get(),1
                 )
                 .unlockedBy("has_jungle_planks", has(Blocks.JUNGLE_PLANKS.asItem()))
                 .save(output);
@@ -254,7 +254,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.ACACIA_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.ACACIA_PLANKS_BRICKS.get()
+                        ModBlocks.ACACIA_PLANKS_BRICKS.get(),1
                 )
                 .unlockedBy("has_acacia_planks", has(Blocks.ACACIA_PLANKS.asItem()))
                 .save(output);
@@ -262,7 +262,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.ACACIA_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.ACACIA_PLANKS_PILLAR.get()
+                        ModBlocks.ACACIA_PLANKS_PILLAR.get(),1
                 )
                 .unlockedBy("has_acacia_planks", has(Blocks.ACACIA_PLANKS.asItem()))
                 .save(output);
@@ -270,7 +270,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.ACACIA_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.ACACIA_SOFT_BRICKS.get()
+                        ModBlocks.ACACIA_SOFT_BRICKS.get(),1
                 )
                 .unlockedBy("has_acacia_planks", has(Blocks.ACACIA_PLANKS.asItem()))
                 .save(output);
@@ -278,7 +278,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.ACACIA_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.ACACIA_PILED_PLANKS.get()
+                        ModBlocks.ACACIA_PILED_PLANKS.get(),1
                 )
                 .unlockedBy("has_acacia_planks", has(Blocks.ACACIA_PLANKS.asItem()))
                 .save(output);
@@ -286,7 +286,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.ACACIA_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.ACACIA_POLISHED_PLANKS.get()
+                        ModBlocks.ACACIA_POLISHED_PLANKS.get(),1
                 )
                 .unlockedBy("has_acacia_planks", has(Blocks.ACACIA_PLANKS.asItem()))
                 .save(output);
@@ -294,7 +294,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.ACACIA_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.ACACIA_VERTICAL_PLANKS.get()
+                        ModBlocks.ACACIA_VERTICAL_PLANKS.get(),1
                 )
                 .unlockedBy("has_acacia_planks", has(Blocks.ACACIA_PLANKS.asItem()))
                 .save(output);
@@ -306,7 +306,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.DARK_OAK_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.DARK_OAK_PLANKS_BRICKS.get()
+                        ModBlocks.DARK_OAK_PLANKS_BRICKS.get(),1
                 )
                 .unlockedBy("has_dark_oak_planks", has(Blocks.DARK_OAK_PLANKS.asItem()))
                 .save(output);
@@ -314,7 +314,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.DARK_OAK_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.DARK_OAK_PLANKS_PILLAR.get()
+                        ModBlocks.DARK_OAK_PLANKS_PILLAR.get(),1
                 )
                 .unlockedBy("has_dark_oak_planks", has(Blocks.DARK_OAK_PLANKS.asItem()))
                 .save(output);
@@ -322,7 +322,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.DARK_OAK_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.DARK_OAK_SOFT_BRICKS.get()
+                        ModBlocks.DARK_OAK_SOFT_BRICKS.get(),1
                 )
                 .unlockedBy("has_dark_oak_planks", has(Blocks.DARK_OAK_PLANKS.asItem()))
                 .save(output);
@@ -330,7 +330,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.DARK_OAK_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.DARK_OAK_PILED_PLANKS.get()
+                        ModBlocks.DARK_OAK_PILED_PLANKS.get(),1
                 )
                 .unlockedBy("has_dark_oak_planks", has(Blocks.DARK_OAK_PLANKS.asItem()))
                 .save(output);
@@ -338,7 +338,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.DARK_OAK_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.DARK_OAK_POLISHED_PLANKS.get()
+                        ModBlocks.DARK_OAK_POLISHED_PLANKS.get(),1
                 )
                 .unlockedBy("has_dark_oak_planks", has(Blocks.DARK_OAK_PLANKS.asItem()))
                 .save(output);
@@ -346,7 +346,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.DARK_OAK_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.DARK_OAK_VERTICAL_PLANKS.get()
+                        ModBlocks.DARK_OAK_VERTICAL_PLANKS.get(),1
                 )
                 .unlockedBy("has_dark_oak_planks", has(Blocks.DARK_OAK_PLANKS.asItem()))
                 .save(output);
@@ -356,7 +356,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.MANGROVE_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.MANGROVE_PLANKS_BRICKS.get()
+                        ModBlocks.MANGROVE_PLANKS_BRICKS.get(),1
                 )
                 .unlockedBy("has_mangrove_planks", has(Blocks.MANGROVE_PLANKS.asItem()))
                 .save(output);
@@ -364,7 +364,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.MANGROVE_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.MANGROVE_PLANKS_PILLAR.get()
+                        ModBlocks.MANGROVE_PLANKS_PILLAR.get(),1
                 )
                 .unlockedBy("has_mangrove_planks", has(Blocks.MANGROVE_PLANKS.asItem()))
                 .save(output);
@@ -372,7 +372,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.MANGROVE_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.MANGROVE_SOFT_BRICKS.get()
+                        ModBlocks.MANGROVE_SOFT_BRICKS.get(),1
                 )
                 .unlockedBy("has_mangrove_planks", has(Blocks.MANGROVE_PLANKS.asItem()))
                 .save(output);
@@ -380,7 +380,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.MANGROVE_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.MANGROVE_PILED_PLANKS.get()
+                        ModBlocks.MANGROVE_PILED_PLANKS.get(),1
                 )
                 .unlockedBy("has_mangrove_planks", has(Blocks.MANGROVE_PLANKS.asItem()))
                 .save(output);
@@ -388,7 +388,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.MANGROVE_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.MANGROVE_POLISHED_PLANKS.get()
+                        ModBlocks.MANGROVE_POLISHED_PLANKS.get(),1
                 )
                 .unlockedBy("has_mangrove_planks", has(Blocks.MANGROVE_PLANKS.asItem()))
                 .save(output);
@@ -396,7 +396,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.MANGROVE_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.MANGROVE_VERTICAL_PLANKS.get()
+                        ModBlocks.MANGROVE_VERTICAL_PLANKS.get(),1
                 )
                 .unlockedBy("has_mangrove_planks", has(Blocks.MANGROVE_PLANKS.asItem()))
                 .save(output);
@@ -406,7 +406,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.CHERRY_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.CHERRY_PLANKS_BRICKS.get()
+                        ModBlocks.CHERRY_PLANKS_BRICKS.get(),1
                 )
                 .unlockedBy("has_cherry_planks", has(Blocks.CHERRY_PLANKS.asItem()))
                 .save(output);
@@ -414,7 +414,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.CHERRY_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.CHERRY_PLANKS_PILLAR.get()
+                        ModBlocks.CHERRY_PLANKS_PILLAR.get(),1
                 )
                 .unlockedBy("has_cherry_planks", has(Blocks.CHERRY_PLANKS.asItem()))
                 .save(output);
@@ -422,7 +422,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.CHERRY_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.CHERRY_SOFT_BRICKS.get()
+                        ModBlocks.CHERRY_SOFT_BRICKS.get(),1
                 )
                 .unlockedBy("has_cherry_planks", has(Blocks.CHERRY_PLANKS.asItem()))
                 .save(output);
@@ -430,7 +430,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.CHERRY_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.CHERRY_PILED_PLANKS.get()
+                        ModBlocks.CHERRY_PILED_PLANKS.get(),1
                 )
                 .unlockedBy("has_cherry_planks", has(Blocks.CHERRY_PLANKS.asItem()))
                 .save(output);
@@ -438,7 +438,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.CHERRY_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.CHERRY_POLISHED_PLANKS.get()
+                        ModBlocks.CHERRY_POLISHED_PLANKS.get(),1
                 )
                 .unlockedBy("has_cherry_planks", has(Blocks.CHERRY_PLANKS.asItem()))
                 .save(output);
@@ -446,7 +446,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.CHERRY_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.CHERRY_VERTICAL_PLANKS.get()
+                        ModBlocks.CHERRY_VERTICAL_PLANKS.get(),1
                 )
                 .unlockedBy("has_cherry_planks", has(Blocks.CHERRY_PLANKS.asItem()))
                 .save(output);
@@ -457,7 +457,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.BAMBOO_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.BAMBOO_PLANKS_BRICKS.get()
+                        ModBlocks.BAMBOO_PLANKS_BRICKS.get(),1
                 )
                 .unlockedBy("has_bamboo_planks", has(Blocks.BAMBOO_PLANKS.asItem()))
                 .save(output);
@@ -465,7 +465,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.BAMBOO_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.BAMBOO_PLANKS_PILLAR.get()
+                        ModBlocks.BAMBOO_PLANKS_PILLAR.get(),1
                 )
                 .unlockedBy("has_bamboo_planks", has(Blocks.BAMBOO_PLANKS.asItem()))
                 .save(output);
@@ -473,7 +473,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.BAMBOO_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.BAMBOO_SOFT_BRICKS.get()
+                        ModBlocks.BAMBOO_SOFT_BRICKS.get(),1
                 )
                 .unlockedBy("has_bamboo_planks", has(Blocks.BAMBOO_PLANKS.asItem()))
                 .save(output);
@@ -481,7 +481,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.BAMBOO_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.BAMBOO_PILED_PLANKS.get()
+                        ModBlocks.BAMBOO_PILED_PLANKS.get(),1
                 )
                 .unlockedBy("has_bamboo_planks", has(Blocks.BAMBOO_PLANKS.asItem()))
                 .save(output);
@@ -489,7 +489,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.BAMBOO_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.BAMBOO_POLISHED_PLANKS.get()
+                        ModBlocks.BAMBOO_POLISHED_PLANKS.get(),1
                 )
                 .unlockedBy("has_bamboo_planks", has(Blocks.BAMBOO_PLANKS.asItem()))
                 .save(output);
@@ -497,7 +497,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.BAMBOO_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.BAMBOO_VERTICAL_PLANKS.get()
+                        ModBlocks.BAMBOO_VERTICAL_PLANKS.get(),1
                 )
                 .unlockedBy("has_bamboo_planks", has(Blocks.BAMBOO_PLANKS.asItem()))
                 .save(output);
@@ -508,7 +508,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.CRIMSON_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.CRIMSON_PLANKS_BRICKS.get()
+                        ModBlocks.CRIMSON_PLANKS_BRICKS.get(),1
                 )
                 .unlockedBy("has_crimson_planks", has(Blocks.CRIMSON_PLANKS.asItem()))
                 .save(output);
@@ -516,7 +516,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.CRIMSON_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.CRIMSON_PLANKS_PILLAR.get()
+                        ModBlocks.CRIMSON_PLANKS_PILLAR.get(),1
                 )
                 .unlockedBy("has_crimson_planks", has(Blocks.CRIMSON_PLANKS.asItem()))
                 .save(output);
@@ -524,7 +524,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.CRIMSON_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.CRIMSON_SOFT_BRICKS.get()
+                        ModBlocks.CRIMSON_SOFT_BRICKS.get(),1
                 )
                 .unlockedBy("has_crimson_planks", has(Blocks.CRIMSON_PLANKS.asItem()))
                 .save(output);
@@ -532,7 +532,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.CRIMSON_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.CRIMSON_PILED_PLANKS.get()
+                        ModBlocks.CRIMSON_PILED_PLANKS.get(),1
                 )
                 .unlockedBy("has_crimson_planks", has(Blocks.CRIMSON_PLANKS.asItem()))
                 .save(output);
@@ -540,7 +540,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.CRIMSON_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.CRIMSON_POLISHED_PLANKS.get()
+                        ModBlocks.CRIMSON_POLISHED_PLANKS.get(),1
                 )
                 .unlockedBy("has_crimson_planks", has(Blocks.CRIMSON_PLANKS.asItem()))
                 .save(output);
@@ -548,7 +548,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.CRIMSON_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.CRIMSON_VERTICAL_PLANKS.get()
+                        ModBlocks.CRIMSON_VERTICAL_PLANKS.get(),1
                 )
                 .unlockedBy("has_crimson_planks", has(Blocks.CRIMSON_PLANKS.asItem()))
                 .save(output);
@@ -558,7 +558,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.WARPED_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.WARPED_PLANKS_BRICKS.get()
+                        ModBlocks.WARPED_PLANKS_BRICKS.get(),1
                 )
                 .unlockedBy("has_warped_planks", has(Blocks.WARPED_PLANKS.asItem()))
                 .save(output);
@@ -566,7 +566,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.WARPED_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.WARPED_PLANKS_PILLAR.get()
+                        ModBlocks.WARPED_PLANKS_PILLAR.get(),1
                 )
                 .unlockedBy("has_warped_planks", has(Blocks.WARPED_PLANKS.asItem()))
                 .save(output);
@@ -574,7 +574,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.WARPED_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.WARPED_SOFT_BRICKS.get()
+                        ModBlocks.WARPED_SOFT_BRICKS.get(),1
                 )
                 .unlockedBy("has_warped_planks", has(Blocks.WARPED_PLANKS.asItem()))
                 .save(output);
@@ -582,7 +582,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.WARPED_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.WARPED_PILED_PLANKS.get()
+                        ModBlocks.WARPED_PILED_PLANKS.get(),1
                 )
                 .unlockedBy("has_warped_planks", has(Blocks.WARPED_PLANKS.asItem()))
                 .save(output);
@@ -590,7 +590,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.WARPED_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.WARPED_POLISHED_PLANKS.get()
+                        ModBlocks.WARPED_POLISHED_PLANKS.get(),1
                 )
                 .unlockedBy("has_warped_planks", has(Blocks.WARPED_PLANKS.asItem()))
                 .save(output);
@@ -598,7 +598,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.WARPED_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.WARPED_VERTICAL_PLANKS.get()
+                        ModBlocks.WARPED_VERTICAL_PLANKS.get(),1
                 )
                 .unlockedBy("has_warped_planks", has(Blocks.WARPED_PLANKS.asItem()))
                 .save(output);
@@ -4313,7 +4313,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.ANDESITE.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.ANDESITE_MIXED_BRICKS.get()
+                        ModBlocks.ANDESITE_MIXED_BRICKS.get(),1
                 )
                 .unlockedBy("has_andesite", has(Blocks.ANDESITE.asItem()))
                 .save(output);
@@ -4321,7 +4321,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.ANDESITE.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.ANDESITE_ARRAY_BRICKS.get()
+                        ModBlocks.ANDESITE_ARRAY_BRICKS.get(),1
                 )
                 .unlockedBy("has_andesite", has(Blocks.ANDESITE.asItem()))
                 .save(output);
@@ -4329,7 +4329,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.ANDESITE.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.ANDESITE_BRICKS.get()
+                        ModBlocks.ANDESITE_BRICKS.get(),1
                 )
                 .unlockedBy("has_andesite", has(Blocks.ANDESITE.asItem()))
                 .save(output);
@@ -4337,7 +4337,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.ANDESITE.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.RAW_ANDESITE.get()
+                        ModBlocks.RAW_ANDESITE.get(),1
                 )
                 .unlockedBy("has_andesite", has(Blocks.ANDESITE.asItem()))
                 .save(output);
@@ -4345,7 +4345,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.ANDESITE.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.ANDESITE_MOSAIC_BRICKS.get()
+                        ModBlocks.ANDESITE_MOSAIC_BRICKS.get(),1
                 )
                 .unlockedBy("has_andesite", has(Blocks.ANDESITE.asItem()))
                 .save(output);
@@ -4354,7 +4354,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.DIORITE.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.DIORITE_MIXED_BRICKS.get()
+                        ModBlocks.DIORITE_MIXED_BRICKS.get(),1
                 )
                 .unlockedBy("has_diorite", has(Blocks.DIORITE.asItem()))
                 .save(output);
@@ -4362,7 +4362,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.DIORITE.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.DIORITE_ARRAY_BRICKS.get()
+                        ModBlocks.DIORITE_ARRAY_BRICKS.get(),1
                 )
                 .unlockedBy("has_diorite", has(Blocks.DIORITE.asItem()))
                 .save(output);
@@ -4370,7 +4370,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.DIORITE.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.DIORITE_BRICKS.get()
+                        ModBlocks.DIORITE_BRICKS.get(),1
                 )
                 .unlockedBy("has_diorite", has(Blocks.DIORITE.asItem()))
                 .save(output);
@@ -4378,7 +4378,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.DIORITE.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.RAW_DIORITE.get()
+                        ModBlocks.RAW_DIORITE.get(),1
                 )
                 .unlockedBy("has_diorite", has(Blocks.DIORITE.asItem()))
                 .save(output);
@@ -4386,7 +4386,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.DIORITE.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.DIORITE_MOSAIC_BRICKS.get()
+                        ModBlocks.DIORITE_MOSAIC_BRICKS.get(),1
                 )
                 .unlockedBy("has_diorite", has(Blocks.DIORITE.asItem()))
                 .save(output);
@@ -4396,7 +4396,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.GRANITE.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.GRANITE_MIXED_BRICKS.get()
+                        ModBlocks.GRANITE_MIXED_BRICKS.get(),1
                 )
                 .unlockedBy("has_granite", has(Blocks.GRANITE.asItem()))
                 .save(output);
@@ -4404,7 +4404,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.GRANITE.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.GRANITE_ARRAY_BRICKS.get()
+                        ModBlocks.GRANITE_ARRAY_BRICKS.get(),1
                 )
                 .unlockedBy("has_granite", has(Blocks.GRANITE.asItem()))
                 .save(output);
@@ -4412,7 +4412,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.GRANITE.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.GRANITE_BRICKS.get()
+                        ModBlocks.GRANITE_BRICKS.get(),1
                 )
                 .unlockedBy("has_granite", has(Blocks.GRANITE.asItem()))
                 .save(output);
@@ -4420,7 +4420,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.GRANITE.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.RAW_GRANITE.get()
+                        ModBlocks.RAW_GRANITE.get(),1
                 )
                 .unlockedBy("has_granite", has(Blocks.GRANITE.asItem()))
                 .save(output);
@@ -4428,7 +4428,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.GRANITE.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.GRANITE_MOSAIC_BRICKS.get()
+                        ModBlocks.GRANITE_MOSAIC_BRICKS.get(),1
                 )
                 .unlockedBy("has_granite", has(Blocks.GRANITE.asItem()))
                 .save(output);
@@ -5007,7 +5007,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.PALE_OAK_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.PALE_OAK_PLANKS_BRICKS.get()
+                        ModBlocks.PALE_OAK_PLANKS_BRICKS.get(),1
                 )
                 .unlockedBy("has_pale_oak_planks", has(Blocks.PALE_OAK_PLANKS.asItem()))
                 .save(output);
@@ -5015,7 +5015,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.PALE_OAK_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.PALE_OAK_PLANKS_PILLAR.get()
+                        ModBlocks.PALE_OAK_PLANKS_PILLAR.get(),1
                 )
                 .unlockedBy("has_pale_oak_planks", has(Blocks.PALE_OAK_PLANKS.asItem()))
                 .save(output);
@@ -5023,7 +5023,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.PALE_OAK_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.PALE_OAK_VERTICAL.get()
+                        ModBlocks.PALE_OAK_VERTICAL.get(),1
                 )
                 .unlockedBy("has_pale_oak_planks", has(Blocks.PALE_OAK_PLANKS.asItem()))
                 .save(output);
@@ -5031,7 +5031,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.PALE_OAK_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.PALE_OAK_SMOOTH_PLANKS.get()
+                        ModBlocks.PALE_OAK_SMOOTH_PLANKS.get(),1
                 )
                 .unlockedBy("has_pale_oak_planks", has(Blocks.PALE_OAK_PLANKS.asItem()))
                 .save(output);
@@ -5039,7 +5039,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.PALE_OAK_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.PALE_OAK_LARGE_PLANKS.get()
+                        ModBlocks.PALE_OAK_LARGE_PLANKS.get(),1
                 )
                 .unlockedBy("has_pale_oak_planks", has(Blocks.PALE_OAK_PLANKS.asItem()))
                 .save(output);
@@ -5048,7 +5048,7 @@ public class ModRecipeProvider extends RecipeProvider  {
         SingleItemRecipeBuilder.stonecutting(
                         Ingredient.of(Blocks.PALE_OAK_PLANKS.asItem()),
                         RecipeCategory.MISC,
-                        ModBlocks.PALE_OAK_SOFT_BRICKS.get()
+                        ModBlocks.PALE_OAK_SOFT_BRICKS.get(),1
                 )
                 .unlockedBy("has_pale_oak_planks", has(Blocks.PALE_OAK_PLANKS.asItem()))
                 .save(output);

@@ -65,7 +65,19 @@ public record MicrowaveRecipe(Ingredient inputItem, ItemStack output) implements
         return RecipeBookCategories.CRAFTING_MISC;
     }
 
-    public static class Serializer implements RecipeSerializer<MicrowaveRecipe> {
+    public static final MapCodec<MicrowaveRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
+            Ingredient.CODEC.fieldOf("ingredient").forGetter(MicrowaveRecipe::inputItem),
+            ItemStack.CODEC.fieldOf("result").forGetter(MicrowaveRecipe::output)
+    ).apply(inst, MicrowaveRecipe::new));
+
+    public static final StreamCodec<RegistryFriendlyByteBuf, MicrowaveRecipe> STREAM_CODEC =
+            StreamCodec.composite(
+                    Ingredient.CONTENTS_STREAM_CODEC, MicrowaveRecipe::inputItem,
+                    ItemStack.STREAM_CODEC, MicrowaveRecipe::output,
+                    MicrowaveRecipe::new);
+
+
+   /* public static class Serializer implements RecipeSerializer<MicrowaveRecipe> {
         public static final MapCodec<MicrowaveRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
                 Ingredient.CODEC.fieldOf("ingredient").forGetter(MicrowaveRecipe::inputItem),
                 ItemStack.CODEC.fieldOf("result").forGetter(MicrowaveRecipe::output)
@@ -86,5 +98,5 @@ public record MicrowaveRecipe(Ingredient inputItem, ItemStack output) implements
         public StreamCodec<RegistryFriendlyByteBuf, MicrowaveRecipe> streamCodec() {
             return STREAM_CODEC;
         }
-    }
+    }*/
 }

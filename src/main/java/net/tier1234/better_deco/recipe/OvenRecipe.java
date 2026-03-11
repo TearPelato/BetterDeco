@@ -64,7 +64,19 @@ public record OvenRecipe(Ingredient inputItem, ItemStack output) implements Reci
         return RecipeBookCategories.CRAFTING_MISC;
     }
 
-    public static class Serializer implements RecipeSerializer<OvenRecipe> {
+
+    public static final MapCodec<OvenRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
+            Ingredient.CODEC.fieldOf("ingredient").forGetter(OvenRecipe::inputItem),
+            ItemStack.CODEC.fieldOf("result").forGetter(OvenRecipe::output)
+    ).apply(inst, OvenRecipe::new));
+
+    public static final StreamCodec<RegistryFriendlyByteBuf, OvenRecipe> STREAM_CODEC =
+            StreamCodec.composite(
+                    Ingredient.CONTENTS_STREAM_CODEC, OvenRecipe::inputItem,
+                    ItemStack.STREAM_CODEC, OvenRecipe::output,
+                    OvenRecipe::new);
+
+    /*public static class Serializer implements RecipeSerializer<OvenRecipe> {
         public static final MapCodec<OvenRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
                 Ingredient.CODEC.fieldOf("ingredient").forGetter(OvenRecipe::inputItem),
                 ItemStack.CODEC.fieldOf("result").forGetter(OvenRecipe::output)
@@ -85,5 +97,5 @@ public record OvenRecipe(Ingredient inputItem, ItemStack output) implements Reci
         public StreamCodec<RegistryFriendlyByteBuf, OvenRecipe> streamCodec() {
             return STREAM_CODEC;
         }
-    }
+    }*/
 }

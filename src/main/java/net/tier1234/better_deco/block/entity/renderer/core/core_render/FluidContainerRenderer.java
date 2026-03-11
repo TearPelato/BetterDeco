@@ -19,7 +19,7 @@ import org.joml.Matrix4f;
 
 public class FluidContainerRenderer {
 
-    public static void drawContainer(BlockAndTintGetter world, BlockPos pos, FluidContainerBlockEntity be, AABB box, PoseStack ms, MultiBufferSource buf, int light) {
+    public static void drawContainer(Level world, BlockPos pos, FluidContainerBlockEntity be, AABB box, PoseStack ms, MultiBufferSource buf, int light) {
         Fluid fluid = be.getFluid();
         if (fluid == Fluids.EMPTY) return;
         FluidStack stack = new FluidStack(fluid, be.getStoredAmount());
@@ -27,8 +27,8 @@ public class FluidContainerRenderer {
         if (sprites == null || sprites.length == 0 || sprites[0] == null) return;
 
         TextureAtlasSprite still = sprites[0];
-        int color = FluidContainerRendererUtil.getFluidColor(stack, world, pos);
-        if (fluid.isSame(Fluids.WATER)) color = BiomeColors.getAverageWaterColor(world, pos);
+        int color = FluidContainerRendererUtil.getFluidColor(stack, (BlockAndTintGetter) world, pos);
+        if (fluid.isSame(Fluids.WATER)) color = BiomeColors.getAverageWaterColor((BlockAndTintGetter) world, pos);
 
         float r = FastColor.ARGB32.red(color) / 255f;
         float g = FastColor.ARGB32.green(color) / 255f;

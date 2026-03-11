@@ -70,7 +70,22 @@ public record FreezerRecipe(Ingredient inputItem, ItemStack output, int freezeTi
         return freezeTime;
     }
 
-    public static class Serializer implements RecipeSerializer<FreezerRecipe> {
+    public static final MapCodec<FreezerRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
+            Ingredient.CODEC.fieldOf("ingredient").forGetter(FreezerRecipe::inputItem),
+            ItemStack.CODEC.fieldOf("result").forGetter(FreezerRecipe::output),
+            Codec.INT.optionalFieldOf("freezeTime", 200).forGetter(FreezerRecipe::getFreezeTime)
+    ).apply(inst, FreezerRecipe::new));
+
+    public static final StreamCodec<RegistryFriendlyByteBuf, FreezerRecipe> STREAM_CODEC =
+            StreamCodec.composite(
+                    Ingredient.CONTENTS_STREAM_CODEC, FreezerRecipe::inputItem,
+                    ItemStack.STREAM_CODEC, FreezerRecipe::output,
+                    ByteBufCodecs.VAR_INT, FreezerRecipe::getFreezeTime,
+                    FreezerRecipe::new
+            );
+
+
+  /*  public static class Serializer implements RecipeSerializer<FreezerRecipe> {
         public static final MapCodec<FreezerRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
                 Ingredient.CODEC.fieldOf("ingredient").forGetter(FreezerRecipe::inputItem),
                 ItemStack.CODEC.fieldOf("result").forGetter(FreezerRecipe::output),
@@ -94,5 +109,5 @@ public record FreezerRecipe(Ingredient inputItem, ItemStack output, int freezeTi
         public StreamCodec<RegistryFriendlyByteBuf, FreezerRecipe> streamCodec() {
             return STREAM_CODEC;
         }
-    }
+    }*/
 }
