@@ -4,6 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.block.BlockAndTintGetter;
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.BlockPos;
@@ -18,7 +19,7 @@ import org.joml.Matrix4f;
 
 public class FluidContainerRenderer {
 
-    public static void drawContainer(Level world, BlockPos pos, FluidContainerBlockEntity be, AABB box, PoseStack ms, MultiBufferSource buf, int light) {
+    public static void drawContainer(BlockAndTintGetter world, BlockPos pos, FluidContainerBlockEntity be, AABB box, PoseStack ms, MultiBufferSource buf, int light) {
         Fluid fluid = be.getFluid();
         if (fluid == Fluids.EMPTY) return;
         FluidStack stack = new FluidStack(fluid, be.getStoredAmount());
