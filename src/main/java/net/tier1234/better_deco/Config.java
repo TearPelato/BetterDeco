@@ -41,12 +41,6 @@ public class Config {
 
     public static final ForgeConfigSpec SPEC = BUILDER.build();
 
-    public static Set<Item> items;
-
-    private static boolean validateItemName(final Object obj) {
-        return obj instanceof String itemName &&
-                BuiltInRegistries.ITEM.containsKey(ResourceLocation.parse(itemName));
-    }
 
     //Getters
     public static boolean isSinkUniversal() {

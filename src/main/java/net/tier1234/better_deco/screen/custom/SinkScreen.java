@@ -12,7 +12,7 @@ import net.tier1234.better_deco.util.Constants;
 public class SinkScreen extends AbstractContainerScreen<SinkMenu> {
 
     private static final ResourceLocation GUI_TEXTURE =
-            ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "textures/gui/sink/sink_gui.png");
+            new ResourceLocation(Constants.MOD_ID, "textures/gui/sink/sink_gui.png");
 
 
     public SinkScreen(SinkMenu menu, Inventory playerInventory, Component title) {

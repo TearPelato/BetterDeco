@@ -11,7 +11,7 @@ import net.tier1234.better_deco.util.Constants;
 
 public class ShelfScreen extends AbstractContainerScreen<ShelfMenu> {
     private static final ResourceLocation GUI_TEXTURE =
-            ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "textures/gui/shelf/shelf_gui.png");
+            new ResourceLocation(Constants.MOD_ID, "textures/gui/shelf/shelf_gui.png");
 
     public ShelfScreen(ShelfMenu menu, Inventory playerInventory, Component title) {
         super(menu, playerInventory, title);

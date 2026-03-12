@@ -11,7 +11,7 @@ import net.tier1234.better_deco.BetterDeco;
 
 public class FreezerScreen extends AbstractContainerScreen<FreezerMenu> {
     private static final ResourceLocation GUI_TEXTURE =
-            ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, "textures/gui/freezer/freezer.png");
+            new ResourceLocation(BetterDeco.MOD_ID, "textures/gui/freezer/freezer.png");
 
     public FreezerScreen(FreezerMenu menu, Inventory playerInventory, Component title) {
         super(menu, playerInventory, title);

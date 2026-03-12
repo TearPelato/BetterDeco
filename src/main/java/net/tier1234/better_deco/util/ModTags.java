@@ -13,13 +13,13 @@ public class ModTags {
         public static final TagKey<Block> OVEN = createTag("OVEN");
 
         private static TagKey<Block> createTag(String name) {
-            return BlockTags.create(ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, name));
+            return BlockTags.create(new ResourceLocation(BetterDeco.MOD_ID, name));
         }
     }
     public static class Items {
 
         private static TagKey<Item> createTag(String name) {
-            return ItemTags.create(ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, name));
+            return ItemTags.create(new ResourceLocation(BetterDeco.MOD_ID, name));
         }
     }
 }

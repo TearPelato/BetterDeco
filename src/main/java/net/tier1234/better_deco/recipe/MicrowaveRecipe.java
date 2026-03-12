@@ -80,7 +80,7 @@ public class MicrowaveRecipe implements Recipe<SimpleContainer> {
 
     public static class Serializer implements RecipeSerializer<MicrowaveRecipe> {
         public static final Serializer INSTANCE = new Serializer();
-        public static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, "microwave");
+        public static final ResourceLocation ID = new ResourceLocation(BetterDeco.MOD_ID, "microwave");
 
         @Override
         public MicrowaveRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {

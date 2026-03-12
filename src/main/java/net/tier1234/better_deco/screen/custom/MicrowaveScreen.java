@@ -12,9 +12,9 @@ import net.tier1234.better_deco.BetterDeco;
 
 public class MicrowaveScreen extends AbstractContainerScreen<MicrowaveMenu> {
     private static final ResourceLocation GUI_TEXTURE =
-            ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID,"textures/gui/microwave/growth_chamber_gui.png");
+            new ResourceLocation(BetterDeco.MOD_ID,"textures/gui/microwave/growth_chamber_gui.png");
     private static final ResourceLocation ARROW_TEXTURE =
-            ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID,"textures/gui/arrow_progress.png");
+            new ResourceLocation(BetterDeco.MOD_ID,"textures/gui/arrow_progress.png");
 
     public MicrowaveScreen(MicrowaveMenu menu, Inventory playerInventory, Component title) {
         super(menu, playerInventory, title);    }

@@ -27,7 +27,7 @@ import java.util.function.Consumer;
  */
 public class BundledTabSelector {
     private static final ResourceLocation SELECTOR_BAR =
-            ResourceLocation.fromNamespaceAndPath("better_deco","textures/gui/tab_selector/tab_selector.png");
+            new ResourceLocation("better_deco","textures/gui/tab_selector/tab_selector.png");
     private static final int VISIBLE_CATEGORIES = 5;
 
     private static BundledTabSelector instance;
@@ -63,7 +63,7 @@ public class BundledTabSelector {
 
             this.guiLeft = creativeScreen.getGuiLeft();
             this.guiTop = creativeScreen.getGuiTop();
-            this.injectWidgets(creativeScreen, widget -> ((ScreenAccessor) screen).invokeAddRenderableWidget(widget));
+            this.injectWidgets(creativeScreen, widget -> ((ScreenAccessor) screen).callAddRenderableOnly(widget));
         }
     }
 

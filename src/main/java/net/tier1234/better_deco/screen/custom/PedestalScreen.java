@@ -11,7 +11,7 @@ import net.tier1234.better_deco.util.Constants;
 
 public class PedestalScreen extends AbstractContainerScreen<PedestalMenu> {
     private static final ResourceLocation GUI_TEXTURE =
-            ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "textures/gui/pedestal/pedestal_gui_new.png");
+            new ResourceLocation(Constants.MOD_ID, "textures/gui/pedestal/pedestal_gui_new.png");
 
     public PedestalScreen(PedestalMenu menu, Inventory playerInventory, Component title) {
         super(menu, playerInventory, title);

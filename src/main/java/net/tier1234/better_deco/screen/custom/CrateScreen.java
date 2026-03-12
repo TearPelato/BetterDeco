@@ -13,7 +13,7 @@ import net.tier1234.better_deco.BetterDeco;
 public class CrateScreen extends AbstractContainerScreen<CrateMenu> {
 
     public static final ResourceLocation GUI_TEXTURE =
-            ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, "textures/gui/crate/crate_1.png");
+            new ResourceLocation(BetterDeco.MOD_ID, "textures/gui/crate/crate_1.png");
 
 
     public CrateScreen(CrateMenu menu, Inventory playerInventory, Component title) {

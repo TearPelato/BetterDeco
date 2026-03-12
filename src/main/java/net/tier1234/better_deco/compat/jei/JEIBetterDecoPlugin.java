@@ -30,7 +30,7 @@ public class JEIBetterDecoPlugin
 {
     @Override
     public ResourceLocation getPluginUid() {
-        return ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, "jei_plugin");
+        return new ResourceLocation(BetterDeco.MOD_ID, "jei_plugin");
     }
 
     @Override

@@ -12,9 +12,9 @@ import net.tier1234.better_deco.BetterDeco;
 
 public class OvenScreen extends AbstractContainerScreen<OvenMenu> {
     private static final ResourceLocation GUI_TEXTURE =
-            ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID,"textures/gui/oven/oven.png");
+            new ResourceLocation(BetterDeco.MOD_ID,"textures/gui/oven/oven.png");
     private static final ResourceLocation ARROW_TEXTURE =
-            ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID,"textures/gui/arrow_progress_3.png");
+            new ResourceLocation(BetterDeco.MOD_ID,"textures/gui/arrow_progress_3.png");
 
 
     public OvenScreen(OvenMenu menu, Inventory playerInventory, Component title) {

@@ -88,7 +88,7 @@ public class OvenRecipe implements Recipe<SimpleContainer> {
 
     public static class Serializer implements RecipeSerializer<OvenRecipe> {
         public static final Serializer INSTANCE = new Serializer();
-        public static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, "oven");
+        public static final ResourceLocation ID = new ResourceLocation(BetterDeco.MOD_ID, "oven");
 
         @Override
         public OvenRecipe fromJson(ResourceLocation recipeId, JsonObject json) {

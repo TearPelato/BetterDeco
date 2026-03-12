@@ -95,7 +95,7 @@ public class FreezerRecipe implements Recipe<SimpleContainer> {
 
     public static class Serializer implements RecipeSerializer<FreezerRecipe> {
         public static final FreezerRecipe.Serializer INSTANCE = new FreezerRecipe.Serializer();
-        public static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, "oven");
+        public static final ResourceLocation ID = new ResourceLocation(BetterDeco.MOD_ID, "oven");
 
 
         @Override

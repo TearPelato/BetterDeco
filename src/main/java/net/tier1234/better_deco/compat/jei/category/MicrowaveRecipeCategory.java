@@ -20,8 +20,8 @@ public class MicrowaveRecipeCategory
       implements IRecipeCategory<MicrowaveRecipe>
 {
 
-    public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, "microwave");
-    public static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID,
+    public static final ResourceLocation UID = new ResourceLocation(BetterDeco.MOD_ID, "microwave");
+    public static final ResourceLocation TEXTURE = new ResourceLocation(BetterDeco.MOD_ID,
             "textures/gui/microwave/growth_chamber_gui_jei.png");
 
     public static final RecipeType<MicrowaveRecipe> MICROWAVE_RECIPE_RECIPE_TYPE =

@@ -19,17 +19,17 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        createVerticalSlab(ModBlocks.OAK_VERTICAL_SLAB.get(), ResourceLocation.parse("block/oak_planks"), BetterDeco.id("block/oak_vertical_slab"));
-        createVerticalSlab(ModBlocks.SPRUCE_VERTICAL_SLAB.get(), ResourceLocation.parse("block/spruce_planks"), BetterDeco.id("block/spruce_vertical_slab"));
-        createVerticalSlab(ModBlocks.BIRCH_VERTICAL_SLAB.get(), ResourceLocation.parse("block/birch_planks"), BetterDeco.id("block/birch_vertical_slab"));
-        createVerticalSlab(ModBlocks.JUNGLE_VERTICAL_SLAB.get(), ResourceLocation.parse("block/jungle_planks"), BetterDeco.id("block/jungle_vertical_slab"));
-        createVerticalSlab(ModBlocks.ACACIA_VERTICAL_SLAB.get(), ResourceLocation.parse("block/acacia_planks"), BetterDeco.id("block/acacia_vertical_slab"));
-        createVerticalSlab(ModBlocks.DARK_OAK_VERTICAL_SLAB.get(), ResourceLocation.parse("block/dark_oak_planks"), BetterDeco.id("block/dark_oak_vertical_slab"));
-        createVerticalSlab(ModBlocks.MANGROVE_VERTICAL_SLAB.get(), ResourceLocation.parse("block/mangrove_planks"), BetterDeco.id("block/mangrove_vertical_slab"));
-        createVerticalSlab(ModBlocks.CHERRY_VERTICAL_SLAB.get(), ResourceLocation.parse("block/cherry_planks"), BetterDeco.id("block/cherry_vertical_slab"));
-        createVerticalSlab(ModBlocks.BAMBOO_VERTICAL_SLAB.get(), ResourceLocation.parse("block/bamboo_planks"), BetterDeco.id("block/bamboo_vertical_slab"));
-        createVerticalSlab(ModBlocks.CRIMSON_VERTICAL_SLAB.get(), ResourceLocation.parse("block/crimson_planks"), BetterDeco.id("block/crimson_vertical_slab"));
-        createVerticalSlab(ModBlocks.WARPED_VERTICAL_SLAB.get(), ResourceLocation.parse("block/warped_planks"), BetterDeco.id("block/warped_vertical_slab"));
+        createVerticalSlab(ModBlocks.OAK_VERTICAL_SLAB.get(), ResourceLocation.tryParse("block/oak_planks"), BetterDeco.id("block/oak_vertical_slab"));
+        createVerticalSlab(ModBlocks.SPRUCE_VERTICAL_SLAB.get(), ResourceLocation.tryParse("block/spruce_planks"), BetterDeco.id("block/spruce_vertical_slab"));
+        createVerticalSlab(ModBlocks.BIRCH_VERTICAL_SLAB.get(), ResourceLocation.tryParse("block/birch_planks"), BetterDeco.id("block/birch_vertical_slab"));
+        createVerticalSlab(ModBlocks.JUNGLE_VERTICAL_SLAB.get(), ResourceLocation.tryParse("block/jungle_planks"), BetterDeco.id("block/jungle_vertical_slab"));
+        createVerticalSlab(ModBlocks.ACACIA_VERTICAL_SLAB.get(), ResourceLocation.tryParse("block/acacia_planks"), BetterDeco.id("block/acacia_vertical_slab"));
+        createVerticalSlab(ModBlocks.DARK_OAK_VERTICAL_SLAB.get(), ResourceLocation.tryParse("block/dark_oak_planks"), BetterDeco.id("block/dark_oak_vertical_slab"));
+        createVerticalSlab(ModBlocks.MANGROVE_VERTICAL_SLAB.get(), ResourceLocation.tryParse("block/mangrove_planks"), BetterDeco.id("block/mangrove_vertical_slab"));
+        createVerticalSlab(ModBlocks.CHERRY_VERTICAL_SLAB.get(), ResourceLocation.tryParse("block/cherry_planks"), BetterDeco.id("block/cherry_vertical_slab"));
+        createVerticalSlab(ModBlocks.BAMBOO_VERTICAL_SLAB.get(), ResourceLocation.tryParse("block/bamboo_planks"), BetterDeco.id("block/bamboo_vertical_slab"));
+        createVerticalSlab(ModBlocks.CRIMSON_VERTICAL_SLAB.get(), ResourceLocation.tryParse("block/crimson_planks"), BetterDeco.id("block/crimson_vertical_slab"));
+        createVerticalSlab(ModBlocks.WARPED_VERTICAL_SLAB.get(), ResourceLocation.tryParse("block/warped_planks"), BetterDeco.id("block/warped_vertical_slab"));
     }
 
     public void createVerticalSlab(VerticalSlabBlock block, ResourceLocation doubleFile, ResourceLocation slabFile) {

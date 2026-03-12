@@ -4492,7 +4492,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         ModItems.NETHERITE_CHISEL.get()
                 )
                 .unlocks("has_custom_template", has(Items.NETHERITE_INGOT))
-                .save(pWriter, String.valueOf(ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, "netherite_chisel")));
+                .save(pWriter, String.valueOf(new ResourceLocation(BetterDeco.MOD_ID, "netherite_chisel")));
 
 
 

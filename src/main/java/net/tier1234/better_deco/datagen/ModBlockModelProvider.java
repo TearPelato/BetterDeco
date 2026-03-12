@@ -16,17 +16,17 @@ public class ModBlockModelProvider extends BlockModelProvider {
 
     @Override
     protected void registerModels() {
-        makeVerticalSlab(ModBlocks.OAK_VERTICAL_SLAB.get(), ResourceLocation.parse("block/oak_planks"));
-        makeVerticalSlab(ModBlocks.SPRUCE_VERTICAL_SLAB.get(), ResourceLocation.parse("block/spruce_planks"));
-        makeVerticalSlab(ModBlocks.BIRCH_VERTICAL_SLAB.get(), ResourceLocation.parse("block/birch_planks"));
-        makeVerticalSlab(ModBlocks.JUNGLE_VERTICAL_SLAB.get(), ResourceLocation.parse("block/jungle_planks"));
-        makeVerticalSlab(ModBlocks.ACACIA_VERTICAL_SLAB.get(), ResourceLocation.parse("block/acacia_planks"));
-        makeVerticalSlab(ModBlocks.DARK_OAK_VERTICAL_SLAB.get(), ResourceLocation.parse("block/dark_oak_planks"));
-        makeVerticalSlab(ModBlocks.MANGROVE_VERTICAL_SLAB.get(), ResourceLocation.parse("block/mangrove_planks"));
-        makeVerticalSlab(ModBlocks.CHERRY_VERTICAL_SLAB.get(), ResourceLocation.parse("block/cherry_planks"));
-        makeVerticalSlab(ModBlocks.BAMBOO_VERTICAL_SLAB.get(), ResourceLocation.parse("block/bamboo_planks"));
-        makeVerticalSlab(ModBlocks.CRIMSON_VERTICAL_SLAB.get(), ResourceLocation.parse("block/crimson_planks"));
-        makeVerticalSlab(ModBlocks.WARPED_VERTICAL_SLAB.get(), ResourceLocation.parse("block/warped_planks"));
+        makeVerticalSlab(ModBlocks.OAK_VERTICAL_SLAB.get(), ResourceLocation.tryParse("block/oak_planks"));
+        makeVerticalSlab(ModBlocks.SPRUCE_VERTICAL_SLAB.get(), ResourceLocation.tryParse("block/spruce_planks"));
+        makeVerticalSlab(ModBlocks.BIRCH_VERTICAL_SLAB.get(), ResourceLocation.tryParse("block/birch_planks"));
+        makeVerticalSlab(ModBlocks.JUNGLE_VERTICAL_SLAB.get(), ResourceLocation.tryParse("block/jungle_planks"));
+        makeVerticalSlab(ModBlocks.ACACIA_VERTICAL_SLAB.get(), ResourceLocation.tryParse("block/acacia_planks"));
+        makeVerticalSlab(ModBlocks.DARK_OAK_VERTICAL_SLAB.get(), ResourceLocation.tryParse("block/dark_oak_planks"));
+        makeVerticalSlab(ModBlocks.MANGROVE_VERTICAL_SLAB.get(), ResourceLocation.tryParse("block/mangrove_planks"));
+        makeVerticalSlab(ModBlocks.CHERRY_VERTICAL_SLAB.get(), ResourceLocation.tryParse("block/cherry_planks"));
+        makeVerticalSlab(ModBlocks.BAMBOO_VERTICAL_SLAB.get(), ResourceLocation.tryParse("block/bamboo_planks"));
+        makeVerticalSlab(ModBlocks.CRIMSON_VERTICAL_SLAB.get(), ResourceLocation.tryParse("block/crimson_planks"));
+        makeVerticalSlab(ModBlocks.WARPED_VERTICAL_SLAB.get(), ResourceLocation.tryParse("block/warped_planks"));
     }
 
     public void makeVerticalSlab(VerticalSlabBlock block, ResourceLocation texture) {
