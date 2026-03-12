@@ -63,7 +63,7 @@ public class BundledTabSelector {
 
             this.guiLeft = creativeScreen.getGuiLeft();
             this.guiTop = creativeScreen.getGuiTop();
-            this.injectWidgets(creativeScreen, widget -> ((ScreenAccessor) screen).callAddRenderableOnly(widget));
+            this.injectWidgets(creativeScreen, widget -> ((ScreenAccessor) screen).callAddRenderableWidget(widget));
         }
     }
 

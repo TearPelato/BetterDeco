@@ -1,17 +1,12 @@
 package net.tier1234.better_deco;
 
 
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.config.ModConfigEvent;
 import org.slf4j.Logger;
-
-import java.util.Set;
 
 
 @Mod.EventBusSubscriber(modid = BetterDeco.MOD_ID, value = Dist.CLIENT)
