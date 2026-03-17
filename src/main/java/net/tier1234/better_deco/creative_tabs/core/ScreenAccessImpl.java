@@ -9,8 +9,10 @@ import net.tier1234.better_deco.mixin.access.ScreenAccessor;
 
 import java.util.List;
 
-public class ScreenAccessImpl implements ScreenAccess{
-    private Screen screen;
+public class ScreenAccessImpl
+       // implements ScreenAccess
+{
+  /*  private Screen screen;
 
     public ScreenAccessImpl(Screen screen) {
         this.screen = screen;
@@ -34,7 +36,7 @@ public class ScreenAccessImpl implements ScreenAccess{
     public List<Renderable> renderables() {
         return ((ScreenAccessor) this.screen).getRenderables();
     }
-
+/*
     @Override
     public <T extends AbstractWidget & Renderable & NarratableEntry> T addRenderableWidget(T widget) {
         return ((ScreenAccessor) this.screen).callAddRenderableWidget(widget);
@@ -48,5 +50,5 @@ public class ScreenAccessImpl implements ScreenAccess{
     @Override
     public <T extends GuiEventListener & NarratableEntry> T addWidget(T listener) {
         return ((ScreenAccessor) this.screen).callAddWidget(listener);
-    }
+    }*/
 }

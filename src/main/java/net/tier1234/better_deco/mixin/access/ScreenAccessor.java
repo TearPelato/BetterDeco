@@ -17,13 +17,14 @@ public interface ScreenAccessor {
 
     @Accessor
     List<Renderable> getRenderables();
-
-    @Invoker
+/*
+    @Invoker(value = "addRenderableWidget", remap = true)
     <T extends GuiEventListener & Renderable & NarratableEntry> T callAddRenderableWidget(T widget);
-
+*/
     @Invoker
     <T extends Renderable> T callAddRenderableOnly(T renderable);
 
-    @Invoker
+   /* @Invoker
     <T extends GuiEventListener & NarratableEntry>  T callAddWidget(T listener);
+    */
 }
