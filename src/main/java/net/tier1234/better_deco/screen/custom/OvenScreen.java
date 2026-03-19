@@ -1,6 +1,6 @@
 package net.tier1234.better_deco.screen.custom;
 
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
@@ -23,24 +23,24 @@ public class OvenScreen extends AbstractContainerScreen<OvenMenu> {
     }
 
 
-    protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-        guiGraphics.drawString(this.font, this.title, this.titleLabelX, this.titleLabelY, -12566464, false);
+   /* protected void renderLabels(GuiGraphicsExtractor GuiGraphicsExtractor, int mouseX, int mouseY) {
+        GuiGraphicsExtractor.drawString(this.font, this.title, this.titleLabelX, this.titleLabelY, -12566464, false);
     }
 
 
     @Override
-    protected void renderBg(GuiGraphics guiGraphics, float v, int i, int i1) {
+    protected void renderBg(GuiGraphicsExtractor GuiGraphicsExtractor, float v, int i, int i1) {
 
 
         int x = (width - imageWidth) / 2;
         int y = (height - imageHeight) / 2;
 
-        guiGraphics.blit(RenderPipelines.GUI_TEXTURED,GUI_TEXTURE, x, y, 0, 0, imageWidth, imageHeight, 256,256);
+        GuiGraphicsExtractor.blit(RenderPipelines.GUI_TEXTURED,GUI_TEXTURE, x, y, 0, 0, imageWidth, imageHeight, 256,256);
 
-        renderProgressArrows(guiGraphics, x, y);
+        renderProgressArrows(GuiGraphicsExtractor, x, y);
     }
 
-    private void renderProgressArrows(GuiGraphics gui, int x, int y) {
+    private void renderProgressArrows(GuiGraphicsExtractor gui, int x, int y) {
         for (int i = 0; i < 3; i++) {
             int progress = menu.getScaledArrowProgress(i);
 
@@ -61,8 +61,8 @@ public class OvenScreen extends AbstractContainerScreen<OvenMenu> {
     }
 
     @Override
-    public void render(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-        super.render(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
-        this.renderTooltip(pGuiGraphics, pMouseX, pMouseY);
-    }
+    public void render(GuiGraphicsExtractor pGuiGraphicsExtractor, int pMouseX, int pMouseY, float pPartialTick) {
+        super.render(pGuiGraphicsExtractor, pMouseX, pMouseY, pPartialTick);
+        this.renderTooltip(pGuiGraphicsExtractor, pMouseX, pMouseY);
+    }*/
 }

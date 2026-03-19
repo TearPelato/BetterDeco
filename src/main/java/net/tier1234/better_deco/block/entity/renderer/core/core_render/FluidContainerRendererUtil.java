@@ -18,8 +18,8 @@ public class FluidContainerRendererUtil {
 
         TextureAtlas atlas = (TextureAtlas) Minecraft.getInstance().getTextureManager().getTexture(TextureAtlas.LOCATION_BLOCKS);
 
-        TextureAtlasSprite still = ext.getStillTexture() != null ? atlas.getSprite(ext.getStillTexture()) : null;
-        TextureAtlasSprite flowing = ext.getFlowingTexture() != null ? atlas.getSprite(ext.getFlowingTexture()) : null;
+        TextureAtlasSprite still = ext.getRenderOverlayTexture(Minecraft.getInstance()) != null ? atlas.getSprite(ext.getRenderOverlayTexture(Minecraft.getInstance())) : null;
+        TextureAtlasSprite flowing = ext.getRenderOverlayTexture(Minecraft.getInstance()) != null ? atlas.getSprite(ext.getRenderOverlayTexture(Minecraft.getInstance())) : null;
 
         if (still == null && flowing == null) return null;
         return new TextureAtlasSprite[]{still, flowing};
@@ -29,7 +29,7 @@ public class FluidContainerRendererUtil {
         IClientFluidTypeExtensions ext = IClientFluidTypeExtensions.of(stack.getFluid());
         FluidState state = (world != null && pos != null) ? world.getFluidState(pos) : null;
         if (state == null || !state.is(stack.getFluid())) state = stack.getFluid().defaultFluidState();
-        int color = ext.getTintColor(state, world, pos);
+        int color = 0;
         return color != -1 ? color : 0xFFFFFFFF;
     }
 }

@@ -1,7 +1,7 @@
 package net.tier1234.better_deco.creative_tabs;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Tooltip;
@@ -70,7 +70,7 @@ public class BundledTabSelector {
 
     public void renderBackground(ScreenEvent.Render.Background event) {
         Screen screen = event.getScreen();
-        GuiGraphics graphics = event.getGuiGraphics();
+        GuiGraphicsExtractor graphics = event.getGuiGraphics();
         if (screen instanceof CreativeModeInventoryScreen creativeScreen) {
             CreativeModeTab tab = CreativeModeInventoryScreenAccessor.getSelectedTab();
             graphics.pose().pushMatrix();
@@ -208,21 +208,14 @@ public class BundledTabSelector {
             this.setTooltip(Tooltip.create(bundle.tooltip));
         }
 
-        @Override
-        protected void renderContents(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-            this.renderSelected(graphics);
-            graphics.renderItem(this.bundle.getIcon(), this.getX(), this.getY());
-            this.renderHighlight(graphics);
-        }
 
-
-        private void renderSelected(GuiGraphics graphics) {
+        private void renderSelected(GuiGraphicsExtractor graphics) {
             if (this.bundle.isSelected()) {
                 graphics.blit(RenderPipelines.GUI_TEXTURED,SELECTOR_BAR, this.getX() - 7, this.getY() - 1, 64, 29, 30, 19,256,256);
             }
         }
 
-        private void renderHighlight(GuiGraphics graphics) {
+        private void renderHighlight(GuiGraphicsExtractor graphics) {
             if (this.isHovered() && !this.bundle.isSelected()) {
                 graphics.pose().pushMatrix();
                 graphics.pose().translate(0.0F, 0.0F);
@@ -231,6 +224,13 @@ public class BundledTabSelector {
                 RenderSystem.disableScissorForRenderTypeDraws();
                 graphics.pose().popMatrix();
             }
+        }
+
+        @Override
+        protected void extractContents(GuiGraphicsExtractor guiGraphicsExtractor, int i, int i1, float v) {
+            this.renderSelected(guiGraphicsExtractor);
+            guiGraphicsExtractor.item(this.bundle.getIcon(), this.getX(), this.getY());
+                this.renderHighlight(guiGraphicsExtractor);
         }
     }
 
@@ -243,7 +243,7 @@ public class BundledTabSelector {
         }
 
         @Override
-        protected void renderContents(GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
+        protected void extractContents(GuiGraphicsExtractor graphics, int i, int i1, float v) {
             int textureY = this.isHovered ? 17 : 6;
             graphics.blit(RenderPipelines.GUI_TEXTURED,SELECTOR_BAR, this.getX(), this.getY(), this.uOffset, textureY, 18, 9,256,256);
         }

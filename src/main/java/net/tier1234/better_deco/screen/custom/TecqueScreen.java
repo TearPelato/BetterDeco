@@ -1,7 +1,7 @@
 package net.tier1234.better_deco.screen.custom;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.RenderPipelines;
@@ -18,18 +18,18 @@ public class TecqueScreen extends AbstractContainerScreen<TecqueMenu> {
         super(menu, playerInventory, title);
     }
 
-    @Override
-    protected void renderBg(GuiGraphics guiGraphics, float pPartialTick, int pMouseX, int pMouseY) {
+   /* @Override
+   protected void renderBg(GuiGraphicsExtractor GuiGraphicsExtractor, float pPartialTick, int pMouseX, int pMouseY) {
 
         int x = (width - imageWidth) / 2;
         int y = (height - imageHeight) / 2;
 
-        guiGraphics.blit(RenderPipelines.GUI_TEXTURED,GUI_TEXTURE, x, y, 0, 0, imageWidth, imageHeight,256,256);
+        GuiGraphicsExtractor.blit(RenderPipelines.GUI_TEXTURED,GUI_TEXTURE, x, y, 0, 0, imageWidth, imageHeight,256,256);
     }
 
     @Override
-    public void render(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-        super.render(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
-        this.renderTooltip(pGuiGraphics, pMouseX, pMouseY);
-    }
+    public void render(GuiGraphicsExtractor pGuiGraphicsExtractor, int pMouseX, int pMouseY, float pPartialTick) {
+        super.render(pGuiGraphicsExtractor, pMouseX, pMouseY, pPartialTick);
+        this.renderTooltip(pGuiGraphicsExtractor, pMouseX, pMouseY);
+    }*/
 }
