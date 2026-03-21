@@ -158,6 +158,9 @@ dependencies {
     runtimeOnly(compileOnly("curse.maven:every-compat-628539:7698404"))
     runtimeOnly(compileOnly("curse.maven:selene-499980:7708176"))
 
+    runtimeOnly "curse.maven:natures-spirit-1044992:6962784"
+    runtimeOnly "curse.maven:terrablender-neoforge-940057:6054947"
+
     implementation "curse.maven:catalogue-459701:6926815"
     implementation "curse.maven:framework-549225:5911998"
 }
