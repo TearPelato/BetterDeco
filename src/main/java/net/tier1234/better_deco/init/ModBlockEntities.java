@@ -13,24 +13,6 @@ public class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
             DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, BetterDeco.MOD_ID);
 
-
-    public static final Supplier<BlockEntityType<CustomBarrelBlockEntity>> CUSTOM_BARREL_BE =
-            BLOCK_ENTITIES.register("custom_barrel", () ->
-                    BlockEntityType.Builder
-                            .of(CustomBarrelBlockEntity::new,
-                                    ModBlocks.OAK_BARREL.get(),
-                                    ModBlocks.BIRCH_BARREL.get(),
-                                    ModBlocks.DARK_OAK_BARREL.get(),
-                                    ModBlocks.JUNGLE_BARREL.get(),
-                                    ModBlocks.ACACIA_BARREL.get(),
-                                    ModBlocks.CHERRY_BARREL.get(),
-                                    ModBlocks.BAMBOO_BARREL.get(),
-                                    ModBlocks.MANGROVE_BARREL.get(),
-                                    ModBlocks.CRIMSON_BARREL.get(),
-                                    ModBlocks.WARPED_BARREL.get())
-                            .build(null)
-            );
-
     public static final Supplier<BlockEntityType<KitchenDrawerBlockEntity>> CUSTOM_KITCHEN_DRAWER_BE =
             BLOCK_ENTITIES.register("kitchen_drawer", () ->
                     BlockEntityType.Builder

@@ -15,123 +15,7 @@ import java.util.List;
 public class ModBundledTabs {
     private static final List<BundledTabs> FILTERS = new ArrayList<>();
 
-    public static final BundledTabs BUILDINGS = register(
-            BundledTabs.builder()
-                    .title(Component.translatable("bundled_tab.buildings.title"))
-                    .icon(new ItemStack(ModBlocks.OAK_BARREL))
-                    .displayItems((provider, output) -> {
 
-                        output.accept(ModBlocks.OAK_VERTICAL_PLANKS);
-                        output.accept(ModBlocks.OAK_PILED_PLANKS);
-                        output.accept(ModBlocks.OAK_POLISHED_PLANKS);
-                        output.accept(ModBlocks.OAK_PLANKS_BRICKS);
-                        output.accept(ModBlocks.OAK_SOFT_BRICKS);
-                        output.accept(ModBlocks.OAK_PLANKS_PILLAR);
-                        output.accept(ModBlocks.OAK_BARREL);
-                        //Spruce
-                        output.accept(ModBlocks.SPRUCE_VERTICAL_PLANKS);
-                        output.accept(ModBlocks.SPRUCE_PILED_PLANKS);
-                        output.accept(ModBlocks.SPRUCE_POLISHED_PLANKS);
-                        output.accept(ModBlocks.SPRUCE_PLANKS_BRICKS);
-                        output.accept(ModBlocks.SPRUCE_SOFT_BRICKS);
-                        output.accept(ModBlocks.SPRUCE_PLANKS_PILLAR);
-                        output.accept(Blocks.BARREL);
-                        //Birch
-                        output.accept(ModBlocks.BIRCH_VERTICAL_PLANKS);
-                        output.accept(ModBlocks.BIRCH_PILED_PLANKS);
-                        output.accept(ModBlocks.BIRCH_POLISHED_PLANKS);
-                        output.accept(ModBlocks.BIRCH_PLANKS_BRICKS);
-                        output.accept(ModBlocks.BIRCH_SOFT_BRICKS);
-                        output.accept(ModBlocks.BIRCH_PLANKS_PILLAR);
-                        output.accept(ModBlocks.BIRCH_BARREL);
-                        //Jungle
-                        output.accept(ModBlocks.JUNGLE_VERTICAL_PLANKS);
-                        output.accept(ModBlocks.JUNGLE_PILED_PLANKS);
-                        output.accept(ModBlocks.JUNGLE_POLISHED_PLANKS);
-                        output.accept(ModBlocks.JUNGLE_PLANKS_BRICKS);
-                        output.accept(ModBlocks.JUNGLE_SOFT_BRICKS);
-                        output.accept(ModBlocks.JUNGLE_PLANKS_PILLAR);
-                        output.accept(ModBlocks.JUNGLE_BARREL);
-                        //Acacia
-                        output.accept(ModBlocks.ACACIA_VERTICAL_PLANKS);
-                        output.accept(ModBlocks.ACACIA_PILED_PLANKS);
-                        output.accept(ModBlocks.ACACIA_POLISHED_PLANKS);
-                        output.accept(ModBlocks.ACACIA_PLANKS_BRICKS);
-                        output.accept(ModBlocks.ACACIA_SOFT_BRICKS);
-                        output.accept(ModBlocks.ACACIA_PLANKS_PILLAR);
-                        output.accept(ModBlocks.ACACIA_BARREL);
-                        //DarkOak
-                        output.accept(ModBlocks.DARK_OAK_VERTICAL_PLANKS);
-                        output.accept(ModBlocks.DARK_OAK_PILED_PLANKS);
-                        output.accept(ModBlocks.DARK_OAK_POLISHED_PLANKS);
-                        output.accept(ModBlocks.DARK_OAK_PLANKS_BRICKS);
-                        output.accept(ModBlocks.DARK_OAK_SOFT_BRICKS);
-                        output.accept(ModBlocks.DARK_OAK_PLANKS_PILLAR);
-                        output.accept(ModBlocks.DARK_OAK_BARREL);
-                        //Mangrove
-                        output.accept(ModBlocks.MANGROVE_VERTICAL_PLANKS);
-                        output.accept(ModBlocks.MANGROVE_PILED_PLANKS);
-                        output.accept(ModBlocks.MANGROVE_POLISHED_PLANKS);
-                        output.accept(ModBlocks.MANGROVE_PLANKS_BRICKS);
-                        output.accept(ModBlocks.MANGROVE_SOFT_BRICKS);
-                        output.accept(ModBlocks.MANGROVE_PLANKS_PILLAR);
-                        output.accept(ModBlocks.MANGROVE_BARREL);
-                        //Cherry
-                        output.accept(ModBlocks.CHERRY_VERTICAL_PLANKS);
-                        output.accept(ModBlocks.CHERRY_PILED_PLANKS);
-                        output.accept(ModBlocks.CHERRY_POLISHED_PLANKS);
-                        output.accept(ModBlocks.CHERRY_PLANKS_BRICKS);
-                        output.accept(ModBlocks.CHERRY_SOFT_BRICKS);
-                        output.accept(ModBlocks.CHERRY_PLANKS_PILLAR);
-                        output.accept(ModBlocks.CHERRY_BARREL);
-                        //Bamboo
-                        output.accept(ModBlocks.BAMBOO_VERTICAL_PLANKS);
-                        output.accept(ModBlocks.BAMBOO_PILED_PLANKS);
-                        output.accept(ModBlocks.BAMBOO_POLISHED_PLANKS);
-                        output.accept(ModBlocks.BAMBOO_PLANKS_BRICKS);
-                        output.accept(ModBlocks.BAMBOO_SOFT_BRICKS);
-                        output.accept(ModBlocks.BAMBOO_PLANKS_PILLAR);
-                        output.accept(ModBlocks.BAMBOO_BARREL);
-                        //Crimson
-                        output.accept(ModBlocks.CRIMSON_VERTICAL_PLANKS);
-                        output.accept(ModBlocks.CRIMSON_PILED_PLANKS);
-                        output.accept(ModBlocks.CRIMSON_POLISHED_PLANKS);
-                        output.accept(ModBlocks.CRIMSON_PLANKS_BRICKS);
-                        output.accept(ModBlocks.CRIMSON_SOFT_BRICKS);
-                        output.accept(ModBlocks.CRIMSON_PLANKS_PILLAR);
-                        output.accept(ModBlocks.CRIMSON_BARREL);
-                        //Warped
-                        output.accept(ModBlocks.WARPED_VERTICAL_PLANKS);
-                        output.accept(ModBlocks.WARPED_PILED_PLANKS);
-                        output.accept(ModBlocks.WARPED_POLISHED_PLANKS);
-                        output.accept(ModBlocks.WARPED_PLANKS_BRICKS);
-                        output.accept(ModBlocks.WARPED_SOFT_BRICKS);
-                        output.accept(ModBlocks.WARPED_PLANKS_PILLAR);
-                        output.accept(ModBlocks.WARPED_BARREL);
-
-                        output.accept(ModBlocks.ANDESITE_ARRAY_BRICKS);
-                        output.accept(ModBlocks.ANDESITE_MIXED_BRICKS);
-                        output.accept(ModBlocks.ANDESITE_MOSAIC_BRICKS);
-                        output.accept(ModBlocks.ANDESITE_BRICKS);
-                        output.accept(ModBlocks.RAW_ANDESITE);
-
-                        output.accept(ModBlocks.DIORITE_ARRAY_BRICKS);
-                        output.accept(ModBlocks.DIORITE_MIXED_BRICKS);
-                        output.accept(ModBlocks.DIORITE_MOSAIC_BRICKS);
-                        output.accept(ModBlocks.DIORITE_BRICKS);
-                        output.accept(ModBlocks.RAW_DIORITE);
-
-                        output.accept(ModBlocks.GRANITE_ARRAY_BRICKS);
-                        output.accept(ModBlocks.GRANITE_MIXED_BRICKS);
-                        output.accept(ModBlocks.GRANITE_MOSAIC_BRICKS);
-                        output.accept(ModBlocks.GRANITE_BRICKS);
-                        output.accept(ModBlocks.RAW_GRANITE);
-
-
-
-                    })
-                    .build()
-    );
 
     public static final BundledTabs FURNITURE = register(
             BundledTabs.builder()
@@ -570,30 +454,7 @@ public class ModBundledTabs {
                     .build()
     );
 
-    public static final BundledTabs BUILDINGS_EXTRAS = register(
-            BundledTabs.builder()
-                    .title(Component.translatable("bundled_tab.buildings_extras"))
-                    .icon(new ItemStack(ModBlocks.OAK_VERTICAL_SLAB.get()))
-                    .displayItems((provider, output) -> {
-                        output.accept(ModBlocks.OAK_VERTICAL_SLAB);
-                        output.accept(ModBlocks.SPRUCE_VERTICAL_SLAB);
-                        output.accept(ModBlocks.BIRCH_VERTICAL_SLAB);
-                        output.accept(ModBlocks.JUNGLE_VERTICAL_SLAB);
-                        output.accept(ModBlocks.ACACIA_VERTICAL_SLAB);
-                        output.accept(ModBlocks.DARK_OAK_VERTICAL_SLAB);
-                        output.accept(ModBlocks.MANGROVE_VERTICAL_SLAB);
-                        output.accept(ModBlocks.CHERRY_VERTICAL_SLAB);
-                        output.accept(ModBlocks.BAMBOO_VERTICAL_SLAB);
-                        output.accept(ModBlocks.CRIMSON_VERTICAL_SLAB);
-                        output.accept(ModBlocks.WARPED_VERTICAL_SLAB);
 
-
-
-
-
-                            })
-                    .build()
-    );
 
     public static final BundledTabs EXTERNAL_DECORATIONS = register(
             BundledTabs.builder()
@@ -619,35 +480,6 @@ public class ModBundledTabs {
                             .build()
     );
 
-    public static final BundledTabs DECORATION = register(
-            BundledTabs.builder()
-                    .title(Component.translatable("bundled_tab.decoration"))
-                    .icon(new ItemStack(ModBlocks.BIG_CHAIN.get()))
-                    .displayItems((provider, output) -> {
-
-
-                        output.accept(ModBlocks.BIG_CHAIN);
-                        output.accept(ModBlocks.WALL_LANTERN);
-
-                        output.accept(ModBlocks.COPPER_LANTERN);
-                        output.accept(ModBlocks.EXPOSED_LANTERN);
-                        output.accept(ModBlocks.WEATHERED_LANTERN);
-                        output.accept(ModBlocks.OXIDIZED_LANTERN);
-
-                        output.accept(ModBlocks.WAXED_COPPER_LANTERN);
-                        output.accept(ModBlocks.WAXED_EXPOSED_LANTERN);
-                        output.accept(ModBlocks.WAXED_WEATHERED_LANTERN);
-                        output.accept(ModBlocks.WAXED_OXIDIZED_LANTERN);
-
-
-
-
-
-
-
-                    })
-                    .build()
-    );
 
     public static final BundledTabs ELECTRONICS = register(
             BundledTabs.builder()

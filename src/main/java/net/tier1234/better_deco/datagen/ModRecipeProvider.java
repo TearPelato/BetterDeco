@@ -226,57 +226,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_warped_slab", has(Blocks.WARPED_SLAB))
                 .save(recipeOutput);
 
-        //Deco
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BIG_CHAIN.get())
-                .pattern(" # ")
-                .pattern(" B ")
-                .pattern(" # ")
-                .define('B', Blocks.CHAIN.asItem())
-                .define('#', Items.IRON_INGOT.asItem())
-                .unlockedBy("has_iron", has(Items.IRON_INGOT))
-                .save(recipeOutput);
-
-//Items
-        //Chisel
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.IRON_CHISEL.get())
-                .pattern("   ")
-                .pattern(" # ")
-                .pattern("B  ")
-                .define('B', Items.STICK.asItem())
-                .define('#', Items.IRON_INGOT.asItem())
-                .unlockedBy("has_iron", has(Items.IRON_INGOT))
-                .unlockedBy("has_stick", has(Items.STICK))
-                .save(recipeOutput);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.GOLD_CHISEL.get())
-                .pattern("   ")
-                .pattern(" # ")
-                .pattern("B  ")
-                .define('B', Items.STICK.asItem())
-                .define('#', Items.GOLD_INGOT.asItem())
-                .unlockedBy("has_gold", has(Items.GOLD_INGOT))
-                .unlockedBy("has_stick", has(Items.STICK))
-                .save(recipeOutput);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DIAMOND_CHISEL.get())
-                .pattern("   ")
-                .pattern(" # ")
-                .pattern("B  ")
-                .define('B', Items.STICK.asItem())
-                .define('#', Items.DIAMOND.asItem())
-                .unlockedBy("has_diamond", has(Items.IRON_INGOT))
-                .unlockedBy("has_stick", has(Items.STICK))
-                .save(recipeOutput);
-
-        SmithingTransformRecipeBuilder.smithing(
-                        Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
-                        Ingredient.of(ModItems.DIAMOND_CHISEL),
-                        Ingredient.of(Items.NETHERITE_INGOT),
-                        RecipeCategory.TOOLS,
-                        ModItems.NETHERITE_CHISEL.get()
-                )
-                .unlocks("has_custom_template", has(Items.NETHERITE_INGOT))
-                .save(recipeOutput, String.valueOf(ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, "netherite_chisel")));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.FURNI_WORKBENCH.get())
                 .pattern("PPP")
