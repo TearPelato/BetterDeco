@@ -18,18 +18,20 @@ public class PedestalScreen extends AbstractContainerScreen<PedestalMenu> {
         super(menu, playerInventory, title);
     }
 
-  /*  @Override
-    protected void renderBg(GuiGraphicsExtractor GuiGraphicsExtractor, float pPartialTick, int pMouseX, int pMouseY) {
-
+    @Override
+    public void extractBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float a) {
+        super.extractBackground(graphics, mouseX, mouseY, a);
         int x = (width - imageWidth) / 2;
         int y = (height - imageHeight) / 2;
 
-        GuiGraphicsExtractor.blit(RenderPipelines.GUI_TEXTURED,GUI_TEXTURE, x, y, 0, 0, imageWidth, imageHeight,256,256);
+        graphics.blit(RenderPipelines.GUI_TEXTURED,GUI_TEXTURE, x, y, 0, 0, imageWidth, imageHeight,256,256);
+
     }
 
     @Override
-    public void render(GuiGraphicsExtractor pGuiGraphicsExtractor, int pMouseX, int pMouseY, float pPartialTick) {
-        super.render(pGuiGraphicsExtractor, pMouseX, pMouseY, pPartialTick);
-        this.renderTooltip(pGuiGraphicsExtractor, pMouseX, pMouseY);
-    }*/
+    public void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float a) {
+        super.extractContents(graphics, mouseX, mouseY, a);
+        this.extractTooltip(graphics, mouseX, mouseY);
+    }
+
 }

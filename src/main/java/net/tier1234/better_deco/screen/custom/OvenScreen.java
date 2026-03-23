@@ -22,23 +22,31 @@ public class OvenScreen extends AbstractContainerScreen<OvenMenu> {
         this.imageHeight = 184;*/
     }
 
-
-   /* protected void renderLabels(GuiGraphicsExtractor GuiGraphicsExtractor, int mouseX, int mouseY) {
-        GuiGraphicsExtractor.drawString(this.font, this.title, this.titleLabelX, this.titleLabelY, -12566464, false);
+    @Override
+    protected void extractLabels(GuiGraphicsExtractor graphics, int xm, int ym) {
+        graphics.text(this.font, this.title, this.titleLabelX, this.titleLabelY, -12566464, false);
     }
 
-
     @Override
-    protected void renderBg(GuiGraphicsExtractor GuiGraphicsExtractor, float v, int i, int i1) {
-
+    public void extractBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float a) {
+        super.extractBackground(graphics, mouseX, mouseY, a);
 
         int x = (width - imageWidth) / 2;
         int y = (height - imageHeight) / 2;
 
-        GuiGraphicsExtractor.blit(RenderPipelines.GUI_TEXTURED,GUI_TEXTURE, x, y, 0, 0, imageWidth, imageHeight, 256,256);
+        graphics.blit(RenderPipelines.GUI_TEXTURED,GUI_TEXTURE, x, y, 0, 0, imageWidth, imageHeight, 256,256);
 
-        renderProgressArrows(GuiGraphicsExtractor, x, y);
+        renderProgressArrows(graphics, x, y);
     }
+
+
+    @Override
+    public void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float a) {
+        super.extractContents(graphics, mouseX, mouseY, a);
+        this.extractTooltip(graphics, mouseX, mouseY);
+    }
+
+
 
     private void renderProgressArrows(GuiGraphicsExtractor gui, int x, int y) {
         for (int i = 0; i < 3; i++) {
@@ -60,9 +68,4 @@ public class OvenScreen extends AbstractContainerScreen<OvenMenu> {
         }
     }
 
-    @Override
-    public void render(GuiGraphicsExtractor pGuiGraphicsExtractor, int pMouseX, int pMouseY, float pPartialTick) {
-        super.render(pGuiGraphicsExtractor, pMouseX, pMouseY, pPartialTick);
-        this.renderTooltip(pGuiGraphicsExtractor, pMouseX, pMouseY);
-    }*/
 }
