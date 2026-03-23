@@ -1,0 +1,44 @@
+package net.tier1234.better_deco.block.entity.api;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.ContainerOpenersCounter;
+import net.minecraft.world.level.block.state.BlockState;
+
+@Deprecated(since = "1.2.0",
+            forRemoval = true)
+public class BasicContainerOpenersCounter extends ContainerOpenersCounter
+{
+    private final net.tier1234.better_deco.block.entity.api.BasicLootBlockEntity blockEntity;
+
+    public BasicContainerOpenersCounter(net.tier1234.better_deco.block.entity.api.BasicLootBlockEntity blockEntity)
+    {
+        this.blockEntity = blockEntity;
+    }
+
+
+    @Override
+    protected void onOpen(Level level, BlockPos pos, BlockState state)
+    {
+        this.blockEntity.onOpen(level, pos, state);
+    }
+
+    @Override
+    protected void onClose(Level level, BlockPos pos, BlockState state)
+    {
+        this.blockEntity.onClose(level, pos, state);
+    }
+
+    @Override
+    protected void openerCountChanged(Level level, BlockPos pos, BlockState state, int oldCount, int count)
+    {
+        level.blockEvent(pos, state.getBlock(), 1, count);
+    }
+
+    @Override
+    protected boolean isOwnContainer(Player player)
+    {
+        return this.blockEntity.isMatchingContainerMenu(player.containerMenu);
+    }
+}

@@ -1,8 +1,6 @@
 package net.tier1234.better_deco.block.entity.custom;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.core.NonNullList;
 import net.minecraft.core.Vec3i;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
@@ -12,14 +10,12 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ChestMenu;
 import net.minecraft.world.inventory.MenuType;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.tearpelato.deco_lib.api.block_entity.BasicLootBlockEntity;
 import net.tier1234.better_deco.block.custom.BedsideCabinetBlock;
 import net.tier1234.better_deco.block.entity.ModBlockEntities;
-import org.jetbrains.annotations.Nullable;
+import net.tier1234.better_deco.block.entity.api.BasicLootBlockEntity;
 
 public class BedsideCabinetBlockEntity extends BasicLootBlockEntity
 {
@@ -85,20 +81,5 @@ public class BedsideCabinetBlockEntity extends BasicLootBlockEntity
         {
             level.setBlock(this.getBlockPos(), blockState.setValue(BedsideCabinetBlock.OPEN, open), 3);
         }
-    }
-
-    @Override
-    public int[] getSlotsForFace(Direction direction) {
-        return new int[0];
-    }
-
-    @Override
-    public boolean canPlaceItemThroughFace(int i, ItemStack itemStack, @Nullable Direction direction) {
-        return false;
-    }
-
-    @Override
-    public boolean canTakeItemThroughFace(int i, ItemStack itemStack, Direction direction) {
-        return false;
     }
 }
