@@ -13,7 +13,8 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.tier1234.better_deco.util.VoxelShapeHelper;
+import net.tearpelato.deco_lib.api.block.furniture.FurnitureHorizontalBlock;
+import net.tearpelato.deco_lib.api.shape.VoxelShapeHelper;
 
 import java.util.ArrayList;
 import java.util.List;

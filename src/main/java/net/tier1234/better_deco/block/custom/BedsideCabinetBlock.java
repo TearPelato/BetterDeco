@@ -21,9 +21,10 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.tier1234.better_deco.block.entity.core.BasicLootBlockEntity;
+import net.tearpelato.deco_lib.api.block.furniture.FurnitureHorizontalBlock;
+import net.tearpelato.deco_lib.api.block_entity.BasicLootBlockEntity;
+import net.tearpelato.deco_lib.api.shape.VoxelShapeHelper;
 import net.tier1234.better_deco.block.entity.custom.BedsideCabinetBlockEntity;
-import net.tier1234.better_deco.util.VoxelShapeHelper;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;

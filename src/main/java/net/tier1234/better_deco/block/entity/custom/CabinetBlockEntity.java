@@ -17,9 +17,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.tearpelato.deco_lib.api.block_entity.BasicLootBlockEntity;
 import net.tier1234.better_deco.block.custom.CabinetBlock;
 import net.tier1234.better_deco.block.entity.ModBlockEntities;
-import net.tier1234.better_deco.block.entity.core.BasicLootBlockEntity;
 
 public class CabinetBlockEntity extends BasicLootBlockEntity
 {

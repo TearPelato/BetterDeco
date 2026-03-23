@@ -22,9 +22,10 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.registries.RegistryObject;
-import net.tier1234.better_deco.block.entity.core.BasicLootBlockEntity;
+import net.tearpelato.deco_lib.api.block.furniture.FurnitureHorizontalBlock;
+import net.tearpelato.deco_lib.api.block_entity.BasicLootBlockEntity;
+import net.tearpelato.deco_lib.api.shape.VoxelShapeHelper;
 import net.tier1234.better_deco.block.entity.custom.FridgeBlockEntity;
-import net.tier1234.better_deco.util.VoxelShapeHelper;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
