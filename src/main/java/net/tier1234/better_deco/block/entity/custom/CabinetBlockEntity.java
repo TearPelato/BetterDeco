@@ -1,65 +1,85 @@
 package net.tier1234.better_deco.block.entity.custom;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.NonNullList;
+import net.minecraft.core.Vec3i;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.MenuProvider;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ChestMenu;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.inventory.MenuType;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.storage.ValueInput;
-import net.minecraft.world.level.storage.ValueOutput;
-import net.neoforged.neoforge.items.ItemStackHandler;
 import net.tearpelato.deco_lib.api.block_entity.BasicLootBlockEntity;
+import net.tier1234.better_deco.block.custom.CabinetBlock;
 import net.tier1234.better_deco.block.entity.ModBlockEntities;
 
-public class CabinetBlockEntity extends BasicLootBlockEntity implements MenuProvider {
+public class CabinetBlockEntity extends BasicLootBlockEntity
+{
+    protected CabinetBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state)
+    {
+        super(type, pos, state);
+    }
 
-    public final ItemStackHandler inventory = new ItemStackHandler(18);
-
-    private NonNullList<ItemStack> items = NonNullList.withSize(18, ItemStack.EMPTY);
-
-    public CabinetBlockEntity(BlockPos pos, BlockState state) {
+    public CabinetBlockEntity(BlockPos pos, BlockState state)
+    {
         super(ModBlockEntities.CUSTOM_CABINET_BE.get(), pos, state);
     }
 
     @Override
-    protected Component getDefaultName() {
-        return Component.literal("Kitchen Cabinet");
+    public int getContainerSize()
+    {
+        return 18;
     }
 
     @Override
-    protected AbstractContainerMenu createMenu(int id, Inventory playerInventory) {
-        return ChestMenu.twoRows(id, playerInventory);
+    protected Component getDefaultName()
+    {
+        return Component.literal("Cabinet");
     }
 
     @Override
-    public int getContainerSize() {
-        return items.size();
+    protected AbstractContainerMenu createMenu(int windowId, Inventory playerInventory)
+    {
+        return new ChestMenu(MenuType.GENERIC_9x2, windowId, playerInventory, this, 2);
     }
 
     @Override
-    public NonNullList<ItemStack> getItems() {
-        return items;
+    public void onOpen(Level level, BlockPos pos, BlockState state)
+    {
+        this.playDoorSound(state, SoundEvents.UI_TOAST_IN);
+        this.setDoorState(state, true);
     }
 
     @Override
-    public void setItems(NonNullList<ItemStack> items) {
-        this.items = items;
+    public void onClose(Level level, BlockPos pos, BlockState state)
+    {
+        this.playDoorSound(state, SoundEvents.UI_LOOM_TAKE_RESULT);
+        this.setDoorState(state, false);
     }
 
-    @Override
-    protected void saveAdditional(ValueOutput output) {
-        super.saveAdditional(output);
-       inventory.serialize(output);
+    private void playDoorSound(BlockState state, SoundEvent event)
+    {
+        Vec3i directionVec = state.getValue(CabinetBlock.DIRECTION).getUnitVec3i();
+        double x = this.worldPosition.getX() + 0.5D + directionVec.getX() / 2.0D;
+        double y = this.worldPosition.getY() + 0.5D + directionVec.getY() / 2.0D;
+        double z = this.worldPosition.getZ() + 0.5D + directionVec.getZ() / 2.0D;
+        Level level = this.getLevel();
+        if(level != null)
+        {
+            level.playSound(null, x, y, z, event, SoundSource.BLOCKS, 0.5F, level.getRandom().nextFloat() * 0.1F + 0.9F);
+        }
     }
 
-    @Override
-    public void loadAdditional(ValueInput input) {
-        super.loadAdditional(input);
-        inventory.deserialize(input);
+    private void setDoorState(BlockState state, boolean open)
+    {
+        Level level = this.getLevel();
+        if(level != null)
+        {
+            level.setBlock(this.getBlockPos(), state.setValue(CabinetBlock.OPEN, open), 3);
+        }
     }
-
 }
