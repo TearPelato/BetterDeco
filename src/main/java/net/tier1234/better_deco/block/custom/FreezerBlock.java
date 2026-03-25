@@ -15,7 +15,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -34,7 +33,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.tearpelato.deco_lib.api.block.furniture.FurnitureHorizontalBlock;
 import net.tearpelato.deco_lib.api.block_entity.BasicLootBlockEntity;
 import net.tearpelato.deco_lib.api.shape.VoxelShapeHelper;
-import net.tier1234.better_deco.block.entity.ModBlockEntities;
+import net.tier1234.better_deco.init.ModBlockEntities;
 import net.tier1234.better_deco.block.entity.custom.FreezerBlockEntity;
 import org.jetbrains.annotations.Nullable;
 

@@ -1,4 +1,4 @@
-package net.tier1234.better_deco.entity;
+package net.tier1234.better_deco.init;
 
 
 import net.minecraft.core.registries.BuiltInRegistries;

@@ -5,16 +5,13 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
 import net.tier1234.better_deco.BetterDeco;
-import net.tier1234.better_deco.block.ModBlocks;
-import net.tier1234.better_deco.item.ModItems;
-import net.tier1234.better_deco.util.Constants;
+import net.tier1234.better_deco.init.ModBlocks;
+import net.tier1234.better_deco.init.ModItems;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;

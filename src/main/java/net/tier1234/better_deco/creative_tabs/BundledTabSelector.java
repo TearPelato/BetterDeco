@@ -13,8 +13,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.neoforged.neoforge.client.event.ContainerScreenEvent;
 import net.neoforged.neoforge.client.event.ScreenEvent;
+import net.tier1234.better_deco.init.ModBundledTabs;
+import net.tier1234.better_deco.init.ModCreativeTabs;
 import net.tier1234.better_deco.mixin.access.CreativeModeInventoryScreenAccessor;
 import net.tier1234.better_deco.mixin.access.ScreenAccessor;
 import org.joml.Matrix3x2f;
@@ -205,7 +206,14 @@ public class BundledTabSelector {
             super(x, y, 16, 16, Component.empty(), onPress, DEFAULT_NARRATION);
             this.bundle = bundle;
             bundle.setContentTab(this);
-            this.setTooltip(Tooltip.create(bundle.tooltip));
+            this.setTooltip(Tooltip.create(bundle.getTooltip()));
+        }
+
+        @Override
+        protected void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float a) {
+            this.renderSelected(graphics);
+            graphics.item(this.bundle.getIcon(), this.getX(), this.getY());
+            this.renderHighlight(graphics);
         }
 
 
@@ -225,13 +233,6 @@ public class BundledTabSelector {
                 graphics.pose().popMatrix();
             }
         }
-
-        @Override
-        protected void extractContents(GuiGraphicsExtractor guiGraphicsExtractor, int i, int i1, float v) {
-            this.renderSelected(guiGraphicsExtractor);
-            guiGraphicsExtractor.item(this.bundle.getIcon(), this.getX(), this.getY());
-                this.renderHighlight(guiGraphicsExtractor);
-        }
     }
 
     public static class ScrollButton extends Button {
@@ -243,9 +244,11 @@ public class BundledTabSelector {
         }
 
         @Override
-        protected void extractContents(GuiGraphicsExtractor graphics, int i, int i1, float v) {
+        protected void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float a) {
             int textureY = this.isHovered ? 17 : 6;
             graphics.blit(RenderPipelines.GUI_TEXTURED,SELECTOR_BAR, this.getX(), this.getY(), this.uOffset, textureY, 18, 9,256,256);
+
         }
+
     }
 }

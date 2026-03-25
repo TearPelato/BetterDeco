@@ -1,9 +1,8 @@
-package net.tier1234.better_deco.block;
+package net.tier1234.better_deco.init;
 
 
 
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
@@ -13,11 +12,10 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.block.custom.*;
 import net.tier1234.better_deco.block.custom.ChainBlock;
-import net.tier1234.better_deco.item.ModItems;
 
 import java.util.function.Function;
 
-import static net.tier1234.better_deco.item.ModItems.ITEMS;
+import static net.tier1234.better_deco.init.ModItems.ITEMS;
 
 
 public class ModBlocks {

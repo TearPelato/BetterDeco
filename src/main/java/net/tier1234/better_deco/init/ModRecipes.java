@@ -1,4 +1,4 @@
-package net.tier1234.better_deco.recipe;
+package net.tier1234.better_deco.init;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -7,6 +7,9 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.tier1234.better_deco.BetterDeco;
+import net.tier1234.better_deco.recipe.FreezerRecipe;
+import net.tier1234.better_deco.recipe.MicrowaveRecipe;
+import net.tier1234.better_deco.recipe.OvenRecipe;
 
 public class ModRecipes {
     public static final DeferredRegister<RecipeSerializer<?>> SERIALIZERS =

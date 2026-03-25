@@ -5,7 +5,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluid;
 import net.tearpelato.deco_lib.api.fluid.block_entity.FluidContainerBlockEntity;
 import net.tier1234.better_deco.Config;
-import net.tier1234.better_deco.block.entity.ModBlockEntities;
+import net.tier1234.better_deco.init.ModBlockEntities;
 
 public class KitchenSinkBlockEntity extends FluidContainerBlockEntity {
 

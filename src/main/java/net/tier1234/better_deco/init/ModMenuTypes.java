@@ -1,4 +1,4 @@
-package net.tier1234.better_deco.screen;
+package net.tier1234.better_deco.init;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.inventory.AbstractContainerMenu;

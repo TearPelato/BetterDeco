@@ -18,15 +18,14 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.ShelfBlock;
-import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import net.tearpelato.deco_lib.api.block_entity.BasicLootBlockEntity;
-import net.tier1234.better_deco.block.entity.ModBlockEntities;
-import net.tier1234.better_deco.screen.ModInventory;
+import net.tier1234.better_deco.init.ModBlockEntities;
+import net.tier1234.better_deco.init.ModInventory;
 import net.tier1234.better_deco.screen.custom.ShelfMenu;
 import org.jetbrains.annotations.Nullable;
 

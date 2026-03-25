@@ -23,7 +23,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.tearpelato.deco_lib.api.block.furniture.FurnitureHorizontalBlock;
 import net.tearpelato.deco_lib.api.shape.VoxelShapeHelper;
-import net.tier1234.better_deco.entity.ModEntities;
+import net.tier1234.better_deco.init.ModEntities;
 import net.tier1234.better_deco.entity.custom.ChairEntity;
 
 import java.util.ArrayList;

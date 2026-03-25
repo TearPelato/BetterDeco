@@ -1,4 +1,4 @@
-package net.tier1234.better_deco.creative_tabs;
+package net.tier1234.better_deco.init;
 
 
 import net.minecraft.core.registries.Registries;
@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.tier1234.better_deco.BetterDeco;
-import net.tier1234.better_deco.block.ModBlocks;
+import net.tier1234.better_deco.creative_tabs.BundledTabs;
 
 import java.util.Collections;
 import java.util.List;
@@ -26,8 +26,10 @@ public class ModCreativeTabs {
                     .title(Component.translatable("creativetab.better_deco.better_deco"))
                     .icon(() -> new ItemStack(ModBlocks.OAK_BARREL))
                     .displayItems((parameters, output) -> {
+                        var provider = parameters.holders();
                         List<BundledTabs> filters = ModBundledTabs.getFilters();
                         Collections.reverse(filters);
+                        filters.forEach(tab -> tab.populate(provider));
                         filters.stream()
                                 .flatMap(filter -> filter.getDisplayItems().stream())
                                 .forEach(output::accept);
