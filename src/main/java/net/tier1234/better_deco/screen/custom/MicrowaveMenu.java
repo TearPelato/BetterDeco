@@ -12,6 +12,7 @@ import net.neoforged.neoforge.items.SlotItemHandler;
 import net.tier1234.better_deco.block.ModBlocks;
 import net.tier1234.better_deco.block.entity.custom.MicrowaveBlockEntity;
 import net.tier1234.better_deco.screen.ModMenuTypes;
+import net.tier1234.better_deco.screen.slot.MicrowaveOutputSlot;
 
 public class MicrowaveMenu extends AbstractContainerMenu {
     public final MicrowaveBlockEntity blockEntity;
@@ -32,7 +33,7 @@ public class MicrowaveMenu extends AbstractContainerMenu {
         addPlayerHotbar(inv);
 
         this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 0, 54, 34));
-        this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 1, 104, 34));
+        this.addSlot(new MicrowaveOutputSlot(blockEntity.itemHandler, 1, 104, 34));
 
         addDataSlots(data);
     }

@@ -14,17 +14,20 @@ public class OvenScreen extends AbstractContainerScreen<OvenMenu> {
             Identifier.fromNamespaceAndPath(BetterDeco.MOD_ID,"textures/gui/oven/oven.png");
     private static final Identifier ARROW_TEXTURE =
             Identifier.fromNamespaceAndPath(BetterDeco.MOD_ID,"textures/gui/arrow_progress_3.png");
+    private int GUIimageWidht = this.imageWidth;
+    private int GUIimageHeight = this.imageHeight;
 
 
     public OvenScreen(OvenMenu menu, Inventory playerInventory, Component title) {
         super(menu, playerInventory, title);
-       /* this.imageWidth = 176;
-        this.imageHeight = 184;*/
+        GUIimageWidht = 176;
+        GUIimageHeight = 184;
     }
 
     @Override
     protected void extractLabels(GuiGraphicsExtractor graphics, int xm, int ym) {
-        graphics.text(this.font, this.title, this.titleLabelX, this.titleLabelY, -12566464, false);
+        graphics.text(this.font, this.title, this.titleLabelX, this.titleLabelY - 9, -12566464, false);
+        graphics.text(this.font, this.playerInventoryTitle, this.inventoryLabelX, this.inventoryLabelY + 9, -12566464, false);
     }
 
     @Override
@@ -32,9 +35,9 @@ public class OvenScreen extends AbstractContainerScreen<OvenMenu> {
         super.extractBackground(graphics, mouseX, mouseY, a);
 
         int x = (width - imageWidth) / 2;
-        int y = (height - imageHeight) / 2;
+        int y = (height - GUIimageHeight) / 2;
 
-        graphics.blit(RenderPipelines.GUI_TEXTURED,GUI_TEXTURE, x, y, 0, 0, imageWidth, imageHeight, 256,256);
+        graphics.blit(RenderPipelines.GUI_TEXTURED,GUI_TEXTURE, x, y, 0, 0, imageWidth, GUIimageHeight, 256,256);
 
         renderProgressArrows(graphics, x, y);
     }
@@ -66,6 +69,7 @@ public class OvenScreen extends AbstractContainerScreen<OvenMenu> {
                 );
             }
         }
+
     }
 
 }

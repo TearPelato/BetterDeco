@@ -12,6 +12,7 @@ import net.neoforged.neoforge.items.SlotItemHandler;
 import net.tier1234.better_deco.block.ModBlocks;
 import net.tier1234.better_deco.block.entity.custom.OvenBlockEntity;
 import net.tier1234.better_deco.screen.ModMenuTypes;
+import net.tier1234.better_deco.screen.slot.OvenOutputSlot;
 
 public class OvenMenu extends AbstractContainerMenu {
     public final OvenBlockEntity blockEntity;
@@ -32,14 +33,14 @@ public class OvenMenu extends AbstractContainerMenu {
         addPlayerHotbar(inv);
 
         // Input
-        this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 0, 60, 17));
-        this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 1, 78, 17));
-        this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 2, 96, 17));
+        this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 0, 60, 8));
+        this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 1, 78, 8));
+        this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 2, 96, 8));
 
         // Output
-        this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 3, 60, 53));
-        this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 4, 78, 53));
-        this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 5, 96, 53));
+        this.addSlot(new OvenOutputSlot(blockEntity.itemHandler, 3, 60, 44));
+        this.addSlot(new OvenOutputSlot(blockEntity.itemHandler, 4, 78, 44));
+        this.addSlot(new OvenOutputSlot(blockEntity.itemHandler, 5, 96, 44));
 
         addDataSlots(data);
     }
@@ -159,14 +160,14 @@ public class OvenMenu extends AbstractContainerMenu {
     private void addPlayerInventory(Inventory playerInventory) {
         for (int i = 0; i < 3; ++i) {
             for (int l = 0; l < 9; ++l) {
-                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 102 + i * 18));
+                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 93 + i * 18));
             }
         }
     }
 
     private void addPlayerHotbar(Inventory playerInventory) {
         for (int i = 0; i < 9; ++i) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 160));
+            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 151));
         }
     }
 }
