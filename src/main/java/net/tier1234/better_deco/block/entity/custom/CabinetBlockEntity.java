@@ -8,16 +8,14 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ChestMenu;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.neoforged.neoforge.items.ItemStackHandler;
-import net.neoforged.neoforge.transfer.item.ItemStackResourceHandler;
+import net.tearpelato.deco_lib.api.block_entity.BasicLootBlockEntity;
 import net.tier1234.better_deco.block.entity.ModBlockEntities;
 
-public class CabinetBlockEntity extends RandomizableContainerBlockEntity
-        implements MenuProvider {
+public class CabinetBlockEntity extends BasicLootBlockEntity implements MenuProvider {
 
     public final ItemStackHandler inventory = new ItemStackHandler(18);
 
@@ -34,7 +32,7 @@ public class CabinetBlockEntity extends RandomizableContainerBlockEntity
 
     @Override
     protected AbstractContainerMenu createMenu(int id, Inventory playerInventory) {
-        return ChestMenu.twoRows(id, playerInventory );
+        return ChestMenu.twoRows(id, playerInventory);
     }
 
     @Override
@@ -59,7 +57,7 @@ public class CabinetBlockEntity extends RandomizableContainerBlockEntity
     }
 
     @Override
-    protected void loadAdditional(ValueInput input) {
+    public void loadAdditional(ValueInput input) {
         super.loadAdditional(input);
         inventory.deserialize(input);
     }
