@@ -14,8 +14,8 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import net.tearpelato.deco_lib.api.fluid.renderer.FluidContainerRenderer;
 import net.tier1234.better_deco.block.entity.custom.KitchenSinkBlockEntity;
-import net.tier1234.better_deco.block.entity.renderer.core.core_render.FluidContainerRenderer;
 import net.tier1234.better_deco.block.entity.renderer.core.render_state.FluidRenderState;
 
 import javax.annotation.Nullable;
@@ -60,7 +60,7 @@ public class KitchenSinkBlockEntityRenderer implements BlockEntityRenderer<Kitch
         poseStack.translate(-0.5, 0, -0.5);
 
         AABB box = FluidContainerRenderer.createRotatedBox(dir, 2, 13, 2, 14, 15.9, 14);
-        int light=0;
+        int light= 15;
                 //= getLightLevel(state.level, state.pos);
 
         FluidContainerRenderer.drawContainer(state.level, state.pos, state.be, box, poseStack,

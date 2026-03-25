@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.neoforged.neoforge.items.ItemStackHandler;
+import net.neoforged.neoforge.transfer.item.ItemStackResourceHandler;
 import net.tier1234.better_deco.block.entity.ModBlockEntities;
 
 public class CabinetBlockEntity extends RandomizableContainerBlockEntity

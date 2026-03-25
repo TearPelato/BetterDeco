@@ -21,9 +21,10 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.tearpelato.deco_lib.api.block.furniture.FurnitureHorizontalBlock;
+import net.tearpelato.deco_lib.api.shape.VoxelShapeHelper;
 import net.tier1234.better_deco.entity.ModEntities;
 import net.tier1234.better_deco.entity.custom.ChairEntity;
-import net.tier1234.better_deco.util.VoxelShapeHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -109,10 +110,6 @@ public class SofaBlock extends FurnitureHorizontalBlock
         return this.getSofaState(state, context.getLevel(), context.getClickedPos(), state.getValue(DIRECTION));
     }
 
-    @Override
-    public BlockState updateShape(BlockState state, Direction direction, BlockState newState, LevelAccessor level, BlockPos pos, BlockPos newPos) {
-        return null;
-    }
 
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {

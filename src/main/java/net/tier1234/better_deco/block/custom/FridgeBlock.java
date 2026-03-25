@@ -22,9 +22,10 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.registries.DeferredBlock;
-import net.tier1234.better_deco.block.entity.core.BasicLootBlockEntity;
+import net.tearpelato.deco_lib.api.block.furniture.FurnitureHorizontalBlock;
+import net.tearpelato.deco_lib.api.block_entity.BasicLootBlockEntity;
+import net.tearpelato.deco_lib.api.shape.VoxelShapeHelper;
 import net.tier1234.better_deco.block.entity.custom.FridgeBlockEntity;
-import net.tier1234.better_deco.util.VoxelShapeHelper;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -103,11 +104,6 @@ public class FridgeBlock extends FurnitureHorizontalBlock implements EntityBlock
         }
     }
 
-
-    @Override
-    public BlockState updateShape(BlockState state, Direction direction, BlockState newState, LevelAccessor level, BlockPos pos, BlockPos newPos) {
-        return null;
-    }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder)

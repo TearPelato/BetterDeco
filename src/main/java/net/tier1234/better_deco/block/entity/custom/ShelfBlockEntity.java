@@ -24,12 +24,13 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.items.ItemStackHandler;
+import net.tearpelato.deco_lib.api.block_entity.BasicLootBlockEntity;
 import net.tier1234.better_deco.block.entity.ModBlockEntities;
 import net.tier1234.better_deco.screen.ModInventory;
 import net.tier1234.better_deco.screen.custom.ShelfMenu;
 import org.jetbrains.annotations.Nullable;
 
-public class ShelfBlockEntity extends RandomizableContainerBlockEntity implements MenuProvider, ItemOwner {
+public class ShelfBlockEntity extends BasicLootBlockEntity implements MenuProvider, ItemOwner {
     public final ItemStackHandler inventory = new ItemStackHandler(1) {
         @Override
         protected int getStackLimit(int slot, ItemStack stack) {
@@ -106,7 +107,7 @@ public class ShelfBlockEntity extends RandomizableContainerBlockEntity implement
     }
 
     @Override
-    protected void loadAdditional(ValueInput input) {
+    public void loadAdditional(ValueInput input) {
         super.loadAdditional(input);
     }
 

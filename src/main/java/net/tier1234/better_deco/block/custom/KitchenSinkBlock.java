@@ -27,11 +27,12 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.tearpelato.deco_lib.api.block.furniture.FurnitureHorizontalBlock;
+import net.tearpelato.deco_lib.api.fluid.block_entity.FluidContainerBlockEntity;
+import net.tearpelato.deco_lib.api.fluid.util.FluidInteractionUtil;
+import net.tearpelato.deco_lib.api.shape.VoxelShapeHelper;
 import net.tier1234.better_deco.Config;
-import net.tier1234.better_deco.block.entity.custom.FluidContainerBlockEntity;
 import net.tier1234.better_deco.block.entity.custom.KitchenSinkBlockEntity;
-import net.tier1234.better_deco.util.FluidInteractionUtil;
-import net.tier1234.better_deco.util.VoxelShapeHelper;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
@@ -51,10 +52,7 @@ public class KitchenSinkBlock extends FurnitureHorizontalBlock implements Simple
         this.shapesByState = generateShapes(this.getStateDefinition().getPossibleStates());
     }
 
-    @Override
-    public BlockState updateShape(BlockState state, Direction direction, BlockState newState, LevelAccessor level, BlockPos pos, BlockPos newPos) {
-        return null;
-    }
+
 
     public ImmutableMap<BlockState, VoxelShape> generateShapes(ImmutableList<BlockState> states) {
         ImmutableMap.Builder<BlockState, VoxelShape> builder = ImmutableMap.builder();
