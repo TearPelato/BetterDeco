@@ -31,7 +31,6 @@ public class ModCreativeTabs {
                     .displayItems((parameters, output) -> {
                         var provider = parameters.holders();
                         List<BundledTabs> filters = ModBundledTabs.getFilters();
-                        Collections.reverse(filters);
                         filters.forEach(tab -> tab.populate(provider));
                         filters.stream()
                                 .flatMap(filter -> filter.getDisplayItems().stream())

@@ -57,11 +57,8 @@ public class BundledTabSelector {
     public void init(ScreenEvent.Init.Post event) {
         Screen screen = event.getScreen();
         if (screen instanceof CreativeModeInventoryScreen creativeScreen) {
-            if (this.bundles == null) {
-                List<BundledTabs> bundles = new ArrayList<>(ModBundledTabs.getFilters());
-                Collections.reverse(bundles);
-                this.bundles = bundles;
-            }
+            if (this.bundles == null) this.bundles = new ArrayList<>(ModBundledTabs.getFilters());
+
 
             this.guiLeft = creativeScreen.getGuiLeft();
             this.guiTop = creativeScreen.getGuiTop();
