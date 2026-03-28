@@ -9,7 +9,7 @@
       "tag": "c:ingots/iron"
     },
     "P": {
-      "item": "minecraft:oak_planks"
+      "tag": "minecraft:planks"
     }
   },
   "pattern": [

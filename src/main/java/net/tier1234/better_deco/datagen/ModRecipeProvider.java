@@ -4,6 +4,8 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
@@ -231,7 +233,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("PPP")
                 .pattern("ICI")
                 .pattern("I I")
-                .define('P', Blocks.OAK_PLANKS)
+                .define('P', ItemTags.PLANKS)
                 .define('I', Tags.Items.INGOTS_IRON)
                 .define('C', Blocks.CRAFTING_TABLE)
                 .unlockedBy("has_crafting_table", has(Blocks.CRAFTING_TABLE))

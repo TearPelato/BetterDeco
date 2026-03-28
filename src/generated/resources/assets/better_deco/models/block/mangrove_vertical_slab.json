@@ -1,7 +1,0 @@
-{
-  "parent": "better_deco:block/template_vertical_slab",
-  "textures": {
-    "particle": "minecraft:block/mangrove_planks",
-    "texture": "minecraft:block/mangrove_planks"
-  }
-}
