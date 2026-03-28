@@ -730,18 +730,11 @@
   "better_deco.configuration.sink_capacity_buckets.tooltip": "Sets the maximum number of buckets the sink can hold. Needs A game restart(Maximum n° Buckets is 10)",
 
 
-
-  "tooltip.better_deco.screen.shift": "§eShift §rFor More Information",
-  "tooltip.better_deco.screen.blank": "",
-
-  "tooltip.better_deco.screen.properties": "§7Properties:",
-  "tooltip.better_deco.screen.sink_property": "This Block is Fully Customizable. Can be filled with all fluids ",
-
   "text.better_deco.recipe.search": "Search...",
   "text.better_deco.recipe.show_all": "Show All",
   "text.better_deco.recipe.show_craftable": "Show Craftable Only",
 
   "container.better_deco.workbench": "Furniture Workbench",
-  "gui.better_deco.hold_shift_for_details": "Holde SHIFT for Details",
+  "gui.better_deco.hold_shift_for_details": "Hold SHIFT for Details",
   "block.better_deco.limestone": "Limestone"
 }
