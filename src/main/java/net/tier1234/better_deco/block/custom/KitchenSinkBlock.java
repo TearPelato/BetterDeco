@@ -57,7 +57,7 @@ public class KitchenSinkBlock extends FurnitureHorizontalBlock implements Simple
         ImmutableMap.Builder<BlockState, VoxelShape> builder = ImmutableMap.builder();
         for (BlockState s : states) {
             Direction dir = s.getValue(DIRECTION);
-            VoxelShape lower = createShape(0, 0, 0, 16, 9, 15, dir);
+            VoxelShape lower = createShape(0, 0, 0, 16, 9, 14, dir);
             VoxelShape upper = createShape(0, 9, 0, 16, 16, 16, dir);
             builder.put(s, VoxelShapeHelper.combineAll(Arrays.asList(lower, upper)));
         }
