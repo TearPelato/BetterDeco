@@ -61,7 +61,21 @@ public class EveryCompatModule extends SimpleModule {
                                 .title(Component.translatable("bundled_tab.everycompat"))
                                 .displayItems((parameters, output) -> {
                                     EveryCompatModule module = getModuleInstance();
-                                    if (module != null) {
+
+                                    /**
+                                     * Method to register all entries, I don't think i'll use that cause i'd like to register
+                                     * my blocks with my logic*/
+                                    /* if (module != null) {
+                                        module.getEntries().forEach(entry -> {
+                                            if (entry instanceof SimpleEntrySet<?, ?> entrySet) {
+                                                entrySet.blocks.values().forEach(block -> {
+                                                    output.accept(block.asItem());
+                                               });
+                                           }
+                                       });
+                                    }*/
+
+                                     if (module != null) {
                                         module.kitchenCounter.blocks.forEach((woodType, block) -> {
                                             output.accept(block.asItem());
                                         });
