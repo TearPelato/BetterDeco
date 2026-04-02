@@ -5,7 +5,9 @@ import net.minecraft.world.item.ItemStack;
 import net.tier1234.better_deco.creative_tabs.BundledTabs;
 import net.tier1234.better_deco.creative_tabs.core.FeatureFlag;
 
-import java.util.*;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * BundledTabs from VanillaBackport, used with BlackGear's permission.

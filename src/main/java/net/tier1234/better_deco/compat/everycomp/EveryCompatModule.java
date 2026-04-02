@@ -5,48 +5,78 @@ import net.mehvahdjukaar.every_compat.api.EveryCompatAPI;
 import net.mehvahdjukaar.every_compat.api.PaletteStrategies;
 import net.mehvahdjukaar.every_compat.api.SimpleEntrySet;
 import net.mehvahdjukaar.every_compat.api.SimpleModule;
-import net.mehvahdjukaar.moonlight.api.platform.PlatHelper;
 import net.mehvahdjukaar.moonlight.api.set.wood.VanillaWoodTypes;
 import net.mehvahdjukaar.moonlight.api.set.wood.WoodType;
 import net.mehvahdjukaar.moonlight.api.util.Utils;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Blocks;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.registries.RegisterEvent;
 import net.tier1234.better_deco.Constants;
 import net.tier1234.better_deco.block.custom.KitchenCounterBlock;
+import net.tier1234.better_deco.creative_tabs.BundledTabs;
 import net.tier1234.better_deco.init.ModBlocks;
+import net.tier1234.better_deco.init.ModBundledTabs;
+import net.tier1234.better_deco.init.ModCreativeTabs;
 
-import java.util.function.Supplier;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 @Compat("everycomp")
 public class EveryCompatModule extends SimpleModule {
+    public final SimpleEntrySet<WoodType, KitchenCounterBlock> kitchenCounter;
 
-   // public final SimpleEntrySet<WoodType, KitchenCounterBlock> kitchenCounter;
-
-    ResourceLocation tabKey = PlatHelper.getPlatform().isForge() ?
-            modRes(modId) : modRes("tab");
-
-
-    public EveryCompatModule() {
+    public EveryCompatModule(IEventBus bus) {
         super(Constants.MOD_ID, "bd", Constants.MOD_ID);
         EveryCompatAPI.registerModule(this);
-/*
-
-
-
-
+        bus.register(this);
 
         kitchenCounter = SimpleEntrySet.<WoodType, KitchenCounterBlock>builder(WoodType.class, "kitchen_counter",
-                (Supplier<KitchenCounterBlock>) ModBlocks.OAK_KITCHEN_COUNTER.get(), ()-> VanillaWoodTypes.OAK,
-                w-> new KitchenCounterBlock(Utils.copyPropertySafe(w.planks)))
+                        () -> ModBlocks.OAK_KITCHEN_COUNTER.get(),
+                        () -> VanillaWoodTypes.OAK,
+                        w -> new KitchenCounterBlock(Utils.copyPropertySafe(w.planks)))
                 .copyParentDrop()
-                .setTabKey(tabKey)
                 .defaultRecipe()
-                .addTile(getModTile("kitchen_counter"))
                 .addTexture(modRes("block/furniture/kitchen_counter/oak_kitchen_counter"), PaletteStrategies.PLANKS_STANDARD)
-
                 .build();
 
-        this.addEntry(kitchenCounter);*/
+        this.addEntry(kitchenCounter);
+    }
+
+    /**
+     * Class where registered the Custom filter tab for registering all the custom blocks
+     * created with everycompat: It also features the event register
+     * */
+    public static class EveryCompatCreativeTabRegister {
+
+        public static final BundledTabs EVERYCOMPAT_TAB = ModBundledTabs.register(
+                        BundledTabs.builder()
+                                .icon(new ItemStack(Blocks.BARREL))
+                                .title(Component.translatable("bundled_tab.everycompat"))
+                                .displayItems((parameters, output) -> {
+
+                                })
+                                .build()
+                );
 
 
+
+        public static void register(RegisterEvent.RegisterHelper<CreativeModeTab> ignored) {
+            //It's okay if empty
+        }
+    }
+/**
+ * Event where the tab is registered and initializated
+ **/
+    @SubscribeEvent
+    public void register(RegisterEvent event) {
+        event.register(BuiltInRegistries.CREATIVE_MODE_TAB.key(), EveryCompatCreativeTabRegister::register);
     }
 }
