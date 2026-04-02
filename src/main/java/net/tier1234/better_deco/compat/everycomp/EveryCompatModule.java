@@ -12,32 +12,28 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.registries.RegisterEvent;
 import net.tier1234.better_deco.Constants;
 import net.tier1234.better_deco.block.custom.KitchenCounterBlock;
 import net.tier1234.better_deco.creative_tabs.BundledTabs;
 import net.tier1234.better_deco.init.ModBlocks;
 import net.tier1234.better_deco.init.ModBundledTabs;
-import net.tier1234.better_deco.init.ModCreativeTabs;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 @Compat("everycomp")
 public class EveryCompatModule extends SimpleModule {
     public final SimpleEntrySet<WoodType, KitchenCounterBlock> kitchenCounter;
+    private static EveryCompatModule INSTANCE;
+
+
 
     public EveryCompatModule(IEventBus bus) {
         super(Constants.MOD_ID, "bd", Constants.MOD_ID);
         EveryCompatAPI.registerModule(this);
         bus.register(this);
-
+        INSTANCE = this;
         kitchenCounter = SimpleEntrySet.<WoodType, KitchenCounterBlock>builder(WoodType.class, "kitchen_counter",
                         () -> ModBlocks.OAK_KITCHEN_COUNTER.get(),
                         () -> VanillaWoodTypes.OAK,
@@ -45,6 +41,9 @@ public class EveryCompatModule extends SimpleModule {
                 .copyParentDrop()
                 .defaultRecipe()
                 .addTexture(modRes("block/furniture/kitchen_counter/oak_kitchen_counter"), PaletteStrategies.PLANKS_STANDARD)
+                .noTab()
+                //IT WORK OKAY DON'T TOUCH IT
+                // .setTab(() -> ModCreativeTabs.BETTER_DECO.get())
                 .build();
 
         this.addEntry(kitchenCounter);
@@ -61,12 +60,20 @@ public class EveryCompatModule extends SimpleModule {
                                 .icon(new ItemStack(Blocks.BARREL))
                                 .title(Component.translatable("bundled_tab.everycompat"))
                                 .displayItems((parameters, output) -> {
+                                    EveryCompatModule module = getModuleInstance();
+                                    if (module != null) {
+                                        module.kitchenCounter.blocks.forEach((woodType, block) -> {
+                                            output.accept(block.asItem());
+                                        });
 
+                                    }
                                 })
                                 .build()
-                );
+        );
 
-
+        private static EveryCompatModule getModuleInstance() {
+            return EveryCompatModule.INSTANCE;
+        }
 
         public static void register(RegisterEvent.RegisterHelper<CreativeModeTab> ignored) {
             //It's okay if empty
