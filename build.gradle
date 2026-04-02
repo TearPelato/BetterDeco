@@ -125,15 +125,21 @@ dependencies {
 
     implementation("net.tearpelato:deco_lib-26.1:${deco_lib_version}")
     jarJar("net.tearpelato:deco_lib-26.1:${deco_lib_version}")
+
+    //Extra Compatibility
+    implementation "curse.maven:catalogue-459701:7815468"
+    implementation "curse.maven:configured-457570:7820636"
+
+
     // Example mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"
 
 
     // compile against the JEI API but do not include it at runtime
-  /* compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
+   compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
     // at runtime, use the full JEI jar for NeoForge
-   runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")*/
+   runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
 
 
 
