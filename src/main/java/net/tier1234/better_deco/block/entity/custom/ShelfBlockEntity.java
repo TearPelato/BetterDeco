@@ -58,7 +58,7 @@ public class ShelfBlockEntity extends BasicLootBlockEntity implements MenuProvid
 
     @Override
     public int getContainerSize() {
-        return handler.getSlots();
+        return 6;
     }
 
     @Override
