@@ -1,6 +1,7 @@
 package net.tier1234.better_deco.compat.everycomp;
 
 import net.liukrast.compat.Compat;
+import net.mehvahdjukaar.every_compat.ECRegistry;
 import net.mehvahdjukaar.every_compat.api.EveryCompatAPI;
 import net.mehvahdjukaar.every_compat.api.PaletteStrategies;
 import net.mehvahdjukaar.every_compat.api.SimpleEntrySet;
@@ -11,8 +12,6 @@ import net.mehvahdjukaar.moonlight.api.util.Utils;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.registries.RegisterEvent;
@@ -22,6 +21,10 @@ import net.tier1234.better_deco.creative_tabs.BundledTabs;
 import net.tier1234.better_deco.init.ModBlocks;
 import net.tier1234.better_deco.init.ModBundledTabs;
 
+
+/**@author Tier1234. Using the compat api made by LiukRast, really helpfull for registrating a new custom
+ * compatibility with simple and small mods
+ **/
 @Compat("everycomp")
 public class EveryCompatModule extends SimpleModule {
     public final SimpleEntrySet<WoodType, KitchenCounterBlock> kitchenCounter;
@@ -57,7 +60,7 @@ public class EveryCompatModule extends SimpleModule {
 
         public static final BundledTabs EVERYCOMPAT_TAB = ModBundledTabs.register(
                         BundledTabs.builder()
-                                .icon(new ItemStack(Blocks.BARREL))
+                                .icon(ECRegistry.ALL_WOODS.get().getDefaultInstance())
                                 .title(Component.translatable("bundled_tab.everycompat"))
                                 .displayItems((parameters, output) -> {
                                     EveryCompatModule module = getModuleInstance();
