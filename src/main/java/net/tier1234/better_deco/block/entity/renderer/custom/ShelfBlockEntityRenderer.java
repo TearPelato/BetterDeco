@@ -70,7 +70,6 @@ public class ShelfBlockEntityRenderer implements BlockEntityRenderer<ShelfBlockE
         Direction facing = state.facing != null ? state.facing : Direction.NORTH;
         poseStack.translate(0.5f, 0.0f, 0.5f);
         poseStack.mulPose(Axis.YP.rotationDegrees(-facing.toYRot()));
-        int light = getLightLevel(state.blockEntityLevel, state.lightPosition);
 
         float scale = 0.30f;
         float xOffset = 5.2f;
@@ -94,18 +93,11 @@ public class ShelfBlockEntityRenderer implements BlockEntityRenderer<ShelfBlockE
             poseStack.translate(baseX, baseY, baseZ);
             poseStack.scale(0.35f, 0.35f, 0.35f);
 
-            itemState.submit(poseStack, submitNodeCollector, light, OverlayTexture.NO_OVERLAY, 0);
+            itemState.submit(poseStack, submitNodeCollector, state.lightCoords, OverlayTexture.NO_OVERLAY, 0);
             poseStack.popPose();
         }
 
         poseStack.popPose();
     }
 
-    private int getLightLevel(Level level, BlockPos pos) {
-        if (level == null || pos == null) return 15728880;
-
-        int bLight = level.getBrightness(LightLayer.BLOCK, pos);
-        int sLight = level.getBrightness(LightLayer.SKY, pos);
-        return (sLight << 16) | (bLight & 0xFFFF);
-    }
 }

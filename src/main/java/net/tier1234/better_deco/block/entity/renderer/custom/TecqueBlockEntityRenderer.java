@@ -51,16 +51,10 @@ public class TecqueBlockEntityRenderer implements BlockEntityRenderer<TecqueBloc
         poseStack.scale(0.5f, 0.5f, 0.5f);
         poseStack.mulPose(Axis.YP.rotationDegrees(renderState.rotation));
 
-        renderState.itemStackRenderState.submit(poseStack, submitNodeCollector, getLightLevel(renderState.blockEntityLevel,
-                renderState.lightPosition), OverlayTexture.NO_OVERLAY, 0);
+        renderState.itemStackRenderState.submit(poseStack, submitNodeCollector, renderState.lightCoords, OverlayTexture.NO_OVERLAY, 0);
 
         poseStack.popPose();
     }
 
-    private int getLightLevel(Level level, BlockPos pos) {
-        int bLight = level.getBrightness(LightLayer.BLOCK, pos);
-        int sLight = level.getBrightness(LightLayer.SKY, pos);
-        return (sLight << 16) | (bLight & 0xFFFF);
-    }
 }
 

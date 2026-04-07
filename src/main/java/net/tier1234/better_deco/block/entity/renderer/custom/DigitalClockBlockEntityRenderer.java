@@ -64,9 +64,6 @@ public class DigitalClockBlockEntityRenderer implements BlockEntityRenderer<Digi
         float baseScale = 0.010416667F * 1.5F;
         poseStack.scale(baseScale, -baseScale, baseScale);
 
-        int light = 0;
-         //       = getLightLevel(state.level, state.lightPosition);
-
         font.drawInBatch(
                 state.timeText,
                 0, 0,
@@ -76,16 +73,10 @@ public class DigitalClockBlockEntityRenderer implements BlockEntityRenderer<Digi
                 Minecraft.getInstance().renderBuffers().bufferSource(),
                 Font.DisplayMode.NORMAL,
                 0,
-                light
+                state.lightCoords
         );
 
         poseStack.popPose();
     }
 
-  /*  private int getLightLevel(Level level, BlockPos pos) {
-        if (level == null || pos == null) return LightTexture.pack(15, 15);
-        int bLight = level.getBrightness(LightLayer.BLOCK, pos);
-        int sLight = level.getBrightness(LightLayer.SKY, pos);
-        return LightTexture.pack(bLight, sLight);
-    }*/
 }
