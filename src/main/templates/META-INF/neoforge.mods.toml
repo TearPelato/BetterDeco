@@ -34,6 +34,13 @@ versionRange = "${minecraft_version_range}"
 ordering = "NONE"
 side = "BOTH"
 
+[[dependencies."${mod_id}"]]
+modId = "deco_lib"
+type = "required"
+versionRange = "${deco_lib_version_range}"
+ordering = "NONE"
+side = "BOTH"
+
 [modproperties."${mod_id}"]
 catalogueImageIcon = "assets/better_deco/icon.png"
 catalogueBackground = "assets/better_deco/background.png"
