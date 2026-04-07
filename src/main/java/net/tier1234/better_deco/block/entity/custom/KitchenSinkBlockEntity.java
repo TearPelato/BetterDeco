@@ -11,7 +11,7 @@ public class KitchenSinkBlockEntity extends FluidContainerBlockEntity {
 
     public KitchenSinkBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.KITCHEN_SINK.get(), pos, state,
-                Config.getSinkCapacityBuckets() * FluidContainerBlockEntity.BUCKET_VOLUME);
+                Config.Client.getSinkCapacityBuckets() * FluidContainerBlockEntity.BUCKET_VOLUME);
     }
 
     public boolean addFluid(Fluid fluid) {
