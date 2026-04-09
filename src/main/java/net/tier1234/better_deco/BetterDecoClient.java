@@ -4,6 +4,7 @@ import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
@@ -22,7 +23,9 @@ import net.tier1234.better_deco.screen.custom.*;
 @EventBusSubscriber(modid = BetterDeco.MOD_ID, value = Dist.CLIENT)
 public class BetterDecoClient {
     public BetterDecoClient(ModContainer container) {
-        container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
+        if (!ModList.get().isLoaded("configured")) {
+            container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
+        }
     }
     @SubscribeEvent
     static void onClientSetup(FMLClientSetupEvent event) {

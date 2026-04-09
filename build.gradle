@@ -162,7 +162,8 @@ dependencies {
     runtimeOnly "curse.maven:terrablender-neoforge-940057:6054947"
 
     implementation "curse.maven:catalogue-459701:6926815"
-    implementation "curse.maven:framework-549225:5911998"
+    implementation "curse.maven:framework-549225:7530361"
+    implementation "curse.maven:configured-457570:7276577"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
