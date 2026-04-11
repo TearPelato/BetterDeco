@@ -321,27 +321,27 @@ public static final DeferredBlock<Block> BIRCH_CHAIR = registerBlock("birch_chai
             ()-> new KitchenCounterBlock(BlockBehaviour.Properties.of().strength(3f)));
 
   //Drawers
-  public static final DeferredBlock<Block> OAK_KITCHEN_DRAWER = registerBlock("oak_kitchen_drawer",
+  public static final DeferredBlock<KitchenDrawerBlock> OAK_KITCHEN_DRAWER = registerBlock("oak_kitchen_drawer",
           ()-> new KitchenDrawerBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-    public static final DeferredBlock<Block> SPRUCE_KITCHEN_DRAWER = registerBlock("spruce_kitchen_drawer",
+    public static final DeferredBlock<KitchenDrawerBlock> SPRUCE_KITCHEN_DRAWER = registerBlock("spruce_kitchen_drawer",
             ()-> new KitchenDrawerBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-    public static final DeferredBlock<Block> BIRCH_KITCHEN_DRAWER = registerBlock("birch_kitchen_drawer",
+    public static final DeferredBlock<KitchenDrawerBlock> BIRCH_KITCHEN_DRAWER = registerBlock("birch_kitchen_drawer",
             ()-> new KitchenDrawerBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-    public static final DeferredBlock<Block> JUNGLE_KITCHEN_DRAWER = registerBlock("jungle_kitchen_drawer",
+    public static final DeferredBlock<KitchenDrawerBlock> JUNGLE_KITCHEN_DRAWER = registerBlock("jungle_kitchen_drawer",
             ()-> new KitchenDrawerBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-    public static final DeferredBlock<Block> ACACIA_KITCHEN_DRAWER = registerBlock("acacia_kitchen_drawer",
+    public static final DeferredBlock<KitchenDrawerBlock> ACACIA_KITCHEN_DRAWER = registerBlock("acacia_kitchen_drawer",
             ()-> new KitchenDrawerBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-    public static final DeferredBlock<Block> DARK_OAK_KITCHEN_DRAWER = registerBlock("dark_oak_kitchen_drawer",
+    public static final DeferredBlock<KitchenDrawerBlock> DARK_OAK_KITCHEN_DRAWER = registerBlock("dark_oak_kitchen_drawer",
             ()-> new KitchenDrawerBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-    public static final DeferredBlock<Block> MANGROVE_KITCHEN_DRAWER = registerBlock("mangrove_kitchen_drawer",
+    public static final DeferredBlock<KitchenDrawerBlock> MANGROVE_KITCHEN_DRAWER = registerBlock("mangrove_kitchen_drawer",
             ()-> new KitchenDrawerBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-    public static final DeferredBlock<Block> CHERRY_KITCHEN_DRAWER = registerBlock("cherry_kitchen_drawer",
+    public static final DeferredBlock<KitchenDrawerBlock> CHERRY_KITCHEN_DRAWER = registerBlock("cherry_kitchen_drawer",
             ()-> new KitchenDrawerBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-    public static final DeferredBlock<Block> BAMBOO_KITCHEN_DRAWER = registerBlock("bamboo_kitchen_drawer",
+    public static final DeferredBlock<KitchenDrawerBlock> BAMBOO_KITCHEN_DRAWER = registerBlock("bamboo_kitchen_drawer",
             ()-> new KitchenDrawerBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-    public static final DeferredBlock<Block> CRIMSON_KITCHEN_DRAWER = registerBlock("crimson_kitchen_drawer",
+    public static final DeferredBlock<KitchenDrawerBlock> CRIMSON_KITCHEN_DRAWER = registerBlock("crimson_kitchen_drawer",
             ()-> new KitchenDrawerBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
-    public static final DeferredBlock<Block> WARPED_KITCHEN_DRAWER = registerBlock("warped_kitchen_drawer",
+    public static final DeferredBlock<KitchenDrawerBlock> WARPED_KITCHEN_DRAWER = registerBlock("warped_kitchen_drawer",
             ()-> new KitchenDrawerBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
 
          //Stripped Variants

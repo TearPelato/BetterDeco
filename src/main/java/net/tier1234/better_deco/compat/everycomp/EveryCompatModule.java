@@ -17,6 +17,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.registries.RegisterEvent;
 import net.tier1234.better_deco.Constants;
 import net.tier1234.better_deco.block.custom.KitchenCounterBlock;
+import net.tier1234.better_deco.block.custom.KitchenDrawerBlock;
 import net.tier1234.better_deco.creative_tabs.BundledTabs;
 import net.tier1234.better_deco.init.ModBlocks;
 import net.tier1234.better_deco.init.ModBundledTabs;
@@ -28,6 +29,7 @@ import net.tier1234.better_deco.init.ModBundledTabs;
 @Compat("everycomp")
 public class EveryCompatModule extends SimpleModule {
     public final SimpleEntrySet<WoodType, KitchenCounterBlock> kitchenCounter;
+    public final SimpleEntrySet<WoodType, KitchenDrawerBlock> kitchenDrawer;
     private static EveryCompatModule INSTANCE;
 
 
@@ -45,11 +47,22 @@ public class EveryCompatModule extends SimpleModule {
                 .defaultRecipe()
                 .addTexture(modRes("block/furniture/kitchen_counter/oak_kitchen_counter"), PaletteStrategies.PLANKS_STANDARD)
                 .noTab()
-                //IT WORK OKAY DON'T TOUCH IT
-                // .setTab(() -> ModCreativeTabs.BETTER_DECO.get())
                 .build();
 
+        kitchenDrawer = SimpleEntrySet.<WoodType, KitchenDrawerBlock>builder(WoodType.class, "kitchen_drawer",
+                () -> ModBlocks.OAK_KITCHEN_DRAWER.get(),
+                () -> VanillaWoodTypes.OAK,
+                 w-> new KitchenDrawerBlock(Utils.copyPropertySafe(w.planks)))
+                .copyParentDrop()
+                .defaultRecipe()
+                .addTexture(modRes("block/furniture/kitchen_counter/oak_kitchen_drawer"), PaletteStrategies.PLANKS_STANDARD)
+                .addTile(getModTile("kitchen_drawer"))
+                .noTab()
+                .build();
+
+
         this.addEntry(kitchenCounter);
+        this.addEntry(kitchenDrawer);
     }
 
     /**
@@ -68,7 +81,7 @@ public class EveryCompatModule extends SimpleModule {
                                     /**
                                      * Method to register all entries, I don't think i'll use that cause i'd like to register
                                      * my blocks with my logic*/
-                                    /* if (module != null) {
+                                     if (module != null) {
                                         module.getEntries().forEach(entry -> {
                                             if (entry instanceof SimpleEntrySet<?, ?> entrySet) {
                                                 entrySet.blocks.values().forEach(block -> {
@@ -76,14 +89,14 @@ public class EveryCompatModule extends SimpleModule {
                                                });
                                            }
                                        });
-                                    }*/
+                                    }
 
-                                     if (module != null) {
+                                    /* if (module != null) {
                                         module.kitchenCounter.blocks.forEach((woodType, block) -> {
                                             output.accept(block.asItem());
                                         });
 
-                                    }
+                                    }*/
                                 })
                                 .build()
         );
