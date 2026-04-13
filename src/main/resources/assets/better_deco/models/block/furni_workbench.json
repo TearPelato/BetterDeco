@@ -5,7 +5,8 @@
 	"texture_size": [64, 64],
 	"textures": {
 		"2": "block/stonecutter_saw",
-		"3": "better_deco:block/furni_workbench"
+		"3": "better_deco:block/furni_workbench",
+		"particle": "#3"
 	},
 	"elements": [
 		{
