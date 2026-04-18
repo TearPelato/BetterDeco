@@ -1,6 +1,5 @@
 {
 	"format_version": "1.21.11",
-	"credit": "Model generated using MrCrayfish's Model Creator (https://mrcrayfish.com/tools?id=mc)",
 	"texture_size": [64, 64],
 	"textures": {
 		"particle": "#0"
@@ -25,7 +24,7 @@
 				"east": {"uv": [8, 6.5, 12, 7.25], "texture": "#0", "cullface": "east"},
 				"south": {"uv": [8, 7.25, 12, 8], "texture": "#0", "cullface": "south"},
 				"west": {"uv": [8, 8, 12, 8.75], "texture": "#0", "cullface": "west"},
-				"up": {"uv": [4, 4, 0, 0], "texture": "#0", "cullface": "up"},
+				"up": {"uv": [4, 4, 0, 0], "rotation": 180, "texture": "#0", "cullface": "up"},
 				"down": {"uv": [4, 4, 0, 8], "texture": "#0"}
 			}
 		},
