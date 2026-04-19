@@ -44,7 +44,7 @@ public class OvenBlock extends FurnitureHorizontalBlock implements EntityBlock
     protected ImmutableMap<BlockState, VoxelShape> generateShapes(ImmutableList<BlockState> states) {
 
         final VoxelShape[] BASE = VoxelShapeHelper.getRotatedShapes(
-                VoxelShapeHelper.rotate(Block.box(0, 0, 0, 16, 13, 15), Direction.SOUTH));
+                VoxelShapeHelper.rotate(Block.box(0, 0, 0, 16, 13, 14), Direction.SOUTH));
         final VoxelShape[] TOP = VoxelShapeHelper.getRotatedShapes(
                 VoxelShapeHelper.rotate(Block.box(0, 13, 0, 16, 16, 16), Direction.SOUTH));
 
