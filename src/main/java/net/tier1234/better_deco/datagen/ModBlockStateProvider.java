@@ -1,13 +1,16 @@
 package net.tier1234.better_deco.datagen;
 
+import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.state.properties.SlabType;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
-import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
+import net.neoforged.neoforge.client.model.generators.VariantBlockStateBuilder;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.tier1234.better_deco.BetterDeco;
+import net.tier1234.better_deco.Constants;
+import net.tier1234.better_deco.block.custom.KitchenCounterBlock;
 import net.tier1234.better_deco.init.ModBlocks;
 
 public class ModBlockStateProvider extends BlockStateProvider {
@@ -18,7 +21,83 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
+        this.kitchenCounter(ModBlocks.CHERRY_KITCHEN_COUNTER.get(), Constants.id("block/furniture/kitchen_counter/oak_kitchen_counter"));
 
+    }
+
+    private void kitchenCounter(KitchenCounterBlock block, ResourceLocation texture)
+    {
+        String baseName = BuiltInRegistries.BLOCK.getKey(block).getPath();
+
+        ModelFile defaultModel = models().withExistingParent(baseName + "_default", Constants.id("block/kitchen_counter_default"))
+                .texture("0", texture)
+                .texture("particle", texture);
+
+        ModelFile leftCorner = models().withExistingParent(baseName + "_left_corner", Constants.id("block/kitchen_counter_left_corner"))
+                .texture("0", texture)
+                .texture("particle", texture);
+
+        ModelFile rightCorner = models().withExistingParent(baseName + "_right_corner", Constants.id("block/kitchen_counter_right_corner"))
+                .texture("0", texture)
+                .texture("particle", texture);
+
+        ModelFile leftCornerInverted = models().withExistingParent(baseName + "_left_corner_inverted", Constants.id("block/kitchen_counter_left_corner_inverted"))
+                .texture("0", texture)
+                .texture("particle", texture);
+
+        ModelFile rightCornerInverted = models().withExistingParent(baseName + "_right_corner_inverted", Constants.id("block/kitchen_counter_right_corner_inverted"))
+                .texture("0", texture)
+                .texture("particle", texture);
+
+        VariantBlockStateBuilder builder = getVariantBuilder(block);
+
+        // NORTH
+        builder.partialState().with(KitchenCounterBlock.DIRECTION, Direction.NORTH).with(KitchenCounterBlock.TYPE, KitchenCounterBlock.Type.DEFAULT)
+                .modelForState().modelFile(defaultModel).rotationY(180).addModel();
+        builder.partialState().with(KitchenCounterBlock.DIRECTION, Direction.NORTH).with(KitchenCounterBlock.TYPE, KitchenCounterBlock.Type.LEFT_CORNER)
+                .modelForState().modelFile(leftCorner).rotationY(0).addModel();
+        builder.partialState().with(KitchenCounterBlock.DIRECTION, Direction.NORTH).with(KitchenCounterBlock.TYPE, KitchenCounterBlock.Type.RIGHT_CORNER)
+                .modelForState().modelFile(rightCorner).rotationY(0).addModel();
+        builder.partialState().with(KitchenCounterBlock.DIRECTION, Direction.NORTH).with(KitchenCounterBlock.TYPE, KitchenCounterBlock.Type.LEFT_CORNER_INVERTED)
+                .modelForState().modelFile(leftCornerInverted).rotationY(0).addModel();
+        builder.partialState().with(KitchenCounterBlock.DIRECTION, Direction.NORTH).with(KitchenCounterBlock.TYPE, KitchenCounterBlock.Type.RIGHT_CORNER_INVERTED)
+                .modelForState().modelFile(rightCornerInverted).rotationY(0).addModel();
+
+        // EAST
+        builder.partialState().with(KitchenCounterBlock.DIRECTION, Direction.EAST).with(KitchenCounterBlock.TYPE, KitchenCounterBlock.Type.DEFAULT)
+                .modelForState().modelFile(defaultModel).rotationY(270).addModel();
+        builder.partialState().with(KitchenCounterBlock.DIRECTION, Direction.EAST).with(KitchenCounterBlock.TYPE, KitchenCounterBlock.Type.LEFT_CORNER)
+                .modelForState().modelFile(leftCorner).rotationY(90).addModel();
+        builder.partialState().with(KitchenCounterBlock.DIRECTION, Direction.EAST).with(KitchenCounterBlock.TYPE, KitchenCounterBlock.Type.RIGHT_CORNER)
+                .modelForState().modelFile(rightCorner).rotationY(90).addModel();
+        builder.partialState().with(KitchenCounterBlock.DIRECTION, Direction.EAST).with(KitchenCounterBlock.TYPE, KitchenCounterBlock.Type.LEFT_CORNER_INVERTED)
+                .modelForState().modelFile(leftCornerInverted).rotationY(90).addModel();
+        builder.partialState().with(KitchenCounterBlock.DIRECTION, Direction.EAST).with(KitchenCounterBlock.TYPE, KitchenCounterBlock.Type.RIGHT_CORNER_INVERTED)
+                .modelForState().modelFile(rightCornerInverted).rotationY(90).addModel();
+
+        // SOUTH
+        builder.partialState().with(KitchenCounterBlock.DIRECTION, Direction.SOUTH).with(KitchenCounterBlock.TYPE, KitchenCounterBlock.Type.DEFAULT)
+                .modelForState().modelFile(defaultModel).rotationY(0).addModel();
+        builder.partialState().with(KitchenCounterBlock.DIRECTION, Direction.SOUTH).with(KitchenCounterBlock.TYPE, KitchenCounterBlock.Type.LEFT_CORNER)
+                .modelForState().modelFile(leftCorner).rotationY(180).addModel();
+        builder.partialState().with(KitchenCounterBlock.DIRECTION, Direction.SOUTH).with(KitchenCounterBlock.TYPE, KitchenCounterBlock.Type.RIGHT_CORNER)
+                .modelForState().modelFile(rightCorner).rotationY(180).addModel();
+        builder.partialState().with(KitchenCounterBlock.DIRECTION, Direction.SOUTH).with(KitchenCounterBlock.TYPE, KitchenCounterBlock.Type.LEFT_CORNER_INVERTED)
+                .modelForState().modelFile(leftCornerInverted).rotationY(180).addModel();
+        builder.partialState().with(KitchenCounterBlock.DIRECTION, Direction.SOUTH).with(KitchenCounterBlock.TYPE, KitchenCounterBlock.Type.RIGHT_CORNER_INVERTED)
+                .modelForState().modelFile(rightCornerInverted).rotationY(180).addModel();
+
+        // WEST
+        builder.partialState().with(KitchenCounterBlock.DIRECTION, Direction.WEST).with(KitchenCounterBlock.TYPE, KitchenCounterBlock.Type.DEFAULT)
+                .modelForState().modelFile(defaultModel).rotationY(90).addModel();
+        builder.partialState().with(KitchenCounterBlock.DIRECTION, Direction.WEST).with(KitchenCounterBlock.TYPE, KitchenCounterBlock.Type.LEFT_CORNER)
+                .modelForState().modelFile(leftCorner).rotationY(270).addModel();
+        builder.partialState().with(KitchenCounterBlock.DIRECTION, Direction.WEST).with(KitchenCounterBlock.TYPE, KitchenCounterBlock.Type.RIGHT_CORNER)
+                .modelForState().modelFile(rightCorner).rotationY(270).addModel();
+        builder.partialState().with(KitchenCounterBlock.DIRECTION, Direction.WEST).with(KitchenCounterBlock.TYPE, KitchenCounterBlock.Type.LEFT_CORNER_INVERTED)
+                .modelForState().modelFile(leftCornerInverted).rotationY(270).addModel();
+        builder.partialState().with(KitchenCounterBlock.DIRECTION, Direction.WEST).with(KitchenCounterBlock.TYPE, KitchenCounterBlock.Type.RIGHT_CORNER_INVERTED)
+                .modelForState().modelFile(rightCornerInverted).rotationY(270).addModel();
     }
 
 }
