@@ -14,14 +14,23 @@ import net.tier1234.better_deco.block.custom.KitchenCounterBlock;
 import net.tier1234.better_deco.init.ModBlocks;
 
 public class ModBlockStateProvider extends BlockStateProvider {
-
     public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
         super(output, BetterDeco.MOD_ID, exFileHelper);
     }
 
     @Override
     protected void registerStatesAndModels() {
-        this.kitchenCounter(ModBlocks.CHERRY_KITCHEN_COUNTER.get(), Constants.id("block/furniture/kitchen_counter/oak_kitchen_counter"));
+        this.kitchenCounter(ModBlocks.CHERRY_KITCHEN_COUNTER.get(), Constants.id("block/furniture/kitchen_counter/cherry/cherry_kitchen_counter"));
+        this.kitchenCounter(ModBlocks.ACACIA_KITCHEN_COUNTER.get(), Constants.id("block/furniture/kitchen_counter/acacia/acacia_kitchen_counter"));
+        this.kitchenCounter(ModBlocks.DARK_OAK_KITCHEN_COUNTER.get(), Constants.id("block/furniture/kitchen_counter/dark_oak/dark_oak_kitchen_counter"));
+        this.kitchenCounter(ModBlocks.MANGROVE_KITCHEN_COUNTER.get(), Constants.id("block/furniture/kitchen_counter/mangrove/mangrove_kitchen_counter"));
+        this.kitchenCounter(ModBlocks.JUNGLE_KITCHEN_COUNTER.get(), Constants.id("block/furniture/kitchen_counter/jungle/jungle_kitchen_counter"));
+        this.kitchenCounter(ModBlocks.SPRUCE_KITCHEN_COUNTER.get(), Constants.id("block/furniture/kitchen_counter/spruce/spruce_kitchen_counter"));
+        this.kitchenCounter(ModBlocks.CRIMSON_KITCHEN_COUNTER.get(), Constants.id("block/furniture/kitchen_counter/crimson/crimson_kitchen_counter"));
+        this.kitchenCounter(ModBlocks.WARPED_KITCHEN_COUNTER.get(), Constants.id("block/furniture/kitchen_counter/warped/warped_kitchen_counter"));
+        this.kitchenCounter(ModBlocks.BAMBOO_KITCHEN_COUNTER.get(), Constants.id("block/furniture/kitchen_counter/bamboo/bamboo_kitchen_counter"));
+        this.kitchenCounter(ModBlocks.BIRCH_KITCHEN_COUNTER.get(), Constants.id("block/furniture/kitchen_counter/birch/birch_kitchen_counter"));
+
 
     }
 
