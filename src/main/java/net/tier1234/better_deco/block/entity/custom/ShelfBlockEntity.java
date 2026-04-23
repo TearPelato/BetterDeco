@@ -30,7 +30,7 @@ import net.tier1234.better_deco.screen.custom.ShelfMenu;
 import org.jetbrains.annotations.Nullable;
 
 public class ShelfBlockEntity extends BasicLootBlockEntity implements MenuProvider, ItemOwner {
-    public final ItemStacksResourceHandler inventory = new ItemStacksResourceHandler(1) {
+    public final ItemStacksResourceHandler inventory = new ItemStacksResourceHandler(6) {
         @Override
         public int size() {
             return 1;
