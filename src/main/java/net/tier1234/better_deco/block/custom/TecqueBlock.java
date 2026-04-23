@@ -21,6 +21,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.neoforged.neoforge.transfer.ResourceHandler;
+import net.neoforged.neoforge.transfer.item.ItemResource;
+import net.neoforged.neoforge.transfer.transaction.Transaction;
 import net.tier1234.better_deco.block.entity.custom.TecqueBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
@@ -66,16 +69,30 @@ public class TecqueBlock extends BaseEntityBlock {
                 ((ServerPlayer) player).openMenu(new SimpleMenuProvider(tecqueBlockEntity, Component.literal("Tecque")), pos);
                 return InteractionResult.SUCCESS;
             }
+            ResourceHandler<ItemResource> resourceHandler = tecqueBlockEntity.inventory;
+            ItemResource resource = resourceHandler.getResource(0);
+            int slotAmount = resourceHandler.getAmountAsInt(0);
 
-            if(tecqueBlockEntity.inventory.copyToList().get(0).isEmpty() && !stack.isEmpty()) {
-             //   tecqueBlockEntity.inventory.insertItem(0, stack.copy(), false);
-                stack.shrink(1);
-                level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 2f);
-            } else if(stack.isEmpty()) {
-             //   ItemStack stackOnTecque = tecqueBlockEntity.inventory.extractItem(0, 1, false);
-              //  player.setItemInHand(InteractionHand.MAIN_HAND, stackOnTecque);
-                tecqueBlockEntity.clearContents();
-                level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 1f);
+            if (resource.isEmpty() && !stack.isEmpty()) {
+                ItemResource resource2 = ItemResource.of(stack);
+                try (Transaction tx = Transaction.openRoot()) {
+                    int inserted = resourceHandler.insert(0, resource2, 1, tx);
+                    if (inserted == 1) {
+                        stack.shrink(1);
+                        tx.commit();
+                        level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 2f);
+                    }
+                }
+
+            } else if (stack.isEmpty() && !resource.isEmpty()) {
+                try (Transaction tx = Transaction.openRoot()) {
+                    int extracted = resourceHandler.extract(0, resource, slotAmount, tx);
+                    if (extracted > 0) {
+                        player.setItemInHand(InteractionHand.MAIN_HAND, resource.toStack(extracted));
+                        tx.commit();
+                        level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 1f);
+                    }
+                }
             }
         }
 

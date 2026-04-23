@@ -70,31 +70,34 @@ public class PedestalBlock extends BaseEntityBlock {
                 return InteractionResult.SUCCESS;
             }
 
-            if(pedestalBlockEntity.inventory.copyToList().get(0).isEmpty() && !stack.isEmpty()) {
-               // pedestalBlockEntity.inventory.insertItem(0, stack.copy(), false);
-                stack.shrink(1);
-                level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 2f);
-            } else if(stack.isEmpty()) {
-//                ItemStack stackOnPedestal = pedestalBlockEntity.inventory.extractItem(0, 1, false);
-//                player.setItemInHand(InteractionHand.MAIN_HAND, stackOnPedestal);
-                pedestalBlockEntity.clearContents();
-                level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 1f);
+            ResourceHandler<ItemResource> resourceHandler = pedestalBlockEntity.inventory;
+            ItemResource resource = resourceHandler.getResource(0);
+            int slotAmount = resourceHandler.getAmountAsInt(0);
+
+            if (resource.isEmpty() && !stack.isEmpty()) {
+                ItemResource resource2 = ItemResource.of(stack);
+                try (Transaction tx = Transaction.openRoot()) {
+                    int inserted = resourceHandler.insert(0, resource2, 1, tx);
+                    if (inserted == 1) {
+                        stack.shrink(1);
+                        tx.commit();
+                        level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 2f);
+                    }
+                }
+
+            } else if (stack.isEmpty() && !resource.isEmpty()) {
+                try (Transaction tx = Transaction.openRoot()) {
+                    int extracted = resourceHandler.extract(0, resource, slotAmount, tx);
+                    if (extracted > 0) {
+                        player.setItemInHand(InteractionHand.MAIN_HAND, resource.toStack(extracted));
+                        tx.commit();
+                        level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 1f);
+                    }
+                }
             }
         }
 
         return InteractionResult.SUCCESS;
     }
-    //TODO
-/*
-    public boolean insertItem(ResourceHandler<ItemResource> handler, ItemStack stack){
-        try (Transaction tx = Transaction.openRoot()) {
-            if(handler.insert(ItemResource.of(stack.getItem()),1,tx) == 1) {
-                tx.commit();
-                return true;
-            }
-            return false;
-        }
-    }
-*/
 
 }
