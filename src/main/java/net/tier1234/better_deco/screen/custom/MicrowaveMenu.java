@@ -8,9 +8,9 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.neoforged.neoforge.items.SlotItemHandler;
-import net.tier1234.better_deco.init.ModBlocks;
+import net.neoforged.neoforge.transfer.item.ResourceHandlerSlot;
 import net.tier1234.better_deco.block.entity.custom.MicrowaveBlockEntity;
+import net.tier1234.better_deco.init.ModBlocks;
 import net.tier1234.better_deco.init.ModMenuTypes;
 import net.tier1234.better_deco.screen.slot.MicrowaveOutputSlot;
 
@@ -32,8 +32,8 @@ public class MicrowaveMenu extends AbstractContainerMenu {
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
 
-        this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 0, 54, 34));
-        this.addSlot(new MicrowaveOutputSlot(blockEntity.itemHandler, 1, 104, 34));
+        this.addSlot(new ResourceHandlerSlot(blockEntity.itemHandler,blockEntity.itemHandler::set ,0, 54, 34));
+        this.addSlot(new MicrowaveOutputSlot(blockEntity.itemHandler,blockEntity.itemHandler::set , 1, 104, 34));
 
         addDataSlots(data);
     }

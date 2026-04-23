@@ -25,7 +25,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import net.neoforged.neoforge.items.ItemStackHandler;
+import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
 import net.tier1234.better_deco.init.ModBlockEntities;
 import net.tier1234.better_deco.init.ModRecipes;
 import net.tier1234.better_deco.recipe.*;
@@ -36,13 +36,14 @@ import java.util.Map;
 import java.util.Optional;
 
 public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
-    public final ItemStackHandler itemHandler = new ItemStackHandler(3) {
+
+    public final ItemStacksResourceHandler itemHandler = new ItemStacksResourceHandler(3) {
         @Override
-        protected void onContentsChanged(int slot) {
-            setChanged();
-            if (!level.isClientSide()) {
-                level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
-            }
+        protected void onContentsChanged(int index, ItemStack previousContents) {
+                setChanged();
+                if (!level.isClientSide()) {
+                    level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
+                }
         }
     };
 
@@ -103,9 +104,9 @@ public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     public void drops() {
-        SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
-        for (int i = 0; i < itemHandler.getSlots(); i++) {
-            inventory.setItem(i, itemHandler.getStackInSlot(i));
+        SimpleContainer inventory = new SimpleContainer(itemHandler.size());
+        for (int i = 0; i < itemHandler.size(); i++) {
+            inventory.setItem(i, itemHandler.copyToList().get(i));
         }
         Containers.dropContents(this.level, this.worldPosition, inventory);
     }
@@ -122,8 +123,8 @@ public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
             be.fuelTime--;
         }
 
-        ItemStack fuelStack = be.itemHandler.getStackInSlot(SLOT_FUEL);
-        ItemStack inputStack = be.itemHandler.getStackInSlot(SLOT_INPUT);
+        ItemStack fuelStack = be.itemHandler.copyToList().get(SLOT_FUEL);
+        ItemStack inputStack = be.itemHandler.copyToList().get(SLOT_INPUT);
 
         Optional<RecipeHolder<FreezerRecipe>> recipe = be.getRecipeFor(inputStack);
 
@@ -172,7 +173,7 @@ public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
         ItemStack output = recipe.value().output();
         if (output.isEmpty()) return false;
 
-        ItemStack resultStack = itemHandler.getStackInSlot(SLOT_OUTPUT);
+        ItemStack resultStack = itemHandler.copyToList().get(SLOT_OUTPUT);
         if (resultStack.isEmpty()) return true;
         return resultStack.getCount() + output.getCount() <= resultStack.getMaxStackSize();
     }
@@ -180,13 +181,13 @@ public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
     private void freeze(RecipeHolder<FreezerRecipe> recipe) {
         if (!canFreeze(recipe)) return;
 
-        itemHandler.extractItem(SLOT_INPUT, 1, false);
+       // itemHandler.extract(SLOT_INPUT, 1, false);
 
-        ItemStack resultStack = itemHandler.getStackInSlot(SLOT_OUTPUT);
+        ItemStack resultStack = itemHandler.copyToList().get(SLOT_OUTPUT);
         ItemStack output = recipe.value().output();
 
         if (resultStack.isEmpty()) {
-            itemHandler.setStackInSlot(SLOT_OUTPUT, output.copy());
+            itemHandler.copyToList().set(SLOT_OUTPUT, output.copy());
         } else {
             resultStack.grow(output.getCount());
         }

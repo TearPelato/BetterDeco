@@ -21,6 +21,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.neoforged.neoforge.transfer.ResourceHandler;
+import net.neoforged.neoforge.transfer.item.ItemResource;
+import net.neoforged.neoforge.transfer.transaction.Transaction;
 import net.tier1234.better_deco.block.entity.custom.PedestalBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
@@ -57,7 +60,7 @@ public class PedestalBlock extends BaseEntityBlock {
     }
 
 
-
+//TODO fix
     @Override
     protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
                                           Player player, InteractionHand hand, BlockHitResult hitResult) {
@@ -67,13 +70,13 @@ public class PedestalBlock extends BaseEntityBlock {
                 return InteractionResult.SUCCESS;
             }
 
-            if(pedestalBlockEntity.inventory.getStackInSlot(0).isEmpty() && !stack.isEmpty()) {
-                pedestalBlockEntity.inventory.insertItem(0, stack.copy(), false);
+            if(pedestalBlockEntity.inventory.copyToList().get(0).isEmpty() && !stack.isEmpty()) {
+               // pedestalBlockEntity.inventory.insertItem(0, stack.copy(), false);
                 stack.shrink(1);
                 level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 2f);
             } else if(stack.isEmpty()) {
-                ItemStack stackOnPedestal = pedestalBlockEntity.inventory.extractItem(0, 1, false);
-                player.setItemInHand(InteractionHand.MAIN_HAND, stackOnPedestal);
+//                ItemStack stackOnPedestal = pedestalBlockEntity.inventory.extractItem(0, 1, false);
+//                player.setItemInHand(InteractionHand.MAIN_HAND, stackOnPedestal);
                 pedestalBlockEntity.clearContents();
                 level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 1f);
             }
@@ -81,4 +84,17 @@ public class PedestalBlock extends BaseEntityBlock {
 
         return InteractionResult.SUCCESS;
     }
+    //TODO
+/*
+    public boolean insertItem(ResourceHandler<ItemResource> handler, ItemStack stack){
+        try (Transaction tx = Transaction.openRoot()) {
+            if(handler.insert(ItemResource.of(stack.getItem()),1,tx) == 1) {
+                tx.commit();
+                return true;
+            }
+            return false;
+        }
+    }
+*/
+
 }

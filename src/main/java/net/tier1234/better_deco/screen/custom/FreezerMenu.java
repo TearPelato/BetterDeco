@@ -8,7 +8,7 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.neoforged.neoforge.items.SlotItemHandler;
+import net.neoforged.neoforge.transfer.item.ResourceHandlerSlot;
 import net.tier1234.better_deco.init.ModBlocks;
 import net.tier1234.better_deco.block.entity.custom.FreezerBlockEntity;
 import net.tier1234.better_deco.init.ModMenuTypes;
@@ -28,8 +28,8 @@ public class FreezerMenu extends AbstractContainerMenu {
         this.level = inv.player.level();
         this.data = data;
 
-        this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 0, 56, 17)); // Input
-        this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 2, 116, 35)); // Output
+        this.addSlot(new ResourceHandlerSlot(blockEntity.itemHandler,this.blockEntity.itemHandler::set, 0, 56, 17)); // Input
+        this.addSlot(new ResourceHandlerSlot(blockEntity.itemHandler,this.blockEntity.itemHandler::set, 2, 116, 35)); // Output
 
         addPlayerInventory(inv);
         addPlayerHotbar(inv);

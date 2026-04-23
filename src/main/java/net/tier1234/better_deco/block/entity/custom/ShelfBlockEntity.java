@@ -22,7 +22,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.items.ItemStackHandler;
+import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
 import net.tearpelato.deco_lib.api.block_entity.BasicLootBlockEntity;
 import net.tier1234.better_deco.init.ModBlockEntities;
 import net.tier1234.better_deco.init.ModInventory;
@@ -30,20 +30,21 @@ import net.tier1234.better_deco.screen.custom.ShelfMenu;
 import org.jetbrains.annotations.Nullable;
 
 public class ShelfBlockEntity extends BasicLootBlockEntity implements MenuProvider, ItemOwner {
-    public final ItemStackHandler inventory = new ItemStackHandler(1) {
+    public final ItemStacksResourceHandler inventory = new ItemStacksResourceHandler(1) {
         @Override
-        protected int getStackLimit(int slot, ItemStack stack) {
+        public int size() {
             return 1;
         }
 
         @Override
-        protected void onContentsChanged(int slot) {
+        protected void onContentsChanged(int slot,ItemStack previousContents) {
             setChanged();
             if(!level.isClientSide()) {
                 level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
             }
         }
     };
+
     public final ModInventory handler;
 
     public ShelfBlockEntity(BlockPos pos, BlockState state) {
@@ -63,8 +64,8 @@ public class ShelfBlockEntity extends BasicLootBlockEntity implements MenuProvid
 
     @Override
     public boolean isEmpty() {
-        for (int i = 0; i < handler.getSlots(); i++) {
-            if (!handler.getStackInSlot(i).isEmpty()) {
+        for (int i = 0; i < handler.size(); i++) {
+            if (!handler.copyToList().get(i).isEmpty()) {
                 return false;
             }
         }
@@ -75,7 +76,7 @@ public class ShelfBlockEntity extends BasicLootBlockEntity implements MenuProvid
     public NonNullList<ItemStack> getItems() {
         NonNullList<ItemStack> items = NonNullList.withSize(getContainerSize(), ItemStack.EMPTY);
         for (int i = 0; i < getContainerSize(); i++) {
-            items.set(i, handler.getStackInSlot(i));
+            items.set(i, handler.copyToList().get(i));
         }
         return items;
     }
@@ -83,15 +84,15 @@ public class ShelfBlockEntity extends BasicLootBlockEntity implements MenuProvid
     @Override
     protected void setItems(NonNullList<ItemStack> items) {
         for (int i = 0; i < items.size(); i++) {
-            handler.setStackInSlot(i, items.get(i));
+            handler.copyToList().set(i, items.get(i));
         }
         setChanged();
     }
 
     @Override
     public void clearContent() {
-        for (int i = 0; i < handler.getSlots(); i++) {
-            handler.setStackInSlot(i, ItemStack.EMPTY);
+        for (int i = 0; i < handler.size(); i++) {
+            handler.copyToList().set(i, ItemStack.EMPTY);
         }
         setChanged();
     }

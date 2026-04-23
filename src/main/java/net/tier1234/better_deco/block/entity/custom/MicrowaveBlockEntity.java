@@ -22,10 +22,12 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import net.neoforged.neoforge.items.ItemStackHandler;
+import net.neoforged.neoforge.transfer.item.ItemResource;
+import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
 import net.tier1234.better_deco.init.ModBlockEntities;
 import net.tier1234.better_deco.init.ModRecipes;
-import net.tier1234.better_deco.recipe.*;
+import net.tier1234.better_deco.recipe.MicrowaveRecipe;
+import net.tier1234.better_deco.recipe.MicrowaveRecipeInput;
 import net.tier1234.better_deco.screen.custom.MicrowaveMenu;
 import org.jetbrains.annotations.Nullable;
 
@@ -34,9 +36,9 @@ import java.util.List;
 import java.util.Optional;
 
 public class MicrowaveBlockEntity extends BlockEntity implements MenuProvider {
-    public final ItemStackHandler itemHandler = new ItemStackHandler(2) {
+    public final ItemStacksResourceHandler itemHandler = new ItemStacksResourceHandler(2) {
         @Override
-        protected void onContentsChanged(int slot) {
+        protected void onContentsChanged(int index, ItemStack previousContents) {
             setChanged();
             if(!level.isClientSide()) {
                 level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
@@ -99,9 +101,10 @@ public class MicrowaveBlockEntity extends BlockEntity implements MenuProvider {
         Optional<RecipeHolder<MicrowaveRecipe>> recipe = getCurrentRecipe();
         ItemStack output = recipe.get().value().output();
 
-        itemHandler.extractItem(INPUT_SLOT, 1, false);
-        itemHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(output.getItem(),
-                itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + output.getCount()));
+        //TODO FIX
+       // itemHandler.extract(INPUT_SLOT,1, false);
+        itemHandler.copyToList().set(OUTPUT_SLOT, new ItemStack(output.getItem(),
+                itemHandler.copyToList().get(OUTPUT_SLOT).getCount() + output.getCount()));
     }
 
     private void resetProgress() {
@@ -129,25 +132,25 @@ public class MicrowaveBlockEntity extends BlockEntity implements MenuProvider {
 
     private Optional<RecipeHolder<MicrowaveRecipe>> getCurrentRecipe() {
         return ((ServerLevel) this.level).recipeAccess()
-                .getRecipeFor(ModRecipes.MICROWAVE_TYPE.get(), new MicrowaveRecipeInput(itemHandler.getStackInSlot(INPUT_SLOT)), level);
+                .getRecipeFor(ModRecipes.MICROWAVE_TYPE.get(), new MicrowaveRecipeInput(itemHandler.copyToList().get(INPUT_SLOT)), level);
     }
 
     private boolean canInsertItemIntoOutputSlot(ItemStack output) {
-        return itemHandler.getStackInSlot(OUTPUT_SLOT).isEmpty() ||
-                itemHandler.getStackInSlot(OUTPUT_SLOT).getItem() == output.getItem();
+        return itemHandler.copyToList().get(OUTPUT_SLOT).isEmpty() ||
+                itemHandler.copyToList().get(OUTPUT_SLOT).getItem() == output.getItem();
     }
 
     private boolean canInsertAmountIntoOutputSlot(int count) {
-        int maxCount = itemHandler.getStackInSlot(OUTPUT_SLOT).isEmpty() ? 64 : itemHandler.getStackInSlot(OUTPUT_SLOT).getMaxStackSize();
-        int currentCount = itemHandler.getStackInSlot(OUTPUT_SLOT).getCount();
+        int maxCount = itemHandler.copyToList().get(OUTPUT_SLOT).isEmpty() ? 64 : itemHandler.copyToList().get(OUTPUT_SLOT).getMaxStackSize();
+        int currentCount = itemHandler.copyToList().get(OUTPUT_SLOT).getCount();
 
         return maxCount >= currentCount + count;
     }
 
     public void drops() {
-        SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
-        for (int i = 0; i < itemHandler.getSlots(); i++) {
-            inventory.setItem(i, itemHandler.getStackInSlot(i));
+        SimpleContainer inventory = new SimpleContainer(itemHandler.size());
+        for (int i = 0; i < itemHandler.size(); i++) {
+            inventory.setItem(i, itemHandler.copyToList().get(i));
         }
 
         Containers.dropContents(this.level, this.worldPosition, inventory);

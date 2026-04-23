@@ -18,20 +18,20 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import net.neoforged.neoforge.items.ItemStackHandler;
+import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
 import net.tier1234.better_deco.init.ModBlockEntities;
 import net.tier1234.better_deco.screen.custom.PedestalMenu;
 import org.jetbrains.annotations.Nullable;
 
 public class PedestalBlockEntity extends BlockEntity implements MenuProvider {
-    public final ItemStackHandler inventory = new ItemStackHandler(1) {
+    public final ItemStacksResourceHandler inventory = new ItemStacksResourceHandler(1) {
         @Override
-        protected int getStackLimit(int slot, ItemStack stack) {
+        public int size() {
             return 1;
         }
 
         @Override
-        protected void onContentsChanged(int slot) {
+        protected void onContentsChanged(int index, ItemStack previousContents) {
             setChanged();
             if(!level.isClientSide()) {
                 level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
@@ -53,13 +53,13 @@ public class PedestalBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     public void clearContents() {
-        inventory.setStackInSlot(0, ItemStack.EMPTY);
+        inventory.copyToList().set(0, ItemStack.EMPTY);
     }
 
     public void drops() {
-        SimpleContainer inv = new SimpleContainer(inventory.getSlots());
-        for(int i = 0; i < inventory.getSlots(); i++) {
-            inv.setItem(i, inventory.getStackInSlot(i));
+        SimpleContainer inv = new SimpleContainer(inventory.size());
+        for(int i = 0; i < inventory.size(); i++) {
+            inv.setItem(i, inventory.copyToList().get(i));
         }
 
         Containers.dropContents(this.level, this.worldPosition, inv);

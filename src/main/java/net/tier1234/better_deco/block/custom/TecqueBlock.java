@@ -67,13 +67,13 @@ public class TecqueBlock extends BaseEntityBlock {
                 return InteractionResult.SUCCESS;
             }
 
-            if(tecqueBlockEntity.inventory.getStackInSlot(0).isEmpty() && !stack.isEmpty()) {
-                tecqueBlockEntity.inventory.insertItem(0, stack.copy(), false);
+            if(tecqueBlockEntity.inventory.copyToList().get(0).isEmpty() && !stack.isEmpty()) {
+             //   tecqueBlockEntity.inventory.insertItem(0, stack.copy(), false);
                 stack.shrink(1);
                 level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 2f);
             } else if(stack.isEmpty()) {
-                ItemStack stackOnTecque = tecqueBlockEntity.inventory.extractItem(0, 1, false);
-                player.setItemInHand(InteractionHand.MAIN_HAND, stackOnTecque);
+             //   ItemStack stackOnTecque = tecqueBlockEntity.inventory.extractItem(0, 1, false);
+              //  player.setItemInHand(InteractionHand.MAIN_HAND, stackOnTecque);
                 tecqueBlockEntity.clearContents();
                 level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 1f);
             }

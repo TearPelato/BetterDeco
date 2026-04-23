@@ -46,7 +46,7 @@ public class ShelfBlockEntityRenderer implements BlockEntityRenderer<ShelfBlockE
         state.blockEntityLevel = blockEntity.getLevel();
 
         for (int i = 0; i < state.itemRenderStates.size(); i++) {
-            ItemStack stack = blockEntity.handler.getStackInSlot(i);
+            ItemStack stack = blockEntity.handler.copyToList().get(i);
             if (!stack.isEmpty()) {
                 itemModelResolver.updateForTopItem(
                         state.itemRenderStates.get(i),

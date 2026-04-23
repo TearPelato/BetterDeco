@@ -9,9 +9,9 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.neoforged.neoforge.items.SlotItemHandler;
-import net.tier1234.better_deco.init.ModBlocks;
+import net.neoforged.neoforge.transfer.item.ResourceHandlerSlot;
 import net.tier1234.better_deco.block.entity.custom.ShelfBlockEntity;
+import net.tier1234.better_deco.init.ModBlocks;
 import net.tier1234.better_deco.init.ModMenuTypes;
 
 public class ShelfMenu extends AbstractContainerMenu {
@@ -30,12 +30,12 @@ public class ShelfMenu extends AbstractContainerMenu {
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
 
-        this.addSlot(new SlotItemHandler(this.blockEntity.handler, 0, 62, 15));
-        this.addSlot(new SlotItemHandler(this.blockEntity.handler, 1, 80, 15));
-        this.addSlot(new SlotItemHandler(this.blockEntity.handler, 2, 98, 15));
-        this.addSlot(new SlotItemHandler(this.blockEntity.handler, 3, 62, 33));
-        this.addSlot(new SlotItemHandler(this.blockEntity.handler, 4, 80, 33));
-        this.addSlot(new SlotItemHandler(this.blockEntity.handler, 5, 98, 33));
+        this.addSlot(new ResourceHandlerSlot(this.blockEntity.handler,this.blockEntity.inventory::set, 0, 62, 15));
+        this.addSlot(new ResourceHandlerSlot(this.blockEntity.handler,this.blockEntity.inventory::set, 1, 80, 15));
+        this.addSlot(new ResourceHandlerSlot(this.blockEntity.handler,this.blockEntity.inventory::set, 2, 98, 15));
+        this.addSlot(new ResourceHandlerSlot(this.blockEntity.handler,this.blockEntity.inventory::set, 3, 62, 33));
+        this.addSlot(new ResourceHandlerSlot(this.blockEntity.handler,this.blockEntity.inventory::set, 4, 80, 33));
+        this.addSlot(new ResourceHandlerSlot(this.blockEntity.handler,this.blockEntity.inventory::set,5, 98, 33));
     }
 
     

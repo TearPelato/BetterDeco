@@ -76,8 +76,8 @@ public class CustomShelfBlock extends Block implements EntityBlock {
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (blockEntity instanceof ShelfBlockEntity shelf) {
             int sum = 0;
-            for (int i = 0; i < shelf.handler.getSlots(); i++) {
-                if (!shelf.handler.getStackInSlot(i).isEmpty()) {
+            for (int i = 0; i < shelf.handler.size(); i++) {
+                if (!shelf.handler.copyToList().get(i).isEmpty()) {
                     sum++;
                 }
             }

@@ -22,7 +22,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import net.neoforged.neoforge.items.ItemStackHandler;
+import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
 import net.tier1234.better_deco.init.ModBlockEntities;
 import net.tier1234.better_deco.init.ModRecipes;
 import net.tier1234.better_deco.recipe.OvenRecipe;
@@ -33,9 +33,9 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Optional;
 
 public class OvenBlockEntity extends BlockEntity implements MenuProvider {
-    public final ItemStackHandler itemHandler = new ItemStackHandler(6) {
+    public final ItemStacksResourceHandler itemHandler = new ItemStacksResourceHandler(6) {
         @Override
-        protected void onContentsChanged(int slot) {
+        protected void onContentsChanged(int index, ItemStack previousContents) {
             setChanged();
             if(!level.isClientSide()) {
                 level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
@@ -88,9 +88,9 @@ public class OvenBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     public void drops() {
-        SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
-        for (int i = 0; i < itemHandler.getSlots(); i++) {
-            inventory.setItem(i, itemHandler.getStackInSlot(i));
+        SimpleContainer inventory = new SimpleContainer(itemHandler.size());
+        for (int i = 0; i < itemHandler.size(); i++) {
+            inventory.setItem(i, itemHandler.copyToList().get(i));
         }
         Containers.dropContents(this.level, this.worldPosition, inventory);
     }
@@ -115,7 +115,7 @@ public class OvenBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     private boolean hasRecipe(int inputSlot, int outputSlot) {
-        ItemStack inputStack = itemHandler.getStackInSlot(inputSlot);
+        ItemStack inputStack = itemHandler.copyToList().get(inputSlot);
         if(inputStack.isEmpty()) return false;
 
         Optional<RecipeHolder<OvenRecipe>> recipe = getRecipeFor(inputStack);
@@ -131,20 +131,21 @@ public class OvenBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     private void craftItem(int inputSlot, int outputSlot) {
-        ItemStack inputStack = itemHandler.getStackInSlot(inputSlot);
+        ItemStack inputStack = itemHandler.copyToList().get(inputSlot);
         Optional<RecipeHolder<OvenRecipe>> recipe = getRecipeFor(inputStack);
         if(recipe.isEmpty()) return;
 
         ItemStack output = recipe.get().value().output();
-        itemHandler.extractItem(inputSlot, 1, false);
+        //TODO
+        // itemHandler.extractItem(inputSlot, 1, false);
 
-        ItemStack existing = itemHandler.getStackInSlot(outputSlot);
-        if(existing.isEmpty()) itemHandler.setStackInSlot(outputSlot, output.copy());
+        ItemStack existing = itemHandler.copyToList().get(outputSlot);
+        if(existing.isEmpty()) itemHandler.copyToList().set(outputSlot, output.copy());
         else existing.grow(output.getCount());
     }
 
     private boolean canInsert(ItemStack output, int slot) {
-        ItemStack existing = itemHandler.getStackInSlot(slot);
+        ItemStack existing = itemHandler.copyToList().get(slot);
         return existing.isEmpty() || (existing.getItem() == output.getItem() && existing.getCount() + output.getCount() <= existing.getMaxStackSize());
     }
 

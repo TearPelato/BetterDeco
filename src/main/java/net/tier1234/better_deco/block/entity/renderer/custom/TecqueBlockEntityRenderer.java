@@ -40,7 +40,7 @@ public class TecqueBlockEntityRenderer implements BlockEntityRenderer<TecqueBloc
         renderState.rotation = blockEntity.getRenderingRotation();
 
         itemModelResolver.updateForTopItem(renderState.itemStackRenderState,
-                blockEntity.inventory.getStackInSlot(0), ItemDisplayContext.FIXED, blockEntity.getLevel(), null, 0);
+                blockEntity.inventory.copyToList().get(0), ItemDisplayContext.FIXED, blockEntity.getLevel(), null, 0);
     }
 
     @Override
