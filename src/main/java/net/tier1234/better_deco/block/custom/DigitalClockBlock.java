@@ -4,13 +4,15 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.util.RandomSource;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.*;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.RenderShape;
@@ -88,11 +90,11 @@ public class DigitalClockBlock extends FurnitureHorizontalBlock implements Entit
     @Override
     protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
                                           Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if (stack.getItem() instanceof DyeItem dyeItem) {
+        DyeColor dyeColor = stack.get(DataComponents.DYE);
+        if (dyeColor != null) {
             if (!level.isClientSide()) {
-                BlockEntity blockEntity = level.getBlockEntity(pos);
-                if (blockEntity instanceof DigitalClockBlockEntity digitalClock) {
-                    digitalClock.setTextColor(digitalClock.getTextColor());
+                if (level.getBlockEntity(pos) instanceof DigitalClockBlockEntity digitalClock) {
+                    digitalClock.setTextColor(dyeColor);
                     if (!player.isCreative()) {
                         stack.shrink(1);
                     }
