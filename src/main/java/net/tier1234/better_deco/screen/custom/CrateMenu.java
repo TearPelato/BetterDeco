@@ -60,7 +60,7 @@ public class CrateMenu extends AbstractContainerMenu {
         this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,24,26,20));
         this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,25,44,20));
         this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,26,62,20));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,27,70,20));
+        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,27,80,20));
         this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,28,98,20));
         this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,29,116,20));
         this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,30,134,20));
