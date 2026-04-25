@@ -2,7 +2,12 @@ package net.tier1234.better_deco.block.entity.custom;
 
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.Containers;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -16,6 +21,7 @@ import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
 import net.tearpelato.deco_lib.api.block_entity.BasicLootBlockEntity;
 import net.tier1234.better_deco.init.ModBlockEntities;
 import net.tier1234.better_deco.screen.custom.CrateMenu;
+import org.jetbrains.annotations.Nullable;
 
 public class CrateBlockEntity extends BasicLootBlockEntity {
 
@@ -37,18 +43,13 @@ public class CrateBlockEntity extends BasicLootBlockEntity {
         super(ModBlockEntities.STORAGE_CRATE.get(), pos, blockState);
     }
 
-    @Override
-    public void preRemoveSideEffects(BlockPos pos, BlockState state) {
-        drops();
-        super.preRemoveSideEffects(pos, state);
-    }
+
 
     public void drops() {
         SimpleContainer inv = new SimpleContainer(inventory.size());
-        for(int i = 66; i < inventory.size(); i++) {
+        for(int i = 0; i < inventory.size(); i++) {
             inv.setItem(i, inventory.copyToList().get(i));
         }
-
         Containers.dropContents(this.level, this.worldPosition, inv);
     }
 
@@ -70,13 +71,26 @@ public class CrateBlockEntity extends BasicLootBlockEntity {
     @Override
     public void loadAdditional(ValueInput input) {
         super.loadAdditional(input);
-        inventory.deserialize(input);
     }
 
     @Override
     protected void saveAdditional(ValueOutput output) {
         super.saveAdditional(output);
-        inventory.serialize(output);
+    }
+    @Override
+    public void preRemoveSideEffects(BlockPos pos, BlockState state) {
+        drops();
+        super.preRemoveSideEffects(pos, state);
     }
 
+    @Nullable
+    @Override
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
+    }
+
+    @Override
+    public CompoundTag getUpdateTag(HolderLookup.Provider pRegistries) {
+        return saveWithoutMetadata(pRegistries);
+    }
 }
