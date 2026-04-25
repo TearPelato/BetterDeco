@@ -1,15 +1,18 @@
 package net.tier1234.better_deco.block.entity.custom;
 
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
+import net.tearpelato.deco_lib.api.util.BlockEntityUtil;
 import net.tier1234.better_deco.init.ModBlockEntities;
 import org.jetbrains.annotations.Nullable;
 
@@ -21,43 +24,50 @@ public class DigitalClockBlockEntity extends BlockEntity {
         super(ModBlockEntities.DIGITAL_CLOCK.get(), pos, state);
     }
 
-    public void setTextColor(DyeColor color) {
-        this.textColor = color;
-        this.sync();
+    @Override
+    protected void loadAdditional(ValueInput valueInput) {
+        super.loadAdditional(valueInput);
+        valueInput.getString("TextColor").ifPresent(name ->
+                this.textColor = DyeColor.byName(name, DyeColor.WHITE)
+        );
+    }
+
+    @Override
+    protected void saveAdditional(ValueOutput valueOutput) {
+        super.saveAdditional(valueOutput);
+        valueOutput.putString("TextColor", this.textColor.getName());
+    }
+
+    @Override
+    public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
+        return saveWithFullMetadata(registries);
+    }
+
+    @Nullable
+    @Override
+    public ClientboundBlockEntityDataPacket getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this, BlockEntity::getUpdateTag);
+    }
+
+    @Override
+    public void onDataPacket(Connection net, ValueInput valueInput) {
+        super.onDataPacket(net, valueInput);
+        this.loadAdditional(valueInput);
+    }
+
+
+    public void sync() {
+        BlockEntityUtil.sendUpdate(this);
+        setChanged();
     }
 
     public DyeColor getTextColor() {
         return textColor;
     }
 
-    public void sync() {
-        if (this.level != null && !this.level.isClientSide()) {
-            this.setChanged();
-            this.level.sendBlockUpdated(this.worldPosition, this.getBlockState(), this.getBlockState(), 3);
-        }
-    }
-
-    @Override
-    public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
-        return this.saveWithoutMetadata(registries);
-    }
-
-    @Nullable
-    @Override
-    public ClientboundBlockEntityDataPacket getUpdatePacket() {
-        return ClientboundBlockEntityDataPacket.create(this);
-    }
-
-    @Override
-    protected void saveAdditional(ValueOutput output) {
-        super.saveAdditional(output);
-        output.putInt("textColor", this.textColor.getId());
-    }
-
-    @Override
-    protected void loadAdditional(ValueInput input) {
-        super.loadAdditional(input);
-        this.textColor = DyeColor.byId(0);
+    public void setTextColor(DyeColor textColor) {
+        this.textColor = textColor;
+        this.sync();
     }
 
     public static String getFormattedTime(long ticks) {
@@ -66,7 +76,28 @@ public class DigitalClockBlockEntity extends BlockEntity {
         return String.format("%02d:%02d", hours, minutes);
     }
 
-    public static int getFromColor(DyeColor color) {
+    public static ChatFormatting getFromColor(DyeColor color) {
+        switch (color) {
+            case ORANGE: return ChatFormatting.GOLD;
+            case MAGENTA: return ChatFormatting.LIGHT_PURPLE;
+            case LIGHT_BLUE: return ChatFormatting.BLUE;
+            case YELLOW: return ChatFormatting.YELLOW;
+            case LIME: return ChatFormatting.GREEN;
+            case PINK: return ChatFormatting.LIGHT_PURPLE;
+            case GRAY: return ChatFormatting.DARK_GRAY;
+            case LIGHT_GRAY: return ChatFormatting.GRAY;
+            case CYAN: return ChatFormatting.DARK_AQUA;
+            case PURPLE: return ChatFormatting.DARK_PURPLE;
+            case BLUE: return ChatFormatting.DARK_BLUE;
+            case BROWN: return ChatFormatting.RED;
+            case GREEN: return ChatFormatting.DARK_GREEN;
+            case RED: return ChatFormatting.DARK_RED;
+            case BLACK: return ChatFormatting.BLACK;
+            default: return ChatFormatting.WHITE;
+        }
+    }
+
+    public static int getFromColorAsInt(DyeColor color) {
         return switch (color) {
             case ORANGE -> 0xFFFFA500;
             case MAGENTA -> 0xFFFF00FF;
@@ -83,7 +114,7 @@ public class DigitalClockBlockEntity extends BlockEntity {
             case GREEN -> 0xFF00AA00;
             case RED -> 0xFFAA0000;
             case BLACK -> 0xFF000000;
-            default -> 0xFFFFFFFF; // bianco
+            default -> 0xFFFFFFFF;
         };
     }
 }

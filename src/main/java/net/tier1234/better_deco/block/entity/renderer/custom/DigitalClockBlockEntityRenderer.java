@@ -10,12 +10,16 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
 import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Style;
+import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.tier1234.better_deco.block.custom.DigitalClockBlock;
 import net.tier1234.better_deco.block.entity.custom.DigitalClockBlockEntity;
 import net.tier1234.better_deco.block.entity.renderer.core.render_state.DigitalClockRendererState;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Formatter;
 
 public class DigitalClockBlockEntityRenderer implements BlockEntityRenderer<DigitalClockBlockEntity, DigitalClockRendererState> {
 
@@ -42,10 +46,12 @@ public class DigitalClockBlockEntityRenderer implements BlockEntityRenderer<Digi
             return;
 
         state.facing = blockState.getValue(DigitalClockBlock.DIRECTION);
-        state.timeText = DigitalClockBlockEntity.getFormattedTime(blockEntity.getLevel().getGameTime());
+        state.timeText = FormattedCharSequence.forward(DigitalClockBlockEntity.getFormattedTime(Minecraft.getInstance().level.getGameTime()), Style.EMPTY.withColor(blockEntity.getFromColor(blockEntity.getTextColor())));
         state.color = DigitalClockBlockEntity.getFromColor(blockEntity.getTextColor());
         state.lightPosition = blockEntity.getBlockPos();
         state.level = blockEntity.getLevel();
+        state.be = blockEntity;
+        state.colorInt = blockEntity.getFromColorAsInt(blockEntity.getTextColor());
     }
 
     @Override
@@ -64,17 +70,16 @@ public class DigitalClockBlockEntityRenderer implements BlockEntityRenderer<Digi
         float baseScale = 0.010416667F * 1.5F;
         poseStack.scale(baseScale, -baseScale, baseScale);
 
-        font.drawInBatch(
+        this.font.drawInBatch(
                 state.timeText,
                 0, 0,
-                state.color,
+                state.colorInt,
                 false,
                 poseStack.last().pose(),
                 Minecraft.getInstance().renderBuffers().bufferSource(),
                 Font.DisplayMode.NORMAL,
                 0,
-                state.lightCoords
-        );
+                state.lightCoords);
 
         poseStack.popPose();
     }
