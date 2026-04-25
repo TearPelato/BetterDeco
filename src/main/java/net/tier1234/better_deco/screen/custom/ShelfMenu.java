@@ -30,14 +30,14 @@ public class ShelfMenu extends AbstractContainerMenu {
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
 
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.handler,this.blockEntity.inventory::set, 0, 62, 15));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.handler,this.blockEntity.inventory::set, 1, 80, 15));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.handler,this.blockEntity.inventory::set, 2, 98, 15));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.handler,this.blockEntity.inventory::set, 3, 62, 33));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.handler,this.blockEntity.inventory::set, 4, 80, 33));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.handler,this.blockEntity.inventory::set,5, 98, 33));
-    }
+        this.addSlot(new ResourceHandlerSlot(this.blockEntity.handler, this.blockEntity.handler::set, 0, 62, 15));
+        this.addSlot(new ResourceHandlerSlot(this.blockEntity.handler, this.blockEntity.handler::set, 1, 80, 15));
+        this.addSlot(new ResourceHandlerSlot(this.blockEntity.handler, this.blockEntity.handler::set, 2, 98, 15));
+        this.addSlot(new ResourceHandlerSlot(this.blockEntity.handler, this.blockEntity.handler::set, 3, 62, 33));
+        this.addSlot(new ResourceHandlerSlot(this.blockEntity.handler, this.blockEntity.handler::set, 4, 80, 33));
+        this.addSlot(new ResourceHandlerSlot(this.blockEntity.handler, this.blockEntity.handler::set, 5, 98, 33));
 
+    }
     
     private static final int HOTBAR_SLOT_COUNT = 9;
     private static final int PLAYER_INVENTORY_ROW_COUNT = 3;

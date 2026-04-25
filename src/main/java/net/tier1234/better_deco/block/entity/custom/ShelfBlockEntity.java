@@ -22,14 +22,16 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.transfer.item.ItemResource;
 import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
+import net.neoforged.neoforge.transfer.transaction.Transaction;
 import net.tearpelato.deco_lib.api.block_entity.BasicLootBlockEntity;
 import net.tier1234.better_deco.init.ModBlockEntities;
 import net.tier1234.better_deco.init.ModInventory;
 import net.tier1234.better_deco.screen.custom.ShelfMenu;
 import org.jetbrains.annotations.Nullable;
 
-public class ShelfBlockEntity extends BasicLootBlockEntity implements MenuProvider, ItemOwner {
+public class ShelfBlockEntity extends BasicLootBlockEntity implements ItemOwner{
     public final ItemStacksResourceHandler inventory = new ItemStacksResourceHandler(6) {
         @Override
         public int size() {
@@ -65,7 +67,7 @@ public class ShelfBlockEntity extends BasicLootBlockEntity implements MenuProvid
     @Override
     public boolean isEmpty() {
         for (int i = 0; i < handler.size(); i++) {
-            if (!handler.copyToList().get(i).isEmpty()) {
+            if (!handler.getResource(i).isEmpty()) {
                 return false;
             }
         }
@@ -76,23 +78,37 @@ public class ShelfBlockEntity extends BasicLootBlockEntity implements MenuProvid
     public NonNullList<ItemStack> getItems() {
         NonNullList<ItemStack> items = NonNullList.withSize(getContainerSize(), ItemStack.EMPTY);
         for (int i = 0; i < getContainerSize(); i++) {
-            items.set(i, handler.copyToList().get(i));
+            ItemResource res = handler.getResource(i);
+            int amount = handler.getAmountAsInt(i);
+            if (!res.isEmpty()) {
+                items.set(i, res.toStack(amount));
+            }
         }
         return items;
     }
 
     @Override
     protected void setItems(NonNullList<ItemStack> items) {
-        for (int i = 0; i < items.size(); i++) {
-            handler.copyToList().set(i, items.get(i));
+        try (var tx = Transaction.openRoot()) {
+            for (int i = 0; i < items.size(); i++) {
+                handler.extract(i, handler.getResource(i), handler.getAmountAsInt(i), tx);
+                ItemStack stack = items.get(i);
+                if (!stack.isEmpty()) {
+                    handler.insert(i, ItemResource.of(stack), stack.getCount(), tx);
+                }
+            }
+            tx.commit();
         }
         setChanged();
     }
 
     @Override
     public void clearContent() {
-        for (int i = 0; i < handler.size(); i++) {
-            handler.copyToList().set(i, ItemStack.EMPTY);
+        try (var tx = Transaction.openRoot()) {
+            for (int i = 0; i < handler.size(); i++) {
+                handler.extract(i, handler.getResource(i), handler.getAmountAsInt(i), tx);
+            }
+            tx.commit();
         }
         setChanged();
     }
