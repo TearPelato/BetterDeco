@@ -34,9 +34,6 @@ public class ModMenuTypes {
     public static final DeferredHolder<MenuType<?>, MenuType<MicrowaveMenu>> MICROWAVE_MENU =
             registerMenuType("microwave_menu", MicrowaveMenu::new);
 
-    public static final DeferredHolder<MenuType<?>, MenuType<SinkMenu>> SINK_MENU =
-            registerMenuType("sink_menu", SinkMenu::new);
-
     public static final DeferredHolder<MenuType<?>, MenuType<FreezerMenu>> FREEZER_MENU =
             registerMenuType("freezer_menu", FreezerMenu::new);
 

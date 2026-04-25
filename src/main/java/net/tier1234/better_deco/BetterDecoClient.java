@@ -26,7 +26,7 @@ public class BetterDecoClient {
         container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
     }
     @SubscribeEvent
-    static void onClientSetup(FMLClientSetupEvent event) {
+    public static void onClientSetup(FMLClientSetupEvent event) {
         EntityRenderers.register(ModEntities.CHAIR_ENTITY.get(), ChairRenderer::new);
     }
     @SubscribeEvent
@@ -49,7 +49,6 @@ public class BetterDecoClient {
         event.register(ModMenuTypes.SHELF_MENU.get(), ShelfScreen::new);
         event.register(ModMenuTypes.OVEN_MENU.get(), OvenScreen::new);
         event.register(ModMenuTypes.MICROWAVE_MENU.get(), MicrowaveScreen::new);
-        event.register(ModMenuTypes.SINK_MENU.get(), SinkScreen::new);
         event.register(ModMenuTypes.FREEZER_MENU.get(), FreezerScreen::new);
     }
 }
