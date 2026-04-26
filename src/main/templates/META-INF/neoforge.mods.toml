@@ -9,7 +9,7 @@ version = "${mod_version}"
 displayName = "${mod_name}"
 authors = "${mod_authors}"
 description = '''${mod_description}'''
-logoFile = "better_deco_logo_4.png"
+logoFile = "../better_deco_logo_4.png"
 displayURL="https://github.com/TearPelato/BetterDeco"
 credits = "LiukRast, BlackGear"
 
@@ -38,6 +38,13 @@ side = "BOTH"
 modId = "deco_lib"
 type = "required"
 versionRange = "${deco_lib_version_range}"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies."${mod_id}"]]
+modId = "jei"
+type = "optional"
+versionRange = "[${jei_version},)"
 ordering = "NONE"
 side = "BOTH"
 
