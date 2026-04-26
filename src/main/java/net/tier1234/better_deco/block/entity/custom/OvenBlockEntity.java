@@ -17,16 +17,18 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
+import net.neoforged.neoforge.transfer.item.ItemResource;
 import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
+import net.neoforged.neoforge.transfer.transaction.Transaction;
 import net.tier1234.better_deco.init.ModBlockEntities;
 import net.tier1234.better_deco.init.ModRecipes;
 import net.tier1234.better_deco.recipe.OvenRecipe;
-import net.tier1234.better_deco.recipe.OvenRecipeInput;
 import net.tier1234.better_deco.screen.custom.OvenMenu;
 import org.jetbrains.annotations.Nullable;
 
@@ -115,38 +117,47 @@ public class OvenBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     private boolean hasRecipe(int inputSlot, int outputSlot) {
-        ItemStack inputStack = itemHandler.copyToList().get(inputSlot);
-        if(inputStack.isEmpty()) return false;
+        ItemResource resource = itemHandler.getResource(inputSlot);
+        if (resource.isEmpty()) return false;
 
-        Optional<RecipeHolder<OvenRecipe>> recipe = getRecipeFor(inputStack);
-        if(recipe.isEmpty()) return false;
+        Optional<RecipeHolder<OvenRecipe>> recipe = getRecipeFor(resource.toStack());
+        if (recipe.isEmpty()) return false;
 
-        ItemStack output = recipe.get().value().output();
+        ItemStack output = recipe.get().value().output.create();
         return canInsert(output, outputSlot);
+    }
+
+    private boolean canInsert(ItemStack output, int slot) {
+        ItemResource existing = itemHandler.getResource(slot);
+        int existingAmount = itemHandler.getAmountAsInt(slot);
+
+        if (existing.isEmpty()) return true;
+        return existing.equals(ItemResource.of(output))
+                && existingAmount + output.getCount() <= existing.toStack().getMaxStackSize();
     }
 
     private Optional<RecipeHolder<OvenRecipe>> getRecipeFor(ItemStack input) {
         return ((ServerLevel) this.level).recipeAccess()
-                .getRecipeFor(ModRecipes.OVEN_TYPE.get(), new OvenRecipeInput(input), level);
+                .getRecipeFor(ModRecipes.OVEN_TYPE.get(), new SingleRecipeInput(input), level);
     }
 
     private void craftItem(int inputSlot, int outputSlot) {
-        ItemStack inputStack = itemHandler.copyToList().get(inputSlot);
+        ItemStack inputStack = itemHandler.getResource(inputSlot).toStack();
         Optional<RecipeHolder<OvenRecipe>> recipe = getRecipeFor(inputStack);
-        if(recipe.isEmpty()) return;
+        if (recipe.isEmpty()) return;
 
-        ItemStack output = recipe.get().value().output();
-        //TODO
-        // itemHandler.extractItem(inputSlot, 1, false);
+        ItemStack output = recipe.get().value().output.create();
+        ItemResource outputResource = ItemResource.of(output);
+        ItemResource inputResource = itemHandler.getResource(inputSlot);
 
-        ItemStack existing = itemHandler.copyToList().get(outputSlot);
-        if(existing.isEmpty()) itemHandler.copyToList().set(outputSlot, output.copy());
-        else existing.grow(output.getCount());
-    }
+        try (Transaction tx = Transaction.openRoot()) {
+            int extracted = itemHandler.extract(inputSlot, inputResource, 1, tx);
+            if (extracted != 1) return;
+            int inserted = itemHandler.insert(outputSlot, outputResource, output.getCount(), tx);
+            if (inserted != output.getCount()) return;
 
-    private boolean canInsert(ItemStack output, int slot) {
-        ItemStack existing = itemHandler.copyToList().get(slot);
-        return existing.isEmpty() || (existing.getItem() == output.getItem() && existing.getCount() + output.getCount() <= existing.getMaxStackSize());
+            tx.commit();
+        }
     }
 
     @Override

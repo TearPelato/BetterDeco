@@ -17,6 +17,7 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -24,15 +25,13 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.neoforged.neoforge.transfer.item.ItemResource;
 import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
+import net.neoforged.neoforge.transfer.transaction.Transaction;
 import net.tier1234.better_deco.init.ModBlockEntities;
 import net.tier1234.better_deco.init.ModRecipes;
 import net.tier1234.better_deco.recipe.MicrowaveRecipe;
-import net.tier1234.better_deco.recipe.MicrowaveRecipeInput;
 import net.tier1234.better_deco.screen.custom.MicrowaveMenu;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 public class MicrowaveBlockEntity extends BlockEntity implements MenuProvider {
@@ -55,9 +54,6 @@ public class MicrowaveBlockEntity extends BlockEntity implements MenuProvider {
     public MicrowaveBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.MICROWAVE.get(), pos, state);
     }
-
-    private final List<BlockPos> linkedProducers = new ArrayList<>();
-
 
     protected final ContainerData data = new ContainerData() {
         @Override
@@ -99,12 +95,21 @@ public class MicrowaveBlockEntity extends BlockEntity implements MenuProvider {
 
     private void craftItem() {
         Optional<RecipeHolder<MicrowaveRecipe>> recipe = getCurrentRecipe();
-        ItemStack output = recipe.get().value().output();
+        if(recipe.isEmpty()) return;
 
-        //TODO FIX
-       // itemHandler.extract(INPUT_SLOT,1, false);
-        itemHandler.copyToList().set(OUTPUT_SLOT, new ItemStack(output.getItem(),
-                itemHandler.copyToList().get(OUTPUT_SLOT).getCount() + output.getCount()));
+        ItemStack output = recipe.get().value().output.create();
+        ItemResource inputResource = itemHandler.getResource(INPUT_SLOT);
+        ItemResource outputResource = ItemResource.of(output);
+
+        try (Transaction tx = Transaction.openRoot()) {
+            int extracted = itemHandler.extract(INPUT_SLOT, inputResource, 1, tx);
+            if(extracted != 1) return;
+
+            int inserted = itemHandler.insert(OUTPUT_SLOT, outputResource, output.getCount(), tx);
+            if(inserted != output.getCount()) return;
+
+            tx.commit();
+        }
     }
 
     private void resetProgress() {
@@ -121,57 +126,56 @@ public class MicrowaveBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     private boolean hasRecipe() {
-        Optional<RecipeHolder<MicrowaveRecipe>> recipe = getCurrentRecipe();
-        if(recipe.isEmpty()) {
-            return false;
-        }
+        ItemResource inputResource = itemHandler.getResource(INPUT_SLOT);
+        if(inputResource.isEmpty()) return false;
 
-        ItemStack output = recipe.get().value().output();
-        return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output);
+        Optional<RecipeHolder<MicrowaveRecipe>> recipe = getCurrentRecipe();
+        if(recipe.isEmpty()) return false;
+
+        ItemStack output = recipe.get().value().output.create();
+        return canInsert(output);
     }
 
     private Optional<RecipeHolder<MicrowaveRecipe>> getCurrentRecipe() {
+        ItemResource inputResource = itemHandler.getResource(INPUT_SLOT);
+        if(inputResource.isEmpty()) return Optional.empty();
+
         return ((ServerLevel) this.level).recipeAccess()
-                .getRecipeFor(ModRecipes.MICROWAVE_TYPE.get(), new MicrowaveRecipeInput(itemHandler.copyToList().get(INPUT_SLOT)), level);
+                .getRecipeFor(ModRecipes.MICROWAVE_TYPE.get(), new SingleRecipeInput(inputResource.toStack()), level);
     }
 
-    private boolean canInsertItemIntoOutputSlot(ItemStack output) {
-        return itemHandler.copyToList().get(OUTPUT_SLOT).isEmpty() ||
-                itemHandler.copyToList().get(OUTPUT_SLOT).getItem() == output.getItem();
-    }
+    private boolean canInsert(ItemStack output) {
+        ItemResource existing = itemHandler.getResource(OUTPUT_SLOT);
+        int existingAmount = itemHandler.getAmountAsInt(OUTPUT_SLOT);
 
-    private boolean canInsertAmountIntoOutputSlot(int count) {
-        int maxCount = itemHandler.copyToList().get(OUTPUT_SLOT).isEmpty() ? 64 : itemHandler.copyToList().get(OUTPUT_SLOT).getMaxStackSize();
-        int currentCount = itemHandler.copyToList().get(OUTPUT_SLOT).getCount();
+        if(existing.isEmpty()) return true;
 
-        return maxCount >= currentCount + count;
+        return existing.equals(ItemResource.of(output))
+                && existingAmount + output.getCount() <= output.getMaxStackSize();
     }
 
     public void drops() {
         SimpleContainer inventory = new SimpleContainer(itemHandler.size());
-        for (int i = 0; i < itemHandler.size(); i++) {
-            inventory.setItem(i, itemHandler.copyToList().get(i));
+        for(int i = 0; i < itemHandler.size(); i++) {
+            inventory.setItem(i, itemHandler.getResource(i).toStack(itemHandler.getAmountAsInt(i)));
         }
-
         Containers.dropContents(this.level, this.worldPosition, inventory);
     }
 
     @Override
     protected void saveAdditional(ValueOutput output) {
         itemHandler.serialize(output);
-        output.putInt("growth_chamber.progress", progress);
-        output.putInt("growth_chamber.max_progress", maxProgress);
-
+        output.putInt("microwave.progress", progress);
+        output.putInt("microwave.max_progress", maxProgress);
         super.saveAdditional(output);
     }
 
     @Override
     protected void loadAdditional(ValueInput input) {
         super.loadAdditional(input);
-
         itemHandler.deserialize(input);
-        progress = input.getIntOr("growth_chamber.progress" ,0);
-        maxProgress = input.getIntOr("growth_chamber.max_progress", 0);
+        progress = input.getIntOr("microwave.progress", 0);
+        maxProgress = input.getIntOr("microwave.max_progress", 0);
     }
 
     @Override
@@ -190,8 +194,6 @@ public class MicrowaveBlockEntity extends BlockEntity implements MenuProvider {
     public CompoundTag getUpdateTag(HolderLookup.Provider provider) {
         return saveWithoutMetadata(provider);
     }
-
-
 
     @Override
     public Component getDisplayName() {
