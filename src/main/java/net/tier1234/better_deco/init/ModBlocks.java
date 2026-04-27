@@ -134,27 +134,27 @@ public class ModBlocks {
                     .requiresCorrectToolForDrops()));
 
 //Oven
-   public static final  DeferredBlock<Block> OAK_OVEN = registerBlock("oak_oven",
+   public static final  DeferredBlock<OvenBlock> OAK_OVEN = registerBlock("oak_oven",
            ()-> new OvenBlock(BlockBehaviour.Properties.of()));
-    public static final  DeferredBlock<Block> SPRUCE_OVEN = registerBlock("spruce_oven",
+    public static final  DeferredBlock<OvenBlock> SPRUCE_OVEN = registerBlock("spruce_oven",
             ()-> new OvenBlock(BlockBehaviour.Properties.of()));
-    public static final  DeferredBlock<Block> BIRCH_OVEN = registerBlock("birch_oven",
+    public static final  DeferredBlock<OvenBlock> BIRCH_OVEN = registerBlock("birch_oven",
             ()-> new OvenBlock(BlockBehaviour.Properties.of()));
-    public static final  DeferredBlock<Block> JUNGLE_OVEN = registerBlock("jungle_oven",
+    public static final  DeferredBlock<OvenBlock> JUNGLE_OVEN = registerBlock("jungle_oven",
             ()-> new OvenBlock(BlockBehaviour.Properties.of()));
-    public static final  DeferredBlock<Block> ACACIA_OVEN = registerBlock("acacia_oven",
+    public static final  DeferredBlock<OvenBlock> ACACIA_OVEN = registerBlock("acacia_oven",
             ()-> new OvenBlock(BlockBehaviour.Properties.of()));
-    public static final  DeferredBlock<Block> DARK_OAK_OVEN = registerBlock("dark_oak_oven",
+    public static final  DeferredBlock<OvenBlock> DARK_OAK_OVEN = registerBlock("dark_oak_oven",
             ()-> new OvenBlock(BlockBehaviour.Properties.of()));
-    public static final  DeferredBlock<Block> MANGROVE_OVEN = registerBlock("mangrove_oven",
+    public static final  DeferredBlock<OvenBlock> MANGROVE_OVEN = registerBlock("mangrove_oven",
             ()-> new OvenBlock(BlockBehaviour.Properties.of()));
-    public static final  DeferredBlock<Block> CHERRY_OVEN = registerBlock("cherry_oven",
+    public static final  DeferredBlock<OvenBlock> CHERRY_OVEN = registerBlock("cherry_oven",
             ()-> new OvenBlock(BlockBehaviour.Properties.of()));
-    public static final  DeferredBlock<Block> BAMBOO_OVEN = registerBlock("bamboo_oven",
+    public static final  DeferredBlock<OvenBlock> BAMBOO_OVEN = registerBlock("bamboo_oven",
             ()-> new OvenBlock(BlockBehaviour.Properties.of()));
-    public static final  DeferredBlock<Block> CRIMSON_OVEN = registerBlock("crimson_oven",
+    public static final  DeferredBlock<OvenBlock> CRIMSON_OVEN = registerBlock("crimson_oven",
             ()-> new OvenBlock(BlockBehaviour.Properties.of()));
-    public static final  DeferredBlock<Block> WARPED_OVEN = registerBlock("warped_oven",
+    public static final  DeferredBlock<OvenBlock> WARPED_OVEN = registerBlock("warped_oven",
             ()-> new OvenBlock(BlockBehaviour.Properties.of()));
 
     public static final DeferredBlock<Block> SPRUCE_DIORITE_OVEN = registerBlock("spruce_diorite_oven",
