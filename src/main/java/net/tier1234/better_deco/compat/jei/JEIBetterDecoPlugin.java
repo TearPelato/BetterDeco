@@ -90,29 +90,6 @@ public class JEIBetterDecoPlugin implements IModPlugin {
                 OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.WARPED_OVEN.get().asItem()),
                 OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
-        //Stripped
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.STRIPPED_OAK_OVEN.get().asItem()),
-                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.STRIPPED_SPRUCE_OVEN.get().asItem()),
-                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.STRIPPED_BIRCH_OVEN.get().asItem()),
-                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.STRIPPED_JUNGLE_OVEN.get().asItem()),
-                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.STRIPPED_ACACIA_OVEN.get().asItem()),
-                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.STRIPPED_DARK_OAK_OVEN.get().asItem()),
-                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.STRIPPED_MANGROVE_OVEN.get().asItem()),
-                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.STRIPPED_CHERRY_OVEN.get().asItem()),
-                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.STRIPPED_BAMBOO_OVEN.get().asItem()),
-                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.STRIPPED_CRIMSON_OVEN.get().asItem()),
-                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.STRIPPED_WARPED_OVEN.get().asItem()),
-                OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);
 
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.RED_OVEN.get().asItem()),
                 OvenRecipeCategory.OVEN_RECIPE_RECIPE_TYPE);

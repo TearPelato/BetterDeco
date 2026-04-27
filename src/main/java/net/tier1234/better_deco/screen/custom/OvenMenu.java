@@ -9,8 +9,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.neoforged.neoforge.items.SlotItemHandler;
-import net.tier1234.better_deco.init.ModBlocks;
 import net.tier1234.better_deco.block.entity.custom.OvenBlockEntity;
+import net.tier1234.better_deco.init.ModBlocks;
 import net.tier1234.better_deco.init.ModMenuTypes;
 
 public class OvenMenu extends AbstractContainerMenu {
@@ -121,29 +121,6 @@ public class OvenMenu extends AbstractContainerMenu {
                 pPlayer, ModBlocks.CRIMSON_OVEN.get())
                 || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
                 pPlayer, ModBlocks.WARPED_OVEN.get())
-                ||
-                stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                        pPlayer, ModBlocks.STRIPPED_OAK_OVEN.get())
-                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                pPlayer, ModBlocks.STRIPPED_SPRUCE_OVEN.get())
-                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                pPlayer, ModBlocks.STRIPPED_BIRCH_OVEN.get())
-                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                pPlayer, ModBlocks.STRIPPED_JUNGLE_OVEN.get())
-                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                pPlayer, ModBlocks.STRIPPED_ACACIA_OVEN.get())
-                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                pPlayer, ModBlocks.STRIPPED_DARK_OAK_OVEN.get())
-                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                pPlayer, ModBlocks.STRIPPED_MANGROVE_OVEN.get())
-                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                pPlayer, ModBlocks.STRIPPED_CHERRY_OVEN.get())
-                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                pPlayer, ModBlocks.STRIPPED_BAMBOO_OVEN.get())
-                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                pPlayer, ModBlocks.STRIPPED_CRIMSON_OVEN.get())
-                || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                pPlayer, ModBlocks.STRIPPED_WARPED_OVEN.get())
                 || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
                 pPlayer, ModBlocks.SPRUCE_DIORITE_OVEN.get())
                 || stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),

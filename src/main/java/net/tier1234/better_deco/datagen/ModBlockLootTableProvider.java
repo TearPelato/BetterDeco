@@ -46,18 +46,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.CRIMSON_CHAIR.get());
         dropSelf(ModBlocks.WARPED_CHAIR.get());
 
-        dropSelf(ModBlocks.STRIPPED_OAK_CHAIR.get());
-        dropSelf(ModBlocks.STRIPPED_SPRUCE_CHAIR.get());
-        dropSelf(ModBlocks.STRIPPED_BIRCH_CHAIR.get());
-        dropSelf(ModBlocks.STRIPPED_JUNGLE_CHAIR.get());
-        dropSelf(ModBlocks.STRIPPED_ACACIA_CHAIR.get());
-        dropSelf(ModBlocks.STRIPPED_MANGROVE_CHAIR.get());
-        dropSelf(ModBlocks.STRIPPED_DARK_OAK_CHAIR.get());
-        dropSelf(ModBlocks.STRIPPED_CHERRY_CHAIR.get());
-        dropSelf(ModBlocks.STRIPPED_BAMBOO_CHAIR.get());
-        dropSelf(ModBlocks.STRIPPED_CRIMSON_CHAIR.get());
-        dropSelf(ModBlocks.STRIPPED_WARPED_CHAIR.get());
-
 
         //Kitchen Counters
         dropSelf(ModBlocks.OAK_KITCHEN_COUNTER.get());
@@ -72,17 +60,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.CRIMSON_KITCHEN_COUNTER.get());
         dropSelf(ModBlocks.WARPED_KITCHEN_COUNTER.get());
             //Stripped Variants
-        dropSelf(ModBlocks.STRIPPED_OAK_KITCHEN_COUNTER.get());
-        dropSelf(ModBlocks.STRIPPED_SPRUCE_KITCHEN_COUNTER.get());
-        dropSelf(ModBlocks.STRIPPED_BIRCH_KITCHEN_COUNTER.get());
-        dropSelf(ModBlocks.STRIPPED_JUNGLE_KITCHEN_COUNTER.get());
-        dropSelf(ModBlocks.STRIPPED_ACACIA_KITCHEN_COUNTER.get());
-        dropSelf(ModBlocks.STRIPPED_MANGROVE_KITCHEN_COUNTER.get());
-        dropSelf(ModBlocks.STRIPPED_DARK_OAK_KITCHEN_COUNTER.get());
-        dropSelf(ModBlocks.STRIPPED_CHERRY_KITCHEN_COUNTER.get());
-        dropSelf(ModBlocks.STRIPPED_BAMBOO_KITCHEN_COUNTER.get());
-        dropSelf(ModBlocks.STRIPPED_CRIMSON_KITCHEN_COUNTER.get());
-        dropSelf(ModBlocks.STRIPPED_WARPED_KITCHEN_COUNTER.get());
 
         //Kitchen Drawers
         dropSelf(ModBlocks.OAK_KITCHEN_DRAWER.get());
@@ -98,17 +75,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.WARPED_KITCHEN_DRAWER.get());
 
             //Stripped Variants
-        dropSelf(ModBlocks.STRIPPED_OAK_KITCHEN_DRAWER.get());
-        dropSelf(ModBlocks.STRIPPED_SPRUCE_KITCHEN_DRAWER.get());
-        dropSelf(ModBlocks.STRIPPED_BIRCH_KITCHEN_DRAWER.get());
-        dropSelf(ModBlocks.STRIPPED_JUNGLE_KITCHEN_DRAWER.get());
-        dropSelf(ModBlocks.STRIPPED_ACACIA_KITCHEN_DRAWER.get());
-        dropSelf(ModBlocks.STRIPPED_MANGROVE_KITCHEN_DRAWER.get());
-        dropSelf(ModBlocks.STRIPPED_DARK_OAK_KITCHEN_DRAWER.get());
-        dropSelf(ModBlocks.STRIPPED_CHERRY_KITCHEN_DRAWER.get());
-        dropSelf(ModBlocks.STRIPPED_BAMBOO_KITCHEN_DRAWER.get());
-        dropSelf(ModBlocks.STRIPPED_CRIMSON_KITCHEN_DRAWER.get());
-        dropSelf(ModBlocks.STRIPPED_WARPED_KITCHEN_DRAWER.get());
 
         //Kitchen Cabinet
         dropSelf(ModBlocks.OAK_CABINET.get());
@@ -123,18 +89,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.CRIMSON_CABINET.get());
         dropSelf(ModBlocks.WARPED_CABINET.get());
 
-           //Stripped Variants
-        dropSelf(ModBlocks.STRIPPED_OAK_CABINET.get());
-        dropSelf(ModBlocks.STRIPPED_SPRUCE_CABINET.get());
-        dropSelf(ModBlocks.STRIPPED_BIRCH_CABINET.get());
-        dropSelf(ModBlocks.STRIPPED_JUNGLE_CABINET.get());
-        dropSelf(ModBlocks.STRIPPED_ACACIA_CABINET.get());
-        dropSelf(ModBlocks.STRIPPED_MANGROVE_CABINET.get());
-        dropSelf(ModBlocks.STRIPPED_DARK_OAK_CABINET.get());
-        dropSelf(ModBlocks.STRIPPED_CHERRY_CABINET.get());
-        dropSelf(ModBlocks.STRIPPED_BAMBOO_CABINET.get());
-        dropSelf(ModBlocks.STRIPPED_CRIMSON_CABINET.get());
-        dropSelf(ModBlocks.STRIPPED_WARPED_CABINET.get());
+
 
 
         //Tables
@@ -150,17 +105,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.CRIMSON_TABLE.get());
         dropSelf(ModBlocks.WARPED_TABLE.get());
 
-        dropSelf(ModBlocks.STRIPPED_OAK_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_SPRUCE_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_BIRCH_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_JUNGLE_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_ACACIA_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_MANGROVE_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_DARK_OAK_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_CHERRY_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_BAMBOO_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_CRIMSON_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_WARPED_TABLE.get());
 
         //Sofa
         dropSelf(ModBlocks.RED_SOFA.get());
@@ -354,19 +298,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.CRIMSON_COFFEE_TABLE.get());
         dropSelf(ModBlocks.WARPED_COFFEE_TABLE.get());
 
-        dropSelf(ModBlocks.STRIPPED_OAK_COFFEE_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_SPRUCE_COFFEE_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_BIRCH_COFFEE_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_JUNGLE_COFFEE_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_ACACIA_COFFEE_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_DARK_OAK_COFFEE_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_MANGROVE_COFFEE_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_CHERRY_COFFEE_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_BAMBOO_COFFEE_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_CRIMSON_COFFEE_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_WARPED_COFFEE_TABLE.get());
-
-
 
         dropSelf(ModBlocks.OAK_DINNING_TABLE.get());
         dropSelf(ModBlocks.SPRUCE_DINNING_TABLE.get());
@@ -379,18 +310,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.BAMBOO_DINNING_TABLE.get());
         dropSelf(ModBlocks.CRIMSON_DINNING_TABLE.get());
         dropSelf(ModBlocks.WARPED_DINNING_TABLE.get());
-
-        dropSelf(ModBlocks.STRIPPED_OAK_DINNING_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_SPRUCE_DINNING_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_BIRCH_DINNING_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_JUNGLE_DINNING_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_ACACIA_DINNING_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_DARK_OAK_DINNING_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_MANGROVE_DINNING_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_CHERRY_DINNING_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_BAMBOO_DINNING_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_CRIMSON_DINNING_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_WARPED_DINNING_TABLE.get());
 
 
         dropSelf(ModBlocks.OAK_OVEN.get());
@@ -405,26 +324,13 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.CRIMSON_OVEN.get());
         dropSelf(ModBlocks.WARPED_OVEN.get());
 
-        dropSelf(ModBlocks.STRIPPED_OAK_OVEN.get());
-        dropSelf(ModBlocks.STRIPPED_SPRUCE_OVEN.get());
-        dropSelf(ModBlocks.STRIPPED_BIRCH_OVEN.get());
-        dropSelf(ModBlocks.STRIPPED_JUNGLE_OVEN.get());
-        dropSelf(ModBlocks.STRIPPED_ACACIA_OVEN.get());
-        dropSelf(ModBlocks.STRIPPED_DARK_OAK_OVEN.get());
-        dropSelf(ModBlocks.STRIPPED_MANGROVE_OVEN.get());
-        dropSelf(ModBlocks.STRIPPED_CHERRY_OVEN.get());
-        dropSelf(ModBlocks.STRIPPED_BAMBOO_OVEN.get());
-        dropSelf(ModBlocks.STRIPPED_CRIMSON_OVEN.get());
-        dropSelf(ModBlocks.STRIPPED_WARPED_OVEN.get());
 
         dropSelf(ModBlocks.LIGHT_MICROWAVE.get());
         dropSelf(ModBlocks.DARK_MICROWAVE.get());
 
-        dropSelf(ModBlocks.DARK_OAK_CALCITE_COUNTER.get());
         dropSelf(ModBlocks.DARK_OAK_CALCITE_DRAWER.get());
         dropSelf(ModBlocks.DARK_OAK_CALCITE_CABINET.get());
 
-        dropSelf(ModBlocks.OAK_ANDESITE_COUNTER.get());
         dropSelf(ModBlocks.OAK_ANDESITE_DRAWER.get());
         dropSelf(ModBlocks.OAK_ANDESITE_CABINET.get());
 

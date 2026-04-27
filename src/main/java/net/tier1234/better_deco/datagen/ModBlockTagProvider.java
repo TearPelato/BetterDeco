@@ -35,17 +35,6 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.CRIMSON_TABLE.get())
                 .add(ModBlocks.WARPED_TABLE.get())
 
-                .add(ModBlocks.STRIPPED_OAK_TABLE.get())
-                .add(ModBlocks.STRIPPED_SPRUCE_TABLE.get())
-                .add(ModBlocks.STRIPPED_BIRCH_TABLE.get())
-                .add(ModBlocks.STRIPPED_JUNGLE_TABLE.get())
-                .add(ModBlocks.STRIPPED_ACACIA_TABLE.get())
-                .add(ModBlocks.STRIPPED_MANGROVE_TABLE.get())
-                .add(ModBlocks.STRIPPED_DARK_OAK_TABLE.get())
-                .add(ModBlocks.STRIPPED_CHERRY_TABLE.get())
-                .add(ModBlocks.STRIPPED_BAMBOO_TABLE.get())
-                .add(ModBlocks.STRIPPED_CRIMSON_TABLE.get())
-                .add(ModBlocks.STRIPPED_WARPED_TABLE.get())
 
         //Chairs
                 .add(ModBlocks.OAK_CHAIR.get())
@@ -60,17 +49,6 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.CRIMSON_CHAIR.get())
                 .add(ModBlocks.WARPED_CHAIR.get())
 
-                .add(ModBlocks.STRIPPED_OAK_CHAIR.get())
-                .add(ModBlocks.STRIPPED_SPRUCE_CHAIR.get())
-                .add(ModBlocks.STRIPPED_BIRCH_CHAIR.get())
-                .add(ModBlocks.STRIPPED_JUNGLE_CHAIR.get())
-                .add(ModBlocks.STRIPPED_ACACIA_CHAIR.get())
-                .add(ModBlocks.STRIPPED_MANGROVE_CHAIR.get())
-                .add(ModBlocks.STRIPPED_DARK_OAK_CHAIR.get())
-                .add(ModBlocks.STRIPPED_CHERRY_CHAIR.get())
-                .add(ModBlocks.STRIPPED_BAMBOO_CHAIR.get())
-                .add(ModBlocks.STRIPPED_CRIMSON_CHAIR.get())
-                .add(ModBlocks.STRIPPED_WARPED_CHAIR.get())
 
         //Crates
                 .add(ModBlocks.OAK_CRATE.get())
@@ -183,18 +161,6 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.CRIMSON_COFFEE_TABLE.get())
                 .add(ModBlocks.WARPED_COFFEE_TABLE.get())
 
-                .add(ModBlocks.STRIPPED_OAK_COFFEE_TABLE.get())
-                .add(ModBlocks.STRIPPED_SPRUCE_COFFEE_TABLE.get())
-                .add(ModBlocks.STRIPPED_BIRCH_COFFEE_TABLE.get())
-                .add(ModBlocks.STRIPPED_JUNGLE_COFFEE_TABLE.get())
-                .add(ModBlocks.STRIPPED_ACACIA_COFFEE_TABLE.get())
-                .add(ModBlocks.STRIPPED_DARK_OAK_COFFEE_TABLE.get())
-                .add(ModBlocks.STRIPPED_MANGROVE_COFFEE_TABLE.get())
-                .add(ModBlocks.STRIPPED_CHERRY_COFFEE_TABLE.get())
-                .add(ModBlocks.STRIPPED_BAMBOO_COFFEE_TABLE.get())
-                .add(ModBlocks.STRIPPED_CRIMSON_COFFEE_TABLE.get())
-                .add(ModBlocks.STRIPPED_WARPED_COFFEE_TABLE.get())
-
                  //Dinning Table
                 .add(ModBlocks.OAK_DINNING_TABLE.get())
                 .add(ModBlocks.SPRUCE_DINNING_TABLE.get())
@@ -207,20 +173,6 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.BAMBOO_DINNING_TABLE.get())
                 .add(ModBlocks.CRIMSON_DINNING_TABLE.get())
                 .add(ModBlocks.WARPED_DINNING_TABLE.get())
-
-                .add(ModBlocks.STRIPPED_OAK_DINNING_TABLE.get())
-                .add(ModBlocks.STRIPPED_SPRUCE_DINNING_TABLE.get())
-                .add(ModBlocks.STRIPPED_BIRCH_DINNING_TABLE.get())
-                .add(ModBlocks.STRIPPED_JUNGLE_DINNING_TABLE.get())
-                .add(ModBlocks.STRIPPED_ACACIA_DINNING_TABLE.get())
-                .add(ModBlocks.STRIPPED_DARK_OAK_DINNING_TABLE.get())
-                .add(ModBlocks.STRIPPED_MANGROVE_DINNING_TABLE.get())
-                .add(ModBlocks.STRIPPED_CHERRY_DINNING_TABLE.get())
-                .add(ModBlocks.STRIPPED_BAMBOO_DINNING_TABLE.get())
-                .add(ModBlocks.STRIPPED_CRIMSON_DINNING_TABLE.get())
-                .add(ModBlocks.STRIPPED_WARPED_DINNING_TABLE.get())
-
-
 
 
 
@@ -272,20 +224,10 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.BAMBOO_OVEN.get())
                 .add(ModBlocks.CRIMSON_OVEN.get())
                 .add(ModBlocks.WARPED_OVEN.get())
+                .add(ModBlocks.FURNI_WORKBENCH.get())
 
-                .add(ModBlocks.STRIPPED_OAK_OVEN.get())
-                .add(ModBlocks.STRIPPED_SPRUCE_OVEN.get())
-                .add(ModBlocks.STRIPPED_BIRCH_OVEN.get())
-                .add(ModBlocks.STRIPPED_JUNGLE_OVEN.get())
-                .add(ModBlocks.STRIPPED_ACACIA_OVEN.get())
-                .add(ModBlocks.STRIPPED_DARK_OAK_OVEN.get())
-                .add(ModBlocks.STRIPPED_MANGROVE_OVEN.get())
-                .add(ModBlocks.STRIPPED_CHERRY_OVEN.get())
-                .add(ModBlocks.STRIPPED_BAMBOO_OVEN.get())
-                .add(ModBlocks.STRIPPED_CRIMSON_OVEN.get())
-                .add(ModBlocks.STRIPPED_WARPED_OVEN.get())
 
-        ;
+                 ;
 
           tag(BlockTags.MINEABLE_WITH_PICKAXE)
                   .add(ModBlocks.PEDESTAL.get())

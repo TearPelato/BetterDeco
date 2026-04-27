@@ -287,29 +287,6 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.CRIMSON_BEDSIDE);
                         output.accept(ModBlocks.WARPED_BEDSIDE);
 
-                        output.accept(ModBlocks.STRIPPED_OAK_TABLE);
-                        output.accept(ModBlocks.STRIPPED_SPRUCE_TABLE);
-                        output.accept(ModBlocks.STRIPPED_BIRCH_TABLE);
-                        output.accept(ModBlocks.STRIPPED_JUNGLE_TABLE);
-                        output.accept(ModBlocks.STRIPPED_ACACIA_TABLE);
-                        output.accept(ModBlocks.STRIPPED_DARK_OAK_TABLE);
-                        output.accept(ModBlocks.STRIPPED_MANGROVE_TABLE);
-                        output.accept(ModBlocks.STRIPPED_CHERRY_TABLE);
-                        output.accept(ModBlocks.STRIPPED_BAMBOO_TABLE);
-                        output.accept(ModBlocks.STRIPPED_CRIMSON_TABLE);
-                        output.accept(ModBlocks.STRIPPED_WARPED_TABLE);
-
-                        output.accept(ModBlocks.STRIPPED_OAK_COFFEE_TABLE);
-                        output.accept(ModBlocks.STRIPPED_SPRUCE_COFFEE_TABLE);
-                        output.accept(ModBlocks.STRIPPED_BIRCH_COFFEE_TABLE);
-                        output.accept(ModBlocks.STRIPPED_JUNGLE_COFFEE_TABLE);
-                        output.accept(ModBlocks.STRIPPED_ACACIA_COFFEE_TABLE);
-                        output.accept(ModBlocks.STRIPPED_DARK_OAK_COFFEE_TABLE);
-                        output.accept(ModBlocks.STRIPPED_MANGROVE_COFFEE_TABLE);
-                        output.accept(ModBlocks.STRIPPED_CHERRY_COFFEE_TABLE);
-                        output.accept(ModBlocks.STRIPPED_BAMBOO_COFFEE_TABLE);
-                        output.accept(ModBlocks.STRIPPED_CRIMSON_COFFEE_TABLE);
-                        output.accept(ModBlocks.STRIPPED_WARPED_COFFEE_TABLE);
 
 
                         output.accept(ModBlocks.OAK_DINNING_TABLE);
@@ -324,17 +301,6 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.CRIMSON_DINNING_TABLE);
                         output.accept(ModBlocks.WARPED_DINNING_TABLE);
 
-                        output.accept(ModBlocks.STRIPPED_OAK_DINNING_TABLE);
-                        output.accept(ModBlocks.STRIPPED_SPRUCE_DINNING_TABLE);
-                        output.accept(ModBlocks.STRIPPED_BIRCH_DINNING_TABLE);
-                        output.accept(ModBlocks.STRIPPED_JUNGLE_DINNING_TABLE);
-                        output.accept(ModBlocks.STRIPPED_ACACIA_DINNING_TABLE);
-                        output.accept(ModBlocks.STRIPPED_DARK_OAK_DINNING_TABLE);
-                        output.accept(ModBlocks.STRIPPED_MANGROVE_DINNING_TABLE);
-                        output.accept(ModBlocks.STRIPPED_CHERRY_DINNING_TABLE);
-                        output.accept(ModBlocks.STRIPPED_BAMBOO_DINNING_TABLE);
-                        output.accept(ModBlocks.STRIPPED_CRIMSON_DINNING_TABLE);
-                        output.accept(ModBlocks.STRIPPED_WARPED_DINNING_TABLE);
 
                         output.accept(ModBlocks.OAK_DESK);
                         output.accept(ModBlocks.SPRUCE_DESK);
@@ -520,17 +486,6 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.CRIMSON_OVEN);
                         output.accept(ModBlocks.WARPED_OVEN);
 
-                        output.accept(ModBlocks.STRIPPED_OAK_OVEN);
-                        output.accept(ModBlocks.STRIPPED_SPRUCE_OVEN);
-                        output.accept(ModBlocks.STRIPPED_BIRCH_OVEN);
-                        output.accept(ModBlocks.STRIPPED_JUNGLE_OVEN);
-                        output.accept(ModBlocks.STRIPPED_ACACIA_OVEN);
-                        output.accept(ModBlocks.STRIPPED_DARK_OAK_OVEN);
-                        output.accept(ModBlocks.STRIPPED_MANGROVE_OVEN);
-                        output.accept(ModBlocks.STRIPPED_CHERRY_OVEN);
-                        output.accept(ModBlocks.STRIPPED_BAMBOO_OVEN);
-                        output.accept(ModBlocks.STRIPPED_CRIMSON_OVEN);
-                        output.accept(ModBlocks.STRIPPED_WARPED_OVEN);
                         output.accept(ModBlocks.SPRUCE_DIORITE_OVEN);
                         output.accept(ModBlocks.DARK_OAK_CALCITE_OVEN);
                         output.accept(ModBlocks.OAK_ANDESITE_OVEN);
