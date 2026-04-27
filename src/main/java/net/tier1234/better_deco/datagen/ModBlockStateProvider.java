@@ -11,6 +11,7 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.Constants;
 import net.tier1234.better_deco.block.custom.KitchenCounterBlock;
+import net.tier1234.better_deco.block.custom.KitchenDrawerBlock;
 import net.tier1234.better_deco.init.ModBlocks;
 
 public class ModBlockStateProvider extends BlockStateProvider {
@@ -31,6 +32,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         this.kitchenCounter(ModBlocks.BAMBOO_KITCHEN_COUNTER.get(), Constants.id("block/furniture/kitchen_counter/bamboo/bamboo_kitchen_counter"));
         this.kitchenCounter(ModBlocks.BIRCH_KITCHEN_COUNTER.get(), Constants.id("block/furniture/kitchen_counter/birch/birch_kitchen_counter"));
 
+        this.kitchenDrawer(ModBlocks.ACACIA_KITCHEN_DRAWER.get(), Constants.id("block/furniture/kitchen_counter/acacia/acacia_kitchen_drawer"), Constants.id("block/furniture/kitchen_counter/acacia/acacia_kitchen_drawer_open"));
 
     }
 
@@ -107,6 +109,45 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 .modelForState().modelFile(leftCornerInverted).rotationY(270).addModel();
         builder.partialState().with(KitchenCounterBlock.DIRECTION, Direction.WEST).with(KitchenCounterBlock.TYPE, KitchenCounterBlock.Type.RIGHT_CORNER_INVERTED)
                 .modelForState().modelFile(rightCornerInverted).rotationY(270).addModel();
+    }
+
+    private void kitchenDrawer(KitchenDrawerBlock block, ResourceLocation textureClosed, ResourceLocation textureOpen)
+    {
+        String baseName = BuiltInRegistries.BLOCK.getKey(block).getPath();
+
+        ModelFile closedModel = models().withExistingParent(baseName + "_closed", Constants.id("block/kitchen_drawer_closed"))
+                .texture("0", textureClosed)
+                .texture("particle", textureClosed);
+
+        ModelFile openModel = models().withExistingParent(baseName + "_open", Constants.id("block/kitchen_drawer_open"))
+                .texture("0", textureOpen)
+                .texture("particle", textureOpen);
+
+        VariantBlockStateBuilder builder = getVariantBuilder(block);
+
+        // NORTH
+        builder.partialState().with(KitchenDrawerBlock.DIRECTION, Direction.NORTH).with(KitchenDrawerBlock.OPEN, false)
+                .modelForState().modelFile(closedModel).rotationY(0).addModel();
+        builder.partialState().with(KitchenDrawerBlock.DIRECTION, Direction.NORTH).with(KitchenDrawerBlock.OPEN, true)
+                .modelForState().modelFile(openModel).rotationY(0).addModel();
+
+        // EAST
+        builder.partialState().with(KitchenDrawerBlock.DIRECTION, Direction.EAST).with(KitchenDrawerBlock.OPEN, false)
+                .modelForState().modelFile(closedModel).rotationY(90).addModel();
+        builder.partialState().with(KitchenDrawerBlock.DIRECTION, Direction.EAST).with(KitchenDrawerBlock.OPEN, true)
+                .modelForState().modelFile(openModel).rotationY(90).addModel();
+
+        // SOUTH
+        builder.partialState().with(KitchenDrawerBlock.DIRECTION, Direction.SOUTH).with(KitchenDrawerBlock.OPEN, false)
+                .modelForState().modelFile(closedModel).rotationY(180).addModel();
+        builder.partialState().with(KitchenDrawerBlock.DIRECTION, Direction.SOUTH).with(KitchenDrawerBlock.OPEN, true)
+                .modelForState().modelFile(openModel).rotationY(180).addModel();
+
+        // WEST
+        builder.partialState().with(KitchenDrawerBlock.DIRECTION, Direction.WEST).with(KitchenDrawerBlock.OPEN, false)
+                .modelForState().modelFile(closedModel).rotationY(270).addModel();
+        builder.partialState().with(KitchenDrawerBlock.DIRECTION, Direction.WEST).with(KitchenDrawerBlock.OPEN, true)
+                .modelForState().modelFile(openModel).rotationY(270).addModel();
     }
 
 }
