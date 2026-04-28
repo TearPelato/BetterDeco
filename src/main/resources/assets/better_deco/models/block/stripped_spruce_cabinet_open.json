@@ -1,7 +1,0 @@
-{
-  "parent": "better_deco:block/cabinet_open",
-  "textures": {
-    "door": "block/stripped_spruce_log",
-    "base": "block/spruce_planks"
-  }
-}

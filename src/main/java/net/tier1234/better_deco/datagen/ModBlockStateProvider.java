@@ -12,6 +12,7 @@ import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.Constants;
 import net.tier1234.better_deco.block.custom.KitchenCounterBlock;
 import net.tier1234.better_deco.block.custom.KitchenDrawerBlock;
+import net.tier1234.better_deco.block.custom.KitchenSinkBlock;
 import net.tier1234.better_deco.init.ModBlocks;
 
 public class ModBlockStateProvider extends BlockStateProvider {
@@ -33,6 +34,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
         this.kitchenCounter(ModBlocks.BIRCH_KITCHEN_COUNTER.get(), Constants.id("block/furniture/kitchen_counter/birch/birch_kitchen_counter"));
 
         this.kitchenDrawer(ModBlocks.ACACIA_KITCHEN_DRAWER.get(), Constants.id("block/furniture/kitchen_counter/acacia/acacia_kitchen_drawer"), Constants.id("block/furniture/kitchen_counter/acacia/acacia_kitchen_drawer_open"));
+        this.kitchenDrawer(ModBlocks.CHERRY_KITCHEN_DRAWER.get(), Constants.id("block/furniture/kitchen_counter/cherry/cherry_kitchen_drawer"), Constants.id("block/furniture/kitchen_counter/cherry/cherry_kitchen_drawer_open"));
+        this.kitchenDrawer(ModBlocks.JUNGLE_KITCHEN_DRAWER.get(), Constants.id("block/furniture/kitchen_counter/jungle/jungle_kitchen_drawer"), Constants.id("block/furniture/kitchen_counter/jungle/jungle_kitchen_drawer_open"));
+        this.kitchenDrawer(ModBlocks.WARPED_KITCHEN_DRAWER.get(), Constants.id("block/furniture/kitchen_counter/warped/warped_kitchen_drawer"), Constants.id("block/furniture/kitchen_counter/warped/warped_kitchen_drawer_open"));
 
     }
 
