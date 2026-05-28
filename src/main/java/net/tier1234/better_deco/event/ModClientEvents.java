@@ -2,7 +2,6 @@ package net.tier1234.better_deco.event;
 
 import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.ClientPlayerNetworkEvent;
 import net.minecraftforge.client.event.ContainerScreenEvent;
 import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -12,12 +11,6 @@ import net.tier1234.better_deco.creative_tabs.BundledTabSelector;
 
 @Mod.EventBusSubscriber(modid = BetterDeco.MOD_ID, value = Dist.CLIENT)
 public class ModClientEvents {
-
-
-    @SubscribeEvent
-    public static void onPlayerJoinLevel(ClientPlayerNetworkEvent.LoggingIn event) {
-        BundledTabSelector.bootstrap();
-    }
 
     @SubscribeEvent
     public static void onContainerInit(ScreenEvent.Init.Post event) {

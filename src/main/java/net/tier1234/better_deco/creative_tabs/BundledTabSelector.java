@@ -6,6 +6,7 @@ import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
@@ -14,9 +15,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.event.ContainerScreenEvent;
 import net.minecraftforge.client.event.ScreenEvent;
-import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.mixin.access.CreativeModeInventoryScreenAccessor;
-import net.tier1234.better_deco.mixin.access.ScreenAccessor;
 
 import java.util.*;
 import java.util.function.Consumer;
@@ -50,7 +49,9 @@ public class BundledTabSelector {
     private List<BundledTabs> bundles = null;
     private CreativeModeTab lastTab;
 
-    private BundledTabSelector() {}
+    private BundledTabSelector() {
+
+    }
 
     public void init(ScreenEvent.Init.Post event) {
         Screen screen = event.getScreen();
@@ -63,7 +64,7 @@ public class BundledTabSelector {
 
             this.guiLeft = creativeScreen.getGuiLeft();
             this.guiTop = creativeScreen.getGuiTop();
-            this.injectWidgets(creativeScreen, widget -> ((ScreenAccessor) screen).callAddRenderableOnly(widget));
+            this.injectWidgets(creativeScreen, widget -> event.addListener(widget));
         }
     }
 

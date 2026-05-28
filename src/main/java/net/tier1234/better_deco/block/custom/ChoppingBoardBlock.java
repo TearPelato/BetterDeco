@@ -12,7 +12,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.tearpelato.deco_lib.api.block.furniture.FurnitureHorizontalBlock;
 
 import java.util.Map;
 
@@ -27,7 +26,6 @@ public class ChoppingBoardBlock extends FurnitureHorizontalBlock {
         this.registerDefaultState(this.stateDefinition.any().setValue(DIRECTION, Direction.NORTH));
     }
 
-    @Override
     protected Map<BlockState, VoxelShape> generateShapes(ImmutableList<BlockState> states) {
         return Map.of();
     }

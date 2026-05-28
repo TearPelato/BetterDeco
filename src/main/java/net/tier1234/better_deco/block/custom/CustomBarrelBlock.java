@@ -1,6 +1,5 @@
 package net.tier1234.better_deco.block.custom;
 
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -25,8 +24,8 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
-import net.tier1234.better_deco.block.entity.custom.CustomBarrelBlockEntity;
 import net.tier1234.better_deco.block.entity.ModBlockEntities;
+import net.tier1234.better_deco.block.entity.custom.CustomBarrelBlockEntity;
 
 public class CustomBarrelBlock extends BaseEntityBlock {
     //public static final MapCodec<CustomBarrelBlock> CODEC = simpleCodec(CustomBarrelBlock::new);

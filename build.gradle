@@ -1,6 +1,5 @@
 buildscript {
     repositories {
-        maven { url = 'https://maven.parchmentmc.org' }
         maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
         mavenCentral()
     }
@@ -14,8 +13,16 @@ plugins {
     id 'idea'
     id 'maven-publish'
     id 'net.minecraftforge.gradle' version '[6.0.16,6.2)'
-    id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
+
+def getGprUser() {
+    return project.findProperty('gpr.user') ?: System.getenv("GPR_USER")
+}
+
+def getGprKey() {
+    return project.findProperty('gpr.key') ?: System.getenv("GPR_KEY")
+}
+
 
 apply plugin: 'org.spongepowered.mixin'
 
@@ -31,7 +38,7 @@ java {
 }
 
 minecraft {
-    mappings channel: mapping_channel, version: mapping_version
+    mappings channel: 'official', version: '1.20.1'
     copyIdeResources = true
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
     runs {
@@ -107,12 +114,34 @@ repositories {
         url = "https://modmaven.dev"
     }
     maven {
+        name = "LiukRast"
         url = "https://maven.liukrast.net/"
     }
     maven {
+        name = "TearPelato"
         url = "https://maven.liukrast.net/tearpelato"
     }
-
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "MrCrayfish GitHub"
+                url = uri("https://maven.pkg.github.com/MrCrayfish/Maven")
+                credentials {
+                    username = getGprUser()
+                    password = getGprKey()
+                }
+            }
+        }
+        filter { includeGroup("com.mrcrayfish") }
+    }
+    repositories {
+        maven {
+            url "https://cursemaven.com"
+            content {
+                includeGroup "curse.maven"
+            }
+        }
+    }
 
 }
 
@@ -129,7 +158,7 @@ dependencies {
     compileOnly (fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"))
     compileOnly (fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"))
     runtimeOnly (fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}"))
-    implementation (fg.deobf("net.tearpelato:deco_lib-1.20.1:${deco_lib_version}"))
+    implementation "net.tearpelato:deco_lib-1.20.1:${deco_lib_version}"
     jarJar("net.tearpelato:deco_lib-1.20.1:${deco_lib_version}")
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 

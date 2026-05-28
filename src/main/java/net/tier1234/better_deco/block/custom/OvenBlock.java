@@ -20,8 +20,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.network.NetworkHooks;
-import net.tearpelato.deco_lib.api.block.furniture.FurnitureHorizontalBlock;
-import net.tearpelato.deco_lib.api.shape.VoxelShapeHelper;
+import net.tier1234.better_deco.util.VoxelShapeHelper;
 import net.tier1234.better_deco.block.entity.ModBlockEntities;
 import net.tier1234.better_deco.block.entity.custom.OvenBlockEntity;
 import org.jetbrains.annotations.Nullable;
@@ -38,7 +37,6 @@ public class OvenBlock extends FurnitureHorizontalBlock implements EntityBlock
         SHAPES = this.generateShapes(this.getStateDefinition().getPossibleStates());
     }
 
-    @Override
     protected ImmutableMap<BlockState, VoxelShape> generateShapes(ImmutableList<BlockState> states) {
 
         final VoxelShape[] BASE = VoxelShapeHelper.getRotatedShapes(
