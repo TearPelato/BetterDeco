@@ -6,7 +6,6 @@ import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
@@ -16,6 +15,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.event.ContainerScreenEvent;
 import net.minecraftforge.client.event.ScreenEvent;
 import net.tier1234.better_deco.mixin.access.CreativeModeInventoryScreenAccessor;
+import net.tier1234.better_deco.util.Constants;
 
 import java.util.*;
 import java.util.function.Consumer;
@@ -26,7 +26,7 @@ import java.util.function.Consumer;
  */
 public class BundledTabSelector {
     private static final ResourceLocation SELECTOR_BAR =
-            new ResourceLocation("better_deco","textures/gui/tab_selector/tab_selector.png");
+            Constants.id("textures/gui/tab_selector/tab_selector.png");
     private static final int VISIBLE_CATEGORIES = 5;
 
     private static BundledTabSelector instance;
@@ -49,18 +49,13 @@ public class BundledTabSelector {
     private List<BundledTabs> bundles = null;
     private CreativeModeTab lastTab;
 
-    private BundledTabSelector() {
-
-    }
+    private BundledTabSelector() {}
 
     public void init(ScreenEvent.Init.Post event) {
         Screen screen = event.getScreen();
         if (screen instanceof CreativeModeInventoryScreen creativeScreen) {
-            if (this.bundles == null) {
-                List<BundledTabs> bundles = new ArrayList<>(ModBundledTabs.getFilters());
-                Collections.reverse(bundles);
-                this.bundles = bundles;
-            }
+            if (this.bundles == null) this.bundles = new ArrayList<>(ModBundledTabs.getFilters());
+
 
             this.guiLeft = creativeScreen.getGuiLeft();
             this.guiTop = creativeScreen.getGuiTop();
@@ -224,7 +219,7 @@ public class BundledTabSelector {
         private void renderHighlight(GuiGraphics graphics) {
             if (this.isHovered() && !this.bundle.isSelected()) {
                 graphics.pose().pushPose();
-                graphics.pose().translate(0.0, 0.0, 200.0);
+                graphics.pose().translate(0.0, 0.0, 20.0);
                 RenderSystem.enableBlend();
                 RenderSystem.defaultBlendFunc();
                 graphics.blit(SELECTOR_BAR, this.getX(), this.getY(), 48, 48, 16, 16);
@@ -238,14 +233,17 @@ public class BundledTabSelector {
         private final int uOffset;
 
         public ScrollButton(int x, int y, int uOffset, OnPress onPress) {
-            super(x, y, 18, 20, Component.empty(), onPress, DEFAULT_NARRATION);
+            super(x, y, 18, 9, Component.empty(), onPress, DEFAULT_NARRATION);
             this.uOffset = uOffset;
         }
 
         @Override
         public void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
             int textureY = this.isHovered ? 17 : 6;
+            graphics.pose().popPose();
+            graphics.pose().translate(0.0, 0.0, 20.0);
             graphics.blit(SELECTOR_BAR, this.getX(), this.getY(), this.uOffset, textureY, 18, 9);
+            graphics.pose().pushPose();
         }
     }
 }
