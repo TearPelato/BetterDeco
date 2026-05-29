@@ -22,7 +22,7 @@ import org.joml.Matrix4f;
 public class FluidContainerRenderer {
 
     public static void drawContainer(Level level, BlockPos pos, @UnknownNullability KitchenSinkBlockEntity be, AABB box, PoseStack ms, MultiBufferSource buf, int light) {
-        FluidStack stack = be.getFluidStack();
+        FluidStack stack = be.getTank().getFluid();
         if (stack.isEmpty()) return;
 
         IClientFluidTypeExtensions ext = IClientFluidTypeExtensions.of(stack.getFluid());
@@ -48,7 +48,7 @@ public class FluidContainerRenderer {
         float b = FastColor.ARGB32.blue(color) / 255f;
         float a = 1.0f;*/
 
-        float fullness = (float) be.getFluidStack().getAmount() / be.getCapacity();
+        float fullness = (float) be.getTank().getFluid().getAmount() / be.getTank().getCapacity();
         float y = (float) box.minY + (float)(box.maxY - box.minY) * fullness;
         y = Math.min((float) box.maxY, Math.max((float) box.minY, y));
 

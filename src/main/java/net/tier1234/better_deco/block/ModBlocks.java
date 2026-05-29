@@ -1070,50 +1070,50 @@ public static final RegistryObject<Block> OAK_CRATE = registerBlock("oak_storage
 
 //Sinks
 public static final RegistryObject<Block> OAK_SINK = registerBlock("light_oak_sink",
-        () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+        () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(), true));
     public static final RegistryObject<Block> SPRUCE_SINK = registerBlock("light_spruce_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(), true));
     public static final RegistryObject<Block> BIRCH_SINK = registerBlock("light_birch_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(), true));
     public static final RegistryObject<Block> JUNGLE_SINK = registerBlock("light_jungle_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(), true));
     public static final RegistryObject<Block> ACACIA_SINK = registerBlock("light_acacia_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(), true));
     public static final RegistryObject<Block> MANGROVE_SINK = registerBlock("light_mangrove_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(), true));
     public static final RegistryObject<Block> DARK_OAK_SINK = registerBlock("light_dark_oak_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(), true));
     public static final RegistryObject<Block> CHERRY_SINK = registerBlock("light_cherry_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(), true));
     public static final RegistryObject<Block> BAMBOO_SINK = registerBlock("light_bamboo_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(), true));
     public static final RegistryObject<Block> CRIMSON_SINK = registerBlock("light_crimson_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(), true));
     public static final RegistryObject<Block> WARPED_SINK = registerBlock("light_warped_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(), true));
 
     public static final RegistryObject<Block> OAK_SINK_DARK = registerBlock("oak_sink_dark",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(), true));
     public static final RegistryObject<Block> SPRUCE_SINK_DARK = registerBlock("spruce_sink_dark",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(), true));
     public static final RegistryObject<Block> BIRCH_SINK_DARK = registerBlock("birch_sink_dark",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(), true));
     public static final RegistryObject<Block> JUNGLE_SINK_DARK = registerBlock("jungle_sink_dark",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(), true));
     public static final RegistryObject<Block> ACACIA_SINK_DARK = registerBlock("acacia_sink_dark",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(), true));
     public static final RegistryObject<Block> MANGROVE_SINK_DARK = registerBlock("mangrove_sink_dark",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(), true));
     public static final RegistryObject<Block> DARK_OAK_SINK_DARK = registerBlock("dark_oak_sink_dark",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(), true));
     public static final RegistryObject<Block> CHERRY_SINK_DARK= registerBlock("cherry_sink_dark",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.CHERRY_PLANKS)));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.CHERRY_PLANKS), true));
     public static final RegistryObject<Block> BAMBOO_SINK_DARK= registerBlock("bamboo_sink_dark",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(), true));
     public static final RegistryObject<Block> CRIMSON_SINK_DARK = registerBlock("crimson_sink_dark",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(), true));
     public static final RegistryObject<Block> WARPED_SINK_DARK = registerBlock("warped_sink_dark",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion()));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2f).noOcclusion(), true));
 
     //Colored Variants
     public static final RegistryObject<Block> RED_KITCHEN_COUNTER = registerBlock("red_kitchen_counter",
@@ -1220,37 +1220,37 @@ public static final RegistryObject<Block> OAK_SINK = registerBlock("light_oak_si
 
 
     public static final RegistryObject<Block> RED_SINK = registerBlock("red_sink",
-            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion()));
+            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), true));
     public static final RegistryObject<Block> YELLOW_SINK = registerBlock("yellow_sink",
-            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion()));
+            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), true));
     public static final RegistryObject<Block> ORANGE_SINK = registerBlock("orange_sink",
-            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion()));
+            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), true));
     public static final RegistryObject<Block> MAGENTA_SINK = registerBlock("magenta_sink",
-            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion()));
+            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), true));
     public static final RegistryObject<Block> PURPLE_SINK = registerBlock("purple_sink",
-            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion()));
+            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), true));
     public static final RegistryObject<Block> PINK_SINK = registerBlock("pink_sink",
-            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion()));
+            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), true));
     public static final RegistryObject<Block> BLUE_SINK = registerBlock("blue_sink",
-            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion()));
+            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), true));
     public static final RegistryObject<Block> LIGHT_BLUE_SINK = registerBlock("light_blue_sink",
-            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion()));
+            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), true));
     public static final RegistryObject<Block> CYAN_SINK = registerBlock("cyan_sink",
-            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion()));
+            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), true));
     public static final RegistryObject<Block> GREEN_SINK = registerBlock("green_sink",
-            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion()));
+            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), true));
     public static final RegistryObject<Block> LIME_SINK = registerBlock("lime_sink",
-            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion()));
+            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), true));
     public static final RegistryObject<Block> GRAY_SINK = registerBlock("gray_sink",
-            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion()));
+            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), true));
     public static final RegistryObject<Block> LIGHT_GRAY_SINK = registerBlock("light_gray_sink",
-            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion()));
+            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), true));
     public static final RegistryObject<Block> BLACK_SINK = registerBlock("black_sink",
-            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion()));
+            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), true));
     public static final RegistryObject<Block> BROWN_SINK = registerBlock("brown_sink",
-            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion()));
+            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), true));
     public static final RegistryObject<Block> WHITE_SINK = registerBlock("white_sink",
-            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion()));
+            ()-> new KitchenSinkBlock(BlockBehaviour.Properties.of().strength(2.5f).noOcclusion(), true));
 
 
     public static final RegistryObject<Block> RED_CABINET = registerBlock("red_cabinet",
