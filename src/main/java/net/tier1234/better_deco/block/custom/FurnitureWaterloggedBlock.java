@@ -9,7 +9,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import net.tearpelato.deco_lib.api.block.furniture.FurnitureBlock;
 
 public abstract class FurnitureWaterloggedBlock extends FurnitureBlock implements SimpleWaterloggedBlock
 {
