@@ -8,8 +8,8 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.tearpelato.deco_lib.api.util.BlockEntityUtil;
 import net.tier1234.better_deco.block.entity.ModBlockEntities;
+import net.tier1234.better_deco.util.BlockEntityUtil;
 import org.jetbrains.annotations.Nullable;
 
 public class DigitalClockBlockEntity extends BlockEntity {
@@ -55,7 +55,7 @@ public class DigitalClockBlockEntity extends BlockEntity {
     }
 
     public void sync() {
-        BlockEntityUtil.sendUpdate(this);
+        BlockEntityUtil.sendUpdatePacket(this);
         setChanged();
     }
 

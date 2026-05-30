@@ -14,7 +14,6 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.event.ContainerScreenEvent;
 import net.minecraftforge.client.event.ScreenEvent;
-import net.tier1234.better_deco.mixin.access.CreativeModeInventoryScreenAccessor;
 import net.tier1234.better_deco.util.Constants;
 
 import java.util.*;
@@ -67,7 +66,7 @@ public class BundledTabSelector {
         Screen screen = event.getContainerScreen();
         GuiGraphics graphics = event.getGuiGraphics();
         if (screen instanceof CreativeModeInventoryScreen creativeScreen) {
-            CreativeModeTab tab = CreativeModeInventoryScreenAccessor.getSelectedTab();
+            CreativeModeTab tab = CreativeModeInventoryScreen.selectedTab;
             graphics.pose().pushPose();
             graphics.pose().translate(0.0, 0.0, 0.0);
 
@@ -126,7 +125,7 @@ public class BundledTabSelector {
         widgets.accept(this.scrollDownButton);
 
         this.updateWidgets();
-        this.onSwitchCreativeTab(CreativeModeInventoryScreenAccessor.getSelectedTab(), screen);
+        this.onSwitchCreativeTab(CreativeModeInventoryScreen.selectedTab, screen);
     }
 
     private int getMaxScroll() {
@@ -172,7 +171,7 @@ public class BundledTabSelector {
             bundle.setVisible(true);
         }
 
-        boolean isValidTab = this.isValidTab(CreativeModeInventoryScreenAccessor.getSelectedTab());
+        boolean isValidTab = this.isValidTab(CreativeModeInventoryScreen.selectedTab);
 
         this.scrollUpButton.visible = isValidTab && this.scroll > 0;
         this.scrollDownButton.visible = isValidTab && this.scroll < this.getMaxScroll();
