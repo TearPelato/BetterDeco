@@ -1,7 +1,6 @@
 package net.tier1234.better_deco.compat.jei.category;
 
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
-import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
@@ -16,7 +15,6 @@ import net.tier1234.better_deco.compat.jei.category.core.FurnitureRecipeCategory
 import net.tier1234.better_deco.init.ModBlocks;
 import net.tier1234.better_deco.init.ModRecipes;
 import net.tier1234.better_deco.recipe.MicrowaveRecipe;
-import net.tier1234.better_deco.recipe.OvenRecipe;
 import net.tier1234.better_deco.util.Constants;
 import net.tier1234.better_deco.util.Utils;
 
@@ -44,6 +42,7 @@ public class MicrowaveCategory extends FurnitureRecipeCategory<MicrowaveRecipe> 
     {
         return Utils.translation("jei_category", "microwave_cooking");
     }
+
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, RecipeHolder<MicrowaveRecipe> holder, IFocusGroup focuses) {

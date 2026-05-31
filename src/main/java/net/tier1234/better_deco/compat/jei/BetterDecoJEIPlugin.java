@@ -51,92 +51,54 @@ public class BetterDecoJEIPlugin implements IModPlugin {
         registration.addRecipes(MicrowaveCategory.TYPE.get(), this.getRecipes(ModRecipes.MICROWAVE_TYPE.get()));
     }
 
-    //TODO use the new api system -> addRecipeCatalyst is marked for removal :(
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.OAK_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.SPRUCE_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.BIRCH_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.JUNGLE_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.ACACIA_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.DARK_OAK_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.MANGROVE_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.CHERRY_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.BAMBOO_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.CRIMSON_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.WARPED_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.OAK_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.SPRUCE_OVEN.get().asItem()));
+
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.BIRCH_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.JUNGLE_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.ACACIA_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.DARK_OAK_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.MANGROVE_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.CHERRY_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.BAMBOO_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.CRIMSON_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.WARPED_OVEN.get().asItem()));
         //Stripped
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.STRIPPED_OAK_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.STRIPPED_SPRUCE_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.STRIPPED_BIRCH_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.STRIPPED_JUNGLE_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.STRIPPED_ACACIA_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.STRIPPED_DARK_OAK_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.STRIPPED_MANGROVE_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.STRIPPED_CHERRY_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.STRIPPED_BAMBOO_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.STRIPPED_CRIMSON_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.STRIPPED_WARPED_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.STRIPPED_OAK_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.STRIPPED_SPRUCE_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.STRIPPED_BIRCH_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.STRIPPED_JUNGLE_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.STRIPPED_ACACIA_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.STRIPPED_DARK_OAK_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.STRIPPED_MANGROVE_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.STRIPPED_CHERRY_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.STRIPPED_BAMBOO_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.STRIPPED_CRIMSON_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.STRIPPED_WARPED_OVEN.get().asItem()));
 
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.RED_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.ORANGE_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.YELLOW_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.MAGENTA_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.PINK_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.PURPLE_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.GREEN_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.LIME_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.CYAN_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.LIGHT_BLUE_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.BLUE_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.WHITE_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.BROWN_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.BLACK_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.GRAY_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.LIGHT_GRAY_OVEN.get().asItem()),
-                OvenCategory.TYPE.get());
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.RED_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.ORANGE_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.YELLOW_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.MAGENTA_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.PINK_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.PURPLE_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.GREEN_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.LIME_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.CYAN_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.LIGHT_BLUE_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.BLUE_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.WHITE_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.BROWN_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.BLACK_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.GRAY_OVEN.get().asItem()));
+        registration.addCraftingStation(OvenCategory.TYPE.get(),new ItemStack(ModBlocks.LIGHT_GRAY_OVEN.get().asItem()));
 
 
 
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.LIGHT_MICROWAVE.get().asItem()), MicrowaveCategory.TYPE.get());
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.DARK_MICROWAVE.get().asItem()), MicrowaveCategory.TYPE.get());
+        registration.addCraftingStation(MicrowaveCategory.TYPE.get(),new ItemStack(ModBlocks.LIGHT_MICROWAVE.get().asItem()));
+        registration.addCraftingStation(MicrowaveCategory.TYPE.get(),new ItemStack(ModBlocks.DARK_MICROWAVE.get().asItem()));
     }
 
     private <C extends RecipeInput, T extends Recipe<C>> List<RecipeHolder<T>> getRecipes(RecipeType<T> type)
