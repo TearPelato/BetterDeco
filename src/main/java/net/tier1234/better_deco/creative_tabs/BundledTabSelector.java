@@ -17,7 +17,6 @@ import net.neoforged.neoforge.client.event.ScreenEvent;
 import net.tier1234.better_deco.init.ModBundledTabs;
 import net.tier1234.better_deco.init.ModCreativeTabs;
 import net.tier1234.better_deco.mixin.access.CreativeModeInventoryScreenAccessor;
-import net.tier1234.better_deco.mixin.access.ScreenAccessor;
 import org.joml.Matrix3x2f;
 
 import java.util.*;
@@ -60,9 +59,9 @@ public class BundledTabSelector {
             if (this.bundles == null) this.bundles = new  ArrayList<>(ModBundledTabs.getFilters());
 
 
-            this.guiLeft = creativeScreen.getGuiLeft();
-            this.guiTop = creativeScreen.getGuiTop();
-            this.injectWidgets(creativeScreen, widget -> ((ScreenAccessor) screen).callAddRenderableWidget(widget));
+            this.guiLeft = creativeScreen.getLeftPos();
+            this.guiTop = creativeScreen.getTopPos();
+            this.injectWidgets(creativeScreen, widget -> event.addListener(widget));
         }
     }
 
