@@ -1,0 +1,9 @@
+{
+  "type": "better_deco:oven",
+  "ingredients": [{
+    "item": "minecraft:potato"
+  }],
+  "output": {
+    "item": "minecraft:baked_potato"
+  }
+}

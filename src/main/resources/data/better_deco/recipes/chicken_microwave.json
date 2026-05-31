@@ -1,10 +1,10 @@
 {
   "type": "better_deco:microwave",
-  "ingredient": {
+  "ingredients": [{
     "item": "minecraft:chicken"
-  },
-  "result": {
-    "id": "minecraft:cooked_chicken",
+  }],
+  "output": {
+    "item": "minecraft:cooked_chicken",
     "count": 1
   },
   "cooking_time": 100

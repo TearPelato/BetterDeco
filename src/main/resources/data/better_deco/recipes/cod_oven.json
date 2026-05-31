@@ -1,0 +1,10 @@
+{
+  "type": "better_deco:oven",
+  "ingredients": [{
+    "item": "minecraft:cod"
+  }
+  ],
+  "output": {
+    "item": "minecraft:cooked_cod"
+  }
+}

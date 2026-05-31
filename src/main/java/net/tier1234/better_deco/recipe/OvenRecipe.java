@@ -12,58 +12,47 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import net.tier1234.better_deco.BetterDeco;
+import org.jetbrains.annotations.Nullable;
 
 public class OvenRecipe implements Recipe<SimpleContainer> {
-    private final ResourceLocation id;
+
     private final NonNullList<Ingredient> inputItems;
     private final ItemStack output;
+    private final ResourceLocation id;
 
-    public OvenRecipe(ResourceLocation id, NonNullList<Ingredient> inputItems, ItemStack output) {
-        this.id = id;
+
+    public OvenRecipe(NonNullList<Ingredient> inputItems, ItemStack output, ResourceLocation id) {
         this.inputItems = inputItems;
         this.output = output;
-    }
-
-    public NonNullList<Ingredient> getInputItems() {
-        return inputItems;
-    }
-
-    public ItemStack getOutput() {
-        return output;
+        this.id = id;
     }
 
     @Override
-    public boolean matches(SimpleContainer container, Level level) {
-        if (level.isClientSide()) {
+    public boolean matches(SimpleContainer pContainer, Level pLevel) {
+        if(pLevel.isClientSide())   {
             return false;
         }
-        // controlla 3 slot
-        for (int i = 0; i < 3; i++) {
-            if (!inputItems.get(i).test(container.getItem(i))) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    @Override
-    public ItemStack assemble(SimpleContainer container, RegistryAccess registryAccess) {
-        return output.copy();
-    }
-
-    @Override
-    public boolean canCraftInDimensions(int width, int height) {
-        return true;
-    }
-
-    @Override
-    public ItemStack getResultItem(RegistryAccess registryAccess) {
-        return output;
+        return inputItems.get(0).test(pContainer.getItem(0));
     }
 
     @Override
     public NonNullList<Ingredient> getIngredients() {
         return inputItems;
+    }
+
+    @Override
+    public ItemStack assemble(SimpleContainer pContainer, RegistryAccess pRegistryAccess) {
+        return output.copy();
+    }
+
+    @Override
+    public boolean canCraftInDimensions(int pWidth, int pHeight) {
+        return true;
+    }
+
+    @Override
+    public ItemStack getResultItem(RegistryAccess pRegistryAccess) {
+        return output.copy();
     }
 
     @Override
@@ -81,6 +70,7 @@ public class OvenRecipe implements Recipe<SimpleContainer> {
         return Type.INSTANCE;
     }
 
+
     public static class Type implements RecipeType<OvenRecipe> {
         public static final Type INSTANCE = new Type();
         public static final String ID = "oven";
@@ -91,35 +81,43 @@ public class OvenRecipe implements Recipe<SimpleContainer> {
         public static final ResourceLocation ID = new ResourceLocation(BetterDeco.MOD_ID, "oven");
 
         @Override
-        public OvenRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
-            ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "output"));
+        public OvenRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
 
-            JsonArray ingredients = GsonHelper.getAsJsonArray(json, "ingredients");
-            NonNullList<Ingredient> inputs = NonNullList.withSize(3, Ingredient.EMPTY);
+           ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "output"));
+            JsonArray ingredients = GsonHelper.getAsJsonArray(pSerializedRecipe, "ingredients");
+            NonNullList<Ingredient> inputs = NonNullList.withSize(1, Ingredient.EMPTY);
 
-            for (int i = 0; i < inputs.size(); i++) {
+
+            for(int i = 0; i < inputs.size(); i++) {
                 inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
+
             }
 
-            return new OvenRecipe(recipeId, inputs, output);
+
+            return new  OvenRecipe(inputs, output, pRecipeId);
         }
 
         @Override
-        public OvenRecipe fromNetwork(ResourceLocation recipeId, FriendlyByteBuf buf) {
-            NonNullList<Ingredient> inputs = NonNullList.withSize(3, Ingredient.EMPTY);
-            for (int i = 0; i < inputs.size(); i++) {
-                inputs.set(i, Ingredient.fromNetwork(buf));
+        public @Nullable OvenRecipe fromNetwork(ResourceLocation pRecipeId, FriendlyByteBuf pBuffer) {
+            NonNullList<Ingredient> inputs = NonNullList.withSize(pBuffer.readInt(), Ingredient.EMPTY);
+
+            for(int i = 0; i < inputs.size(); i++) {
+                inputs.set(i, Ingredient.fromNetwork(pBuffer));
             }
-            ItemStack result = buf.readItem();
-            return new OvenRecipe(recipeId, inputs, result);
+
+            ItemStack output = pBuffer.readItem();
+            return new OvenRecipe(inputs, output, pRecipeId);
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf buf, OvenRecipe recipe) {
-            for (Ingredient ing : recipe.inputItems) {
-                ing.toNetwork(buf);
+        public void toNetwork(FriendlyByteBuf pBuffer, OvenRecipe pRecipe) {
+            pBuffer.writeInt(pRecipe.inputItems.size());
+
+            for (Ingredient ingredient : pRecipe.getIngredients()) {
+                ingredient.toNetwork(pBuffer);
             }
-            buf.writeItem(recipe.output);
+
+            pBuffer.writeItemStack(pRecipe.getResultItem(null), false);
         }
     }
 }

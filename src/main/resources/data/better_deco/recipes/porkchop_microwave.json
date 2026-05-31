@@ -1,0 +1,9 @@
+{
+  "type": "better_deco:microwave",
+  "ingredients": [{
+    "item": "minecraft:porkchop"
+  }],
+  "output": {
+    "item": "minecraft:cooked_porkchop"
+  }
+}

@@ -9,7 +9,6 @@ import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.inventory.RecipeHolder;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.tier1234.better_deco.BetterDeco;
@@ -17,7 +16,6 @@ import net.tier1234.better_deco.block.ModBlocks;
 import net.tier1234.better_deco.compat.jei.category.MicrowaveRecipeCategory;
 import net.tier1234.better_deco.compat.jei.category.OvenRecipeCategory;
 import net.tier1234.better_deco.recipe.MicrowaveRecipe;
-import net.tier1234.better_deco.recipe.ModRecipes;
 import net.tier1234.better_deco.recipe.OvenRecipe;
 import net.tier1234.better_deco.screen.custom.MicrowaveScreen;
 import net.tier1234.better_deco.screen.custom.OvenScreen;
@@ -25,9 +23,7 @@ import net.tier1234.better_deco.screen.custom.OvenScreen;
 import java.util.List;
 
 @JeiPlugin
-public class JEIBetterDecoPlugin
-        implements IModPlugin
-{
+public class JEIBetterDecoPlugin implements IModPlugin {
     @Override
     public ResourceLocation getPluginUid() {
         return new ResourceLocation(BetterDeco.MOD_ID, "jei_plugin");
@@ -35,12 +31,9 @@ public class JEIBetterDecoPlugin
 
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
-        registration.addRecipeCategories(new OvenRecipeCategory(
-                registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new OvenRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
 
-        registration.addRecipeCategories(new MicrowaveRecipeCategory(
-                registration.getJeiHelpers().getGuiHelper()
-        ));
+        registration.addRecipeCategories(new MicrowaveRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
     }
 
     @Override

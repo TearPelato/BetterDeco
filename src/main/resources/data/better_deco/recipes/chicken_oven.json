@@ -1,0 +1,12 @@
+{
+  "type": "better_deco:oven",
+  "ingredients": [{
+    "item": "minecraft:chicken"
+
+   }
+  ],
+  "output": {
+    "count": 1,
+    "item": "minecraft:cooked_chicken"
+  }
+}

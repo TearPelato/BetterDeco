@@ -1,0 +1,9 @@
+{
+  "type": "better_deco:oven",
+  "ingredients": [{
+    "item": "minecraft:porkchop"
+  }],
+  "output": {
+    "item": "minecraft:cooked_porkchop"
+  }
+}
