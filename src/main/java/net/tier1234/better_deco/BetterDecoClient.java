@@ -29,7 +29,9 @@ import net.tier1234.better_deco.screen.custom.*;
 @EventBusSubscriber(modid = BetterDeco.MOD_ID, value = Dist.CLIENT)
 public class BetterDecoClient {
     public BetterDecoClient(ModContainer container) {
-        container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
+        if(!ModList.get().isLoaded("configured")){
+            container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
+        }
     }
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
