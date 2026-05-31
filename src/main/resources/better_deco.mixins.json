@@ -7,8 +7,7 @@
   "mixins": [
   ],
   "client": [
-    "access.CreativeModeInventoryScreenAccessor",
-    "access.ScreenAccessor"
+    "access.CreativeModeInventoryScreenAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
