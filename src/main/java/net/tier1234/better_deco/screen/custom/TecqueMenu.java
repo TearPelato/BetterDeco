@@ -9,10 +9,9 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.neoforged.neoforge.items.SlotItemHandler;
 import net.neoforged.neoforge.transfer.item.ResourceHandlerSlot;
-import net.tier1234.better_deco.init.ModBlocks;
 import net.tier1234.better_deco.block.entity.custom.TecqueBlockEntity;
+import net.tier1234.better_deco.init.ModBlocks;
 import net.tier1234.better_deco.init.ModMenuTypes;
 
 public class TecqueMenu extends AbstractContainerMenu {

@@ -21,7 +21,7 @@ public class DataGenerators {
     public static void gatherClientData(GatherDataEvent.Client event) {
         DataGenerator generator = event.getGenerator();
         PackOutput packOutput = generator.getPackOutput();
-        CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
+        var lookupProvider = event.getLookupProvider();
 
         generator.addProvider(true , new LootTableProvider(packOutput, Collections.emptySet(),
                 List.of(new LootTableProvider.SubProviderEntry(ModBlockLootTableProvider::new, LootContextParamSets.BLOCK)), lookupProvider));
@@ -29,19 +29,9 @@ public class DataGenerators {
 
         BlockTagsProvider blockTagsProvider = new ModBlockTagProvider(packOutput, lookupProvider);
         generator.addProvider(true, blockTagsProvider);
-    }
-    @SubscribeEvent
-    public static void gatherServerData(GatherDataEvent.Server event) {
-        DataGenerator generator = event.getGenerator();
-        PackOutput packOutput = generator.getPackOutput();
-        CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
+        generator.addProvider(true, new ModItemTagProvider(packOutput, lookupProvider));
 
-        generator.addProvider(true, new LootTableProvider(packOutput, Collections.emptySet(),
-                List.of(new LootTableProvider.SubProviderEntry(ModBlockLootTableProvider::new, LootContextParamSets.BLOCK)), lookupProvider));
-        generator.addProvider(true, new ModRecipeProvider.Runner(packOutput, lookupProvider));
-
-        BlockTagsProvider blockTagsProvider = new ModBlockTagProvider(packOutput, lookupProvider);
-        generator.addProvider(true, blockTagsProvider);
     }
+
 
     }

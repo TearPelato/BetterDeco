@@ -1,17 +1,9 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "misc",
-  "key": {
-    "#": "minecraft:netherite_ingot",
-    "B": "minecraft:stick"
-  },
-  "pattern": [
-    "   ",
-    " # ",
-    "B  "
-  ],
+  "type": "minecraft:smithing_transform",
+  "addition": "minecraft:netherite_ingot",
+  "base": "better_deco:diamond_chisel",
   "result": {
-    "count": 1,
     "id": "better_deco:netherite_chisel"
-  }
+  },
+  "template": "minecraft:netherite_upgrade_smithing_template"
 }

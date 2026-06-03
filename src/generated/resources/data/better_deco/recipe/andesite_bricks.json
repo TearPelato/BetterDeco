@@ -2,7 +2,6 @@
   "type": "minecraft:stonecutting",
   "ingredient": "minecraft:andesite",
   "result": {
-    "count": 1,
     "id": "better_deco:andesite_bricks"
   }
 }
