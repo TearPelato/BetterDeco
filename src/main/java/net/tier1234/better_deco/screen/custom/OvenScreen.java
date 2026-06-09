@@ -5,6 +5,7 @@ import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Inventory;
 import net.tier1234.better_deco.BetterDeco;
 
@@ -14,6 +15,8 @@ public class OvenScreen extends AbstractContainerScreen<OvenMenu> {
             Identifier.fromNamespaceAndPath(BetterDeco.MOD_ID,"textures/gui/oven/oven.png");
     private static final Identifier ARROW_TEXTURE =
             Identifier.fromNamespaceAndPath(BetterDeco.MOD_ID,"textures/gui/arrow_progress_3.png");
+    private static final Identifier LIT_PROGRESS_SPRITE = Identifier.withDefaultNamespace("container/furnace/lit_progress");
+
     private int GUIimageWidht = this.imageWidth;
     private int GUIimageHeight = this.imageHeight;
 
@@ -40,6 +43,7 @@ public class OvenScreen extends AbstractContainerScreen<OvenMenu> {
         graphics.blit(RenderPipelines.GUI_TEXTURED,GUI_TEXTURE, x, y, 0, 0, imageWidth, GUIimageHeight, 256,256);
 
         renderProgressArrows(graphics, x, y);
+        renderBrunProgress(graphics, x, y);
     }
 
 
@@ -47,6 +51,19 @@ public class OvenScreen extends AbstractContainerScreen<OvenMenu> {
     public void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float a) {
         super.extractContents(graphics, mouseX, mouseY, a);
         this.extractTooltip(graphics, mouseX, mouseY);
+    }
+
+
+    private void renderBrunProgress(GuiGraphicsExtractor graphics, int x, int y) {
+        int xLeft = this.getLeftPos();
+        int yTop = this.getTopPos();
+
+        if (this.menu.isBurning()) {
+            int litSpriteHeight = 14;
+            int litProgressHeight = Mth.ceil(this.menu.getBurnProgress() * 13.0F) + 1;
+            graphics.blitSprite(RenderPipelines.GUI_TEXTURED, LIT_PROGRESS_SPRITE, 14, 14, 0, 14 - litProgressHeight, xLeft + 42, yTop + 10 + 14 - litProgressHeight, 14, litProgressHeight);
+        }
+
     }
 
 

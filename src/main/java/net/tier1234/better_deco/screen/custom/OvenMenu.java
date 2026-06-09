@@ -2,16 +2,19 @@ package net.tier1234.better_deco.screen.custom;
 
 
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.neoforged.neoforge.transfer.item.ResourceHandlerSlot;
-import net.tier1234.better_deco.init.ModBlocks;
 import net.tier1234.better_deco.block.entity.custom.OvenBlockEntity;
+import net.tier1234.better_deco.init.ModBlocks;
 import net.tier1234.better_deco.init.ModMenuTypes;
+import net.tier1234.better_deco.screen.slot.OvenFuelSlot;
 import net.tier1234.better_deco.screen.slot.OvenOutputSlot;
 
 public class OvenMenu extends AbstractContainerMenu {
@@ -20,7 +23,7 @@ public class OvenMenu extends AbstractContainerMenu {
     private final ContainerData data;
 
     public OvenMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
-        this(pContainerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(3));
+        this(pContainerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(5));
     }
 
     public OvenMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
@@ -42,6 +45,9 @@ public class OvenMenu extends AbstractContainerMenu {
         this.addSlot(new OvenOutputSlot(blockEntity.itemHandler,this.blockEntity.itemHandler::set, 4, 78, 44));
         this.addSlot(new OvenOutputSlot(blockEntity.itemHandler,this.blockEntity.itemHandler::set,5, 96, 44));
 
+        //Fuel Slot
+        this.addSlot(new OvenFuelSlot(this, this.blockEntity.itemHandler, this.blockEntity.itemHandler::set, 6, 42,26));
+
         addDataSlots(data);
     }
 
@@ -59,6 +65,20 @@ public class OvenMenu extends AbstractContainerMenu {
         return maxProgress != 0 && progress != 0 ? progress * arrowPixelSize / maxProgress : 0;
     }
 
+    public float getBurnProgress() {
+        int litDuration = this.data.get(3);
+        if (litDuration == 0) {
+            litDuration = 200;
+        }
+
+        return Mth.clamp((float)this.data.get(3) / (float)litDuration, 0.0F, 1.0F);
+    }
+
+
+    public boolean isBurning() {
+        return this.data.get(3) > 0;
+    }
+
     private static final int HOTBAR_SLOT_COUNT = 9;
     private static final int PLAYER_INVENTORY_ROW_COUNT = 3;
     private static final int PLAYER_INVENTORY_COLUMN_COUNT = 9;
@@ -67,7 +87,7 @@ public class OvenMenu extends AbstractContainerMenu {
     private static final int VANILLA_FIRST_SLOT_INDEX = 0;
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
-    private static final int TE_INVENTORY_SLOT_COUNT = 6;
+    private static final int TE_INVENTORY_SLOT_COUNT = 7;
 
     @Override
     public ItemStack quickMoveStack(Player playerIn, int pIndex) {
@@ -76,24 +96,25 @@ public class OvenMenu extends AbstractContainerMenu {
         ItemStack sourceStack = sourceSlot.getItem();
         ItemStack copyOfSourceStack = sourceStack.copy();
 
+        int teStart = TE_INVENTORY_FIRST_SLOT_INDEX;
+        int teEnd = teStart + TE_INVENTORY_SLOT_COUNT;
+
         if (pIndex < VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT) {
-            if (!moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX, TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT, false)) {
+            if (!moveItemStackTo(sourceStack, teStart, teStart + 3, false) &&
+                    !moveItemStackTo(sourceStack, teStart + 6, teStart + 7, false)) {
                 return ItemStack.EMPTY;
             }
-        } else if (pIndex < TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT) {
-            if (!moveItemStackTo(sourceStack, VANILLA_FIRST_SLOT_INDEX, VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT, false)) {
+        } else if (pIndex < teEnd) {
+            if (!moveItemStackTo(sourceStack, VANILLA_FIRST_SLOT_INDEX,
+                    VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT, false)) {
                 return ItemStack.EMPTY;
             }
         } else {
-            System.out.println("Invalid slotIndex:" + pIndex);
             return ItemStack.EMPTY;
         }
 
-        if (sourceStack.getCount() == 0) {
-            sourceSlot.set(ItemStack.EMPTY);
-        } else {
-            sourceSlot.setChanged();
-        }
+        if (sourceStack.getCount() == 0) sourceSlot.set(ItemStack.EMPTY);
+        else sourceSlot.setChanged();
         sourceSlot.onTake(playerIn, sourceStack);
         return copyOfSourceStack;
     }
@@ -170,4 +191,8 @@ public class OvenMenu extends AbstractContainerMenu {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 151));
         }
     }
+    public boolean isFuelItem(ItemStack stack) {
+        return stack.getBurnTime(RecipeType.SMELTING, this.level.fuelValues()) > 0;
+    }
+
 }

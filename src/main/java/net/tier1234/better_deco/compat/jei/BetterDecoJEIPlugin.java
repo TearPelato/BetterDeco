@@ -3,6 +3,7 @@ package net.tier1234.better_deco.compat.jei;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.helpers.IGuiHelper;
+import mezz.jei.api.registration.IGuiHandlerRegistration;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
@@ -19,6 +20,7 @@ import net.tier1234.better_deco.compat.jei.category.OvenCategory;
 import net.tier1234.better_deco.compat.jei.category.core.SyncedRecipes;
 import net.tier1234.better_deco.init.ModBlocks;
 import net.tier1234.better_deco.init.ModRecipes;
+import net.tier1234.better_deco.screen.custom.OvenScreen;
 import net.tier1234.better_deco.util.Constants;
 
 import java.text.DecimalFormat;
@@ -99,6 +101,12 @@ public class BetterDecoJEIPlugin implements IModPlugin {
 
         registration.addCraftingStation(MicrowaveCategory.TYPE.get(),new ItemStack(ModBlocks.LIGHT_MICROWAVE.get().asItem()));
         registration.addCraftingStation(MicrowaveCategory.TYPE.get(),new ItemStack(ModBlocks.DARK_MICROWAVE.get().asItem()));
+    }
+
+    @Override
+    public void registerGuiHandlers(IGuiHandlerRegistration registration) {
+        registration.addRecipeClickArea(OvenScreen.class, 74, 30, 22, 20,
+                OvenCategory.TYPE.get());
     }
 
     private <C extends RecipeInput, T extends Recipe<C>> List<RecipeHolder<T>> getRecipes(RecipeType<T> type)

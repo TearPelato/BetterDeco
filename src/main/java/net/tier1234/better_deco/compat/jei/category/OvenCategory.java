@@ -2,6 +2,7 @@ package net.tier1234.better_deco.compat.jei.category;
 
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
+import mezz.jei.api.gui.drawable.IDrawableAnimated;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
@@ -11,7 +12,10 @@ import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.display.FurnaceRecipeDisplay;
+import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.compat.jei.category.core.FurnitureRecipeCategory;
 import net.tier1234.better_deco.init.ModBlocks;
 import net.tier1234.better_deco.init.ModRecipes;
@@ -21,13 +25,12 @@ import net.tier1234.better_deco.util.Utils;
 
 import java.util.function.Supplier;
 
-public class OvenCategory extends FurnitureRecipeCategory<OvenRecipe>
-{
+public class OvenCategory extends FurnitureRecipeCategory<OvenRecipe> {
+
     public static final Supplier<IRecipeHolderType<OvenRecipe>> TYPE = IRecipeHolderType.createDeferred(ModRecipes.OVEN_TYPE::get);
     public static final Identifier TEXTURE = Constants.id("textures/gui/oven/oven_jei_2.png");
-    //TODO add arrow texture render
-    public static final Identifier ARROW_TEXTURE = Constants.id("textures/gui/oven/oven_jei_1.png");
-
+    private static final Identifier ARROW_TEXTURE =
+            Identifier.fromNamespaceAndPath(BetterDeco.MOD_ID,"textures/gui/arrow_progress_3.png");
     private final IGuiHelper helper;
     private IDrawable arrow;
 
@@ -52,6 +55,8 @@ public class OvenCategory extends FurnitureRecipeCategory<OvenRecipe>
         OvenRecipe recipe = holder.value();
         builder.addSlot(RecipeIngredientRole.INPUT, 78, 17).add(recipe.ingredient);
         builder.addSlot(RecipeIngredientRole.OUTPUT, 78, 53).add(recipe.output);
+        builder.addSlot(RecipeIngredientRole.RENDER_ONLY, 42, 35).add(new ItemStack(Items.COAL));
+
     }
 
     @Override
