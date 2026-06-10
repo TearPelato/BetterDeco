@@ -128,7 +128,7 @@ public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
             int extracted = itemHandler.extract(SLOT_INPUT, inputResource, 1, tx);
             if(extracted != 1) return;
 
-            int inserted = itemHandler.insert(SLOT_INPUT, outputResource, output.getCount(), tx);
+            int inserted = itemHandler.insert(SLOT_OUTPUT, outputResource, output.getCount(), tx);
             if(inserted != output.getCount()) return;
 
             tx.commit();

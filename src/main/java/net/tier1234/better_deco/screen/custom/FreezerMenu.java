@@ -14,6 +14,7 @@ import net.tier1234.better_deco.init.ModBlocks;
 import net.tier1234.better_deco.block.entity.custom.FreezerBlockEntity;
 import net.tier1234.better_deco.init.ModMenuTypes;
 import net.tier1234.better_deco.screen.slot.FreezerFuelSlot;
+import net.tier1234.better_deco.screen.slot.FreezerOutputSlot;
 import net.tier1234.better_deco.util.ModTags;
 
 public class FreezerMenu extends AbstractContainerMenu {
@@ -32,8 +33,8 @@ public class FreezerMenu extends AbstractContainerMenu {
         this.data = data;
 
         this.addSlot(new ResourceHandlerSlot(blockEntity.itemHandler,this.blockEntity.itemHandler::set, 0, 56, 17));//input
-        this.addSlot(new ResourceHandlerSlot(blockEntity.itemHandler,this.blockEntity.itemHandler::set, 1, 116, 35));//output
-        //this.addSlot(new FreezerFuelSlot(this,blockEntity.itemHandler,this.blockEntity.itemHandler::set, 2, 56, 53));//fuel
+        this.addSlot(new FreezerOutputSlot(blockEntity.itemHandler,this.blockEntity.itemHandler::set, 1, 116, 35));//output
+        this.addSlot(new FreezerFuelSlot(this,blockEntity.itemHandler,this.blockEntity.itemHandler::set, 2, 56, 53));//fuel
 
         addPlayerInventory(inv);
         addPlayerHotbar(inv);

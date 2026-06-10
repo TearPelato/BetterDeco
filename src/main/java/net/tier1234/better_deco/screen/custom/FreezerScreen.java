@@ -45,7 +45,7 @@ public class FreezerScreen extends AbstractContainerScreen<FreezerMenu> {
 
     private void renderProgressArrow(GuiGraphicsExtractor graphicsExtractor, int x, int y) {
         if(menu.isCrafting()) {
-            graphicsExtractor.blit(RenderPipelines.GUI_TEXTURED,ARROW_TEXTURE,x + 73, y + 35, 0, 0, menu.getScaledArrowProgress(), 16, 24, 16);
+            graphicsExtractor.blit(RenderPipelines.GUI_TEXTURED,ARROW_TEXTURE,x + 79, y + 35, 0, 0, menu.getScaledArrowProgress(), 16, 24, 16);
         }
     }
 

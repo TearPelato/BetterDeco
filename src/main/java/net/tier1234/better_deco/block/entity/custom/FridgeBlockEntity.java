@@ -10,7 +10,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.tearpelato.deco_lib.api.block_entity.BasicLootBlockEntity;
-import net.tier1234.better_deco.block.custom.FridgeBlock;
 import net.tier1234.better_deco.init.ModBlockEntities;
 
 public class FridgeBlockEntity extends BasicLootBlockEntity
@@ -43,13 +42,4 @@ public class FridgeBlockEntity extends BasicLootBlockEntity
         return new ChestMenu(MenuType.GENERIC_9x3, windowId, playerInventory, this, 3);
     }
 
-
-    private void setDoorState(BlockState state, boolean open)
-    {
-        Level level = this.getLevel();
-        if(level != null)
-        {
-            level.setBlock(this.getBlockPos(), state.setValue(FridgeBlock.OPEN, open), 3);
-        }
-    }
 }
