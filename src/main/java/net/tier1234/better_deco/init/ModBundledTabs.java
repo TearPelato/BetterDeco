@@ -671,19 +671,6 @@ public class ModBundledTabs {
                         output.accept(ModBlocks.BIG_CHAIN);
                         output.accept(ModBlocks.WALL_LANTERN);
 
-                        output.accept(ModBlocks.COPPER_LANTERN);
-                        output.accept(ModBlocks.EXPOSED_LANTERN);
-                        output.accept(ModBlocks.WEATHERED_LANTERN);
-                        output.accept(ModBlocks.OXIDIZED_LANTERN);
-
-                        output.accept(ModBlocks.WAXED_COPPER_LANTERN);
-                        output.accept(ModBlocks.WAXED_EXPOSED_LANTERN);
-                        output.accept(ModBlocks.WAXED_WEATHERED_LANTERN);
-                        output.accept(ModBlocks.WAXED_OXIDIZED_LANTERN);
-
-
-
-
 
 
 

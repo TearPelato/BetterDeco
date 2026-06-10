@@ -458,11 +458,6 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                   .add(ModBlocks.DEEPSLATE_TILES_DRAWER.get())
                   .add(ModBlocks.BLACKSTONE_DRAWER.get())
 
-          //Copper Lantern
-                  .add(ModBlocks.COPPER_LANTERN.get())
-                  .add(ModBlocks.EXPOSED_LANTERN.get())
-                  .add(ModBlocks.WEATHERED_LANTERN.get())
-                  .add(ModBlocks.OXIDIZED_LANTERN.get())
           //UTILITIES
                   .add(ModBlocks.BIG_CHAIN.get())
                   .add(ModBlocks.WALL_LANTERN.get())

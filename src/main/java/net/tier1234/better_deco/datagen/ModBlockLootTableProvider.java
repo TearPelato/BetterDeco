@@ -473,19 +473,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.CRIMSON_SHELF.get());
         dropSelf(ModBlocks.WARPED_SHELF.get());
 
-        //Copper Lantern
-        dropSelf(ModBlocks.COPPER_LANTERN.get());
-        dropSelf(ModBlocks.EXPOSED_LANTERN.get());
-        dropSelf(ModBlocks.WEATHERED_LANTERN.get());
-        dropSelf(ModBlocks.OXIDIZED_LANTERN.get());
-
-        //Waxed Copper Lantern
-        dropSelf(ModBlocks.WAXED_COPPER_LANTERN.get());
-        dropSelf(ModBlocks.WAXED_EXPOSED_LANTERN.get());
-        dropSelf(ModBlocks.WAXED_WEATHERED_LANTERN.get());
-        dropSelf(ModBlocks.WAXED_OXIDIZED_LANTERN.get());
-
-
      // Vertical slab
         add(ModBlocks.OAK_VERTICAL_SLAB.get(),
                 block -> createSlabItemTable(ModBlocks.OAK_VERTICAL_SLAB.get()));
