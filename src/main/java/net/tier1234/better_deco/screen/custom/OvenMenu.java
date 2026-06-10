@@ -192,7 +192,7 @@ public class OvenMenu extends AbstractContainerMenu {
         }
     }
     public boolean isFuelItem(ItemStack stack) {
-        return stack.getBurnTime(RecipeType.SMELTING, this.level.fuelValues()) > 0;
+        return stack.getBurnTime(RecipeType.SMOKING, this.level.fuelValues()) > 0;
     }
 
 }
