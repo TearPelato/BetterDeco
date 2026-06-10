@@ -1,37 +1,35 @@
 package net.tier1234.better_deco.recipe;
 
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.core.NonNullList;
 import net.minecraft.network.RegistryFriendlyByteBuf;
-import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import net.tier1234.better_deco.init.ModRecipes;
 
-public record FreezerRecipe(Ingredient inputItem, ItemStack output, int freezeTime)
-        implements Recipe<FreezerRecipeInput> {
+public class FreezerRecipe implements Recipe<SingleRecipeInput> {
 
 
-    public NonNullList<Ingredient> getIngredients() {
-        NonNullList<Ingredient> list = NonNullList.create();
-        list.add(inputItem);
-        return list;
-    }
+    public final Ingredient ingredient;
+    public final ItemStackTemplate output;
 
-    @Override
-    public boolean matches(FreezerRecipeInput recipeInput, Level level) {
-        if (level.isClientSide()) return false;
-        return inputItem.test(recipeInput.getItem(0));
+    public FreezerRecipe(Ingredient input, ItemStackTemplate output) {
+        this.ingredient = input;
+        this.output = output;
     }
 
 
     @Override
-    public ItemStack assemble(FreezerRecipeInput recipeInput) {
-        return output.copy();
+    public boolean matches(SingleRecipeInput singleItemRecipe, Level level) {
+        return ingredient.test(singleItemRecipe.item());
+    }
+
+    @Override
+    public ItemStack assemble(SingleRecipeInput singleItemRecipe) {
+        return output.create();
     }
 
     @Override
@@ -44,70 +42,41 @@ public record FreezerRecipe(Ingredient inputItem, ItemStack output, int freezeTi
         return "";
     }
 
-
     @Override
-    public RecipeSerializer<? extends Recipe<FreezerRecipeInput>> getSerializer() {
+    public RecipeSerializer<? extends Recipe<SingleRecipeInput>> getSerializer() {
         return ModRecipes.FREEZER_SERIALIZER.get();
     }
 
     @Override
-    public RecipeType<? extends Recipe<FreezerRecipeInput>> getType() {
+    public RecipeType<? extends Recipe<SingleRecipeInput>> getType() {
         return ModRecipes.FREEZER_TYPE.get();
     }
 
     @Override
     public PlacementInfo placementInfo() {
-        return PlacementInfo.create(inputItem);
+        return PlacementInfo.create(ingredient);
     }
 
     @Override
     public RecipeBookCategory recipeBookCategory() {
-        return RecipeBookCategories.CRAFTING_MISC;
+        return null;
     }
 
+    public static final MapCodec<FreezerRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+            Ingredient.CODEC.fieldOf("ingredient").forGetter(recipe -> recipe.ingredient),
+            ItemStackTemplate.CODEC.fieldOf("result").forGetter(recipe-> recipe.output)
+    ).apply(instance, FreezerRecipe::new));
 
-    public int getFreezeTime() {
-        return freezeTime;
+    public static final StreamCodec<RegistryFriendlyByteBuf, FreezerRecipe> STREAM_CODEC = StreamCodec.of(FreezerRecipe::toNetwork,
+            FreezerRecipe::fromNetwork);
+
+    private static FreezerRecipe fromNetwork(RegistryFriendlyByteBuf buf) {
+        final var ingredient = Ingredient.CONTENTS_STREAM_CODEC.decode(buf);
+        final var resultItem = ItemStackTemplate.STREAM_CODEC.decode(buf);
+        return new FreezerRecipe(ingredient, resultItem);
     }
-
-    public static final MapCodec<FreezerRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
-            Ingredient.CODEC.fieldOf("ingredient").forGetter(FreezerRecipe::inputItem),
-            ItemStack.CODEC.fieldOf("result").forGetter(FreezerRecipe::output),
-            Codec.INT.optionalFieldOf("freezeTime", 200).forGetter(FreezerRecipe::getFreezeTime)
-    ).apply(inst, FreezerRecipe::new));
-
-    public static final StreamCodec<RegistryFriendlyByteBuf, FreezerRecipe> STREAM_CODEC =
-            StreamCodec.composite(
-                    Ingredient.CONTENTS_STREAM_CODEC, FreezerRecipe::inputItem,
-                    ItemStack.STREAM_CODEC, FreezerRecipe::output,
-                    ByteBufCodecs.VAR_INT, FreezerRecipe::getFreezeTime,
-                    FreezerRecipe::new
-            );
-
-
-  /*  public static class Serializer implements RecipeSerializer<FreezerRecipe> {
-        public static final MapCodec<FreezerRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
-                Ingredient.CODEC.fieldOf("ingredient").forGetter(FreezerRecipe::inputItem),
-                ItemStack.CODEC.fieldOf("result").forGetter(FreezerRecipe::output),
-                Codec.INT.optionalFieldOf("freezeTime", 200).forGetter(FreezerRecipe::getFreezeTime)
-        ).apply(inst, FreezerRecipe::new));
-
-        public static final StreamCodec<RegistryFriendlyByteBuf, FreezerRecipe> STREAM_CODEC =
-                StreamCodec.composite(
-                        Ingredient.CONTENTS_STREAM_CODEC, FreezerRecipe::inputItem,
-                        ItemStack.STREAM_CODEC, FreezerRecipe::output,
-                        ByteBufCodecs.VAR_INT, FreezerRecipe::getFreezeTime,
-                        FreezerRecipe::new
-                );
-
-        @Override
-        public MapCodec<FreezerRecipe> codec() {
-            return CODEC;
-        }
-
-        @Override
-        public StreamCodec<RegistryFriendlyByteBuf, FreezerRecipe> streamCodec() {
-            return STREAM_CODEC;
-        }
-    }*/
+    private static void toNetwork(RegistryFriendlyByteBuf buf, FreezerRecipe recipe) {
+        Ingredient.CONTENTS_STREAM_CODEC.encode(buf, recipe.ingredient);
+        ItemStackTemplate.STREAM_CODEC.encode(buf, recipe.output);
+    }
 }

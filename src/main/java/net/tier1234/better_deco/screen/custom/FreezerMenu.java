@@ -2,6 +2,7 @@
 package net.tier1234.better_deco.screen.custom;
 
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
@@ -12,6 +13,8 @@ import net.neoforged.neoforge.transfer.item.ResourceHandlerSlot;
 import net.tier1234.better_deco.init.ModBlocks;
 import net.tier1234.better_deco.block.entity.custom.FreezerBlockEntity;
 import net.tier1234.better_deco.init.ModMenuTypes;
+import net.tier1234.better_deco.screen.slot.FreezerFuelSlot;
+import net.tier1234.better_deco.util.ModTags;
 
 public class FreezerMenu extends AbstractContainerMenu {
     public final FreezerBlockEntity blockEntity;
@@ -19,7 +22,7 @@ public class FreezerMenu extends AbstractContainerMenu {
     private final ContainerData data;
 
     public FreezerMenu(int containerId, Inventory inv, FriendlyByteBuf extraData) {
-        this(containerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(2));
+        this(containerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(3));
     }
 
     public FreezerMenu(int containerId, Inventory inv, BlockEntity entity, ContainerData data) {
@@ -28,8 +31,9 @@ public class FreezerMenu extends AbstractContainerMenu {
         this.level = inv.player.level();
         this.data = data;
 
-        this.addSlot(new ResourceHandlerSlot(blockEntity.itemHandler,this.blockEntity.itemHandler::set, 0, 56, 17)); // Input
-        this.addSlot(new ResourceHandlerSlot(blockEntity.itemHandler,this.blockEntity.itemHandler::set, 2, 116, 35)); // Output
+        this.addSlot(new ResourceHandlerSlot(blockEntity.itemHandler,this.blockEntity.itemHandler::set, 0, 56, 17));//input
+        this.addSlot(new ResourceHandlerSlot(blockEntity.itemHandler,this.blockEntity.itemHandler::set, 1, 116, 35));//output
+        //this.addSlot(new FreezerFuelSlot(this,blockEntity.itemHandler,this.blockEntity.itemHandler::set, 2, 56, 53));//fuel
 
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
@@ -37,11 +41,12 @@ public class FreezerMenu extends AbstractContainerMenu {
         addDataSlots(data);
     }
 
-    public boolean isFreezing() {
+
+    public boolean isCrafting() {
         return data.get(0) > 0;
     }
 
-    public int getScaledProgress() {
+    public int getScaledArrowProgress() {
         int progress = this.data.get(0);
         int maxProgress = this.data.get(1);
         int arrowPixelSize = 24;
@@ -111,5 +116,6 @@ public class FreezerMenu extends AbstractContainerMenu {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
         }
     }
+
 }
 

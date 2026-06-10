@@ -11,16 +11,16 @@ import net.tier1234.better_deco.BetterDeco;
 public class FreezerScreen extends AbstractContainerScreen<FreezerMenu> {
     private static final Identifier GUI_TEXTURE =
             Identifier.fromNamespaceAndPath(BetterDeco.MOD_ID, "textures/gui/freezer/freezer.png");
+     private static final Identifier ARROW_TEXTURE =
+            Identifier.fromNamespaceAndPath(BetterDeco.MOD_ID,"textures/gui/arrow_progress.png");
 
     public FreezerScreen(FreezerMenu menu, Inventory playerInventory, Component title) {
         super(menu, playerInventory, title);
-
     }
 
     @Override
     protected void extractLabels(GuiGraphicsExtractor graphics, int xm, int ym) {
         super.extractLabels(graphics, xm, ym);
-
         graphics.text(this.font, this.playerInventoryTitle, 8, this.imageHeight - 94, 4210752, false);
         graphics.text(this.font, this.title, 60, 6, 4210752, false);
     }
@@ -32,6 +32,8 @@ public class FreezerScreen extends AbstractContainerScreen<FreezerMenu> {
         int y = (this.height - this.imageHeight) / 2;
 
         graphics.blit(RenderPipelines.GUI_TEXTURED, GUI_TEXTURE, x, y, 0, 0, imageWidth,imageHeight, 256,256);
+
+        renderProgressArrow(graphics, x, y);
     }
 
     @Override
@@ -39,5 +41,13 @@ public class FreezerScreen extends AbstractContainerScreen<FreezerMenu> {
         super.extractContents(graphics, mouseX, mouseY, a);
         this.extractTooltip(graphics, mouseX, mouseY);
     }
+
+
+    private void renderProgressArrow(GuiGraphicsExtractor graphicsExtractor, int x, int y) {
+        if(menu.isCrafting()) {
+            graphicsExtractor.blit(RenderPipelines.GUI_TEXTURED,ARROW_TEXTURE,x + 73, y + 35, 0, 0, menu.getScaledArrowProgress(), 16, 24, 16);
+        }
+    }
+
 
 }

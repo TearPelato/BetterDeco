@@ -61,7 +61,8 @@ public class OvenBlockEntity extends BlockEntity implements MenuProvider {
     public OvenBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.OVEN.get(), pos, state);
         data = new ContainerData() {
-            @Override public int get(int i) {
+            @Override
+            public int get(int i) {
                 return switch (i) {
                     case 0, 1, 2 -> progress[i];
                     case 3 -> fuelTime;
@@ -69,14 +70,16 @@ public class OvenBlockEntity extends BlockEntity implements MenuProvider {
                     default -> 0;
                 };
             }
-            @Override public void set(int i, int value) {
+            @Override
+            public void set(int i, int value) {
                 switch (i) {
                     case 0, 1, 2 -> progress[i] = value;
                     case 3 -> fuelTime = value;
                     case 4 -> fuelDuration = value;
                 }
             }
-            @Override public int getCount() { return 5; }
+            @Override
+            public int getCount() { return 5; }
         };
     }
 
@@ -99,7 +102,9 @@ public class OvenBlockEntity extends BlockEntity implements MenuProvider {
     }
 
 
-    private boolean hasFuel() { return fuelTime > 0; }
+    private boolean hasFuel() {
+        return fuelTime > 0;
+    }
 
 
     private void consumeFuelItem(HolderLookup.Provider provider) {

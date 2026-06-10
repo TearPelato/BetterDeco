@@ -1,15 +1,12 @@
 package net.tier1234.better_deco.screen.custom;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
 import net.tier1234.better_deco.BetterDeco;
-
 
 public class MicrowaveScreen extends AbstractContainerScreen<MicrowaveMenu> {
     private static final Identifier GUI_TEXTURE =
@@ -40,9 +37,9 @@ public class MicrowaveScreen extends AbstractContainerScreen<MicrowaveMenu> {
     }
 
 
-    private void renderProgressArrow(GuiGraphicsExtractor GuiGraphicsExtractor, int x, int y) {
+    private void renderProgressArrow(GuiGraphicsExtractor graphicsExtractor, int x, int y) {
         if(menu.isCrafting()) {
-            GuiGraphicsExtractor.blit(RenderPipelines.GUI_TEXTURED,ARROW_TEXTURE,x + 73, y + 35, 0, 0, menu.getScaledArrowProgress(), 16, 24, 16);
+            graphicsExtractor.blit(RenderPipelines.GUI_TEXTURED,ARROW_TEXTURE,x + 73, y + 35, 0, 0, menu.getScaledArrowProgress(), 16, 24, 16);
         }
     }
 

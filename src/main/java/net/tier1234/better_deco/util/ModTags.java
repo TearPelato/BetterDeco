@@ -18,6 +18,8 @@ public class ModTags {
     }
     public static class Items {
 
+        public static final TagKey<Item> FREEZER_FUEL = createTag("freezer_fuel");
+
         private static TagKey<Item> createTag(String name) {
             return ItemTags.create(Identifier.fromNamespaceAndPath(BetterDeco.MOD_ID, name));
         }

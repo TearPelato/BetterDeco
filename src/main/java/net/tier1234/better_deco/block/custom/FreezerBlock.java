@@ -159,7 +159,7 @@ public class FreezerBlock extends FurnitureHorizontalBlock implements EntityBloc
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         return level.isClientSide() ? null :
                 (type == ModBlockEntities.FREEZER.get()
-                        ? (lvl, pos, st, be) -> ((FreezerBlockEntity) be).tick(lvl, pos, st, (FreezerBlockEntity) be)
+                        ? (lvl, pos, st, be) -> ((FreezerBlockEntity) be).tick(lvl, pos, st)
                         : null);
     }
     @Override
