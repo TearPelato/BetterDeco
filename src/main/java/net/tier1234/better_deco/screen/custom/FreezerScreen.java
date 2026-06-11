@@ -5,6 +5,7 @@ import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Inventory;
 import net.tier1234.better_deco.BetterDeco;
 
@@ -34,6 +35,7 @@ public class FreezerScreen extends AbstractContainerScreen<FreezerMenu> {
         graphics.blit(RenderPipelines.GUI_TEXTURED, GUI_TEXTURE, x, y, 0, 0, imageWidth,imageHeight, 256,256);
 
         renderProgressArrow(graphics, x, y);
+        renderFreezProgress(graphics, x, y);
     }
 
     @Override
@@ -49,5 +51,14 @@ public class FreezerScreen extends AbstractContainerScreen<FreezerMenu> {
         }
     }
 
+    private void renderFreezProgress(GuiGraphicsExtractor graphics, int x, int y) {
+        if (this.menu.isFreezing()) {
+            int litProgressHeight = Mth.ceil(this.menu.getFreezProgress() * 13.0F) + 1;
+            int yOffset = 14 - litProgressHeight;
 
+            graphics.blit(RenderPipelines.GUI_TEXTURED, GUI_TEXTURE, x + 57, y + 34 + 15 - litProgressHeight, 176, 13 - litProgressHeight, 14, litProgressHeight, 256, 256);
+
+
+        }
+    }
 }

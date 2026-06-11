@@ -15,7 +15,9 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.SingleRecipeInput;
@@ -29,7 +31,6 @@ import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
 import net.neoforged.neoforge.transfer.transaction.Transaction;
 import net.tier1234.better_deco.init.ModBlockEntities;
 import net.tier1234.better_deco.init.ModRecipes;
-import net.tier1234.better_deco.recipe.FreezerRecipe;
 import net.tier1234.better_deco.recipe.FreezerRecipe;
 import net.tier1234.better_deco.screen.custom.FreezerMenu;
 
@@ -65,6 +66,8 @@ public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
                 return switch (index) {
                     case 0 -> FreezerBlockEntity.this.progress;
                     case 1 -> FreezerBlockEntity.this.maxProgress;
+                    case 2 -> FreezerBlockEntity.this.fuelTime;
+                    case 3 -> FreezerBlockEntity.this.fuelDuration;
                     default -> 0;
                 };
             }
@@ -74,12 +77,14 @@ public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
                 switch (index) {
                     case 0 -> FreezerBlockEntity.this.progress = value;
                     case 1 -> FreezerBlockEntity.this.maxProgress = value;
+                    case 2 -> FreezerBlockEntity.this.fuelTime = value;
+                    case 3 -> FreezerBlockEntity.this.fuelDuration = value;
                 }
             }
 
             @Override
             public int getCount() {
-                return 2;
+                return 4;
             }
         };
     }
@@ -102,79 +107,110 @@ public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
         return new FreezerMenu(id, inv, this, this.data);
     }
 
-    public void tick(Level level, BlockPos blockPos, BlockState blockState) {
-        if(hasRecipe()) {
-            increaseCraftingProgress();
-            setChanged(level, blockPos, blockState);
 
-            if(hasCraftingFinished()) {
-                craftItem();
-                resetProgress();
-            }
-        } else {
-            resetProgress();
-        }
+    private boolean hasFuel() {
+        return fuelTime > 0;
     }
 
-    private void craftItem() {
-        Optional<RecipeHolder<FreezerRecipe>> recipe = getCurrentRecipe();
-        if(recipe.isEmpty()) return;
 
-        ItemStack output = recipe.get().value().output.create();
-        ItemResource inputResource = itemHandler.getResource(SLOT_INPUT);
-        ItemResource outputResource = ItemResource.of(output);
+    private void consumeFuelItem(HolderLookup.Provider provider) {
+        ItemStack fuel = itemHandler.getResource(SLOT_FUEL).toStack();
+        if (fuel.isEmpty()) return;
+
+        int burnTime = FreezerFuelValues.of(fuel)
+                .map(f -> f.freezTime)
+                .orElse(0);
+        if (burnTime <= 0) return;
+
+        fuelDuration = burnTime;
+        fuelTime     = burnTime;
 
         try (Transaction tx = Transaction.openRoot()) {
-            int extracted = itemHandler.extract(SLOT_INPUT, inputResource, 1, tx);
-            if(extracted != 1) return;
-
-            int inserted = itemHandler.insert(SLOT_OUTPUT, outputResource, output.getCount(), tx);
-            if(inserted != output.getCount()) return;
-
+            itemHandler.extract(SLOT_FUEL, ItemResource.of(fuel), 1, tx);
             tx.commit();
         }
     }
 
-    private void resetProgress() {
-        progress = 0;
-        maxProgress = 72;
+    public void tick(Level level, BlockPos pos, BlockState state) {
+        boolean changed = false;
+
+        boolean anyActive = false;
+        for (int i = 0; i < 3; i++) {
+            if (hasRecipe(SLOT_INPUT, SLOT_OUTPUT)) {
+                anyActive = true; break; }
+        }
+
+        if (anyActive && !hasFuel()) {
+            consumeFuelItem(level.registryAccess());
+            changed = true;
+        }
+
+        for (int i = 0; i < 3; i++) {
+            if (hasFuel() && hasRecipe(SLOT_INPUT, SLOT_OUTPUT)) {
+                progress++;
+                changed = true;
+
+                if (progress >= maxProgress) {
+                    craftItem(SLOT_INPUT, SLOT_OUTPUT);
+                    progress = 0;
+                }
+            } else {
+                if (progress > 0) {
+                    progress = 0; changed = true;
+                }
+            }
+        }
+
+        if (hasFuel() && anyActive) {
+            fuelTime--;
+            changed = true;
+        }
+
+        if (changed) setChanged(level, pos, state);
     }
 
-    private boolean hasCraftingFinished() {
-        return this.progress >= this.maxProgress;
-    }
+    private boolean hasRecipe(int inputSlot, int outputSlot) {
+        ItemResource resource = itemHandler.getResource(inputSlot);
+        if (resource.isEmpty()) return false;
 
-    private void increaseCraftingProgress() {
-        progress++;
-    }
-
-    private boolean hasRecipe() {
-        ItemResource inputResource = itemHandler.getResource(SLOT_INPUT);
-        if(inputResource.isEmpty()) return false;
-
-        Optional<RecipeHolder<FreezerRecipe>> recipe = getCurrentRecipe();
-        if(recipe.isEmpty()) return false;
+        Optional<RecipeHolder<FreezerRecipe>> recipe = getRecipeFor(resource.toStack());
+        if (recipe.isEmpty()) return false;
 
         ItemStack output = recipe.get().value().output.create();
-        return canInsert(output);
+        return canInsert(output, outputSlot);
     }
 
-    private Optional<RecipeHolder<FreezerRecipe>> getCurrentRecipe() {
-        ItemResource inputResource = itemHandler.getResource(SLOT_INPUT);
-        if(inputResource.isEmpty()) return Optional.empty();
+    private boolean canInsert(ItemStack output, int slot) {
+        ItemResource existing = itemHandler.getResource(slot);
+        int existingAmount = itemHandler.getAmountAsInt(slot);
 
-        return ((ServerLevel) this.level).recipeAccess()
-                .getRecipeFor(ModRecipes.FREEZER_TYPE.get(), new SingleRecipeInput(inputResource.toStack()), level);
-    }
-
-    private boolean canInsert(ItemStack output) {
-        ItemResource existing = itemHandler.getResource(SLOT_OUTPUT);
-        int existingAmount = itemHandler.getAmountAsInt(SLOT_OUTPUT);
-
-        if(existing.isEmpty()) return true;
-
+        if (existing.isEmpty()) return true;
         return existing.equals(ItemResource.of(output))
-                && existingAmount + output.getCount() <= output.getMaxStackSize();
+                && existingAmount + output.getCount() <= existing.toStack().getMaxStackSize();
+    }
+
+    private Optional<RecipeHolder<FreezerRecipe>> getRecipeFor(ItemStack input) {
+        return ((ServerLevel) this.level).recipeAccess()
+                .getRecipeFor(ModRecipes.FREEZER_TYPE.get(), new SingleRecipeInput(input), level);
+    }
+
+    private void craftItem(int inputSlot, int outputSlot) {
+        ItemStack inputStack = itemHandler.getResource(inputSlot).toStack();
+        Optional<RecipeHolder<FreezerRecipe>> recipe = getRecipeFor(inputStack);
+        if (recipe.isEmpty()) return;
+
+        ItemStack output = recipe.get().value().output.create();
+        ItemResource outputResource = ItemResource.of(output);
+        ItemResource inputResource = itemHandler.getResource(inputSlot);
+
+        try (Transaction tx = Transaction.openRoot()) {
+            int extracted = itemHandler.extract(inputSlot, inputResource, 1, tx);
+            if (extracted != 1) return;
+            int inserted = itemHandler.insert(outputSlot, outputResource, output.getCount(), tx);
+            if (inserted != output.getCount()) return;
+
+            tx.commit();
+        }
     }
 
     public void drops() {
@@ -190,6 +226,8 @@ public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
         itemHandler.serialize(output);
         output.putInt("Freezer.progress", progress);
         output.putInt("Freezer.max_progress", maxProgress);
+        output.putInt("fuelTime", fuelTime);
+        output.putInt("fuelDuration", fuelDuration);
         super.saveAdditional(output);
     }
 
@@ -199,9 +237,11 @@ public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
         itemHandler.deserialize(input);
         progress = input.getIntOr("Freezer.progress", 0);
         maxProgress = input.getIntOr("Freezer.max_progress", 0);
+        fuelTime     = input.getIntOr("fuelTime", 0);
+        fuelDuration = input.getIntOr("fuelDuration", 0);
     }
     
-    @org.jetbrains.annotations.Nullable
+    @Nullable
     @Override
     public Packet<ClientGamePacketListener> getUpdatePacket() {
         return ClientboundBlockEntityDataPacket.create(this);
@@ -210,5 +250,39 @@ public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
     @Override
     public CompoundTag getUpdateTag(HolderLookup.Provider provider) {
         return saveWithoutMetadata(provider);
+    }
+
+
+    public enum FreezerFuelValues {
+        ICE(450, Items.ICE),
+        PACKED_ICE(350, Items.PACKED_ICE),
+        BLUE_ICE(300, Items.BLUE_ICE),
+        POWDER_SNOW(550, Items.POWDER_SNOW_BUCKET);
+
+        public final int freezTime;
+        public final Item item;
+
+        FreezerFuelValues(int freezTime, Item item){
+            this.freezTime = freezTime;
+            this.item = item;
+
+        }
+
+        public static Optional<FreezerFuelValues> of(ItemStack stack) {
+            if (stack.isEmpty()) return Optional.empty();
+            for (FreezerFuelValues fuel : values()) {
+                if (stack.is(fuel.item)) return Optional.of(fuel);
+            }
+            return Optional.empty();
+        }
+
+        public static boolean isValid(ItemStack stack) {
+            return of(stack).isPresent();
+        }
+
+        public static float getMultiplier(ItemStack stack) {
+            return of(stack).map(f -> f.freezTime).orElse(0);
+        }
+
     }
 }

@@ -10,12 +10,11 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.neoforged.neoforge.transfer.item.ResourceHandlerSlot;
-import net.tier1234.better_deco.init.ModBlocks;
 import net.tier1234.better_deco.block.entity.custom.FreezerBlockEntity;
+import net.tier1234.better_deco.init.ModBlocks;
 import net.tier1234.better_deco.init.ModMenuTypes;
 import net.tier1234.better_deco.screen.slot.FreezerFuelSlot;
 import net.tier1234.better_deco.screen.slot.FreezerOutputSlot;
-import net.tier1234.better_deco.util.ModTags;
 
 public class FreezerMenu extends AbstractContainerMenu {
     public final FreezerBlockEntity blockEntity;
@@ -23,7 +22,7 @@ public class FreezerMenu extends AbstractContainerMenu {
     private final ContainerData data;
 
     public FreezerMenu(int containerId, Inventory inv, FriendlyByteBuf extraData) {
-        this(containerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(3));
+        this(containerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4));
     }
 
     public FreezerMenu(int containerId, Inventory inv, BlockEntity entity, ContainerData data) {
@@ -53,6 +52,21 @@ public class FreezerMenu extends AbstractContainerMenu {
         int arrowPixelSize = 24;
         return maxProgress != 0 && progress != 0 ? progress * arrowPixelSize / maxProgress : 0;
     }
+
+    public float getFreezProgress() {
+        int litDuration = this.data.get(3);
+        if (litDuration == 0) {
+            litDuration = 200;
+        }
+
+        return Mth.clamp((float)this.data.get(3) / (float)litDuration, 0.0F, 1.0F);
+    }
+
+
+    public boolean isFreezing() {
+        return this.data.get(3) > 0;
+    }
+
 
     private static final int HOTBAR_SLOT_COUNT = 9;
     private static final int PLAYER_INVENTORY_ROW_COUNT = 3;
