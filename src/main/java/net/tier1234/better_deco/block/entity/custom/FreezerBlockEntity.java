@@ -253,10 +253,10 @@ public class FreezerBlockEntity extends BlockEntity implements MenuProvider {
 
 
     public enum FreezerFuelValues {
-        ICE(450, Items.ICE),
+        ICE(300, Items.ICE),
         PACKED_ICE(350, Items.PACKED_ICE),
-        BLUE_ICE(300, Items.BLUE_ICE),
-        POWDER_SNOW(550, Items.POWDER_SNOW_BUCKET);
+        BLUE_ICE(450, Items.BLUE_ICE),
+        POWDER_SNOW(250, Items.POWDER_SNOW_BUCKET);
 
         public final int freezTime;
         public final Item item;
