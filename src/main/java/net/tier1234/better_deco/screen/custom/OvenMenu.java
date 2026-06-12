@@ -66,12 +66,10 @@ public class OvenMenu extends AbstractContainerMenu {
     }
 
     public float getBurnProgress() {
-        int litDuration = this.data.get(3);
-        if (litDuration == 0) {
-            litDuration = 200;
-        }
-
-        return Mth.clamp((float)this.data.get(3) / (float)litDuration, 0.0F, 1.0F);
+        int litTime = this.data.get(3);
+        int litDuration = this.data.get(4);
+        if (litDuration == 0) litDuration = 200;
+        return Mth.clamp((float) litTime / (float) litDuration, 0.0F, 1.0F);
     }
 
 

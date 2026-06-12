@@ -43,7 +43,7 @@ public class OvenScreen extends AbstractContainerScreen<OvenMenu> {
         graphics.blit(RenderPipelines.GUI_TEXTURED,GUI_TEXTURE, x, y, 0, 0, imageWidth, GUIimageHeight, 256,256);
 
         renderProgressArrows(graphics, x, y);
-        renderBrunProgress(graphics, x, y);
+        renderBurnProgress(graphics, x, y);
     }
 
 
@@ -54,7 +54,7 @@ public class OvenScreen extends AbstractContainerScreen<OvenMenu> {
     }
 
 
-    private void renderBrunProgress(GuiGraphicsExtractor graphics, int x, int y) {
+    private void renderBurnProgress(GuiGraphicsExtractor graphics, int x, int y) {
         int xLeft = this.getLeftPos();
         int yTop = this.getTopPos();
 

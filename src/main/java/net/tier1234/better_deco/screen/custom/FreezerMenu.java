@@ -54,17 +54,15 @@ public class FreezerMenu extends AbstractContainerMenu {
     }
 
     public float getFreezProgress() {
+        int litTime = this.data.get(2);
         int litDuration = this.data.get(3);
-        if (litDuration == 0) {
-            litDuration = 200;
-        }
-
-        return Mth.clamp((float)this.data.get(3) / (float)litDuration, 0.0F, 1.0F);
+        if (litDuration == 0) litDuration = 200;
+        return Mth.clamp((float) litTime / (float) litDuration, 0.0F, 1.0F);
     }
 
 
     public boolean isFreezing() {
-        return this.data.get(3) > 0;
+        return this.data.get(2) > 0;
     }
 
 
