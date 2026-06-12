@@ -1,5 +1,7 @@
 package net.tier1234.better_deco.util;
 
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +14,10 @@ public class Constants
 
     public static Identifier id (String path){
         return Identifier.fromNamespaceAndPath(MOD_ID,path);
+    }
+
+    public static MutableComponent translationUtil(String category, String path, Object ... params){
+        return Component.translatable(String.format("%s.%s.%s", category, Constants.MOD_ID, path), params);
     }
 
 }

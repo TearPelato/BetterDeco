@@ -16,7 +16,6 @@ import net.tier1234.better_deco.init.ModBlocks;
 import net.tier1234.better_deco.init.ModRecipes;
 import net.tier1234.better_deco.recipe.MicrowaveRecipe;
 import net.tier1234.better_deco.util.Constants;
-import net.tier1234.better_deco.util.Utils;
 
 import java.util.function.Supplier;
 
@@ -30,7 +29,7 @@ public class MicrowaveCategory extends FurnitureRecipeCategory<MicrowaveRecipe> 
     public MicrowaveCategory(IGuiHelper helper)
     {
         super(TYPE,
-                Utils.translation("jei_category","microwave"),
+                Constants.translationUtil("jei_category","microwave"),
                 helper.createDrawable(TEXTURE, 0, 0, 176, 85),
                 helper.createDrawableItemStack(new ItemStack(ModBlocks.LIGHT_MICROWAVE)));
 
@@ -40,7 +39,7 @@ public class MicrowaveCategory extends FurnitureRecipeCategory<MicrowaveRecipe> 
     @Override
     public Component getTitle()
     {
-        return Utils.translation("jei_category", "microwave_cooking");
+        return Constants.translationUtil("jei_category", "microwave_cooking");
     }
 
 

@@ -2,7 +2,6 @@ package net.tier1234.better_deco.compat.jei.category;
 
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
-import mezz.jei.api.gui.drawable.IDrawableAnimated;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
@@ -14,14 +13,12 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeHolder;
-import net.minecraft.world.item.crafting.display.FurnaceRecipeDisplay;
 import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.compat.jei.category.core.FurnitureRecipeCategory;
 import net.tier1234.better_deco.init.ModBlocks;
 import net.tier1234.better_deco.init.ModRecipes;
 import net.tier1234.better_deco.recipe.OvenRecipe;
 import net.tier1234.better_deco.util.Constants;
-import net.tier1234.better_deco.util.Utils;
 
 import java.util.function.Supplier;
 
@@ -37,7 +34,7 @@ public class OvenCategory extends FurnitureRecipeCategory<OvenRecipe> {
     public OvenCategory(IGuiHelper helper)
     {
         super(TYPE,
-                Utils.translation("jei_category","oven"),
+                Constants.translationUtil("jei_category","oven"),
                 helper.createDrawable(TEXTURE, 0, 0, 176, 81),
                 helper.createDrawableItemStack(new ItemStack(ModBlocks.OAK_OVEN)));
 
@@ -47,7 +44,7 @@ public class OvenCategory extends FurnitureRecipeCategory<OvenRecipe> {
     @Override
     public Component getTitle()
     {
-        return Utils.translation("jei_category", "oven_cooking");
+        return Constants.translationUtil("jei_category", "oven_cooking");
     }
 
     @Override
