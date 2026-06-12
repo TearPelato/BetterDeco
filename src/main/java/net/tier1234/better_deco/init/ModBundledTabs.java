@@ -3,10 +3,9 @@ package net.tier1234.better_deco.init;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Blocks;
+import net.tearpelato.deco_lib.client.core.core_tabs.FeatureFlag;
 import net.tier1234.better_deco.creative_tabs.BundledTabs;
-import net.tier1234.better_deco.creative_tabs.core.FeatureFlag;
 
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;

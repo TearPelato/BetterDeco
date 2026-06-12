@@ -123,8 +123,8 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
 
-    implementation("net.tearpelato:deco_lib-26.1:${deco_lib_version}")
-    jarJar("net.tearpelato:deco_lib-26.1:${deco_lib_version}")
+    implementation("net.tearpelato:deco_lib-26.1.2:${deco_lib_version}")
+    jarJar("net.tearpelato:deco_lib-26.1.2:${deco_lib_version}")
 
     //Extra Compatibility
     implementation "curse.maven:catalogue-459701:7815468"
