@@ -5,33 +5,29 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.protocol.game.ClientGamePacketListener;
-import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.Containers;
+import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.storage.ValueInput;
-import net.minecraft.world.level.storage.ValueOutput;
-import net.neoforged.neoforge.transfer.item.ItemResource;
-import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
-import net.tearpelato.deco_lib.api.block_entity.BasicLootBlockEntity;
+import net.neoforged.neoforge.items.ItemStackHandler;
 import net.tier1234.better_deco.init.ModBlockEntities;
 import net.tier1234.better_deco.screen.custom.CrateMenu;
 import org.jetbrains.annotations.Nullable;
 
-public class CrateBlockEntity extends BasicLootBlockEntity {
-
-    public final ItemStacksResourceHandler inventory = new ItemStacksResourceHandler(66) {
+public class CrateBlockEntity extends BlockEntity implements MenuProvider {
+    public final ItemStackHandler inventory = new ItemStackHandler(66) {
         @Override
-        protected int getCapacity(int index, ItemResource resource) {
+        protected int getStackLimit(int slot, ItemStack stack) {
             return 1;
         }
+
         @Override
-        protected void onContentsChanged(int index, ItemStack previousContents) {
+        protected void onContentsChanged(int slot) {
             setChanged();
             if(!level.isClientSide()) {
                 level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
@@ -44,53 +40,34 @@ public class CrateBlockEntity extends BasicLootBlockEntity {
     }
 
 
-
     public void drops() {
-        SimpleContainer inv = new SimpleContainer(inventory.size());
-        for(int i = 0; i < inventory.size(); i++) {
-            inv.setItem(i, inventory.copyToList().get(i));
+        SimpleContainer inv = new SimpleContainer(inventory.getSlots());
+        for(int i = 0; i < inventory.getSlots(); i++) {
+            inv.setItem(i, inventory.getStackInSlot(i));
         }
+
         Containers.dropContents(this.level, this.worldPosition, inv);
     }
 
     @Override
-    public int getContainerSize() {
-        return 66;
+    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.saveAdditional(tag, registries);
     }
 
     @Override
-    protected Component getDefaultName() {
+    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.loadAdditional(tag, registries);
+    }
+
+    @Override
+    public Component getDisplayName() {
         return Component.literal("Crate");
-    }
-
-    @Override
-    protected AbstractContainerMenu createMenu(int i, Inventory inventory) {
-        return new CrateMenu(i, inventory, this);
-    }
-
-    @Override
-    public void loadAdditional(ValueInput input) {
-        super.loadAdditional(input);
-    }
-
-    @Override
-    protected void saveAdditional(ValueOutput output) {
-        super.saveAdditional(output);
-    }
-    @Override
-    public void preRemoveSideEffects(BlockPos pos, BlockState state) {
-        drops();
-        super.preRemoveSideEffects(pos, state);
     }
 
     @Nullable
     @Override
-    public Packet<ClientGamePacketListener> getUpdatePacket() {
-        return ClientboundBlockEntityDataPacket.create(this);
+    public AbstractContainerMenu createMenu(int i, Inventory inventory, Player player) {
+        return new CrateMenu(i, inventory, this);
     }
 
-    @Override
-    public CompoundTag getUpdateTag(HolderLookup.Provider pRegistries) {
-        return saveWithoutMetadata(pRegistries);
-    }
 }

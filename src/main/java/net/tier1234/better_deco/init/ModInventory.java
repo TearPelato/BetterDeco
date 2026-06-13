@@ -1,9 +1,8 @@
 package net.tier1234.better_deco.init;
 
-import net.minecraft.world.item.ItemStack;
-import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
+import net.neoforged.neoforge.items.ItemStackHandler;
 
-public class ModInventory extends ItemStacksResourceHandler {
+public class ModInventory extends ItemStackHandler {
     private IChanged change = null;
     public ModInventory(int size, IChanged change) {
         super(size);
@@ -15,10 +14,10 @@ public class ModInventory extends ItemStacksResourceHandler {
     }
 
     @Override
-    protected void onContentsChanged(int index, ItemStack previousContents) {
-        super.onContentsChanged(index, previousContents);
+    protected void onContentsChanged(int slot) {
+        super.onContentsChanged(slot);
         if(change != null)
-            change.changed(index);
+            change.changed(slot);
     }
 
     public interface IChanged {

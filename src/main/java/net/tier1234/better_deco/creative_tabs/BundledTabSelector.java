@@ -1,23 +1,22 @@
 package net.tier1234.better_deco.creative_tabs;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
-import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.neoforged.neoforge.client.event.ContainerScreenEvent;
 import net.neoforged.neoforge.client.event.ScreenEvent;
 import net.tier1234.better_deco.init.ModBundledTabs;
 import net.tier1234.better_deco.init.ModCreativeTabs;
 import net.tier1234.better_deco.mixin.access.CreativeModeInventoryScreenAccessor;
-import org.joml.Matrix3x2f;
 
 import java.util.*;
 import java.util.function.Consumer;
@@ -27,8 +26,8 @@ import java.util.function.Consumer;
  * @author BlackGear
  */
 public class BundledTabSelector {
-    private static final Identifier SELECTOR_BAR =
-            Identifier.fromNamespaceAndPath("better_deco","textures/gui/tab_selector/tab_selector.png");
+    private static final ResourceLocation SELECTOR_BAR =
+            ResourceLocation.fromNamespaceAndPath("better_deco","textures/gui/tab_selector/tab_selector.png");
     private static final int VISIBLE_CATEGORIES = 5;
 
     private static BundledTabSelector instance;
@@ -59,22 +58,22 @@ public class BundledTabSelector {
             if (this.bundles == null) this.bundles = new  ArrayList<>(ModBundledTabs.getFilters());
 
 
-            this.guiLeft = creativeScreen.getLeftPos();
-            this.guiTop = creativeScreen.getTopPos();
+            this.guiLeft = creativeScreen.getGuiLeft();
+            this.guiTop = creativeScreen.getGuiTop();
             this.injectWidgets(creativeScreen, widget -> event.addListener(widget));
         }
     }
 
-    public void renderBackground(ScreenEvent.Render.Background event) {
-        Screen screen = event.getScreen();
-        GuiGraphicsExtractor graphics = event.getGuiGraphics();
+    public void renderBackground(ContainerScreenEvent.Render.Background event) {
+        Screen screen = event.getContainerScreen();
+        GuiGraphics graphics = event.getGuiGraphics();
         if (screen instanceof CreativeModeInventoryScreen creativeScreen) {
             CreativeModeTab tab = CreativeModeInventoryScreenAccessor.getSelectedTab();
-            graphics.pose().pushMatrix();
-            Matrix3x2f translate = graphics.pose();
+            graphics.pose().pushPose();
+            graphics.pose().translate(0.0, 0.0, 0.0);
 
             if (this.isValidTab(tab)) {
-                graphics.blit(RenderPipelines.GUI_TEXTURED,SELECTOR_BAR, this.guiLeft - 35, this.guiTop + 2, 11, 3, 34, 121,256,256);
+                graphics.blit(SELECTOR_BAR, this.guiLeft - 35, this.guiTop + 2, 11, 3, 34, 121);
             }
 
             if (this.lastTab != tab) {
@@ -82,9 +81,10 @@ public class BundledTabSelector {
                 this.lastTab = tab;
             }
 
-            graphics.pose().popMatrix();
+            graphics.pose().popPose();
         }
     }
+
 
     public void onClose(ScreenEvent.Closing event) {
         Screen screen = event.getScreen();
@@ -206,27 +206,28 @@ public class BundledTabSelector {
         }
 
         @Override
-        protected void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float a) {
+        protected void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float a) {
             this.renderSelected(graphics);
-            graphics.item(this.bundle.getIcon(), this.getX(), this.getY());
+            graphics.renderItem(this.bundle.getIcon(), this.getX(), this.getY());
             this.renderHighlight(graphics);
         }
 
 
-        private void renderSelected(GuiGraphicsExtractor graphics) {
+        private void renderSelected(GuiGraphics graphics) {
             if (this.bundle.isSelected()) {
-                graphics.blit(RenderPipelines.GUI_TEXTURED,SELECTOR_BAR, this.getX() - 7, this.getY() - 1, 64, 29, 30, 19,256,256);
+                graphics.blit(SELECTOR_BAR, this.getX() - 7, this.getY() - 1, 64, 29, 30, 19,256,256);
             }
         }
 
-        private void renderHighlight(GuiGraphicsExtractor graphics) {
+        private void renderHighlight(GuiGraphics graphics) {
             if (this.isHovered() && !this.bundle.isSelected()) {
-                graphics.pose().pushMatrix();
-                graphics.pose().translate(0.0F, 0.0F);
-                RenderSystem.disableScissorForRenderTypeDraws();
-                graphics.blit(RenderPipelines.GUI_TEXTURED,SELECTOR_BAR, this.getX(), this.getY(), 48, 48, 16, 16,256,256);
-                RenderSystem.disableScissorForRenderTypeDraws();
-                graphics.pose().popMatrix();
+                graphics.pose().pushPose();
+                graphics.pose().translate(0.0, 0.0, 20.0);
+                RenderSystem.enableBlend();
+                RenderSystem.defaultBlendFunc();
+                graphics.blit(SELECTOR_BAR, this.getX(), this.getY(), 48, 48, 16, 16);
+                RenderSystem.disableBlend();
+                graphics.pose().popPose();
             }
         }
     }
@@ -240,9 +241,9 @@ public class BundledTabSelector {
         }
 
         @Override
-        protected void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float a) {
+        protected void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float a) {
             int textureY = this.isHovered ? 17 : 6;
-            graphics.blit(RenderPipelines.GUI_TEXTURED,SELECTOR_BAR, this.getX(), this.getY(), this.uOffset, textureY, 18, 9,256,256);
+            graphics.blit(SELECTOR_BAR, this.getX(), this.getY(), this.uOffset, textureY, 18, 9,256,256);
 
         }
 

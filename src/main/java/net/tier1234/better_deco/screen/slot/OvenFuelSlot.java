@@ -2,26 +2,21 @@ package net.tier1234.better_deco.screen.slot;
 
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.neoforged.neoforge.transfer.IndexModifier;
-import net.neoforged.neoforge.transfer.ResourceHandler;
-import net.neoforged.neoforge.transfer.item.ItemResource;
-import net.neoforged.neoforge.transfer.item.ResourceHandlerSlot;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.SlotItemHandler;
+
 import net.tier1234.better_deco.screen.custom.OvenMenu;
 
-/**
- * Same behaviours of
- * {@link net.minecraft.world.inventory.FurnaceFuelSlot}
- * but as a {@link ResourceHandlerSlot}
- *using OvenMenu
- * */
-public class OvenFuelSlot extends ResourceHandlerSlot {
+
+public class OvenFuelSlot extends SlotItemHandler {
 
     private final OvenMenu  menu;
 
-    public OvenFuelSlot(OvenMenu menu,ResourceHandler<ItemResource> handler, IndexModifier<ItemResource> slotModifier, int handlerSlot, int xPosition, int yPosition) {
-        super(handler, slotModifier, handlerSlot, xPosition, yPosition);
+    public OvenFuelSlot(OvenMenu menu,IItemHandler itemHandler, int index, int xPosition, int yPosition) {
+        super(itemHandler, index, xPosition, yPosition);
         this.menu = menu;
     }
+
 
     @Override
     public boolean mayPlace(ItemStack stack) {

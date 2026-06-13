@@ -7,7 +7,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -21,9 +21,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.neoforged.neoforge.transfer.ResourceHandler;
-import net.neoforged.neoforge.transfer.item.ItemResource;
-import net.neoforged.neoforge.transfer.transaction.Transaction;
 import net.tier1234.better_deco.block.entity.custom.PedestalBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
@@ -59,45 +56,38 @@ public class PedestalBlock extends BaseEntityBlock {
         return new PedestalBlockEntity(blockPos, blockState);
     }
 
-
-//TODO fix
     @Override
-    protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
-                                          Player player, InteractionHand hand, BlockHitResult hitResult) {
+    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
+        if(state.getBlock() != newState.getBlock()) {
+            if(level.getBlockEntity(pos) instanceof PedestalBlockEntity pedestalBlockEntity) {
+                pedestalBlockEntity.drops();
+                level.updateNeighbourForOutputSignal(pos, this);
+            }
+        }
+        super.onRemove(state, level, pos, newState, movedByPiston);
+    }
+
+    @Override
+    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
+                                              Player player, InteractionHand hand, BlockHitResult hitResult) {
         if(level.getBlockEntity(pos) instanceof PedestalBlockEntity pedestalBlockEntity) {
             if(player.isCrouching() && !level.isClientSide()) {
                 ((ServerPlayer) player).openMenu(new SimpleMenuProvider(pedestalBlockEntity, Component.literal("Pedestal")), pos);
-                return InteractionResult.SUCCESS;
+                return ItemInteractionResult.SUCCESS;
             }
 
-            ResourceHandler<ItemResource> resourceHandler = pedestalBlockEntity.inventory;
-            ItemResource resource = resourceHandler.getResource(0);
-            int slotAmount = resourceHandler.getAmountAsInt(0);
-
-            if (resource.isEmpty() && !stack.isEmpty()) {
-                ItemResource resource2 = ItemResource.of(stack);
-                try (Transaction tx = Transaction.openRoot()) {
-                    int inserted = resourceHandler.insert(0, resource2, 1, tx);
-                    if (inserted == 1) {
-                        stack.shrink(1);
-                        tx.commit();
-                        level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 2f);
-                    }
-                }
-
-            } else if (stack.isEmpty() && !resource.isEmpty()) {
-                try (Transaction tx = Transaction.openRoot()) {
-                    int extracted = resourceHandler.extract(0, resource, slotAmount, tx);
-                    if (extracted > 0) {
-                        player.setItemInHand(InteractionHand.MAIN_HAND, resource.toStack(extracted));
-                        tx.commit();
-                        level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 1f);
-                    }
-                }
+            if(pedestalBlockEntity.inventory.getStackInSlot(0).isEmpty() && !stack.isEmpty()) {
+                pedestalBlockEntity.inventory.insertItem(0, stack.copy(), false);
+                stack.shrink(1);
+                level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 2f);
+            } else if(stack.isEmpty()) {
+                ItemStack stackOnPedestal = pedestalBlockEntity.inventory.extractItem(0, 1, false);
+                player.setItemInHand(InteractionHand.MAIN_HAND, stackOnPedestal);
+                pedestalBlockEntity.clearContents();
+                level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 1f);
             }
         }
 
-        return InteractionResult.SUCCESS;
+        return ItemInteractionResult.SUCCESS;
     }
-
 }

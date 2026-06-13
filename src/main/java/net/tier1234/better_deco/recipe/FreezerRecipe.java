@@ -3,10 +3,10 @@ package net.tier1234.better_deco.recipe;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import net.tier1234.better_deco.init.ModRecipes;
@@ -15,10 +15,10 @@ public class FreezerRecipe implements Recipe<SingleRecipeInput> {
 
 
     public final Ingredient ingredient;
-    public final ItemStackTemplate output;
+    public final ItemStack output;
     public final int fuelCost;
 
-    public FreezerRecipe(Ingredient input, ItemStackTemplate output, int fuelCost) {
+    public FreezerRecipe(Ingredient input, ItemStack output, int fuelCost) {
         this.ingredient = input;
         this.output = output;
         this.fuelCost = fuelCost;
@@ -31,18 +31,24 @@ public class FreezerRecipe implements Recipe<SingleRecipeInput> {
     }
 
     @Override
-    public ItemStack assemble(SingleRecipeInput singleItemRecipe) {
-        return output.create();
+    public ItemStack assemble(SingleRecipeInput singleRecipeInput, HolderLookup.Provider provider) {
+        return output.copy();
     }
+
+    @Override
+    public boolean canCraftInDimensions(int i, int i1) {
+        return true;
+    }
+
+    @Override
+    public ItemStack getResultItem(HolderLookup.Provider provider) {
+        return output.copy();
+    }
+
 
     @Override
     public boolean showNotification() {
         return false;
-    }
-
-    @Override
-    public String group() {
-        return "";
     }
 
     @Override
@@ -55,19 +61,10 @@ public class FreezerRecipe implements Recipe<SingleRecipeInput> {
         return ModRecipes.FREEZER_TYPE.get();
     }
 
-    @Override
-    public PlacementInfo placementInfo() {
-        return PlacementInfo.create(ingredient);
-    }
-
-    @Override
-    public RecipeBookCategory recipeBookCategory() {
-        return null;
-    }
 
     public static final MapCodec<FreezerRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
             Ingredient.CODEC.fieldOf("ingredient").forGetter(recipe -> recipe.ingredient),
-            ItemStackTemplate.CODEC.fieldOf("result").forGetter(recipe -> recipe.output),
+            ItemStack.CODEC.fieldOf("result").forGetter(recipe -> recipe.output),
             Codec.INT.optionalFieldOf("fuelCost", 200).forGetter(recipe -> recipe.fuelCost)
     ).apply(instance, FreezerRecipe::new));
 
@@ -76,13 +73,13 @@ public class FreezerRecipe implements Recipe<SingleRecipeInput> {
 
     private static FreezerRecipe fromNetwork(RegistryFriendlyByteBuf buf) {
         final var ingredient = Ingredient.CONTENTS_STREAM_CODEC.decode(buf);
-        final var resultItem = ItemStackTemplate.STREAM_CODEC.decode(buf);
+        final var resultItem = ItemStack.STREAM_CODEC.decode(buf);
         final var fuelCost = buf.readInt();
         return new FreezerRecipe(ingredient, resultItem, fuelCost);
     }
     private static void toNetwork(RegistryFriendlyByteBuf buf, FreezerRecipe recipe) {
         Ingredient.CONTENTS_STREAM_CODEC.encode(buf, recipe.ingredient);
-        ItemStackTemplate.STREAM_CODEC.encode(buf, recipe.output);
+        ItemStack.STREAM_CODEC.encode(buf, recipe.output);
         buf.writeVarInt(recipe.fuelCost);
     }
 }

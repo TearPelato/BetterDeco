@@ -9,7 +9,7 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.neoforged.neoforge.transfer.item.ResourceHandlerSlot;
+import net.neoforged.neoforge.items.SlotItemHandler;
 import net.tier1234.better_deco.block.entity.custom.TecqueBlockEntity;
 import net.tier1234.better_deco.init.ModBlocks;
 import net.tier1234.better_deco.init.ModMenuTypes;
@@ -30,7 +30,7 @@ public class TecqueMenu extends AbstractContainerMenu {
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
 
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory, this.blockEntity.inventory::set,0, 80, 21));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,0, 80, 21));
     }
 
     // CREDIT GOES TO: diesieben07 | https://github.com/diesieben07/SevenCommons

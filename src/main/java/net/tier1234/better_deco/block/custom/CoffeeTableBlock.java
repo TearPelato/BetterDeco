@@ -8,7 +8,6 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -94,14 +93,11 @@ public class CoffeeTableBlock extends FurnitureHorizontalBlock
     }
 
     @Override
-    public BlockState updateShape(BlockState state, LevelReader reader, ScheduledTickAccess access,
-                                  BlockPos pos, Direction direction, BlockPos pos1, BlockState state1,
-                                  RandomSource rand)
-    {
-        boolean north = this.isCoffeeTable((LevelAccessor) reader, pos, Direction.NORTH);
-        boolean east = this.isCoffeeTable((LevelAccessor) reader, pos, Direction.EAST);
-        boolean south = this.isCoffeeTable((LevelAccessor) reader, pos, Direction.SOUTH);
-        boolean west = this.isCoffeeTable((LevelAccessor) reader, pos, Direction.WEST);
+    protected BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
+        boolean north = this.isCoffeeTable(level, pos, Direction.NORTH);
+        boolean east = this.isCoffeeTable(level, pos, Direction.EAST);
+        boolean south = this.isCoffeeTable(level, pos, Direction.SOUTH);
+        boolean west = this.isCoffeeTable(level, pos, Direction.WEST);
         return state.setValue(NORTH, north).setValue(EAST, east).setValue(SOUTH, south).setValue(WEST, west);
     }
 

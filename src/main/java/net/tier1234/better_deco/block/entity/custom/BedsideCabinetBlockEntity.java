@@ -59,7 +59,7 @@ public class BedsideCabinetBlockEntity extends BasicLootBlockEntity
 
     private void playDoorSound(BlockState blockState, SoundEvent soundEvent)
     {
-        Vec3i directionVec = blockState.getValue(BedsideCabinetBlock.DIRECTION).getUnitVec3i();
+        Vec3i directionVec = blockState.getValue(BedsideCabinetBlock.DIRECTION).getNormal();
         double x = this.worldPosition.getX() + 0.5D + directionVec.getX() / 2.0D;
         double y = this.worldPosition.getY() + 0.5D + directionVec.getY() / 2.0D;
         double z = this.worldPosition.getZ() + 0.5D + directionVec.getZ() / 2.0D;

@@ -1,7 +1,7 @@
 package net.tier1234.better_deco;
 
 import com.mojang.logging.LogUtils;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -50,8 +50,8 @@ public class BetterDeco {
         modContainer.registerConfig(ModConfig.Type.CLIENT, Config.Client.SPEC);
     }
 
-    public static Identifier id(String path, Object... args) {
-        return Identifier.fromNamespaceAndPath(MOD_ID, String.format(path, args));
+    public static ResourceLocation id(String path, Object... args) {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, String.format(path, args));
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

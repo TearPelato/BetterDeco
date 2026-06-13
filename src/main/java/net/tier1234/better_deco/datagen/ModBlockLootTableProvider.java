@@ -496,10 +496,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                 block -> createSlabItemTable(ModBlocks.CRIMSON_VERTICAL_SLAB.get()));
         add(ModBlocks.WARPED_VERTICAL_SLAB.get(),
                 block -> createSlabItemTable(ModBlocks.WARPED_VERTICAL_SLAB.get()));
-        add(ModBlocks.PALE_OAK_VERTICAL_SLAB.get(),
-                block -> createSlabItemTable(ModBlocks.PALE_OAK_VERTICAL_SLAB.get()));
-
-
 
 
         dropSelf(ModBlocks.OAK_COFFEE_TABLE.get());
@@ -721,74 +717,12 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         dropSelf(ModBlocks.STONE_PATH.get());
 
-        dropSelf(ModBlocks.PALE_OAK_BARREL.get());
-        dropSelf(ModBlocks.PALE_OAK_DESK.get());
-        dropSelf(ModBlocks.PALE_OAK_DESK_CABINET.get());
-        dropSelf(ModBlocks.PALE_OAK_PARK_BENCH.get());
-        dropSelf(ModBlocks.PALE_OAK_SOFT_BRICKS.get());
-        dropSelf(ModBlocks.PALE_OAK_PLANKS_BRICKS.get());
-        dropSelf(ModBlocks.PALE_OAK_PLANKS_PILLAR.get());
-        dropSelf(ModBlocks.PALE_OAK_VERTICAL.get());
-        dropSelf(ModBlocks.PALE_OAK_SMOOTH_PLANKS.get());
-        dropSelf(ModBlocks.PALE_OAK_LARGE_PLANKS.get());
-        dropSelf(ModBlocks.PALE_OAK_SHELF.get());
-        dropSelf(ModBlocks.PALE_OAK_GLASS_TECQUE.get());
-        dropSelf(ModBlocks.PALE_OAK_KITCHEN_COUNTER.get());
-        dropSelf(ModBlocks.PALE_OAK_KITCHEN_DRAWER.get());
-        dropSelf(ModBlocks.PALE_OAK_OVEN.get());
-        dropSelf(ModBlocks.PALE_OAK_SINK.get());
-        dropSelf(ModBlocks.PALE_OAK_SINK_DARK.get());
-        dropSelf(ModBlocks.PALE_OAK_CABINET.get());
-        dropSelf(ModBlocks.PALE_OAK_CHAIR.get());
-        dropSelf(ModBlocks.PALE_OAK_TABLE.get());
-        dropSelf(ModBlocks.PALE_OAK_BEDSIDE.get());
-        dropSelf(ModBlocks.PALE_OAK_DINNING_TABLE.get());
-        dropSelf(ModBlocks.PALE_OAK_COFFEE_TABLE.get());
-        dropSelf(ModBlocks.PALE_OAK_CRATE.get());
-        add(ModBlocks.PALE_OAK_VERTICAL_SLAB.get(),
-                block -> createSlabItemTable(ModBlocks.PALE_OAK_VERTICAL_SLAB.get()));
 
-
-        dropSelf(ModBlocks.PALE_OAK_SHELF.get());
-        dropSelf(ModBlocks.PALE_OAK_KITCHEN_COUNTER.get());
-        dropSelf(ModBlocks.PALE_OAK_KITCHEN_DRAWER.get());
-        dropSelf(ModBlocks.STRIPPED_PALE_OAK_KITCHEN_COUNTER.get());
-        dropSelf(ModBlocks.STRIPPED_PALE_OAK_KITCHEN_DRAWER.get());
-        dropSelf(ModBlocks.PALE_OAK_OVEN.get());
-        dropSelf(ModBlocks.PALE_OAK_CRATE.get());
-        dropSelf(ModBlocks.STRIPPED_PALE_OAK_OVEN.get());
-        dropSelf(ModBlocks.PALE_OAK_CABINET.get());
-        dropSelf(ModBlocks.STRIPPED_PALE_OAK_CABINET.get());
-        dropSelf(ModBlocks.STRIPPED_SPRUCE_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_PALE_OAK_CHAIR.get());
-        dropSelf(ModBlocks.STRIPPED_PALE_OAK_DINNING_TABLE.get());
-        dropSelf(ModBlocks.STRIPPED_PALE_OAK_COFFEE_TABLE.get());
-        dropSelf(ModBlocks.PALE_OAK_SINK.get());
-        dropSelf(ModBlocks.PALE_OAK_SINK_DARK.get());
-        dropSelf(ModBlocks.PALE_OAK_BEDSIDE.get());
-        dropSelf(ModBlocks.PALE_OAK_TABLE.get());
-        dropSelf(ModBlocks.PALE_OAK_DINNING_TABLE.get());
-        dropSelf(ModBlocks.PALE_OAK_COFFEE_TABLE.get());
-        dropSelf(ModBlocks.PALE_OAK_GLASS_TECQUE.get());
-        dropSelf(ModBlocks.PALE_OAK_CHAIR.get());
-        dropSelf(ModBlocks.STRIPPED_PALE_OAK_TABLE.get());
 
         dropSelf(ModBlocks.TOASTER_LIGHT.get());
         dropSelf(ModBlocks.TOASTER_DARK.get());
 
         dropSelf(ModBlocks.CHOPPING_BOARD.get());
-
-        dropSelf(ModBlocks.PALE_OAK_BALCKSTONE_KITCHEN_COUNTER.get());
-        dropSelf(ModBlocks.PALE_OAK_BALCKSTONE_KITCHEN_DRAWER.get());
-        dropSelf(ModBlocks.PALE_OAK_BALCKSTONE_OVEN.get());
-        dropSelf(ModBlocks.PALE_OAK_BALCKSTONE_SINK.get());
-        dropSelf(ModBlocks.PALE_OAK_BALCKSTONE_CABINET.get());
-
-        dropSelf(ModBlocks.PALE_OAK_DEEPSLATE_KITCHEN_COUNTER.get());
-        dropSelf(ModBlocks.PALE_OAK_DEEPSLATE_KITCHEN_DRAWER.get());
-        dropSelf(ModBlocks.PALE_OAK_DEEPSLATE_OVEN.get());
-        dropSelf(ModBlocks.PALE_OAK_DEEPSLATE_SINK.get());
-        dropSelf(ModBlocks.PALE_OAK_DEEPSLATE_CABINET.get());
     }
 
 

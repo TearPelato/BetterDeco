@@ -8,20 +8,15 @@ import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
-import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import net.neoforged.neoforge.client.event.RecipesReceivedEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
-import net.neoforged.neoforge.event.OnDatapackSyncEvent;
 import net.tier1234.better_deco.block.entity.renderer.custom.*;
-import net.tier1234.better_deco.compat.jei.category.core.SyncedRecipes;
 import net.tier1234.better_deco.entity.client.ChairRenderer;
 import net.tier1234.better_deco.init.ModBlockEntities;
 import net.tier1234.better_deco.init.ModEntities;
 import net.tier1234.better_deco.init.ModMenuTypes;
-import net.tier1234.better_deco.init.ModRecipes;
 import net.tier1234.better_deco.screen.custom.*;
 
 
@@ -60,30 +55,5 @@ public class BetterDecoClient {
         event.register(ModMenuTypes.FREEZER_MENU.get(), FreezerScreen::new);
     }
 
-    @SubscribeEvent
-    public static void onRecipesSynced(RecipesReceivedEvent event)
-    {
-        if(ModList.get().isLoaded("jei"))
-        {
-            SyncedRecipes.setMap(event.getRecipeMap());
-        }
-    }
 
-    @SubscribeEvent
-    public static void onClientLogout(ClientPlayerNetworkEvent.LoggingOut event)
-    {
-        SyncedRecipes.reset();
-    }
-
-    @SubscribeEvent
-    public static void onDatapackSync(OnDatapackSyncEvent event)
-    {
-        if(ModList.get().isLoaded("jei")) 
-        {
-            event.sendRecipes(
-                    ModRecipes.OVEN_TYPE.get(),
-                    ModRecipes.MICROWAVE_TYPE.get()
-            );
-        }
-    }
 }

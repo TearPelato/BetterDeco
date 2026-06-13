@@ -9,7 +9,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntitySpawnReason;
+import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.*;
@@ -117,7 +117,7 @@ public class SofaBlock extends FurnitureHorizontalBlock
             Entity entity;
             List<ChairEntity> entities = level.getEntities(ModEntities.CHAIR_ENTITY.get(), new AABB(pos), chair -> true);
             if (entities.isEmpty()) {
-                entity = ModEntities.CHAIR_ENTITY.get().spawn((ServerLevel) level, pos, EntitySpawnReason.TRIGGERED);
+                entity = ModEntities.CHAIR_ENTITY.get().spawn((ServerLevel) level, pos, MobSpawnType.TRIGGERED);
             } else {
                 entity = entities.get(0);
             }
@@ -173,13 +173,9 @@ public class SofaBlock extends FurnitureHorizontalBlock
     }
 
     @Override
-    protected BlockState updateShape(BlockState state, LevelReader reader, ScheduledTickAccess access, BlockPos pos,
-                                     Direction direction, BlockPos pos1, BlockState state1, RandomSource rand)
-    {
-        return this.getSofaState(state, (LevelAccessor) reader,pos, state.getValue(DIRECTION));
+    protected BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
+        return this.getSofaState(state, level,pos, state.getValue(DIRECTION));
     }
-
-
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder)

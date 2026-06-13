@@ -5,14 +5,15 @@ import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.util.RandomSource;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntitySpawnReason;
+import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.*;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -23,8 +24,8 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.tearpelato.deco_lib.api.block.furniture.FurnitureHorizontalBlock;
 import net.tearpelato.deco_lib.api.shape.VoxelShapeHelper;
-import net.tier1234.better_deco.init.ModEntities;
 import net.tier1234.better_deco.entity.custom.ChairEntity;
+import net.tier1234.better_deco.init.ModEntities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -108,7 +109,7 @@ public class ParkBenchBlock extends FurnitureHorizontalBlock
             Entity entity = null;
             List<ChairEntity> entities = level.getEntities(ModEntities.CHAIR_ENTITY.get(), new AABB(pos), chair -> true);
             if(entities.isEmpty()) {
-                entity = ModEntities.CHAIR_ENTITY.get().spawn(((ServerLevel) level), pos, EntitySpawnReason.TRIGGERED);
+                entity = ModEntities.CHAIR_ENTITY.get().spawn(((ServerLevel) level), pos, MobSpawnType.TRIGGERED);
             } else {
                 entity = entities.get(0);
             }
@@ -126,17 +127,10 @@ public class ParkBenchBlock extends FurnitureHorizontalBlock
         return this.getBenchState(state, context.getLevel(), context.getClickedPos(), state.getValue(DIRECTION));
     }
 
-    public BlockState updateShape(BlockState state, Direction direction, BlockState newState, LevelAccessor level, BlockPos pos, BlockPos newPos) {
-        return null;
-    }
-
 
     @Override
-    public BlockState updateShape(BlockState state, LevelReader reader, ScheduledTickAccess access, BlockPos pos,
-                                  Direction direction, BlockPos pos1, BlockState state1, RandomSource rand)
-
-    {
-        return this.getBenchState(state, (LevelAccessor) reader, pos, state.getValue(DIRECTION));
+    protected BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
+        return this.getBenchState(state, level, pos, state.getValue(DIRECTION));
     }
 
     private BlockState getBenchState(BlockState state, LevelAccessor level, BlockPos pos, Direction dir)

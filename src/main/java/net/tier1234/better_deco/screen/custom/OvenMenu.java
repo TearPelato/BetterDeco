@@ -10,7 +10,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.neoforged.neoforge.transfer.item.ResourceHandlerSlot;
+import net.neoforged.neoforge.items.SlotItemHandler;
 import net.tier1234.better_deco.block.entity.custom.OvenBlockEntity;
 import net.tier1234.better_deco.init.ModBlocks;
 import net.tier1234.better_deco.init.ModMenuTypes;
@@ -36,17 +36,17 @@ public class OvenMenu extends AbstractContainerMenu {
         addPlayerHotbar(inv);
 
         // Input
-        this.addSlot(new ResourceHandlerSlot(blockEntity.itemHandler,this.blockEntity.itemHandler::set, 0, 60, 8));
-        this.addSlot(new ResourceHandlerSlot(blockEntity.itemHandler,this.blockEntity.itemHandler::set, 1, 78, 8));
-        this.addSlot(new ResourceHandlerSlot(blockEntity.itemHandler,this.blockEntity.itemHandler::set, 2, 96, 8));
+        this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 0, 60, 8));
+        this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 1, 78, 8));
+        this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 2, 96, 8));
 
         // Output
-        this.addSlot(new OvenOutputSlot(blockEntity.itemHandler,this.blockEntity.itemHandler::set, 3, 60, 44));
-        this.addSlot(new OvenOutputSlot(blockEntity.itemHandler,this.blockEntity.itemHandler::set, 4, 78, 44));
-        this.addSlot(new OvenOutputSlot(blockEntity.itemHandler,this.blockEntity.itemHandler::set,5, 96, 44));
+        this.addSlot(new OvenOutputSlot(blockEntity.itemHandler, 3, 60, 44));
+        this.addSlot(new OvenOutputSlot(blockEntity.itemHandler, 4, 78, 44));
+        this.addSlot(new OvenOutputSlot(blockEntity.itemHandler,5, 96, 44));
 
         //Fuel Slot
-        this.addSlot(new OvenFuelSlot(this, this.blockEntity.itemHandler, this.blockEntity.itemHandler::set, 6, 42,26));
+        this.addSlot(new OvenFuelSlot(this, this.blockEntity.itemHandler,  6, 42,26));
 
         addDataSlots(data);
     }
@@ -169,11 +169,7 @@ public class OvenMenu extends AbstractContainerMenu {
                         || stillValid(ContainerLevelAccess.create(level,blockEntity.getBlockPos()),
                 pPlayer,ModBlocks.DARK_OAK_CALCITE_OVEN.get())
                 || stillValid(ContainerLevelAccess.create(level,blockEntity.getBlockPos()),
-                pPlayer,ModBlocks.OAK_ANDESITE_OVEN.get())
-                        || stillValid(ContainerLevelAccess.create(level,blockEntity.getBlockPos()),
-                pPlayer,ModBlocks.PALE_OAK_OVEN.get())
-                        || stillValid(ContainerLevelAccess.create(level,blockEntity.getBlockPos()),
-                pPlayer,ModBlocks.STRIPPED_PALE_OAK_OVEN.get());
+                pPlayer,ModBlocks.OAK_ANDESITE_OVEN.get());
     }
 
     private void addPlayerInventory(Inventory playerInventory) {
@@ -190,7 +186,7 @@ public class OvenMenu extends AbstractContainerMenu {
         }
     }
     public boolean isFuelItem(ItemStack stack) {
-        return stack.getBurnTime(RecipeType.SMOKING, this.level.fuelValues()) > 0;
+        return stack.getBurnTime(RecipeType.SMOKING) > 0;
     }
 
 }

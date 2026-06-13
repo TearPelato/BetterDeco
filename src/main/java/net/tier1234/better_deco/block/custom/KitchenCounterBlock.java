@@ -82,10 +82,8 @@ public class KitchenCounterBlock extends FurnitureHorizontalBlock {
     }
 
     @Override
-    protected BlockState updateShape(BlockState state, LevelReader reader, ScheduledTickAccess access, BlockPos pos,
-                                     Direction direction, BlockPos pos1, BlockState state1, RandomSource rand)
-    {
-        return this.getKitchenCounterState(state, (LevelAccessor) reader,pos);
+    protected BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
+        return this.getKitchenCounterState(state, level, pos);
     }
 
     private BlockState getKitchenCounterState(BlockState state, LevelReader level, BlockPos pos) {

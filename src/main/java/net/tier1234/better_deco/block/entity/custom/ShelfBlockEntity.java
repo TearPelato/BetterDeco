@@ -1,7 +1,6 @@
 package net.tier1234.better_deco.block.entity.custom;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
@@ -11,41 +10,19 @@ import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
-import net.minecraft.world.entity.ItemOwner;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.ShelfBlock;
+import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.storage.ValueInput;
-import net.minecraft.world.level.storage.ValueOutput;
-import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.transfer.item.ItemResource;
-import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
-import net.neoforged.neoforge.transfer.transaction.Transaction;
-import net.tearpelato.deco_lib.api.block_entity.BasicLootBlockEntity;
 import net.tier1234.better_deco.init.ModBlockEntities;
 import net.tier1234.better_deco.init.ModInventory;
 import net.tier1234.better_deco.screen.custom.ShelfMenu;
 import org.jetbrains.annotations.Nullable;
 
-public class ShelfBlockEntity extends BasicLootBlockEntity implements ItemOwner{
-    public final ItemStacksResourceHandler inventory = new ItemStacksResourceHandler(6) {
-        @Override
-        public int size() {
-            return 1;
-        }
-
-        @Override
-        protected void onContentsChanged(int slot,ItemStack previousContents) {
-            setChanged();
-            if(!level.isClientSide()) {
-                level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
-            }
-        }
-    };
+public class ShelfBlockEntity extends RandomizableContainerBlockEntity implements MenuProvider {
 
     public final ModInventory handler;
 
@@ -61,13 +38,13 @@ public class ShelfBlockEntity extends BasicLootBlockEntity implements ItemOwner{
 
     @Override
     public int getContainerSize() {
-        return 6;
+        return handler.getSlots();
     }
 
     @Override
     public boolean isEmpty() {
-        for (int i = 0; i < handler.size(); i++) {
-            if (!handler.getResource(i).isEmpty()) {
+        for (int i = 0; i < handler.getSlots(); i++) {
+            if (!handler.getStackInSlot(i).isEmpty()) {
                 return false;
             }
         }
@@ -75,40 +52,26 @@ public class ShelfBlockEntity extends BasicLootBlockEntity implements ItemOwner{
     }
 
     @Override
-    public NonNullList<ItemStack> getItems() {
+    protected NonNullList<ItemStack> getItems() {
         NonNullList<ItemStack> items = NonNullList.withSize(getContainerSize(), ItemStack.EMPTY);
         for (int i = 0; i < getContainerSize(); i++) {
-            ItemResource res = handler.getResource(i);
-            int amount = handler.getAmountAsInt(i);
-            if (!res.isEmpty()) {
-                items.set(i, res.toStack(amount));
-            }
+            items.set(i, handler.getStackInSlot(i));
         }
         return items;
     }
 
     @Override
     protected void setItems(NonNullList<ItemStack> items) {
-        try (var tx = Transaction.openRoot()) {
-            for (int i = 0; i < items.size(); i++) {
-                handler.extract(i, handler.getResource(i), handler.getAmountAsInt(i), tx);
-                ItemStack stack = items.get(i);
-                if (!stack.isEmpty()) {
-                    handler.insert(i, ItemResource.of(stack), stack.getCount(), tx);
-                }
-            }
-            tx.commit();
+        for (int i = 0; i < items.size(); i++) {
+            handler.setStackInSlot(i, items.get(i));
         }
         setChanged();
     }
 
     @Override
     public void clearContent() {
-        try (var tx = Transaction.openRoot()) {
-            for (int i = 0; i < handler.size(); i++) {
-                handler.extract(i, handler.getResource(i), handler.getAmountAsInt(i), tx);
-            }
-            tx.commit();
+        for (int i = 0; i < handler.getSlots(); i++) {
+            handler.setStackInSlot(i, ItemStack.EMPTY);
         }
         setChanged();
     }
@@ -123,13 +86,13 @@ public class ShelfBlockEntity extends BasicLootBlockEntity implements ItemOwner{
     }
 
     @Override
-    public void loadAdditional(ValueInput input) {
-        super.loadAdditional(input);
+    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.loadAdditional(tag, registries);
     }
 
     @Override
-    protected void saveAdditional(ValueOutput output) {
-        super.saveAdditional(output);
+    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.saveAdditional(tag, registries);
     }
 
     @Override
@@ -143,8 +106,8 @@ public class ShelfBlockEntity extends BasicLootBlockEntity implements ItemOwner{
     }
 
     @Override
-    public void handleUpdateTag(ValueInput input) {
-        loadAdditional(input);
+    public void handleUpdateTag(CompoundTag tag, HolderLookup.Provider registries) {
+        loadAdditional(tag, registries);
     }
 
 
@@ -160,20 +123,5 @@ public class ShelfBlockEntity extends BasicLootBlockEntity implements ItemOwner{
     @Override
     public AbstractContainerMenu createMenu(int containerId, Inventory playerInventory) {
         return new ShelfMenu(containerId, playerInventory, this);
-    }
-
-    @Override
-    public Level level() {
-        return this.level;
-    }
-
-    @Override
-    public Vec3 position() {
-        return this.getBlockPos().getCenter();
-    }
-
-    @Override
-    public float getVisualRotationYInDegrees() {
-        return ((Direction)this.getBlockState().getValue(ShelfBlock.FACING)).getOpposite().toYRot();
     }
 }

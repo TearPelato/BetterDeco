@@ -7,6 +7,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.DyeItem;
@@ -39,10 +40,6 @@ public class DigitalClockBlock extends FurnitureHorizontalBlock implements Entit
         SHAPES = this.generateShapes(this.getStateDefinition().getPossibleStates());
     }
 
-    @Override
-    public VoxelShape getCollisionShape(BlockState state, BlockGetter world, BlockPos pos, net.minecraft.world.phys.shapes.CollisionContext context) {
-        return SHAPES.get(state);
-    }
     protected ImmutableMap<BlockState, VoxelShape> generateShapes(ImmutableList<BlockState> states)
     {
 
@@ -84,23 +81,28 @@ public class DigitalClockBlock extends FurnitureHorizontalBlock implements Entit
     }
 
     @Override
+    public VoxelShape getOcclusionShape(BlockState state, BlockGetter reader, BlockPos pos) {
+        return SHAPES.get(state);
+    }
+
+    @Override
     public RenderShape getRenderShape(BlockState state) {
         return RenderShape.MODEL;
     }
     @Override
-    protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
-                                          Player player, InteractionHand hand, BlockHitResult hitResult) {
-        DyeColor dyeColor = stack.get(DataComponents.DYE);
-        if (dyeColor != null) {
-            if (!level.isClientSide()) {
-                if (level.getBlockEntity(pos) instanceof DigitalClockBlockEntity digitalClock) {
-                    digitalClock.setTextColor(dyeColor);
+    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
+                                              Player player, InteractionHand hand, BlockHitResult hitResult) {
+        if (stack.getItem() instanceof DyeItem dyeItem) {
+            if (!level.isClientSide) {
+                BlockEntity blockEntity = level.getBlockEntity(pos);
+                if (blockEntity instanceof DigitalClockBlockEntity digitalClock) {
+                    digitalClock.setTextColor(dyeItem.getDyeColor());
                     if (!player.isCreative()) {
                         stack.shrink(1);
                     }
                 }
             }
-            return InteractionResult.SUCCESS;
+            return ItemInteractionResult.SUCCESS;
         }
         return super.useItemOn(stack, state, level, pos, player, hand, hitResult);
     }

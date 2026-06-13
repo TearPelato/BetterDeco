@@ -8,6 +8,7 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.tier1234.better_deco.BetterDeco;
 
@@ -18,20 +19,20 @@ import java.util.concurrent.CompletableFuture;
 @EventBusSubscriber(modid = BetterDeco.MOD_ID)
 public class DataGenerators {
     @SubscribeEvent
-    public static void gatherClientData(GatherDataEvent.Client event) {
+    public static void gatherData(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
         PackOutput packOutput = generator.getPackOutput();
-        var lookupProvider = event.getLookupProvider();
+        ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
+        CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
-        generator.addProvider(true , new LootTableProvider(packOutput, Collections.emptySet(),
+        generator.addProvider(event.includeServer(), new LootTableProvider(packOutput, Collections.emptySet(),
                 List.of(new LootTableProvider.SubProviderEntry(ModBlockLootTableProvider::new, LootContextParamSets.BLOCK)), lookupProvider));
-        generator.addProvider(true, new ModRecipeProvider.Runner(packOutput, lookupProvider));
+        BlockTagsProvider blockTagsProvider = new ModBlockTagProvider(packOutput, lookupProvider, existingFileHelper);
+        generator.addProvider(event.includeServer(), blockTagsProvider);
+        generator.addProvider(event.includeServer(), new ModRecipeProvider(packOutput,lookupProvider));
 
-        BlockTagsProvider blockTagsProvider = new ModBlockTagProvider(packOutput, lookupProvider);
-        generator.addProvider(true, blockTagsProvider);
-        generator.addProvider(true, new ModItemTagProvider(packOutput, lookupProvider));
-
-    }
 
 
     }
+
+}

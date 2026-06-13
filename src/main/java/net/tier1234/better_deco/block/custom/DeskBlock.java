@@ -9,7 +9,6 @@ import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -77,12 +76,9 @@ public class DeskBlock extends FurnitureHorizontalBlock
     }
 
     @Override
-    public BlockState updateShape(BlockState state, LevelReader reader, ScheduledTickAccess access, BlockPos pos,
-                                  Direction direction, BlockPos pos1, BlockState state1, RandomSource rand)
-    {
-        return this.getDeskState(state, (LevelAccessor) reader, pos, state.getValue(DIRECTION));
+    protected BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
+        return this.getDeskState(state, level, pos, state.getValue(DIRECTION));
     }
-
 
     private BlockState getDeskState(BlockState state, LevelAccessor level, BlockPos pos, Direction dir)
     {

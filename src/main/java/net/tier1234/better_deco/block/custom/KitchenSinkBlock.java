@@ -6,6 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -53,12 +54,11 @@ public class KitchenSinkBlock extends FurnitureHorizontalBlock implements Simple
     }
 
 
-
     public ImmutableMap<BlockState, VoxelShape> generateShapes(ImmutableList<BlockState> states) {
         ImmutableMap.Builder<BlockState, VoxelShape> builder = ImmutableMap.builder();
         for (BlockState s : states) {
             Direction dir = s.getValue(DIRECTION);
-            VoxelShape lower = createShape(0, 0, 0, 16, 9, 15, dir);
+            VoxelShape lower = createShape(0, 0, 0, 16, 9, 14, dir);
             VoxelShape upper = createShape(0, 9, 0, 16, 16, 16, dir);
             builder.put(s, VoxelShapeHelper.combineAll(Arrays.asList(lower, upper)));
         }
@@ -82,10 +82,10 @@ public class KitchenSinkBlock extends FurnitureHorizontalBlock implements Simple
     }
 
     @Override
-    protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        if (world.isClientSide()) return InteractionResult.SUCCESS;
+    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+        if (world.isClientSide) return ItemInteractionResult.SUCCESS;
         BlockEntity be = world.getBlockEntity(pos);
-        if (!(be instanceof KitchenSinkBlockEntity sink)) return InteractionResult.FAIL;
+        if (!(be instanceof KitchenSinkBlockEntity sink)) return ItemInteractionResult.FAIL;
 
         if (stack.isEmpty()) return fillFromNearbyFluid(sink, world, pos);
         Item item = stack.getItem();
@@ -93,28 +93,29 @@ public class KitchenSinkBlock extends FurnitureHorizontalBlock implements Simple
         return fillFromItemStack(sink, player, hand, stack);
     }
 
-    private InteractionResult fillFromNearbyFluid(KitchenSinkBlockEntity sink, Level world, BlockPos pos) {
+    private ItemInteractionResult fillFromNearbyFluid(KitchenSinkBlockEntity sink, Level world, BlockPos pos) {
         FluidState fs = world.getFluidState(pos.below(2));
-        if (!fs.isSource() || fs.isEmpty()) return InteractionResult.PASS;
+        if (!fs.isSource() || fs.isEmpty()) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         Fluid fluid = fs.getType();
-        if (!Config.Client.isSinkUniversal() && fluid != Fluids.WATER) return InteractionResult.FAIL;
-        return sink.addFluid(fluid) ? InteractionResult.SUCCESS : InteractionResult.FAIL;
+        if (!Config.Client.isSinkUniversal() && fluid != Fluids.WATER) return ItemInteractionResult.FAIL;
+        return sink.addFluid(fluid) ? ItemInteractionResult.SUCCESS : ItemInteractionResult.FAIL;
+
     }
 
-    private InteractionResult fillFromItemStack(KitchenSinkBlockEntity sink, Player player, InteractionHand hand, ItemStack stack) {
+    private ItemInteractionResult fillFromItemStack(KitchenSinkBlockEntity sink, Player player, InteractionHand hand, ItemStack stack) {
         Fluid fluid = FluidInteractionUtil.getFluidFromItemStack(stack);
-        if (fluid == Fluids.EMPTY || stack.getItem() == Items.BUCKET) return InteractionResult.FAIL;
-        if (!Config.Client.isSinkUniversal() && fluid != Fluids.WATER) return InteractionResult.FAIL;
+        if (fluid == Fluids.EMPTY || stack.getItem() == Items.BUCKET) return ItemInteractionResult.FAIL;
+        if (!Config.Client.isSinkUniversal() && fluid != Fluids.WATER) return ItemInteractionResult.FAIL;
         boolean success = sink.addFluid(fluid);
         if (success && !player.isCreative()) player.setItemInHand(hand, Items.BUCKET.getDefaultInstance());
-        return success ? InteractionResult.SUCCESS : InteractionResult.FAIL;
+        return success ? ItemInteractionResult.SUCCESS : ItemInteractionResult.FAIL;
     }
 
-    private InteractionResult handleBucket(KitchenSinkBlockEntity sink, Player player, InteractionHand hand, ItemStack stack) {
-        if (sink.isEmpty() || sink.getStoredAmount() < FluidContainerBlockEntity.BUCKET_VOLUME) return InteractionResult.FAIL;
-        Fluid fluid = sink.getFluid();
+    private ItemInteractionResult handleBucket(KitchenSinkBlockEntity sink, Player player, InteractionHand hand, ItemStack stack) {
+        if (sink.isEmpty() || sink.getFluidStack().getAmount() < FluidContainerBlockEntity.BUCKET_VOLUME) return ItemInteractionResult.FAIL;
+        Fluid fluid = sink.getFluidStack().getFluid();
         Item filledBucket = fluid.getBucket();
-        if (filledBucket == Items.AIR) return InteractionResult.FAIL;
+        if (filledBucket == Items.AIR) return ItemInteractionResult.FAIL;
         sink.removeFluid(FluidContainerBlockEntity.BUCKET_VOLUME);
         if (!player.isCreative()) {
             ItemStack newStack = filledBucket.getDefaultInstance();
@@ -122,7 +123,7 @@ public class KitchenSinkBlock extends FurnitureHorizontalBlock implements Simple
             if (stack.isEmpty()) player.setItemInHand(hand, newStack);
             else if (!player.getInventory().add(newStack)) player.drop(newStack, false);
         }
-        return InteractionResult.SUCCESS;
+        return ItemInteractionResult.SUCCESS;
     }
 
     @Override

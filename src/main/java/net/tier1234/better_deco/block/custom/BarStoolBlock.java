@@ -8,7 +8,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntitySpawnReason;
+import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -91,7 +91,7 @@ public class BarStoolBlock extends Block {
             Entity entity = null;
             List<ChairEntity> entities = level.getEntities(ModEntities.CHAIR_ENTITY.get(), new AABB(pos), chair -> true);
             if (entities.isEmpty() && level instanceof ServerLevel serverLevel) {
-                entity = ModEntities.CHAIR_ENTITY.get().spawn(serverLevel, pos, EntitySpawnReason.TRIGGERED);
+                entity = ModEntities.CHAIR_ENTITY.get().spawn(serverLevel, pos, MobSpawnType.TRIGGERED);
             } else if (!entities.isEmpty()) {
                 entity = entities.get(0);
             }

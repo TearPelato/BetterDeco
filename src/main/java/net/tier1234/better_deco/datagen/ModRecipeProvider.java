@@ -3,12 +3,13 @@ package net.tier1234.better_deco.datagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.init.ModBlocks;
 import net.tier1234.better_deco.init.ModItems;
@@ -16,31 +17,17 @@ import net.tier1234.better_deco.init.ModItems;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-public class ModRecipeProvider extends RecipeProvider  {
-    public ModRecipeProvider(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
-        super(provider, recipeOutput);
-    }
-    public static class Runner extends RecipeProvider.Runner {
-        public Runner(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> provider) {
-            super(packOutput, provider);
-        }
+public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
+    public ModRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
+        super(output, registries);
 
-        @Override
-        protected RecipeProvider createRecipeProvider(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
-            return new ModRecipeProvider(provider, recipeOutput);
-        }
-
-        @Override
-        public String getName() {
-            return "My Recipes";
-        }
     }
 
     @Override
-    protected void buildRecipes(){
+    protected void buildRecipes(RecipeOutput output){
         List<ItemLike> PLANKS = List.of(Blocks.OAK_PLANKS,
                 Blocks.SPRUCE_PLANKS, Blocks.BIRCH_PLANKS, Blocks.JUNGLE_PLANKS, Blocks.ACACIA_PLANKS, Blocks.DARK_OAK_PLANKS,
-                Blocks.MANGROVE_PLANKS,Blocks.CHERRY_PLANKS,Blocks.PALE_OAK_PLANKS,Blocks.BAMBOO_PLANKS,Blocks.CRIMSON_PLANKS,Blocks.WARPED_PLANKS);
+                Blocks.MANGROVE_PLANKS,Blocks.CHERRY_PLANKS,Blocks.BAMBOO_PLANKS,Blocks.CRIMSON_PLANKS,Blocks.WARPED_PLANKS);
 
 
         //StoneCutter
@@ -604,7 +591,7 @@ public class ModRecipeProvider extends RecipeProvider  {
 
 
 //Barrels
-        shaped(RecipeCategory.MISC, ModBlocks.OAK_BARREL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.OAK_BARREL.get())
                 .pattern("B#B")
                 .pattern("B B")
                 .pattern("B#B")
@@ -614,7 +601,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak_slab", has(Blocks.OAK_SLAB))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.BIRCH_BARREL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BIRCH_BARREL.get())
                 .pattern("B#B")
                 .pattern("B B")
                 .pattern("B#B")
@@ -624,7 +611,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_birch_slab", has(Blocks.BIRCH_SLAB))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.JUNGLE_BARREL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.JUNGLE_BARREL.get())
                 .pattern("B#B")
                 .pattern("B B")
                 .pattern("B#B")
@@ -634,7 +621,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_jungle_slab", has(Blocks.JUNGLE_SLAB))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.ACACIA_BARREL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.ACACIA_BARREL.get())
                 .pattern("B#B")
                 .pattern("B B")
                 .pattern("B#B")
@@ -644,7 +631,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_acacia_slab", has(Blocks.OAK_SLAB))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.DARK_OAK_BARREL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.DARK_OAK_BARREL.get())
                 .pattern("B#B")
                 .pattern("B B")
                 .pattern("B#B")
@@ -654,7 +641,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_dark_oak_slab", has(Blocks.DARK_OAK_SLAB))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.MANGROVE_BARREL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.MANGROVE_BARREL.get())
                 .pattern("B#B")
                 .pattern("B B")
                 .pattern("B#B")
@@ -664,7 +651,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_mangrove_slab", has(Blocks.MANGROVE_SLAB))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.CHERRY_BARREL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.CHERRY_BARREL.get())
                 .pattern("B#B")
                 .pattern("B B")
                 .pattern("B#B")
@@ -674,7 +661,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_cherry_slab", has(Blocks.CHERRY_SLAB))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.BAMBOO_BARREL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BAMBOO_BARREL.get())
                 .pattern("B#B")
                 .pattern("B B")
                 .pattern("B#B")
@@ -684,7 +671,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_bamboo_slab", has(Blocks.BAMBOO_SLAB))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.CRIMSON_BARREL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.CRIMSON_BARREL.get())
                 .pattern("B#B")
                 .pattern("B B")
                 .pattern("B#B")
@@ -694,7 +681,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_crimson_slab", has(Blocks.CRIMSON_SLAB))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.WARPED_BARREL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.WARPED_BARREL.get())
                 .pattern("B#B")
                 .pattern("B B")
                 .pattern("B#B")
@@ -705,7 +692,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
         //Chairs
-        shaped(RecipeCategory.MISC, ModBlocks.OAK_CHAIR.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.OAK_CHAIR.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -715,18 +702,9 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Blocks.OAK_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.PALE_OAK_CHAIR.get())
-                .pattern("#  ")
-                .pattern("###")
-                .pattern("B B")
-                .define('B', Items.STICK.asItem())
-                .define('#', Blocks.PALE_OAK_PLANKS.asItem())
-                .unlockedBy("has_stick", has(Items.STICK))
-                .unlockedBy("has_pale_oak", has(Blocks.PALE_OAK_PLANKS))
-                .save(output);
 
 
-        shaped(RecipeCategory.MISC, ModBlocks.SPRUCE_CHAIR.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SPRUCE_CHAIR.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -736,7 +714,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_spruce", has(Blocks.SPRUCE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.BIRCH_CHAIR.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BIRCH_CHAIR.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -746,7 +724,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_birch", has(Blocks.BIRCH_PLANKS))
                         .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.JUNGLE_CHAIR.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.JUNGLE_CHAIR.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -756,7 +734,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_jungle", has(Blocks.JUNGLE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.ACACIA_CHAIR.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.ACACIA_CHAIR.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -766,7 +744,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_acacia", has(Blocks.ACACIA_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.DARK_OAK_CHAIR.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.DARK_OAK_CHAIR.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -776,7 +754,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_dark_oak", has(Blocks.DARK_OAK_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.MANGROVE_CHAIR.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.MANGROVE_CHAIR.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -786,7 +764,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_mangrove", has(Blocks.MANGROVE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.CHERRY_CHAIR.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.CHERRY_CHAIR.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -796,7 +774,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_cherry", has(Blocks.CHERRY_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.BAMBOO_CHAIR.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BAMBOO_CHAIR.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -806,7 +784,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_bamboo", has(Blocks.BAMBOO_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.CRIMSON_CHAIR.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.CRIMSON_CHAIR.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -816,7 +794,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_crimson", has(Blocks.CRIMSON_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.WARPED_CHAIR.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.WARPED_CHAIR.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -826,7 +804,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_warped", has(Blocks.WARPED_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.STRIPPED_OAK_CHAIR.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.STRIPPED_OAK_CHAIR.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -836,17 +814,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Blocks.OAK_PLANKS))
                 .save(output);
 
-    shaped(RecipeCategory.MISC, ModBlocks.STRIPPED_PALE_OAK_CHAIR.get())
-                .pattern("#  ")
-                .pattern("###")
-                .pattern("B B")
-                .define('B', Items.PALE_OAK_LOG.asItem())
-                .define('#', Blocks.STRIPPED_PALE_OAK_LOG.asItem())
-                .unlockedBy("has_stick", has(Items.STICK))
-                .unlockedBy("has_stripped_pale_oak", has(Blocks.STRIPPED_PALE_OAK_LOG))
-                .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.STRIPPED_SPRUCE_CHAIR.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.STRIPPED_SPRUCE_CHAIR.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -856,7 +825,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_spruce", has(Blocks.SPRUCE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.STRIPPED_BIRCH_CHAIR.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.STRIPPED_BIRCH_CHAIR.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -866,7 +835,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_birch", has(Blocks.BIRCH_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.STRIPPED_JUNGLE_CHAIR.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.STRIPPED_JUNGLE_CHAIR.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -876,7 +845,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_jungle", has(Blocks.JUNGLE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.STRIPPED_ACACIA_CHAIR.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.STRIPPED_ACACIA_CHAIR.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -886,7 +855,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_acacia", has(Blocks.ACACIA_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.STRIPPED_DARK_OAK_CHAIR.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.STRIPPED_DARK_OAK_CHAIR.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -896,7 +865,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_dark_oak", has(Blocks.DARK_OAK_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.STRIPPED_MANGROVE_CHAIR.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.STRIPPED_MANGROVE_CHAIR.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -906,7 +875,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_mangrove", has(Blocks.MANGROVE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.STRIPPED_CHERRY_CHAIR.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.STRIPPED_CHERRY_CHAIR.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -916,7 +885,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_cherry", has(Blocks.CHERRY_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.STRIPPED_BAMBOO_CHAIR.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.STRIPPED_BAMBOO_CHAIR.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -926,7 +895,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_bamboo", has(Blocks.BAMBOO_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.STRIPPED_CRIMSON_CHAIR.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.STRIPPED_CRIMSON_CHAIR.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -936,7 +905,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_crimson", has(Blocks.CRIMSON_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.STRIPPED_WARPED_CHAIR.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.STRIPPED_WARPED_CHAIR.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -948,7 +917,7 @@ public class ModRecipeProvider extends RecipeProvider  {
 
 
         //Sofa
-        shaped(RecipeCategory.MISC, ModBlocks.RED_SOFA.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.RED_SOFA.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -958,7 +927,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_wool", has(Blocks.RED_WOOL))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.ORANGE_SOFA.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.ORANGE_SOFA.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -968,7 +937,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_wool", has(Blocks.ORANGE_WOOL))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.YELLOW_SOFA.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.YELLOW_SOFA.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -978,7 +947,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_wool", has(Blocks.YELLOW_WOOL))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.PURPLE_SOFA.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.PURPLE_SOFA.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -988,7 +957,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_wool", has(Blocks.PURPLE_WOOL))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.PINK_SOFA.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.PINK_SOFA.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -998,7 +967,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_wool", has(Blocks.PINK_WOOL))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.MAGENTA_SOFA.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.MAGENTA_SOFA.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -1008,7 +977,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_wool", has(Blocks.MAGENTA_WOOL))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.BROWN_SOFA.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BROWN_SOFA.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -1018,7 +987,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_wool", has(Blocks.BROWN_WOOL))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.BLACK_SOFA.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BLACK_SOFA.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -1028,7 +997,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_wool", has(Blocks.BLACK_WOOL))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.WITHE_SOFA.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.WITHE_SOFA.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -1038,7 +1007,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_wool", has(Blocks.WHITE_WOOL))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.GREEN_SOFA.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.GREEN_SOFA.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -1048,7 +1017,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_wool", has(Blocks.GREEN_WOOL))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.LIME_SOFA.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.LIME_SOFA.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -1058,7 +1027,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_wool", has(Blocks.LIME_WOOL))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.BLUE_SOFA.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BLUE_SOFA.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -1068,7 +1037,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_wool", has(Blocks.BLUE_WOOL))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.LIGHT_BLUE_SOFA.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.LIGHT_BLUE_SOFA.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -1078,7 +1047,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_wool", has(Blocks.BLUE_WOOL))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.GREY_SOFA.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.GREY_SOFA.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -1088,7 +1057,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_wool", has(Blocks.GRAY_WOOL))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.LIGHT_GREY_SOFA.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.LIGHT_GREY_SOFA.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -1098,7 +1067,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_wool", has(Blocks.LIGHT_GRAY_WOOL))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.CYAN_SOFA.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.CYAN_SOFA.get())
                 .pattern("#  ")
                 .pattern("###")
                 .pattern("B B")
@@ -1110,7 +1079,7 @@ public class ModRecipeProvider extends RecipeProvider  {
 
 
 //Counters
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -1120,17 +1089,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Blocks.OAK_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_KITCHEN_COUNTER.get())
-                .pattern("###")
-                .pattern("B B")
-                .pattern("BBB")
-                .define('B', Items.PALE_OAK_PLANKS.asItem())
-                .define('#', Blocks.PALE_OAK_LOG.asItem())
-                .unlockedBy("has_oak_log", has(Blocks.PALE_OAK_LOG))
-                .unlockedBy("has_oak", has(Blocks.PALE_OAK_PLANKS))
-                .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -1140,7 +1100,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_birch", has(Blocks.SPRUCE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -1150,7 +1110,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_birch", has(Blocks.BIRCH_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -1160,7 +1120,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_jungle", has(Blocks.JUNGLE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -1170,7 +1130,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_acacia", has(Blocks.ACACIA_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -1180,7 +1140,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_dark_oak", has(Blocks.DARK_OAK_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -1190,7 +1150,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_mangrove", has(Blocks.MANGROVE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -1200,7 +1160,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_cherry", has(Blocks.CHERRY_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -1210,7 +1170,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_bamboo", has(Blocks.BAMBOO_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -1220,7 +1180,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_crimson", has(Blocks.CRIMSON_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -1231,7 +1191,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
         //Stripped
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_OAK_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_OAK_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -1241,17 +1201,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Blocks.OAK_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_PALE_OAK_KITCHEN_COUNTER.get())
-                .pattern("###")
-                .pattern("B B")
-                .pattern("BBB")
-                .define('B', Items.PALE_OAK_PLANKS.asItem())
-                .define('#', Blocks.STRIPPED_PALE_OAK_LOG.asItem())
-                .unlockedBy("has_oak_log", has(Blocks.STRIPPED_PALE_OAK_LOG))
-                .unlockedBy("has_oak", has(Blocks.PALE_OAK_PLANKS))
-                .save(output);
-
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_SPRUCE_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_SPRUCE_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -1261,7 +1211,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_birch", has(Blocks.SPRUCE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_BIRCH_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_BIRCH_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -1271,7 +1221,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_birch", has(Blocks.BIRCH_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_JUNGLE_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_JUNGLE_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -1281,7 +1231,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_jungle", has(Blocks.JUNGLE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_ACACIA_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_ACACIA_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -1291,7 +1241,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_acacia", has(Blocks.ACACIA_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_DARK_OAK_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_DARK_OAK_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -1301,7 +1251,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_dark_oak", has(Blocks.DARK_OAK_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_MANGROVE_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_MANGROVE_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -1311,7 +1261,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_mangrove", has(Blocks.MANGROVE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_CHERRY_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_CHERRY_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -1321,7 +1271,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_cherry", has(Blocks.CHERRY_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_BAMBOO_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_BAMBOO_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -1331,7 +1281,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_bamboo", has(Blocks.BAMBOO_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_CRIMSON_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_CRIMSON_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -1341,7 +1291,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_crimson", has(Blocks.CRIMSON_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_WARPED_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_WARPED_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -1352,7 +1302,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
         //Drawer
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -1363,18 +1313,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Blocks.OAK_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_KITCHEN_DRAWER.get())
-                .pattern("###")
-                .pattern("BXB")
-                .pattern("BBB")
-                .define('B', Items.PALE_OAK_PLANKS.asItem())
-                .define('#', Blocks.PALE_OAK_LOG.asItem())
-                .define('X', Blocks.CHEST.asItem())
-                .unlockedBy("has_oak_log", has(Blocks.PALE_OAK_LOG))
-                .unlockedBy("has_oak", has(Blocks.PALE_OAK_PLANKS))
-                .save(output);
-
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -1385,7 +1324,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_spruce", has(Blocks.SPRUCE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -1396,7 +1335,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_birch", has(Blocks.BIRCH_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -1407,7 +1346,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_jungle", has(Blocks.JUNGLE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -1418,7 +1357,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_acacia", has(Blocks.ACACIA_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -1429,7 +1368,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_dark_oak", has(Blocks.DARK_OAK_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -1440,7 +1379,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_mangrove", has(Blocks.MANGROVE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -1451,7 +1390,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_cherry", has(Blocks.CHERRY_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -1462,7 +1401,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_bamboo", has(Blocks.BAMBOO_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -1473,7 +1412,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_crimson", has(Blocks.CRIMSON_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -1486,7 +1425,7 @@ public class ModRecipeProvider extends RecipeProvider  {
 
         //Stripped
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_OAK_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_OAK_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -1497,18 +1436,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Blocks.OAK_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_PALE_OAK_KITCHEN_DRAWER.get())
-                .pattern("###")
-                .pattern("BXB")
-                .pattern("BBB")
-                .define('B', Items.PALE_OAK_PLANKS.asItem())
-                .define('#', Blocks.STRIPPED_PALE_OAK_LOG.asItem())
-                .define('X', Blocks.CHEST.asItem())
-                .unlockedBy("has_oak_log", has(Blocks.STRIPPED_PALE_OAK_LOG))
-                .unlockedBy("has_oak", has(Blocks.PALE_OAK_PLANKS))
-                .save(output);
-
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_SPRUCE_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_SPRUCE_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -1519,7 +1447,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_spruce", has(Blocks.SPRUCE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_BIRCH_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_BIRCH_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -1530,7 +1458,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_birch", has(Blocks.BIRCH_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_JUNGLE_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_JUNGLE_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -1541,7 +1469,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_jungle", has(Blocks.JUNGLE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_ACACIA_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_ACACIA_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -1552,7 +1480,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_acacia", has(Blocks.ACACIA_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_DARK_OAK_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_DARK_OAK_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -1563,7 +1491,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_dark_oak", has(Blocks.DARK_OAK_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_MANGROVE_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_MANGROVE_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -1574,7 +1502,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_mangrove", has(Blocks.MANGROVE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_CHERRY_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_CHERRY_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -1585,7 +1513,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_cherry", has(Blocks.CHERRY_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_BAMBOO_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_BAMBOO_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -1596,7 +1524,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_bamboo", has(Blocks.BAMBOO_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_CRIMSON_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_CRIMSON_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -1607,7 +1535,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_crimson", has(Blocks.CRIMSON_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_WARPED_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_WARPED_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -1620,7 +1548,7 @@ public class ModRecipeProvider extends RecipeProvider  {
 
         //Cabinets
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -1631,18 +1559,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Blocks.OAK_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_CABINET.get())
-                .pattern("#BB")
-                .pattern("#XB")
-                .pattern("#BB")
-                .define('B', Items.PALE_OAK_LOG.asItem())
-                .define('#', Blocks.PALE_OAK_PLANKS.asItem())
-                .define('X', Blocks.CHEST.asItem())
-                .unlockedBy("has_oak_log", has(Blocks.PALE_OAK_LOG))
-                .unlockedBy("has_oak", has(Blocks.PALE_OAK_PLANKS))
-                .save(output);
-
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -1653,7 +1570,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_spruce", has(Blocks.SPRUCE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -1664,7 +1581,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_birch", has(Blocks.BIRCH_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -1675,7 +1592,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_jungle", has(Blocks.JUNGLE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -1686,7 +1603,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_acacia", has(Blocks.ACACIA_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -1697,7 +1614,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_mangrove", has(Blocks.MANGROVE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -1708,7 +1625,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_dark_oak", has(Blocks.DARK_OAK_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -1719,7 +1636,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_cherry", has(Blocks.CHERRY_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -1730,7 +1647,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_bamboo", has(Blocks.BAMBOO_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -1741,7 +1658,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_crimson", has(Blocks.CRIMSON_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -1756,7 +1673,7 @@ public class ModRecipeProvider extends RecipeProvider  {
 
         //Stripped Variants
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_OAK_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_OAK_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -1767,18 +1684,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Blocks.OAK_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_PALE_OAK_CABINET.get())
-                .pattern("#BB")
-                .pattern("#XB")
-                .pattern("#BB")
-                .define('B', Items.STRIPPED_PALE_OAK_LOG.asItem())
-                .define('#', Blocks.PALE_OAK_PLANKS.asItem())
-                .define('X', Blocks.CHEST.asItem())
-                .unlockedBy("has_oak_log", has(Blocks.STRIPPED_PALE_OAK_LOG))
-                .unlockedBy("has_oak", has(Blocks.PALE_OAK_PLANKS))
-                .save(output);
-
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_SPRUCE_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_SPRUCE_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -1789,7 +1695,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_sppruce", has(Blocks.SPRUCE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_BIRCH_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_BIRCH_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -1800,7 +1706,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_birch", has(Blocks.BIRCH_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_JUNGLE_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_JUNGLE_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -1811,7 +1717,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_jungle", has(Blocks.JUNGLE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_ACACIA_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_ACACIA_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -1822,7 +1728,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_acacia", has(Blocks.ACACIA_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_MANGROVE_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_MANGROVE_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -1833,7 +1739,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_mangrove", has(Blocks.MANGROVE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_DARK_OAK_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_DARK_OAK_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -1844,7 +1750,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_dark_oak", has(Blocks.DARK_OAK_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_CHERRY_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_CHERRY_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -1855,7 +1761,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_cherry", has(Blocks.CHERRY_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_BAMBOO_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_BAMBOO_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -1866,7 +1772,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_bamboo", has(Blocks.BAMBOO_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_CRIMSON_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_CRIMSON_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -1877,7 +1783,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_crimson", has(Blocks.CRIMSON_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_WARPED_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_WARPED_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -1892,7 +1798,7 @@ public class ModRecipeProvider extends RecipeProvider  {
 
         //Table
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_TABLE.get())
                 .pattern("BBB")
                 .pattern(" X ")
                 .pattern(" X ")
@@ -1902,17 +1808,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_oak_log", has(Blocks.STRIPPED_OAK_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_TABLE.get())
-                .pattern("BBB")
-                .pattern(" X ")
-                .pattern(" X ")
-                .define('B', Items.PALE_OAK_LOG.asItem())
-                .define('X', Blocks.STRIPPED_PALE_OAK_LOG.asItem())
-                .unlockedBy("has_oak_log", has(Blocks.OAK_LOG))
-                .unlockedBy("has_stripped_oak_log", has(Blocks.STRIPPED_PALE_OAK_LOG))
-                .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_TABLE.get())
                 .pattern("BBB")
                 .pattern(" X ")
                 .pattern(" X ")
@@ -1922,7 +1819,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_spruce_log", has(Blocks.STRIPPED_SPRUCE_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_TABLE.get())
                 .pattern("BBB")
                 .pattern(" X ")
                 .pattern(" X ")
@@ -1932,7 +1829,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_birch_log", has(Blocks.STRIPPED_BIRCH_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_TABLE.get())
                 .pattern("BBB")
                 .pattern(" X ")
                 .pattern(" X ")
@@ -1942,7 +1839,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_jungle_log", has(Blocks.STRIPPED_JUNGLE_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_TABLE.get())
                 .pattern("BBB")
                 .pattern(" X ")
                 .pattern(" X ")
@@ -1952,7 +1849,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_acacia_log", has(Blocks.STRIPPED_ACACIA_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_TABLE.get())
                 .pattern("BBB")
                 .pattern(" X ")
                 .pattern(" X ")
@@ -1962,7 +1859,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_dark_oak_log", has(Blocks.STRIPPED_DARK_OAK_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_TABLE.get())
                 .pattern("BBB")
                 .pattern(" X ")
                 .pattern(" X ")
@@ -1972,7 +1869,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_mangrove_log", has(Blocks.STRIPPED_MANGROVE_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_TABLE.get())
                 .pattern("BBB")
                 .pattern(" X ")
                 .pattern(" X ")
@@ -1982,7 +1879,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_cherry_log", has(Blocks.STRIPPED_CHERRY_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_TABLE.get())
                 .pattern("BBB")
                 .pattern(" X ")
                 .pattern(" X ")
@@ -1992,7 +1889,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_bamboo_block", has(Blocks.STRIPPED_BAMBOO_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_TABLE.get())
                 .pattern("BBB")
                 .pattern(" X ")
                 .pattern(" X ")
@@ -2002,7 +1899,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_crimson_stem", has(Blocks.STRIPPED_CRIMSON_STEM))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_TABLE.get())
                 .pattern("BBB")
                 .pattern(" X ")
                 .pattern(" X ")
@@ -2012,7 +1909,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_warped_stem", has(Blocks.STRIPPED_WARPED_STEM))
                 .save(output);
         //Stripped
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_OAK_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_OAK_TABLE.get())
                 .pattern("BBB")
                 .pattern(" X ")
                 .pattern(" X ")
@@ -2022,17 +1919,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_oak_log", has(Blocks.STRIPPED_OAK_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_PALE_OAK_TABLE.get())
-                .pattern("BBB")
-                .pattern(" X ")
-                .pattern(" X ")
-                .define('X', Items.PALE_OAK_LOG.asItem())
-                .define('B', Blocks.STRIPPED_PALE_OAK_LOG.asItem())
-                .unlockedBy("has_oak_log", has(Blocks.PALE_OAK_LOG))
-                .unlockedBy("has_stripped_oak_log", has(Blocks.STRIPPED_PALE_OAK_LOG))
-                .save(output);
-
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_SPRUCE_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_SPRUCE_TABLE.get())
                 .pattern("BBB")
                 .pattern(" X ")
                 .pattern(" X ")
@@ -2042,7 +1929,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_spruce_log", has(Blocks.STRIPPED_SPRUCE_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_BIRCH_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_BIRCH_TABLE.get())
                 .pattern("BBB")
                 .pattern(" X ")
                 .pattern(" X ")
@@ -2052,7 +1939,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_birch_log", has(Blocks.STRIPPED_BIRCH_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_JUNGLE_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_JUNGLE_TABLE.get())
                 .pattern("BBB")
                 .pattern(" X ")
                 .pattern(" X ")
@@ -2062,7 +1949,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_jungle_log", has(Blocks.STRIPPED_JUNGLE_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_ACACIA_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_ACACIA_TABLE.get())
                 .pattern("BBB")
                 .pattern(" X ")
                 .pattern(" X ")
@@ -2072,7 +1959,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_acacia_log", has(Blocks.STRIPPED_ACACIA_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_DARK_OAK_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_DARK_OAK_TABLE.get())
                 .pattern("BBB")
                 .pattern(" X ")
                 .pattern(" X ")
@@ -2082,7 +1969,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_dark_oak_log", has(Blocks.STRIPPED_DARK_OAK_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_MANGROVE_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_MANGROVE_TABLE.get())
                 .pattern("BBB")
                 .pattern(" X ")
                 .pattern(" X ")
@@ -2092,7 +1979,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_mangrove_log", has(Blocks.STRIPPED_MANGROVE_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_CHERRY_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_CHERRY_TABLE.get())
                 .pattern("BBB")
                 .pattern(" X ")
                 .pattern(" X ")
@@ -2102,7 +1989,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_cherry_log", has(Blocks.STRIPPED_CHERRY_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_BAMBOO_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_BAMBOO_TABLE.get())
                 .pattern("BBB")
                 .pattern(" X ")
                 .pattern(" X ")
@@ -2112,7 +1999,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_bamboo_block", has(Blocks.STRIPPED_BAMBOO_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_CRIMSON_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_CRIMSON_TABLE.get())
                 .pattern("BBB")
                 .pattern(" X ")
                 .pattern(" X ")
@@ -2122,7 +2009,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_crimson_stem", has(Blocks.STRIPPED_CRIMSON_STEM))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_WARPED_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_WARPED_TABLE.get())
                 .pattern("BBB")
                 .pattern(" X ")
                 .pattern(" X ")
@@ -2134,7 +2021,7 @@ public class ModRecipeProvider extends RecipeProvider  {
 
         //Coffee Table
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_COFFEE_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_COFFEE_TABLE.get())
                 .pattern("   ")
                 .pattern("BBB")
                 .pattern("X X")
@@ -2144,17 +2031,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_oak", has(Blocks.STRIPPED_OAK_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_COFFEE_TABLE.get())
-                .pattern("   ")
-                .pattern("BBB")
-                .pattern("X X")
-                .define('B', Items.PALE_OAK_LOG.asItem())
-                .define('X', Blocks.STRIPPED_PALE_OAK_LOG.asItem())
-                .unlockedBy("has_oak_log", has(Blocks.PALE_OAK_LOG))
-                .unlockedBy("has_stripped_oak", has(Blocks.STRIPPED_PALE_OAK_LOG))
-                .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_COFFEE_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_COFFEE_TABLE.get())
                 .pattern("   ")
                 .pattern("BBB")
                 .pattern("X X")
@@ -2164,7 +2042,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_oak", has(Blocks.STRIPPED_OAK_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_COFFEE_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_COFFEE_TABLE.get())
                 .pattern("   ")
                 .pattern("BBB")
                 .pattern("X X")
@@ -2174,7 +2052,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_oak", has(Blocks.STRIPPED_BIRCH_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_COFFEE_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_COFFEE_TABLE.get())
                 .pattern("   ")
                 .pattern("BBB")
                 .pattern("X X")
@@ -2184,7 +2062,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_oak", has(Blocks.STRIPPED_JUNGLE_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_COFFEE_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_COFFEE_TABLE.get())
                 .pattern("   ")
                 .pattern("BBB")
                 .pattern("X X")
@@ -2194,7 +2072,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_oak", has(Blocks.STRIPPED_ACACIA_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_COFFEE_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_COFFEE_TABLE.get())
                 .pattern("   ")
                 .pattern("BBB")
                 .pattern("X X")
@@ -2204,7 +2082,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_oak", has(Blocks.STRIPPED_DARK_OAK_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_COFFEE_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_COFFEE_TABLE.get())
                 .pattern("   ")
                 .pattern("BBB")
                 .pattern("X X")
@@ -2214,7 +2092,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_oak", has(Blocks.STRIPPED_MANGROVE_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_COFFEE_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_COFFEE_TABLE.get())
                 .pattern("   ")
                 .pattern("BBB")
                 .pattern("X X")
@@ -2224,7 +2102,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_oak", has(Blocks.STRIPPED_CHERRY_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_COFFEE_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_COFFEE_TABLE.get())
                 .pattern("   ")
                 .pattern("BBB")
                 .pattern("X X")
@@ -2234,7 +2112,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_oak", has(Blocks.STRIPPED_BAMBOO_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_COFFEE_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_COFFEE_TABLE.get())
                 .pattern("   ")
                 .pattern("BBB")
                 .pattern("X X")
@@ -2244,7 +2122,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_oak", has(Blocks.STRIPPED_CRIMSON_STEM))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_COFFEE_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_COFFEE_TABLE.get())
                 .pattern("   ")
                 .pattern("BBB")
                 .pattern("X X")
@@ -2255,7 +2133,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
         //Stripped
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_OAK_COFFEE_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_OAK_COFFEE_TABLE.get())
                 .pattern("   ")
                 .pattern("BBB")
                 .pattern("X X")
@@ -2265,17 +2143,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_oak", has(Blocks.STRIPPED_OAK_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_PALE_OAK_COFFEE_TABLE.get())
-                .pattern("   ")
-                .pattern("BBB")
-                .pattern("X X")
-                .define('X', Items.PALE_OAK_LOG.asItem())
-                .define('B', Blocks.STRIPPED_PALE_OAK_LOG.asItem())
-                .unlockedBy("has_oak_log", has(Blocks.PALE_OAK_LOG))
-                .unlockedBy("has_stripped_oak", has(Blocks.STRIPPED_PALE_OAK_LOG))
-                .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_SPRUCE_COFFEE_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_SPRUCE_COFFEE_TABLE.get())
                 .pattern("   ")
                 .pattern("BBB")
                 .pattern("X X")
@@ -2285,7 +2154,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_oak", has(Blocks.STRIPPED_OAK_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_BIRCH_COFFEE_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_BIRCH_COFFEE_TABLE.get())
                 .pattern("   ")
                 .pattern("BBB")
                 .pattern("X X")
@@ -2295,7 +2164,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_oak", has(Blocks.STRIPPED_BIRCH_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_JUNGLE_COFFEE_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_JUNGLE_COFFEE_TABLE.get())
                 .pattern("   ")
                 .pattern("BBB")
                 .pattern("X X")
@@ -2305,7 +2174,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_oak", has(Blocks.STRIPPED_JUNGLE_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_ACACIA_COFFEE_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_ACACIA_COFFEE_TABLE.get())
                 .pattern("   ")
                 .pattern("BBB")
                 .pattern("X X")
@@ -2315,7 +2184,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_oak", has(Blocks.STRIPPED_ACACIA_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_DARK_OAK_COFFEE_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_DARK_OAK_COFFEE_TABLE.get())
                 .pattern("   ")
                 .pattern("BBB")
                 .pattern("X X")
@@ -2325,7 +2194,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_oak", has(Blocks.STRIPPED_DARK_OAK_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_MANGROVE_COFFEE_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_MANGROVE_COFFEE_TABLE.get())
                 .pattern("   ")
                 .pattern("BBB")
                 .pattern("X X")
@@ -2335,7 +2204,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_oak", has(Blocks.STRIPPED_MANGROVE_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_CHERRY_COFFEE_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_CHERRY_COFFEE_TABLE.get())
                 .pattern("   ")
                 .pattern("BBB")
                 .pattern("X X")
@@ -2345,7 +2214,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_oak", has(Blocks.STRIPPED_CHERRY_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_BAMBOO_COFFEE_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_BAMBOO_COFFEE_TABLE.get())
                 .pattern("   ")
                 .pattern("BBB")
                 .pattern("X X")
@@ -2355,7 +2224,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_oak", has(Blocks.STRIPPED_BAMBOO_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_CRIMSON_COFFEE_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_CRIMSON_COFFEE_TABLE.get())
                 .pattern("   ")
                 .pattern("BBB")
                 .pattern("X X")
@@ -2365,7 +2234,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_oak", has(Blocks.STRIPPED_CRIMSON_STEM))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_WARPED_COFFEE_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_WARPED_COFFEE_TABLE.get())
                 .pattern("   ")
                 .pattern("BBB")
                 .pattern("X X")
@@ -2377,7 +2246,7 @@ public class ModRecipeProvider extends RecipeProvider  {
 
         //Dinning Table
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_DINNING_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_DINNING_TABLE.get())
                 .pattern("BBB")
                 .pattern("X X")
                 .pattern("X X")
@@ -2387,17 +2256,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_oak", has(Blocks.STRIPPED_OAK_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_DINNING_TABLE.get())
-                .pattern("BBB")
-                .pattern("X X")
-                .pattern("X X")
-                .define('B', Items.PALE_OAK_LOG.asItem())
-                .define('X', Blocks.STRIPPED_PALE_OAK_LOG.asItem())
-                .unlockedBy("has_oak_log", has(Blocks.PALE_OAK_LOG))
-                .unlockedBy("has_stripped_oak", has(Blocks.STRIPPED_PALE_OAK_LOG))
-                .save(output);
-
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_DINNING_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_DINNING_TABLE.get())
                 .pattern("BBB")
                 .pattern("X X")
                 .pattern("X X")
@@ -2407,7 +2266,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_spruce", has(Blocks.STRIPPED_SPRUCE_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_DINNING_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_DINNING_TABLE.get())
                 .pattern("BBB")
                 .pattern("X X")
                 .pattern("X X")
@@ -2417,7 +2276,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_birch", has(Blocks.STRIPPED_BIRCH_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_DINNING_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_DINNING_TABLE.get())
                 .pattern("BBB")
                 .pattern("X X")
                 .pattern("X X")
@@ -2427,7 +2286,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_jungle", has(Blocks.STRIPPED_JUNGLE_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_DINNING_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_DINNING_TABLE.get())
                 .pattern("BBB")
                 .pattern("X X")
                 .pattern("X X")
@@ -2437,7 +2296,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_acacia", has(Blocks.STRIPPED_ACACIA_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_DINNING_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_DINNING_TABLE.get())
                 .pattern("BBB")
                 .pattern("X X")
                 .pattern("X X")
@@ -2447,7 +2306,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_dark_oak", has(Blocks.STRIPPED_DARK_OAK_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_DINNING_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_DINNING_TABLE.get())
                 .pattern("BBB")
                 .pattern("X X")
                 .pattern("X X")
@@ -2457,7 +2316,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_mangrove", has(Blocks.STRIPPED_MANGROVE_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_DINNING_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_DINNING_TABLE.get())
                 .pattern("BBB")
                 .pattern("X X")
                 .pattern("X X")
@@ -2467,7 +2326,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_cherry", has(Blocks.STRIPPED_CHERRY_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_DINNING_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_DINNING_TABLE.get())
                 .pattern("BBB")
                 .pattern("X X")
                 .pattern("X X")
@@ -2477,7 +2336,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_bamboo_block", has(Blocks.STRIPPED_BAMBOO_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_DINNING_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_DINNING_TABLE.get())
                 .pattern("BBB")
                 .pattern("X X")
                 .pattern("X X")
@@ -2487,7 +2346,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_crimson_stem", has(Blocks.STRIPPED_CRIMSON_STEM))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_DINNING_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_DINNING_TABLE.get())
                 .pattern("BBB")
                 .pattern("X X")
                 .pattern("X X")
@@ -2499,7 +2358,7 @@ public class ModRecipeProvider extends RecipeProvider  {
 
         //Stripped
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_OAK_DINNING_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_OAK_DINNING_TABLE.get())
                 .pattern("BBB")
                 .pattern("X X")
                 .pattern("X X")
@@ -2509,17 +2368,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_oak", has(Blocks.STRIPPED_OAK_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_PALE_OAK_DINNING_TABLE.get())
-                .pattern("BBB")
-                .pattern("X X")
-                .pattern("X X")
-                .define('X', Items.PALE_OAK_LOG.asItem())
-                .define('B', Blocks.STRIPPED_PALE_OAK_LOG.asItem())
-                .unlockedBy("has_oak_log", has(Blocks.PALE_OAK_LOG))
-                .unlockedBy("has_stripped_oak", has(Blocks.STRIPPED_PALE_OAK_LOG))
-                .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_SPRUCE_DINNING_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_SPRUCE_DINNING_TABLE.get())
                 .pattern("BBB")
                 .pattern("X X")
                 .pattern("X X")
@@ -2529,7 +2379,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_spruce", has(Blocks.STRIPPED_SPRUCE_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_BIRCH_DINNING_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_BIRCH_DINNING_TABLE.get())
                 .pattern("BBB")
                 .pattern("X X")
                 .pattern("X X")
@@ -2539,7 +2389,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_birch", has(Blocks.STRIPPED_BIRCH_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_JUNGLE_DINNING_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_JUNGLE_DINNING_TABLE.get())
                 .pattern("BBB")
                 .pattern("X X")
                 .pattern("X X")
@@ -2549,7 +2399,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_jungle", has(Blocks.STRIPPED_JUNGLE_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_ACACIA_DINNING_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_ACACIA_DINNING_TABLE.get())
                 .pattern("BBB")
                 .pattern("X X")
                 .pattern("X X")
@@ -2559,7 +2409,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_acacia", has(Blocks.STRIPPED_ACACIA_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_DARK_OAK_DINNING_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_DARK_OAK_DINNING_TABLE.get())
                 .pattern("BBB")
                 .pattern("X X")
                 .pattern("X X")
@@ -2569,7 +2419,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_dark_oak", has(Blocks.STRIPPED_DARK_OAK_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_MANGROVE_DINNING_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_MANGROVE_DINNING_TABLE.get())
                 .pattern("BBB")
                 .pattern("X X")
                 .pattern("X X")
@@ -2579,7 +2429,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_mangrove", has(Blocks.STRIPPED_MANGROVE_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_CHERRY_DINNING_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_CHERRY_DINNING_TABLE.get())
                 .pattern("BBB")
                 .pattern("X X")
                 .pattern("X X")
@@ -2589,7 +2439,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_cherry", has(Blocks.STRIPPED_CHERRY_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_BAMBOO_DINNING_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_BAMBOO_DINNING_TABLE.get())
                 .pattern("BBB")
                 .pattern("X X")
                 .pattern("X X")
@@ -2599,7 +2449,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_bamboo_block", has(Blocks.STRIPPED_BAMBOO_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_CRIMSON_DINNING_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_CRIMSON_DINNING_TABLE.get())
                 .pattern("BBB")
                 .pattern("X X")
                 .pattern("X X")
@@ -2609,7 +2459,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stripped_crimson_stem", has(Blocks.STRIPPED_CRIMSON_STEM))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_WARPED_DINNING_TABLE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_WARPED_DINNING_TABLE.get())
                 .pattern("BBB")
                 .pattern("X X")
                 .pattern("X X")
@@ -2620,7 +2470,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
         //Microwave
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_MICROWAVE)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_MICROWAVE)
                 .pattern("BBC")
                 .pattern("XX#")
                 .pattern("BBC")
@@ -2632,7 +2482,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_white_concrete", has(Blocks.WHITE_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_MICROWAVE)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_MICROWAVE)
                 .pattern("BBC")
                 .pattern("XX#")
                 .pattern("BBC")
@@ -2688,7 +2538,7 @@ public class ModRecipeProvider extends RecipeProvider  {
 
          //Crates
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_CRATE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_CRATE.get())
                 .pattern("BBB")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -2698,17 +2548,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_chest", has(Blocks.CHEST))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_CRATE.get())
-                .pattern("BBB")
-                .pattern("BXB")
-                .pattern("BBB")
-                .define('B', Items.PALE_OAK_PLANKS.asItem())
-                .define('X', Blocks.CHEST.asItem())
-                .unlockedBy("has_oak", has(Blocks.PALE_OAK_PLANKS))
-                .unlockedBy("has_chest", has(Blocks.CHEST))
-                .save(output);
-
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_CRATE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_CRATE.get())
                 .pattern("BBB")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -2718,7 +2558,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_chest", has(Blocks.CHEST))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_CRATE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_CRATE.get())
                 .pattern("BBB")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -2728,7 +2568,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_chest", has(Blocks.CHEST))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_CRATE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_CRATE.get())
                 .pattern("BBB")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -2738,7 +2578,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_chest", has(Blocks.CHEST))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_CRATE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_CRATE.get())
                 .pattern("BBB")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -2748,7 +2588,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_chest", has(Blocks.CHEST))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_CRATE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_CRATE.get())
                 .pattern("BBB")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -2758,7 +2598,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_chest", has(Blocks.CHEST))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_CRATE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_CRATE.get())
                 .pattern("BBB")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -2768,7 +2608,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_chest", has(Blocks.CHEST))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_CRATE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_CRATE.get())
                 .pattern("BBB")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -2778,7 +2618,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_chest", has(Blocks.CHEST))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_CRATE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_CRATE.get())
                 .pattern("BBB")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -2788,7 +2628,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_chest", has(Blocks.CHEST))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_CRATE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_CRATE.get())
                 .pattern("BBB")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -2798,7 +2638,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_chest", has(Blocks.CHEST))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_CRATE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_CRATE.get())
                 .pattern("BBB")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -2810,7 +2650,7 @@ public class ModRecipeProvider extends RecipeProvider  {
 
         //Bedside
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_BEDSIDE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_BEDSIDE.get())
                 .pattern("BBB")
                 .pattern("#X#")
                 .pattern("BBB")
@@ -2822,19 +2662,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak_log", has(Blocks.OAK_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_BEDSIDE.get())
-                .pattern("BBB")
-                .pattern("#X#")
-                .pattern("BBB")
-                .define('B', Items.PALE_OAK_LOG.asItem())
-                .define('X', Blocks.CHEST.asItem())
-                .define('#', Blocks.PALE_OAK_PLANKS.asItem())
-                .unlockedBy("has_oak", has(Blocks.PALE_OAK_PLANKS))
-                .unlockedBy("has_chest", has(Blocks.CHEST))
-                .unlockedBy("has_oak_log", has(Blocks.PALE_OAK_LOG))
-                .save(output);
-
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_BEDSIDE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_BEDSIDE.get())
                 .pattern("BBB")
                 .pattern("#X#")
                 .pattern("BBB")
@@ -2846,7 +2674,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_spruce_log", has(Blocks.SPRUCE_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_BEDSIDE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_BEDSIDE.get())
                 .pattern("BBB")
                 .pattern("#X#")
                 .pattern("BBB")
@@ -2858,7 +2686,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_birch_log", has(Blocks.BIRCH_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_BEDSIDE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_BEDSIDE.get())
                 .pattern("BBB")
                 .pattern("#X#")
                 .pattern("BBB")
@@ -2870,7 +2698,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_jungle_log", has(Blocks.JUNGLE_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_BEDSIDE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_BEDSIDE.get())
                 .pattern("BBB")
                 .pattern("#X#")
                 .pattern("BBB")
@@ -2882,7 +2710,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_acacia_log", has(Blocks.ACACIA_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_BEDSIDE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_BEDSIDE.get())
                 .pattern("BBB")
                 .pattern("#X#")
                 .pattern("BBB")
@@ -2894,7 +2722,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_dark_oak_log", has(Blocks.DARK_OAK_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_BEDSIDE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_BEDSIDE.get())
                 .pattern("BBB")
                 .pattern("#X#")
                 .pattern("BBB")
@@ -2906,7 +2734,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_mangrove_log", has(Blocks.MANGROVE_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_BEDSIDE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_BEDSIDE.get())
                 .pattern("BBB")
                 .pattern("#X#")
                 .pattern("BBB")
@@ -2918,7 +2746,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_cherry_log", has(Blocks.CHERRY_LOG))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_BEDSIDE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_BEDSIDE.get())
                 .pattern("BBB")
                 .pattern("#X#")
                 .pattern("BBB")
@@ -2930,7 +2758,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_bamboo_block", has(Blocks.BAMBOO_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_BEDSIDE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_BEDSIDE.get())
                 .pattern("BBB")
                 .pattern("#X#")
                 .pattern("BBB")
@@ -2942,7 +2770,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_crimson_stem", has(Blocks.CRIMSON_STEM))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_BEDSIDE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_BEDSIDE.get())
                 .pattern("BBB")
                 .pattern("#X#")
                 .pattern("BBB")
@@ -2956,7 +2784,7 @@ public class ModRecipeProvider extends RecipeProvider  {
 
          //Sinks
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_SINK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -2968,19 +2796,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_SINK.get())
-                .pattern("BXB")
-                .pattern("BBB")
-                .pattern("# #")
-                .define('B', Items.WHITE_CONCRETE.asItem())
-                .define('X', Items.BUCKET.asItem())
-                .define('#', Blocks.PALE_OAK_PLANKS.asItem())
-                .unlockedBy("has_oak", has(Blocks.PALE_OAK_PLANKS))
-                .unlockedBy("has_chest", has(Blocks.CHEST))
-                .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
-                .save(output);
-
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_SINK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -2992,7 +2808,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_SINK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -3004,7 +2820,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_SINK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -3016,7 +2832,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_SINK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -3028,7 +2844,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_SINK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -3040,7 +2856,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_SINK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -3052,7 +2868,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_SINK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -3064,7 +2880,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_SINK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -3076,7 +2892,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_SINK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -3088,7 +2904,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_SINK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -3101,7 +2917,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
         //Dark
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_SINK_DARK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_SINK_DARK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -3113,19 +2929,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_gray_concrete", has(Blocks.GRAY_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_SINK_DARK.get())
-                .pattern("BXB")
-                .pattern("BBB")
-                .pattern("# #")
-                .define('B', Items.GRAY_CONCRETE.asItem())
-                .define('X', Items.BUCKET.asItem())
-                .define('#', Blocks.PALE_OAK_PLANKS.asItem())
-                .unlockedBy("has_oak", has(Blocks.PALE_OAK_PLANKS))
-                .unlockedBy("has_chest", has(Blocks.CHEST))
-                .unlockedBy("has_gray_concrete", has(Blocks.GRAY_CONCRETE))
-                .save(output);
-
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_SINK_DARK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_SINK_DARK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -3137,7 +2941,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_gray_concrete", has(Blocks.GRAY_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_SINK_DARK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_SINK_DARK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -3149,7 +2953,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_gray_concrete", has(Blocks.GRAY_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_SINK_DARK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_SINK_DARK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -3161,7 +2965,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_gray_concrete", has(Blocks.GRAY_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_SINK_DARK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_SINK_DARK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -3173,7 +2977,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_gray_concrete", has(Blocks.GRAY_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_SINK_DARK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_SINK_DARK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -3185,7 +2989,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_gray_concrete", has(Blocks.GRAY_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_SINK_DARK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_SINK_DARK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -3197,7 +3001,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_gray_concrete", has(Blocks.GRAY_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_SINK_DARK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_SINK_DARK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -3209,7 +3013,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_gray_concrete", has(Blocks.GRAY_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_SINK_DARK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_SINK_DARK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -3221,7 +3025,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_gray_concrete", has(Blocks.GRAY_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_SINK_DARK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_SINK_DARK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -3233,7 +3037,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_gray_concrete", has(Blocks.GRAY_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_SINK_DARK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_SINK_DARK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -3248,7 +3052,7 @@ public class ModRecipeProvider extends RecipeProvider  {
           //STONE FURNITURE VARIANTS
         //COUNTERS
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STONE_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STONE_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -3258,7 +3062,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stone", has(Blocks.STONE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.GRANITE_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.GRANITE_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -3268,7 +3072,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_polished_granite", has(Blocks.GRANITE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DIORITE_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DIORITE_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -3278,7 +3082,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_polished_diorite", has(Blocks.POLISHED_DIORITE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DEEPSLATE_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DEEPSLATE_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -3288,7 +3092,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_deepslate_bricks", has(Blocks.DEEPSLATE_BRICKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DEEPSLATE_TILE_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DEEPSLATE_TILE_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -3298,7 +3102,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_deepslate_tiles", has(Blocks.DEEPSLATE_TILES))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACKSTONE_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACKSTONE_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -3309,7 +3113,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
         //DRAWERS
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STONE_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STONE_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -3320,7 +3124,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stone", has(Blocks.STONE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.GRANITE_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.GRANITE_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -3331,7 +3135,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_polished_granite", has(Blocks.GRANITE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DIORITE_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DIORITE_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -3342,7 +3146,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_polished_diorite", has(Blocks.POLISHED_DIORITE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DEEPSLATE_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DEEPSLATE_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -3353,7 +3157,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_deepslate_bricks", has(Blocks.DEEPSLATE_BRICKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DEEPSLATE_TILES_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DEEPSLATE_TILES_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -3364,7 +3168,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_deepslate_tiles", has(Blocks.DEEPSLATE_TILES))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACKSTONE_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACKSTONE_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -3376,7 +3180,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
         //CABINETS
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STONE_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STONE_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -3387,7 +3191,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_cobblestone", has(Blocks.COBBLESTONE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.GRANITE_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.GRANITE_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -3398,7 +3202,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_polished_granite", has(Blocks.POLISHED_GRANITE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DIORITE_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DIORITE_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -3409,7 +3213,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_polished_diorite", has(Blocks.POLISHED_DIORITE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DEEPSLATE_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DEEPSLATE_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -3420,7 +3224,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_deepslate", has(Blocks.COBBLED_DEEPSLATE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DEEPSLATE_TILES_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DEEPSLATE_TILES_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -3431,7 +3235,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_deepslate", has(Blocks.COBBLED_DEEPSLATE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACKSTONE_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACKSTONE_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -3444,7 +3248,7 @@ public class ModRecipeProvider extends RecipeProvider  {
 
 
         //Stool
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.WITHE_STOOL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WITHE_STOOL.get())
                         .pattern(" X ")
                         .pattern(" B ")
                         .pattern(" # ")
@@ -3454,7 +3258,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                         .unlockedBy("has_wool", has(Items.WHITE_WOOL))
                         .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BROWN_STOOL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BROWN_STOOL.get())
                 .pattern(" X ")
                 .pattern(" B ")
                 .pattern(" # ")
@@ -3464,7 +3268,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_wool", has(Items.BROWN_WOOL))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACK_STOOL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACK_STOOL.get())
                 .pattern(" X ")
                 .pattern(" B ")
                 .pattern(" # ")
@@ -3474,7 +3278,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_wool", has(Items.BLACK_WOOL))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.GREY_STOOL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.GREY_STOOL.get())
                 .pattern(" X ")
                 .pattern(" B ")
                 .pattern(" # ")
@@ -3484,7 +3288,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_wool", has(Items.GRAY_WOOL))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_GREY_STOOL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_GREY_STOOL.get())
                 .pattern(" X ")
                 .pattern(" B ")
                 .pattern(" # ")
@@ -3494,7 +3298,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_wool", has(Items.LIGHT_GRAY_WOOL))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.GREEN_STOOL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.GREEN_STOOL.get())
                 .pattern(" X ")
                 .pattern(" B ")
                 .pattern(" # ")
@@ -3504,7 +3308,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_wool", has(Items.GREEN_WOOL))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIME_STOOL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LIME_STOOL.get())
                 .pattern(" X ")
                 .pattern(" B ")
                 .pattern(" # ")
@@ -3514,7 +3318,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_wool", has(Items.LIME_WOOL))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BLUE_STOOL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BLUE_STOOL.get())
                 .pattern(" X ")
                 .pattern(" B ")
                 .pattern(" # ")
@@ -3524,7 +3328,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_wool", has(Items.BLUE_WOOL))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_BLUE_STOOL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_BLUE_STOOL.get())
                 .pattern(" X ")
                 .pattern(" B ")
                 .pattern(" # ")
@@ -3534,7 +3338,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_wool", has(Items.LIGHT_BLUE_WOOL))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CYAN_STOOL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CYAN_STOOL.get())
                 .pattern(" X ")
                 .pattern(" B ")
                 .pattern(" # ")
@@ -3544,7 +3348,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_wool", has(Items.CYAN_WOOL))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.YELLOW_STOOL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.YELLOW_STOOL.get())
                 .pattern(" X ")
                 .pattern(" B ")
                 .pattern(" # ")
@@ -3554,7 +3358,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_wool", has(Items.YELLOW_WOOL))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.ORANGE_STOOL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ORANGE_STOOL.get())
                 .pattern(" X ")
                 .pattern(" B ")
                 .pattern(" # ")
@@ -3564,7 +3368,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_wool", has(Items.ORANGE_WOOL))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.RED_STOOL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.RED_STOOL.get())
                 .pattern(" X ")
                 .pattern(" B ")
                 .pattern(" # ")
@@ -3574,7 +3378,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_wool", has(Items.RED_WOOL))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PINK_STOOL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.PINK_STOOL.get())
                 .pattern(" X ")
                 .pattern(" B ")
                 .pattern(" # ")
@@ -3584,7 +3388,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_wool", has(Items.PINK_WOOL))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.MAGENTA_STOOL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MAGENTA_STOOL.get())
                 .pattern(" X ")
                 .pattern(" B ")
                 .pattern(" # ")
@@ -3594,7 +3398,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_wool", has(Items.MAGENTA_WOOL))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PURPLE_STOOL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.PURPLE_STOOL.get())
                 .pattern(" X ")
                 .pattern(" B ")
                 .pattern(" # ")
@@ -3609,7 +3413,7 @@ public class ModRecipeProvider extends RecipeProvider  {
 
         //Pedestal
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PEDESTAL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.PEDESTAL.get())
                 .pattern(" B ")
                 .pattern(" X ")
                 .pattern(" B ")
@@ -3619,7 +3423,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_smooth_stone", has(Blocks.SMOOTH_STONE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STONE_PEDESTAL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STONE_PEDESTAL.get())
                 .pattern(" B ")
                 .pattern(" X ")
                 .pattern(" B ")
@@ -3629,7 +3433,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stone", has(Blocks.STONE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.GRANITE_PEDESTAL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.GRANITE_PEDESTAL.get())
                 .pattern(" B ")
                 .pattern(" X ")
                 .pattern(" B ")
@@ -3639,7 +3443,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_granite", has(Blocks.GRANITE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DIORITE_PEDESTAL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DIORITE_PEDESTAL.get())
                 .pattern(" B ")
                 .pattern(" X ")
                 .pattern(" B ")
@@ -3649,7 +3453,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_diorite", has(Blocks.DIORITE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DEEPSLATE_PEDESTAL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DEEPSLATE_PEDESTAL.get())
                 .pattern(" B ")
                 .pattern(" X ")
                 .pattern(" B ")
@@ -3659,7 +3463,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_ddeepslate_polished", has(Blocks.POLISHED_DEEPSLATE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DEEPSLATE_TILE_PEDESTAL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DEEPSLATE_TILE_PEDESTAL.get())
                 .pattern(" B ")
                 .pattern(" X ")
                 .pattern(" B ")
@@ -3669,7 +3473,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_deepslate_polished", has(Blocks.POLISHED_DEEPSLATE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACKSTONE_PEDESTAL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACKSTONE_PEDESTAL.get())
                 .pattern(" B ")
                 .pattern(" X ")
                 .pattern(" B ")
@@ -3680,7 +3484,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
         //Tecque
-        shaped(RecipeCategory.MISC, ModBlocks.STONE_GLASS_TECQUE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.STONE_GLASS_TECQUE.get())
                 .pattern("###")
                 .pattern("# #")
                 .pattern("BBB")
@@ -3690,7 +3494,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stone_slab", has(Blocks.STONE_SLAB))
                 .save(output);
         //Wood Tecque
-        shaped(RecipeCategory.MISC, ModBlocks.OAK_GLASS_TECQUE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.OAK_GLASS_TECQUE.get())
                 .pattern("###")
                 .pattern("# #")
                 .pattern("BBB")
@@ -3700,17 +3504,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak_slab", has(Blocks.OAK_SLAB))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.PALE_OAK_GLASS_TECQUE.get())
-                .pattern("###")
-                .pattern("# #")
-                .pattern("BBB")
-                .define('B', Blocks.PALE_OAK_SLAB.asItem())
-                .define('#', Blocks.GLASS.asItem())
-                .unlockedBy("has_glass", has(Blocks.GLASS))
-                .unlockedBy("has_oak_slab", has(Blocks.PALE_OAK_SLAB))
-                .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.SPRUCE_GLASS_TECQUE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SPRUCE_GLASS_TECQUE.get())
                 .pattern("###")
                 .pattern("# #")
                 .pattern("BBB")
@@ -3720,7 +3515,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_spruce_slab", has(Blocks.SPRUCE_SLAB))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.BIRCH_GLASS_TECQUE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BIRCH_GLASS_TECQUE.get())
                 .pattern("###")
                 .pattern("# #")
                 .pattern("BBB")
@@ -3730,7 +3525,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_birch_slab", has(Blocks.BIRCH_SLAB))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.JUNGLE_GLASS_TECQUE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.JUNGLE_GLASS_TECQUE.get())
                 .pattern("###")
                 .pattern("# #")
                 .pattern("BBB")
@@ -3740,7 +3535,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_jungle_slab", has(Blocks.JUNGLE_SLAB))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.ACACIA_GLASS_TECQUE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.ACACIA_GLASS_TECQUE.get())
                 .pattern("###")
                 .pattern("# #")
                 .pattern("BBB")
@@ -3750,7 +3545,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_acacia_slab", has(Blocks.ACACIA_SLAB))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.DARK_OAK_GLASS_TECQUE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.DARK_OAK_GLASS_TECQUE.get())
                 .pattern("###")
                 .pattern("# #")
                 .pattern("BBB")
@@ -3760,7 +3555,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_dark_oak_slab", has(Blocks.DARK_OAK_SLAB))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.MANGROVE_GLASS_TECQUE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.MANGROVE_GLASS_TECQUE.get())
                 .pattern("###")
                 .pattern("# #")
                 .pattern("BBB")
@@ -3770,7 +3565,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_mangrove_slab", has(Blocks.MANGROVE_SLAB))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.CHERRY_GLASS_TECQUE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.CHERRY_GLASS_TECQUE.get())
                 .pattern("###")
                 .pattern("# #")
                 .pattern("BBB")
@@ -3780,7 +3575,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_cherry_slab", has(Blocks.CHERRY_SLAB))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.BAMBOO_GLASS_TECQUE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BAMBOO_GLASS_TECQUE.get())
                 .pattern("###")
                 .pattern("# #")
                 .pattern("BBB")
@@ -3790,7 +3585,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_bamboo_slab", has(Blocks.BAMBOO_SLAB))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.CRIMSON_GLASS_TECQUE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.CRIMSON_GLASS_TECQUE.get())
                 .pattern("###")
                 .pattern("# #")
                 .pattern("BBB")
@@ -3800,7 +3595,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_crimson_slab", has(Blocks.CRIMSON_SLAB))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModBlocks.WARPED_GLASS_TECQUE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.WARPED_GLASS_TECQUE.get())
                 .pattern("###")
                 .pattern("# #")
                 .pattern("BBB")
@@ -3811,18 +3606,18 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
         //Deco
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BIG_CHAIN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BIG_CHAIN.get())
                 .pattern(" # ")
                 .pattern(" B ")
                 .pattern(" # ")
-                .define('B', Blocks.IRON_CHAIN.asItem())
+                .define('B', Blocks.CHAIN.asItem())
                 .define('#', Items.IRON_INGOT.asItem())
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
 
         //DigitalClock
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.RED_DIGITAL_CLOCK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.RED_DIGITAL_CLOCK.get())
                 .pattern("###")
                 .pattern("#B#")
                 .pattern("CCC")
@@ -3832,7 +3627,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.YELLOW_DIGITAL_CLOCK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.YELLOW_DIGITAL_CLOCK.get())
                 .pattern("###")
                 .pattern("#B#")
                 .pattern("CCC")
@@ -3842,7 +3637,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.ORANGE_DIGITAL_CLOCK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ORANGE_DIGITAL_CLOCK.get())
                 .pattern("###")
                 .pattern("#B#")
                 .pattern("CCC")
@@ -3852,7 +3647,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PINK_DIGITAL_CLOCK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.PINK_DIGITAL_CLOCK.get())
                 .pattern("###")
                 .pattern("#B#")
                 .pattern("CCC")
@@ -3862,7 +3657,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PURPLE_DIGITAL_CLOCK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.PURPLE_DIGITAL_CLOCK.get())
                 .pattern("###")
                 .pattern("#B#")
                 .pattern("CCC")
@@ -3872,7 +3667,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.GREEN_DIGITAL_CLOCK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.GREEN_DIGITAL_CLOCK.get())
                 .pattern("###")
                 .pattern("#B#")
                 .pattern("CCC")
@@ -3882,7 +3677,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIME_DIGITAL_CLOCK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LIME_DIGITAL_CLOCK.get())
                 .pattern("###")
                 .pattern("#B#")
                 .pattern("CCC")
@@ -3892,7 +3687,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.GRAY_DIGITAL_CLOCK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.GRAY_DIGITAL_CLOCK.get())
                 .pattern("###")
                 .pattern("#B#")
                 .pattern("CCC")
@@ -3902,7 +3697,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_GRAY_DIGITAL_CLOCK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_GRAY_DIGITAL_CLOCK.get())
                 .pattern("###")
                 .pattern("#B#")
                 .pattern("CCC")
@@ -3912,7 +3707,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BLUE_DIGITAL_CLOCK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BLUE_DIGITAL_CLOCK.get())
                 .pattern("###")
                 .pattern("#B#")
                 .pattern("CCC")
@@ -3922,7 +3717,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_BLUE_DIGITAL_CLOCK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_BLUE_DIGITAL_CLOCK.get())
                 .pattern("###")
                 .pattern("#B#")
                 .pattern("CCC")
@@ -3932,7 +3727,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CYAN_DIGITAL_CLOCK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CYAN_DIGITAL_CLOCK.get())
                 .pattern("###")
                 .pattern("#B#")
                 .pattern("CCC")
@@ -3942,7 +3737,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BROWN_DIGITAL_CLOCK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BROWN_DIGITAL_CLOCK.get())
                 .pattern("###")
                 .pattern("#B#")
                 .pattern("CCC")
@@ -3952,7 +3747,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACK_DIGITAL_CLOCK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACK_DIGITAL_CLOCK.get())
                 .pattern("###")
                 .pattern("#B#")
                 .pattern("CCC")
@@ -3962,7 +3757,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.WHITE_DIGITAL_CLOCK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WHITE_DIGITAL_CLOCK.get())
                 .pattern("###")
                 .pattern("#B#")
                 .pattern("CCC")
@@ -3972,7 +3767,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.MAGENTA_DIGITAL_CLOCK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MAGENTA_DIGITAL_CLOCK.get())
                 .pattern("###")
                 .pattern("#B#")
                 .pattern("CCC")
@@ -3985,7 +3780,7 @@ public class ModRecipeProvider extends RecipeProvider  {
 
 
         //Shelf
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_SHELF.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_SHELF.get())
                 .pattern("#B#")
                 .pattern("#X#")
                 .pattern("#B#")
@@ -3995,17 +3790,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Items.OAK_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_SHELF.get())
-                .pattern("#B#")
-                .pattern("#X#")
-                .pattern("#B#")
-                .define('B', Blocks.PALE_OAK_SLAB.asItem())
-                .define('#', Items.PALE_OAK_PLANKS.asItem())
-                .define('X', Items.ITEM_FRAME.asItem())
-                .unlockedBy("has_oak", has(Items.PALE_OAK_PLANKS))
-                .save(output);
-
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_SHELF.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_SHELF.get())
                 .pattern("#B#")
                 .pattern("#X#")
                 .pattern("#B#")
@@ -4015,7 +3800,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Items.SPRUCE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_SHELF.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_SHELF.get())
                 .pattern("#B#")
                 .pattern("#X#")
                 .pattern("#B#")
@@ -4025,7 +3810,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Items.BIRCH_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_SHELF.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_SHELF.get())
                 .pattern("#B#")
                 .pattern("#X#")
                 .pattern("#B#")
@@ -4035,7 +3820,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Items.JUNGLE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_SHELF.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_SHELF.get())
                 .pattern("#B#")
                 .pattern("#X#")
                 .pattern("#B#")
@@ -4045,7 +3830,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Items.ACACIA_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_SHELF.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_SHELF.get())
                 .pattern("#B#")
                 .pattern("#X#")
                 .pattern("#B#")
@@ -4055,7 +3840,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Items.DARK_OAK_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_SHELF.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_SHELF.get())
                 .pattern("#B#")
                 .pattern("#X#")
                 .pattern("#B#")
@@ -4065,7 +3850,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Items.MANGROVE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_SHELF.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_SHELF.get())
                 .pattern("#B#")
                 .pattern("#X#")
                 .pattern("#B#")
@@ -4075,7 +3860,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Items.CHERRY_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_SHELF.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_SHELF.get())
                 .pattern("#B#")
                 .pattern("#X#")
                 .pattern("#B#")
@@ -4085,7 +3870,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Items.BAMBOO_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_SHELF.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_SHELF.get())
                 .pattern("#B#")
                 .pattern("#X#")
                 .pattern("#B#")
@@ -4095,7 +3880,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Items.CRIMSON_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_SHELF.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_SHELF.get())
                 .pattern("#B#")
                 .pattern("#X#")
                 .pattern("#B#")
@@ -4119,7 +3904,7 @@ public class ModRecipeProvider extends RecipeProvider  {
 
         //Building Extras
         //Vetical Slab
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_VERTICAL_SLAB.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_VERTICAL_SLAB.get())
                 .pattern(" # ")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -4127,15 +3912,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Items.OAK_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_VERTICAL_SLAB.get())
-                .pattern(" # ")
-                .pattern(" # ")
-                .pattern(" # ")
-                .define('#', Items.PALE_OAK_PLANKS.asItem())
-                .unlockedBy("has_oak", has(Items.PALE_OAK_PLANKS))
-                .save(output);
-
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_VERTICAL_SLAB.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_VERTICAL_SLAB.get())
                 .pattern(" # ")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -4143,7 +3920,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Items.SPRUCE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_VERTICAL_SLAB.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_VERTICAL_SLAB.get())
                 .pattern(" # ")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -4151,7 +3928,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Items.BIRCH_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_VERTICAL_SLAB.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_VERTICAL_SLAB.get())
                 .pattern(" # ")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -4159,7 +3936,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Items.JUNGLE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_VERTICAL_SLAB.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_VERTICAL_SLAB.get())
                 .pattern(" # ")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -4167,7 +3944,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Items.ACACIA_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_VERTICAL_SLAB.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_VERTICAL_SLAB.get())
                 .pattern(" # ")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -4175,7 +3952,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Items.DARK_OAK_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_VERTICAL_SLAB.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_VERTICAL_SLAB.get())
                 .pattern(" # ")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -4183,7 +3960,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Items.MANGROVE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_VERTICAL_SLAB.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_VERTICAL_SLAB.get())
                 .pattern(" # ")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -4191,7 +3968,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Items.CHERRY_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_VERTICAL_SLAB.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_VERTICAL_SLAB.get())
                 .pattern(" # ")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -4199,7 +3976,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Items.BAMBOO_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_VERTICAL_SLAB.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_VERTICAL_SLAB.get())
                 .pattern(" # ")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -4207,7 +3984,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Items.CRIMSON_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_VERTICAL_SLAB.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_VERTICAL_SLAB.get())
                 .pattern(" # ")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -4216,7 +3993,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
         //Lanterns
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.WALL_LANTERN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WALL_LANTERN.get())
                 .pattern("   ")
                 .pattern(" # ")
                 .pattern("   ")
@@ -4432,7 +4209,7 @@ public class ModRecipeProvider extends RecipeProvider  {
 
 
         //Oven
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -4443,18 +4220,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Blocks.OAK_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_OVEN.get())
-                .pattern("###")
-                .pattern("BXB")
-                .pattern("BBB")
-                .define('B', Items.PALE_OAK_PLANKS.asItem())
-                .define('#', Blocks.PALE_OAK_LOG.asItem())
-                .define('X', Blocks.SMOKER.asItem())
-                .unlockedBy("has_oak_log", has(Blocks.PALE_OAK_LOG))
-                .unlockedBy("has_oak", has(Blocks.PALE_OAK_PLANKS))
-                .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -4465,7 +4232,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_spruce", has(Blocks.SPRUCE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -4476,7 +4243,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_birch", has(Blocks.BIRCH_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -4487,7 +4254,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_jungle", has(Blocks.JUNGLE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -4498,7 +4265,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_acacia", has(Blocks.ACACIA_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -4509,7 +4276,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_dark_oak", has(Blocks.DARK_OAK_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -4520,7 +4287,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_mangrove", has(Blocks.MANGROVE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -4531,7 +4298,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_cherry", has(Blocks.CHERRY_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -4542,7 +4309,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_bamboo", has(Blocks.BAMBOO_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -4553,7 +4320,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_crimson", has(Blocks.CRIMSON_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -4566,7 +4333,7 @@ public class ModRecipeProvider extends RecipeProvider  {
 
         //Stripped
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_OAK_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_OAK_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -4577,18 +4344,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Blocks.OAK_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_PALE_OAK_OVEN.get())
-                .pattern("###")
-                .pattern("BXB")
-                .pattern("BBB")
-                .define('B', Items.PALE_OAK_PLANKS.asItem())
-                .define('#', Blocks.STRIPPED_PALE_OAK_LOG.asItem())
-                .define('X', Blocks.SMOKER.asItem())
-                .unlockedBy("has_stripped_oak_log", has(Blocks.STRIPPED_PALE_OAK_LOG))
-                .unlockedBy("has_oak", has(Blocks.PALE_OAK_PLANKS))
-                .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_SPRUCE_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_SPRUCE_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -4599,7 +4356,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_spruce", has(Blocks.SPRUCE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_BIRCH_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_BIRCH_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -4610,7 +4367,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_birch", has(Blocks.BIRCH_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_JUNGLE_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_JUNGLE_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -4621,7 +4378,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_jungle", has(Blocks.JUNGLE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_ACACIA_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_ACACIA_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -4632,7 +4389,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_acacia", has(Blocks.ACACIA_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_DARK_OAK_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_DARK_OAK_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -4643,7 +4400,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_dark_oak", has(Blocks.DARK_OAK_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_MANGROVE_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_MANGROVE_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -4654,7 +4411,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_mangrove", has(Blocks.MANGROVE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_CHERRY_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_CHERRY_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -4665,7 +4422,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_cherry", has(Blocks.CHERRY_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_BAMBOO_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_BAMBOO_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -4676,7 +4433,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_bamboo", has(Blocks.BAMBOO_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_CRIMSON_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_CRIMSON_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -4687,7 +4444,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_crimson", has(Blocks.CRIMSON_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_WARPED_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STRIPPED_WARPED_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -4708,7 +4465,7 @@ public class ModRecipeProvider extends RecipeProvider  {
 
 //Items
         //Chisel
-        shaped(RecipeCategory.MISC, ModItems.IRON_CHISEL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.IRON_CHISEL.get())
                 .pattern("   ")
                 .pattern(" # ")
                 .pattern("B  ")
@@ -4718,7 +4475,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stick", has(Items.STICK))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModItems.GOLD_CHISEL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.GOLD_CHISEL.get())
                 .pattern("   ")
                 .pattern(" # ")
                 .pattern("B  ")
@@ -4728,7 +4485,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_stick", has(Items.STICK))
                 .save(output);
 
-        shaped(RecipeCategory.MISC, ModItems.DIAMOND_CHISEL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DIAMOND_CHISEL.get())
                 .pattern("   ")
                 .pattern(" # ")
                 .pattern("B  ")
@@ -4746,7 +4503,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                         ModItems.NETHERITE_CHISEL.get()
                 )
                 .unlocks("has_netherite_ingot", has(Items.NETHERITE_INGOT))
-                .save(output, String.valueOf(Identifier.fromNamespaceAndPath(BetterDeco.MOD_ID, "netherite_chisel")));
+                .save(output, String.valueOf(ResourceLocation.fromNamespaceAndPath(BetterDeco.MOD_ID, "netherite_chisel")));
 
 
 
@@ -4867,7 +4624,7 @@ public class ModRecipeProvider extends RecipeProvider  {
 
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_DIORITE_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_DIORITE_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -4877,7 +4634,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_spruce", has(Blocks.SPRUCE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_DIORITE_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_DIORITE_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BCB")
                 .pattern("BBB")
@@ -4888,7 +4645,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_spruce", has(Blocks.SPRUCE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_DIORITE_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_DIORITE_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -4899,7 +4656,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_spruce", has(Blocks.SPRUCE_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_DIORITE_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_DIORITE_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -4912,7 +4669,7 @@ public class ModRecipeProvider extends RecipeProvider  {
 
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_ANDESITE_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_ANDESITE_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -4922,7 +4679,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Blocks.OAK_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_ANDESITE_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_ANDESITE_DRAWER.get())
                 .pattern("###")
                 .pattern("BCB")
                 .pattern("BBB")
@@ -4933,7 +4690,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Blocks.OAK_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_ANDESITE_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_ANDESITE_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -4944,7 +4701,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_oak", has(Blocks.OAK_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_ANDESITE_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_ANDESITE_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -4957,7 +4714,7 @@ public class ModRecipeProvider extends RecipeProvider  {
 
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_CALCITE_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_CALCITE_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -4967,7 +4724,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_dark_oak", has(Blocks.DARK_OAK_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_CALCITE_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_CALCITE_DRAWER.get())
                 .pattern("###")
                 .pattern("BCB")
                 .pattern("BBB")
@@ -4978,7 +4735,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_dark_oak", has(Blocks.DARK_OAK_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_CALCITE_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_CALCITE_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -4989,7 +4746,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_dark_oak", has(Blocks.DARK_OAK_PLANKS))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_CALCITE_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_CALCITE_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -5001,84 +4758,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
 
-        SingleItemRecipeBuilder.stonecutting(
-                        Ingredient.of(Blocks.PALE_OAK_PLANKS.asItem()),
-                        RecipeCategory.MISC,
-                        ModBlocks.PALE_OAK_PLANKS_BRICKS.get(),1
-                )
-                .unlockedBy("has_pale_oak_planks", has(Blocks.PALE_OAK_PLANKS.asItem()))
-                .save(output);
-
-        SingleItemRecipeBuilder.stonecutting(
-                        Ingredient.of(Blocks.PALE_OAK_PLANKS.asItem()),
-                        RecipeCategory.MISC,
-                        ModBlocks.PALE_OAK_PLANKS_PILLAR.get(),1
-                )
-                .unlockedBy("has_pale_oak_planks", has(Blocks.PALE_OAK_PLANKS.asItem()))
-                .save(output);
-
-        SingleItemRecipeBuilder.stonecutting(
-                        Ingredient.of(Blocks.PALE_OAK_PLANKS.asItem()),
-                        RecipeCategory.MISC,
-                        ModBlocks.PALE_OAK_VERTICAL.get(),1
-                )
-                .unlockedBy("has_pale_oak_planks", has(Blocks.PALE_OAK_PLANKS.asItem()))
-                .save(output);
-
-        SingleItemRecipeBuilder.stonecutting(
-                        Ingredient.of(Blocks.PALE_OAK_PLANKS.asItem()),
-                        RecipeCategory.MISC,
-                        ModBlocks.PALE_OAK_SMOOTH_PLANKS.get(),1
-                )
-                .unlockedBy("has_pale_oak_planks", has(Blocks.PALE_OAK_PLANKS.asItem()))
-                .save(output);
-
-        SingleItemRecipeBuilder.stonecutting(
-                        Ingredient.of(Blocks.PALE_OAK_PLANKS.asItem()),
-                        RecipeCategory.MISC,
-                        ModBlocks.PALE_OAK_LARGE_PLANKS.get(),1
-                )
-                .unlockedBy("has_pale_oak_planks", has(Blocks.PALE_OAK_PLANKS.asItem()))
-                .save(output);
-
-
-        SingleItemRecipeBuilder.stonecutting(
-                        Ingredient.of(Blocks.PALE_OAK_PLANKS.asItem()),
-                        RecipeCategory.MISC,
-                        ModBlocks.PALE_OAK_SOFT_BRICKS.get(),1
-                )
-                .unlockedBy("has_pale_oak_planks", has(Blocks.PALE_OAK_PLANKS.asItem()))
-                .save(output);
-
-//Spruce
-
-
-        shaped(RecipeCategory.MISC, ModBlocks.PALE_OAK_BARREL.get())
-                .pattern("B#B")
-                .pattern("B B")
-                .pattern("B#B")
-                .define('B', Blocks.PALE_OAK_PLANKS.asItem())
-                .define('#', Blocks.PALE_OAK_SLAB.asItem())
-                .unlockedBy("has_pale_oak", has(Blocks.PALE_OAK_PLANKS))
-                .unlockedBy("has_pale_oak_slab", has(Blocks.PALE_OAK_SLAB))
-                .save(output);
-
-
-
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_PARK_BENCH, 4)
-                .pattern("PPP")
-                .pattern("PPP")
-                .pattern("L L")
-                .define('L', Blocks.PALE_OAK_LOG.asItem())
-                .define('P', Blocks.PALE_OAK_PLANKS.asItem())
-                .group("park_bench")
-                .unlockedBy("has_log", has(Blocks.PALE_OAK_LOG.asItem()))
-                .unlockedBy("has_planks", has(Blocks.PALE_OAK_PLANKS.asItem()))
-                .save(output);
-
-
-
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_DESK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_DESK.get())
                 .pattern("CCC")
                 .pattern("I I")
                 .pattern("I I")
@@ -5089,7 +4769,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_DESK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_DESK.get())
                 .pattern("CCC")
                 .pattern("I I")
                 .pattern("I I")
@@ -5100,7 +4780,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_DESK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_DESK.get())
                 .pattern("CCC")
                 .pattern("I I")
                 .pattern("I I")
@@ -5111,7 +4791,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_DESK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_DESK.get())
                 .pattern("CCC")
                 .pattern("I I")
                 .pattern("I I")
@@ -5122,7 +4802,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_DESK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_DESK.get())
                 .pattern("CCC")
                 .pattern("I I")
                 .pattern("I I")
@@ -5133,7 +4813,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_DESK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_DESK.get())
                 .pattern("CCC")
                 .pattern("I I")
                 .pattern("I I")
@@ -5144,7 +4824,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_DESK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_DESK.get())
                 .pattern("CCC")
                 .pattern("I I")
                 .pattern("I I")
@@ -5155,7 +4835,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_DESK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_DESK.get())
                 .pattern("CCC")
                 .pattern("I I")
                 .pattern("I I")
@@ -5166,18 +4846,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_DESK.get())
-                .pattern("CCC")
-                .pattern("I I")
-                .pattern("I I")
-                .define('C', Blocks.PALE_OAK_LOG)
-                .define('I', Blocks.PALE_OAK_PLANKS)
-                .unlockedBy("has_log", has(Blocks.PALE_OAK_LOG.asItem()))
-                .unlockedBy("has_chest", has( Blocks.PALE_OAK_PLANKS.asItem()))
-                .save(output);
-
-
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_DESK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_DESK.get())
                 .pattern("CCC")
                 .pattern("I I")
                 .pattern("I I")
@@ -5188,7 +4857,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_DESK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_DESK.get())
                 .pattern("CCC")
                 .pattern("I I")
                 .pattern("I I")
@@ -5199,7 +4868,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_DESK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_DESK.get())
                 .pattern("CCC")
                 .pattern("I I")
                 .pattern("I I")
@@ -5212,7 +4881,7 @@ public class ModRecipeProvider extends RecipeProvider  {
 
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_DESK_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_DESK_CABINET.get())
                 .pattern("CCC")
                 .pattern("IBI")
                 .pattern("I I")
@@ -5225,7 +4894,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_DESK_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_DESK_CABINET.get())
                 .pattern("CCC")
                 .pattern("IBI")
                 .pattern("I I")
@@ -5238,7 +4907,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_DESK_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_DESK_CABINET.get())
                 .pattern("CCC")
                 .pattern("IBI")
                 .pattern("I I")
@@ -5251,7 +4920,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_DESK_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_DESK_CABINET.get())
                 .pattern("CCC")
                 .pattern("IBI")
                 .pattern("I I")
@@ -5264,7 +4933,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_DESK_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_DESK_CABINET.get())
                 .pattern("CCC")
                 .pattern("IBI")
                 .pattern("I I")
@@ -5277,7 +4946,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_DESK_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_DESK_CABINET.get())
                 .pattern("CCC")
                 .pattern("IBI")
                 .pattern("I I")
@@ -5290,7 +4959,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_DESK_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_DESK_CABINET.get())
                 .pattern("CCC")
                 .pattern("IBI")
                 .pattern("I I")
@@ -5303,7 +4972,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_DESK_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_DESK_CABINET.get())
                 .pattern("CCC")
                 .pattern("IBI")
                 .pattern("I I")
@@ -5316,20 +4985,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_DESK_CABINET.get())
-                .pattern("CCC")
-                .pattern("IBI")
-                .pattern("I I")
-                .define('C', Blocks.PALE_OAK_LOG)
-                .define('I', Blocks.PALE_OAK_PLANKS)
-                .define('B', Blocks.CHEST)
-                .unlockedBy("has_chest", has( Blocks.CHEST.asItem()))
-                .unlockedBy("has_log", has(Blocks.PALE_OAK_LOG.asItem()))
-                .unlockedBy("has_chest", has( Blocks.PALE_OAK_PLANKS.asItem()))
-                .save(output);
-
-
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_DESK_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_DESK_CABINET.get())
                 .pattern("CCC")
                 .pattern("IBI")
                 .pattern("I I")
@@ -5342,7 +4998,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_DESK_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_DESK_CABINET.get())
                 .pattern("CCC")
                 .pattern("IBI")
                 .pattern("I I")
@@ -5355,7 +5011,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_DESK_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_DESK_CABINET.get())
                 .pattern("CCC")
                 .pattern("IBI")
                 .pattern("I I")
@@ -5369,7 +5025,7 @@ public class ModRecipeProvider extends RecipeProvider  {
 
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.RED_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.RED_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -5379,7 +5035,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.YELLOW_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.YELLOW_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -5389,7 +5045,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.ORANGE_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ORANGE_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -5399,7 +5055,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PURPLE_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.PURPLE_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -5409,7 +5065,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.MAGENTA_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MAGENTA_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -5419,7 +5075,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PINK_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.PINK_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -5429,7 +5085,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BLUE_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BLUE_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -5439,7 +5095,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CYAN_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CYAN_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -5449,7 +5105,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_BLUE_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_BLUE_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -5459,7 +5115,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.GREEN_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.GREEN_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -5469,7 +5125,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIME_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LIME_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -5479,7 +5135,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.GRAY_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.GRAY_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -5489,7 +5145,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_GRAY_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_GRAY_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -5499,7 +5155,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACK_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACK_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -5509,7 +5165,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.WHITE_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WHITE_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -5519,7 +5175,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BROWN_KITCHEN_COUNTER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BROWN_KITCHEN_COUNTER.get())
                 .pattern("###")
                 .pattern("B B")
                 .pattern("BBB")
@@ -5534,7 +5190,7 @@ public class ModRecipeProvider extends RecipeProvider  {
 
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.RED_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.RED_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5545,7 +5201,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.YELLOW_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.YELLOW_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5556,7 +5212,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.ORANGE_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ORANGE_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5567,7 +5223,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PURPLE_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.PURPLE_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5578,7 +5234,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.MAGENTA_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MAGENTA_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5589,7 +5245,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PINK_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.PINK_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5600,7 +5256,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BLUE_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BLUE_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5611,7 +5267,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CYAN_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CYAN_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5622,7 +5278,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_BLUE_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_BLUE_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5633,7 +5289,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.GREEN_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.GREEN_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5644,7 +5300,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIME_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LIME_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5655,7 +5311,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.GRAY_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.GRAY_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5666,7 +5322,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_GRAY_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_GRAY_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5677,7 +5333,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACK_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACK_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5688,7 +5344,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.WHITE_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WHITE_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5699,7 +5355,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BROWN_KITCHEN_DRAWER.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BROWN_KITCHEN_DRAWER.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5713,7 +5369,7 @@ public class ModRecipeProvider extends RecipeProvider  {
 
         //Colored Ovens
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.RED_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.RED_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5724,7 +5380,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.YELLOW_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.YELLOW_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5735,7 +5391,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.ORANGE_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ORANGE_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5746,7 +5402,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PURPLE_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.PURPLE_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5757,7 +5413,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.MAGENTA_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MAGENTA_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5768,7 +5424,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PINK_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.PINK_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5779,7 +5435,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BLUE_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BLUE_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5790,7 +5446,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CYAN_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CYAN_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5801,7 +5457,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_BLUE_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_BLUE_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5812,7 +5468,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.GREEN_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.GREEN_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5823,7 +5479,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIME_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LIME_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5834,7 +5490,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.GRAY_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.GRAY_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5845,7 +5501,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_GRAY_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_GRAY_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5856,7 +5512,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACK_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACK_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5867,7 +5523,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.WHITE_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WHITE_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5878,7 +5534,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BROWN_OVEN.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BROWN_OVEN.get())
                 .pattern("###")
                 .pattern("BXB")
                 .pattern("BBB")
@@ -5892,7 +5548,7 @@ public class ModRecipeProvider extends RecipeProvider  {
 
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.RED_SINK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.RED_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -5904,7 +5560,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.ORANGE_SINK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ORANGE_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -5916,7 +5572,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.YELLOW_SINK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.YELLOW_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -5928,7 +5584,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PURPLE_SINK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.PURPLE_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -5940,7 +5596,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.MAGENTA_SINK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MAGENTA_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -5952,7 +5608,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PINK_SINK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.PINK_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -5964,7 +5620,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CYAN_SINK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CYAN_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -5976,7 +5632,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_BLUE_SINK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_BLUE_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -5988,7 +5644,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BLUE_SINK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BLUE_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -6000,7 +5656,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.GREEN_SINK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.GREEN_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -6012,7 +5668,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIME_SINK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LIME_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -6024,7 +5680,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.GRAY_SINK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.GRAY_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -6036,7 +5692,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_GRAY_SINK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_GRAY_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -6048,7 +5704,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACK_SINK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACK_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -6060,7 +5716,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.WHITE_SINK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WHITE_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -6072,7 +5728,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BROWN_SINK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BROWN_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
@@ -6086,7 +5742,7 @@ public class ModRecipeProvider extends RecipeProvider  {
 
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.RED_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.RED_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -6097,7 +5753,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_concrete", has(Blocks.RED_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.YELLOW_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.YELLOW_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -6108,7 +5764,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_concrete", has(Blocks.YELLOW_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.ORANGE_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ORANGE_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -6119,7 +5775,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_concrete", has(Blocks.ORANGE_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PURPLE_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.PURPLE_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -6130,7 +5786,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_concrete", has(Blocks.PURPLE_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.MAGENTA_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MAGENTA_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -6141,7 +5797,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_concrete", has(Blocks.MAGENTA_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PINK_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.PINK_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -6152,7 +5808,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_concrete", has(Blocks.PINK_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CYAN_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CYAN_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -6163,7 +5819,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_concrete", has(Blocks.CYAN_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BLUE_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BLUE_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -6174,7 +5830,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_concrete", has(Blocks.BLUE_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_BLUE_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_BLUE_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -6185,7 +5841,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_concrete", has(Blocks.LIGHT_BLUE_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.GREEN_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.GREEN_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -6196,7 +5852,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_concrete", has(Blocks.GREEN_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIME_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LIME_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -6207,7 +5863,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_concrete", has(Blocks.LIME_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.GRAY_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.GRAY_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -6218,7 +5874,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_concrete", has(Blocks.GRAY_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_GRAY_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_GRAY_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -6229,7 +5885,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_concrete", has(Blocks.LIGHT_GRAY_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BROWN_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BROWN_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -6240,7 +5896,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_concrete", has(Blocks.BROWN_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACK_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACK_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -6251,7 +5907,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_concrete", has(Blocks.BLACK_CONCRETE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.WHITE_CABINET.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WHITE_CABINET.get())
                 .pattern("#BB")
                 .pattern("#XB")
                 .pattern("#BB")
@@ -6264,7 +5920,7 @@ public class ModRecipeProvider extends RecipeProvider  {
 
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_PARK_BENCH, 4)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.OAK_PARK_BENCH, 4)
                 .pattern("PPP")
                 .pattern("PPP")
                 .pattern("L L")
@@ -6275,7 +5931,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_planks", has(Blocks.OAK_PLANKS.asItem()))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_PARK_BENCH, 4)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_PARK_BENCH, 4)
                 .pattern("PPP")
                 .pattern("PPP")
                 .pattern("L L")
@@ -6286,7 +5942,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_planks", has(Blocks.SPRUCE_PLANKS.asItem()))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_PARK_BENCH, 4)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_PARK_BENCH, 4)
                 .pattern("PPP")
                 .pattern("PPP")
                 .pattern("L L")
@@ -6297,7 +5953,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_planks", has(Blocks.BIRCH_PLANKS.asItem()))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_PARK_BENCH, 4)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_PARK_BENCH, 4)
                 .pattern("PPP")
                 .pattern("PPP")
                 .pattern("L L")
@@ -6308,7 +5964,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_planks", has(Blocks.JUNGLE_PLANKS.asItem()))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_PARK_BENCH, 4)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_PARK_BENCH, 4)
                 .pattern("PPP")
                 .pattern("PPP")
                 .pattern("L L")
@@ -6319,7 +5975,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_planks", has(Blocks.ACACIA_PLANKS.asItem()))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_PARK_BENCH, 4)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_PARK_BENCH, 4)
                 .pattern("PPP")
                 .pattern("PPP")
                 .pattern("L L")
@@ -6330,7 +5986,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_planks", has(Blocks.DARK_OAK_PLANKS.asItem()))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_PARK_BENCH, 4)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_PARK_BENCH, 4)
                 .pattern("PPP")
                 .pattern("PPP")
                 .pattern("L L")
@@ -6341,7 +5997,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_planks", has(Blocks.MANGROVE_PLANKS.asItem()))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_PARK_BENCH, 4)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_PARK_BENCH, 4)
                 .pattern("PPP")
                 .pattern("PPP")
                 .pattern("L L")
@@ -6352,7 +6008,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_planks", has(Blocks.CHERRY_PLANKS.asItem()))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_PARK_BENCH, 4)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_PARK_BENCH, 4)
                 .pattern("PPP")
                 .pattern("PPP")
                 .pattern("L L")
@@ -6363,7 +6019,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_planks", has(Blocks.BAMBOO_PLANKS.asItem()))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_PARK_BENCH, 4)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_PARK_BENCH, 4)
                 .pattern("PPP")
                 .pattern("PPP")
                 .pattern("L L")
@@ -6374,7 +6030,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_planks", has(Blocks.CRIMSON_PLANKS.asItem()))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_PARK_BENCH, 4)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_PARK_BENCH, 4)
                 .pattern("PPP")
                 .pattern("PPP")
                 .pattern("L L")
@@ -6386,7 +6042,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.STONE_PATH.get(), 16)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.STONE_PATH.get(), 16)
                 .pattern("SA")
                 .pattern("AS")
                 .define('S', Blocks.STONE)
@@ -6397,7 +6053,7 @@ public class ModRecipeProvider extends RecipeProvider  {
 
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.FRIDGE_LIGHT.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.FRIDGE_LIGHT.get())
                 .pattern("CIC")
                 .pattern("IBI")
                 .pattern("CIC")
@@ -6409,7 +6065,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_chest", has(Tags.Items.CHESTS_WOODEN))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.FRIDGE_DARK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.FRIDGE_DARK.get())
                 .pattern("CIC")
                 .pattern("IBI")
                 .pattern("CIC")
@@ -6421,7 +6077,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("has_chest", has(Tags.Items.CHESTS_WOODEN))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.TOASTER_LIGHT.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.TOASTER_LIGHT.get())
                 .pattern("C C")
                 .pattern("I I")
                 .pattern("III")
@@ -6433,7 +6089,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .save(output);
 
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.TOASTER_DARK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.TOASTER_DARK.get())
                 .pattern("CI")
                 .define('C', ModBlocks.TOASTER_LIGHT)
                 .define('I', Items.BLACK_DYE)
@@ -6441,117 +6097,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .unlockedBy("black_dye", has(Items.BLACK_DYE))
                 .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_BALCKSTONE_KITCHEN_COUNTER.get())
-                .pattern("###")
-                .pattern("B B")
-                .pattern("BBB")
-                .define('B', Items.PALE_OAK_PLANKS.asItem())
-                .define('#', Blocks.POLISHED_BLACKSTONE_BRICKS.asItem())
-                .unlockedBy("has_blackstone_bricks", has(Blocks.POLISHED_BLACKSTONE_BRICKS))
-                .unlockedBy("has_pale_oak", has(Blocks.PALE_OAK_PLANKS))
-                .save(output);
 
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_BALCKSTONE_KITCHEN_DRAWER.get())
-                .pattern("###")
-                .pattern("BXB")
-                .pattern("BBB")
-                .define('B', Items.PALE_OAK_PLANKS.asItem())
-                .define('#', Blocks.POLISHED_BLACKSTONE_BRICKS.asItem())
-                .define('X', Blocks.CHEST.asItem())
-                .unlockedBy("has_blackstone_bricks", has(Blocks.POLISHED_BLACKSTONE_BRICKS))
-                .unlockedBy("has_pale_oak", has(Blocks.PALE_OAK_PLANKS))
-                .save(output);
-
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_BALCKSTONE_CABINET.get())
-                .pattern("#BB")
-                .pattern("#XB")
-                .pattern("#BB")
-                .define('B', Items.POLISHED_BLACKSTONE_BRICKS.asItem())
-                .define('#', Blocks.PALE_OAK_PLANKS.asItem())
-                .define('X', Blocks.CHEST.asItem())
-                .unlockedBy("has_blackstone_bricks", has(Blocks.POLISHED_BLACKSTONE_BRICKS))
-                .unlockedBy("has_pale_oak", has(Blocks.PALE_OAK_PLANKS))
-                .save(output);
-
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_BALCKSTONE_OVEN.get())
-                .pattern("###")
-                .pattern("BXB")
-                .pattern("BBB")
-                .define('B', Items.PALE_OAK_PLANKS.asItem())
-                .define('#', Blocks.POLISHED_BLACKSTONE_BRICKS.asItem())
-                .define('X', Blocks.SMOKER.asItem())
-                .unlockedBy("has_blackstone_bricks", has(Blocks.POLISHED_BLACKSTONE_BRICKS))
-                .unlockedBy("has_pale_oak", has(Blocks.PALE_OAK_PLANKS))
-                .save(output);
-
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_BALCKSTONE_SINK.get())
-                .pattern("BXB")
-                .pattern("BBB")
-                .pattern("# #")
-                .define('B', Items.POLISHED_BLACKSTONE_BRICKS.asItem())
-                .define('X', Items.BUCKET.asItem())
-                .define('#', Blocks.PALE_OAK_PLANKS.asItem())
-                .unlockedBy("has_pale_oak", has(Blocks.PALE_OAK_PLANKS))
-                .unlockedBy("has_chest", has(Blocks.CHEST))
-                .unlockedBy("has_blackstone_bricks", has(Blocks.POLISHED_BLACKSTONE_BRICKS))
-                .save(output);
-
-        //Deepslate
-
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_DEEPSLATE_KITCHEN_COUNTER.get())
-                .pattern("###")
-                .pattern("B B")
-                .pattern("BBB")
-                .define('B', Items.PALE_OAK_PLANKS.asItem())
-                .define('#', Blocks.DEEPSLATE_TILES.asItem())
-                .unlockedBy("has_deepslate_tiles", has(Blocks.DEEPSLATE_TILES))
-                .unlockedBy("has_pale_oak", has(Blocks.PALE_OAK_PLANKS))
-                .save(output);
-
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_DEEPSLATE_KITCHEN_DRAWER.get())
-                .pattern("###")
-                .pattern("BXB")
-                .pattern("BBB")
-                .define('B', Items.PALE_OAK_PLANKS.asItem())
-                .define('#', Blocks.DEEPSLATE_TILES.asItem())
-                .define('X', Blocks.CHEST.asItem())
-                .unlockedBy("has_deepslate_tiles", has(Blocks.DEEPSLATE_TILES))
-                .unlockedBy("has_pale_oak", has(Blocks.PALE_OAK_PLANKS))
-                .save(output);
-
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_DEEPSLATE_CABINET.get())
-                .pattern("#BB")
-                .pattern("#XB")
-                .pattern("#BB")
-                .define('B', Items.DEEPSLATE_TILES.asItem())
-                .define('#', Blocks.PALE_OAK_PLANKS.asItem())
-                .define('X', Blocks.CHEST.asItem())
-                .unlockedBy("has_deepslate_tiles", has(Blocks.DEEPSLATE_TILES))
-                .unlockedBy("has_pale_oak", has(Blocks.PALE_OAK_PLANKS))
-                .save(output);
-
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_DEEPSLATE_OVEN.get())
-                .pattern("###")
-                .pattern("BXB")
-                .pattern("BBB")
-                .define('B', Items.PALE_OAK_PLANKS.asItem())
-                .define('#', Blocks.DEEPSLATE_TILES.asItem())
-                .define('X', Blocks.SMOKER.asItem())
-                .unlockedBy("has_deepslate_tiles", has(Blocks.DEEPSLATE_TILES))
-                .unlockedBy("has_pale_oak", has(Blocks.PALE_OAK_PLANKS))
-                .save(output);
-
-        shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_DEEPSLATE_SINK.get())
-                .pattern("BXB")
-                .pattern("BBB")
-                .pattern("# #")
-                .define('B', Items.DEEPSLATE_TILES.asItem())
-                .define('X', Items.BUCKET.asItem())
-                .define('#', Blocks.PALE_OAK_PLANKS.asItem())
-                .unlockedBy("has_pale_oak", has(Blocks.PALE_OAK_PLANKS))
-                .unlockedBy("has_chest", has(Blocks.CHEST))
-                .unlockedBy("has_deepslate_tiles", has(Blocks.DEEPSLATE_TILES))
-                .save(output);
 
 
 

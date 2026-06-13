@@ -9,7 +9,7 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.neoforged.neoforge.transfer.item.ResourceHandlerSlot;
+import net.neoforged.neoforge.items.SlotItemHandler;
 import net.tier1234.better_deco.init.ModBlocks;
 import net.tier1234.better_deco.block.entity.custom.CrateBlockEntity;
 import net.tier1234.better_deco.init.ModMenuTypes;
@@ -22,7 +22,6 @@ public class CrateMenu extends AbstractContainerMenu {
    public CrateMenu(int containerId, Inventory inv, FriendlyByteBuf extraData) {
         this(containerId,inv, inv.player.level().getBlockEntity(extraData.readBlockPos()));
     }
-
     public CrateMenu(int containerId, Inventory inv, BlockEntity blockEntity) {
        super(ModMenuTypes.CRATE_MENU.get(), containerId);
        this.blockEntity= ((CrateBlockEntity) blockEntity);
@@ -31,77 +30,77 @@ public class CrateMenu extends AbstractContainerMenu {
         addPlayerHotbar(inv);
 
         //First Row
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,0,-10,-16));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,1,8,-16));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,2,26,-16));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,3,44,-16));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,4,62,-16));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,5,80,-16));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,6,98,-16));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,7,116,-16));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,8,134,-16));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,9,152,-16));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,10,170,-16));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,0,-10,-16));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,1,8,-16));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,2,26,-16));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,3,44,-16));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,4,62,-16));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,5,80,-16));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,6,98,-16));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,7,116,-16));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,8,134,-16));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,9,152,-16));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,10,170,-16));
         //Second Row
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,11,-10,2));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,12,8,2));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,13,26,2));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,14,44,2));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,15,62,2));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,16,80,2));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,17,98,2));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,18,116,2));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,19,134,2));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,20,152,2));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,21,170,2));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,11,-10,2));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,12,8,2));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,13,26,2));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,14,44,2));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,15,62,2));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,16,80,2));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,17,98,2));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,18,116,2));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,19,134,2));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,20,152,2));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,21,170,2));
         //Third Row
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,22,-10,20));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,23,8,20));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,24,26,20));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,25,44,20));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,26,62,20));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,27,80,20));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,28,98,20));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,29,116,20));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,30,134,20));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,31,152,20));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,32,170,20));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,22,-10,20));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,23,8,20));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,24,26,20));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,25,44,20));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,26,62,20));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,27,80,20));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,28,98,20));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,29,116,20));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,30,134,20));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,31,152,20));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,32,170,20));
         //Fourth Row
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,33,-10,38));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,34,8,38));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,35,26,38));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,36,44,38));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,37,62,38));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,38,80,38));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,39,98,38));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,40,116,38));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,41,134,38));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,42,152,38));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,43,170,38));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,33,-10,38));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,34,8,38));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,35,26,38));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,36,44,38));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,37,62,38));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,38,80,38));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,39,98,38));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,40,116,38));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,41,134,38));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,42,152,38));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,43,170,38));
         //Fifth Row
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,44,-10,56));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,45,8,56));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,46,26,56));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,47,44,56));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,48,62,56));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,49,80,56));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,50,98,56));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,51,116,56));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,52,134,56));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,53,152,56));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,54,170,56));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,44,-10,56));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,45,8,56));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,46,26,56));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,47,44,56));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,48,62,56));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,49,80,56));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,50,98,56));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,51,116,56));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,52,134,56));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,53,152,56));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,54,170,56));
         //Sixth Row
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,55,-10,74));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,56,8,74));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,57,26,74));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,58,44,74));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,59,62,74));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,60,80,74));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,61,98,74));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,62,116,74));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,63,134,74));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,64,152,74));
-        this.addSlot(new ResourceHandlerSlot(this.blockEntity.inventory,this.blockEntity.inventory::set,65,170,74));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,55,-10,74));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,56,8,74));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,57,26,74));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,58,44,74));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,59,62,74));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,60,80,74));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,61,98,74));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,62,116,74));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,63,134,74));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,64,152,74));
+        this.addSlot(new SlotItemHandler(this.blockEntity.inventory,65,170,74));
 
     }
 
@@ -181,10 +180,7 @@ public class CrateMenu extends AbstractContainerMenu {
                         player, ModBlocks.BAMBOO_CRATE.get())
                 ||
                 stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                        player, ModBlocks.CRIMSON_CRATE.get())
-                ||
-        stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                player, ModBlocks.PALE_OAK_CRATE.get());
+                        player, ModBlocks.CRIMSON_CRATE.get());
 
     }
 

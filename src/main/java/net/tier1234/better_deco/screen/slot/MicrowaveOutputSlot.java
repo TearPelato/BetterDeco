@@ -1,18 +1,15 @@
 package net.tier1234.better_deco.screen.slot;
 
 import net.minecraft.world.item.ItemStack;
-import net.neoforged.neoforge.transfer.IndexModifier;
-import net.neoforged.neoforge.transfer.ResourceHandler;
-import net.neoforged.neoforge.transfer.item.ItemResource;
-import net.neoforged.neoforge.transfer.item.ResourceHandlerSlot;
-
-/**Class where delcaring Oven Output Slot and what you can do inside that slot
- * Removing when finally understood the new ItemStack system*/
-public class MicrowaveOutputSlot extends ResourceHandlerSlot {
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.SlotItemHandler;
 
 
-    public MicrowaveOutputSlot(ResourceHandler<ItemResource> handler, IndexModifier<ItemResource> slotModifier, int handlerSlot, int xPosition, int yPosition) {
-        super(handler, slotModifier, handlerSlot, xPosition, yPosition);
+public class MicrowaveOutputSlot extends SlotItemHandler {
+
+
+    public MicrowaveOutputSlot(IItemHandler itemHandler, int index, int xPosition, int yPosition) {
+        super(itemHandler, index, xPosition, yPosition);
     }
 
     @Override

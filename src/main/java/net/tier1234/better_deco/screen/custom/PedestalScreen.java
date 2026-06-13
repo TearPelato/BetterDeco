@@ -1,35 +1,31 @@
 package net.tier1234.better_deco.screen.custom;
 
-import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.tier1234.better_deco.util.Constants;
 
 public class PedestalScreen extends AbstractContainerScreen<PedestalMenu> {
-    private static final Identifier GUI_TEXTURE =
-            Identifier.fromNamespaceAndPath(Constants.MOD_ID, "textures/gui/pedestal/pedestal_gui_new.png");
+    private static final ResourceLocation GUI_TEXTURE =
+            ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "textures/gui/pedestal/pedestal_gui_new.png");
 
     public PedestalScreen(PedestalMenu menu, Inventory playerInventory, Component title) {
         super(menu, playerInventory, title);
     }
-
     @Override
-    public void extractBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float a) {
-        super.extractBackground(graphics, mouseX, mouseY, a);
+    protected void renderBg(GuiGraphics guiGraphics, float v, int i, int i1) {
         int x = (width - imageWidth) / 2;
         int y = (height - imageHeight) / 2;
 
-        graphics.blit(RenderPipelines.GUI_TEXTURED,GUI_TEXTURE, x, y, 0, 0, imageWidth, imageHeight,256,256);
-
+        guiGraphics.blit(GUI_TEXTURE, x, y, 0, 0, imageWidth, imageHeight,256,256);
     }
 
     @Override
-    public void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float a) {
-        super.extractContents(graphics, mouseX, mouseY, a);
-        this.extractTooltip(graphics, mouseX, mouseY);
+    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+        super.render(guiGraphics, mouseX, mouseY, partialTick);
+        this.renderLabels(guiGraphics, mouseX, mouseY);
     }
 
 }

@@ -16,22 +16,20 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.storage.ValueInput;
-import net.minecraft.world.level.storage.ValueOutput;
-import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
+import net.neoforged.neoforge.items.ItemStackHandler;
 import net.tier1234.better_deco.init.ModBlockEntities;
 import net.tier1234.better_deco.screen.custom.PedestalMenu;
 import org.jetbrains.annotations.Nullable;
 
 public class PedestalBlockEntity extends BlockEntity implements MenuProvider {
-    public final ItemStacksResourceHandler inventory = new ItemStacksResourceHandler(1) {
+    public final ItemStackHandler inventory = new ItemStackHandler(1) {
         @Override
-        public int size() {
+        protected int getStackLimit(int slot, ItemStack stack) {
             return 1;
         }
 
         @Override
-        protected void onContentsChanged(int index, ItemStack previousContents) {
+        protected void onContentsChanged(int slot) {
             setChanged();
             if(!level.isClientSide()) {
                 level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
@@ -53,34 +51,30 @@ public class PedestalBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     public void clearContents() {
-        inventory.copyToList().set(0, ItemStack.EMPTY);
+        inventory.setStackInSlot(0, ItemStack.EMPTY);
     }
 
     public void drops() {
-        SimpleContainer inv = new SimpleContainer(inventory.size());
-        for(int i = 0; i < inventory.size(); i++) {
-            inv.setItem(i, inventory.copyToList().get(i));
+        SimpleContainer inv = new SimpleContainer(inventory.getSlots());
+        for(int i = 0; i < inventory.getSlots(); i++) {
+            inv.setItem(i, inventory.getStackInSlot(i));
         }
 
         Containers.dropContents(this.level, this.worldPosition, inv);
     }
 
     @Override
-    protected void saveAdditional(ValueOutput output) {
-        super.saveAdditional(output);
-      inventory.serialize(output);
+    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.saveAdditional(tag, registries);
+        tag.put("inventory", inventory.serializeNBT(registries));
     }
 
     @Override
-    protected void loadAdditional(ValueInput input) {
-        super.loadAdditional(input);
-        inventory.deserialize(input);
+    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.loadAdditional(tag, registries);
+        inventory.deserializeNBT(registries, tag.getCompound("inventory"));
     }
-    @Override
-    public void preRemoveSideEffects(BlockPos pos, BlockState state) {
-        drops();
-        super.preRemoveSideEffects(pos, state);
-    }
+
     @Override
     public Component getDisplayName() {
         return Component.literal("Pedestal");
