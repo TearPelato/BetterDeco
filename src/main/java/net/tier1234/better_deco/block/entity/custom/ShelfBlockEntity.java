@@ -169,7 +169,7 @@ public class ShelfBlockEntity extends BasicLootBlockEntity implements ItemOwner{
 
     @Override
     public Vec3 position() {
-        return this.getBlockPos().getCenter();
+        return this.getBlockPos().clampLocationWithin(new Vec3(0.5, 0.5, 0.5));
     }
 
     @Override

@@ -953,9 +953,9 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("###")
                 .pattern("B B")
                 .define('B', Items.OAK_LOG.asItem())
-                .define('#', Blocks.RED_WOOL.asItem())
+                .define('#', Blocks.WOOL.red())
                 .unlockedBy("has_oak_log", has(Blocks.OAK_LOG))
-                .unlockedBy("has_wool", has(Blocks.RED_WOOL))
+                .unlockedBy("has_wool", has(Blocks.WOOL.red()))
                 .save(output);
 
         shaped(RecipeCategory.MISC, ModBlocks.ORANGE_SOFA.get())
@@ -963,9 +963,9 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("###")
                 .pattern("B B")
                 .define('B', Items.OAK_LOG.asItem())
-                .define('#', Blocks.ORANGE_WOOL.asItem())
+                .define('#', Blocks.WOOL.orange().asItem())
                 .unlockedBy("has_oak_log", has(Blocks.OAK_LOG))
-                .unlockedBy("has_wool", has(Blocks.ORANGE_WOOL))
+                .unlockedBy("has_wool", has(Blocks.WOOL.orange()))
                 .save(output);
 
         shaped(RecipeCategory.MISC, ModBlocks.YELLOW_SOFA.get())
@@ -973,9 +973,9 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("###")
                 .pattern("B B")
                 .define('B', Items.OAK_LOG.asItem())
-                .define('#', Blocks.YELLOW_WOOL.asItem())
+                .define('#', Blocks.WOOL.yellow().asItem())
                 .unlockedBy("has_oak_log", has(Blocks.OAK_LOG))
-                .unlockedBy("has_wool", has(Blocks.YELLOW_WOOL))
+                .unlockedBy("has_wool", has(Blocks.WOOL.yellow()))
                 .save(output);
 
         shaped(RecipeCategory.MISC, ModBlocks.PURPLE_SOFA.get())
@@ -983,9 +983,9 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("###")
                 .pattern("B B")
                 .define('B', Items.OAK_LOG.asItem())
-                .define('#', Blocks.PURPLE_WOOL.asItem())
+                .define('#', Blocks.WOOL.purple().asItem())
                 .unlockedBy("has_oak_log", has(Blocks.OAK_LOG))
-                .unlockedBy("has_wool", has(Blocks.PURPLE_WOOL))
+                .unlockedBy("has_wool", has(Blocks.WOOL.purple()))
                 .save(output);
 
         shaped(RecipeCategory.MISC, ModBlocks.PINK_SOFA.get())
@@ -993,9 +993,9 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("###")
                 .pattern("B B")
                 .define('B', Items.OAK_LOG.asItem())
-                .define('#', Blocks.PINK_WOOL.asItem())
+                .define('#', Blocks.WOOL.pink().asItem())
                 .unlockedBy("has_oak_log", has(Blocks.OAK_LOG))
-                .unlockedBy("has_wool", has(Blocks.PINK_WOOL))
+                .unlockedBy("has_wool", has(Blocks.WOOL.pink()))
                 .save(output);
 
         shaped(RecipeCategory.MISC, ModBlocks.MAGENTA_SOFA.get())
@@ -1003,9 +1003,9 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("###")
                 .pattern("B B")
                 .define('B', Items.OAK_LOG.asItem())
-                .define('#', Blocks.MAGENTA_WOOL.asItem())
+                .define('#', Blocks.WOOL.magenta().asItem())
                 .unlockedBy("has_oak_log", has(Blocks.OAK_LOG))
-                .unlockedBy("has_wool", has(Blocks.MAGENTA_WOOL))
+                .unlockedBy("has_wool", has(Blocks.WOOL.magenta()))
                 .save(output);
 
         shaped(RecipeCategory.MISC, ModBlocks.BROWN_SOFA.get())
@@ -1013,9 +1013,9 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("###")
                 .pattern("B B")
                 .define('B', Items.OAK_LOG.asItem())
-                .define('#', Blocks.BROWN_WOOL.asItem())
+                .define('#', Blocks.WOOL.brown().asItem())
                 .unlockedBy("has_oak_log", has(Blocks.OAK_LOG))
-                .unlockedBy("has_wool", has(Blocks.BROWN_WOOL))
+                .unlockedBy("has_wool", has(Blocks.WOOL.brown()))
                 .save(output);
 
         shaped(RecipeCategory.MISC, ModBlocks.BLACK_SOFA.get())
@@ -1023,9 +1023,9 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("###")
                 .pattern("B B")
                 .define('B', Items.OAK_LOG.asItem())
-                .define('#', Blocks.BLACK_WOOL.asItem())
+                .define('#', Blocks.WOOL.black().asItem())
                 .unlockedBy("has_oak_log", has(Blocks.OAK_LOG))
-                .unlockedBy("has_wool", has(Blocks.BLACK_WOOL))
+                .unlockedBy("has_wool", has(Blocks.WOOL.black()))
                 .save(output);
 
         shaped(RecipeCategory.MISC, ModBlocks.WITHE_SOFA.get())
@@ -1033,9 +1033,9 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("###")
                 .pattern("B B")
                 .define('B', Items.OAK_LOG.asItem())
-                .define('#', Blocks.WHITE_WOOL.asItem())
+                .define('#', Blocks.WOOL.white().asItem())
                 .unlockedBy("has_oak_log", has(Blocks.OAK_LOG))
-                .unlockedBy("has_wool", has(Blocks.WHITE_WOOL))
+                .unlockedBy("has_wool", has(Blocks.WOOL.white()))
                 .save(output);
 
         shaped(RecipeCategory.MISC, ModBlocks.GREEN_SOFA.get())
@@ -1043,9 +1043,9 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("###")
                 .pattern("B B")
                 .define('B', Items.OAK_LOG.asItem())
-                .define('#', Blocks.GREEN_WOOL.asItem())
+                .define('#', Blocks.WOOL.green().asItem())
                 .unlockedBy("has_oak_log", has(Blocks.OAK_LOG))
-                .unlockedBy("has_wool", has(Blocks.GREEN_WOOL))
+                .unlockedBy("has_wool", has(Blocks.WOOL.green()))
                 .save(output);
 
         shaped(RecipeCategory.MISC, ModBlocks.LIME_SOFA.get())
@@ -1053,9 +1053,9 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("###")
                 .pattern("B B")
                 .define('B', Items.OAK_LOG.asItem())
-                .define('#', Blocks.LIME_WOOL.asItem())
+                .define('#', Blocks.WOOL.lime().asItem())
                 .unlockedBy("has_oak_log", has(Blocks.OAK_LOG))
-                .unlockedBy("has_wool", has(Blocks.LIME_WOOL))
+                .unlockedBy("has_wool", has(Blocks.WOOL.lime()))
                 .save(output);
 
         shaped(RecipeCategory.MISC, ModBlocks.BLUE_SOFA.get())
@@ -1063,9 +1063,9 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("###")
                 .pattern("B B")
                 .define('B', Items.OAK_LOG.asItem())
-                .define('#', Blocks.BLUE_WOOL.asItem())
+                .define('#', Blocks.WOOL.blue().asItem())
                 .unlockedBy("has_oak_log", has(Blocks.OAK_LOG))
-                .unlockedBy("has_wool", has(Blocks.BLUE_WOOL))
+                .unlockedBy("has_wool", has(Blocks.WOOL.blue()))
                 .save(output);
 
         shaped(RecipeCategory.MISC, ModBlocks.LIGHT_BLUE_SOFA.get())
@@ -1073,9 +1073,9 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("###")
                 .pattern("B B")
                 .define('B', Items.OAK_LOG.asItem())
-                .define('#', Blocks.LIGHT_BLUE_WOOL.asItem())
+                .define('#', Blocks.WOOL.lightBlue().asItem())
                 .unlockedBy("has_oak_log", has(Blocks.OAK_LOG))
-                .unlockedBy("has_wool", has(Blocks.BLUE_WOOL))
+                .unlockedBy("has_wool", has(Blocks.WOOL.blue()))
                 .save(output);
 
         shaped(RecipeCategory.MISC, ModBlocks.GREY_SOFA.get())
@@ -1083,9 +1083,9 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("###")
                 .pattern("B B")
                 .define('B', Items.OAK_LOG.asItem())
-                .define('#', Blocks.GRAY_WOOL.asItem())
+                .define('#', Blocks.WOOL.gray().asItem())
                 .unlockedBy("has_oak_log", has(Blocks.OAK_LOG))
-                .unlockedBy("has_wool", has(Blocks.GRAY_WOOL))
+                .unlockedBy("has_wool", has(Blocks.WOOL.gray()))
                 .save(output);
 
         shaped(RecipeCategory.MISC, ModBlocks.LIGHT_GREY_SOFA.get())
@@ -1093,9 +1093,9 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("###")
                 .pattern("B B")
                 .define('B', Items.OAK_LOG.asItem())
-                .define('#', Blocks.LIGHT_GRAY_WOOL.asItem())
+                .define('#', Blocks.WOOL.lightGray().asItem())
                 .unlockedBy("has_oak_log", has(Blocks.OAK_LOG))
-                .unlockedBy("has_wool", has(Blocks.LIGHT_GRAY_WOOL))
+                .unlockedBy("has_wool", has(Blocks.WOOL.lightGray()))
                 .save(output);
 
         shaped(RecipeCategory.MISC, ModBlocks.CYAN_SOFA.get())
@@ -1103,9 +1103,9 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("###")
                 .pattern("B B")
                 .define('B', Items.OAK_LOG.asItem())
-                .define('#', Blocks.CYAN_WOOL.asItem())
+                .define('#', Blocks.WOOL.cyan().asItem())
                 .unlockedBy("has_oak_log", has(Blocks.OAK_LOG))
-                .unlockedBy("has_wool", has(Blocks.CYAN_WOOL))
+                .unlockedBy("has_wool", has(Blocks.WOOL.cyan()))
                 .save(output);
 
 
@@ -2625,11 +2625,11 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("XX#")
                 .pattern("BBC")
                 .define('B', Items.IRON_INGOT.asItem())
-                .define('X', Blocks.WHITE_STAINED_GLASS_PANE.asItem())
+                .define('X', Blocks.GLASS_PANE)
                 .define('#', Blocks.STONE_BUTTON.asItem())
-                .define('C', Blocks.WHITE_CONCRETE.asItem())
+                .define('C', Blocks.CONCRETE.white().asItem())
                 .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT.asItem()))
-                .unlockedBy("has_white_concrete", has(Blocks.WHITE_CONCRETE))
+                .unlockedBy("has_CONCRETE.white()", has(Blocks.CONCRETE.white()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_MICROWAVE)
@@ -2637,11 +2637,11 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("XX#")
                 .pattern("BBC")
                 .define('B', Items.IRON_INGOT.asItem())
-                .define('X', Blocks.GRAY_STAINED_GLASS_PANE.asItem())
+                .define('X', Blocks.GLASS_PANE.asItem())
                 .define('#', Blocks.STONE_BUTTON.asItem())
-                .define('C', Blocks.GRAY_CONCRETE.asItem())
+                .define('C', Blocks.CONCRETE.gray().asItem())
                 .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT.asItem()))
-                .unlockedBy("has_gray_concrete", has(Blocks.GRAY_CONCRETE))
+                .unlockedBy("has_CONCRETE.gray()", has(Blocks.CONCRETE.gray()))
                 .save(output);
 
 
@@ -2960,144 +2960,144 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.WHITE_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.white().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.OAK_PLANKS.asItem())
                 .unlockedBy("has_oak", has(Blocks.OAK_PLANKS))
                 .unlockedBy("has_chest", has(Blocks.CHEST))
-                .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
+                .unlockedBy("has_withe_concrete", has(Blocks.CONCRETE.white()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.WHITE_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.white().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.PALE_OAK_PLANKS.asItem())
                 .unlockedBy("has_oak", has(Blocks.PALE_OAK_PLANKS))
                 .unlockedBy("has_chest", has(Blocks.CHEST))
-                .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
+                .unlockedBy("has_withe_concrete", has(Blocks.CONCRETE.white()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.WHITE_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.white().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.SPRUCE_PLANKS.asItem())
                 .unlockedBy("has_spruce", has(Blocks.SPRUCE_PLANKS))
                 .unlockedBy("has_chest", has(Blocks.CHEST))
-                .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
+                .unlockedBy("has_withe_concrete", has(Blocks.CONCRETE.white()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.WHITE_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.white().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.BIRCH_PLANKS.asItem())
                 .unlockedBy("has_birch", has(Blocks.BIRCH_PLANKS))
                 .unlockedBy("has_chest", has(Blocks.CHEST))
-                .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
+                .unlockedBy("has_withe_concrete", has(Blocks.CONCRETE.white()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.WHITE_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.white().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.JUNGLE_PLANKS.asItem())
                 .unlockedBy("has_jungle", has(Blocks.JUNGLE_PLANKS))
                 .unlockedBy("has_chest", has(Blocks.CHEST))
-                .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
+                .unlockedBy("has_withe_concrete", has(Blocks.CONCRETE.white()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.WHITE_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.white().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.ACACIA_PLANKS.asItem())
                 .unlockedBy("has_acacia", has(Blocks.ACACIA_PLANKS))
                 .unlockedBy("has_chest", has(Blocks.CHEST))
-                .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
+                .unlockedBy("has_withe_concrete", has(Blocks.CONCRETE.white()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.WHITE_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.white().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.DARK_OAK_PLANKS.asItem())
                 .unlockedBy("has_dark_oak", has(Blocks.DARK_OAK_PLANKS))
                 .unlockedBy("has_chest", has(Blocks.CHEST))
-                .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
+                .unlockedBy("has_withe_concrete", has(Blocks.CONCRETE.white()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.WHITE_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.white().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.MANGROVE_PLANKS.asItem())
                 .unlockedBy("has_mangrove", has(Blocks.MANGROVE_PLANKS))
                 .unlockedBy("has_chest", has(Blocks.CHEST))
-                .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
+                .unlockedBy("has_withe_concrete", has(Blocks.CONCRETE.white()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.WHITE_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.white().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.CHERRY_PLANKS.asItem())
                 .unlockedBy("has_cherry", has(Blocks.CHERRY_PLANKS))
                 .unlockedBy("has_chest", has(Blocks.CHEST))
-                .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
+                .unlockedBy("has_withe_concrete", has(Blocks.CONCRETE.white()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.WHITE_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.white().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.BAMBOO_PLANKS.asItem())
                 .unlockedBy("has_bamboo", has(Blocks.BAMBOO_PLANKS))
                 .unlockedBy("has_chest", has(Blocks.CHEST))
-                .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
+                .unlockedBy("has_withe_concrete", has(Blocks.CONCRETE.white()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.WHITE_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.white().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.CRIMSON_PLANKS.asItem())
                 .unlockedBy("has_oak", has(Blocks.CRIMSON_PLANKS))
                 .unlockedBy("has_chest", has(Blocks.CHEST))
-                .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
+                .unlockedBy("has_withe_concrete", has(Blocks.CONCRETE.white()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_SINK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.WHITE_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.white().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.WARPED_PLANKS.asItem())
                 .unlockedBy("has_oak", has(Blocks.WARPED_PLANKS))
                 .unlockedBy("has_chest", has(Blocks.CHEST))
-                .unlockedBy("has_withe_concrete", has(Blocks.WHITE_CONCRETE))
+                .unlockedBy("has_withe_concrete", has(Blocks.CONCRETE.white()))
                 .save(output);
 
         //Dark
@@ -3105,144 +3105,144 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.GRAY_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.gray().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.OAK_PLANKS.asItem())
                 .unlockedBy("has_oak", has(Blocks.OAK_PLANKS))
                 .unlockedBy("has_chest", has(Blocks.CHEST))
-                .unlockedBy("has_gray_concrete", has(Blocks.GRAY_CONCRETE))
+                .unlockedBy("has_CONCRETE.gray()", has(Blocks.CONCRETE.gray()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_SINK_DARK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.GRAY_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.gray().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.PALE_OAK_PLANKS.asItem())
                 .unlockedBy("has_oak", has(Blocks.PALE_OAK_PLANKS))
                 .unlockedBy("has_chest", has(Blocks.CHEST))
-                .unlockedBy("has_gray_concrete", has(Blocks.GRAY_CONCRETE))
+                .unlockedBy("has_CONCRETE.gray()", has(Blocks.CONCRETE.gray()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.SPRUCE_SINK_DARK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.GRAY_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.gray().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.SPRUCE_PLANKS.asItem())
                 .unlockedBy("has_spruce", has(Blocks.SPRUCE_PLANKS))
                 .unlockedBy("has_chest", has(Blocks.CHEST))
-                .unlockedBy("has_gray_concrete", has(Blocks.GRAY_CONCRETE))
+                .unlockedBy("has_CONCRETE.gray()", has(Blocks.CONCRETE.gray()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.BIRCH_SINK_DARK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.GRAY_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.gray().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.BIRCH_PLANKS.asItem())
                 .unlockedBy("has_birch", has(Blocks.BIRCH_PLANKS))
                 .unlockedBy("has_chest", has(Blocks.CHEST))
-                .unlockedBy("has_gray_concrete", has(Blocks.GRAY_CONCRETE))
+                .unlockedBy("has_CONCRETE.gray()", has(Blocks.CONCRETE.gray()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.JUNGLE_SINK_DARK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.GRAY_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.gray().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.JUNGLE_PLANKS.asItem())
                 .unlockedBy("has_jungle", has(Blocks.JUNGLE_PLANKS))
                 .unlockedBy("has_chest", has(Blocks.CHEST))
-                .unlockedBy("has_gray_concrete", has(Blocks.GRAY_CONCRETE))
+                .unlockedBy("has_CONCRETE.gray()", has(Blocks.CONCRETE.gray()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.ACACIA_SINK_DARK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.GRAY_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.gray().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.ACACIA_PLANKS.asItem())
                 .unlockedBy("has_acacia", has(Blocks.ACACIA_PLANKS))
                 .unlockedBy("has_chest", has(Blocks.CHEST))
-                .unlockedBy("has_gray_concrete", has(Blocks.GRAY_CONCRETE))
+                .unlockedBy("has_CONCRETE.gray()", has(Blocks.CONCRETE.gray()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.DARK_OAK_SINK_DARK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.GRAY_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.gray().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.DARK_OAK_PLANKS.asItem())
                 .unlockedBy("has_dark_oak", has(Blocks.DARK_OAK_PLANKS))
                 .unlockedBy("has_chest", has(Blocks.CHEST))
-                .unlockedBy("has_gray_concrete", has(Blocks.GRAY_CONCRETE))
+                .unlockedBy("has_CONCRETE.gray()", has(Blocks.CONCRETE.gray()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.MANGROVE_SINK_DARK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.GRAY_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.gray().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.MANGROVE_PLANKS.asItem())
                 .unlockedBy("has_mangrove", has(Blocks.MANGROVE_PLANKS))
                 .unlockedBy("has_chest", has(Blocks.CHEST))
-                .unlockedBy("has_gray_concrete", has(Blocks.GRAY_CONCRETE))
+                .unlockedBy("has_CONCRETE.gray()", has(Blocks.CONCRETE.gray()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.CHERRY_SINK_DARK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.GRAY_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.gray().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.CHERRY_PLANKS.asItem())
                 .unlockedBy("has_cherry", has(Blocks.CHERRY_PLANKS))
                 .unlockedBy("has_chest", has(Blocks.CHEST))
-                .unlockedBy("has_gray_concrete", has(Blocks.GRAY_CONCRETE))
+                .unlockedBy("has_CONCRETE.gray()", has(Blocks.CONCRETE.gray()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.BAMBOO_SINK_DARK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.GRAY_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.gray().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.BAMBOO_PLANKS.asItem())
                 .unlockedBy("has_bamboo", has(Blocks.BAMBOO_PLANKS))
                 .unlockedBy("has_chest", has(Blocks.CHEST))
-                .unlockedBy("has_gray_concrete", has(Blocks.GRAY_CONCRETE))
+                .unlockedBy("has_CONCRETE.gray()", has(Blocks.CONCRETE.gray()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.CRIMSON_SINK_DARK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.GRAY_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.gray().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.CRIMSON_PLANKS.asItem())
                 .unlockedBy("has_oak", has(Blocks.CRIMSON_PLANKS))
                 .unlockedBy("has_chest", has(Blocks.CHEST))
-                .unlockedBy("has_gray_concrete", has(Blocks.GRAY_CONCRETE))
+                .unlockedBy("has_CONCRETE.gray()", has(Blocks.CONCRETE.gray()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.WARPED_SINK_DARK.get())
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.GRAY_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.gray().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.WARPED_PLANKS.asItem())
                 .unlockedBy("has_oak", has(Blocks.WARPED_PLANKS))
                 .unlockedBy("has_chest", has(Blocks.CHEST))
-                .unlockedBy("has_gray_concrete", has(Blocks.GRAY_CONCRETE))
+                .unlockedBy("has_CONCRETE.gray()", has(Blocks.CONCRETE.gray()))
                 .save(output);
 
           //STONE FURNITURE VARIANTS
@@ -3448,160 +3448,160 @@ public class ModRecipeProvider extends RecipeProvider  {
                         .pattern(" X ")
                         .pattern(" B ")
                         .pattern(" # ")
-                        .define('X', Blocks.WHITE_WOOL.asItem())
-                        .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
-                        .define('#', Blocks.WHITE_CONCRETE.asItem())
-                        .unlockedBy("has_wool", has(Items.WHITE_WOOL))
+                        .define('X', Blocks.WOOL.white().asItem())
+                        .define('B', Items.CONCRETE.lightGray().asItem())
+                        .define('#', Blocks.CONCRETE.white().asItem())
+                        .unlockedBy("has_wool", has(Items.WOOL.white()))
                         .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.BROWN_STOOL.get())
                 .pattern(" X ")
                 .pattern(" B ")
                 .pattern(" # ")
-                .define('X', Blocks.BROWN_WOOL.asItem())
-                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
-                .define('#', Blocks.WHITE_CONCRETE.asItem())
-                .unlockedBy("has_wool", has(Items.BROWN_WOOL))
+                .define('X', Blocks.WOOL.brown().asItem())
+                .define('B', Items.CONCRETE.lightGray().asItem())
+                .define('#', Blocks.CONCRETE.white().asItem())
+                .unlockedBy("has_wool", has(Items.WOOL.brown()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACK_STOOL.get())
                 .pattern(" X ")
                 .pattern(" B ")
                 .pattern(" # ")
-                .define('X', Blocks.BLACK_WOOL.asItem())
-                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
-                .define('#', Blocks.WHITE_CONCRETE.asItem())
-                .unlockedBy("has_wool", has(Items.BLACK_WOOL))
+                .define('X', Blocks.WOOL.black().asItem())
+                .define('B', Items.CONCRETE.lightGray().asItem())
+                .define('#', Blocks.CONCRETE.white().asItem())
+                .unlockedBy("has_wool", has(Items.WOOL.black()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.GREY_STOOL.get())
                 .pattern(" X ")
                 .pattern(" B ")
                 .pattern(" # ")
-                .define('X', Blocks.GRAY_WOOL.asItem())
-                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
-                .define('#', Blocks.WHITE_CONCRETE.asItem())
-                .unlockedBy("has_wool", has(Items.GRAY_WOOL))
+                .define('X', Blocks.WOOL.gray().asItem())
+                .define('B', Items.CONCRETE.lightGray().asItem())
+                .define('#', Blocks.CONCRETE.white().asItem())
+                .unlockedBy("has_wool", has(Items.WOOL.gray()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_GREY_STOOL.get())
                 .pattern(" X ")
                 .pattern(" B ")
                 .pattern(" # ")
-                .define('X', Blocks.LIGHT_GRAY_WOOL.asItem())
-                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
-                .define('#', Blocks.WHITE_CONCRETE.asItem())
-                .unlockedBy("has_wool", has(Items.LIGHT_GRAY_WOOL))
+                .define('X', Blocks.WOOL.lightGray().asItem())
+                .define('B', Items.CONCRETE.lightGray().asItem())
+                .define('#', Blocks.CONCRETE.white().asItem())
+                .unlockedBy("has_wool", has(Items.WOOL.lightGray()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.GREEN_STOOL.get())
                 .pattern(" X ")
                 .pattern(" B ")
                 .pattern(" # ")
-                .define('X', Blocks.GREEN_WOOL.asItem())
-                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
-                .define('#', Blocks.WHITE_CONCRETE.asItem())
-                .unlockedBy("has_wool", has(Items.GREEN_WOOL))
+                .define('X', Blocks.WOOL.green().asItem())
+                .define('B', Items.CONCRETE.lightGray().asItem())
+                .define('#', Blocks.CONCRETE.white().asItem())
+                .unlockedBy("has_wool", has(Items.WOOL.green()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.LIME_STOOL.get())
                 .pattern(" X ")
                 .pattern(" B ")
                 .pattern(" # ")
-                .define('X', Blocks.LIME_WOOL.asItem())
-                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
-                .define('#', Blocks.WHITE_CONCRETE.asItem())
-                .unlockedBy("has_wool", has(Items.LIME_WOOL))
+                .define('X', Blocks.WOOL.lime().asItem())
+                .define('B', Items.CONCRETE.lightGray().asItem())
+                .define('#', Blocks.CONCRETE.white().asItem())
+                .unlockedBy("has_wool", has(Items.WOOL.lime()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.BLUE_STOOL.get())
                 .pattern(" X ")
                 .pattern(" B ")
                 .pattern(" # ")
-                .define('X', Blocks.BLUE_WOOL.asItem())
-                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
-                .define('#', Blocks.WHITE_CONCRETE.asItem())
-                .unlockedBy("has_wool", has(Items.BLUE_WOOL))
+                .define('X', Blocks.WOOL.blue().asItem())
+                .define('B', Items.CONCRETE.lightGray().asItem())
+                .define('#', Blocks.CONCRETE.white().asItem())
+                .unlockedBy("has_wool", has(Items.WOOL.blue()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_BLUE_STOOL.get())
                 .pattern(" X ")
                 .pattern(" B ")
                 .pattern(" # ")
-                .define('X', Blocks.LIGHT_BLUE_WOOL.asItem())
-                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
-                .define('#', Blocks.WHITE_CONCRETE.asItem())
-                .unlockedBy("has_wool", has(Items.LIGHT_BLUE_WOOL))
+                .define('X', Blocks.WOOL.lightBlue().asItem())
+                .define('B', Items.CONCRETE.lightGray().asItem())
+                .define('#', Blocks.CONCRETE.white().asItem())
+                .unlockedBy("has_wool", has(Items.WOOL.lightBlue()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.CYAN_STOOL.get())
                 .pattern(" X ")
                 .pattern(" B ")
                 .pattern(" # ")
-                .define('X', Blocks.CYAN_WOOL.asItem())
-                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
-                .define('#', Blocks.WHITE_CONCRETE.asItem())
-                .unlockedBy("has_wool", has(Items.CYAN_WOOL))
+                .define('X', Blocks.WOOL.cyan().asItem())
+                .define('B', Items.CONCRETE.lightGray().asItem())
+                .define('#', Blocks.CONCRETE.white().asItem())
+                .unlockedBy("has_wool", has(Items.WOOL.cyan()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.YELLOW_STOOL.get())
                 .pattern(" X ")
                 .pattern(" B ")
                 .pattern(" # ")
-                .define('X', Blocks.YELLOW_WOOL.asItem())
-                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
-                .define('#', Blocks.WHITE_CONCRETE.asItem())
-                .unlockedBy("has_wool", has(Items.YELLOW_WOOL))
+                .define('X', Blocks.WOOL.yellow().asItem())
+                .define('B', Items.CONCRETE.lightGray().asItem())
+                .define('#', Blocks.CONCRETE.white().asItem())
+                .unlockedBy("has_wool", has(Items.WOOL.yellow()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.ORANGE_STOOL.get())
                 .pattern(" X ")
                 .pattern(" B ")
                 .pattern(" # ")
-                .define('X', Blocks.ORANGE_WOOL.asItem())
-                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
-                .define('#', Blocks.WHITE_CONCRETE.asItem())
-                .unlockedBy("has_wool", has(Items.ORANGE_WOOL))
+                .define('X', Blocks.WOOL.orange().asItem())
+                .define('B', Items.CONCRETE.lightGray().asItem())
+                .define('#', Blocks.CONCRETE.white().asItem())
+                .unlockedBy("has_wool", has(Items.WOOL.orange()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.RED_STOOL.get())
                 .pattern(" X ")
                 .pattern(" B ")
                 .pattern(" # ")
-                .define('X', Blocks.RED_WOOL.asItem())
-                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
-                .define('#', Blocks.WHITE_CONCRETE.asItem())
-                .unlockedBy("has_wool", has(Items.RED_WOOL))
+                .define('X', Blocks.WOOL.red().asItem())
+                .define('B', Items.CONCRETE.lightGray().asItem())
+                .define('#', Blocks.CONCRETE.white().asItem())
+                .unlockedBy("has_wool", has(Items.WOOL.red()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.PINK_STOOL.get())
                 .pattern(" X ")
                 .pattern(" B ")
                 .pattern(" # ")
-                .define('X', Blocks.PINK_WOOL.asItem())
-                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
-                .define('#', Blocks.WHITE_CONCRETE.asItem())
-                .unlockedBy("has_wool", has(Items.PINK_WOOL))
+                .define('X', Blocks.WOOL.pink().asItem())
+                .define('B', Items.CONCRETE.lightGray().asItem())
+                .define('#', Blocks.CONCRETE.white().asItem())
+                .unlockedBy("has_wool", has(Items.WOOL.pink()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.MAGENTA_STOOL.get())
                 .pattern(" X ")
                 .pattern(" B ")
                 .pattern(" # ")
-                .define('X', Blocks.MAGENTA_WOOL.asItem())
-                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
-                .define('#', Blocks.WHITE_CONCRETE.asItem())
-                .unlockedBy("has_wool", has(Items.MAGENTA_WOOL))
+                .define('X', Blocks.WOOL.magenta().asItem())
+                .define('B', Items.CONCRETE.lightGray().asItem())
+                .define('#', Blocks.CONCRETE.white().asItem())
+                .unlockedBy("has_wool", has(Items.WOOL.magenta()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.PURPLE_STOOL.get())
                 .pattern(" X ")
                 .pattern(" B ")
                 .pattern(" # ")
-                .define('X', Blocks.PURPLE_WOOL.asItem())
-                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
-                .define('#', Blocks.WHITE_CONCRETE.asItem())
-                .unlockedBy("has_wool", has(Items.PURPLE_WOOL))
+                .define('X', Blocks.WOOL.purple().asItem())
+                .define('B', Items.CONCRETE.lightGray().asItem())
+                .define('#', Blocks.CONCRETE.white().asItem())
+                .unlockedBy("has_wool", has(Items.WOOL.purple()))
                 .save(output);
 
 
@@ -3827,7 +3827,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#B#")
                 .pattern("CCC")
                 .define('B', Items.CLOCK.asItem())
-                .define('#', Items.RED_CONCRETE.asItem())
+                .define('#', Items.CONCRETE.red().asItem())
                 .define('C', Items.IRON_INGOT.asItem())
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
@@ -3837,7 +3837,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#B#")
                 .pattern("CCC")
                 .define('B', Items.CLOCK.asItem())
-                .define('#', Items.YELLOW_CONCRETE.asItem())
+                .define('#', Items.CONCRETE.yellow().asItem())
                 .define('C', Items.IRON_INGOT.asItem())
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
@@ -3847,7 +3847,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#B#")
                 .pattern("CCC")
                 .define('B', Items.CLOCK.asItem())
-                .define('#', Items.ORANGE_CONCRETE.asItem())
+                .define('#', Items.CONCRETE.orange())
                 .define('C', Items.IRON_INGOT.asItem())
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
@@ -3857,7 +3857,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#B#")
                 .pattern("CCC")
                 .define('B', Items.CLOCK.asItem())
-                .define('#', Items.PINK_CONCRETE.asItem())
+                .define('#', Items.CONCRETE.pink().asItem())
                 .define('C', Items.IRON_INGOT.asItem())
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
@@ -3867,7 +3867,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#B#")
                 .pattern("CCC")
                 .define('B', Items.CLOCK.asItem())
-                .define('#', Items.PURPLE_CONCRETE.asItem())
+                .define('#', Items.CONCRETE.purple().asItem())
                 .define('C', Items.IRON_INGOT.asItem())
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
@@ -3877,7 +3877,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#B#")
                 .pattern("CCC")
                 .define('B', Items.CLOCK.asItem())
-                .define('#', Items.GREEN_CONCRETE.asItem())
+                .define('#', Items.CONCRETE.green().asItem())
                 .define('C', Items.IRON_INGOT.asItem())
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
@@ -3887,7 +3887,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#B#")
                 .pattern("CCC")
                 .define('B', Items.CLOCK.asItem())
-                .define('#', Items.LIME_CONCRETE.asItem())
+                .define('#', Items.CONCRETE.lime().asItem())
                 .define('C', Items.IRON_INGOT.asItem())
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
@@ -3897,7 +3897,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#B#")
                 .pattern("CCC")
                 .define('B', Items.CLOCK.asItem())
-                .define('#', Items.GRAY_CONCRETE.asItem())
+                .define('#', Items.CONCRETE.gray().asItem())
                 .define('C', Items.IRON_INGOT.asItem())
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
@@ -3907,7 +3907,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#B#")
                 .pattern("CCC")
                 .define('B', Items.CLOCK.asItem())
-                .define('#', Items.LIGHT_GRAY_CONCRETE.asItem())
+                .define('#', Items.CONCRETE.lightGray().asItem())
                 .define('C', Items.IRON_INGOT.asItem())
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
@@ -3917,7 +3917,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#B#")
                 .pattern("CCC")
                 .define('B', Items.CLOCK.asItem())
-                .define('#', Items.BLUE_CONCRETE.asItem())
+                .define('#', Items.CONCRETE.blue().asItem())
                 .define('C', Items.IRON_INGOT.asItem())
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
@@ -3927,7 +3927,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#B#")
                 .pattern("CCC")
                 .define('B', Items.CLOCK.asItem())
-                .define('#', Items.LIGHT_BLUE_CONCRETE.asItem())
+                .define('#', Items.CONCRETE.lightBlue().asItem())
                 .define('C', Items.IRON_INGOT.asItem())
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
@@ -3937,7 +3937,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#B#")
                 .pattern("CCC")
                 .define('B', Items.CLOCK.asItem())
-                .define('#', Items.CYAN_CONCRETE.asItem())
+                .define('#', Items.CONCRETE.cyan().asItem())
                 .define('C', Items.IRON_INGOT.asItem())
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
@@ -3947,7 +3947,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#B#")
                 .pattern("CCC")
                 .define('B', Items.CLOCK.asItem())
-                .define('#', Items.BROWN_CONCRETE.asItem())
+                .define('#', Items.CONCRETE.brown().asItem())
                 .define('C', Items.IRON_INGOT.asItem())
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
@@ -3957,7 +3957,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#B#")
                 .pattern("CCC")
                 .define('B', Items.CLOCK.asItem())
-                .define('#', Items.BLACK_CONCRETE.asItem())
+                .define('#', Items.CONCRETE.black().asItem())
                 .define('C', Items.IRON_INGOT.asItem())
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
@@ -3967,7 +3967,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#B#")
                 .pattern("CCC")
                 .define('B', Items.CLOCK.asItem())
-                .define('#', Items.WHITE_CONCRETE.asItem())
+                .define('#', Items.CONCRETE.white().asItem())
                 .define('C', Items.IRON_INGOT.asItem())
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
@@ -3977,7 +3977,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#B#")
                 .pattern("CCC")
                 .define('B', Items.CLOCK.asItem())
-                .define('#', Items.MAGENTA_CONCRETE.asItem())
+                .define('#', Items.CONCRETE.magenta().asItem())
                 .define('C', Items.IRON_INGOT.asItem())
                 .unlockedBy("has_iron", has(Items.IRON_INGOT))
                 .save(output);
@@ -5374,8 +5374,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("B B")
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.RED_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.RED_CONCRETE))
+                .define('#', Blocks.CONCRETE.red().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.red()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5384,8 +5384,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("B B")
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.YELLOW_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.YELLOW_CONCRETE))
+                .define('#', Blocks.CONCRETE.yellow().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.yellow()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5394,8 +5394,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("B B")
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.ORANGE_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.ORANGE_CONCRETE))
+                .define('#', Blocks.CONCRETE.orange())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.orange()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5404,8 +5404,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("B B")
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.PURPLE_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.PURPLE_CONCRETE))
+                .define('#', Blocks.CONCRETE.purple().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.purple()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5414,8 +5414,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("B B")
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.MAGENTA_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.MAGENTA_CONCRETE))
+                .define('#', Blocks.CONCRETE.magenta().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.magenta()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5424,8 +5424,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("B B")
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.PINK_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.PINK_CONCRETE))
+                .define('#', Blocks.CONCRETE.pink().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.pink()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5434,8 +5434,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("B B")
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.BLUE_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.BLUE_CONCRETE))
+                .define('#', Blocks.CONCRETE.blue().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.blue()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5444,8 +5444,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("B B")
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.CYAN_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.CYAN_CONCRETE))
+                .define('#', Blocks.CONCRETE.cyan().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.cyan()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5454,8 +5454,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("B B")
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.LIGHT_BLUE_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.LIGHT_BLUE_CONCRETE))
+                .define('#', Blocks.CONCRETE.lightBlue().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.lightBlue()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5464,8 +5464,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("B B")
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.GREEN_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.GREEN_CONCRETE))
+                .define('#', Blocks.CONCRETE.green().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.green()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5474,8 +5474,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("B B")
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.LIME_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.LIME_CONCRETE))
+                .define('#', Blocks.CONCRETE.lime().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.lime()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5484,8 +5484,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("B B")
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.GRAY_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.GRAY_CONCRETE))
+                .define('#', Blocks.CONCRETE.gray().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.gray()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5494,8 +5494,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("B B")
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.LIGHT_GRAY_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.LIGHT_GRAY_CONCRETE))
+                .define('#', Blocks.CONCRETE.lightGray().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.lightGray()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5504,8 +5504,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("B B")
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.BLACK_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.BLACK_CONCRETE))
+                .define('#', Blocks.CONCRETE.black().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.black()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5514,8 +5514,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("B B")
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.WHITE_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.WHITE_CONCRETE))
+                .define('#', Blocks.CONCRETE.white().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.white()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5524,8 +5524,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("B B")
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.BROWN_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.BROWN_CONCRETE))
+                .define('#', Blocks.CONCRETE.brown().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.brown()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5540,8 +5540,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.CHEST.asItem())
-                .define('#', Blocks.RED_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.RED_CONCRETE))
+                .define('#', Blocks.CONCRETE.red().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.red()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5551,8 +5551,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.CHEST.asItem())
-                .define('#', Blocks.YELLOW_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.YELLOW_CONCRETE))
+                .define('#', Blocks.CONCRETE.yellow().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.yellow()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5562,8 +5562,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.CHEST.asItem())
-                .define('#', Blocks.ORANGE_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.ORANGE_CONCRETE))
+                .define('#', Blocks.CONCRETE.orange().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.orange()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5573,8 +5573,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.CHEST.asItem())
-                .define('#', Blocks.PURPLE_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.PURPLE_CONCRETE))
+                .define('#', Blocks.CONCRETE.purple().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.purple()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5584,8 +5584,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.CHEST.asItem())
-                .define('#', Blocks.MAGENTA_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.MAGENTA_CONCRETE))
+                .define('#', Blocks.CONCRETE.magenta().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.magenta()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5595,8 +5595,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.CHEST.asItem())
-                .define('#', Blocks.PINK_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.PINK_CONCRETE))
+                .define('#', Blocks.CONCRETE.pink().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.pink()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5606,8 +5606,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.CHEST.asItem())
-                .define('#', Blocks.BLUE_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.BLUE_CONCRETE))
+                .define('#', Blocks.CONCRETE.blue().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.blue()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5617,8 +5617,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.CHEST.asItem())
-                .define('#', Blocks.CYAN_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.CYAN_CONCRETE))
+                .define('#', Blocks.CONCRETE.cyan().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.cyan()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5628,8 +5628,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.CHEST.asItem())
-                .define('#', Blocks.LIGHT_BLUE_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.LIGHT_BLUE_CONCRETE))
+                .define('#', Blocks.CONCRETE.lightBlue().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.lightBlue()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5639,8 +5639,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.CHEST.asItem())
-                .define('#', Blocks.GREEN_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.GREEN_CONCRETE))
+                .define('#', Blocks.CONCRETE.green().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.green()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5650,8 +5650,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.CHEST.asItem())
-                .define('#', Blocks.LIME_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.LIME_CONCRETE))
+                .define('#', Blocks.CONCRETE.lime().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.lime()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5661,8 +5661,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.CHEST.asItem())
-                .define('#', Blocks.GRAY_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.GRAY_CONCRETE))
+                .define('#', Blocks.CONCRETE.gray().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.gray()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5672,8 +5672,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.CHEST.asItem())
-                .define('#', Blocks.LIGHT_GRAY_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.LIGHT_GRAY_CONCRETE))
+                .define('#', Blocks.CONCRETE.lightGray().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.lightGray()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5683,8 +5683,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.CHEST.asItem())
-                .define('#', Blocks.BLACK_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.BLACK_CONCRETE))
+                .define('#', Blocks.CONCRETE.black().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.black()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5694,8 +5694,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.CHEST.asItem())
-                .define('#', Blocks.WHITE_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.WHITE_CONCRETE))
+                .define('#', Blocks.CONCRETE.white().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.white()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5705,8 +5705,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.CHEST.asItem())
-                .define('#', Blocks.BROWN_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.BROWN_CONCRETE))
+                .define('#', Blocks.CONCRETE.brown().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.brown()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5719,8 +5719,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.SMOKER.asItem())
-                .define('#', Blocks.RED_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.RED_CONCRETE))
+                .define('#', Blocks.CONCRETE.red().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.red()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5730,8 +5730,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.SMOKER.asItem())
-                .define('#', Blocks.YELLOW_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.YELLOW_CONCRETE))
+                .define('#', Blocks.CONCRETE.yellow().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.yellow()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5741,8 +5741,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.SMOKER.asItem())
-                .define('#', Blocks.ORANGE_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.ORANGE_CONCRETE))
+                .define('#', Blocks.CONCRETE.orange().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.orange()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5752,8 +5752,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.SMOKER.asItem())
-                .define('#', Blocks.PURPLE_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.PURPLE_CONCRETE))
+                .define('#', Blocks.CONCRETE.purple().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.purple()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5763,8 +5763,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.SMOKER.asItem())
-                .define('#', Blocks.MAGENTA_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.MAGENTA_CONCRETE))
+                .define('#', Blocks.CONCRETE.magenta().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.magenta()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5774,8 +5774,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.SMOKER.asItem())
-                .define('#', Blocks.PINK_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.PINK_CONCRETE))
+                .define('#', Blocks.CONCRETE.pink().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.pink()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5785,8 +5785,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.SMOKER.asItem())
-                .define('#', Blocks.BLUE_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.BLUE_CONCRETE))
+                .define('#', Blocks.CONCRETE.blue().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.blue()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5796,8 +5796,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.SMOKER.asItem())
-                .define('#', Blocks.CYAN_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.CYAN_CONCRETE))
+                .define('#', Blocks.CONCRETE.cyan().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.cyan()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5807,8 +5807,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.SMOKER.asItem())
-                .define('#', Blocks.LIGHT_BLUE_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.LIGHT_BLUE_CONCRETE))
+                .define('#', Blocks.CONCRETE.lightBlue().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.lightBlue()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5818,8 +5818,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.SMOKER.asItem())
-                .define('#', Blocks.GREEN_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.GREEN_CONCRETE))
+                .define('#', Blocks.CONCRETE.green().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.green()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5829,8 +5829,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.SMOKER.asItem())
-                .define('#', Blocks.LIME_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.LIME_CONCRETE))
+                .define('#', Blocks.CONCRETE.lime().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.lime()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5840,8 +5840,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.SMOKER.asItem())
-                .define('#', Blocks.GRAY_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.GRAY_CONCRETE))
+                .define('#', Blocks.CONCRETE.gray().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.gray()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5851,8 +5851,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.SMOKER.asItem())
-                .define('#', Blocks.LIGHT_GRAY_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.LIGHT_GRAY_CONCRETE))
+                .define('#', Blocks.CONCRETE.lightGray().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.lightGray()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5862,8 +5862,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.SMOKER.asItem())
-                .define('#', Blocks.BLACK_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.BLACK_CONCRETE))
+                .define('#', Blocks.CONCRETE.black().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.black()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5873,8 +5873,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.SMOKER.asItem())
-                .define('#', Blocks.WHITE_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.WHITE_CONCRETE))
+                .define('#', Blocks.CONCRETE.white().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.white()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5884,8 +5884,8 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BBB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
                 .define('X', Items.SMOKER.asItem())
-                .define('#', Blocks.BROWN_CONCRETE.asItem())
-                .unlockedBy("has_concrete", has(Blocks.BROWN_CONCRETE))
+                .define('#', Blocks.CONCRETE.brown().asItem())
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.brown()))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
 
@@ -5896,10 +5896,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.RED_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.red().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.QUARTZ_BLOCK.asItem())
-                .unlockedBy("has_concrete", has(Blocks.RED_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.red()))
                 .unlockedBy("has_bucket", has(Items.BUCKET))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
@@ -5908,10 +5908,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.ORANGE_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.orange().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.QUARTZ_BLOCK.asItem())
-                .unlockedBy("has_concrete", has(Blocks.ORANGE_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.orange()))
                 .unlockedBy("has_bucket", has(Items.BUCKET))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
@@ -5920,10 +5920,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.YELLOW_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.yellow().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.QUARTZ_BLOCK.asItem())
-                .unlockedBy("has_concrete", has(Blocks.YELLOW_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.yellow()))
                 .unlockedBy("has_bucket", has(Items.BUCKET))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
@@ -5932,10 +5932,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.PURPLE_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.purple().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.QUARTZ_BLOCK.asItem())
-                .unlockedBy("has_concrete", has(Blocks.PURPLE_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.purple()))
                 .unlockedBy("has_bucket", has(Items.BUCKET))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
@@ -5944,10 +5944,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.MAGENTA_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.magenta().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.QUARTZ_BLOCK.asItem())
-                .unlockedBy("has_concrete", has(Blocks.MAGENTA_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.magenta()))
                 .unlockedBy("has_bucket", has(Items.BUCKET))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
@@ -5956,10 +5956,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.PINK_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.pink().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.QUARTZ_BLOCK.asItem())
-                .unlockedBy("has_concrete", has(Blocks.PINK_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.pink()))
                 .unlockedBy("has_bucket", has(Items.BUCKET))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
@@ -5968,10 +5968,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.CYAN_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.cyan().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.QUARTZ_BLOCK.asItem())
-                .unlockedBy("has_concrete", has(Blocks.CYAN_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.cyan()))
                 .unlockedBy("has_bucket", has(Items.BUCKET))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
@@ -5980,10 +5980,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.LIGHT_BLUE_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.lightBlue().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.QUARTZ_BLOCK.asItem())
-                .unlockedBy("has_concrete", has(Blocks.LIGHT_BLUE_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.lightBlue()))
                 .unlockedBy("has_bucket", has(Items.BUCKET))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
@@ -5992,10 +5992,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.BLUE_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.blue().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.QUARTZ_BLOCK.asItem())
-                .unlockedBy("has_concrete", has(Blocks.BLUE_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.blue()))
                 .unlockedBy("has_bucket", has(Items.BUCKET))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
@@ -6004,10 +6004,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.GREEN_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.green().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.QUARTZ_BLOCK.asItem())
-                .unlockedBy("has_concrete", has(Blocks.GREEN_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.green()))
                 .unlockedBy("has_bucket", has(Items.BUCKET))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
@@ -6016,10 +6016,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.LIME_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.lime().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.QUARTZ_BLOCK.asItem())
-                .unlockedBy("has_concrete", has(Blocks.LIME_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.lime()))
                 .unlockedBy("has_bucket", has(Items.BUCKET))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
@@ -6028,10 +6028,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.GRAY_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.gray().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.QUARTZ_BLOCK.asItem())
-                .unlockedBy("has_concrete", has(Blocks.GRAY_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.gray()))
                 .unlockedBy("has_bucket", has(Items.BUCKET))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
@@ -6040,10 +6040,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.LIGHT_GRAY_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.lightGray().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.QUARTZ_BLOCK.asItem())
-                .unlockedBy("has_concrete", has(Blocks.LIGHT_GRAY_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.lightGray()))
                 .unlockedBy("has_bucket", has(Items.BUCKET))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
@@ -6052,10 +6052,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.BLACK_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.black().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.QUARTZ_BLOCK.asItem())
-                .unlockedBy("has_concrete", has(Blocks.BLACK_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.black()))
                 .unlockedBy("has_bucket", has(Items.BUCKET))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
@@ -6064,10 +6064,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.WHITE_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.white().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.QUARTZ_BLOCK.asItem())
-                .unlockedBy("has_concrete", has(Blocks.WHITE_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.white()))
                 .unlockedBy("has_bucket", has(Items.BUCKET))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
@@ -6076,10 +6076,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("BXB")
                 .pattern("BBB")
                 .pattern("# #")
-                .define('B', Items.BROWN_CONCRETE.asItem())
+                .define('B', Items.CONCRETE.brown().asItem())
                 .define('X', Items.BUCKET.asItem())
                 .define('#', Blocks.QUARTZ_BLOCK.asItem())
-                .unlockedBy("has_concrete", has(Blocks.BROWN_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.brown()))
                 .unlockedBy("has_bucket", has(Items.BUCKET))
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
                 .save(output);
@@ -6091,10 +6091,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#XB")
                 .pattern("#BB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.RED_CONCRETE.asItem())
+                .define('#', Blocks.CONCRETE.red().asItem())
                 .define('X', Blocks.CHEST.asItem())
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
-                .unlockedBy("has_concrete", has(Blocks.RED_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.red()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.YELLOW_CABINET.get())
@@ -6102,10 +6102,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#XB")
                 .pattern("#BB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.YELLOW_CONCRETE.asItem())
+                .define('#', Blocks.CONCRETE.yellow().asItem())
                 .define('X', Blocks.CHEST.asItem())
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
-                .unlockedBy("has_concrete", has(Blocks.YELLOW_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.yellow()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.ORANGE_CABINET.get())
@@ -6113,10 +6113,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#XB")
                 .pattern("#BB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.ORANGE_CONCRETE.asItem())
+                .define('#', Blocks.CONCRETE.orange().asItem())
                 .define('X', Blocks.CHEST.asItem())
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
-                .unlockedBy("has_concrete", has(Blocks.ORANGE_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.orange()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.PURPLE_CABINET.get())
@@ -6124,10 +6124,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#XB")
                 .pattern("#BB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.PURPLE_CONCRETE.asItem())
+                .define('#', Blocks.CONCRETE.purple().asItem())
                 .define('X', Blocks.CHEST.asItem())
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
-                .unlockedBy("has_concrete", has(Blocks.PURPLE_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.purple()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.MAGENTA_CABINET.get())
@@ -6135,10 +6135,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#XB")
                 .pattern("#BB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.MAGENTA_CONCRETE.asItem())
+                .define('#', Blocks.CONCRETE.magenta().asItem())
                 .define('X', Blocks.CHEST.asItem())
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
-                .unlockedBy("has_concrete", has(Blocks.MAGENTA_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.magenta()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.PINK_CABINET.get())
@@ -6146,10 +6146,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#XB")
                 .pattern("#BB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.PINK_CONCRETE.asItem())
+                .define('#', Blocks.CONCRETE.pink().asItem())
                 .define('X', Blocks.CHEST.asItem())
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
-                .unlockedBy("has_concrete", has(Blocks.PINK_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.pink()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.CYAN_CABINET.get())
@@ -6157,10 +6157,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#XB")
                 .pattern("#BB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.CYAN_CONCRETE.asItem())
+                .define('#', Blocks.CONCRETE.cyan().asItem())
                 .define('X', Blocks.CHEST.asItem())
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
-                .unlockedBy("has_concrete", has(Blocks.CYAN_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.cyan()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.BLUE_CABINET.get())
@@ -6168,10 +6168,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#XB")
                 .pattern("#BB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.BLUE_CONCRETE.asItem())
+                .define('#', Blocks.CONCRETE.blue().asItem())
                 .define('X', Blocks.CHEST.asItem())
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
-                .unlockedBy("has_concrete", has(Blocks.BLUE_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.blue()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_BLUE_CABINET.get())
@@ -6179,10 +6179,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#XB")
                 .pattern("#BB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.LIGHT_BLUE_CONCRETE.asItem())
+                .define('#', Blocks.CONCRETE.lightBlue().asItem())
                 .define('X', Blocks.CHEST.asItem())
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
-                .unlockedBy("has_concrete", has(Blocks.LIGHT_BLUE_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.lightBlue()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.GREEN_CABINET.get())
@@ -6190,10 +6190,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#XB")
                 .pattern("#BB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.GREEN_CONCRETE.asItem())
+                .define('#', Blocks.CONCRETE.green().asItem())
                 .define('X', Blocks.CHEST.asItem())
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
-                .unlockedBy("has_concrete", has(Blocks.GREEN_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.green()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.LIME_CABINET.get())
@@ -6201,10 +6201,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#XB")
                 .pattern("#BB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.LIME_CONCRETE.asItem())
+                .define('#', Blocks.CONCRETE.lime().asItem())
                 .define('X', Blocks.CHEST.asItem())
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
-                .unlockedBy("has_concrete", has(Blocks.LIME_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.lime()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.GRAY_CABINET.get())
@@ -6212,10 +6212,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#XB")
                 .pattern("#BB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.GRAY_CONCRETE.asItem())
+                .define('#', Blocks.CONCRETE.gray().asItem())
                 .define('X', Blocks.CHEST.asItem())
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
-                .unlockedBy("has_concrete", has(Blocks.GRAY_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.gray()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.LIGHT_GRAY_CABINET.get())
@@ -6223,10 +6223,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#XB")
                 .pattern("#BB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.LIGHT_GRAY_CONCRETE.asItem())
+                .define('#', Blocks.CONCRETE.lightGray().asItem())
                 .define('X', Blocks.CHEST.asItem())
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
-                .unlockedBy("has_concrete", has(Blocks.LIGHT_GRAY_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.lightGray()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.BROWN_CABINET.get())
@@ -6234,10 +6234,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#XB")
                 .pattern("#BB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.BROWN_CONCRETE.asItem())
+                .define('#', Blocks.CONCRETE.brown().asItem())
                 .define('X', Blocks.CHEST.asItem())
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
-                .unlockedBy("has_concrete", has(Blocks.BROWN_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.brown()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.BLACK_CABINET.get())
@@ -6245,10 +6245,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#XB")
                 .pattern("#BB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.BLACK_CONCRETE.asItem())
+                .define('#', Blocks.CONCRETE.black().asItem())
                 .define('X', Blocks.CHEST.asItem())
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
-                .unlockedBy("has_concrete", has(Blocks.BLACK_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.black()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.WHITE_CABINET.get())
@@ -6256,10 +6256,10 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("#XB")
                 .pattern("#BB")
                 .define('B', Items.QUARTZ_BLOCK.asItem())
-                .define('#', Blocks.WHITE_CONCRETE.asItem())
+                .define('#', Blocks.CONCRETE.white().asItem())
                 .define('X', Blocks.CHEST.asItem())
                 .unlockedBy("has_quartz", has(Blocks.QUARTZ_BLOCK))
-                .unlockedBy("has_concrete", has(Blocks.WHITE_CONCRETE))
+                .unlockedBy("has_concrete", has(Blocks.CONCRETE.white()))
                 .save(output);
 
 
@@ -6401,7 +6401,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("CIC")
                 .pattern("IBI")
                 .pattern("CIC")
-                .define('C', Blocks.WHITE_CONCRETE)
+                .define('C', Blocks.CONCRETE.white())
                 .define('I', Tags.Items.INGOTS_IRON)
                 .define('B', Tags.Items.CHESTS_WOODEN)
                 .group("fridge")
@@ -6413,7 +6413,7 @@ public class ModRecipeProvider extends RecipeProvider  {
                 .pattern("CIC")
                 .pattern("IBI")
                 .pattern("CIC")
-                .define('C', Blocks.GRAY_CONCRETE)
+                .define('C', Blocks.CONCRETE.gray())
                 .define('I', Tags.Items.INGOTS_IRON)
                 .define('B', Tags.Items.CHESTS_WOODEN)
                 .group("fridge")
@@ -6436,9 +6436,9 @@ public class ModRecipeProvider extends RecipeProvider  {
         shaped(RecipeCategory.DECORATIONS, ModBlocks.TOASTER_DARK.get())
                 .pattern("CI")
                 .define('C', ModBlocks.TOASTER_LIGHT)
-                .define('I', Items.BLACK_DYE)
+                .define('I', Items.DYE.black())
                 .unlockedBy("toaster", has(ModBlocks.TOASTER_LIGHT))
-                .unlockedBy("black_dye", has(Items.BLACK_DYE))
+                .unlockedBy("black_dye", has(Items.DYE.black()))
                 .save(output);
 
         shaped(RecipeCategory.DECORATIONS, ModBlocks.PALE_OAK_BALCKSTONE_KITCHEN_COUNTER.get())

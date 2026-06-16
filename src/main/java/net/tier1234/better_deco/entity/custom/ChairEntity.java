@@ -1,6 +1,5 @@
 package net.tier1234.better_deco.entity.custom;
 
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
@@ -9,8 +8,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-
-import java.util.List;
 
 public class ChairEntity extends Entity {
     public ChairEntity(EntityType<?> entityType, Level level) {

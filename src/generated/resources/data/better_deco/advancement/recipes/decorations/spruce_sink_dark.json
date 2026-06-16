@@ -1,21 +1,21 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_chest": {
+    "has_CONCRETE.gray()": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:chest"
+            "items": "minecraft:gray_concrete"
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_gray_concrete": {
+    "has_chest": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:gray_concrete"
+            "items": "minecraft:chest"
           }
         ]
       },
@@ -43,7 +43,7 @@
       "has_the_recipe",
       "has_spruce",
       "has_chest",
-      "has_gray_concrete"
+      "has_CONCRETE.gray()"
     ]
   ],
   "rewards": {

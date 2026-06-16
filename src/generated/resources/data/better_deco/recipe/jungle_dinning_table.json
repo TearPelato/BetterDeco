@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "B": "minecraft:jungle_log",
     "X": "minecraft:stripped_jungle_log"

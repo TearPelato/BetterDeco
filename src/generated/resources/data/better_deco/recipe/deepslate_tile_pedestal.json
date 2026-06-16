@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "B": "minecraft:deepslate_tile_slab",
     "X": "minecraft:polished_deepslate"

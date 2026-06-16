@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "B": "minecraft:warped_stem",
     "X": "minecraft:stripped_warped_stem"

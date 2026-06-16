@@ -1,6 +1,16 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
+    "has_CONCRETE.gray()": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:gray_concrete"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_acacia": {
       "conditions": {
         "items": [
@@ -21,16 +31,6 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_gray_concrete": {
-      "conditions": {
-        "items": [
-          {
-            "items": "minecraft:gray_concrete"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_the_recipe": {
       "conditions": {
         "recipe": "better_deco:acacia_sink_dark"
@@ -43,7 +43,7 @@
       "has_the_recipe",
       "has_acacia",
       "has_chest",
-      "has_gray_concrete"
+      "has_CONCRETE.gray()"
     ]
   ],
   "rewards": {

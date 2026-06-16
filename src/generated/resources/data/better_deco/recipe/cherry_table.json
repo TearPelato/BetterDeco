@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "B": "minecraft:cherry_log",
     "X": "minecraft:stripped_cherry_log"

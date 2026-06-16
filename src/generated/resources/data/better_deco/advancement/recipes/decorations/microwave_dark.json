@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_gray_concrete": {
+    "has_CONCRETE.gray()": {
       "conditions": {
         "items": [
           {
@@ -32,7 +32,7 @@
     [
       "has_the_recipe",
       "has_iron_ingot",
-      "has_gray_concrete"
+      "has_CONCRETE.gray()"
     ]
   ],
   "rewards": {

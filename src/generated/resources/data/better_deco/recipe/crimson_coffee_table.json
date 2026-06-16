@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "B": "minecraft:crimson_stem",
     "X": "minecraft:stripped_crimson_stem"

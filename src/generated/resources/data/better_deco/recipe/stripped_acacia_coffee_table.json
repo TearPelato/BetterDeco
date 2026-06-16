@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "B": "minecraft:stripped_acacia_log",
     "X": "minecraft:acacia_log"

@@ -17,7 +17,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-        tag(BlockTags.MINEABLE_WITH_AXE)
+      /*  tag(BlockTags.MINEABLE_WITH_AXE)
                 //Planks Bricks
                 .add(ModBlocks.OAK_PLANKS_BRICKS.get())
                 .add(ModBlocks.SPRUCE_PLANKS_BRICKS.get())
@@ -503,7 +503,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                   .add(ModBlocks.DARK_MICROWAVE.get())
 
 
-          ;
+          ;*/
 
 
 

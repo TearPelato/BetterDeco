@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "C": "minecraft:pale_oak_log",
     "I": "minecraft:pale_oak_planks"

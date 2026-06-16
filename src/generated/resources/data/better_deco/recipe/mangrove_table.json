@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "B": "minecraft:mangrove_log",
     "X": "minecraft:stripped_mangrove_log"

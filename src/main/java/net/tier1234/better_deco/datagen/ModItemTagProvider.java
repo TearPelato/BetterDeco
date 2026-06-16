@@ -2,7 +2,10 @@ package net.tier1234.better_deco.datagen;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ItemTagsProvider;
 import net.tier1234.better_deco.BetterDeco;
 import net.tier1234.better_deco.util.ModTags;
@@ -16,10 +19,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-        tag(ModTags.Items.FREEZER_FUEL)
-                .add(Items.ICE)
-                .add(Items.BLUE_ICE)
-                .add(Items.PACKED_ICE);
+
 
 
     }

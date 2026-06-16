@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "C": "better_deco:toaster_light",
     "I": "minecraft:black_dye"

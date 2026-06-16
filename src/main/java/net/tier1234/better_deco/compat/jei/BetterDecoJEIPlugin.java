@@ -1,38 +1,14 @@
 package net.tier1234.better_deco.compat.jei;
 
-import mezz.jei.api.IModPlugin;
-import mezz.jei.api.JeiPlugin;
-import mezz.jei.api.helpers.IGuiHelper;
-import mezz.jei.api.registration.IGuiHandlerRegistration;
-import mezz.jei.api.registration.IRecipeCatalystRegistration;
-import mezz.jei.api.registration.IRecipeCategoryRegistration;
-import mezz.jei.api.registration.IRecipeRegistration;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Font;
-import net.minecraft.resources.Identifier;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Recipe;
-import net.minecraft.world.item.crafting.RecipeHolder;
-import net.minecraft.world.item.crafting.RecipeInput;
-import net.minecraft.world.item.crafting.RecipeType;
-import net.tier1234.better_deco.compat.jei.category.MicrowaveCategory;
-import net.tier1234.better_deco.compat.jei.category.OvenCategory;
-import net.tier1234.better_deco.compat.jei.category.core.SyncedRecipes;
-import net.tier1234.better_deco.init.ModBlocks;
-import net.tier1234.better_deco.init.ModRecipes;
-import net.tier1234.better_deco.screen.custom.OvenScreen;
-import net.tier1234.better_deco.util.Constants;
-
-import java.text.DecimalFormat;
-import java.util.List;
-
 /**
  * @author MrCrayfish
  * Using MrCrayfish JEI methods -> are stable and works*/
 
-@JeiPlugin
-public class BetterDecoJEIPlugin implements IModPlugin {
-    public static final DecimalFormat FORMATTER = new DecimalFormat("0.##s");
+//@JeiPlugin
+public class BetterDecoJEIPlugin
+      //  implements IModPlugin
+{
+ /*   public static final DecimalFormat FORMATTER = new DecimalFormat("0.##s");
 
 
     @Override
@@ -117,5 +93,5 @@ public class BetterDecoJEIPlugin implements IModPlugin {
     public static Font getFont()
     {
         return Minecraft.getInstance().font;
-    }
+    }*/
 }

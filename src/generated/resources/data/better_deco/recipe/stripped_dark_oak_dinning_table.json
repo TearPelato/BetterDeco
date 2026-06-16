@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "B": "minecraft:stripped_dark_oak_log",
     "X": "minecraft:dark_oak_log"

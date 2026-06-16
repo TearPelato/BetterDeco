@@ -70,16 +70,8 @@ public class DigitalClockBlockEntityRenderer implements BlockEntityRenderer<Digi
         float baseScale = 0.010416667F * 1.5F;
         poseStack.scale(baseScale, -baseScale, baseScale);
 
-        this.font.drawInBatch(
-                state.timeText,
-                0, 0,
-                state.colorInt,
-                false,
-                poseStack.last().pose(),
-                Minecraft.getInstance().renderBuffers().bufferSource(),
-                Font.DisplayMode.NORMAL,
-                0,
-                state.lightCoords);
+
+        this.font.prepareText(state.timeText,0,0,state.colorInt, false, false,0 );
 
         poseStack.popPose();
     }
