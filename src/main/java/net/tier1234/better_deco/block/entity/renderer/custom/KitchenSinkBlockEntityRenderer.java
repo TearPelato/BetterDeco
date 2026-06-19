@@ -1,21 +1,13 @@
 package net.tier1234.better_deco.block.entity.renderer.custom;
 
-import com.mojang.blaze3d.PrimitiveTopology;
-import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.mojang.blaze3d.vertex.VertexSorting;
 import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.StagedVertexBuffer;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.block.BlockAndTintGetter;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
-import net.minecraft.client.renderer.rendertype.RenderType;
-import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.state.BlockState;
@@ -63,11 +55,6 @@ public class KitchenSinkBlockEntityRenderer implements BlockEntityRenderer<Kitch
         if (state.fluid != Fluids.EMPTY && state.fluid != null) {
             FluidState fluidState = state.fluid.defaultFluidState();
             state.fluidSprites = new FluidSprites(null, null).getFluidSprites(fluidState);
-            state.draw = Minecraft.getInstance().gameRenderer.renderBuffers().stagedVertexBuffer().appendDraw(DefaultVertexFormat.BLOCK, PrimitiveTopology.QUADS, VertexSorting.DISTANCE_TO_ORIGIN);
-            state.pose = new PoseStack.Pose();
-
-
-
         } else {
             state.fluidSprites = null;
         }
@@ -81,31 +68,17 @@ public class KitchenSinkBlockEntityRenderer implements BlockEntityRenderer<Kitch
             return;
         }
 
-
-
-
-
-
         poseStack.pushPose();
         Direction dir = state.facing;
 
         poseStack.translate(0.5, 0, 0.5);
         poseStack.mulPose(Axis.YP.rotationDegrees(-90F * dir.get2DDataValue()));
         poseStack.translate(-0.5, 0, -0.5);
-        AABB box = FluidContainerRenderer.createRotatedBox(dir, 2, 13, 2, 14, 15.9, 14);
-        submitNodeCollector.submitCustomGeometry(poseStack, RenderTypes.translucentMovingBlock(),
-                (poseEntry, vcBuffer) -> {
-                    VertexConsumer vc = Minecraft.getInstance().gameRenderer.renderBuffers().stagedVertexBuffer().getVertexBuilder(state.draw);
-                    FluidContainerRenderer.drawContainer(
-                            state, state.world, state.pos, state.be, box, poseStack,
-                            vc, state.geometryRenderer, poseEntry
-                    );
-                }
-        );
 
-   /*     FluidContainerRenderer.drawContainer(state, state.world, state.pos, state.be, box, poseStack,
-                Minecraft.getInstance().gameRenderer.renderBuffers().stagedVertexBuffer().getVertexBuilder(state.draw), state.geometryRenderer, state.pose);
-*/
+        AABB box = FluidContainerRenderer.createRotatedBox(dir, 2, 13, 2, 14, 15.9, 14);
+
+        FluidContainerRenderer.drawContainer(state, state.world, state.pos, state.be, box, poseStack, submitNodeCollector);
+
         poseStack.popPose();
     }
 }

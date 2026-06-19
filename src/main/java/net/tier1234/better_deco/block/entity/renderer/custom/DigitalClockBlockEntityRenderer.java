@@ -73,6 +73,7 @@ public class DigitalClockBlockEntityRenderer implements BlockEntityRenderer<Digi
 
         this.font.prepareText(state.timeText,0,0,state.colorInt, false, false,0 );
 
+
         poseStack.popPose();
     }
 
