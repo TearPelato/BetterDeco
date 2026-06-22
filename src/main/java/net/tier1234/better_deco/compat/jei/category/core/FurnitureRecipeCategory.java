@@ -1,6 +1,11 @@
 package net.tier1234.better_deco.compat.jei.category.core;
 
 
+import mezz.jei.api.gui.drawable.IDrawable;
+import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
+import mezz.jei.api.recipe.category.IRecipeCategory;
+import mezz.jei.api.recipe.types.IRecipeHolderType;
+import mezz.jei.api.recipe.types.IRecipeType;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.crafting.Recipe;
@@ -14,11 +19,8 @@ import java.util.function.Supplier;
  * @author MrCrayfish
  * Usin MrCrayfish JEI methods -> are stable and works
  * */
-public abstract class FurnitureRecipeCategory
-        //<T extends Recipe<?>>
-        //implements IRecipeCategory<RecipeHolder<T>>
-{
-   /* private final Supplier<IRecipeHolderType<T>> typeSupplier;
+public abstract class FurnitureRecipeCategory<T extends Recipe<?>> implements IRecipeCategory<RecipeHolder<T>> {
+    private final Supplier<IRecipeHolderType<T>> typeSupplier;
     private final Component title;
     private final IDrawable background;
     private final IDrawable icon;
@@ -74,5 +76,5 @@ public abstract class FurnitureRecipeCategory
         String formattedTime = BetterDecoJEIPlugin.FORMATTER.format(seconds);
         int width = BetterDecoJEIPlugin.getFont().width(formattedTime) / 2;
         graphics.text(BetterDecoJEIPlugin.getFont(), formattedTime, x - width, y, 0xFF808080, false);
-    }*/
+    }
 }

@@ -131,13 +131,13 @@ dependencies {
    // implementation "curse.maven:configured-457570:7820636"
 
 
-   /*compileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
+   compileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
    compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
    runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
 
 
 
-    implementation "curse.maven:catalogue-459701:7328026"*/
+   // implementation "curse.maven:catalogue-459701:7328026"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
