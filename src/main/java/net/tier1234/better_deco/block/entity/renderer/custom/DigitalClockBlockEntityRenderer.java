@@ -1,14 +1,19 @@
 package net.tier1234.better_deco.block.entity.renderer.custom;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
+import net.minecraft.client.gui.font.TextRenderable;
+import net.minecraft.client.renderer.OrderedSubmitNodeCollector;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
+import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.client.renderer.state.level.CameraRenderState;
+import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Style;
 import net.minecraft.util.FormattedCharSequence;
@@ -18,8 +23,12 @@ import net.tier1234.better_deco.block.custom.DigitalClockBlock;
 import net.tier1234.better_deco.block.entity.custom.DigitalClockBlockEntity;
 import net.tier1234.better_deco.block.entity.renderer.core.render_state.DigitalClockRendererState;
 import org.jetbrains.annotations.Nullable;
+import org.joml.Matrix4f;
 
-import java.util.Formatter;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 public class DigitalClockBlockEntityRenderer implements BlockEntityRenderer<DigitalClockBlockEntity, DigitalClockRendererState> {
 
@@ -58,23 +67,49 @@ public class DigitalClockBlockEntityRenderer implements BlockEntityRenderer<Digi
     public void submit(DigitalClockRendererState state, PoseStack poseStack,
                        SubmitNodeCollector submitNodeCollector, CameraRenderState camera) {
 
+        if (state.timeText == null || state.facing == null) return;
+
         poseStack.pushPose();
 
         poseStack.translate(0.5, 0.5, 0.5);
-        Direction facing = state.facing != null ? state.facing : Direction.NORTH;
-        poseStack.mulPose(Axis.YP.rotationDegrees(-90F * facing.get2DDataValue() + 180F));
-
+        poseStack.mulPose(Axis.YP.rotationDegrees(-90F * state.facing.get2DDataValue() + 180F));
         poseStack.translate(0.0675, 0.005, -0.032);
         poseStack.translate(-4.2 * 0.0625, -5.0 * 0.0625, 1.55 * 0.0625);
 
         float baseScale = 0.010416667F * 1.5F;
         poseStack.scale(baseScale, -baseScale, baseScale);
 
+        Font.PreparedText preparedText = this.font.prepareText(
+                state.timeText, 0, 0, state.colorInt, false, false, 0
+        );
 
-        this.font.prepareText(state.timeText,0,0,state.colorInt, false, false,0 );
+        List<TextRenderable> renderables = new ArrayList<>();
+        preparedText.visit(new Font.GlyphVisitor() {
+            @Override
+            public void acceptRenderable(TextRenderable renderable) {
+                renderables.add(renderable);
+            }
+        });
 
+        Map<RenderType, List<TextRenderable>> byRenderType = new LinkedHashMap<>();
+        for (TextRenderable r : renderables) {
+            byRenderType.computeIfAbsent(r.renderType(Font.DisplayMode.NORMAL), k -> new ArrayList<>()).add(r);
+        }
+
+        PoseStack.Pose capturedPose = poseStack.last();
+
+        for (Map.Entry<RenderType, List<TextRenderable>> entry : byRenderType.entrySet()) {
+            List<TextRenderable> group = entry.getValue();
+            submitNodeCollector.submitCustomGeometry(poseStack, entry.getKey(),
+                    (pose, buffer) -> {
+                        Matrix4f matrix = pose.pose();
+                        for (TextRenderable renderable : group) {
+                            renderable.render(matrix, buffer, state.lightCoords, false);
+                        }
+                    }
+            );
+        }
 
         poseStack.popPose();
     }
-
 }
