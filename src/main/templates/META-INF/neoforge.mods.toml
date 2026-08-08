@@ -9,13 +9,11 @@ version = "${mod_version}"
 displayName = "${mod_name}"
 authors = "${mod_authors}"
 description = '''${mod_description}'''
-logoFile = "better_deco_logo_4.png"
+bannerFile = "logo.png"
+iconFile = "icon.png"
 displayURL="https://github.com/TearPelato/BetterDeco"
-credits = "LiukRast, BlackGear"
-
-
-
-
+credits = "LiukRast,BlackGear"
+issueTrackerURL="https://github.com/TearPelato/BetterDeco/issues"
 
 [[mixins]]
 config = "${mod_id}.mixins.json"

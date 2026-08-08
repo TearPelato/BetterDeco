@@ -39,6 +39,7 @@ public class Config {
         public static int getSinkCapacityBuckets() {
             return SINK_CAPACITY_BUCKETS.get();
         }
+
         public static final ModConfigSpec SPEC = BUILDER.build();
     }
 
@@ -48,8 +49,6 @@ public class Config {
 
     @SubscribeEvent
     public static void onLoad(final ModConfigEvent.Loading event) {
-        LOGGER.info("BetterDeco Config loaded: sink_allow_all_liquids={}, sink_capacity_buckets={}"
-                //isSinkUniversal(), getSinkCapacityBuckets()
-                );
+
     }
 }
